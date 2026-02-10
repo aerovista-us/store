@@ -945,6 +945,16 @@
       return `background: radial-gradient(120% 120% at 20% 20%, hsla(${a},85%,55%,.35), transparent 60%), radial-gradient(120% 120% at 80% 80%, hsla(${b},85%,55%,.28), transparent 55%), linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.35));`;
     }
 
+    function shortBlurb(text){
+      if(!text) return "";
+      const t = String(text).trim();
+      if(t.length <= 180) return t;
+      // Prefer cutting on sentence boundary if possible
+      const dot = t.indexOf(".");
+      if(dot > 80 && dot < 180) return t.slice(0, dot + 1);
+      return t.slice(0, 177) + "…";
+    }
+
     async function loadProducts(){
       // Try multiple paths
       const paths = [
@@ -1001,7 +1011,7 @@
               featured: false,
               isNew: false,
               flags: [],
-              blurb: p.description_text || "",
+              blurb: shortBlurb(p.description_text || ""),
               fitNote: "",
               fabricNote: "",
               careNote: "",
@@ -1462,13 +1472,12 @@
       if(statusEl) statusEl.textContent = `${list.length} product${list.length === 1 ? '' : 's'} found`;
 
       grid.innerHTML = list.map(p => {
-        // Use imageCss if available (Square products), otherwise use SVG
-        const imgContent = p.imageCss 
-          ? `<div style="${p.imageCss} position:absolute; inset:0; width:100%; height:100%;"></div>`
-          : productSvg(p);
+        // Always use the same SVG-based hero so JSON-backed products
+        // visually match the original handcrafted set.
+        const imgContent = productSvg(p);
         return `
         <article class="card">
-          <div class="img" role="img" aria-label="${escapeHtml(p.name)} image" ${p.imageCss ? `style="${p.imageCss}"` : ''}>
+          <div class="img" role="img" aria-label="${escapeHtml(p.name)} image">
             ${imgContent}
             <div class="label"><span class="dot"></span>${escapeHtml(p.collection)} · ${categoryLabel(p.category)}</div>
             ${flagsHtml(p) || `<div></div>`}
