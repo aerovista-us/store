@@ -1020,7 +1020,7 @@
     }
 
     function findProductImage(productId, productName){
-      // Map product IDs/names to image files in /img directory
+      // Map product IDs/names to new image files in /img directory
       // Uses pattern matching based on product ID and name
       // Paths work for both local development and GitHub Pages (/store/)
       const id = (productId || "").toLowerCase();
@@ -1029,79 +1029,95 @@
       // Try /store/img/ first (for GitHub Pages), then fall back to ./img/
       const imgBase = window.location.pathname.includes('/store/') ? '/store/img/' : './img/';
       
-      // BONSAID products -> bonsied-*.jpeg
-      if(id.includes("bonsaid") || name.includes("bonsaid")){
-        if(id.includes("sticker")) return imgBase + "bonsied-10.jpeg";
-        if(id.includes("trucker") || id.includes("cap")) return imgBase + "bonsied-126.jpeg";
-        if(id.includes("hoodie")) return imgBase + "bonsied-105.jpeg";
-        if(id.includes("oversized")) return imgBase + "bonsied-186.jpeg";
-        // Default BONSAID image
-        return imgBase + "bonsied-10.jpeg";
-      }
-      
-      // Founders Mark -> founders-*.jpeg
-      if(id.includes("founders") || name.includes("founders")){
-        return imgBase + "founders-136.jpeg";
-      }
-      
-      // Lumina -> lumia-*.jpeg
-      if(id.includes("lumina") || name.includes("lumina")){
-        return imgBase + "lumia-179.jpeg";
-      }
-      
-      // NeXuS TechWorks -> nexus-*.jpeg
-      if(id.includes("nexus") || name.includes("nexus")){
-        return imgBase + "nexus-54.jpeg";
-      }
-      
-      // AeroVista products -> original-*.jpeg
+      // AeroVista products
       if(id.includes("aerovista")){
-        if(id.includes("apex-draft-pullover")) return imgBase + "original-313.jpeg";
-        if(id.includes("apex-draft-zip")) return imgBase + "original-306.jpeg";
-        if(id.includes("apex-mesh") || id.includes("cap") || id.includes("trucker")){
-          return imgBase + "original-314.jpeg";
+        if(id.includes("apex-draft-pullover") || (id.includes("apex-draft") && !id.includes("zip"))){
+          return imgBase + "drafted_a_hoodie.jpeg";
         }
-        if(id.includes("wave-mark")) return imgBase + "original-315.jpeg";
+        if(id.includes("apex-draft-zip") || (id.includes("apex-draft") && id.includes("zip"))){
+          return imgBase + "drafted_a__zip_hoodie.jpeg";
+        }
+        if(id.includes("apex-mesh") || id.includes("cap") || id.includes("trucker")){
+          return imgBase + "drafted-a-snapback.jpeg";
+        }
+        if(id.includes("wave-mark") || id.includes("wave")){
+          return imgBase + "av_wave_white.png";
+        }
         // Default AeroVista hoodie
-        return imgBase + "original-319.jpeg";
+        return imgBase + "drafted_a_hoodie.jpeg";
+      }
+      
+      // BONSAID products
+      if(id.includes("bonsaid") || name.includes("bonsaid")){
+        if(id.includes("trucker") || id.includes("cap") || id.includes("snapback")){
+          return imgBase + "bonsaid_snapback.png";
+        }
+        if(id.includes("sticker")){
+          return imgBase + "bonsaid_gr.png";
+        }
+        if(id.includes("hoodie")){
+          return imgBase + "bonsaid_grn.png";
+        }
+        // Default BONSAID image
+        return imgBase + "bonsaid_gr.png";
       }
       
       // EchoVerse products
       if(id.includes("echoverse") || name.includes("echoverse")){
-        if(id.includes("frost-circuit-pullover") || id.includes("hoodie")){
-          return imgBase + "original-336.jpeg";
+        if(id.includes("frost-circuit") || name.includes("frost")){
+          return imgBase + "frost_circuit_black_hoodie.jpeg";
         }
-        if(id.includes("frost-circuit-tee") || id.includes("tee")){
-          return imgBase + "original-339.jpeg";
+        if(id.includes("signal-dial")){
+          return imgBase + "echoverse_hoodie.png";
         }
-        if(id.includes("signal-dial")) return imgBase + "original-347.jpeg";
-        return imgBase + "original-336.jpeg";
+        // Default EchoVerse hoodie
+        return imgBase + "echoverse_hoodie.png";
+      }
+      
+      // Founders Mark
+      if(id.includes("founders") || name.includes("founders")){
+        return imgBase + "founders_zip_hoodie.png";
+      }
+      
+      // Lumina
+      if(id.includes("lumina") || name.includes("lumina")){
+        return imgBase + "lumina_hoodie.jpeg";
+      }
+      
+      // NeXuS TechWorks
+      if(id.includes("nexus") || name.includes("nexus")){
+        return imgBase + "nexus_hoodie.png";
       }
       
       // Powder Peaks
       if(id.includes("powder") || name.includes("powder")){
-        if(id.includes("8-ball-hoodie")) return imgBase + "original-382.jpeg";
-        if(id.includes("8-ball-sticker")) return imgBase + "original-397.jpeg";
-        if(id.includes("8-ball-tee")) return imgBase + "original-430.jpeg";
-        return imgBase + "original-382.jpeg";
+        return imgBase + "power_peaks_hoodie_1.png";
       }
       
-      // CDA Pool League
+      // Night Ranger Bear
+      if(id.includes("night-ranger") || id.includes("bear") || name.includes("night ranger") || name.includes("bear")){
+        return imgBase + "nit_bear.jpeg";
+      }
+      
+      // Neon BillyGoat / Sound Goat
+      if(id.includes("billygoat") || id.includes("neon") || name.includes("billygoat") || name.includes("goat")){
+        return imgBase + "sound_goat_a_blk_hoodie.jpeg";
+      }
+      
+      // CDA Pool League - no specific image, use generic fallback
       if(id.includes("cda") || id.includes("pool")){
-        if(id.includes("long-sleeve")) return imgBase + "original-460.jpeg";
-        if(id.includes("tee")) return imgBase + "original-465.jpeg";
-        return imgBase + "original-460.jpeg";
+        return null;
       }
       
-      // Other products - try generic original images
+      // Generic fallbacks based on product type
       if(id.includes("hoodie") || id.includes("pullover")){
-        return imgBase + "original-473.jpeg";
+        return imgBase + "drafted_a_hoodie.jpeg";
       }
       if(id.includes("tee") || id.includes("shirt")){
-        return imgBase + "original-491.jpeg";
+        return null; // No generic tee image
       }
       if(id.includes("sticker")){
-        return imgBase + "original-502.jpeg";
+        return imgBase + "bonsaid_gr.png";
       }
       
       // Default fallback - return null to use SVG fallback
@@ -1697,7 +1713,7 @@
         // Use actual image if available, otherwise fall back to SVG
         let imgContent;
         if (p.imagePath) {
-          imgContent = `<img src="${escapeHtml(p.imagePath)}" alt="${escapeHtml(p.name)}" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:var(--radius);" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" loading="lazy" />`;
+          imgContent = `<img src="${escapeHtml(p.imagePath)}" alt="${escapeHtml(p.name)}" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center; background:rgba(0,0,0,.05); border-radius:var(--radius); image-rendering:-webkit-optimize-contrast;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" loading="lazy" />`;
           // Add SVG fallback that shows if image fails to load
           imgContent += `<div style="display:none;">${productSvg(p)}</div>`;
         } else {
@@ -1790,7 +1806,7 @@
 
       // Use actual image if available, then imageCss, then SVG fallback
       if (p.imagePath) {
-        $("#mImg").innerHTML = `<img src="${escapeHtml(p.imagePath)}" alt="${escapeHtml(p.name)}" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:var(--radius);" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />` + `<div style="display:none;">${productSvg(p)}</div>`;
+        $("#mImg").innerHTML = `<img src="${escapeHtml(p.imagePath)}" alt="${escapeHtml(p.name)}" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center; background:rgba(0,0,0,.05); border-radius:var(--radius); image-rendering:-webkit-optimize-contrast;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />` + `<div style="display:none;">${productSvg(p)}</div>`;
       } else if (p.imageCss) {
         $("#mImg").innerHTML = `<div style="${p.imageCss} position:absolute; inset:0; width:100%; height:100%;"></div>`;
       } else {
