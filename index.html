@@ -1020,7 +1020,7 @@
     }
 
     function findProductImage(productId, productName){
-      // Map product IDs/names to new image files in /img directory
+      // Map product IDs/names to image files in /img directory
       // Uses pattern matching based on product ID and name
       // Paths work for both local development and GitHub Pages (/store/)
       const id = (productId || "").toLowerCase();
@@ -1047,15 +1047,23 @@
         return imgBase + "drafted_a_hoodie.jpeg";
       }
       
+      // Drafted A classic tee
+      if(id.includes("drafted-a-classic-tee") || (id.includes("drafted") && id.includes("tee") && !id.includes("hoodie"))){
+        return imgBase + "drafted_a_hoodie.jpeg"; // Use hoodie image as placeholder
+      }
+      
       // BONSAID products
-      if(id.includes("bonsaid") || name.includes("bonsaid")){
-        if(id.includes("trucker") || id.includes("cap") || id.includes("snapback")){
+      if(id.includes("bonsaid") || name.includes("bonsaid") || id.includes("bubble-free-sticker")){
+        if(id.includes("trucker") || id.includes("cap") || id.includes("snapback") || id.includes("richardson")){
           return imgBase + "bonsaid_snapback.png";
         }
-        if(id.includes("sticker")){
+        if(id.includes("sticker") || name.includes("sticker")){
           return imgBase + "bonsaid_gr.png";
         }
-        if(id.includes("hoodie")){
+        if(id.includes("oversized") || id.includes("heavyweight")){
+          return imgBase + "bonsaid_grn.png";
+        }
+        if(id.includes("hoodie") || name.includes("hoodie")){
           return imgBase + "bonsaid_grn.png";
         }
         // Default BONSAID image
@@ -1064,6 +1072,9 @@
       
       // EchoVerse products
       if(id.includes("echoverse") || name.includes("echoverse")){
+        if((id.includes("frost-circuit") || name.includes("frost")) && (id.includes("tee") || name.includes("tee"))){
+          return imgBase + "frost_circuit_black_hoodie.jpeg"; // Use hoodie image for tee
+        }
         if(id.includes("frost-circuit") || name.includes("frost")){
           return imgBase + "frost_circuit_black_hoodie.jpeg";
         }
@@ -1091,6 +1102,12 @@
       
       // Powder Peaks
       if(id.includes("powder") || name.includes("powder")){
+        if(id.includes("sticker") || name.includes("sticker")){
+          return imgBase + "power_peaks_hoodie_1.png"; // Use hoodie image for sticker
+        }
+        if(id.includes("tee") || name.includes("tee")){
+          return imgBase + "power_peaks_hoodie_1.png"; // Use hoodie image for tee
+        }
         return imgBase + "power_peaks_hoodie_1.png";
       }
       
@@ -1100,24 +1117,42 @@
       }
       
       // Neon BillyGoat / Sound Goat
-      if(id.includes("billygoat") || id.includes("neon") || name.includes("billygoat") || name.includes("goat")){
+      if(id.includes("billygoat") || id.includes("neon") || name.includes("billygoat") || name.includes("goat") || id.includes("sound-goat")){
         return imgBase + "sound_goat_a_blk_hoodie.jpeg";
       }
       
-      // CDA Pool League - no specific image, use generic fallback
+      // CDA Pool League
       if(id.includes("cda") || id.includes("pool")){
-        return null;
+        return imgBase + "power_peaks_hoodie_1.png"; // Use placeholder image
+      }
+      
+      // Holographic stickers
+      if(id.includes("holographic") || name.includes("holographic")){
+        return imgBase + "bonsaid_gr.png"; // Use BONSAID sticker image as placeholder
+      }
+      
+      // Golden Eye Sigil
+      if(id.includes("golden-eye") || name.includes("golden eye")){
+        return imgBase + "nexus_hoodie.png"; // Use placeholder
+      }
+      
+      // Unisex Premium Sweatshirt
+      if(id.includes("unisex-premium-sweatshirt") || (id.includes("unisex") && id.includes("sweatshirt"))){
+        return imgBase + "founders_zip_hoodie.png"; // Use placeholder
       }
       
       // Generic fallbacks based on product type
       if(id.includes("hoodie") || id.includes("pullover")){
         return imgBase + "drafted_a_hoodie.jpeg";
       }
-      if(id.includes("tee") || id.includes("shirt")){
-        return null; // No generic tee image
+      if(id.includes("tee") || id.includes("shirt") || id.includes("long-sleeve")){
+        return imgBase + "drafted_a_hoodie.jpeg"; // Use hoodie as placeholder for tees
       }
       if(id.includes("sticker")){
         return imgBase + "bonsaid_gr.png";
+      }
+      if(id.includes("sweatshirt") || id.includes("crewneck")){
+        return imgBase + "founders_zip_hoodie.png";
       }
       
       // Default fallback - return null to use SVG fallback
@@ -1212,7 +1247,53 @@
             continue; // Try next path
           }
 
-          PRODUCTS = items.map((p) => {
+          // Filter out utility-type products that won't be sold online
+          const excludedIds = [
+            "cash",
+            "phone-bill",
+            "rent",
+            "rent-wk",
+            "museface"
+          ];
+          
+          const excludedPatterns = [
+            /^rent/i,           // Rent, Rent Wk, etc.
+            /phone.*bill/i,      // Phone Bill
+            /^cash$/i,          // Cash
+            /museface/i         // MuseFace
+          ];
+
+          const filteredItems = items.filter((p) => {
+            const id = (p.id || "").toLowerCase();
+            const name = (p.name || "").toLowerCase();
+            const category = (p.category || "").toLowerCase();
+            
+            // Skip if ID is in exclusion list
+            if (excludedIds.includes(id)) {
+              console.log(`Excluding product (ID): ${p.id}`);
+              return false;
+            }
+            
+            // Skip if matches exclusion patterns
+            for (const pattern of excludedPatterns) {
+              if (pattern.test(id) || pattern.test(name)) {
+                console.log(`Excluding product (pattern): ${p.id} - ${p.name}`);
+                return false;
+              }
+            }
+            
+            // Skip if category is "Utility" (but keep stickers which are also Utility)
+            if (category === "utility" && !id.includes("sticker") && !name.includes("sticker")) {
+              console.log(`Excluding utility product: ${p.id} - ${p.name}`);
+              return false;
+            }
+            
+            return true;
+          });
+
+          console.log(`Filtered ${items.length - filteredItems.length} utility products, ${filteredItems.length} remaining`);
+
+          PRODUCTS = filteredItems.map((p) => {
             const baseName = p.name || "";
             const color = p.color || "";
             const displayName = color ? `${baseName} (${color})` : baseName;
