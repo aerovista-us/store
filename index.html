@@ -177,6 +177,10 @@
       display:flex; gap:8px; align-items:center;
       transition:.12s ease;
     }
+    .col:hover:not(.active){
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.05);
+    }
     .col b{ color: var(--text); font-weight:800; }
     .col.active{
       color:var(--text);
@@ -204,6 +208,10 @@
       width:100%;
       font-size: 14px;
     }
+    .field input::placeholder{
+      color: var(--muted);
+      opacity: 0.7;
+    }
     .select{
       flex: 0 0 auto;
       min-width: 180px;
@@ -212,11 +220,22 @@
     .select select{
       width:100%;
       border:none; outline:none;
-      background:transparent;
+      background: rgba(255,255,255,.03);
       color:var(--text);
       appearance:none;
       padding-right: 22px;
       cursor:pointer;
+      border-radius: 14px;
+    }
+    .select select option{
+      background: var(--panel) !important;
+      color: var(--text) !important;
+      padding: 8px 12px;
+    }
+    .select select:focus{
+      background: rgba(255,255,255,.05);
+      outline: 1px solid rgba(110,231,255,.35);
+      outline-offset: -1px;
     }
     .select .chev{ margin-left:-18px; opacity:.7; pointer-events:none; }
 
@@ -234,6 +253,10 @@
       font-size: 12px;
       color: var(--muted);
       transition:.12s ease;
+    }
+    .chip:hover:not(.active){
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.05);
     }
     .chip.active{
       color:var(--text);
@@ -378,10 +401,19 @@
       user-select:none;
       white-space:nowrap;
     }
-    .btn:hover{ border-color: rgba(110,231,255,.35); transform: translateY(-1px); }
+    .btn:hover:not(:disabled){ border-color: rgba(110,231,255,.35); transform: translateY(-1px); }
+    .btn:disabled{
+      opacity: 0.6;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
     .btn.primary{
       background: linear-gradient(135deg, rgba(110,231,255,.20), rgba(167,139,250,.16));
       border-color: rgba(110,231,255,.25);
+    }
+    .btn.primary:disabled{
+      opacity: 0.5;
+      background: rgba(110,231,255,.10);
     }
 
     /* Modal */
@@ -453,6 +485,25 @@
     .opt select, .opt input{
       width:100%;
       border:none; outline:none; background:transparent; color: var(--text);
+    }
+    .opt select option{
+      background: var(--panel) !important;
+      color: var(--text) !important;
+      padding: 8px 12px;
+    }
+    select option{
+      background: var(--panel) !important;
+      color: var(--text) !important;
+      padding: 8px 12px;
+    }
+    /* Ensure all selects have visible backgrounds */
+    select{
+      background-color: rgba(255,255,255,.03) !important;
+    }
+    select:focus{
+      background-color: rgba(255,255,255,.05) !important;
+      outline: 1px solid rgba(110,231,255,.35);
+      outline-offset: -1px;
     }
     .qtyRow{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
     .qty{
@@ -557,6 +608,14 @@
       color: var(--text);
       outline:none;
     }
+    .promo input::placeholder{
+      color: var(--muted);
+      opacity: 0.7;
+    }
+    .promo input:focus{
+      border-color:rgba(110,231,255,.35);
+      background:rgba(255,255,255,.05);
+    }
     .footerBtns{ display:flex; gap:10px; }
     .footerBtns .btn{ flex:1; }
 
@@ -585,8 +644,13 @@
       outline:none;
       font-size:14px;
     }
+    .input::placeholder{
+      color: var(--muted);
+      opacity: 0.7;
+    }
     .input:focus{
       border-color:rgba(110,231,255,.35);
+      background:rgba(255,255,255,.05);
     }
     .input:invalid:not(:placeholder-shown){
       border-color:var(--bad);
@@ -955,6 +1019,157 @@
       return t.slice(0, 177) + "…";
     }
 
+    function findProductImage(productId, productName){
+      // Map product IDs/names to image files in /img directory
+      // Uses pattern matching based on product ID and name
+      // Paths work for both local development and GitHub Pages (/store/)
+      const id = (productId || "").toLowerCase();
+      const name = (productName || "").toLowerCase();
+      
+      // Try /store/img/ first (for GitHub Pages), then fall back to ./img/
+      const imgBase = window.location.pathname.includes('/store/') ? '/store/img/' : './img/';
+      
+      // BONSAID products -> bonsied-*.jpeg
+      if(id.includes("bonsaid") || name.includes("bonsaid")){
+        if(id.includes("sticker")) return imgBase + "bonsied-10.jpeg";
+        if(id.includes("trucker") || id.includes("cap")) return imgBase + "bonsied-126.jpeg";
+        if(id.includes("hoodie")) return imgBase + "bonsied-105.jpeg";
+        if(id.includes("oversized")) return imgBase + "bonsied-186.jpeg";
+        // Default BONSAID image
+        return imgBase + "bonsied-10.jpeg";
+      }
+      
+      // Founders Mark -> founders-*.jpeg
+      if(id.includes("founders") || name.includes("founders")){
+        return imgBase + "founders-136.jpeg";
+      }
+      
+      // Lumina -> lumia-*.jpeg
+      if(id.includes("lumina") || name.includes("lumina")){
+        return imgBase + "lumia-179.jpeg";
+      }
+      
+      // NeXuS TechWorks -> nexus-*.jpeg
+      if(id.includes("nexus") || name.includes("nexus")){
+        return imgBase + "nexus-54.jpeg";
+      }
+      
+      // AeroVista products -> original-*.jpeg
+      if(id.includes("aerovista")){
+        if(id.includes("apex-draft-pullover")) return imgBase + "original-313.jpeg";
+        if(id.includes("apex-draft-zip")) return imgBase + "original-306.jpeg";
+        if(id.includes("apex-mesh") || id.includes("cap") || id.includes("trucker")){
+          return imgBase + "original-314.jpeg";
+        }
+        if(id.includes("wave-mark")) return imgBase + "original-315.jpeg";
+        // Default AeroVista hoodie
+        return imgBase + "original-319.jpeg";
+      }
+      
+      // EchoVerse products
+      if(id.includes("echoverse") || name.includes("echoverse")){
+        if(id.includes("frost-circuit-pullover") || id.includes("hoodie")){
+          return imgBase + "original-336.jpeg";
+        }
+        if(id.includes("frost-circuit-tee") || id.includes("tee")){
+          return imgBase + "original-339.jpeg";
+        }
+        if(id.includes("signal-dial")) return imgBase + "original-347.jpeg";
+        return imgBase + "original-336.jpeg";
+      }
+      
+      // Powder Peaks
+      if(id.includes("powder") || name.includes("powder")){
+        if(id.includes("8-ball-hoodie")) return imgBase + "original-382.jpeg";
+        if(id.includes("8-ball-sticker")) return imgBase + "original-397.jpeg";
+        if(id.includes("8-ball-tee")) return imgBase + "original-430.jpeg";
+        return imgBase + "original-382.jpeg";
+      }
+      
+      // CDA Pool League
+      if(id.includes("cda") || id.includes("pool")){
+        if(id.includes("long-sleeve")) return imgBase + "original-460.jpeg";
+        if(id.includes("tee")) return imgBase + "original-465.jpeg";
+        return imgBase + "original-460.jpeg";
+      }
+      
+      // Other products - try generic original images
+      if(id.includes("hoodie") || id.includes("pullover")){
+        return imgBase + "original-473.jpeg";
+      }
+      if(id.includes("tee") || id.includes("shirt")){
+        return imgBase + "original-491.jpeg";
+      }
+      if(id.includes("sticker")){
+        return imgBase + "original-502.jpeg";
+      }
+      
+      // Default fallback - return null to use SVG fallback
+      return null;
+    }
+
+    function generateProductNotes(category, name, description){
+      const nameLower = (name || "").toLowerCase();
+      const descLower = (description || "").toLowerCase();
+      
+      let fit = "";
+      let fabric = "";
+      let care = "";
+      let ship = "";
+
+      // Fit notes based on category
+      if(category === "hoodies"){
+        if(nameLower.includes("zip")){
+          fit = "Relaxed everyday fit. Size up for a looser drape; stay true for clean shoulders.";
+        } else {
+          fit = "Comfort-forward fit with clean shoulders; great with jeans or joggers.";
+        }
+      } else if(category === "crewnecks"){
+        fit = "True-to-size with a slightly modern cut. Great under jackets.";
+      } else if(category === "hats" || category === "caps"){
+        if(nameLower.includes("snapback") || nameLower.includes("trucker")){
+          fit = "Adjustable snapback. Medium crown with a more structured profile.";
+        } else {
+          fit = "Adjustable strap. Low-profile fit; sits closer to the head.";
+        }
+      } else if(category === "tees"){
+        fit = "Standard fit. Size up for oversized lounge; true for everyday clean.";
+      } else {
+        fit = "True-to-size. If you prefer a looser drape, go one size up.";
+      }
+
+      // Fabric/Blank notes
+      if(category === "hoodies"){
+        fabric = "Provider blank selected for softness and a stable collar edge over time.";
+      } else if(category === "crewnecks"){
+        fabric = "Provider-ready crew blank selected for stable collar and cuff feel.";
+      } else if(category === "hats" || category === "caps"){
+        if(nameLower.includes("trucker")){
+          fabric = "Trucker options vary by provider; we prioritize stitch clarity and clean panel alignment.";
+        } else {
+          fabric = "Provider cap options vary; we prioritize clean embroidery placement and wearable structure.";
+        }
+      } else if(category === "tees"){
+        fabric = "Chosen for provider consistency and a collar that stays crisp after multiple washes.";
+      } else {
+        fabric = "Curated blank chosen for consistency and comfort. Exact blend/weight varies by provider option.";
+      }
+
+      // Care notes
+      if(category === "hoodies" || category === "crewnecks" || category === "tees"){
+        care = "Wash cold, inside-out. Low heat or hang dry to protect print/embroidery finish.";
+      } else if(category === "hats" || category === "caps"){
+        care = "Spot clean only. Avoid full wash cycles to protect embroidery.";
+      } else {
+        care = "Cold wash recommended. Avoid high heat to reduce shrink risk.";
+      }
+
+      // Shipping notes
+      ship = "Made-to-order via fulfillment partner. Typical production + transit varies by region.";
+
+      return { fit, fabric, care, ship };
+    }
+
     async function loadProducts(){
       // Try multiple paths
       const paths = [
@@ -1002,6 +1217,12 @@
             const cat = guessCategory(displayName, p.category || "");
             const price = (typeof p.price === "number" && isFinite(p.price)) ? p.price : 0;
 
+            // Generate fit/care/blank/shipping notes based on category
+            const notes = generateProductNotes(cat, displayName, p.description_text || "");
+            
+            // Find matching image file
+            const imagePath = findProductImage(p.id, baseName);
+
             return {
               id: p.id || ("sq-" + Math.random().toString(16).slice(2)),
               name: displayName,
@@ -1012,15 +1233,16 @@
               isNew: false,
               flags: [],
               blurb: shortBlurb(p.description_text || ""),
-              fitNote: "",
-              fabricNote: "",
-              careNote: "",
-              shipNote: "",
+              fitNote: notes.fit,
+              fabricNote: notes.fabric,
+              careNote: notes.care,
+              shipNote: notes.ship,
               sizes: sizes.length ? sizes : ["One Size"],
               colors: colors.length ? colors : ["Default"],
               // Keep checkoutUrl empty for now; we'll wire single-cart checkout to your API next.
               checkoutUrl: "",
-              imageCss: imageCssFor(p),
+              imagePath: imagePath, // Path to actual image file
+              imageCss: imageCssFor(p), // Fallback gradient
               _skuBySize: skuBySize,
               _square: p
             };
@@ -1472,9 +1694,15 @@
       if(statusEl) statusEl.textContent = `${list.length} product${list.length === 1 ? '' : 's'} found`;
 
       grid.innerHTML = list.map(p => {
-        // Always use the same SVG-based hero so JSON-backed products
-        // visually match the original handcrafted set.
-        const imgContent = productSvg(p);
+        // Use actual image if available, otherwise fall back to SVG
+        let imgContent;
+        if (p.imagePath) {
+          imgContent = `<img src="${escapeHtml(p.imagePath)}" alt="${escapeHtml(p.name)}" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:var(--radius);" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" loading="lazy" />`;
+          // Add SVG fallback that shows if image fails to load
+          imgContent += `<div style="display:none;">${productSvg(p)}</div>`;
+        } else {
+          imgContent = productSvg(p);
+        }
         return `
         <article class="card">
           <div class="img" role="img" aria-label="${escapeHtml(p.name)} image">
@@ -1560,8 +1788,10 @@
         <span class="tag">${p.isNew ? "New Drop" : "In Rotation"}</span>
       `;
 
-      // Use imageCss if available (Square products), otherwise use SVG
-      if (p.imageCss) {
+      // Use actual image if available, then imageCss, then SVG fallback
+      if (p.imagePath) {
+        $("#mImg").innerHTML = `<img src="${escapeHtml(p.imagePath)}" alt="${escapeHtml(p.name)}" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:var(--radius);" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />` + `<div style="display:none;">${productSvg(p)}</div>`;
+      } else if (p.imageCss) {
         $("#mImg").innerHTML = `<div style="${p.imageCss} position:absolute; inset:0; width:100%; height:100%;"></div>`;
       } else {
         $("#mImg").innerHTML = productSvg(p);
@@ -1971,7 +2201,6 @@
         const originalText = payBtn.textContent;
         payBtn.disabled = true;
         payBtn.textContent = "Processing...";
-        payBtn.style.opacity = "0.7";
         
         try{
           const card = await ensureSquareCard();
@@ -2021,11 +2250,10 @@
           payLog.textContent = errorMsg;
           toast("Payment failed. Please check your information and try again.");
           console.error("Payment error:", err);
-        }finally{
-          payBtn.disabled = false;
-          payBtn.textContent = originalText;
-          payBtn.style.opacity = "1";
-        }
+          }finally{
+            payBtn.disabled = false;
+            payBtn.textContent = originalText;
+          }
       };
     }
 
