@@ -2,9 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://web.squarecdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://connect.squareup.com https://web.squarecdn.com; font-src 'self' data:;">
   <title>AeroVista Apparel — Store</title>
   <meta name="description" content="Curated comfort essentials: hoodies, crewnecks, hats." />
+  <meta property="og:title" content="AeroVista Apparel — Store" />
+  <meta property="og:description" content="Curated comfort essentials: hoodies, crewnecks, hats." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
   <style>
     :root{
       --bg:#0b0f14;
@@ -552,6 +560,43 @@
     .footerBtns{ display:flex; gap:10px; }
     .footerBtns .btn{ flex:1; }
 
+    /* Checkout form styles */
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+    }
+    @media (min-width: 640px){
+      .grid2{ grid-template-columns: 1fr 1fr; }
+    }
+    .lbl{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+    .input{
+      width:100%;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:14px;
+      padding:10px 12px;
+      color:var(--text);
+      outline:none;
+      font-size:14px;
+    }
+    .input:focus{
+      border-color:rgba(110,231,255,.35);
+    }
+    .input:invalid:not(:placeholder-shown){
+      border-color:var(--bad);
+    }
+    .hr{
+      height:1px;
+      background:rgba(255,255,255,.10);
+      margin:12px 0;
+    }
+
     /* Footer */
     .foot{
       margin-top: 18px;
@@ -587,6 +632,50 @@
       box-shadow: 0 0 0 4px rgba(52,211,153,.12);
     }
 
+    /* Skip link */
+    .skip-link{
+      position:absolute;
+      top:-40px;
+      left:16px;
+      background:var(--panel);
+      color:var(--text);
+      padding:8px 12px;
+      border-radius:8px;
+      text-decoration:none;
+      z-index:1000;
+      border:1px solid var(--line);
+    }
+    .skip-link:focus{
+      top:16px;
+    }
+
+    /* Screen reader only */
+    .sr-only{
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      white-space:nowrap;
+      border-width:0;
+    }
+
+    /* Loading spinner */
+    .spinner{
+      display:inline-block;
+      width:16px;
+      height:16px;
+      border:2px solid rgba(255,255,255,.2);
+      border-top-color:var(--text);
+      border-radius:50%;
+      animation:spin 0.6s linear infinite;
+    }
+    @keyframes spin{
+      to{ transform:rotate(360deg); }
+    }
+
     @media (max-width: 720px){
       .heroCard{ grid-template-columns: 1fr; }
       .heroRight{ justify-content:flex-start; }
@@ -597,6 +686,7 @@
 </head>
 <body>
 
+  <a href="#productsSection" class="skip-link">Skip to main content</a>
   <header class="topbar">
     <div class="wrap">
       <a class="brand" href="#" id="homeLink" aria-label="Home">
@@ -608,13 +698,13 @@
       </a>
 
       <div class="actions">
-        <div class="pill" title="Search shortcut">
+        <div class="pill" title="Search shortcut (press / to focus search)" role="button" tabindex="0" aria-label="Search shortcut">
           <span style="opacity:.85">Search</span>
           <span class="k">/</span>
         </div>
-        <div class="pill cartBtn" id="cartOpen" role="button" tabindex="0" aria-label="Open cart">
+        <div class="pill cartBtn" id="cartOpen" role="button" tabindex="0" aria-label="Open cart (0 items)" aria-describedby="cartCount">
           <span>Cart</span>
-          <span class="badge" id="cartCount">0</span>
+          <span class="badge" id="cartCount" aria-label="Cart item count">0</span>
         </div>
       </div>
     </div>
@@ -695,6 +785,7 @@
     </section>
 
     <section id="productsSection">
+      <div id="gridStatus" class="sr-only" aria-live="polite" aria-atomic="true"></div>
       <div class="grid" id="grid" aria-label="Product grid"></div>
     </section>
 
@@ -828,9 +919,118 @@
     };
 
     // =========================
-    // PRODUCTS (unique semi-finished descriptions)
+    // PRODUCTS: loaded dynamically from Square export JSON
+    // Put square_products_2026-02-10.json next to this HTML.
     // =========================
-    const PRODUCTS = [
+    let PRODUCTS = [];
+
+    function guessCategory(name, cat){
+      const s = (name || "").toLowerCase();
+      const c = (cat || "").toLowerCase();
+      const hay = s + " " + c;
+      if (hay.includes("hood")) return "hoodies";
+      if (hay.includes("crew")) return "crewnecks";
+      if (hay.includes("beanie")) return "hats";
+      if (hay.includes("cap")) return "hats";
+      if (hay.includes("hat")) return "hats";
+      if (hay.includes("tee") || hay.includes("shirt")) return "tees";
+      return "apparel";
+    }
+
+    function imageCssFor(p){
+      // Deterministic "poster" tile based on id (no external assets required)
+      const id = (p.id || "").split("").reduce((a,ch)=>a+ch.charCodeAt(0),0);
+      const a = (id * 37) % 360;
+      const b = (a + 55) % 360;
+      return `background: radial-gradient(120% 120% at 20% 20%, hsla(${a},85%,55%,.35), transparent 60%), radial-gradient(120% 120% at 80% 80%, hsla(${b},85%,55%,.28), transparent 55%), linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.35));`;
+    }
+
+    async function loadProducts(){
+      // Try multiple paths
+      const paths = [
+        './square_products_2026-02-10.json',
+        '/square_products_2026-02-10.json',
+        'square_products_2026-02-10.json'
+      ];
+      
+      let lastError = null;
+      for (const path of paths) {
+        try {
+          console.log("Trying to load products from:", path);
+          const r = await fetch(path, {cache:"no-store"});
+          console.log("Fetch response status:", r.status, r.ok, "for path:", path);
+          if (!r.ok) {
+            throw new Error(`Failed to load products JSON: ${r.status} ${r.statusText}`);
+          }
+          const j = await r.json();
+          console.log("JSON loaded, products count:", j?.products?.length || 0);
+          const items = (j && j.products) ? j.products : [];
+
+          if (items.length === 0) {
+            console.warn("No products found in JSON file");
+            continue; // Try next path
+          }
+
+          PRODUCTS = items.map((p) => {
+            const baseName = p.name || "";
+            const color = p.color || "";
+            const displayName = color ? `${baseName} (${color})` : baseName;
+
+            // Variants: from Square export, sizes sit in variants[].size and SKU in variants[].sku
+            const variants = Array.isArray(p.variants) ? p.variants : [];
+            const sizes = [...new Set(variants.map(v => (v.size||"").trim()).filter(Boolean))];
+            const colors = color ? [color] : [];
+
+            // sku map for later checkout wiring (size -> sku)
+            const skuBySize = {};
+            for (const v of variants){
+              const sz = (v.size||"").trim();
+              const sku = (v.sku||"").trim();
+              if (sz && sku) skuBySize[sz] = sku;
+            }
+
+            const cat = guessCategory(displayName, p.category || "");
+            const price = (typeof p.price === "number" && isFinite(p.price)) ? p.price : 0;
+
+            return {
+              id: p.id || ("sq-" + Math.random().toString(16).slice(2)),
+              name: displayName,
+              collection: "Square",
+              category: cat,
+              price: price,
+              featured: false,
+              isNew: false,
+              flags: [],
+              blurb: p.description_text || "",
+              fitNote: "",
+              fabricNote: "",
+              careNote: "",
+              shipNote: "",
+              sizes: sizes.length ? sizes : ["One Size"],
+              colors: colors.length ? colors : ["Default"],
+              // Keep checkoutUrl empty for now; we'll wire single-cart checkout to your API next.
+              checkoutUrl: "",
+              imageCss: imageCssFor(p),
+              _skuBySize: skuBySize,
+              _square: p
+            };
+          });
+          console.log(`Successfully loaded ${PRODUCTS.length} products from: ${path}`);
+          return; // Success, exit function
+        } catch(err) {
+          console.warn(`Failed to load from ${path}:`, err.message);
+          lastError = err;
+          continue; // Try next path
+        }
+      }
+      // If we get here, all paths failed
+      console.error("All paths failed to load products:", lastError);
+      PRODUCTS = [];
+      throw lastError || new Error("Failed to load products from all attempted paths");
+    }
+
+    // Fallback hardcoded products (if JSON fails to load)
+    const FALLBACK_PRODUCTS = [
       // EchoVerse
       {
         id:"ev-hoodie-sb",
@@ -1138,11 +1338,18 @@
       const a = p.collection === "EchoVerse" ? "rgba(110,231,255,.55)" :
                 p.collection === "NXCore" ? "rgba(167,139,250,.55)" :
                 p.collection === "Limited" ? "rgba(251,191,36,.55)" :
+                p.collection === "Square" ? "rgba(110,231,255,.45)" :
                 "rgba(231,237,246,.35)";
-      const b = p.category === "hats" ? "CAP" : (p.category === "crewnecks" ? "CREW" : "HOOD");
+      const b = p.category === "hats" ? "CAP" : 
+                p.category === "crewnecks" ? "CREW" : 
+                p.category === "tees" ? "TEE" :
+                p.category === "apparel" ? "APP" :
+                "HOOD";
       const mark = (p.collection === "EchoVerse") ? "EV" :
                    (p.collection === "NXCore") ? "NX" :
-                   (p.collection === "Limited") ? "LTD" : "AV";
+                   (p.collection === "Limited") ? "LTD" :
+                   (p.collection === "Square") ? "SQ" :
+                   "AV";
 
       return `
       <svg viewBox="0 0 900 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -1227,6 +1434,7 @@
     function renderGrid(){
       const grid = $("#grid");
       const list = filterProducts();
+      const statusEl = $("#gridStatus");
 
       if(list.length === 0){
         grid.innerHTML = `
@@ -1240,6 +1448,7 @@
             </div>
           </div>
         `;
+        if(statusEl) statusEl.textContent = "No products found. Try adjusting your filters.";
         $("#clearFilters").onclick = () => {
           state.collection="all"; setActiveCollection("all");
           state.cat="all"; setActiveChip("all");
@@ -1250,10 +1459,17 @@
         return;
       }
 
-      grid.innerHTML = list.map(p => `
+      if(statusEl) statusEl.textContent = `${list.length} product${list.length === 1 ? '' : 's'} found`;
+
+      grid.innerHTML = list.map(p => {
+        // Use imageCss if available (Square products), otherwise use SVG
+        const imgContent = p.imageCss 
+          ? `<div style="${p.imageCss} position:absolute; inset:0; width:100%; height:100%;"></div>`
+          : productSvg(p);
+        return `
         <article class="card">
-          <div class="img" role="img" aria-label="${escapeHtml(p.name)} image">
-            ${productSvg(p)}
+          <div class="img" role="img" aria-label="${escapeHtml(p.name)} image" ${p.imageCss ? `style="${p.imageCss}"` : ''}>
+            ${imgContent}
             <div class="label"><span class="dot"></span>${escapeHtml(p.collection)} · ${categoryLabel(p.category)}</div>
             ${flagsHtml(p) || `<div></div>`}
           </div>
@@ -1268,7 +1484,8 @@
             </div>
           </div>
         </article>
-      `).join("");
+      `;
+      }).join("");
 
       $$("[data-quick]").forEach(btn=>{
         btn.onclick = () => openModal(btn.getAttribute("data-quick"));
@@ -1285,10 +1502,43 @@
     }
 
     // ===== Modal =====
+    let modalTrigger = null; // Store element that opened modal
+    let focusTrapHandler = null; // Store focus trap handler for cleanup
+
+    function trapFocus(container, firstFocusable, lastFocusable){
+      // Remove existing handler if any
+      if(focusTrapHandler){
+        document.removeEventListener("keydown", focusTrapHandler);
+      }
+      
+      focusTrapHandler = function trap(e){
+        if(!container.classList.contains("show")){
+          document.removeEventListener("keydown", focusTrapHandler);
+          focusTrapHandler = null;
+          return;
+        }
+        if(e.key !== "Tab") return;
+        if(e.shiftKey){
+          if(document.activeElement === firstFocusable){
+            e.preventDefault();
+            lastFocusable.focus();
+          }
+        } else {
+          if(document.activeElement === lastFocusable){
+            e.preventDefault();
+            firstFocusable.focus();
+          }
+        }
+      };
+      
+      document.addEventListener("keydown", focusTrapHandler);
+    }
+
     function openModal(id){
       const p = PRODUCTS.find(x=>x.id===id);
       if(!p) return;
       state.modalProduct = p;
+      modalTrigger = document.activeElement; // Store trigger
 
       $("#mTitle").textContent = p.name;
       $("#mDesc").textContent = p.blurb || "";
@@ -1301,7 +1551,12 @@
         <span class="tag">${p.isNew ? "New Drop" : "In Rotation"}</span>
       `;
 
-      $("#mImg").innerHTML = productSvg(p);
+      // Use imageCss if available (Square products), otherwise use SVG
+      if (p.imageCss) {
+        $("#mImg").innerHTML = `<div style="${p.imageCss} position:absolute; inset:0; width:100%; height:100%;"></div>`;
+      } else {
+        $("#mImg").innerHTML = productSvg(p);
+      }
 
       $("#mSize").innerHTML = (p.sizes||["One Size"]).map(x=>`<option>${escapeHtml(x)}</option>`).join("");
       $("#mColor").innerHTML = (p.colors||["Default"]).map(x=>`<option>${escapeHtml(x)}</option>`).join("");
@@ -1340,12 +1595,38 @@
 
       $("#overlay").classList.add("show");
       $("#overlay").setAttribute("aria-hidden","false");
+      
+      // Focus management
+      setTimeout(() => {
+        const closeBtn = $("#mClose");
+        if(closeBtn) closeBtn.focus();
+        // Trap focus within modal
+        const modal = $(".modal");
+        const focusable = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if(focusable.length > 0){
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          trapFocus(modal, first, last);
+        }
+      }, 100);
     }
 
     function closeModal(){
       $("#overlay").classList.remove("show");
       $("#overlay").setAttribute("aria-hidden","true");
       state.modalProduct = null;
+      
+      // Clean up focus trap
+      if(focusTrapHandler){
+        document.removeEventListener("keydown", focusTrapHandler);
+        focusTrapHandler = null;
+      }
+      
+      // Return focus to trigger
+      if(modalTrigger && typeof modalTrigger.focus === "function"){
+        modalTrigger.focus();
+      }
+      modalTrigger = null;
     }
 
     function clampInt(v, min, max){
@@ -1359,8 +1640,12 @@
       if(e.target.id === "overlay") closeModal();
     });
     document.addEventListener("keydown", (e)=>{
-      if(e.key === "Escape"){ closeModal(); closeDrawer(); }
-      if(e.key === "/" && document.activeElement?.tagName !== "INPUT"){
+      if(e.key === "Escape"){
+        if($("#overlay").classList.contains("show")) closeModal();
+        if($("#drawer").classList.contains("show")) closeDrawer();
+        if($("#payOverlay").classList.contains("open")) closeOverlay($("#payOverlay"));
+      }
+      if(e.key === "/" && document.activeElement?.tagName !== "INPUT" && document.activeElement?.tagName !== "TEXTAREA"){
         e.preventDefault();
         $("#search").focus();
       }
@@ -1401,7 +1686,9 @@
 
     function updateCartUI(){
       const cart = loadCart();
-      $("#cartCount").textContent = String(getCartCount(cart));
+      const count = getCartCount(cart);
+      $("#cartCount").textContent = String(count);
+      $("#cartOpen").setAttribute("aria-label", `Open cart (${count} ${count === 1 ? 'item' : 'items'})`);
 
       const box = $("#cartItems");
       if(cart.length === 0){
@@ -1499,33 +1786,54 @@
 
     async function squareBootstrap(){
       if(__sqBoot) return __sqBoot;
-      const res = await fetch(apiUrl("/api/square/bootstrap"));
-      if(!res.ok) throw new Error("Square bootstrap failed: " + res.status);
-      __sqBoot = await res.json();
-      return __sqBoot;
+      try {
+        const res = await fetch(apiUrl("/api/square/bootstrap"));
+        if(!res.ok) throw new Error("Square bootstrap failed: " + res.status);
+        __sqBoot = await res.json();
+        return __sqBoot;
+      } catch(err) {
+        console.error("Square bootstrap error:", err);
+        throw new Error("Unable to connect to payment service. Please check your connection and try again.");
+      }
     }
 
     async function ensureSquareCard(){
-      const boot = await squareBootstrap();
-      if(!window.Square || !window.Square.payments){
-        throw new Error("Square Web Payments SDK not loaded.");
+      try {
+        const boot = await squareBootstrap();
+        if(!window.Square || !window.Square.payments){
+          throw new Error("Square Web Payments SDK not loaded. Please refresh the page.");
+        }
+        if(__sqCard) return __sqCard;
+        const payments = window.Square.payments(boot.applicationId, boot.locationId);
+        __sqCard = await payments.card();
+        await __sqCard.attach("#card-container");
+        return __sqCard;
+      } catch(err) {
+        console.error("Square card setup error:", err);
+        throw new Error("Payment form failed to load. Please refresh the page and try again.");
       }
-      if(__sqCard) return __sqCard;
-      const payments = window.Square.payments(boot.applicationId, boot.locationId);
-      __sqCard = await payments.card();
-      await __sqCard.attach("#card-container");
-      return __sqCard;
     }
 
+    let payOverlayTrigger = null;
+
     function openOverlay(el){
+      payOverlayTrigger = document.activeElement;
       el.classList.add("open");
       el.setAttribute("aria-hidden","false");
       document.body.style.overflow = "hidden";
+      setTimeout(() => {
+        const closeBtn = el.querySelector("#payClose");
+        if(closeBtn) closeBtn.focus();
+      }, 100);
     }
     function closeOverlay(el){
       el.classList.remove("open");
       el.setAttribute("aria-hidden","true");
       document.body.style.overflow = "";
+      if(payOverlayTrigger && typeof payOverlayTrigger.focus === "function"){
+        payOverlayTrigger.focus();
+      }
+      payOverlayTrigger = null;
     }
 
     function cartToSquareLines(cart){
@@ -1554,9 +1862,11 @@
       try{
         boot = await squareBootstrap();
       }catch(err){
-        toast("Checkout not ready (API bootstrap failed).");
+        const errorMsg = err.message || String(err);
+        toast("Checkout not ready. Please try again.");
         payLog.style.display = "block";
-        payLog.textContent = String(err);
+        payLog.textContent = errorMsg;
+        closeOverlay(payOverlay);
         return;
       }
 
@@ -1583,14 +1893,77 @@
       try{
         await ensureSquareCard();
       }catch(err){
+        const errorMsg = err.message || String(err);
         payLog.style.display = "block";
-        payLog.textContent = String(err);
-        toast("Card form failed to load.");
+        payLog.textContent = errorMsg;
+        toast("Card form failed to load. Please refresh and try again.");
         return;
       }
 
+      // Validation function
+      function validateCheckoutForm(){
+        const name = $("#payName").value.trim();
+        const email = $("#payEmail").value.trim();
+        const phone = $("#payPhone").value.trim();
+        const addr = $("#payAddr1").value.trim();
+        const city = $("#payCity").value.trim();
+        const state = $("#payState").value.trim();
+        const zip = $("#payZip").value.trim();
+        const country = $("#payCountry").value.trim();
+
+        if(!name){
+          toast("Please enter your name");
+          $("#payName").focus();
+          return false;
+        }
+        if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+          toast("Please enter a valid email address");
+          $("#payEmail").focus();
+          return false;
+        }
+        if(!phone){
+          toast("Please enter your phone number");
+          $("#payPhone").focus();
+          return false;
+        }
+        if(!addr){
+          toast("Please enter your street address");
+          $("#payAddr1").focus();
+          return false;
+        }
+        if(!city){
+          toast("Please enter your city");
+          $("#payCity").focus();
+          return false;
+        }
+        if(!state){
+          toast("Please enter your state");
+          $("#payState").focus();
+          return false;
+        }
+        if(!zip){
+          toast("Please enter your ZIP code");
+          $("#payZip").focus();
+          return false;
+        }
+        if(!country){
+          toast("Please enter your country");
+          $("#payCountry").focus();
+          return false;
+        }
+        return true;
+      }
+
       $("#payNow").onclick = async () => {
-        $("#payNow").disabled = true;
+        // Validate form first
+        if(!validateCheckoutForm()) return;
+
+        const payBtn = $("#payNow");
+        const originalText = payBtn.textContent;
+        payBtn.disabled = true;
+        payBtn.textContent = "Processing...";
+        payBtn.style.opacity = "0.7";
+        
         try{
           const card = await ensureSquareCard();
           const tokenResult = await card.tokenize();
@@ -1600,17 +1973,17 @@
 
           const body = {
             buyer: {
-              name: $("#payName").value || "",
-              email: $("#payEmail").value || "",
-              phone: $("#payPhone").value || ""
+              name: $("#payName").value.trim(),
+              email: $("#payEmail").value.trim(),
+              phone: $("#payPhone").value.trim()
             },
             shipping: {
               address: {
-                address_line_1: $("#payAddr1").value || "",
-                locality: $("#payCity").value || "",
-                administrative_district_level_1: $("#payState").value || "",
-                postal_code: $("#payZip").value || "",
-                country: ($("#payCountry").value || "US").toUpperCase()
+                address_line_1: $("#payAddr1").value.trim(),
+                locality: $("#payCity").value.trim(),
+                administrative_district_level_1: $("#payState").value.trim(),
+                postal_code: $("#payZip").value.trim(),
+                country: ($("#payCountry").value.trim() || "US").toUpperCase()
               },
               shipping_note: ""
             },
@@ -1634,11 +2007,15 @@
           updateCartUI();
           closeOverlay(payOverlay);
         }catch(err){
+          const errorMsg = err.message || String(err);
           payLog.style.display = "block";
-          payLog.textContent = String(err);
-          toast("Payment failed");
+          payLog.textContent = errorMsg;
+          toast("Payment failed. Please check your information and try again.");
+          console.error("Payment error:", err);
         }finally{
-          $("#payNow").disabled = false;
+          payBtn.disabled = false;
+          payBtn.textContent = originalText;
+          payBtn.style.opacity = "1";
         }
       };
     }
@@ -1657,14 +2034,30 @@
       $$(".chip").forEach(c=> c.classList.toggle("active", c.getAttribute("data-cat") === cat));
     }
     $$(".chip").forEach(c=>{
+      c.setAttribute("role", "button");
+      c.setAttribute("tabindex", "0");
       c.onclick = () => { state.cat = c.getAttribute("data-cat"); setActiveChip(state.cat); renderGrid(); };
+      c.onkeydown = (e) => {
+        if(e.key === "Enter" || e.key === " "){
+          e.preventDefault();
+          c.click();
+        }
+      };
     });
 
     function setActiveCollection(name){
       $$(".col").forEach(c=> c.classList.toggle("active", c.getAttribute("data-collection") === name));
     }
     $$(".col").forEach(c=>{
+      c.setAttribute("role", "button");
+      c.setAttribute("tabindex", "0");
       c.onclick = () => { state.collection = c.getAttribute("data-collection"); setActiveCollection(state.collection); renderGrid(); };
+      c.onkeydown = (e) => {
+        if(e.key === "Enter" || e.key === " "){
+          e.preventDefault();
+          c.click();
+        }
+      };
     });
 
     $("#search").addEventListener("input", (e)=>{ state.search = e.target.value || ""; renderGrid(); });
@@ -1699,8 +2092,22 @@
     $("#contactLink").onclick = (e)=>{ e.preventDefault(); infoModal("Contact", `Email: ${STORE.emailFallback || "set STORE.emailFallback"}`); };
 
     // Init
-    function init(){
+    async function init(){
       loadPromo();
+      try {
+        await loadProducts();
+        if (PRODUCTS.length === 0) {
+          console.warn("No products loaded from JSON, using fallback");
+          PRODUCTS = FALLBACK_PRODUCTS;
+        }
+      } catch(err) {
+        console.error("Products failed to load:", err);
+        const errorMsg = err.message || String(err);
+        console.error("Full error:", errorMsg);
+        toast(`Products failed to load: ${errorMsg.substring(0, 50)}... Using fallback data.`);
+        PRODUCTS = FALLBACK_PRODUCTS;
+      }
+      console.log("Initializing with", PRODUCTS.length, "products");
       renderGrid();
       updateCartUI();
     }
@@ -1721,44 +2128,46 @@
 
         <div class="hr"></div>
 
-        <div class="grid2" style="margin-top:10px;">
-          <div>
-            <label class="lbl">Name</label>
-            <input class="input" id="payName" placeholder="Full name" />
+        <form id="checkoutForm" onsubmit="return false;" style="margin-top:10px;">
+          <div class="grid2">
+            <div>
+              <label class="lbl" for="payName">Name <span aria-label="required">*</span></label>
+              <input type="text" class="input" id="payName" name="name" autocomplete="name" placeholder="Full name" required aria-required="true" />
+            </div>
+            <div>
+              <label class="lbl" for="payEmail">Email <span aria-label="required">*</span></label>
+              <input type="email" class="input" id="payEmail" name="email" autocomplete="email" placeholder="you@email.com" required aria-required="true" />
+            </div>
+            <div>
+              <label class="lbl" for="payPhone">Phone <span aria-label="required">*</span></label>
+              <input type="tel" class="input" id="payPhone" name="phone" autocomplete="tel" placeholder="+1..." required aria-required="true" />
+            </div>
+            <div>
+              <label class="lbl" for="payAddr1">Address <span aria-label="required">*</span></label>
+              <input type="text" class="input" id="payAddr1" name="address" autocomplete="street-address" placeholder="Street address" required aria-required="true" />
+            </div>
+            <div>
+              <label class="lbl" for="payCity">City <span aria-label="required">*</span></label>
+              <input type="text" class="input" id="payCity" name="city" autocomplete="address-level2" placeholder="City" required aria-required="true" />
+            </div>
+            <div>
+              <label class="lbl" for="payState">State <span aria-label="required">*</span></label>
+              <input type="text" class="input" id="payState" name="state" autocomplete="address-level1" placeholder="State" required aria-required="true" />
+            </div>
+            <div>
+              <label class="lbl" for="payZip">ZIP <span aria-label="required">*</span></label>
+              <input type="text" class="input" id="payZip" name="zip" autocomplete="postal-code" placeholder="Postal code" required aria-required="true" pattern="[0-9]{5}(-[0-9]{4})?" />
+            </div>
+            <div>
+              <label class="lbl" for="payCountry">Country <span aria-label="required">*</span></label>
+              <input type="text" class="input" id="payCountry" name="country" autocomplete="country" value="US" required aria-required="true" />
+            </div>
           </div>
-          <div>
-            <label class="lbl">Email</label>
-            <input class="input" id="payEmail" placeholder="you@email.com" />
-          </div>
-          <div>
-            <label class="lbl">Phone</label>
-            <input class="input" id="payPhone" placeholder="+1..." />
-          </div>
-          <div>
-            <label class="lbl">Address</label>
-            <input class="input" id="payAddr1" placeholder="Street address" />
-          </div>
-          <div>
-            <label class="lbl">City</label>
-            <input class="input" id="payCity" placeholder="City" />
-          </div>
-          <div>
-            <label class="lbl">State</label>
-            <input class="input" id="payState" placeholder="State" />
-          </div>
-          <div>
-            <label class="lbl">ZIP</label>
-            <input class="input" id="payZip" placeholder="Postal code" />
-          </div>
-          <div>
-            <label class="lbl">Country</label>
-            <input class="input" id="payCountry" value="US" />
-          </div>
-        </div>
+        </form>
 
         <div style="margin-top:12px;">
-          <label class="lbl">Card</label>
-          <div id="card-container" style="padding:12px; border:1px solid rgba(255,255,255,.10); border-radius:14px;"></div>
+          <label class="lbl" for="card-container">Card <span aria-label="required">*</span></label>
+          <div id="card-container" role="group" aria-label="Card information" style="padding:12px; border:1px solid rgba(255,255,255,.10); border-radius:14px;"></div>
           <div style="color:var(--muted); font-size:12px; margin-top:6px;">
             Payments are processed securely by Square.
           </div>
