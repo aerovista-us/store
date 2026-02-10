@@ -54,6 +54,11 @@
       backdrop-filter: blur(10px);
       background: rgba(7,10,15,.72);
       border-bottom:1px solid var(--line);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+    .topbar:hover{
+      background: rgba(7,10,15,.78);
+      border-bottom-color: rgba(110,231,255,.15);
     }
     .topbar .wrap{ padding: 14px 16px; display:flex; gap:12px; align-items:center; justify-content:space-between; }
     .brand{ display:flex; align-items:center; gap:12px; min-width: 220px; }
@@ -314,6 +319,12 @@
       box-shadow: 0 10px 32px rgba(0,0,0,.35);
       display:flex; flex-direction:column;
       min-height: 332px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 14px 42px rgba(0,0,0,.45);
+      border-color: rgba(110,231,255,.20);
     }
     @media (min-width: 640px){
       .card{ grid-column: span 6; }
@@ -324,7 +335,7 @@
     }
 
     .img{
-      height: 188px;
+      height: 240px;
       border-bottom: 1px solid var(--line);
       position:relative;
       display:flex;
@@ -335,11 +346,48 @@
       background: radial-gradient(200px 160px at 70% 20%, rgba(110,231,255,.16), transparent 65%),
                   radial-gradient(220px 180px at 20% 85%, rgba(167,139,250,.12), transparent 65%),
                   linear-gradient(135deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      transition: background 0.3s ease;
+    }
+    .card:hover .img{
+      background: radial-gradient(200px 160px at 70% 20%, rgba(110,231,255,.20), transparent 65%),
+                  radial-gradient(220px 180px at 20% 85%, rgba(167,139,250,.16), transparent 65%),
+                  linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
     }
     .img svg{
       position:absolute; inset:0;
       width:100%; height:100%;
       opacity:.95;
+    }
+    .img img.product-image{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:contain;
+      object-position:center;
+      border-radius:var(--radius);
+      image-rendering:-webkit-optimize-contrast;
+      background: transparent;
+      transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+      /* Remove white backgrounds - multiply blend mode makes white transparent */
+      mix-blend-mode: multiply;
+      filter: contrast(1.08) brightness(0.96) saturate(1.05);
+    }
+    /* For PNG images with transparency, use normal blend mode */
+    .img img.product-image[src$=".png"]{
+      mix-blend-mode: normal;
+      filter: contrast(1.02) brightness(1.02) saturate(1.02);
+    }
+    /* For JPEG images, apply stronger white removal */
+    .img img.product-image[src$=".jpeg"],
+    .img img.product-image[src$=".jpg"]{
+      mix-blend-mode: multiply;
+      filter: contrast(1.1) brightness(0.94) saturate(1.08);
+    }
+    .card:hover .img img.product-image{
+      transform: scale(1.02);
+      filter: contrast(1.12) brightness(0.98) saturate(1.08);
+    }
+    .card:hover .img img.product-image[src$=".png"]{
+      filter: contrast(1.05) brightness(1.03) saturate(1.03);
     }
     .img .label{
       font-family: var(--mono);
@@ -374,7 +422,8 @@
     .flag.best{ background: rgba(251,113,133,.10); color: rgba(251,113,133,.95); border-color: rgba(251,113,133,.22); }
 
     .body{ padding: 12px; display:flex; flex-direction:column; gap:10px; flex:1; }
-    .title{ margin:0; font-size: 15px; line-height: 1.2; }
+    .title{ margin:0; font-size: 15px; line-height: 1.2; transition: color 0.2s ease; }
+    .card:hover .title{ color: var(--text); }
     .desc{ margin:0; font-size: 13px; color:var(--muted); line-height: 1.35; }
     .swatches{ display:flex; gap:6px; flex-wrap:wrap; }
     .sw{
@@ -396,12 +445,18 @@
       background: rgba(255,255,255,.04);
       border: 1px solid rgba(255,255,255,.10);
       color: var(--text);
-      transition:.12s ease;
+      transition: all 0.2s ease;
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
       user-select:none;
       white-space:nowrap;
+      box-shadow: 0 2px 8px rgba(0,0,0,.2);
     }
-    .btn:hover:not(:disabled){ border-color: rgba(110,231,255,.35); transform: translateY(-1px); }
+    .btn:hover:not(:disabled){ 
+      border-color: rgba(110,231,255,.35); 
+      transform: translateY(-1px); 
+      box-shadow: 0 4px 12px rgba(0,0,0,.3);
+      background: rgba(255,255,255,.06);
+    }
     .btn:disabled{
       opacity: 0.6;
       cursor: not-allowed;
@@ -410,10 +465,17 @@
     .btn.primary{
       background: linear-gradient(135deg, rgba(110,231,255,.20), rgba(167,139,250,.16));
       border-color: rgba(110,231,255,.25);
+      box-shadow: 0 2px 12px rgba(110,231,255,.15);
+    }
+    .btn.primary:hover:not(:disabled){
+      background: linear-gradient(135deg, rgba(110,231,255,.28), rgba(167,139,250,.22));
+      border-color: rgba(110,231,255,.40);
+      box-shadow: 0 4px 16px rgba(110,231,255,.25);
     }
     .btn.primary:disabled{
       opacity: 0.5;
       background: rgba(110,231,255,.10);
+      box-shadow: none;
     }
 
     /* Modal */
@@ -431,17 +493,22 @@
       width:min(980px, 100%);
       border-radius: 22px;
       border:1px solid rgba(255,255,255,.12);
-      background: rgba(10,14,20,.92);
-      box-shadow: 0 26px 80px rgba(0,0,0,.62);
+      background: rgba(10,14,20,.95);
+      box-shadow: 0 26px 80px rgba(0,0,0,.62), 0 0 0 1px rgba(110,231,255,.08);
       overflow:hidden;
       display:grid;
       grid-template-columns: 1fr;
+      animation: modalFadeIn 0.3s ease;
+    }
+    @keyframes modalFadeIn{
+      from{ opacity: 0; transform: scale(0.96) translateY(10px); }
+      to{ opacity: 1; transform: scale(1) translateY(0); }
     }
     @media (min-width: 820px){
       .modal{ grid-template-columns: 1.2fr .8fr; }
     }
     .mImg{
-      min-height: 260px;
+      min-height: 320px;
       border-bottom: 1px solid rgba(255,255,255,.10);
       position:relative;
       overflow:hidden;
@@ -449,7 +516,34 @@
                   radial-gradient(260px 220px at 20% 90%, rgba(167,139,250,.14), transparent 65%),
                   linear-gradient(135deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
     }
+    @media (min-width: 820px){
+      .mImg{ min-height: 400px; }
+    }
     .mImg svg{ position:absolute; inset:0; width:100%; height:100%; opacity:.98; }
+    .mImg img.product-image{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:contain;
+      object-position:center;
+      border-radius:var(--radius);
+      image-rendering:-webkit-optimize-contrast;
+      background: transparent;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      /* Remove white backgrounds - multiply blend mode makes white transparent */
+      mix-blend-mode: multiply;
+      filter: contrast(1.08) brightness(0.96) saturate(1.05);
+    }
+    /* For PNG images with transparency, use normal blend mode */
+    .mImg img.product-image[src$=".png"]{
+      mix-blend-mode: normal;
+      filter: contrast(1.02) brightness(1.02) saturate(1.02);
+    }
+    /* For JPEG images, apply stronger white removal */
+    .mImg img.product-image[src$=".jpeg"],
+    .mImg img.product-image[src$=".jpg"]{
+      mix-blend-mode: multiply;
+      filter: contrast(1.1) brightness(0.94) saturate(1.08);
+    }
     @media (min-width: 820px){
       .mImg{ border-bottom:none; border-right: 1px solid rgba(255,255,255,.10); }
     }
@@ -462,6 +556,12 @@
       color: var(--text);
       border-radius: 12px;
       padding: 8px 10px;
+      transition: all 0.2s ease;
+    }
+    .close:hover{
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.20);
+      transform: scale(1.05);
     }
     .meta{
       display:flex; gap:10px; flex-wrap:wrap; align-items:center;
@@ -1029,130 +1129,133 @@
       // Try /store/img/ first (for GitHub Pages), then fall back to ./img/
       const imgBase = window.location.pathname.includes('/store/') ? '/store/img/' : './img/';
       
+      // Cache buster - use timestamp to ensure fresh images
+      const cacheBuster = '?v=' + Date.now();
+      
       // AeroVista products
       if(id.includes("aerovista")){
         if(id.includes("apex-draft-pullover") || (id.includes("apex-draft") && !id.includes("zip"))){
-          return imgBase + "drafted_a_hoodie.jpeg";
+          return imgBase + "drafted_a_hoodie.jpeg" + cacheBuster;
         }
         if(id.includes("apex-draft-zip") || (id.includes("apex-draft") && id.includes("zip"))){
-          return imgBase + "drafted_a__zip_hoodie.jpeg";
+          return imgBase + "drafted_a__zip_hoodie.jpeg" + cacheBuster;
         }
         if(id.includes("apex-mesh") || id.includes("cap") || id.includes("trucker")){
-          return imgBase + "drafted-a-snapback.jpeg";
+          return imgBase + "drafted-a-snapback.jpeg" + cacheBuster;
         }
         if(id.includes("wave-mark") || id.includes("wave")){
-          return imgBase + "av_wave_white.png";
+          return imgBase + "av_wave_white.png" + cacheBuster;
         }
         // Default AeroVista hoodie
-        return imgBase + "drafted_a_hoodie.jpeg";
+        return imgBase + "drafted_a_hoodie.jpeg" + cacheBuster;
       }
       
       // Drafted A classic tee
       if(id.includes("drafted-a-classic-tee") || (id.includes("drafted") && id.includes("tee") && !id.includes("hoodie"))){
-        return imgBase + "drafted_a_hoodie.jpeg"; // Use hoodie image as placeholder
+        return imgBase + "drafted_a_hoodie.jpeg" + cacheBuster; // Use hoodie image as placeholder
       }
       
       // BONSAID products
       if(id.includes("bonsaid") || name.includes("bonsaid") || id.includes("bubble-free-sticker")){
         if(id.includes("trucker") || id.includes("cap") || id.includes("snapback") || id.includes("richardson")){
-          return imgBase + "bonsaid_snapback.png";
+          return imgBase + "bonsaid_snapback.png" + cacheBuster;
         }
         if(id.includes("sticker") || name.includes("sticker")){
-          return imgBase + "bonsaid_gr.png";
+          return imgBase + "bonsaid_gr.png" + cacheBuster;
         }
         if(id.includes("oversized") || id.includes("heavyweight")){
-          return imgBase + "bonsaid_grn.png";
+          return imgBase + "bonsaid_grn.png" + cacheBuster;
         }
         if(id.includes("hoodie") || name.includes("hoodie")){
-          return imgBase + "bonsaid_grn.png";
+          return imgBase + "bonsaid_grn.png" + cacheBuster;
         }
         // Default BONSAID image
-        return imgBase + "bonsaid_gr.png";
+        return imgBase + "bonsaid_gr.png" + cacheBuster;
       }
       
       // EchoVerse products
       if(id.includes("echoverse") || name.includes("echoverse")){
         if((id.includes("frost-circuit") || name.includes("frost")) && (id.includes("tee") || name.includes("tee"))){
-          return imgBase + "frost_circuit_black_hoodie.jpeg"; // Use hoodie image for tee
+          return imgBase + "frost_circuit_black_hoodie.jpeg" + cacheBuster; // Use hoodie image for tee
         }
         if(id.includes("frost-circuit") || name.includes("frost")){
-          return imgBase + "frost_circuit_black_hoodie.jpeg";
+          return imgBase + "frost_circuit_black_hoodie.jpeg" + cacheBuster;
         }
         if(id.includes("signal-dial")){
-          return imgBase + "echoverse_hoodie.png";
+          return imgBase + "echoverse_hoodie.png" + cacheBuster;
         }
         // Default EchoVerse hoodie
-        return imgBase + "echoverse_hoodie.png";
+        return imgBase + "echoverse_hoodie.png" + cacheBuster;
       }
       
       // Founders Mark
       if(id.includes("founders") || name.includes("founders")){
-        return imgBase + "founders_zip_hoodie.png";
+        return imgBase + "founders_zip_hoodie.png" + cacheBuster;
       }
       
       // Lumina
       if(id.includes("lumina") || name.includes("lumina")){
-        return imgBase + "lumina_hoodie.jpeg";
+        return imgBase + "lumina_hoodie.jpeg" + cacheBuster;
       }
       
       // NeXuS TechWorks
       if(id.includes("nexus") || name.includes("nexus")){
-        return imgBase + "nexus_hoodie.png";
+        return imgBase + "nexus_hoodie.png" + cacheBuster;
       }
       
       // Powder Peaks
       if(id.includes("powder") || name.includes("powder")){
         if(id.includes("sticker") || name.includes("sticker")){
-          return imgBase + "power_peaks_hoodie_1.png"; // Use hoodie image for sticker
+          return imgBase + "power_peaks_hoodie_1.png" + cacheBuster; // Use hoodie image for sticker
         }
         if(id.includes("tee") || name.includes("tee")){
-          return imgBase + "power_peaks_hoodie_1.png"; // Use hoodie image for tee
+          return imgBase + "power_peaks_hoodie_1.png" + cacheBuster; // Use hoodie image for tee
         }
-        return imgBase + "power_peaks_hoodie_1.png";
+        return imgBase + "power_peaks_hoodie_1.png" + cacheBuster;
       }
       
       // Night Ranger Bear
       if(id.includes("night-ranger") || id.includes("bear") || name.includes("night ranger") || name.includes("bear")){
-        return imgBase + "nit_bear.jpeg";
+        return imgBase + "nit_bear.jpeg" + cacheBuster;
       }
       
       // Neon BillyGoat / Sound Goat
       if(id.includes("billygoat") || id.includes("neon") || name.includes("billygoat") || name.includes("goat") || id.includes("sound-goat")){
-        return imgBase + "sound_goat_a_blk_hoodie.jpeg";
+        return imgBase + "sound_goat_a_blk_hoodie.jpeg" + cacheBuster;
       }
       
       // CDA Pool League
       if(id.includes("cda") || id.includes("pool")){
-        return imgBase + "power_peaks_hoodie_1.png"; // Use placeholder image
+        return imgBase + "power_peaks_hoodie_1.png" + cacheBuster; // Use placeholder image
       }
       
       // Holographic stickers
       if(id.includes("holographic") || name.includes("holographic")){
-        return imgBase + "bonsaid_gr.png"; // Use BONSAID sticker image as placeholder
+        return imgBase + "bonsaid_gr.png" + cacheBuster; // Use BONSAID sticker image as placeholder
       }
       
       // Golden Eye Sigil
       if(id.includes("golden-eye") || name.includes("golden eye")){
-        return imgBase + "nexus_hoodie.png"; // Use placeholder
+        return imgBase + "nexus_hoodie.png" + cacheBuster; // Use placeholder
       }
       
       // Unisex Premium Sweatshirt
       if(id.includes("unisex-premium-sweatshirt") || (id.includes("unisex") && id.includes("sweatshirt"))){
-        return imgBase + "founders_zip_hoodie.png"; // Use placeholder
+        return imgBase + "founders_zip_hoodie.png" + cacheBuster; // Use placeholder
       }
       
       // Generic fallbacks based on product type
       if(id.includes("hoodie") || id.includes("pullover")){
-        return imgBase + "drafted_a_hoodie.jpeg";
+        return imgBase + "drafted_a_hoodie.jpeg" + cacheBuster;
       }
       if(id.includes("tee") || id.includes("shirt") || id.includes("long-sleeve")){
-        return imgBase + "drafted_a_hoodie.jpeg"; // Use hoodie as placeholder for tees
+        return imgBase + "drafted_a_hoodie.jpeg" + cacheBuster; // Use hoodie as placeholder for tees
       }
       if(id.includes("sticker")){
-        return imgBase + "bonsaid_gr.png";
+        return imgBase + "bonsaid_gr.png" + cacheBuster;
       }
       if(id.includes("sweatshirt") || id.includes("crewneck")){
-        return imgBase + "founders_zip_hoodie.png";
+        return imgBase + "founders_zip_hoodie.png" + cacheBuster;
       }
       
       // Default fallback - return null to use SVG fallback
@@ -1794,7 +1897,7 @@
         // Use actual image if available, otherwise fall back to SVG
         let imgContent;
         if (p.imagePath) {
-          imgContent = `<img src="${escapeHtml(p.imagePath)}" alt="${escapeHtml(p.name)}" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center; background:rgba(0,0,0,.05); border-radius:var(--radius); image-rendering:-webkit-optimize-contrast;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" loading="lazy" />`;
+          imgContent = `<img src="${escapeHtml(p.imagePath)}" alt="${escapeHtml(p.name)}" class="product-image" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center; border-radius:var(--radius); image-rendering:-webkit-optimize-contrast;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" loading="lazy" />`;
           // Add SVG fallback that shows if image fails to load
           imgContent += `<div style="display:none;">${productSvg(p)}</div>`;
         } else {
@@ -1887,7 +1990,7 @@
 
       // Use actual image if available, then imageCss, then SVG fallback
       if (p.imagePath) {
-        $("#mImg").innerHTML = `<img src="${escapeHtml(p.imagePath)}" alt="${escapeHtml(p.name)}" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center; background:rgba(0,0,0,.05); border-radius:var(--radius); image-rendering:-webkit-optimize-contrast;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />` + `<div style="display:none;">${productSvg(p)}</div>`;
+        $("#mImg").innerHTML = `<img src="${escapeHtml(p.imagePath)}" alt="${escapeHtml(p.name)}" class="product-image modal-image" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center; border-radius:var(--radius); image-rendering:-webkit-optimize-contrast;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />` + `<div style="display:none;">${productSvg(p)}</div>`;
       } else if (p.imageCss) {
         $("#mImg").innerHTML = `<div style="${p.imageCss} position:absolute; inset:0; width:100%; height:100%;"></div>`;
       } else {
