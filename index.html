@@ -1,0 +1,1789 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AeroVista Apparel — Store</title>
+  <meta name="description" content="Curated comfort essentials: hoodies, crewnecks, hats." />
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --panel:#0f1722;
+      --panel2:#0d1420;
+      --text:#e7edf6;
+      --muted:#9fb0c4;
+      --line:rgba(255,255,255,.08);
+      --accent:#6ee7ff;
+      --accent2:#a78bfa;
+      --good:#34d399;
+      --warn:#fbbf24;
+      --bad:#fb7185;
+      --shadow: 0 14px 40px rgba(0,0,0,.45);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1200px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      background: radial-gradient(900px 500px at 12% 0%, rgba(110,231,255,.12), transparent 60%),
+                  radial-gradient(700px 420px at 82% 8%, rgba(167,139,250,.11), transparent 55%),
+                  linear-gradient(180deg, #070a0f, var(--bg) 30%, #070a0f 130%);
+      color:var(--text);
+      font-family:var(--sans);
+      overflow-x:hidden;
+    }
+    a{ color:inherit; text-decoration:none; }
+    button, input, select{ font:inherit; }
+
+    .wrap{ max-width:var(--max); margin:0 auto; padding: 18px 16px 80px; }
+
+    /* Header */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(7,10,15,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar .wrap{ padding: 14px 16px; display:flex; gap:12px; align-items:center; justify-content:space-between; }
+    .brand{ display:flex; align-items:center; gap:12px; min-width: 220px; }
+    .logo{
+      width:36px; height:36px; border-radius: 12px;
+      background:
+        radial-gradient(10px 10px at 35% 35%, rgba(255,255,255,.55), transparent 60%),
+        radial-gradient(18px 18px at 70% 70%, rgba(110,231,255,.35), transparent 60%),
+        linear-gradient(135deg, rgba(110,231,255,.25), rgba(167,139,250,.18));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: 0 10px 24px rgba(0,0,0,.4);
+    }
+    .brand h1{ margin:0; font-size: 14px; letter-spacing:.12em; text-transform:uppercase; }
+    .brand .sub{ margin:2px 0 0; font-size:12px; color:var(--muted); }
+
+    .actions{ display:flex; gap:10px; align-items:center; }
+    .pill{
+      display:flex; align-items:center; gap:8px;
+      background: rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 12px;
+      color: var(--text);
+      transition: .15s ease;
+    }
+    .pill:hover{ border-color: rgba(110,231,255,.35); }
+    .pill .k{ font-family: var(--mono); font-size: 11px; opacity:.7; border:1px solid var(--line); padding:2px 6px; border-radius: 8px; }
+    .cartBtn{ position:relative; cursor:pointer; user-select:none; }
+    .badge{
+      position:absolute; right:-6px; top:-6px;
+      background: linear-gradient(135deg, rgba(110,231,255,.9), rgba(167,139,250,.9));
+      color:#061018;
+      font-weight:800;
+      border-radius:999px;
+      padding: 2px 7px;
+      font-size: 11px;
+      border:1px solid rgba(255,255,255,.20);
+    }
+
+    /* Hero */
+    .hero{ padding: 26px 0 10px; }
+    .heroCard{
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+      overflow:hidden;
+      position:relative;
+    }
+    .heroCard:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px 240px at 20% 0%, rgba(110,231,255,.16), transparent 55%),
+                  radial-gradient(520px 240px at 90% 10%, rgba(167,139,250,.14), transparent 55%);
+      pointer-events:none;
+    }
+    .heroLeft, .heroRight{ position:relative; z-index:1; }
+    .heroRight{ display:flex; align-items:flex-end; justify-content:flex-end; }
+
+    .headline{ margin:0; font-size: 22px; letter-spacing: .02em; line-height: 1.15; }
+    .tagline{ margin:10px 0 0; color:var(--muted); font-size: 14px; max-width: 64ch; }
+
+    .heroRow{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px; align-items:center; }
+    .cta{
+      display:inline-flex; align-items:center; gap:10px;
+      background: linear-gradient(135deg, rgba(110,231,255,.22), rgba(167,139,250,.18));
+      border:1px solid rgba(110,231,255,.30);
+      border-radius: 999px;
+      padding: 10px 14px;
+      cursor:pointer;
+      transition:.15s ease;
+      box-shadow: 0 10px 26px rgba(0,0,0,.35);
+    }
+    .cta:hover{ transform: translateY(-1px); border-color: rgba(167,139,250,.35); }
+    .note{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size: 12px;
+      color: var(--muted);
+      border:1px dashed rgba(255,255,255,.14);
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.18);
+    }
+
+    .glowStamp{
+      width: 220px;
+      height: 150px;
+      border-radius: 22px;
+      border:1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,.55), transparent 60%),
+        radial-gradient(95px 95px at 55% 55%, rgba(110,231,255,.16), transparent 62%),
+        radial-gradient(105px 105px at 70% 30%, rgba(167,139,250,.14), transparent 64%),
+        linear-gradient(135deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      box-shadow: 0 18px 50px rgba(0,0,0,.55);
+      display:flex; flex-direction:column; justify-content:center; padding:14px;
+      position:relative;
+      overflow:hidden;
+    }
+    .glowStamp .s1{ font-family:var(--mono); font-size:11px; color:rgba(231,237,246,.75); }
+    .glowStamp .s2{ margin-top:6px; font-size:14px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    .glowStamp .s3{ margin-top:2px; font-size:12px; color:var(--muted); }
+
+    /* Collections strip */
+    .collections{
+      margin-top: 12px;
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .col{
+      cursor:pointer;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius: 999px;
+      padding: 8px 10px;
+      color: var(--muted);
+      font-size: 12px;
+      display:flex; gap:8px; align-items:center;
+      transition:.12s ease;
+    }
+    .col b{ color: var(--text); font-weight:800; }
+    .col.active{
+      color:var(--text);
+      border-color: rgba(110,231,255,.35);
+      background: rgba(110,231,255,.08);
+    }
+
+    /* Controls */
+    .controls{
+      margin-top: 14px;
+      display:flex; gap:10px; flex-wrap:wrap;
+      align-items:center;
+    }
+    .field{
+      display:flex; align-items:center; gap:10px;
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius: 14px;
+      padding: 10px 12px;
+      flex: 1 1 220px;
+      min-width: 220px;
+    }
+    .field input{
+      border:none; outline:none; background:transparent; color:var(--text);
+      width:100%;
+      font-size: 14px;
+    }
+    .select{
+      flex: 0 0 auto;
+      min-width: 180px;
+      justify-content:space-between;
+    }
+    .select select{
+      width:100%;
+      border:none; outline:none;
+      background:transparent;
+      color:var(--text);
+      appearance:none;
+      padding-right: 22px;
+      cursor:pointer;
+    }
+    .select .chev{ margin-left:-18px; opacity:.7; pointer-events:none; }
+
+    .chips{
+      display:flex; gap:8px; flex-wrap:wrap;
+      margin-top: 12px;
+    }
+    .chip{
+      cursor:pointer;
+      user-select:none;
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: 12px;
+      color: var(--muted);
+      transition:.12s ease;
+    }
+    .chip.active{
+      color:var(--text);
+      border-color: rgba(110,231,255,.35);
+      background: rgba(110,231,255,.08);
+    }
+
+    /* Curated System */
+    .system{
+      margin-top: 12px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.16);
+      border-radius: var(--radius2);
+      padding: 14px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+    }
+    @media (min-width: 860px){
+      .system{ grid-template-columns: 1fr 1fr 1fr; }
+    }
+    .sysCard{
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+      border-radius: 18px;
+      padding: 12px;
+    }
+    .sysCard .t{
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing:.12em;
+      text-transform: uppercase;
+      color: rgba(231,237,246,.78);
+    }
+    .sysCard .b{
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    /* Grid */
+    .grid{
+      margin-top: 14px;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+    .card{
+      grid-column: span 12;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+      overflow:hidden;
+      box-shadow: 0 10px 32px rgba(0,0,0,.35);
+      display:flex; flex-direction:column;
+      min-height: 332px;
+    }
+    @media (min-width: 640px){
+      .card{ grid-column: span 6; }
+      .headline{ font-size: 26px; }
+    }
+    @media (min-width: 980px){
+      .card{ grid-column: span 4; }
+    }
+
+    .img{
+      height: 188px;
+      border-bottom: 1px solid var(--line);
+      position:relative;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      padding: 12px;
+      overflow:hidden;
+      background: radial-gradient(200px 160px at 70% 20%, rgba(110,231,255,.16), transparent 65%),
+                  radial-gradient(220px 180px at 20% 85%, rgba(167,139,250,.12), transparent 65%),
+                  linear-gradient(135deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+    }
+    .img svg{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      opacity:.95;
+    }
+    .img .label{
+      font-family: var(--mono);
+      font-size: 11px;
+      color: rgba(231,237,246,.78);
+      padding: 6px 10px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.25);
+      border-radius: 999px;
+      display:inline-flex; gap:8px; align-items:center;
+      position:relative; z-index:2;
+    }
+    .img .label .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: rgba(110,231,255,.8);
+      box-shadow: 0 0 0 3px rgba(110,231,255,.12);
+    }
+    .flags{ display:flex; gap:8px; position:relative; z-index:2; }
+    .flag{
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing:.06em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.22);
+      color: rgba(231,237,246,.85);
+    }
+    .flag.new{ background: rgba(52,211,153,.10); color: rgba(52,211,153,.95); border-color: rgba(52,211,153,.22); }
+    .flag.drop{ background: rgba(251,191,36,.10); color: rgba(251,191,36,.95); border-color: rgba(251,191,36,.22); }
+    .flag.best{ background: rgba(251,113,133,.10); color: rgba(251,113,133,.95); border-color: rgba(251,113,133,.22); }
+
+    .body{ padding: 12px; display:flex; flex-direction:column; gap:10px; flex:1; }
+    .title{ margin:0; font-size: 15px; line-height: 1.2; }
+    .desc{ margin:0; font-size: 13px; color:var(--muted); line-height: 1.35; }
+    .swatches{ display:flex; gap:6px; flex-wrap:wrap; }
+    .sw{
+      width: 12px; height: 12px; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 0 0 3px rgba(0,0,0,.18);
+    }
+
+    .row{
+      margin-top:auto;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+    }
+    .price{ font-size: 15px; font-weight: 900; letter-spacing:.02em; }
+    .btn{
+      border:none;
+      border-radius: 14px;
+      padding: 10px 12px;
+      cursor:pointer;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+      color: var(--text);
+      transition:.12s ease;
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:hover{ border-color: rgba(110,231,255,.35); transform: translateY(-1px); }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(110,231,255,.20), rgba(167,139,250,.16));
+      border-color: rgba(110,231,255,.25);
+    }
+
+    /* Modal */
+    .overlay{
+      position:fixed; inset:0;
+      background: rgba(0,0,0,.62);
+      backdrop-filter: blur(8px);
+      display:none;
+      align-items:center; justify-content:center;
+      padding: 16px;
+      z-index: 90;
+    }
+    .overlay.show{ display:flex; }
+    .modal{
+      width:min(980px, 100%);
+      border-radius: 22px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(10,14,20,.92);
+      box-shadow: 0 26px 80px rgba(0,0,0,.62);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 820px){
+      .modal{ grid-template-columns: 1.2fr .8fr; }
+    }
+    .mImg{
+      min-height: 260px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      position:relative;
+      overflow:hidden;
+      background: radial-gradient(240px 200px at 70% 10%, rgba(110,231,255,.18), transparent 65%),
+                  radial-gradient(260px 220px at 20% 90%, rgba(167,139,250,.14), transparent 65%),
+                  linear-gradient(135deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+    }
+    .mImg svg{ position:absolute; inset:0; width:100%; height:100%; opacity:.98; }
+    @media (min-width: 820px){
+      .mImg{ border-bottom:none; border-right: 1px solid rgba(255,255,255,.10); }
+    }
+    .mBody{ padding: 14px; display:flex; flex-direction:column; gap: 12px; }
+    .mTop{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
+    .close{
+      cursor:pointer;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 8px 10px;
+    }
+    .meta{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .meta .tag{
+      border:1px solid rgba(255,255,255,.12);
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.22);
+    }
+    .optRow{ display:grid; grid-template-columns: 1fr 1fr; gap:10px; }
+    .opt{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius: 14px;
+      padding: 10px 12px;
+    }
+    .opt label{ display:block; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+    .opt select, .opt input{
+      width:100%;
+      border:none; outline:none; background:transparent; color: var(--text);
+    }
+    .qtyRow{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+    .qty{
+      display:flex; align-items:center; gap:8px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius: 14px;
+      padding: 8px;
+    }
+    .qty button{
+      width:34px; height:34px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.22);
+      color:var(--text);
+      cursor:pointer;
+    }
+    .qty input{
+      width:46px;
+      text-align:center;
+      border:none; outline:none; background:transparent; color:var(--text);
+      font-family: var(--mono);
+    }
+
+    .detailGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+      margin-top: 2px;
+    }
+    @media (min-width: 820px){
+      .detailGrid{ grid-template-columns: 1fr 1fr; }
+    }
+    .detail{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.02);
+      border-radius: 14px;
+      padding: 10px 12px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .detail b{ color: rgba(231,237,246,.92); }
+
+    /* Cart Drawer */
+    .drawer{
+      position:fixed; top:0; right:0;
+      width:min(420px, 92vw);
+      height:100vh;
+      background: rgba(10,14,20,.96);
+      border-left:1px solid rgba(255,255,255,.10);
+      box-shadow: -22px 0 70px rgba(0,0,0,.55);
+      transform: translateX(105%);
+      transition: .2s ease;
+      z-index: 99;
+      display:flex; flex-direction:column;
+    }
+    .drawer.show{ transform: translateX(0); }
+    .dHead{
+      padding: 14px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+    }
+    .dHead h3{ margin:0; font-size: 14px; letter-spacing:.08em; text-transform:uppercase; }
+    .dClose{ cursor:pointer; padding: 8px 10px; border-radius: 12px; border:1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04); color: var(--text);}
+    .dBody{ padding: 14px; overflow:auto; display:flex; flex-direction:column; gap:10px; flex:1; }
+    .item{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius: 16px;
+      padding: 10px;
+      display:grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+    }
+    .item h4{ margin:0; font-size: 13px; }
+    .item .small{ margin-top: 4px; font-size: 12px; color: var(--muted); }
+    .item .right{ display:flex; flex-direction:column; gap:8px; align-items:flex-end; }
+    .miniBtn{
+      cursor:pointer;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 6px 8px;
+      font-size: 12px;
+    }
+    .totals{
+      border-top:1px solid rgba(255,255,255,.10);
+      padding: 14px;
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .lineRow{ display:flex; justify-content:space-between; color: var(--muted); font-size: 13px; }
+    .lineRow strong{ color: var(--text); }
+    .promo{ display:flex; gap:10px; }
+    .promo input{
+      flex:1;
+      background: rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: 14px;
+      padding: 10px 12px;
+      color: var(--text);
+      outline:none;
+    }
+    .footerBtns{ display:flex; gap:10px; }
+    .footerBtns .btn{ flex:1; }
+
+    /* Footer */
+    .foot{
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 12px;
+      display:flex; flex-wrap:wrap; gap:10px;
+      align-items:center; justify-content:space-between;
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding-top: 16px;
+    }
+    .foot .links{ display:flex; gap:12px; flex-wrap:wrap; }
+    .dotSep{ opacity:.6; }
+
+    /* Toast */
+    .toast{
+      position:fixed; left:50%; bottom:18px;
+      transform: translateX(-50%) translateY(120%);
+      background: rgba(10,14,20,.95);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: 999px;
+      padding: 10px 14px;
+      color: var(--text);
+      box-shadow: 0 22px 70px rgba(0,0,0,.6);
+      transition: .2s ease;
+      z-index: 120;
+      display:flex; gap:10px; align-items:center;
+      font-size: 13px;
+    }
+    .toast.show{ transform: translateX(-50%) translateY(0); }
+    .toast .ping{
+      width:10px; height:10px; border-radius:999px;
+      background: rgba(52,211,153,.9);
+      box-shadow: 0 0 0 4px rgba(52,211,153,.12);
+    }
+
+    @media (max-width: 720px){
+      .heroCard{ grid-template-columns: 1fr; }
+      .heroRight{ justify-content:flex-start; }
+      .glowStamp{ width: 100%; height: auto; }
+    }
+  </style>
+  <script src="https://web.squarecdn.com/v1/square.js"></script>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="#" id="homeLink" aria-label="Home">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>AeroVista Apparel</h1>
+          <div class="sub">Curated Comfort · Minimal Signal</div>
+        </div>
+      </a>
+
+      <div class="actions">
+        <div class="pill" title="Search shortcut">
+          <span style="opacity:.85">Search</span>
+          <span class="k">/</span>
+        </div>
+        <div class="pill cartBtn" id="cartOpen" role="button" tabindex="0" aria-label="Open cart">
+          <span>Cart</span>
+          <span class="badge" id="cartCount">0</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="heroCard">
+        <div class="heroLeft">
+          <h2 class="headline">Engineered Minimal, built on curation.</h2>
+          <p class="tagline">
+            We don’t pretend to reinvent hoodies. We choose the best-ready options, keep the palette disciplined,
+            and design marks that stay quiet until you’re close enough to notice.
+          </p>
+
+          <div class="heroRow">
+            <button class="cta" id="scrollToProducts">Browse essentials →</button>
+            <div class="note">Promo <span style="font-family:var(--mono)">SEED10</span> (placeholder)</div>
+          </div>
+
+          <div class="collections" aria-label="Collections">
+            <div class="col active" data-collection="all"><b>All</b> <span style="opacity:.85">Essentials</span></div>
+            <div class="col" data-collection="EchoVerse"><b>EchoVerse</b> <span style="opacity:.85">Wave</span></div>
+            <div class="col" data-collection="NXCore"><b>NXCore</b> <span style="opacity:.85">Operator</span></div>
+            <div class="col" data-collection="AeroVista"><b>AeroVista</b> <span style="opacity:.85">Minimal</span></div>
+            <div class="col" data-collection="Limited"><b>Limited</b> <span style="opacity:.85">Drop</span></div>
+          </div>
+
+          <div class="controls" aria-label="Store controls">
+            <div class="field" role="search">
+              <span style="opacity:.75">🔎</span>
+              <input id="search" type="search" placeholder="Search: heavyweight, embroidered, oversized, black..." autocomplete="off" />
+            </div>
+
+            <div class="field select">
+              <select id="sort" aria-label="Sort products">
+                <option value="featured">Sort: Featured</option>
+                <option value="price_asc">Price: Low → High</option>
+                <option value="price_desc">Price: High → Low</option>
+                <option value="newest">Newest</option>
+              </select>
+              <span class="chev">▾</span>
+            </div>
+          </div>
+
+          <div class="chips" aria-label="Category filters">
+            <div class="chip active" data-cat="all">All</div>
+            <div class="chip" data-cat="hoodies">Hoodies</div>
+            <div class="chip" data-cat="crewnecks">Crewnecks</div>
+            <div class="chip" data-cat="hats">Hats</div>
+          </div>
+
+          <div class="system" aria-label="Curated system">
+            <div class="sysCard">
+              <div class="t">01 · Curation</div>
+              <div class="b">We select proven blanks and keep options tight. Less noise, better decisions.</div>
+            </div>
+            <div class="sysCard">
+              <div class="t">02 · Palette</div>
+              <div class="b">Neutral colorways that repeat across the line—so your pieces always match.</div>
+            </div>
+            <div class="sysCard">
+              <div class="t">03 · Signal</div>
+              <div class="b">Small marks, clean placement, and tonal execution—recognizable without shouting.</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="heroRight">
+          <div class="glowStamp">
+            <div class="s1">Storefront Prototype</div>
+            <div class="s2">Semi-Finished Copy</div>
+            <div class="s3">Unique product narratives</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="productsSection">
+      <div class="grid" id="grid" aria-label="Product grid"></div>
+    </section>
+
+    <footer class="foot">
+      <div>© <span id="yr"></span> AeroVista LLC</div>
+      <div class="links">
+        <a href="#" id="faqLink">FAQ</a>
+        <span class="dotSep">•</span>
+        <a href="#" id="shippingLink">Shipping</a>
+        <span class="dotSep">•</span>
+        <a href="#" id="returnsLink">Returns</a>
+        <span class="dotSep">•</span>
+        <a href="#" id="contactLink">Contact</a>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Product Modal -->
+  <div class="overlay" id="overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Product details">
+      <div class="mImg" id="mImg" aria-hidden="true"></div>
+      <div class="mBody">
+        <div class="mTop">
+          <div>
+            <h3 id="mTitle" style="margin:0; font-size: 18px;"></h3>
+            <div class="meta" id="mMeta"></div>
+          </div>
+          <button class="close" id="mClose" aria-label="Close">✕</button>
+        </div>
+
+        <p id="mDesc" class="desc" style="font-size:14px;"></p>
+        <div class="price" id="mPrice"></div>
+
+        <div class="optRow">
+          <div class="opt">
+            <label for="mSize">Size</label>
+            <select id="mSize"></select>
+          </div>
+          <div class="opt">
+            <label for="mColor">Color</label>
+            <select id="mColor"></select>
+          </div>
+        </div>
+
+        <div class="detailGrid" aria-label="Product details blocks">
+          <div class="detail" id="mFit"><b>Fit:</b> —</div>
+          <div class="detail" id="mFabric"><b>Blank:</b> —</div>
+          <div class="detail" id="mCare"><b>Care:</b> —</div>
+          <div class="detail" id="mShip"><b>Shipping:</b> —</div>
+        </div>
+
+        <div class="qtyRow">
+          <div class="qty" aria-label="Quantity selector">
+            <button id="qMinus" aria-label="Decrease quantity">−</button>
+            <input id="mQty" value="1" inputmode="numeric" aria-label="Quantity" />
+            <button id="qPlus" aria-label="Increase quantity">+</button>
+          </div>
+          <button class="btn primary" id="addToCartBtn">Add to Cart</button>
+          <button class="btn" id="providerBtn" title="Open provider link">Provider</button>
+        </div>
+
+        <div style="color:var(--muted); font-size:12px; line-height:1.35;">
+          Notes are written for POD reality: we curate available blanks and focus on placement, palette, and finish.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Drawer -->
+  <aside class="drawer" id="drawer" aria-label="Cart drawer" aria-hidden="true">
+    <div class="dHead">
+      <h3>Your Cart</h3>
+      <button class="dClose" id="cartClose" aria-label="Close cart">✕</button>
+    </div>
+    <div class="dBody" id="cartItems"></div>
+    <div class="totals">
+      <div class="promo">
+        <input id="promo" placeholder="Promo code (try: SEED10)" />
+        <button class="btn" id="applyPromo">Apply</button>
+      </div>
+
+      <div class="lineRow"><span>Subtotal</span><strong id="subTotal">$0.00</strong></div>
+      <div class="lineRow"><span>Discount</span><strong id="discount">$0.00</strong></div>
+      <div class="lineRow"><span>Estimated Total</span><strong id="grandTotal">$0.00</strong></div>
+
+      <div class="footerBtns">
+        <button class="btn" id="clearCart">Clear</button>
+        <button class="btn primary" id="checkout">Checkout</button>
+      </div>
+
+      <div style="color:var(--muted); font-size:12px;">
+        Checkout opens provider links if set — otherwise email fallback.
+      </div>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <div class="ping" aria-hidden="true"></div>
+    <div id="toastMsg">Added to cart</div>
+  </div>
+
+  <script>
+    // =========================
+    // STORE SETTINGS
+    // =========================
+    const CHECKOUT_API_BASE = (window.STORE_API_BASE || ""); // set this in window or replace with your API URL
+    const STORE = {
+      name: "AeroVista Apparel",
+      currency: "USD",
+      emailFallback: "orders@yourdomain.com",
+      promoCodes: { "SEED10": 0.10, "CREW15": 0.15 }
+    };
+
+    // Placeholder color swatches
+    const SW = {
+      "Black":"#0b0f14",
+      "Charcoal":"#202833",
+      "Graphite":"#2b3442",
+      "Ash":"#b7c2cf",
+      "Heather":"#8fa0b2",
+      "Sand":"#c9b9a3",
+      "Navy":"#1a2a42",
+      "Midnight":"#0b1a2a",
+      "Forest":"#123a2e",
+      "Olive":"#2a3a24",
+      "Stone":"#a8a49a",
+      "Ice":"#d7e6ff",
+      "Black/White":"linear-gradient(90deg,#0b0f14 50%,#e7edf6 50%)",
+      "Navy/White":"linear-gradient(90deg,#1a2a42 50%,#e7edf6 50%)",
+      "Forest/Khaki":"linear-gradient(90deg,#123a2e 50%,#bfae8b 50%)",
+    };
+
+    // =========================
+    // PRODUCTS (unique semi-finished descriptions)
+    // =========================
+    const PRODUCTS = [
+      // EchoVerse
+      {
+        id:"ev-hoodie-sb",
+        name:"EchoVerse Hoodie — Silent Broadcast",
+        collection:"EchoVerse",
+        category:"hoodies",
+        price: 62.00,
+        featured:true,
+        isNew:true,
+        flags:["new","drop"],
+        blurb:"A clean front mark you notice up close—quiet identity, everyday comfort. Built around disciplined colorways and a single repeatable signal.",
+        fitNote:"Relaxed everyday fit. Size up for a looser drape; stay true for clean shoulders.",
+        fabricNote:"Curated blank chosen for consistency and comfort. Exact blend/weight varies by provider option.",
+        careNote:"Wash cold, inside-out. Low heat or hang dry to protect print/embroidery finish.",
+        shipNote:"Made-to-order via fulfillment partner. Typical production + transit varies by region.",
+        sizes:["S","M","L","XL","2XL","3XL"],
+        colors:["Black","Midnight","Ash","Forest"],
+        checkoutUrl:""
+      },
+      {
+        id:"ev-crew-hz",
+        name:"EchoVerse Crewneck — Hush Zone",
+        collection:"EchoVerse",
+        category:"crewnecks",
+        price: 48.00,
+        featured:true,
+        isNew:false,
+        flags:["best"],
+        blurb:"For the days you want warmth without visual noise. The mark sits low-key, the palette stays neutral, and everything pairs with everything.",
+        fitNote:"Classic crew silhouette with a modern, slightly roomier feel.",
+        fabricNote:"Selected from provider-ready crews that hold shape well after repeat wear.",
+        careNote:"Cold wash recommended. Avoid high heat to reduce shrink risk.",
+        shipNote:"Fulfilled on demand. Tracking provided when provider ships.",
+        sizes:["S","M","L","XL","2XL","3XL"],
+        colors:["Black","Heather","Sand"],
+        checkoutUrl:""
+      },
+      {
+        id:"ev-hat-wv",
+        name:"EchoVerse Dad Hat — Wave Stitch",
+        collection:"EchoVerse",
+        category:"hats",
+        price: 28.00,
+        featured:false,
+        isNew:true,
+        flags:["new"],
+        blurb:"A small stitch that reads like a signature, not a billboard. Soft curve, subtle presence—made to disappear into daily rotation.",
+        fitNote:"Adjustable strap. Low-profile fit; sits closer to the head.",
+        fabricNote:"Provider cap options vary; we prioritize clean embroidery placement and wearable structure.",
+        careNote:"Spot clean only. Avoid full wash cycles to protect embroidery.",
+        shipNote:"On-demand embroidery. Production times can run slightly longer than printed items.",
+        sizes:["One Size"],
+        colors:["Black","Stone","Olive"],
+        checkoutUrl:""
+      },
+
+      // NXCore
+      {
+        id:"nx-hoodie-op",
+        name:"NXCore Hoodie — Operator Build",
+        collection:"NXCore",
+        category:"hoodies",
+        price: 58.00,
+        featured:true,
+        isNew:false,
+        flags:["best"],
+        blurb:"Comfort you can live in, with a stamp that feels like membership. Minimal placement, practical colorways, and a hoodie that doesn’t try too hard.",
+        fitNote:"Roomy through the body. If you’re between sizes, choose the smaller for a cleaner line.",
+        fabricNote:"Chosen for reliable softness and repeat-wear durability within available POD blanks.",
+        careNote:"Turn inside-out before washing. Low heat to keep the surface smooth.",
+        shipNote:"Printed or embroidered to order. Shipping window depends on destination.",
+        sizes:["S","M","L","XL","2XL","3XL"],
+        colors:["Black","Charcoal","Navy"],
+        checkoutUrl:""
+      },
+      {
+        id:"nx-crew-ln",
+        name:"NXCore Crewneck — Launch Node",
+        collection:"NXCore",
+        category:"crewnecks",
+        price: 52.00,
+        featured:false,
+        isNew:true,
+        flags:["new","drop"],
+        blurb:"A crew built for clean layering—sharp enough for a meeting, relaxed enough for midnight work. The design stays tonal so the fit does the talking.",
+        fitNote:"True-to-size with a slightly modern cut. Great under jackets.",
+        fabricNote:"Provider-ready crew blank selected for stable collar and cuff feel.",
+        careNote:"Cold wash. Lay flat or hang dry to preserve neckline.",
+        shipNote:"On-demand production; allow extra time during peak seasons.",
+        sizes:["S","M","L","XL","2XL","3XL"],
+        colors:["Graphite","Ice","Black"],
+        checkoutUrl:""
+      },
+      {
+        id:"nx-hat-tr",
+        name:"NXCore Trucker — Uptime Club",
+        collection:"NXCore",
+        category:"hats",
+        price: 32.00,
+        featured:false,
+        isNew:false,
+        flags:[],
+        blurb:"Structured front, breathable back, and just enough signal to be recognized by the right people. Works with the whole palette—no outfit negotiation.",
+        fitNote:"Adjustable snapback. Medium crown with a more structured profile.",
+        fabricNote:"Trucker options vary by provider; we prioritize stitch clarity and clean panel alignment.",
+        careNote:"Spot clean with mild soap. Avoid machine washing.",
+        shipNote:"Embroidery/print produced to order; tracking when shipped.",
+        sizes:["One Size"],
+        colors:["Black/White","Navy/White","Forest/Khaki"],
+        checkoutUrl:""
+      },
+
+      // AeroVista
+      {
+        id:"av-hoodie-mn",
+        name:"AeroVista Hoodie — Minimal North",
+        collection:"AeroVista",
+        category:"hoodies",
+        price: 54.00,
+        featured:false,
+        isNew:false,
+        flags:[],
+        blurb:"The default hoodie—clean mark, clean line, calm colors. Designed to be the one you grab first because it always fits the day.",
+        fitNote:"Standard fit. Size up for oversized lounge; true for everyday clean.",
+        fabricNote:"We pick blanks that feel good without being delicate—comfort that survives routines.",
+        careNote:"Wash cold. Avoid high heat to keep the hoodie drape consistent.",
+        shipNote:"Made to order; delivery timing depends on fulfillment region.",
+        sizes:["S","M","L","XL","2XL","3XL"],
+        colors:["Black","Charcoal","Heather"],
+        checkoutUrl:""
+      },
+      {
+        id:"av-crew-vf",
+        name:"AeroVista Crewneck — Vision Flight",
+        collection:"AeroVista",
+        category:"crewnecks",
+        price: 46.00,
+        featured:true,
+        isNew:true,
+        flags:["new"],
+        blurb:"A crewneck that reads ‘intentional’ without getting loud. Tight palette, small mark, and an easy layer that looks finished even when you’re not trying.",
+        fitNote:"Comfort-forward fit with clean shoulders; great with jeans or joggers.",
+        fabricNote:"Provider blank selected for softness and a stable collar edge over time.",
+        careNote:"Wash inside-out for print longevity. Low heat to reduce shrink.",
+        shipNote:"On-demand production; expect standard partner lead time.",
+        sizes:["S","M","L","XL","2XL","3XL"],
+        colors:["Black","Sand","Heather"],
+        checkoutUrl:""
+      },
+      {
+        id:"av-hat-vt",
+        name:"AeroVista Dad Hat — Vision Takes Flight",
+        collection:"AeroVista",
+        category:"hats",
+        price: 26.00,
+        featured:false,
+        isNew:false,
+        flags:["drop"],
+        blurb:"A simple phrase done the right way: discreet placement and thread choices that don’t scream. The goal is permanence—something you keep, not a trend.",
+        fitNote:"Low-profile adjustable hat. Easy daily wear and travel-friendly.",
+        fabricNote:"Provider hat varies; we keep embroidery minimal so it stays clean and crisp.",
+        careNote:"Spot clean only. Avoid soaking to protect structure.",
+        shipNote:"Fulfilled on demand. Embroidery may add a little production time.",
+        sizes:["One Size"],
+        colors:["Black","Stone","Navy"],
+        checkoutUrl:""
+      },
+
+      // Limited
+      {
+        id:"lm-hoodie-pp",
+        name:"Limited Hoodie — Powder Peaks (Placeholder)",
+        collection:"Limited",
+        category:"hoodies",
+        price: 66.00,
+        featured:true,
+        isNew:true,
+        flags:["new","drop","best"],
+        blurb:"A limited capsule concept built around one rule: fewer options, stronger identity. Expect tight colorways, tonal execution, and a repeatable mark system.",
+        fitNote:"Drop-style feel. Consider sizing up if you like heavier layering and longer sleeves.",
+        fabricNote:"Limited drops use our ‘best available’ blank options from the provider list at launch time.",
+        careNote:"Cold wash, low heat. Keep the finish sharp by avoiding hot dryers.",
+        shipNote:"Limited run, on-demand. If a blank runs out, the drop may close without restock.",
+        sizes:["S","M","L","XL","2XL","3XL"],
+        colors:["Black","Midnight","Forest"],
+        checkoutUrl:""
+      },
+      {
+        id:"lm-crew-mb",
+        name:"Limited Crewneck — Moonball (Placeholder)",
+        collection:"Limited",
+        category:"crewnecks",
+        price: 58.00,
+        featured:false,
+        isNew:true,
+        flags:["new","drop"],
+        blurb:"A crewneck reserved for high-contrast minimalists: clean geometry, quiet placement, and a color story that looks calm in daylight and sharp under LEDs.",
+        fitNote:"True-to-size. If you prefer a looser drape, go one size up.",
+        fabricNote:"Chosen for provider consistency and a collar that stays crisp after multiple washes.",
+        careNote:"Wash cold and remove promptly. Avoid high heat to protect collar shape.",
+        shipNote:"On-demand build; peak season can extend lead times slightly.",
+        sizes:["S","M","L","XL","2XL","3XL"],
+        colors:["Graphite","Ice","Black"],
+        checkoutUrl:""
+      },
+      {
+        id:"lm-hat-sb",
+        name:"Limited Hat — Silent Broadcast (Alt)",
+        collection:"Limited",
+        category:"hats",
+        price: 34.00,
+        featured:false,
+        isNew:true,
+        flags:["new"],
+        blurb:"A tiny variant with a different stitch placement—same quiet identity. This is for people who like details that only show up when you’re paying attention.",
+        fitNote:"Adjustable fit. Slightly more structured than a soft dad cap (varies by provider).",
+        fabricNote:"Provider hat options vary; we keep the mark minimal to preserve clean execution.",
+        careNote:"Spot clean only. Avoid machine wash to protect structure and stitching.",
+        shipNote:"Embroidered to order; production time may be slightly longer than prints.",
+        sizes:["One Size"],
+        colors:["Black","Olive","Stone"],
+        checkoutUrl:""
+      }
+    ];
+
+    // =========================
+    // STORE LOGIC
+    // =========================
+    const $ = (q, el=document) => el.querySelector(q);
+    const $$ = (q, el=document) => Array.from(el.querySelectorAll(q));
+    const fmt = (n) => new Intl.NumberFormat(undefined, { style:"currency", currency: STORE.currency }).format(n);
+
+    const state = {
+      collection: "all",
+      cat: "all",
+      search: "",
+      sort: "featured",
+      modalProduct: null,
+      promo: "",
+      discountRate: 0
+    };
+
+    const LS_KEY = "av_store_cart_v3";
+    const LS_PROMO = "av_store_promo_v3";
+
+    function loadCart(){ try{ return JSON.parse(localStorage.getItem(LS_KEY) || "[]"); }catch(e){ return []; } }
+    function saveCart(cart){ localStorage.setItem(LS_KEY, JSON.stringify(cart)); updateCartUI(); }
+
+    function getCartCount(cart){ return cart.reduce((a,it)=>a + (it.qty||0), 0); }
+
+    function toast(msg){
+      $("#toastMsg").textContent = msg;
+      const t = $("#toast");
+      t.classList.add("show");
+      clearTimeout(toast._t);
+      toast._t = setTimeout(()=>t.classList.remove("show"), 1600);
+    }
+
+    function sortProducts(list){
+      const s = state.sort;
+      const copy = list.slice();
+      if(s === "featured"){
+        copy.sort((a,b)=> (b.featured===true) - (a.featured===true) || (b.isNew===true) - (a.isNew===true) );
+      } else if(s === "price_asc"){
+        copy.sort((a,b)=> a.price - b.price);
+      } else if(s === "price_desc"){
+        copy.sort((a,b)=> b.price - a.price);
+      } else if(s === "newest"){
+        copy.sort((a,b)=> (b.isNew===true) - (a.isNew===true));
+      }
+      return copy;
+    }
+
+    function filterProducts(){
+      let list = PRODUCTS;
+
+      if(state.collection !== "all"){
+        list = list.filter(p => p.collection === state.collection);
+      }
+
+      if(state.cat !== "all"){
+        list = list.filter(p => p.category === state.cat);
+      }
+
+      const q = state.search.trim().toLowerCase();
+      if(q){
+        list = list.filter(p => {
+          const hay = `${p.name} ${p.blurb} ${p.fitNote} ${p.collection} ${p.category} ${(p.colors||[]).join(" ")} ${(p.sizes||[]).join(" ")}`.toLowerCase();
+          return hay.includes(q);
+        });
+      }
+
+      return sortProducts(list);
+    }
+
+    function categoryLabel(cat){
+      if(cat==="hoodies") return "Hoodie";
+      if(cat==="crewnecks") return "Crewneck";
+      if(cat==="hats") return "Hat";
+      return cat;
+    }
+
+    // Placeholder SVG "product mock"
+    function productSvg(p){
+      const a = p.collection === "EchoVerse" ? "rgba(110,231,255,.55)" :
+                p.collection === "NXCore" ? "rgba(167,139,250,.55)" :
+                p.collection === "Limited" ? "rgba(251,191,36,.55)" :
+                "rgba(231,237,246,.35)";
+      const b = p.category === "hats" ? "CAP" : (p.category === "crewnecks" ? "CREW" : "HOOD");
+      const mark = (p.collection === "EchoVerse") ? "EV" :
+                   (p.collection === "NXCore") ? "NX" :
+                   (p.collection === "Limited") ? "LTD" : "AV";
+
+      return `
+      <svg viewBox="0 0 900 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="${a}"/>
+            <stop offset="1" stop-color="rgba(255,255,255,.02)"/>
+          </linearGradient>
+          <radialGradient id="g2" cx="30%" cy="35%" r="70%">
+            <stop offset="0" stop-color="rgba(255,255,255,.14)"/>
+            <stop offset="1" stop-color="rgba(255,255,255,0)"/>
+          </radialGradient>
+          <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="18"/>
+          </filter>
+        </defs>
+
+        <rect width="900" height="520" fill="rgba(0,0,0,0)"/>
+        <circle cx="240" cy="190" r="190" fill="url(#g2)"/>
+        <circle cx="730" cy="80" r="180" fill="url(#g1)" filter="url(#blur)"/>
+
+        <g opacity="0.98">
+          <path d="M290 120
+                   C310 90, 360 70, 410 70
+                   L490 70
+                   C540 70, 590 90, 610 120
+                   L680 200
+                   C690 214, 684 232, 668 240
+                   L615 268
+                   L615 430
+                   C615 452, 598 470, 576 470
+                   L324 470
+                   C302 470, 285 452, 285 430
+                   L285 268
+                   L232 240
+                   C216 232, 210 214, 220 200
+                   Z"
+                fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.10)" stroke-width="2"/>
+          <path d="M372 98
+                   C388 82, 410 74, 432 74
+                   L468 74
+                   C490 74, 512 82, 528 98
+                   C516 132, 496 152, 470 152
+                   L430 152
+                   C404 152, 384 132, 372 98 Z"
+                fill="rgba(0,0,0,.20)" stroke="rgba(255,255,255,.08)" stroke-width="2"/>
+        </g>
+
+        <g transform="translate(0,0)">
+          <rect x="368" y="250" rx="18" ry="18" width="164" height="96"
+                fill="rgba(0,0,0,.26)" stroke="rgba(255,255,255,.12)" />
+          <text x="450" y="288" text-anchor="middle" font-family="ui-monospace, Menlo, monospace"
+                font-size="30" fill="rgba(231,237,246,.90)" font-weight="900">${mark}</text>
+          <text x="450" y="318" text-anchor="middle" font-family="ui-monospace, Menlo, monospace"
+                font-size="18" fill="rgba(159,176,196,.85)">${b}</text>
+        </g>
+
+        <g opacity="0.25">
+          <path d="M130 390 C230 350, 310 430, 420 390 C520 350, 610 430, 770 380"
+                fill="none" stroke="${a}" stroke-width="4" />
+          <path d="M160 420 C260 380, 340 460, 450 420 C550 380, 640 460, 800 410"
+                fill="none" stroke="${a}" stroke-width="3" />
+        </g>
+      </svg>`;
+    }
+
+    function swatches(colors){
+      return (colors||[]).slice(0,6).map(c=>{
+        const v = SW[c] || "#64748b";
+        const style = String(v).startsWith("linear-gradient") ? `background:${v};` : `background:${v};`;
+        return `<span class="sw" title="${escapeHtml(c)}" style="${style}"></span>`;
+      }).join("");
+    }
+
+    function flagsHtml(p){
+      const f = p.flags || [];
+      if(!f.length) return "";
+      const mk = (x)=>`<span class="flag ${x}">${x}</span>`;
+      return `<div class="flags">${f.slice(0,3).map(mk).join("")}</div>`;
+    }
+
+    function renderGrid(){
+      const grid = $("#grid");
+      const list = filterProducts();
+
+      if(list.length === 0){
+        grid.innerHTML = `
+          <div class="card" style="grid-column: span 12; min-height: 180px;">
+            <div class="body">
+              <h3 class="title">No matches.</h3>
+              <p class="desc">Try a different search, category, or collection.</p>
+              <div class="row">
+                <button class="btn" id="clearFilters">Reset</button>
+              </div>
+            </div>
+          </div>
+        `;
+        $("#clearFilters").onclick = () => {
+          state.collection="all"; setActiveCollection("all");
+          state.cat="all"; setActiveChip("all");
+          state.search=""; $("#search").value="";
+          state.sort="featured"; $("#sort").value="featured";
+          renderGrid();
+        };
+        return;
+      }
+
+      grid.innerHTML = list.map(p => `
+        <article class="card">
+          <div class="img" role="img" aria-label="${escapeHtml(p.name)} image">
+            ${productSvg(p)}
+            <div class="label"><span class="dot"></span>${escapeHtml(p.collection)} · ${categoryLabel(p.category)}</div>
+            ${flagsHtml(p) || `<div></div>`}
+          </div>
+
+          <div class="body">
+            <h3 class="title">${escapeHtml(p.name)}</h3>
+            <p class="desc">${escapeHtml(p.blurb || "")}</p>
+            <div class="swatches">${swatches(p.colors)}</div>
+            <div class="row">
+              <div class="price">${fmt(p.price)}</div>
+              <button class="btn primary" data-quick="${p.id}">Quick View</button>
+            </div>
+          </div>
+        </article>
+      `).join("");
+
+      $$("[data-quick]").forEach(btn=>{
+        btn.onclick = () => openModal(btn.getAttribute("data-quick"));
+      });
+    }
+
+    function escapeHtml(s){
+      return (s||"")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    // ===== Modal =====
+    function openModal(id){
+      const p = PRODUCTS.find(x=>x.id===id);
+      if(!p) return;
+      state.modalProduct = p;
+
+      $("#mTitle").textContent = p.name;
+      $("#mDesc").textContent = p.blurb || "";
+      $("#mPrice").textContent = fmt(p.price);
+
+      $("#mMeta").innerHTML = `
+        <span class="tag">${escapeHtml(p.collection)}</span>
+        <span class="tag">${categoryLabel(p.category)}</span>
+        <span class="tag">${p.featured ? "Featured" : "Standard"}</span>
+        <span class="tag">${p.isNew ? "New Drop" : "In Rotation"}</span>
+      `;
+
+      $("#mImg").innerHTML = productSvg(p);
+
+      $("#mSize").innerHTML = (p.sizes||["One Size"]).map(x=>`<option>${escapeHtml(x)}</option>`).join("");
+      $("#mColor").innerHTML = (p.colors||["Default"]).map(x=>`<option>${escapeHtml(x)}</option>`).join("");
+      $("#mQty").value = "1";
+
+      $("#mFit").innerHTML   = `<b>Fit:</b> ${escapeHtml(p.fitNote || "—")}`;
+      $("#mFabric").innerHTML= `<b>Blank:</b> ${escapeHtml(p.fabricNote || "—")}`;
+      $("#mCare").innerHTML  = `<b>Care:</b> ${escapeHtml(p.careNote || "—")}`;
+      $("#mShip").innerHTML  = `<b>Shipping:</b> ${escapeHtml(p.shipNote || "—")}`;
+
+      $("#providerBtn").onclick = () => {
+        if(p.checkoutUrl){
+          window.open(p.checkoutUrl, "_blank");
+        } else {
+          toast("No provider link set yet.");
+        }
+      };
+
+      $("#addToCartBtn").onclick = () => {
+        const size = $("#mSize").value;
+        const color = $("#mColor").value;
+        const qty = clampInt($("#mQty").value, 1, 99);
+        addToCart(p.id, size, color, qty);
+        closeModal();
+        openDrawer();
+      };
+
+      $("#qMinus").onclick = () => {
+        const v = clampInt($("#mQty").value,1,99);
+        $("#mQty").value = String(Math.max(1, v-1));
+      };
+      $("#qPlus").onclick  = () => {
+        const v = clampInt($("#mQty").value,1,99);
+        $("#mQty").value = String(Math.min(99, v+1));
+      };
+
+      $("#overlay").classList.add("show");
+      $("#overlay").setAttribute("aria-hidden","false");
+    }
+
+    function closeModal(){
+      $("#overlay").classList.remove("show");
+      $("#overlay").setAttribute("aria-hidden","true");
+      state.modalProduct = null;
+    }
+
+    function clampInt(v, min, max){
+      const n = Number(String(v).replace(/[^\d]/g,""));
+      if(!Number.isFinite(n)) return min;
+      return Math.max(min, Math.min(max, Math.trunc(n)));
+    }
+
+    $("#mClose").onclick = closeModal;
+    $("#overlay").addEventListener("click", (e)=>{
+      if(e.target.id === "overlay") closeModal();
+    });
+    document.addEventListener("keydown", (e)=>{
+      if(e.key === "Escape"){ closeModal(); closeDrawer(); }
+      if(e.key === "/" && document.activeElement?.tagName !== "INPUT"){
+        e.preventDefault();
+        $("#search").focus();
+      }
+    });
+
+    // ===== Cart =====
+    function addToCart(productId, size, color, qty){
+      const p = PRODUCTS.find(x=>x.id===productId);
+      if(!p) return;
+      const cart = loadCart();
+      const key = `${productId}__${size}__${color}`;
+      const existing = cart.find(it => it.key === key);
+      if(existing) existing.qty = Math.min(99, (existing.qty||0) + qty);
+      else cart.push({ key, productId, name:p.name, price:p.price, size, color, qty });
+      saveCart(cart);
+      toast("Added to cart");
+    }
+
+    function removeItem(key){
+      const cart = loadCart().filter(it => it.key !== key);
+      saveCart(cart);
+    }
+
+    function setQty(key, qty){
+      const cart = loadCart();
+      const it = cart.find(x=>x.key===key);
+      if(!it) return;
+      it.qty = clampInt(qty, 1, 99);
+      saveCart(cart);
+    }
+
+    function computeTotals(cart){
+      const subtotal = cart.reduce((a,it)=>a + (it.price * it.qty), 0);
+      const discount = subtotal * (state.discountRate || 0);
+      const total = Math.max(0, subtotal - discount);
+      return { subtotal, discount, total };
+    }
+
+    function updateCartUI(){
+      const cart = loadCart();
+      $("#cartCount").textContent = String(getCartCount(cart));
+
+      const box = $("#cartItems");
+      if(cart.length === 0){
+        box.innerHTML = `<div style="color:var(--muted); padding: 10px;">Cart is empty. Quick View → Add to Cart.</div>`;
+      } else {
+        box.innerHTML = cart.map(it => `
+          <div class="item">
+            <div>
+              <h4>${escapeHtml(it.name)}</h4>
+              <div class="small">${escapeHtml(it.color)} · ${escapeHtml(it.size)}</div>
+              <div class="small">${fmt(it.price)} each</div>
+            </div>
+            <div class="right">
+              <button class="miniBtn" data-rm="${escapeHtml(it.key)}">Remove</button>
+              <div class="qty" style="padding:6px;">
+                <button data-dec="${escapeHtml(it.key)}">−</button>
+                <input value="${it.qty}" data-q="${escapeHtml(it.key)}" />
+                <button data-inc="${escapeHtml(it.key)}">+</button>
+              </div>
+            </div>
+          </div>
+        `).join("");
+
+        $$("[data-rm]").forEach(b=> b.onclick = ()=> removeItem(b.getAttribute("data-rm")));
+        $$("[data-dec]").forEach(b=> b.onclick = ()=>{
+          const key = b.getAttribute("data-dec");
+          const cart = loadCart();
+          const it = cart.find(x=>x.key===key);
+          if(it) setQty(key, Math.max(1, it.qty - 1));
+        });
+        $$("[data-inc]").forEach(b=> b.onclick = ()=>{
+          const key = b.getAttribute("data-inc");
+          const cart = loadCart();
+          const it = cart.find(x=>x.key===key);
+          if(it) setQty(key, Math.min(99, it.qty + 1));
+        });
+        $$("[data-q]").forEach(inp=>{
+          inp.onchange = ()=> setQty(inp.getAttribute("data-q"), inp.value);
+        });
+      }
+
+      const totals = computeTotals(cart);
+      $("#subTotal").textContent = fmt(totals.subtotal);
+      $("#discount").textContent = "- " + fmt(totals.discount);
+      $("#grandTotal").textContent = fmt(totals.total);
+
+      $("#promo").value = state.promo || "";
+    }
+
+    function openDrawer(){
+      $("#drawer").classList.add("show");
+      $("#drawer").setAttribute("aria-hidden","false");
+    }
+    function closeDrawer(){
+      $("#drawer").classList.remove("show");
+      $("#drawer").setAttribute("aria-hidden","true");
+    }
+
+    $("#cartOpen").onclick = () => openDrawer();
+    $("#cartClose").onclick = closeDrawer;
+
+    // Promo
+    function loadPromo(){
+      try{
+        const p = JSON.parse(localStorage.getItem(LS_PROMO) || "{}");
+        state.promo = p.code || "";
+        state.discountRate = p.rate || 0;
+      }catch(e){}
+    }
+    function savePromo(code, rate){
+      localStorage.setItem(LS_PROMO, JSON.stringify({ code, rate }));
+    }
+
+    $("#applyPromo").onclick = () => {
+      const code = ($("#promo").value || "").trim().toUpperCase();
+      const rate = STORE.promoCodes[code] || 0;
+      state.promo = code;
+      state.discountRate = rate;
+      savePromo(code, rate);
+      updateCartUI();
+      toast(rate ? `Promo applied: ${code}` : "Invalid promo");
+    };
+
+    $("#clearCart").onclick = () => { saveCart([]); toast("Cart cleared"); };
+
+
+    // === Square cart checkout (single bundled shipment) ===
+    let __sqBoot = null;
+    let __sqCard = null;
+
+    function apiUrl(path){
+      const base = (CHECKOUT_API_BASE || "").trim();
+      return base ? (base.replace(/\/+$/,"") + path) : path;
+    }
+
+    async function squareBootstrap(){
+      if(__sqBoot) return __sqBoot;
+      const res = await fetch(apiUrl("/api/square/bootstrap"));
+      if(!res.ok) throw new Error("Square bootstrap failed: " + res.status);
+      __sqBoot = await res.json();
+      return __sqBoot;
+    }
+
+    async function ensureSquareCard(){
+      const boot = await squareBootstrap();
+      if(!window.Square || !window.Square.payments){
+        throw new Error("Square Web Payments SDK not loaded.");
+      }
+      if(__sqCard) return __sqCard;
+      const payments = window.Square.payments(boot.applicationId, boot.locationId);
+      __sqCard = await payments.card();
+      await __sqCard.attach("#card-container");
+      return __sqCard;
+    }
+
+    function openOverlay(el){
+      el.classList.add("open");
+      el.setAttribute("aria-hidden","false");
+      document.body.style.overflow = "hidden";
+    }
+    function closeOverlay(el){
+      el.classList.remove("open");
+      el.setAttribute("aria-hidden","true");
+      document.body.style.overflow = "";
+    }
+
+    function cartToSquareLines(cart){
+      return cart.map(it => {
+        const p = PRODUCTS.find(x=>x.id===it.productId);
+        const key = `${it.color}__${it.size}`;
+        const variation_id = (p && p.squareVariationMap && p.squareVariationMap[key]) ? p.squareVariationMap[key] : "";
+        return { ...it, variation_id };
+      });
+    }
+
+    async function openPayOverlay(cart){
+      const payOverlay = $("#payOverlay");
+      const payLog = $("#payLog");
+      payLog.style.display = "none";
+      payLog.textContent = "";
+
+      openOverlay(payOverlay);
+
+      // Close wiring
+      $("#payClose").onclick = () => closeOverlay(payOverlay);
+      $("#payCancel").onclick = () => closeOverlay(payOverlay);
+
+      // Boot + totals
+      let boot;
+      try{
+        boot = await squareBootstrap();
+      }catch(err){
+        toast("Checkout not ready (API bootstrap failed).");
+        payLog.style.display = "block";
+        payLog.textContent = String(err);
+        return;
+      }
+
+      const shipCents = Number(boot.flatShippingCents || 0);
+      $("#payShip").textContent = shipCents ? fmt(shipCents/100) : fmt(0);
+      const totals = computeTotals(cart);
+      const grand = (totals.total || 0) + (shipCents/100);
+      $("#payTotal").textContent = fmt(grand);
+
+      $("#payMeta").textContent = `${cart.length} item(s) • ${boot.env || ""} • ${boot.currency || "USD"}`;
+
+      // Ensure every item has a mapped Square variation id
+      const lines = cartToSquareLines(cart);
+      const missing = lines.filter(x=>!x.variation_id);
+      if(missing.length){
+        const msg = "Missing Square variation mapping for: " + missing.map(x=>`${x.name} (${x.color}/${x.size})`).join(", ");
+        payLog.style.display = "block";
+        payLog.textContent = msg + "\n\nFix: fill PRODUCTS[].squareVariationMap in index.html with Square variation IDs.";
+        toast("Some items not mapped to Square yet.");
+        return;
+      }
+
+      // Card attach (once)
+      try{
+        await ensureSquareCard();
+      }catch(err){
+        payLog.style.display = "block";
+        payLog.textContent = String(err);
+        toast("Card form failed to load.");
+        return;
+      }
+
+      $("#payNow").onclick = async () => {
+        $("#payNow").disabled = true;
+        try{
+          const card = await ensureSquareCard();
+          const tokenResult = await card.tokenize();
+          if(tokenResult.status !== "OK"){
+            throw new Error("Tokenize failed: " + JSON.stringify(tokenResult.errors || tokenResult));
+          }
+
+          const body = {
+            buyer: {
+              name: $("#payName").value || "",
+              email: $("#payEmail").value || "",
+              phone: $("#payPhone").value || ""
+            },
+            shipping: {
+              address: {
+                address_line_1: $("#payAddr1").value || "",
+                locality: $("#payCity").value || "",
+                administrative_district_level_1: $("#payState").value || "",
+                postal_code: $("#payZip").value || "",
+                country: ($("#payCountry").value || "US").toUpperCase()
+              },
+              shipping_note: ""
+            },
+            cart: lines.map(x=>({ variation_id: x.variation_id, qty: x.qty, sku: x.key })),
+            currency: boot.currency || "USD",
+            payment_token: tokenResult.token
+          };
+
+          const res = await fetch(apiUrl("/api/square/checkout"),{
+            method:"POST",
+            headers:{ "Content-Type":"application/json" },
+            body: JSON.stringify(body)
+          });
+          const out = await res.json().catch(()=>({}));
+          if(!res.ok || !out.ok){
+            throw new Error("Checkout failed: " + (out.error || res.status));
+          }
+
+          toast("Payment complete!");
+          saveCart([]);
+          updateCartUI();
+          closeOverlay(payOverlay);
+        }catch(err){
+          payLog.style.display = "block";
+          payLog.textContent = String(err);
+          toast("Payment failed");
+        }finally{
+          $("#payNow").disabled = false;
+        }
+      };
+    }
+
+
+    $("#checkout").onclick = () => {
+      // Open in-app checkout (Square Orders + Payments). Requires variant mappings.
+      const cart = loadCart();
+      if(!cart.length){ toast("Cart is empty"); return; }
+
+      openPayOverlay(cart);
+    };
+
+    // Filters
+    function setActiveChip(cat){
+      $$(".chip").forEach(c=> c.classList.toggle("active", c.getAttribute("data-cat") === cat));
+    }
+    $$(".chip").forEach(c=>{
+      c.onclick = () => { state.cat = c.getAttribute("data-cat"); setActiveChip(state.cat); renderGrid(); };
+    });
+
+    function setActiveCollection(name){
+      $$(".col").forEach(c=> c.classList.toggle("active", c.getAttribute("data-collection") === name));
+    }
+    $$(".col").forEach(c=>{
+      c.onclick = () => { state.collection = c.getAttribute("data-collection"); setActiveCollection(state.collection); renderGrid(); };
+    });
+
+    $("#search").addEventListener("input", (e)=>{ state.search = e.target.value || ""; renderGrid(); });
+    $("#sort").addEventListener("change", (e)=>{ state.sort = e.target.value; renderGrid(); });
+
+    // Nav
+    $("#yr").textContent = new Date().getFullYear();
+    $("#scrollToProducts").onclick = ()=> $("#productsSection").scrollIntoView({ behavior:"smooth", block:"start" });
+    $("#homeLink").onclick = (e)=>{ e.preventDefault(); window.scrollTo({top:0, behavior:"smooth"}); };
+
+    function infoModal(title, text){
+      $("#mTitle").textContent = title;
+      $("#mDesc").textContent = text;
+      $("#mPrice").textContent = "";
+      $("#mMeta").innerHTML = `<span class="tag">Info</span>`;
+      $("#mImg").innerHTML = "";
+      $("#mSize").innerHTML = `<option>—</option>`;
+      $("#mColor").innerHTML = `<option>—</option>`;
+      $("#mFit").innerHTML = `<b>Fit:</b> —`;
+      $("#mFabric").innerHTML = `<b>Blank:</b> —`;
+      $("#mCare").innerHTML = `<b>Care:</b> —`;
+      $("#mShip").innerHTML = `<b>Shipping:</b> —`;
+      $("#mQty").value = "1";
+      $("#providerBtn").onclick = ()=>{};
+      $("#addToCartBtn").onclick = ()=> closeModal();
+      $("#overlay").classList.add("show");
+      $("#overlay").setAttribute("aria-hidden","false");
+    }
+    $("#faqLink").onclick = (e)=>{ e.preventDefault(); infoModal("FAQ", "Placeholder FAQ. Add real sizing/returns details once your provider is chosen."); };
+    $("#shippingLink").onclick = (e)=>{ e.preventDefault(); infoModal("Shipping", "Made-to-order fulfillment. Add exact provider timelines per region when wired."); };
+    $("#returnsLink").onclick = (e)=>{ e.preventDefault(); infoModal("Returns", "Placeholder returns. Final policy depends on your provider + your decision on exchanges."); };
+    $("#contactLink").onclick = (e)=>{ e.preventDefault(); infoModal("Contact", `Email: ${STORE.emailFallback || "set STORE.emailFallback"}`); };
+
+    // Init
+    function init(){
+      loadPromo();
+      renderGrid();
+      updateCartUI();
+    }
+    init();
+  </script>
+
+  <!-- Checkout / Payment Overlay -->
+  <div class="overlay" id="payOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Checkout">
+      <div class="mBody" style="max-height: calc(100vh - 100px); overflow:auto;">
+        <div class="mTop">
+          <div>
+            <h3 style="margin:0; font-size:18px;">Checkout</h3>
+            <div class="meta" id="payMeta" style="margin-top:6px;"></div>
+          </div>
+          <button class="close" id="payClose" aria-label="Close">✕</button>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="grid2" style="margin-top:10px;">
+          <div>
+            <label class="lbl">Name</label>
+            <input class="input" id="payName" placeholder="Full name" />
+          </div>
+          <div>
+            <label class="lbl">Email</label>
+            <input class="input" id="payEmail" placeholder="you@email.com" />
+          </div>
+          <div>
+            <label class="lbl">Phone</label>
+            <input class="input" id="payPhone" placeholder="+1..." />
+          </div>
+          <div>
+            <label class="lbl">Address</label>
+            <input class="input" id="payAddr1" placeholder="Street address" />
+          </div>
+          <div>
+            <label class="lbl">City</label>
+            <input class="input" id="payCity" placeholder="City" />
+          </div>
+          <div>
+            <label class="lbl">State</label>
+            <input class="input" id="payState" placeholder="State" />
+          </div>
+          <div>
+            <label class="lbl">ZIP</label>
+            <input class="input" id="payZip" placeholder="Postal code" />
+          </div>
+          <div>
+            <label class="lbl">Country</label>
+            <input class="input" id="payCountry" value="US" />
+          </div>
+        </div>
+
+        <div style="margin-top:12px;">
+          <label class="lbl">Card</label>
+          <div id="card-container" style="padding:12px; border:1px solid rgba(255,255,255,.10); border-radius:14px;"></div>
+          <div style="color:var(--muted); font-size:12px; margin-top:6px;">
+            Payments are processed securely by Square.
+          </div>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="row" style="justify-content:space-between;">
+          <div style="color:var(--muted); font-size:12px;">Shipping (flat)</div>
+          <div id="payShip" style="font-weight:700;"></div>
+        </div>
+        <div class="row" style="justify-content:space-between; margin-top:6px;">
+          <div style="color:var(--muted); font-size:12px;">Total</div>
+          <div id="payTotal" style="font-weight:900; font-size:16px;"></div>
+        </div>
+
+        <div class="footerBtns" style="margin-top:14px;">
+          <button class="btn" id="payCancel">Cancel</button>
+          <button class="btn primary" id="payNow">Pay now</button>
+        </div>
+
+        <pre id="payLog" style="display:none; margin-top:10px; white-space:pre-wrap; color:var(--muted); font-size:12px;"></pre>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
