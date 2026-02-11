@@ -1152,7 +1152,7 @@
       
       // Drafted A classic tee
       if(id.includes("drafted-a-classic-tee") || (id.includes("drafted") && id.includes("tee") && !id.includes("hoodie"))){
-        return imgBase + "drafted_a_hoodie.jpeg" + cacheBuster; // Use hoodie image as placeholder
+        return imgBase + encodeURIComponent("Drafted A classic tee.png") + cacheBuster;
       }
       
       // BONSAID products
@@ -1160,8 +1160,8 @@
         if(id.includes("trucker") || id.includes("cap") || id.includes("snapback") || id.includes("richardson")){
           return imgBase + "bonsaid_snapback.png" + cacheBuster;
         }
-        if(id.includes("sticker") || name.includes("sticker")){
-          return imgBase + "bonsaid_gr.png" + cacheBuster;
+        if(id.includes("sticker") || name.includes("sticker") || id.includes("bubble-free")){
+          return imgBase + encodeURIComponent("bonsaid sticker.png") + cacheBuster;
         }
         if(id.includes("oversized") || id.includes("heavyweight")){
           return imgBase + "bonsaid_grn.png" + cacheBuster;
@@ -1170,16 +1170,16 @@
           return imgBase + "bonsaid_grn.png" + cacheBuster;
         }
         // Default BONSAID image
-        return imgBase + "bonsaid_gr.png" + cacheBuster;
+        return imgBase + encodeURIComponent("bonsaid sticker.png") + cacheBuster;
       }
       
       // EchoVerse products
       if(id.includes("echoverse") || name.includes("echoverse")){
         if((id.includes("frost-circuit") || name.includes("frost")) && (id.includes("tee") || name.includes("tee"))){
-          return imgBase + "frost_circuit_black_hoodie.jpeg" + cacheBuster; // Use hoodie image for tee
+          return imgBase + encodeURIComponent("EchoVerse \"Frost Circuit\" Tee.png") + cacheBuster;
         }
         if(id.includes("frost-circuit") || name.includes("frost")){
-          return imgBase + "frost_circuit_black_hoodie.jpeg" + cacheBuster;
+          return imgBase + encodeURIComponent("EchoVerse \"Frost Circuit\" Tee.png") + cacheBuster;
         }
         if(id.includes("signal-dial")){
           return imgBase + "echoverse_hoodie.png" + cacheBuster;
@@ -1205,13 +1205,16 @@
       
       // Powder Peaks
       if(id.includes("powder") || name.includes("powder")){
-        if(id.includes("sticker") || name.includes("sticker")){
-          return imgBase + "power_peaks_hoodie_1.png" + cacheBuster; // Use hoodie image for sticker
+        if(id.includes("sticker") || name.includes("sticker") || name.includes("8-ball sticker")){
+          return imgBase + "POWDER_PEAKS.png" + cacheBuster;
+        }
+        if((id.includes("8-ball") || name.includes("8-ball")) && (id.includes("tee") || name.includes("tee"))){
+          return imgBase + encodeURIComponent("Powder Peaks 8-Ball Tee Black.png") + cacheBuster;
         }
         if(id.includes("tee") || name.includes("tee")){
-          return imgBase + "power_peaks_hoodie_1.png" + cacheBuster; // Use hoodie image for tee
+          return imgBase + encodeURIComponent("Powder Peaks 8-Ball Tee Black.png") + cacheBuster;
         }
-        return imgBase + "power_peaks_hoodie_1.png" + cacheBuster;
+        return imgBase + "power_peaks_hoodie_1.png" + cacheBuster; // Default to hoodie
       }
       
       // Night Ranger Bear
@@ -1226,22 +1229,66 @@
       
       // CDA Pool League
       if(id.includes("cda") || id.includes("pool")){
-        return imgBase + "power_peaks_hoodie_1.png" + cacheBuster; // Use placeholder image
+        if(id.includes("long-sleeve") || name.includes("long sleeve")){
+          return imgBase + encodeURIComponent("CDA Pool League Circuit Long Sleeve.png") + cacheBuster;
+        }
+        if(id.includes("circuit-tee") || name.includes("circuit tee") || (id.includes("circuit") && id.includes("tee"))){
+          return imgBase + encodeURIComponent("CDA Pool League Circuit Tee.png") + cacheBuster;
+        }
+        return imgBase + encodeURIComponent("CDA Pool League Circuit Tee.png") + cacheBuster; // Default to tee
       }
       
       // Holographic stickers
       if(id.includes("holographic") || name.includes("holographic")){
-        return imgBase + "bonsaid_gr.png" + cacheBuster; // Use BONSAID sticker image as placeholder
+        return imgBase + "holographic_goat_sticker.jpeg" + cacheBuster;
       }
       
       // Golden Eye Sigil
-      if(id.includes("golden-eye") || name.includes("golden eye")){
-        return imgBase + "nexus_hoodie.png" + cacheBuster; // Use placeholder
+      if(id.includes("golden-eye") || name.includes("golden eye") || name.includes("golden-eye")){
+        return imgBase + encodeURIComponent("\"Golden Eye Sigil\" Premium Sweatshirt.jpeg") + cacheBuster;
       }
       
       // Unisex Premium Sweatshirt
       if(id.includes("unisex-premium-sweatshirt") || (id.includes("unisex") && id.includes("sweatshirt"))){
         return imgBase + "founders_zip_hoodie.png" + cacheBuster; // Use placeholder
+      }
+      
+      // BLU.EYE products
+      if(id.includes("blu") && id.includes("eye") || name.includes("blu") && name.includes("eye")){
+        return imgBase + "BLU.EYE.png" + cacheBuster;
+      }
+      
+      // Vespera products
+      if(id.includes("vespera") || name.includes("vespera")){
+        return imgBase + "vespera.png" + cacheBuster;
+      }
+      
+      // Glitch products
+      if(id.includes("glitch") || name.includes("glitch")){
+        if(id.includes("drone") || name.includes("drone")){
+          return imgBase + "glitch_drone.png" + cacheBuster;
+        }
+        if(id.includes("aerovista") || name.includes("aerovista")){
+          return imgBase + "glitch.aerovista.png" + cacheBuster;
+        }
+        if(id.includes("a ") || name.includes("glitch a")){
+          return imgBase + encodeURIComponent("glitch A.png") + cacheBuster;
+        }
+        return imgBase + encodeURIComponent("glitch A.png") + cacheBuster;
+      }
+      
+      // Kryptek products
+      if(id.includes("kryptek") || name.includes("kryptek")){
+        if(id.includes("hunter") || id.includes("orange") || name.includes("orange")){
+          return imgBase + "kryptek_Hunter_Orange_1_1500.jpg" + cacheBuster;
+        }
+        if(id.includes("emt") || name.includes("emt")){
+          return imgBase + "kryptek_emt_Image1_1500.jpg" + cacheBuster;
+        }
+        if(id.includes("black") || id.includes("blk") || name.includes("black")){
+          return imgBase + "kryptek_blk_1_1500.jpg" + cacheBuster;
+        }
+        return imgBase + "kryptek_blk_1_1500.jpg" + cacheBuster; // Default
       }
       
       // Generic fallbacks based on product type
@@ -1252,7 +1299,7 @@
         return imgBase + "drafted_a_hoodie.jpeg" + cacheBuster; // Use hoodie as placeholder for tees
       }
       if(id.includes("sticker")){
-        return imgBase + "bonsaid_gr.png" + cacheBuster;
+        return imgBase + encodeURIComponent("bonsaid sticker.png") + cacheBuster;
       }
       if(id.includes("sweatshirt") || id.includes("crewneck")){
         return imgBase + "founders_zip_hoodie.png" + cacheBuster;
@@ -1325,8 +1372,11 @@
     }
 
     async function loadProducts(){
-      // Try multiple paths
+      // Try multiple paths - new catalog first, then fallback to old
       const paths = [
+        './square_products_2026-02-11.json',
+        '/store/square_products_2026-02-11.json',
+        'square_products_2026-02-11.json',
         './square_products_2026-02-10.json',
         '/square_products_2026-02-10.json',
         'square_products_2026-02-10.json'
