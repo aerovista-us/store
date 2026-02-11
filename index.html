@@ -1175,11 +1175,17 @@
       
       // EchoVerse products
       if(id.includes("echoverse") || name.includes("echoverse")){
+        if((id.includes("frost-circuit") || name.includes("frost")) && (id.includes("pullover") || id.includes("hoodie") || (name.includes("pullover") || name.includes("hoodie")))){
+          // Frost Circuit Pullover Hoodie - use existing JPEG file
+          return imgBase + "frost_circuit_black_hoodie.jpeg" + cacheBuster;
+        }
         if((id.includes("frost-circuit") || name.includes("frost")) && (id.includes("tee") || name.includes("tee"))){
+          // Frost Circuit Tee
           return imgBase + encodeURIComponent("EchoVerse \"Frost Circuit\" Tee.png") + cacheBuster;
         }
         if(id.includes("frost-circuit") || name.includes("frost")){
-          return imgBase + encodeURIComponent("EchoVerse \"Frost Circuit\" Tee.png") + cacheBuster;
+          // Default Frost Circuit (assume hoodie if not specified)
+          return imgBase + "frost_circuit_black_hoodie.jpeg" + cacheBuster;
         }
         if(id.includes("signal-dial")){
           return imgBase + "echoverse_hoodie.png" + cacheBuster;
