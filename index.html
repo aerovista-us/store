@@ -3,16 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://web.squarecdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://connect.squareup.com https://web.squarecdn.com; font-src 'self' data:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://web.squarecdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://connect.squareup.com https://web.squarecdn.com https://api.aerovista.us http://127.0.0.1:* http://localhost:*; frame-src https://web.squarecdn.com https://connect.squareup.com https://pci-connect.squareup.com; font-src 'self' data:;">
   <title>AeroVista Apparel — Store</title>
   <meta name="description" content="Curated comfort essentials: hoodies, crewnecks, hats." />
   <meta property="og:title" content="AeroVista Apparel — Store" />
   <meta property="og:description" content="Curated comfort essentials: hoodies, crewnecks, hats." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <link rel="icon" type="image/svg+xml" href="/store/favicon.svg" />
-  <link rel="alternate icon" href="/store/favicon.ico" />
-  <link rel="apple-touch-icon" href="/store/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="apple-touch-icon" href="./favicon.svg" />
   <style>
     :root{
       --bg:#0b0f14;
@@ -1273,12 +1272,13 @@
     // =========================
     // STORE SETTINGS
     // =========================
-    // API Configuration: Set window.STORE_API_BASE before page load, or configure here
+    // API Configuration: Set window.STORE_API_BASE before page load, or configure here.
     // Examples:
-    // - Local dev: "" (uses relative paths)
-    // - Production: "https://api.yourdomain.com"
+    // - Local dev: "http://127.0.0.1:18088"
+    // - Production: "https://api.aerovista.us"
     // - Staging: "https://staging-api.yourdomain.com"
-    const CHECKOUT_API_BASE = (window.STORE_API_BASE || ""); // set this in window or replace with your API URL
+    // If you set window.STORE_API_BASE="" explicitly, the storefront will use relative paths.
+    const CHECKOUT_API_BASE = ("STORE_API_BASE" in window) ? window.STORE_API_BASE : "https://api.aerovista.us";
     
     // Health check function to verify API connectivity
     async function checkApiHealth(){
@@ -1317,7 +1317,7 @@
 
     // =========================
     // PRODUCTS: loaded dynamically from Square export JSON
-    // Put square_products_2026-02-10.json next to this HTML.
+    // Put `square_products_latest.json` next to this HTML (recommended).
     // =========================
     let PRODUCTS = [];
 
@@ -1355,12 +1355,12 @@
     function findProductImage(productId, productName){
       // Map product IDs/names to image files in /img directory
       // Uses pattern matching based on product ID and name
-      // Paths work for both local development and GitHub Pages (/store/)
+      // Canonical deployment is repo root; image assets live in ./img/
       const id = (productId || "").toLowerCase();
       const name = (productName || "").toLowerCase();
       
-      // Try /store/img/ first (for GitHub Pages), then fall back to ./img/
-      const imgBase = window.location.pathname.includes('/store/') ? '/store/img/' : './img/';
+      const imgBaseRaw = (typeof window.STORE_IMG_BASE === "string") ? window.STORE_IMG_BASE.trim() : "";
+      const imgBase = imgBaseRaw ? (imgBaseRaw.endsWith("/") ? imgBaseRaw : (imgBaseRaw + "/")) : "./img/";
       
       // Cache buster - use timestamp to ensure fresh images
       const cacheBuster = '?v=' + Date.now();
@@ -1611,13 +1611,16 @@
     }
 
     async function loadProducts(){
-      // Try multiple paths - new catalog first, then fallback to old
+      // Try multiple paths - merged catalog first, then latest/dated fallbacks.
       const paths = [
+        './square_products_merged.json',
+        'square_products_merged.json',
+        '/store/square_products_merged.json',
+        './square_products_latest.json',
+        'square_products_latest.json',
         './square_products_2026-02-11.json',
-        '/store/square_products_2026-02-11.json',
         'square_products_2026-02-11.json',
         './square_products_2026-02-10.json',
-        '/square_products_2026-02-10.json',
         'square_products_2026-02-10.json'
       ];
       
@@ -1704,19 +1707,25 @@
             const color = (p.color || "").trim();
             const variants = Array.isArray(p.variants) ? p.variants : [];
             const sizes = [...new Set(variants.map(v => (v.size||"").trim()).filter(Boolean))];
+            // Use variant color when present (merged JSON), else product-level color
             const productColor = color || "Default";
             const squareVariationMap = {};
             const skuBySize = {};
             for (const v of variants) {
+              const vColor = (v.color || "").trim() || productColor;
               const sz = (v.size||"").trim() || "One Size";
               const sku = (v.sku||"").trim();
-              if (sku) {
+              const variationId = (v.variation_id || "").trim();
+              const idForCheckout = variationId || sku;
+              if (idForCheckout) {
                 skuBySize[sz] = sku;
-                squareVariationMap[`${productColor}__${sz}`] = sku;
+                squareVariationMap[`${vColor}__${sz}`] = idForCheckout;
               }
             }
-            if (variants.length > 0 && sizes.length === 0 && variants[0].sku) {
-              squareVariationMap[`${productColor}__One Size`] = (variants[0].sku||"").trim();
+            if (variants.length > 0 && sizes.length === 0) {
+              const v0 = variants[0];
+              const id0 = (v0.variation_id || "").trim() || (v0.sku||"").trim();
+              if (id0) squareVariationMap[`${productColor}__One Size`] = id0;
             }
             return {
               _baseKey: productBaseKey(p),
