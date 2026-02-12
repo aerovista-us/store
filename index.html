@@ -417,13 +417,13 @@
       filter: contrast(1.08) brightness(0.94) saturate(1.05);
     }
     /* For PNG images with transparency, use normal blend mode */
-    .img img.product-image[src$=".png"]{
+    .img img.product-image[src*=".png" i]{
       mix-blend-mode: normal;
       filter: contrast(1.03) brightness(0.94) saturate(1.02);
     }
     /* For JPEG images, apply stronger white removal */
-    .img img.product-image[src$=".jpeg"],
-    .img img.product-image[src$=".jpg"]{
+    .img img.product-image[src*=".jpeg" i],
+    .img img.product-image[src*=".jpg" i]{
       mix-blend-mode: multiply;
       filter: contrast(1.1) brightness(0.94) saturate(1.08);
     }
@@ -431,7 +431,7 @@
       transform: scale(1.02);
       filter: contrast(1.12) brightness(0.98) saturate(1.08);
     }
-    .card:hover .img img.product-image[src$=".png"]{
+    .card:hover .img img.product-image[src*=".png" i]{
       filter: contrast(1.06) brightness(1.02) saturate(1.03);
     }
     .card:hover .img svg,
@@ -597,13 +597,13 @@
       filter: contrast(1.08) brightness(0.94) saturate(1.05);
     }
     /* For PNG images with transparency, use normal blend mode */
-    .mImg img.product-image[src$=".png"]{
+    .mImg img.product-image[src*=".png" i]{
       mix-blend-mode: normal;
       filter: contrast(1.03) brightness(0.94) saturate(1.02);
     }
     /* For JPEG images, apply stronger white removal */
-    .mImg img.product-image[src$=".jpeg"],
-    .mImg img.product-image[src$=".jpg"]{
+    .mImg img.product-image[src*=".jpeg" i],
+    .mImg img.product-image[src*=".jpg" i]{
       mix-blend-mode: multiply;
       filter: contrast(1.1) brightness(0.94) saturate(1.08);
     }
@@ -617,8 +617,8 @@
       transform: scale(1.01);
       filter: contrast(1.12) brightness(0.98) saturate(1.08);
     }
-    .modal:hover .mImg img.product-image[src$=".png"],
-    .modal:focus-within .mImg img.product-image[src$=".png"]{
+    .modal:hover .mImg img.product-image[src*=".png" i],
+    .modal:focus-within .mImg img.product-image[src*=".png" i]{
       filter: contrast(1.06) brightness(1.02) saturate(1.03);
     }
     .modal:hover .mImg svg,
@@ -1345,9 +1345,25 @@
     // - Production: "https://api.yourdomain.com"
     // - Staging: "https://staging-api.yourdomain.com"
     const CHECKOUT_API_BASE = (window.STORE_API_BASE || ""); // set this in window or replace with your API URL
+
+    function isLocalhostHost(){
+      const h = (location.hostname || "").toLowerCase();
+      return h === "localhost" || h === "127.0.0.1" || h === "[::1]" || h === "::1";
+    }
+    function isCheckoutConfigured(){
+      return !!String(CHECKOUT_API_BASE || "").trim();
+    }
+    function checkoutIsAvailable(){
+      // Allow relative-path API only on localhost. Public static hosting needs an explicit API base.
+      return isCheckoutConfigured() || isLocalhostHost();
+    }
+    function checkoutNotReadyMessage(){
+      return "Checkout not ready yet. Payment service is not configured for this site.";
+    }
     
     // Health check function to verify API connectivity
     async function checkApiHealth(){
+      if(!checkoutIsAvailable()) return null;
       try {
         const res = await fetch(apiUrl("/api/square/bootstrap"), { method: "HEAD" });
         return res.ok;
@@ -1480,7 +1496,7 @@
         }
         if((id.includes("frost-circuit") || name.includes("frost")) && (id.includes("tee") || name.includes("tee"))){
           // Frost Circuit Tee
-          return imgBase + encodeURIComponent("EchoVerse \"Frost Circuit\" Tee.png") + cacheBuster;
+          return imgBase + "EchoVerse%20Frost%20Circuit%20Tee.png" + cacheBuster;
         }
         if(id.includes("frost-circuit") || name.includes("frost")){
           // Default Frost Circuit (assume hoodie if not specified)
@@ -1550,7 +1566,7 @@
       
       // Golden Eye Sigil
       if(id.includes("golden-eye") || name.includes("golden eye") || name.includes("golden-eye")){
-        return imgBase + encodeURIComponent("\"Golden Eye Sigil\" Premium Sweatshirt.jpeg") + cacheBuster;
+        return imgBase + "Golden%20Eye%20Sigil%20Premium%20Sweatshirt.jpeg" + cacheBuster;
       }
       
       // Unisex Premium Sweatshirt
@@ -2592,6 +2608,14 @@
 
     $("#clearCart").onclick = () => { saveCart([]); toast("Cart cleared"); };
 
+    // Public static hosting may not have an API configured yet.
+    // Keep checkout visible (so it's discoverable), but label it as "Soon" and show a clear message on click.
+    const __checkoutBtn = $("#checkout");
+    if(__checkoutBtn && !checkoutIsAvailable()){
+      __checkoutBtn.textContent = "Checkout (Soon)";
+      __checkoutBtn.title = checkoutNotReadyMessage();
+    }
+
 
     // === Square cart checkout (single bundled shipment) ===
     let __sqBoot = null;
@@ -2604,11 +2628,14 @@
 
     async function squareBootstrap(){
       if(__sqBoot) return __sqBoot;
+      if(!checkoutIsAvailable()){
+        throw new Error(checkoutNotReadyMessage());
+      }
       try {
         const res = await fetch(apiUrl("/api/square/bootstrap"));
         if(!res.ok) {
-          const errorText = await res.text().catch(() => "");
-          throw new Error(`Square bootstrap failed: ${res.status} ${res.statusText}${errorText ? ` - ${errorText}` : ""}`);
+          // Keep errors readable (GitHub Pages 404 returns a full HTML document).
+          throw new Error(`Square bootstrap failed: ${res.status} ${res.statusText}`.trim());
         }
         __sqBoot = await res.json();
         return __sqBoot;
@@ -2620,7 +2647,7 @@
           throw new Error("Unable to connect to payment service. Please check your internet connection and try again.");
         }
         if (err.message.includes("404") || err.message.includes("Not Found")) {
-          throw new Error("Payment service not configured. Please contact support.");
+          throw new Error(checkoutNotReadyMessage());
         }
         throw new Error("Unable to connect to payment service. Please try again later.");
       }
@@ -2682,12 +2709,14 @@
     }
 
     async function openPayOverlay(cart){
+      if(!checkoutIsAvailable()){
+        toast(checkoutNotReadyMessage());
+        return;
+      }
       const payOverlay = $("#payOverlay");
       const payLog = $("#payLog");
       payLog.style.display = "none";
       payLog.textContent = "";
-
-      openOverlay(payOverlay);
 
       // Close wiring
       $("#payClose").onclick = () => closeOverlay(payOverlay);
@@ -2699,13 +2728,12 @@
         boot = await squareBootstrap();
       }catch(err){
         const errorMsg = err.message || String(err);
-        toast("Checkout not ready. Please try again.");
-        payLog.style.display = "block";
-        payLog.textContent = errorMsg;
-        payLog.style.color = "var(--bad)";
-        // Don't close overlay - let user see the error and retry
+        toast(errorMsg || "Checkout not ready yet.");
         return;
       }
+      
+      // Only open the overlay once checkout is confirmed reachable.
+      openOverlay(payOverlay);
 
       const shipCents = Number(boot.flatShippingCents || 0);
       $("#payShip").textContent = shipCents ? fmt(shipCents/100) : fmt(0);
@@ -2883,6 +2911,10 @@
       // Open in-app checkout (Square Orders + Payments). Requires variant mappings.
       const cart = loadCart();
       if(!cart.length){ toast("Cart is empty"); return; }
+      if(!checkoutIsAvailable()){
+        toast(checkoutNotReadyMessage());
+        return;
+      }
 
       openPayOverlay(cart);
     };
