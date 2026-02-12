@@ -1000,6 +1000,37 @@
                   </feMerge>
                 </filter>
                 
+                <!-- Glitch effect filter - chromatic aberration -->
+                <filter id="glitch" x="-20%" y="-20%" width="140%" height="140%">
+                  <!-- Cyan/Blue offset -->
+                  <feOffset in="SourceGraphic" dx="-1.5" dy="-1" result="cyanOffset">
+                    <animate attributeName="dx" values="-1.5;-2;-1.5;-1;-1.5" dur="0.1s" repeatCount="indefinite"/>
+                    <animate attributeName="dy" values="-1;-1.5;-1;-0.5;-1" dur="0.12s" repeatCount="indefinite"/>
+                  </feOffset>
+                  <feColorMatrix in="cyanOffset" type="matrix" values="0 0 1 0 0  0 1 1 0 0  1 1 1 0 0  0 0 0 1 0" result="cyan"/>
+                  
+                  <!-- Magenta/Red offset -->
+                  <feOffset in="SourceGraphic" dx="1.5" dy="1" result="magentaOffset">
+                    <animate attributeName="dx" values="1.5;2;1.5;1;1.5" dur="0.11s" repeatCount="indefinite"/>
+                    <animate attributeName="dy" values="1;1.5;1;0.5;1" dur="0.13s" repeatCount="indefinite"/>
+                  </feOffset>
+                  <feColorMatrix in="magentaOffset" type="matrix" values="1 0 1 0 0  0 0 1 0 0  1 0 1 0 0  0 0 0 1 0" result="magenta"/>
+                  
+                  <!-- Combine with original -->
+                  <feMerge>
+                    <feMergeNode in="cyan"/>
+                    <feMergeNode in="magenta"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+                
+                <!-- Horizontal noise pattern for glitch -->
+                <pattern id="noisePattern" x="0" y="0" width="4" height="1" patternUnits="userSpaceOnUse">
+                  <rect width="4" height="0.3" fill="rgba(110,231,255,0.15)" opacity="0">
+                    <animate attributeName="opacity" values="0;0.3;0;0.2;0" dur="0.05s" repeatCount="indefinite"/>
+                  </rect>
+                </pattern>
+                
                 <!-- Pattern for technical texture -->
                 <pattern id="gridPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
                   <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(110,231,255,0.08)" stroke-width="0.5"/>
@@ -1022,54 +1053,63 @@
                 </circle>
                 
                 <!-- Central "A" shape - geometric, aerospace-inspired -->
-                <g id="letterA">
-                  <!-- Left leg - spread/widened at base, thinner, peak-like -->
-                  <path d="M -35,50 L -32,48 L -8,-38 L -4,-30 L -4,50 Z" fill="url(#grad1)" opacity="0.9" filter="url(#glowStrong)">
-                    <animate attributeName="opacity" values="0.7;0.95;0.7" dur="3s" repeatCount="indefinite"/>
+                <g id="letterA" filter="url(#glitch)">
+                  <!-- Left leg - wider spread at base, meets at sharp peak -->
+                  <path d="M -42,50 L -40,48 L -7,-40 L 0,-35 L -7,50 Z" fill="rgba(255,255,255,0.95)" opacity="0.95" filter="url(#glowStrong)">
+                    <animate attributeName="opacity" values="0.85;0.98;0.85" dur="3s" repeatCount="indefinite"/>
                   </path>
                   
-                  <!-- Right leg - spread/widened at base, thinner, peak-like -->
-                  <path d="M 35,50 L 32,48 L 8,-38 L 4,-30 L 4,50 Z" fill="url(#grad1)" opacity="0.9" filter="url(#glowStrong)">
-                    <animate attributeName="opacity" values="0.7;0.95;0.7" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+                  <!-- Right leg - wider spread at base, meets at sharp peak -->
+                  <path d="M 42,50 L 40,48 L 7,-40 L 0,-35 L 7,50 Z" fill="rgba(255,255,255,0.95)" opacity="0.95" filter="url(#glowStrong)">
+                    <animate attributeName="opacity" values="0.85;0.98;0.85" dur="3s" begin="0.5s" repeatCount="indefinite"/>
                   </path>
+                  
+                  <!-- Sharp peak point where legs meet -->
+                  <path d="M -7,-40 L 0,-35 L 7,-40 Z" fill="rgba(255,255,255,1)" opacity="1" filter="url(#glowStrong)"/>
                   
                   <!-- Inner highlight - left leg -->
-                  <path d="M -30,48 L -10,-35 L -6,-28 L -6,48 Z" fill="url(#rad1)" opacity="0.4"/>
+                  <path d="M -36,48 L -9,-38 L -3,-33 L -3,48 Z" fill="url(#rad1)" opacity="0.3"/>
                   
                   <!-- Inner highlight - right leg -->
-                  <path d="M 30,48 L 10,-35 L 6,-28 L 6,48 Z" fill="url(#rad1)" opacity="0.4"/>
+                  <path d="M 36,48 L 9,-38 L 3,-33 L 3,48 Z" fill="url(#rad1)" opacity="0.3"/>
+                  
+                  <!-- Horizontal noise overlay for glitch effect -->
+                  <rect x="-42" y="-40" width="84" height="90" fill="url(#noisePattern)" opacity="0.4" mix-blend-mode="screen"/>
                 </g>
                 
                 <!-- Orbital ring at angle - replaces crossbar -->
-                <g id="orbitalRing" transform="translate(0,-10)">
+                <g id="orbitalRing" transform="translate(0,-10)" filter="url(#glitch)">
                   <!-- Circular ring rotated at angle, passing through A - spins smoothly on circular axis -->
-                  <circle cx="0" cy="0" r="24" fill="none" stroke="url(#grad2)" stroke-width="3.5" opacity="0.85" filter="url(#glowStrong)" transform="rotate(-25)">
-                    <animate attributeName="opacity" values="0.7;0.95;0.7" dur="4s" repeatCount="indefinite"/>
+                  <circle cx="0" cy="0" r="26" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="4" opacity="0.9" filter="url(#glowStrong)" transform="rotate(-25)">
+                    <animate attributeName="opacity" values="0.8;0.98;0.8" dur="4s" repeatCount="indefinite"/>
                     <animateTransform attributeName="transform" type="rotate" values="-25;-385" dur="18s" repeatCount="indefinite"/>
                   </circle>
                   
+                  <!-- Horizontal noise overlay for glitch effect on ring -->
+                  <circle cx="0" cy="0" r="26" fill="none" stroke="url(#noisePattern)" stroke-width="4" opacity="0.3" transform="rotate(-25)" mix-blend-mode="screen"/>
+                  
                   <!-- Orbiting particles on the ring -->
                   <g id="ringParticle1">
-                    <circle cx="24" cy="0" r="2.5" fill="rgba(110,231,255,0.9)" filter="url(#glow)">
+                    <circle cx="26" cy="0" r="2.5" fill="rgba(110,231,255,0.95)" filter="url(#glow)">
                       <animateTransform attributeName="transform" type="rotate" values="0;-360" dur="18s" repeatCount="indefinite"/>
-                      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+                      <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
                     </circle>
                   </g>
                   
                   <g id="ringParticle2">
-                    <circle cx="-24" cy="0" r="2" fill="rgba(167,139,250,0.8)" filter="url(#glow)">
+                    <circle cx="-26" cy="0" r="2" fill="rgba(167,139,250,0.9)" filter="url(#glow)">
                       <animateTransform attributeName="transform" type="rotate" values="180;180" dur="18s" repeatCount="indefinite"/>
                       <animateTransform attributeName="transform" type="rotate" values="0;-360" dur="18s" additive="sum" repeatCount="indefinite"/>
-                      <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2.5s" begin="1s" repeatCount="indefinite"/>
+                      <animate attributeName="opacity" values="0.6;0.95;0.6" dur="2.5s" begin="1s" repeatCount="indefinite"/>
                     </circle>
                   </g>
                   
                   <!-- Small accent dot -->
                   <g id="ringParticle3">
-                    <circle cx="0" cy="24" r="1.5" fill="rgba(110,231,255,0.7)" filter="url(#glow)">
+                    <circle cx="0" cy="26" r="1.5" fill="rgba(110,231,255,0.8)" filter="url(#glow)">
                       <animateTransform attributeName="transform" type="rotate" values="90;90" dur="18s" repeatCount="indefinite"/>
                       <animateTransform attributeName="transform" type="rotate" values="0;-360" dur="18s" additive="sum" repeatCount="indefinite"/>
-                      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="1.8s" begin="0.8s" repeatCount="indefinite"/>
+                      <animate attributeName="opacity" values="0.5;0.85;0.5" dur="1.8s" begin="0.8s" repeatCount="indefinite"/>
                     </circle>
                   </g>
                 </g>
@@ -1098,11 +1138,11 @@
                 </g>
                 
                 <!-- Circuit-like connection lines -->
-                <g id="circuitLines" opacity="0.4">
-                  <path d="M -35,50 Q -50,25 -60,5" fill="none" stroke="url(#grad1)" stroke-width="1" stroke-dasharray="2,2">
+                <g id="circuitLines" opacity="0.3">
+                  <path d="M -42,50 Q -55,25 -65,5" fill="none" stroke="rgba(110,231,255,0.6)" stroke-width="1" stroke-dasharray="2,2">
                     <animate attributeName="stroke-dashoffset" values="0;4" dur="2s" repeatCount="indefinite"/>
                   </path>
-                  <path d="M 35,50 Q 50,25 60,5" fill="none" stroke="url(#grad1)" stroke-width="1" stroke-dasharray="2,2">
+                  <path d="M 42,50 Q 55,25 65,5" fill="none" stroke="rgba(110,231,255,0.6)" stroke-width="1" stroke-dasharray="2,2">
                     <animate attributeName="stroke-dashoffset" values="0;4" dur="2s" begin="1s" repeatCount="indefinite"/>
                   </path>
                 </g>
@@ -2894,12 +2934,12 @@
         // Brief intensity increase on orbital ring
         const orbitalRing = svg?.querySelector("#orbitalRing circle");
         if (orbitalRing) {
-          const originalOpacity = orbitalRing.getAttribute("opacity") || "0.85";
+          const originalOpacity = orbitalRing.getAttribute("opacity") || "0.9";
           orbitalRing.setAttribute("opacity", "1");
-          orbitalRing.setAttribute("stroke-width", "4");
+          orbitalRing.setAttribute("stroke-width", "4.5");
           setTimeout(() => {
             orbitalRing.setAttribute("opacity", originalOpacity);
-            orbitalRing.setAttribute("stroke-width", "3.5");
+            orbitalRing.setAttribute("stroke-width", "4");
           }, 400);
         }
         
