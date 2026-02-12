@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://web.squarecdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://connect.squareup.com https://web.squarecdn.com; font-src 'self' data:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://web.squarecdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://connect.squareup.com https://web.squarecdn.com https://api.aerovista.us http://localhost:* http://127.0.0.1:*; frame-src https://web.squarecdn.com https://connect.squareup.com https://pci-connect.squareup.com; font-src 'self' data:;">
   <title>AeroVista Apparel — Store</title>
   <meta name="description" content="Curated comfort essentials: hoodies, crewnecks, hats." />
   <meta property="og:title" content="AeroVista Apparel — Store" />
   <meta property="og:description" content="Curated comfort essentials: hoodies, crewnecks, hats." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <link rel="icon" type="image/svg+xml" href="/store/favicon.svg" />
-  <link rel="alternate icon" href="/store/favicon.ico" />
-  <link rel="apple-touch-icon" href="/store/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="alternate icon" href="./favicon.svg" />
+  <link rel="apple-touch-icon" href="./favicon.svg" />
   <style>
     :root{
       --bg:#0b0f14;
@@ -1344,7 +1344,8 @@
     // - Local dev: "" (uses relative paths)
     // - Production: "https://api.yourdomain.com"
     // - Staging: "https://staging-api.yourdomain.com"
-    const CHECKOUT_API_BASE = (window.STORE_API_BASE || ""); // set this in window or replace with your API URL
+    // Default to production API, but allow explicit override (including empty string for relative paths).
+    const CHECKOUT_API_BASE = ("STORE_API_BASE" in window) ? window.STORE_API_BASE : "https://api.aerovista.us";
 
     function isLocalhostHost(){
       const h = (location.hostname || "").toLowerCase();
@@ -1399,7 +1400,7 @@
 
     // =========================
     // PRODUCTS: loaded dynamically from Square export JSON
-    // Put square_products_2026-02-10.json next to this HTML.
+    // Put square_products_latest.json next to this HTML (recommended).
     // =========================
     let PRODUCTS = [];
 
@@ -1441,8 +1442,8 @@
       const id = (productId || "").toLowerCase();
       const name = (productName || "").toLowerCase();
       
-      // Try /store/img/ first (for GitHub Pages), then fall back to ./img/
-      const imgBase = window.location.pathname.includes('/store/') ? '/store/img/' : './img/';
+      // Keep paths relative so the storefront works on GitHub Pages subpaths and locally.
+      const imgBase = "./img/";
       
       // Cache buster - use timestamp to ensure fresh images
       const cacheBuster = '?v=' + Date.now();
@@ -1693,13 +1694,13 @@
     }
 
     async function loadProducts(){
-      // Try multiple paths - new catalog first, then fallback to old
+      // Try multiple paths - stable "latest" first, then dated fallbacks.
       const paths = [
+        './square_products_latest.json',
+        'square_products_latest.json',
         './square_products_2026-02-11.json',
-        '/store/square_products_2026-02-11.json',
         'square_products_2026-02-11.json',
         './square_products_2026-02-10.json',
-        '/square_products_2026-02-10.json',
         'square_products_2026-02-10.json'
       ];
       
@@ -1785,24 +1786,28 @@
               if (sz && sku) skuBySize[sz] = sku;
             }
 
-            // Build Square variation map: {"Color__Size": "SKU"}
-            // Square uses SKUs as variation IDs, so we map Color__Size to SKU
+            // Build Square variation map: {"Color__Size": "SQUARE_VARIATION_ID"}
+            // Prefer explicit variation_id from the catalog export. If missing, fall back to SKU.
             const squareVariationMap = {};
             const productColor = (color || "").trim() || "Default";
             for (const v of variants){
               const sz = (v.size||"").trim();
+              const variationId = (v.variation_id || v.variationId || "").trim();
               const sku = (v.sku||"").trim();
-              if (sz && sku) {
+              const resolved = variationId || sku;
+              if (sz && resolved) {
                 const key = `${productColor}__${sz}`;
-                squareVariationMap[key] = sku; // SKU is the Square variation ID
+                squareVariationMap[key] = resolved;
               }
             }
             // Handle "One Size" products
             if (variants.length > 0 && sizes.length === 0) {
               const v = variants[0];
+              const variationId = (v.variation_id || v.variationId || "").trim();
               const sku = (v.sku||"").trim();
-              if (sku) {
-                squareVariationMap[`${productColor}__One Size`] = sku;
+              const resolved = variationId || sku;
+              if (resolved) {
+                squareVariationMap[`${productColor}__One Size`] = resolved;
               }
             }
 
@@ -2749,7 +2754,7 @@
       if(missing.length){
         const msg = "Missing Square variation mapping for: " + missing.map(x=>`${x.name} (${x.color}/${x.size})`).join(", ");
         payLog.style.display = "block";
-        payLog.textContent = msg + "\n\nFix: fill PRODUCTS[].squareVariationMap in index.html with Square variation IDs.";
+        payLog.textContent = msg + "\n\nFix: ensure your catalog JSON includes variants[].variation_id for each size/color.";
         toast("Some items not mapped to Square yet.");
         return;
       }
