@@ -1685,80 +1685,106 @@
 
           console.log(`Filtered ${items.length - filteredItems.length} utility products, ${filteredItems.length} remaining`);
 
-          PRODUCTS = filteredItems.map((p) => {
-            const baseName = p.name || "";
-            const color = p.color || "";
-            const displayName = color ? `${baseName} (${color})` : baseName;
+          // Build one product key per catalog item (same product, different color = same key)
+          function productBaseKey(p) {
+            const id = (p.id || "").trim();
+            const color = (p.color || "").trim();
+            if (!color) return id;
+            // Strip trailing "-color" so "hoodie-black" and "hoodie-charcoal" share base "hoodie"
+            const lowered = id.toLowerCase();
+            const colorSuffix = "-" + color.toLowerCase().replace(/\s+/g, "-");
+            if (lowered.endsWith(colorSuffix)) return id.slice(0, -colorSuffix.length);
+            if (/-[a-z0-9]+$/i.test(id)) return id.replace(/-[^-]+$/, "");
+            return id;
+          }
 
-            // Variants: from Square export, sizes sit in variants[].size and SKU in variants[].sku
+          // Map each raw item to a "row" with variant info, then group by base key
+          const rows = filteredItems.map((p) => {
+            const baseName = (p.name || "").trim();
+            const color = (p.color || "").trim();
             const variants = Array.isArray(p.variants) ? p.variants : [];
             const sizes = [...new Set(variants.map(v => (v.size||"").trim()).filter(Boolean))];
-            const colors = color ? [color] : [];
-
-            // sku map for later checkout wiring (size -> sku)
-            const skuBySize = {};
-            for (const v of variants){
-              const sz = (v.size||"").trim();
-              const sku = (v.sku||"").trim();
-              if (sz && sku) skuBySize[sz] = sku;
-            }
-
-            // Build Square variation map: {"Color__Size": "SKU"}
-            // Square uses SKUs as variation IDs, so we map Color__Size to SKU
+            const productColor = color || "Default";
             const squareVariationMap = {};
-            const productColor = (color || "").trim() || "Default";
-            for (const v of variants){
-              const sz = (v.size||"").trim();
-              const sku = (v.sku||"").trim();
-              if (sz && sku) {
-                const key = `${productColor}__${sz}`;
-                squareVariationMap[key] = sku; // SKU is the Square variation ID
-              }
-            }
-            // Handle "One Size" products
-            if (variants.length > 0 && sizes.length === 0) {
-              const v = variants[0];
+            const skuBySize = {};
+            for (const v of variants) {
+              const sz = (v.size||"").trim() || "One Size";
               const sku = (v.sku||"").trim();
               if (sku) {
-                squareVariationMap[`${productColor}__One Size`] = sku;
+                skuBySize[sz] = sku;
+                squareVariationMap[`${productColor}__${sz}`] = sku;
               }
             }
+            if (variants.length > 0 && sizes.length === 0 && variants[0].sku) {
+              squareVariationMap[`${productColor}__One Size`] = (variants[0].sku||"").trim();
+            }
+            return {
+              _baseKey: productBaseKey(p),
+              baseName,
+              color,
+              sizes: sizes.length ? sizes : ["One Size"],
+              colors: color ? [color] : [],
+              squareVariationMap,
+              _skuBySize: skuBySize,
+              cat: guessCategory(baseName + (color ? " (" + color + ")" : ""), p.category || ""),
+              price: (typeof p.price === "number" && isFinite(p.price)) ? p.price : 0,
+              description_text: p.description_text || "",
+              id: p.id,
+              p
+            };
+          });
 
-            const cat = guessCategory(displayName, p.category || "");
-            const price = (typeof p.price === "number" && isFinite(p.price)) ? p.price : 0;
+          // Group by base key so one card per product with all variants
+          const byKey = {};
+          for (const r of rows) {
+            const k = r._baseKey;
+            if (!byKey[k]) byKey[k] = [];
+            byKey[k].push(r);
+          }
 
-            // Generate fit/care/blank/shipping notes based on category
-            const notes = generateProductNotes(cat, displayName, p.description_text || "");
-            
-            // Find matching image file
-            const imagePath = findProductImage(p.id, baseName);
+          PRODUCTS = Object.keys(byKey).map((baseKey) => {
+            const group = byKey[baseKey];
+            const first = group[0];
+            const baseName = first.baseName;
+
+            // Merge colors and sizes from all rows
+            const allColors = [...new Set(group.flatMap(r => r.colors).filter(Boolean))];
+            const allSizes = [...new Set(group.flatMap(r => r.sizes).filter(Boolean))];
+            const mergedMap = {};
+            for (const r of group) {
+              for (const [key, sku] of Object.entries(r.squareVariationMap || {})) mergedMap[key] = sku;
+            }
+
+            const colors = allColors.length ? allColors : ["Default"];
+            const sizes = allSizes.length ? allSizes : ["One Size"];
+            const notes = generateProductNotes(first.cat, baseName, first.description_text);
+            const imagePath = findProductImage(first.id, baseName);
 
             return {
-              id: p.id || ("sq-" + Math.random().toString(16).slice(2)),
-              name: displayName,
+              id: baseKey,
+              name: baseName,
               collection: "Square",
-              category: cat,
-              price: price,
+              category: first.cat,
+              price: first.price,
               featured: false,
               isNew: false,
               flags: [],
-              blurb: shortBlurb(p.description_text || ""),
+              blurb: shortBlurb(first.description_text),
               fitNote: notes.fit,
               fabricNote: notes.fabric,
               careNote: notes.care,
               shipNote: notes.ship,
-              sizes: sizes.length ? sizes : ["One Size"],
-              colors: colors.length ? colors : ["Default"],
-              // Keep checkoutUrl empty for now; we'll wire single-cart checkout to your API next.
+              sizes,
+              colors,
               checkoutUrl: "",
-              imagePath: imagePath, // Path to actual image file
-              imageCss: imageCssFor(p), // Fallback gradient
-              squareVariationMap: squareVariationMap, // Square variation mapping for checkout
-              _skuBySize: skuBySize,
-              _square: p
+              imagePath,
+              imageCss: imageCssFor(first.p),
+              squareVariationMap: mergedMap,
+              _skuBySize: group[0]._skuBySize,
+              _square: first.p
             };
           });
-          console.log(`Successfully loaded ${PRODUCTS.length} products from: ${path}`);
+          console.log(`Successfully loaded ${PRODUCTS.length} products (one per item, variants merged) from: ${path}`);
           return; // Success, exit function
         } catch(err) {
           console.warn(`Failed to load from ${path}:`, err.message);
