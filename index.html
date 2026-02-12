@@ -374,15 +374,33 @@
                   linear-gradient(135deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
       transition: background 0.3s ease;
     }
+    /* Always-dark baseline so all products start "shadowed" consistently (even bright PNGs). */
+    .img::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      z-index:1;
+      background:
+        radial-gradient(280px 220px at 50% 35%, rgba(0,0,0,.36), transparent 65%),
+        linear-gradient(180deg, rgba(0,0,0,.30), rgba(0,0,0,.55));
+      opacity: .22;
+      transition: opacity .26s ease;
+    }
     .card:hover .img{
       background: radial-gradient(200px 160px at 70% 20%, rgba(110,231,255,.20), transparent 65%),
                   radial-gradient(220px 180px at 20% 85%, rgba(167,139,250,.16), transparent 65%),
                   linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
     }
+    .card:hover .img::after,
+    .card:focus-within .img::after{
+      opacity: .07;
+    }
     .img svg{
       position:absolute; inset:0;
       width:100%; height:100%;
       opacity:.95;
+      z-index:0;
     }
     .img img.product-image{
       position:absolute; inset:0;
@@ -395,12 +413,13 @@
       transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
       /* Remove white backgrounds - multiply blend mode makes white transparent */
       mix-blend-mode: multiply;
-      filter: contrast(1.08) brightness(0.96) saturate(1.05);
+      z-index:0;
+      filter: contrast(1.08) brightness(0.94) saturate(1.05);
     }
     /* For PNG images with transparency, use normal blend mode */
     .img img.product-image[src$=".png"]{
       mix-blend-mode: normal;
-      filter: contrast(1.02) brightness(1.02) saturate(1.02);
+      filter: contrast(1.03) brightness(0.94) saturate(1.02);
     }
     /* For JPEG images, apply stronger white removal */
     .img img.product-image[src$=".jpeg"],
@@ -413,7 +432,12 @@
       filter: contrast(1.12) brightness(0.98) saturate(1.08);
     }
     .card:hover .img img.product-image[src$=".png"]{
-      filter: contrast(1.05) brightness(1.03) saturate(1.03);
+      filter: contrast(1.06) brightness(1.02) saturate(1.03);
+    }
+    .card:hover .img svg,
+    .card:focus-within .img svg{
+      transform: scale(1.01);
+      filter: brightness(1.02) contrast(1.03);
     }
     .img .label{
       font-family: var(--mono);
@@ -542,10 +566,22 @@
                   radial-gradient(260px 220px at 20% 90%, rgba(167,139,250,.14), transparent 65%),
                   linear-gradient(135deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
     }
+    .mImg::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      z-index:1;
+      background:
+        radial-gradient(320px 260px at 50% 35%, rgba(0,0,0,.34), transparent 66%),
+        linear-gradient(180deg, rgba(0,0,0,.26), rgba(0,0,0,.58));
+      opacity: .20;
+      transition: opacity .26s ease;
+    }
     @media (min-width: 820px){
       .mImg{ min-height: 400px; }
     }
-    .mImg svg{ position:absolute; inset:0; width:100%; height:100%; opacity:.98; }
+    .mImg svg{ position:absolute; inset:0; width:100%; height:100%; opacity:.98; z-index:0; }
     .mImg img.product-image{
       position:absolute; inset:0;
       width:100%; height:100%;
@@ -557,18 +593,38 @@
       transition: transform 0.3s ease, filter 0.3s ease;
       /* Remove white backgrounds - multiply blend mode makes white transparent */
       mix-blend-mode: multiply;
-      filter: contrast(1.08) brightness(0.96) saturate(1.05);
+      z-index:0;
+      filter: contrast(1.08) brightness(0.94) saturate(1.05);
     }
     /* For PNG images with transparency, use normal blend mode */
     .mImg img.product-image[src$=".png"]{
       mix-blend-mode: normal;
-      filter: contrast(1.02) brightness(1.02) saturate(1.02);
+      filter: contrast(1.03) brightness(0.94) saturate(1.02);
     }
     /* For JPEG images, apply stronger white removal */
     .mImg img.product-image[src$=".jpeg"],
     .mImg img.product-image[src$=".jpg"]{
       mix-blend-mode: multiply;
       filter: contrast(1.1) brightness(0.94) saturate(1.08);
+    }
+    /* Quick view should also "light up" on hover/focus within the modal. */
+    .modal:hover .mImg::after,
+    .modal:focus-within .mImg::after{
+      opacity: .06;
+    }
+    .modal:hover .mImg img.product-image,
+    .modal:focus-within .mImg img.product-image{
+      transform: scale(1.01);
+      filter: contrast(1.12) brightness(0.98) saturate(1.08);
+    }
+    .modal:hover .mImg img.product-image[src$=".png"],
+    .modal:focus-within .mImg img.product-image[src$=".png"]{
+      filter: contrast(1.06) brightness(1.02) saturate(1.03);
+    }
+    .modal:hover .mImg svg,
+    .modal:focus-within .mImg svg{
+      transform: scale(1.01);
+      filter: brightness(1.02) contrast(1.03);
     }
     @media (min-width: 820px){
       .mImg{ border-bottom:none; border-right: 1px solid rgba(255,255,255,.10); }
