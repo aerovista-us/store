@@ -1023,41 +1023,41 @@
                 
                 <!-- Central "A" shape - geometric, aerospace-inspired -->
                 <g id="letterA">
-                  <!-- Left leg - wider at bottom, narrower at top -->
-                  <path d="M -30,50 L -28,45 L -10,-38 L -6,-30 L -6,50 Z" fill="url(#grad1)" opacity="0.9" filter="url(#glowStrong)">
+                  <!-- Left leg - spread/widened at base, thinner, peak-like -->
+                  <path d="M -35,50 L -32,48 L -8,-38 L -4,-30 L -4,50 Z" fill="url(#grad1)" opacity="0.9" filter="url(#glowStrong)">
                     <animate attributeName="opacity" values="0.7;0.95;0.7" dur="3s" repeatCount="indefinite"/>
                   </path>
                   
-                  <!-- Right leg - wider at bottom, narrower at top -->
-                  <path d="M 30,50 L 28,45 L 10,-38 L 6,-30 L 6,50 Z" fill="url(#grad1)" opacity="0.9" filter="url(#glowStrong)">
+                  <!-- Right leg - spread/widened at base, thinner, peak-like -->
+                  <path d="M 35,50 L 32,48 L 8,-38 L 4,-30 L 4,50 Z" fill="url(#grad1)" opacity="0.9" filter="url(#glowStrong)">
                     <animate attributeName="opacity" values="0.7;0.95;0.7" dur="3s" begin="0.5s" repeatCount="indefinite"/>
                   </path>
                   
                   <!-- Inner highlight - left leg -->
-                  <path d="M -25,45 L -12,-35 L -8,-28 L -8,45 Z" fill="url(#rad1)" opacity="0.4"/>
+                  <path d="M -30,48 L -10,-35 L -6,-28 L -6,48 Z" fill="url(#rad1)" opacity="0.4"/>
                   
                   <!-- Inner highlight - right leg -->
-                  <path d="M 25,45 L 12,-35 L 8,-28 L 8,45 Z" fill="url(#rad1)" opacity="0.4"/>
+                  <path d="M 30,48 L 10,-35 L 6,-28 L 6,48 Z" fill="url(#rad1)" opacity="0.4"/>
                 </g>
                 
                 <!-- Orbital ring at angle - replaces crossbar -->
                 <g id="orbitalRing" transform="translate(0,-10)">
-                  <!-- Elliptical ring rotated at angle, passing through A -->
-                  <ellipse cx="0" cy="0" rx="28" ry="18" fill="none" stroke="url(#grad2)" stroke-width="2" opacity="0.85" filter="url(#glowStrong)" transform="rotate(-25)">
+                  <!-- Circular ring rotated at angle, passing through A - spins smoothly on circular axis -->
+                  <circle cx="0" cy="0" r="24" fill="none" stroke="url(#grad2)" stroke-width="3.5" opacity="0.85" filter="url(#glowStrong)" transform="rotate(-25)">
                     <animate attributeName="opacity" values="0.7;0.95;0.7" dur="4s" repeatCount="indefinite"/>
                     <animateTransform attributeName="transform" type="rotate" values="-25;-385" dur="18s" repeatCount="indefinite"/>
-                  </ellipse>
+                  </circle>
                   
                   <!-- Orbiting particles on the ring -->
                   <g id="ringParticle1">
-                    <circle cx="28" cy="0" r="2.5" fill="rgba(110,231,255,0.9)" filter="url(#glow)">
+                    <circle cx="24" cy="0" r="2.5" fill="rgba(110,231,255,0.9)" filter="url(#glow)">
                       <animateTransform attributeName="transform" type="rotate" values="0;-360" dur="18s" repeatCount="indefinite"/>
                       <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
                     </circle>
                   </g>
                   
                   <g id="ringParticle2">
-                    <circle cx="-28" cy="0" r="2" fill="rgba(167,139,250,0.8)" filter="url(#glow)">
+                    <circle cx="-24" cy="0" r="2" fill="rgba(167,139,250,0.8)" filter="url(#glow)">
                       <animateTransform attributeName="transform" type="rotate" values="180;180" dur="18s" repeatCount="indefinite"/>
                       <animateTransform attributeName="transform" type="rotate" values="0;-360" dur="18s" additive="sum" repeatCount="indefinite"/>
                       <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2.5s" begin="1s" repeatCount="indefinite"/>
@@ -1066,7 +1066,7 @@
                   
                   <!-- Small accent dot -->
                   <g id="ringParticle3">
-                    <circle cx="0" cy="18" r="1.5" fill="rgba(110,231,255,0.7)" filter="url(#glow)">
+                    <circle cx="0" cy="24" r="1.5" fill="rgba(110,231,255,0.7)" filter="url(#glow)">
                       <animateTransform attributeName="transform" type="rotate" values="90;90" dur="18s" repeatCount="indefinite"/>
                       <animateTransform attributeName="transform" type="rotate" values="0;-360" dur="18s" additive="sum" repeatCount="indefinite"/>
                       <animate attributeName="opacity" values="0.4;0.8;0.4" dur="1.8s" begin="0.8s" repeatCount="indefinite"/>
@@ -1099,10 +1099,10 @@
                 
                 <!-- Circuit-like connection lines -->
                 <g id="circuitLines" opacity="0.4">
-                  <path d="M -30,50 Q -45,25 -55,5" fill="none" stroke="url(#grad1)" stroke-width="1" stroke-dasharray="2,2">
+                  <path d="M -35,50 Q -50,25 -60,5" fill="none" stroke="url(#grad1)" stroke-width="1" stroke-dasharray="2,2">
                     <animate attributeName="stroke-dashoffset" values="0;4" dur="2s" repeatCount="indefinite"/>
                   </path>
-                  <path d="M 30,50 Q 45,25 55,5" fill="none" stroke="url(#grad1)" stroke-width="1" stroke-dasharray="2,2">
+                  <path d="M 35,50 Q 50,25 60,5" fill="none" stroke="url(#grad1)" stroke-width="1" stroke-dasharray="2,2">
                     <animate attributeName="stroke-dashoffset" values="0;4" dur="2s" begin="1s" repeatCount="indefinite"/>
                   </path>
                 </g>
@@ -2892,14 +2892,14 @@
         }
         
         // Brief intensity increase on orbital ring
-        const orbitalRing = svg?.querySelector("#orbitalRing ellipse");
+        const orbitalRing = svg?.querySelector("#orbitalRing circle");
         if (orbitalRing) {
           const originalOpacity = orbitalRing.getAttribute("opacity") || "0.85";
           orbitalRing.setAttribute("opacity", "1");
-          orbitalRing.setAttribute("stroke-width", "2.5");
+          orbitalRing.setAttribute("stroke-width", "4");
           setTimeout(() => {
             orbitalRing.setAttribute("opacity", originalOpacity);
-            orbitalRing.setAttribute("stroke-width", "2");
+            orbitalRing.setAttribute("stroke-width", "3.5");
           }, 400);
         }
         
