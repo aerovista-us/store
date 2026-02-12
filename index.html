@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://web.squarecdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://connect.squareup.com https://web.squarecdn.com https: http://localhost:* http://127.0.0.1:*; font-src 'self' data:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://web.squarecdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://connect.squareup.com https://web.squarecdn.com; font-src 'self' data:;">
   <title>AeroVista Apparel — Store</title>
   <meta name="description" content="Curated comfort essentials: hoodies, crewnecks, hats." />
   <meta property="og:title" content="AeroVista Apparel — Store" />
   <meta property="og:description" content="Curated comfort essentials: hoodies, crewnecks, hats." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-  <link rel="alternate icon" href="./favicon.svg" />
-  <link rel="apple-touch-icon" href="./favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="/store/favicon.svg" />
+  <link rel="alternate icon" href="/store/favicon.ico" />
+  <link rel="apple-touch-icon" href="/store/favicon.svg" />
   <style>
     :root{
       --bg:#0b0f14;
@@ -147,6 +147,32 @@
       background: rgba(0,0,0,.18);
     }
 
+    .heroVisual{
+      width: 100%;
+      max-width: 400px;
+      height: 300px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .heroSvg{
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 8px 24px rgba(0,0,0,0.4));
+    }
+    .heroVisual:hover .heroSvg{
+      filter: drop-shadow(0 12px 32px rgba(110,231,255,0.3)) drop-shadow(0 8px 24px rgba(0,0,0,0.4));
+      transition: filter 0.3s ease;
+    }
+    .heroVisual:active .heroSvg{
+      transform: scale(0.98);
+      transition: transform 0.1s ease;
+    }
+    
+    /* Legacy glowStamp - kept for backwards compatibility */
     .glowStamp{
       width: 220px;
       height: 150px;
@@ -843,6 +869,7 @@
     @media (max-width: 720px){
       .heroCard{ grid-template-columns: 1fr; }
       .heroRight{ justify-content:flex-start; }
+      .heroVisual{ max-width: 100%; height: 240px; }
       .glowStamp{ width: 100%; height: auto; }
     }
   </style>
@@ -862,14 +889,14 @@
       </a>
 
       <div class="actions">
-        <button class="pill" id="searchShortcut" type="button" title="Search shortcut (press / to focus search)" aria-label="Focus search">
+        <div class="pill" title="Search shortcut (press / to focus search)" role="button" tabindex="0" aria-label="Search shortcut">
           <span style="opacity:.85">Search</span>
           <span class="k">/</span>
-        </button>
-        <button class="pill cartBtn" id="cartOpen" type="button" aria-label="Open cart (0 items)" aria-describedby="cartCount">
+        </div>
+        <div class="pill cartBtn" id="cartOpen" role="button" tabindex="0" aria-label="Open cart (0 items)" aria-describedby="cartCount">
           <span>Cart</span>
           <span class="badge" id="cartCount" aria-label="Cart item count">0</span>
-        </button>
+        </div>
       </div>
     </div>
   </header>
@@ -886,7 +913,7 @@
 
           <div class="heroRow">
             <button class="cta" id="scrollToProducts">Browse essentials →</button>
-            <div class="note">Promo <span style="font-family:var(--mono)">SEED10</span> available at checkout</div>
+            <div class="note">Promo <span style="font-family:var(--mono)">SEED10</span> (placeholder)</div>
           </div>
 
           <div class="collections" aria-label="Collections">
@@ -939,10 +966,149 @@
         </div>
 
         <div class="heroRight">
-          <div class="glowStamp">
-            <div class="s1">AeroVista Apparel</div>
-            <div class="s2">Curated Essentials</div>
-            <div class="s3">Hoodies, tees, hats</div>
+          <div class="heroVisual" id="heroVisual" aria-label="AeroVista brand animation">
+            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" class="heroSvg">
+              <defs>
+                <!-- Gradients -->
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:rgba(110,231,255,0.8);stop-opacity:1" />
+                  <stop offset="50%" style="stop-color:rgba(167,139,250,0.6);stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:rgba(110,231,255,0.4);stop-opacity:1" />
+                </linearGradient>
+                <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:rgba(167,139,250,0.7);stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:rgba(110,231,255,0.5);stop-opacity:1" />
+                </linearGradient>
+                <radialGradient id="rad1" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" style="stop-color:rgba(110,231,255,0.3);stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:rgba(110,231,255,0);stop-opacity:1" />
+                </radialGradient>
+                
+                <!-- Filters for glow effects -->
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                  <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+                <filter id="glowStrong">
+                  <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                  <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+                
+                <!-- Pattern for technical texture -->
+                <pattern id="gridPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(110,231,255,0.08)" stroke-width="0.5"/>
+                </pattern>
+              </defs>
+              
+              <!-- Background grid pattern -->
+              <rect width="400" height="300" fill="url(#gridPattern)" opacity="0.3"/>
+              
+              <!-- Central geometric "A" shape - stylized aerospace design -->
+              <g id="mainShape" transform="translate(200,150)">
+                <!-- Outer ring - rotating -->
+                <circle id="outerRing" cx="0" cy="0" r="85" fill="none" stroke="url(#grad1)" stroke-width="1.5" opacity="0.6" filter="url(#glow)">
+                  <animateTransform attributeName="transform" type="rotate" values="0;360" dur="20s" repeatCount="indefinite"/>
+                </circle>
+                
+                <!-- Middle ring - counter rotating -->
+                <circle id="middleRing" cx="0" cy="0" r="65" fill="none" stroke="url(#grad2)" stroke-width="1" opacity="0.5" filter="url(#glow)">
+                  <animateTransform attributeName="transform" type="rotate" values="360;0" dur="15s" repeatCount="indefinite"/>
+                </circle>
+                
+                <!-- Central "A" shape - geometric, aerospace-inspired -->
+                <g id="letterA">
+                  <!-- Left leg -->
+                  <path d="M -25,45 L -15,-35 L -5,-25 L -5,45 Z" fill="url(#grad1)" opacity="0.9" filter="url(#glowStrong)">
+                    <animate attributeName="opacity" values="0.7;0.95;0.7" dur="3s" repeatCount="indefinite"/>
+                  </path>
+                  
+                  <!-- Right leg -->
+                  <path d="M 25,45 L 15,-35 L 5,-25 L 5,45 Z" fill="url(#grad1)" opacity="0.9" filter="url(#glowStrong)">
+                    <animate attributeName="opacity" values="0.7;0.95;0.7" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+                  </path>
+                  
+                  <!-- Crossbar -->
+                  <path d="M -12,-5 L -8,-15 L 8,-15 L 12,-5 Z" fill="url(#grad2)" opacity="0.85" filter="url(#glowStrong)">
+                    <animate attributeName="opacity" values="0.6;0.9;0.6" dur="2.5s" begin="1s" repeatCount="indefinite"/>
+                  </path>
+                  
+                  <!-- Inner highlight -->
+                  <path d="M -20,35 L -10,-30 L -8,-20 L -8,35 Z" fill="url(#rad1)" opacity="0.4"/>
+                  <path d="M 20,35 L 10,-30 L 8,-20 L 8,35 Z" fill="url(#rad1)" opacity="0.4"/>
+                </g>
+                
+                <!-- Orbiting elements - technical precision markers -->
+                <g id="orbit1">
+                  <circle cx="85" cy="0" r="3" fill="rgba(110,231,255,0.8)" filter="url(#glow)">
+                    <animateTransform attributeName="transform" type="rotate" values="0;360" dur="12s" repeatCount="indefinite"/>
+                  </circle>
+                  <rect x="83" y="-1" width="4" height="2" fill="rgba(167,139,250,0.6)" rx="1">
+                    <animateTransform attributeName="transform" type="rotate" values="0;360" dur="12s" repeatCount="indefinite"/>
+                  </rect>
+                </g>
+                
+                <g id="orbit2">
+                  <circle cx="0" cy="-65" r="2.5" fill="rgba(167,139,250,0.7)" filter="url(#glow)">
+                    <animateTransform attributeName="transform" type="rotate" values="360;0" dur="10s" repeatCount="indefinite"/>
+                  </circle>
+                </g>
+                
+                <g id="orbit3">
+                  <polygon points="-2.5,0 2.5,0 0,-4" fill="rgba(110,231,255,0.7)" filter="url(#glow)">
+                    <animateTransform attributeName="transform" type="rotate" values="0;360" dur="14s" repeatCount="indefinite"/>
+                    <animateTransform attributeName="transform" type="translate" values="0,65;0,65" additive="sum"/>
+                  </polygon>
+                </g>
+                
+                <!-- Circuit-like connection lines -->
+                <g id="circuitLines" opacity="0.4">
+                  <path d="M -25,45 Q -40,20 -50,0" fill="none" stroke="url(#grad1)" stroke-width="1" stroke-dasharray="2,2">
+                    <animate attributeName="stroke-dashoffset" values="0;4" dur="2s" repeatCount="indefinite"/>
+                  </path>
+                  <path d="M 25,45 Q 40,20 50,0" fill="none" stroke="url(#grad1)" stroke-width="1" stroke-dasharray="2,2">
+                    <animate attributeName="stroke-dashoffset" values="0;4" dur="2s" begin="1s" repeatCount="indefinite"/>
+                  </path>
+                  <path d="M -12,-5 Q 0,-25 12,-5" fill="none" stroke="url(#grad2)" stroke-width="0.8" stroke-dasharray="1.5,1.5">
+                    <animate attributeName="stroke-dashoffset" values="0;3" dur="1.5s" repeatCount="indefinite"/>
+                  </path>
+                </g>
+                
+                <!-- Precision dots -->
+                <circle cx="-30" cy="-20" r="1.5" fill="rgba(110,231,255,0.6)">
+                  <animate attributeName="r" values="1.5;2.5;1.5" dur="2s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="30" cy="-20" r="1.5" fill="rgba(167,139,250,0.6)">
+                  <animate attributeName="r" values="1.5;2.5;1.5" dur="2s" begin="1s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" begin="1s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="0" cy="30" r="1.5" fill="rgba(110,231,255,0.5)">
+                  <animate attributeName="r" values="1.5;2;1.5" dur="1.5s" begin="0.75s" repeatCount="indefinite"/>
+                </circle>
+              </g>
+              
+              <!-- Corner accent elements -->
+              <g id="cornerAccents" opacity="0.3">
+                <circle cx="50" cy="50" r="2" fill="rgba(110,231,255,0.5)">
+                  <animate attributeName="opacity" values="0.2;0.5;0.2" dur="4s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="350" cy="50" r="2" fill="rgba(167,139,250,0.5)">
+                  <animate attributeName="opacity" values="0.2;0.5;0.2" dur="4s" begin="2s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="50" cy="250" r="2" fill="rgba(167,139,250,0.5)">
+                  <animate attributeName="opacity" values="0.2;0.5;0.2" dur="4s" begin="1s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="350" cy="250" r="2" fill="rgba(110,231,255,0.5)">
+                  <animate attributeName="opacity" values="0.2;0.5;0.2" dur="4s" begin="3s" repeatCount="indefinite"/>
+                </circle>
+              </g>
+            </svg>
           </div>
         </div>
       </div>
@@ -1041,7 +1207,7 @@
       </div>
 
       <div style="color:var(--muted); font-size:12px;">
-        Secure checkout is processed through Square.
+        Checkout opens provider links if set — otherwise email fallback.
       </div>
     </div>
   </aside>
@@ -1074,7 +1240,7 @@
     const STORE = {
       name: "AeroVista Apparel",
       currency: "USD",
-      emailFallback: "",
+      emailFallback: "orders@yourdomain.com",
       promoCodes: { "SEED10": 0.10, "CREW15": 0.15 }
     };
 
@@ -1137,189 +1303,193 @@
     function findProductImage(productId, productName){
       // Map product IDs/names to image files in /img directory
       // Uses pattern matching based on product ID and name
-      // Relative path keeps images portable across local + static hosting environments.
+      // Paths work for both local development and GitHub Pages (/store/)
       const id = (productId || "").toLowerCase();
       const name = (productName || "").toLowerCase();
       
-      const imgBase = "./img/";
+      // Try /store/img/ first (for GitHub Pages), then fall back to ./img/
+      const imgBase = window.location.pathname.includes('/store/') ? '/store/img/' : './img/';
+      
+      // Cache buster - use timestamp to ensure fresh images
+      const cacheBuster = '?v=' + Date.now();
       
       // AeroVista products
       if(id.includes("aerovista")){
         if(id.includes("apex-draft-pullover") || (id.includes("apex-draft") && !id.includes("zip"))){
-          return imgBase + "drafted_a_hoodie.jpeg";
+          return imgBase + "drafted_a_hoodie.jpeg" + cacheBuster;
         }
         if(id.includes("apex-draft-zip") || (id.includes("apex-draft") && id.includes("zip"))){
-          return imgBase + "drafted_a__zip_hoodie.jpeg";
+          return imgBase + "drafted_a__zip_hoodie.jpeg" + cacheBuster;
         }
         if(id.includes("apex-mesh") || id.includes("cap") || id.includes("trucker")){
-          return imgBase + "drafted-a-snapback.jpeg";
+          return imgBase + "drafted-a-snapback.jpeg" + cacheBuster;
         }
         if(id.includes("wave-mark") || id.includes("wave")){
-          return imgBase + "av_wave_white.png";
+          return imgBase + "av_wave_white.png" + cacheBuster;
         }
         // Default AeroVista hoodie
-        return imgBase + "drafted_a_hoodie.jpeg";
+        return imgBase + "drafted_a_hoodie.jpeg" + cacheBuster;
       }
       
       // Drafted A classic tee
       if(id.includes("drafted-a-classic-tee") || (id.includes("drafted") && id.includes("tee") && !id.includes("hoodie"))){
-        return imgBase + encodeURIComponent("Drafted A classic tee.png");
+        return imgBase + encodeURIComponent("Drafted A classic tee.png") + cacheBuster;
       }
       
       // BONSAID products
       if(id.includes("bonsaid") || name.includes("bonsaid") || id.includes("bubble-free-sticker")){
         if(id.includes("trucker") || id.includes("cap") || id.includes("snapback") || id.includes("richardson")){
-          return imgBase + "bonsaid_snapback.png";
+          return imgBase + "bonsaid_snapback.png" + cacheBuster;
         }
         if(id.includes("sticker") || name.includes("sticker") || id.includes("bubble-free")){
-          return imgBase + encodeURIComponent("bonsaid sticker.png");
+          return imgBase + encodeURIComponent("bonsaid sticker.png") + cacheBuster;
         }
         if(id.includes("oversized") || id.includes("heavyweight")){
-          return imgBase + "bonsaid_grn.png";
+          return imgBase + "bonsaid_grn.png" + cacheBuster;
         }
         if(id.includes("hoodie") || name.includes("hoodie")){
-          return imgBase + "bonsaid_grn.png";
+          return imgBase + "bonsaid_grn.png" + cacheBuster;
         }
         // Default BONSAID image
-        return imgBase + encodeURIComponent("bonsaid sticker.png");
+        return imgBase + encodeURIComponent("bonsaid sticker.png") + cacheBuster;
       }
       
       // EchoVerse products
       if(id.includes("echoverse") || name.includes("echoverse")){
         if((id.includes("frost-circuit") || name.includes("frost")) && (id.includes("pullover") || id.includes("hoodie") || (name.includes("pullover") || name.includes("hoodie")))){
           // Frost Circuit Pullover Hoodie - use existing JPEG file
-          return imgBase + "frost_circuit_black_hoodie.jpeg";
+          return imgBase + "frost_circuit_black_hoodie.jpeg" + cacheBuster;
         }
         if((id.includes("frost-circuit") || name.includes("frost")) && (id.includes("tee") || name.includes("tee"))){
           // Frost Circuit Tee
-          return imgBase + encodeURIComponent("EchoVerse \"Frost Circuit\" Tee.png");
+          return imgBase + encodeURIComponent("EchoVerse \"Frost Circuit\" Tee.png") + cacheBuster;
         }
         if(id.includes("frost-circuit") || name.includes("frost")){
           // Default Frost Circuit (assume hoodie if not specified)
-          return imgBase + "frost_circuit_black_hoodie.jpeg";
+          return imgBase + "frost_circuit_black_hoodie.jpeg" + cacheBuster;
         }
         if(id.includes("signal-dial")){
-          return imgBase + "echoverse_hoodie.png";
+          return imgBase + "echoverse_hoodie.png" + cacheBuster;
         }
         // Default EchoVerse hoodie
-        return imgBase + "echoverse_hoodie.png";
+        return imgBase + "echoverse_hoodie.png" + cacheBuster;
       }
       
       // Founders Mark
       if(id.includes("founders") || name.includes("founders")){
-        return imgBase + "founders_zip_hoodie.png";
+        return imgBase + "founders_zip_hoodie.png" + cacheBuster;
       }
       
       // Lumina
       if(id.includes("lumina") || name.includes("lumina")){
-        return imgBase + "lumina_hoodie.jpeg";
+        return imgBase + "lumina_hoodie.jpeg" + cacheBuster;
       }
       
       // NeXuS TechWorks
       if(id.includes("nexus") || name.includes("nexus")){
-        return imgBase + "nexus_hoodie.png";
+        return imgBase + "nexus_hoodie.png" + cacheBuster;
       }
       
       // Powder Peaks
       if(id.includes("powder") || name.includes("powder")){
         if(id.includes("sticker") || name.includes("sticker") || name.includes("8-ball sticker")){
-          return imgBase + "POWDER_PEAKS.png";
+          return imgBase + "POWDER_PEAKS.png" + cacheBuster;
         }
         if((id.includes("8-ball") || name.includes("8-ball")) && (id.includes("tee") || name.includes("tee"))){
-          return imgBase + encodeURIComponent("Powder Peaks 8-Ball Tee Black.png");
+          return imgBase + encodeURIComponent("Powder Peaks 8-Ball Tee Black.png") + cacheBuster;
         }
         if(id.includes("tee") || name.includes("tee")){
-          return imgBase + encodeURIComponent("Powder Peaks 8-Ball Tee Black.png");
+          return imgBase + encodeURIComponent("Powder Peaks 8-Ball Tee Black.png") + cacheBuster;
         }
-        return imgBase + "power_peaks_hoodie_1.png"; // Default to hoodie
+        return imgBase + "power_peaks_hoodie_1.png" + cacheBuster; // Default to hoodie
       }
       
       // Night Ranger Bear
       if(id.includes("night-ranger") || id.includes("bear") || name.includes("night ranger") || name.includes("bear")){
-        return imgBase + "nit_bear.jpeg";
+        return imgBase + "nit_bear.jpeg" + cacheBuster;
       }
       
       // Neon BillyGoat / Sound Goat
       if(id.includes("billygoat") || id.includes("neon") || name.includes("billygoat") || name.includes("goat") || id.includes("sound-goat")){
-        return imgBase + "sound_goat_a_blk_hoodie.jpeg";
+        return imgBase + "sound_goat_a_blk_hoodie.jpeg" + cacheBuster;
       }
       
       // CDA Pool League
       if(id.includes("cda") || id.includes("pool")){
         if(id.includes("long-sleeve") || name.includes("long sleeve")){
-          return imgBase + encodeURIComponent("CDA Pool League Circuit Long Sleeve.png");
+          return imgBase + encodeURIComponent("CDA Pool League Circuit Long Sleeve.png") + cacheBuster;
         }
         if(id.includes("circuit-tee") || name.includes("circuit tee") || (id.includes("circuit") && id.includes("tee"))){
-          return imgBase + encodeURIComponent("CDA Pool League Circuit Tee.png");
+          return imgBase + encodeURIComponent("CDA Pool League Circuit Tee.png") + cacheBuster;
         }
-        return imgBase + encodeURIComponent("CDA Pool League Circuit Tee.png"); // Default to tee
+        return imgBase + encodeURIComponent("CDA Pool League Circuit Tee.png") + cacheBuster; // Default to tee
       }
       
       // Holographic stickers
       if(id.includes("holographic") || name.includes("holographic")){
-        return imgBase + "holographic_goat_sticker.jpeg";
+        return imgBase + "holographic_goat_sticker.jpeg" + cacheBuster;
       }
       
       // Golden Eye Sigil
       if(id.includes("golden-eye") || name.includes("golden eye") || name.includes("golden-eye")){
-        return imgBase + encodeURIComponent("\"Golden Eye Sigil\" Premium Sweatshirt.jpeg");
+        return imgBase + encodeURIComponent("\"Golden Eye Sigil\" Premium Sweatshirt.jpeg") + cacheBuster;
       }
       
       // Unisex Premium Sweatshirt
       if(id.includes("unisex-premium-sweatshirt") || (id.includes("unisex") && id.includes("sweatshirt"))){
-        return imgBase + "founders_zip_hoodie.png"; // Use placeholder
+        return imgBase + "founders_zip_hoodie.png" + cacheBuster; // Use placeholder
       }
       
       // BLU.EYE products
       if(id.includes("blu") && id.includes("eye") || name.includes("blu") && name.includes("eye")){
-        return imgBase + "BLU.EYE.png";
+        return imgBase + "BLU.EYE.png" + cacheBuster;
       }
       
       // Vespera products
       if(id.includes("vespera") || name.includes("vespera")){
-        return imgBase + "vespera.png";
+        return imgBase + "vespera.png" + cacheBuster;
       }
       
       // Glitch products
       if(id.includes("glitch") || name.includes("glitch")){
         if(id.includes("drone") || name.includes("drone")){
-          return imgBase + "glitch_drone.png";
+          return imgBase + "glitch_drone.png" + cacheBuster;
         }
         if(id.includes("aerovista") || name.includes("aerovista")){
-          return imgBase + "glitch.aerovista.png";
+          return imgBase + "glitch.aerovista.png" + cacheBuster;
         }
         if(id.includes("a ") || name.includes("glitch a")){
-          return imgBase + encodeURIComponent("glitch A.png");
+          return imgBase + encodeURIComponent("glitch A.png") + cacheBuster;
         }
-        return imgBase + encodeURIComponent("glitch A.png");
+        return imgBase + encodeURIComponent("glitch A.png") + cacheBuster;
       }
       
       // Kryptek products
       if(id.includes("kryptek") || name.includes("kryptek")){
         if(id.includes("hunter") || id.includes("orange") || name.includes("orange")){
-          return imgBase + "kryptek_Hunter_Orange_1_1500.jpg";
+          return imgBase + "kryptek_Hunter_Orange_1_1500.jpg" + cacheBuster;
         }
         if(id.includes("emt") || name.includes("emt")){
-          return imgBase + "kryptek_emt_Image1_1500.jpg";
+          return imgBase + "kryptek_emt_Image1_1500.jpg" + cacheBuster;
         }
         if(id.includes("black") || id.includes("blk") || name.includes("black")){
-          return imgBase + "kryptek_blk_1_1500.jpg";
+          return imgBase + "kryptek_blk_1_1500.jpg" + cacheBuster;
         }
-        return imgBase + "kryptek_blk_1_1500.jpg"; // Default
+        return imgBase + "kryptek_blk_1_1500.jpg" + cacheBuster; // Default
       }
       
       // Generic fallbacks based on product type
       if(id.includes("hoodie") || id.includes("pullover")){
-        return imgBase + "drafted_a_hoodie.jpeg";
+        return imgBase + "drafted_a_hoodie.jpeg" + cacheBuster;
       }
       if(id.includes("tee") || id.includes("shirt") || id.includes("long-sleeve")){
-        return imgBase + "drafted_a_hoodie.jpeg"; // Use hoodie as placeholder for tees
+        return imgBase + "drafted_a_hoodie.jpeg" + cacheBuster; // Use hoodie as placeholder for tees
       }
       if(id.includes("sticker")){
-        return imgBase + encodeURIComponent("bonsaid sticker.png");
+        return imgBase + encodeURIComponent("bonsaid sticker.png") + cacheBuster;
       }
       if(id.includes("sweatshirt") || id.includes("crewneck")){
-        return imgBase + "founders_zip_hoodie.png";
+        return imgBase + "founders_zip_hoodie.png" + cacheBuster;
       }
       
       // Default fallback - return null to use SVG fallback
@@ -1389,14 +1559,14 @@
     }
 
     async function loadProducts(){
-      // Try stable paths first; optional newer export paths remain as fallback.
+      // Try multiple paths - new catalog first, then fallback to old
       const paths = [
-        './square_products_2026-02-10.json',
-        '/square_products_2026-02-10.json',
-        'square_products_2026-02-10.json',
         './square_products_2026-02-11.json',
         '/store/square_products_2026-02-11.json',
-        'square_products_2026-02-11.json'
+        'square_products_2026-02-11.json',
+        './square_products_2026-02-10.json',
+        '/square_products_2026-02-10.json',
+        'square_products_2026-02-10.json'
       ];
       
       let lastError = null;
@@ -1725,7 +1895,7 @@
       // Limited
       {
         id:"lm-hoodie-pp",
-        name:"Limited Hoodie — Powder Peaks",
+        name:"Limited Hoodie — Powder Peaks (Placeholder)",
         collection:"Limited",
         category:"hoodies",
         price: 66.00,
@@ -1743,7 +1913,7 @@
       },
       {
         id:"lm-crew-mb",
-        name:"Limited Crewneck — Moonball",
+        name:"Limited Crewneck — Moonball (Placeholder)",
         collection:"Limited",
         category:"crewnecks",
         price: 58.00,
@@ -1798,7 +1968,6 @@
 
     const LS_KEY = "av_store_cart_v3";
     const LS_PROMO = "av_store_promo_v3";
-    const LS_SQUARE_ENV = "av_store_square_env_v1";
 
     function loadCart(){ try{ return JSON.parse(localStorage.getItem(LS_KEY) || "[]"); }catch(e){ return []; } }
     function saveCart(cart){ localStorage.setItem(LS_KEY, JSON.stringify(cart)); updateCartUI(); }
@@ -2100,7 +2269,7 @@
 
       $("#providerBtn").onclick = () => {
         if(p.checkoutUrl){
-          window.open(p.checkoutUrl, "_blank", "noopener,noreferrer");
+          window.open(p.checkoutUrl, "_blank");
         } else {
           toast("No provider link set yet.");
         }
@@ -2315,45 +2484,19 @@
       return base ? (base.replace(/\/+$/,"") + path) : path;
     }
 
-
-    function sandboxToggleAllowed(){
-      const host = (location.hostname || "").toLowerCase();
-      const qs = new URLSearchParams(location.search);
-      if (qs.get("squareEnvToggle") === "1" || qs.get("dev") === "1") return true;
-      return host === "localhost" || host === "127.0.0.1" || host === "0.0.0.0";
-    }
-
-    function getSquareEnv(){
-      if(!sandboxToggleAllowed()) return "production";
-      try{
-        const v = String(localStorage.getItem(LS_SQUARE_ENV) || "production").trim().toLowerCase();
-        return (v === "sandbox" || v === "production") ? v : "production";
-      }catch(e){
-        return "production";
-      }
-    }
-
-    function setSquareEnv(env){
-      if(!sandboxToggleAllowed()) return;
-      const v = (String(env || "production").trim().toLowerCase() === "sandbox") ? "sandbox" : "production";
-      try{ localStorage.setItem(LS_SQUARE_ENV, v); }catch(e){}
-    }
-
-    async function squareBootstrap(envOverride){
-      const requestedEnv = (envOverride || getSquareEnv());
-      if(__sqBoot && __sqBoot.__requestedEnv === requestedEnv) return __sqBoot;
+    async function squareBootstrap(){
+      if(__sqBoot) return __sqBoot;
       try {
-        const url = apiUrl(`/api/square/bootstrap?env=${encodeURIComponent(requestedEnv)}`);
-        const res = await fetch(url);
+        const res = await fetch(apiUrl("/api/square/bootstrap"));
         if(!res.ok) {
           const errorText = await res.text().catch(() => "");
           throw new Error(`Square bootstrap failed: ${res.status} ${res.statusText}${errorText ? ` - ${errorText}` : ""}`);
         }
         __sqBoot = await res.json();
-        __sqBoot.__requestedEnv = requestedEnv;
         return __sqBoot;
       } catch(err) {
         console.error("Square bootstrap error:", err);
+        // Provide user-friendly error message
         const isNetworkError = err.message.includes("Failed to fetch") || err.message.includes("NetworkError");
         if (isNetworkError) {
           throw new Error("Unable to connect to payment service. Please check your internet connection and try again.");
@@ -2390,42 +2533,6 @@
     }
 
     let payOverlayTrigger = null;
-    let payFocusTrapHandler = null;
-
-    function trapPayOverlayFocus(el){
-      if(payFocusTrapHandler){
-        document.removeEventListener("keydown", payFocusTrapHandler);
-      }
-
-      const modal = el.querySelector(".modal");
-      if(!modal) return;
-
-      const focusableSelector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-      payFocusTrapHandler = function(e){
-        if(!el.classList.contains("open")){
-          document.removeEventListener("keydown", payFocusTrapHandler);
-          payFocusTrapHandler = null;
-          return;
-        }
-        if(e.key !== "Tab") return;
-
-        const focusable = Array.from(modal.querySelectorAll(focusableSelector))
-          .filter(node => !node.disabled && node.offsetParent !== null);
-        if(!focusable.length) return;
-
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-        if(e.shiftKey && document.activeElement === first){
-          e.preventDefault();
-          last.focus();
-        } else if(!e.shiftKey && document.activeElement === last){
-          e.preventDefault();
-          first.focus();
-        }
-      };
-
-      document.addEventListener("keydown", payFocusTrapHandler);
-    }
 
     function openOverlay(el){
       payOverlayTrigger = document.activeElement;
@@ -2435,17 +2542,12 @@
       setTimeout(() => {
         const closeBtn = el.querySelector("#payClose");
         if(closeBtn) closeBtn.focus();
-        trapPayOverlayFocus(el);
       }, 100);
     }
     function closeOverlay(el){
       el.classList.remove("open");
       el.setAttribute("aria-hidden","true");
       document.body.style.overflow = "";
-      if(payFocusTrapHandler){
-        document.removeEventListener("keydown", payFocusTrapHandler);
-        payFocusTrapHandler = null;
-      }
       if(payOverlayTrigger && typeof payOverlayTrigger.focus === "function"){
         payOverlayTrigger.focus();
       }
@@ -2468,9 +2570,6 @@
       payLog.textContent = "";
 
       openOverlay(payOverlay);
-      payOverlay.onclick = (e) => {
-        if(e.target === payOverlay) closeOverlay(payOverlay);
-      };
 
       // Close wiring
       $("#payClose").onclick = () => closeOverlay(payOverlay);
@@ -2496,21 +2595,7 @@
       const grand = (totals.total || 0) + (shipCents/100);
       $("#payTotal").textContent = fmt(grand);
 
-      const envUi = (boot.env === "sandbox") ? "SANDBOX" : "PRODUCTION";
-      const envColor = (boot.env === "sandbox") ? "color: var(--bad);" : "color: var(--ok);";
-      const canToggle = sandboxToggleAllowed();
-      const desired = getSquareEnv();
-      const mismatch = (canToggle && boot.env && desired && boot.env !== desired) ? ` <span style="opacity:.75">(server locked: ${boot.env})</span>` : "";
-      const toggleLabel = (desired === "sandbox") ? "Switch to production" : "Switch to sandbox";
-      $("#payMeta").innerHTML = `${cart.length} item(s) • <span style="${envColor} font-weight:900; letter-spacing:.08em;">${envUi}</span>${mismatch} • ${boot.currency || "USD"}${canToggle ? ` • <button type="button" id="sqEnvToggle" class="btn" style="padding:6px 10px; font-size:12px;">${toggleLabel}</button>` : ""}`;
-      if(canToggle){
-        document.getElementById('sqEnvToggle')?.addEventListener('click', () => {
-          const next = (getSquareEnv() === 'sandbox') ? 'production' : 'sandbox';
-          setSquareEnv(next);
-          toast(`Switched payment mode to ${next}. Reloading…`);
-          location.reload();
-        }, { once: true });
-      }
+      $("#payMeta").textContent = `${cart.length} item(s) • ${boot.env || ""} • ${boot.currency || "USD"}`;
 
       // Ensure every item has a mapped Square variation id
       const lines = cartToSquareLines(cart);
@@ -2624,7 +2709,6 @@
               },
               shipping_note: ""
             },
-            env: getSquareEnv(),
             cart: lines.map(x=>({ variation_id: x.variation_id, qty: x.qty, sku: x.key })),
             currency: boot.currency || "USD",
             payment_token: tokenResult.token
@@ -2718,6 +2802,101 @@
 
     $("#search").addEventListener("input", (e)=>{ state.search = e.target.value || ""; renderGrid(); });
     
+    // Interactive hero visual - mouse tracking and click effects
+    const heroVisual = $("#heroVisual");
+    if (heroVisual) {
+      const svg = heroVisual.querySelector(".heroSvg");
+      const mainShape = svg?.querySelector("#mainShape");
+      const letterA = svg?.querySelector("#letterA");
+      const orbits = svg?.querySelectorAll("#orbit1, #orbit2, #orbit3");
+      
+      // Store original transform
+      const originalTransform = mainShape?.getAttribute("transform") || "translate(200,150)";
+      let animationFrame = null;
+      
+      // Mouse tracking - subtle parallax effect using SVG transforms
+      heroVisual.addEventListener("mousemove", (e) => {
+        if (!mainShape) return;
+        
+        // Cancel any pending animation frame
+        if (animationFrame) cancelAnimationFrame(animationFrame);
+        
+        animationFrame = requestAnimationFrame(() => {
+          const rect = heroVisual.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          const x = (e.clientX - centerX) / (rect.width / 2);
+          const y = (e.clientY - centerY) / (rect.height / 2);
+          
+          // Subtle rotation based on mouse position (using SVG transform)
+          const rotateX = y * 3; // Max 3 degrees
+          const rotateY = x * -3; // Max 3 degrees
+          const scale = 1 + Math.abs(x) * 0.02 + Math.abs(y) * 0.02; // Subtle scale
+          
+          // Apply SVG transform (translate first, then rotate)
+          mainShape.setAttribute("transform", 
+            `translate(200,150) rotate(${rotateY},0,0) scale(${scale})`);
+          
+          // Add CSS transition for smoothness
+          mainShape.style.transition = "transform 0.15s ease-out";
+        });
+      });
+      
+      // Reset on mouse leave
+      heroVisual.addEventListener("mouseleave", () => {
+        if (mainShape) {
+          mainShape.setAttribute("transform", originalTransform);
+          mainShape.style.transition = "transform 0.4s ease-out";
+        }
+      });
+      
+      // Click interaction - pulse effect
+      heroVisual.addEventListener("click", () => {
+        if (letterA) {
+          const originalScale = letterA.getAttribute("transform") || "";
+          letterA.setAttribute("transform", `${originalScale} scale(1.15)`);
+          letterA.style.transition = "transform 0.2s ease-out";
+          
+          setTimeout(() => {
+            letterA.setAttribute("transform", originalScale);
+            letterA.style.transition = "transform 0.3s ease-out";
+          }, 200);
+        }
+        
+        // Brief intensity increase on all orbiting elements
+        if (orbits && orbits.length > 0) {
+          orbits.forEach(orbit => {
+            const originalOpacity = orbit.getAttribute("opacity") || "1";
+            orbit.setAttribute("opacity", "1");
+            orbit.style.transition = "opacity 0.2s ease-out";
+            
+            setTimeout(() => {
+              orbit.setAttribute("opacity", originalOpacity);
+              orbit.style.transition = "opacity 0.5s ease-out";
+            }, 300);
+          });
+        }
+        
+        // Add a ripple effect by briefly increasing glow
+        const outerRing = svg?.querySelector("#outerRing");
+        const middleRing = svg?.querySelector("#middleRing");
+        if (outerRing) {
+          const originalOpacity = outerRing.getAttribute("opacity") || "0.6";
+          outerRing.setAttribute("opacity", "0.9");
+          setTimeout(() => {
+            outerRing.setAttribute("opacity", originalOpacity);
+          }, 400);
+        }
+        if (middleRing) {
+          const originalOpacity = middleRing.getAttribute("opacity") || "0.5";
+          middleRing.setAttribute("opacity", "0.8");
+          setTimeout(() => {
+            middleRing.setAttribute("opacity", originalOpacity);
+          }, 400);
+        }
+      });
+    }
+    
     // Global error handler for unhandled errors
     window.addEventListener("error", (event) => {
       console.error("Unhandled error:", event.error);
@@ -2742,7 +2921,6 @@
     // Nav
     $("#yr").textContent = new Date().getFullYear();
     $("#scrollToProducts").onclick = ()=> $("#productsSection").scrollIntoView({ behavior:"smooth", block:"start" });
-    $("#searchShortcut").onclick = ()=> $("#search").focus();
     $("#homeLink").onclick = (e)=>{ e.preventDefault(); window.scrollTo({top:0, behavior:"smooth"}); };
 
     function infoModal(title, text){
@@ -2763,14 +2941,10 @@
       $("#overlay").classList.add("show");
       $("#overlay").setAttribute("aria-hidden","false");
     }
-    $("#faqLink").onclick = (e)=>{ e.preventDefault(); infoModal("FAQ", "Sizing and care details are listed per product in Quick View. More policy details are being finalized."); };
-    $("#shippingLink").onclick = (e)=>{ e.preventDefault(); infoModal("Shipping", "Orders are made to order. Production and transit times vary by destination and fulfillment load."); };
-    $("#returnsLink").onclick = (e)=>{ e.preventDefault(); infoModal("Returns", "Returns and exchanges are reviewed case-by-case based on item condition and order details."); };
-    $("#contactLink").onclick = (e)=>{ 
-      e.preventDefault();
-      const contactEmail = STORE.emailFallback ? STORE.emailFallback : "support email will be posted before launch";
-      infoModal("Contact", `Email: ${contactEmail}`);
-    };
+    $("#faqLink").onclick = (e)=>{ e.preventDefault(); infoModal("FAQ", "Placeholder FAQ. Add real sizing/returns details once your provider is chosen."); };
+    $("#shippingLink").onclick = (e)=>{ e.preventDefault(); infoModal("Shipping", "Made-to-order fulfillment. Add exact provider timelines per region when wired."); };
+    $("#returnsLink").onclick = (e)=>{ e.preventDefault(); infoModal("Returns", "Placeholder returns. Final policy depends on your provider + your decision on exchanges."); };
+    $("#contactLink").onclick = (e)=>{ e.preventDefault(); infoModal("Contact", `Email: ${STORE.emailFallback || "set STORE.emailFallback"}`); };
 
     // Init
     async function init(){
@@ -2781,10 +2955,39 @@
           console.warn("No products loaded from JSON, using fallback");
           PRODUCTS = FALLBACK_PRODUCTS;
         }
+        renderGrid();
+        updateCartUI();
       } catch(err) {
         console.error("Failed to load products:", err);
+        // Use fallback products if available
+        if (FALLBACK_PRODUCTS && FALLBACK_PRODUCTS.length > 0) {
+          PRODUCTS = FALLBACK_PRODUCTS;
+          renderGrid();
+          updateCartUI();
+          toast("Using cached products. Some items may be outdated.");
+        } else {
+          // Show error message to user
+          const grid = $("#grid");
+          if (grid) {
+            grid.innerHTML = `
+              <div class="card" style="grid-column: span 12; min-height: 180px;">
+                <div class="body">
+                  <h3 class="title">Unable to load products</h3>
+                  <p class="desc">We're having trouble loading our catalog. Please refresh the page to try again.</p>
+                  <div class="row">
+                    <button class="btn primary" onclick="location.reload()">Refresh Page</button>
+                  </div>
+                </div>
+              </div>
+            `;
+          }
+          toast("Failed to load products. Please refresh the page.");
+        }
+        console.error("Products failed to load:", err);
+        const errorMsg = err.message || String(err);
+        console.error("Full error:", errorMsg);
+        toast(`Products failed to load: ${errorMsg.substring(0, 50)}... Using fallback data.`);
         PRODUCTS = FALLBACK_PRODUCTS;
-        toast("Using fallback catalog while product feed is unavailable.");
       }
       console.log("Initializing with", PRODUCTS.length, "products");
       renderGrid();
@@ -2875,4 +3078,3 @@
 
 </body>
 </html>
-
