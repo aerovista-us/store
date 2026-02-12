@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://web.squarecdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://connect.squareup.com https://web.squarecdn.com; font-src 'self' data:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://web.squarecdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://connect.squareup.com https://web.squarecdn.com https: http://localhost:* http://127.0.0.1:*; font-src 'self' data:;">
   <title>AeroVista Apparel — Store</title>
   <meta name="description" content="Curated comfort essentials: hoodies, crewnecks, hats." />
   <meta property="og:title" content="AeroVista Apparel — Store" />
   <meta property="og:description" content="Curated comfort essentials: hoodies, crewnecks, hats." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <link rel="icon" type="image/svg+xml" href="/store/favicon.svg" />
-  <link rel="alternate icon" href="/store/favicon.ico" />
-  <link rel="apple-touch-icon" href="/store/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="alternate icon" href="./favicon.svg" />
+  <link rel="apple-touch-icon" href="./favicon.svg" />
   <style>
     :root{
       --bg:#0b0f14;
@@ -862,14 +862,14 @@
       </a>
 
       <div class="actions">
-        <div class="pill" title="Search shortcut (press / to focus search)" role="button" tabindex="0" aria-label="Search shortcut">
+        <button class="pill" id="searchShortcut" type="button" title="Search shortcut (press / to focus search)" aria-label="Focus search">
           <span style="opacity:.85">Search</span>
           <span class="k">/</span>
-        </div>
-        <div class="pill cartBtn" id="cartOpen" role="button" tabindex="0" aria-label="Open cart (0 items)" aria-describedby="cartCount">
+        </button>
+        <button class="pill cartBtn" id="cartOpen" type="button" aria-label="Open cart (0 items)" aria-describedby="cartCount">
           <span>Cart</span>
           <span class="badge" id="cartCount" aria-label="Cart item count">0</span>
-        </div>
+        </button>
       </div>
     </div>
   </header>
@@ -886,7 +886,7 @@
 
           <div class="heroRow">
             <button class="cta" id="scrollToProducts">Browse essentials →</button>
-            <div class="note">Promo <span style="font-family:var(--mono)">SEED10</span> (placeholder)</div>
+            <div class="note">Promo <span style="font-family:var(--mono)">SEED10</span> available at checkout</div>
           </div>
 
           <div class="collections" aria-label="Collections">
@@ -940,9 +940,9 @@
 
         <div class="heroRight">
           <div class="glowStamp">
-            <div class="s1">Storefront Prototype</div>
-            <div class="s2">Semi-Finished Copy</div>
-            <div class="s3">Unique product narratives</div>
+            <div class="s1">AeroVista Apparel</div>
+            <div class="s2">Curated Essentials</div>
+            <div class="s3">Hoodies, tees, hats</div>
           </div>
         </div>
       </div>
@@ -1041,7 +1041,7 @@
       </div>
 
       <div style="color:var(--muted); font-size:12px;">
-        Checkout opens provider links if set — otherwise email fallback.
+        Secure checkout is processed through Square.
       </div>
     </div>
   </aside>
@@ -1055,11 +1055,26 @@
     // =========================
     // STORE SETTINGS
     // =========================
+    // API Configuration: Set window.STORE_API_BASE before page load, or configure here
+    // Examples:
+    // - Local dev: "" (uses relative paths)
+    // - Production: "https://api.yourdomain.com"
+    // - Staging: "https://staging-api.yourdomain.com"
     const CHECKOUT_API_BASE = (window.STORE_API_BASE || ""); // set this in window or replace with your API URL
+    
+    // Health check function to verify API connectivity
+    async function checkApiHealth(){
+      try {
+        const res = await fetch(apiUrl("/api/square/bootstrap"), { method: "HEAD" });
+        return res.ok;
+      } catch(e) {
+        return false;
+      }
+    }
     const STORE = {
       name: "AeroVista Apparel",
       currency: "USD",
-      emailFallback: "orders@yourdomain.com",
+      emailFallback: "",
       promoCodes: { "SEED10": 0.10, "CREW15": 0.15 }
     };
 
@@ -1122,193 +1137,189 @@
     function findProductImage(productId, productName){
       // Map product IDs/names to image files in /img directory
       // Uses pattern matching based on product ID and name
-      // Paths work for both local development and GitHub Pages (/store/)
+      // Relative path keeps images portable across local + static hosting environments.
       const id = (productId || "").toLowerCase();
       const name = (productName || "").toLowerCase();
       
-      // Try /store/img/ first (for GitHub Pages), then fall back to ./img/
-      const imgBase = window.location.pathname.includes('/store/') ? '/store/img/' : './img/';
-      
-      // Cache buster - use timestamp to ensure fresh images
-      const cacheBuster = '?v=' + Date.now();
+      const imgBase = "./img/";
       
       // AeroVista products
       if(id.includes("aerovista")){
         if(id.includes("apex-draft-pullover") || (id.includes("apex-draft") && !id.includes("zip"))){
-          return imgBase + "drafted_a_hoodie.jpeg" + cacheBuster;
+          return imgBase + "drafted_a_hoodie.jpeg";
         }
         if(id.includes("apex-draft-zip") || (id.includes("apex-draft") && id.includes("zip"))){
-          return imgBase + "drafted_a__zip_hoodie.jpeg" + cacheBuster;
+          return imgBase + "drafted_a__zip_hoodie.jpeg";
         }
         if(id.includes("apex-mesh") || id.includes("cap") || id.includes("trucker")){
-          return imgBase + "drafted-a-snapback.jpeg" + cacheBuster;
+          return imgBase + "drafted-a-snapback.jpeg";
         }
         if(id.includes("wave-mark") || id.includes("wave")){
-          return imgBase + "av_wave_white.png" + cacheBuster;
+          return imgBase + "av_wave_white.png";
         }
         // Default AeroVista hoodie
-        return imgBase + "drafted_a_hoodie.jpeg" + cacheBuster;
+        return imgBase + "drafted_a_hoodie.jpeg";
       }
       
       // Drafted A classic tee
       if(id.includes("drafted-a-classic-tee") || (id.includes("drafted") && id.includes("tee") && !id.includes("hoodie"))){
-        return imgBase + encodeURIComponent("Drafted A classic tee.png") + cacheBuster;
+        return imgBase + encodeURIComponent("Drafted A classic tee.png");
       }
       
       // BONSAID products
       if(id.includes("bonsaid") || name.includes("bonsaid") || id.includes("bubble-free-sticker")){
         if(id.includes("trucker") || id.includes("cap") || id.includes("snapback") || id.includes("richardson")){
-          return imgBase + "bonsaid_snapback.png" + cacheBuster;
+          return imgBase + "bonsaid_snapback.png";
         }
         if(id.includes("sticker") || name.includes("sticker") || id.includes("bubble-free")){
-          return imgBase + encodeURIComponent("bonsaid sticker.png") + cacheBuster;
+          return imgBase + encodeURIComponent("bonsaid sticker.png");
         }
         if(id.includes("oversized") || id.includes("heavyweight")){
-          return imgBase + "bonsaid_grn.png" + cacheBuster;
+          return imgBase + "bonsaid_grn.png";
         }
         if(id.includes("hoodie") || name.includes("hoodie")){
-          return imgBase + "bonsaid_grn.png" + cacheBuster;
+          return imgBase + "bonsaid_grn.png";
         }
         // Default BONSAID image
-        return imgBase + encodeURIComponent("bonsaid sticker.png") + cacheBuster;
+        return imgBase + encodeURIComponent("bonsaid sticker.png");
       }
       
       // EchoVerse products
       if(id.includes("echoverse") || name.includes("echoverse")){
         if((id.includes("frost-circuit") || name.includes("frost")) && (id.includes("pullover") || id.includes("hoodie") || (name.includes("pullover") || name.includes("hoodie")))){
           // Frost Circuit Pullover Hoodie - use existing JPEG file
-          return imgBase + "frost_circuit_black_hoodie.jpeg" + cacheBuster;
+          return imgBase + "frost_circuit_black_hoodie.jpeg";
         }
         if((id.includes("frost-circuit") || name.includes("frost")) && (id.includes("tee") || name.includes("tee"))){
           // Frost Circuit Tee
-          return imgBase + encodeURIComponent("EchoVerse \"Frost Circuit\" Tee.png") + cacheBuster;
+          return imgBase + encodeURIComponent("EchoVerse \"Frost Circuit\" Tee.png");
         }
         if(id.includes("frost-circuit") || name.includes("frost")){
           // Default Frost Circuit (assume hoodie if not specified)
-          return imgBase + "frost_circuit_black_hoodie.jpeg" + cacheBuster;
+          return imgBase + "frost_circuit_black_hoodie.jpeg";
         }
         if(id.includes("signal-dial")){
-          return imgBase + "echoverse_hoodie.png" + cacheBuster;
+          return imgBase + "echoverse_hoodie.png";
         }
         // Default EchoVerse hoodie
-        return imgBase + "echoverse_hoodie.png" + cacheBuster;
+        return imgBase + "echoverse_hoodie.png";
       }
       
       // Founders Mark
       if(id.includes("founders") || name.includes("founders")){
-        return imgBase + "founders_zip_hoodie.png" + cacheBuster;
+        return imgBase + "founders_zip_hoodie.png";
       }
       
       // Lumina
       if(id.includes("lumina") || name.includes("lumina")){
-        return imgBase + "lumina_hoodie.jpeg" + cacheBuster;
+        return imgBase + "lumina_hoodie.jpeg";
       }
       
       // NeXuS TechWorks
       if(id.includes("nexus") || name.includes("nexus")){
-        return imgBase + "nexus_hoodie.png" + cacheBuster;
+        return imgBase + "nexus_hoodie.png";
       }
       
       // Powder Peaks
       if(id.includes("powder") || name.includes("powder")){
         if(id.includes("sticker") || name.includes("sticker") || name.includes("8-ball sticker")){
-          return imgBase + "POWDER_PEAKS.png" + cacheBuster;
+          return imgBase + "POWDER_PEAKS.png";
         }
         if((id.includes("8-ball") || name.includes("8-ball")) && (id.includes("tee") || name.includes("tee"))){
-          return imgBase + encodeURIComponent("Powder Peaks 8-Ball Tee Black.png") + cacheBuster;
+          return imgBase + encodeURIComponent("Powder Peaks 8-Ball Tee Black.png");
         }
         if(id.includes("tee") || name.includes("tee")){
-          return imgBase + encodeURIComponent("Powder Peaks 8-Ball Tee Black.png") + cacheBuster;
+          return imgBase + encodeURIComponent("Powder Peaks 8-Ball Tee Black.png");
         }
-        return imgBase + "power_peaks_hoodie_1.png" + cacheBuster; // Default to hoodie
+        return imgBase + "power_peaks_hoodie_1.png"; // Default to hoodie
       }
       
       // Night Ranger Bear
       if(id.includes("night-ranger") || id.includes("bear") || name.includes("night ranger") || name.includes("bear")){
-        return imgBase + "nit_bear.jpeg" + cacheBuster;
+        return imgBase + "nit_bear.jpeg";
       }
       
       // Neon BillyGoat / Sound Goat
       if(id.includes("billygoat") || id.includes("neon") || name.includes("billygoat") || name.includes("goat") || id.includes("sound-goat")){
-        return imgBase + "sound_goat_a_blk_hoodie.jpeg" + cacheBuster;
+        return imgBase + "sound_goat_a_blk_hoodie.jpeg";
       }
       
       // CDA Pool League
       if(id.includes("cda") || id.includes("pool")){
         if(id.includes("long-sleeve") || name.includes("long sleeve")){
-          return imgBase + encodeURIComponent("CDA Pool League Circuit Long Sleeve.png") + cacheBuster;
+          return imgBase + encodeURIComponent("CDA Pool League Circuit Long Sleeve.png");
         }
         if(id.includes("circuit-tee") || name.includes("circuit tee") || (id.includes("circuit") && id.includes("tee"))){
-          return imgBase + encodeURIComponent("CDA Pool League Circuit Tee.png") + cacheBuster;
+          return imgBase + encodeURIComponent("CDA Pool League Circuit Tee.png");
         }
-        return imgBase + encodeURIComponent("CDA Pool League Circuit Tee.png") + cacheBuster; // Default to tee
+        return imgBase + encodeURIComponent("CDA Pool League Circuit Tee.png"); // Default to tee
       }
       
       // Holographic stickers
       if(id.includes("holographic") || name.includes("holographic")){
-        return imgBase + "holographic_goat_sticker.jpeg" + cacheBuster;
+        return imgBase + "holographic_goat_sticker.jpeg";
       }
       
       // Golden Eye Sigil
       if(id.includes("golden-eye") || name.includes("golden eye") || name.includes("golden-eye")){
-        return imgBase + encodeURIComponent("\"Golden Eye Sigil\" Premium Sweatshirt.jpeg") + cacheBuster;
+        return imgBase + encodeURIComponent("\"Golden Eye Sigil\" Premium Sweatshirt.jpeg");
       }
       
       // Unisex Premium Sweatshirt
       if(id.includes("unisex-premium-sweatshirt") || (id.includes("unisex") && id.includes("sweatshirt"))){
-        return imgBase + "founders_zip_hoodie.png" + cacheBuster; // Use placeholder
+        return imgBase + "founders_zip_hoodie.png"; // Use placeholder
       }
       
       // BLU.EYE products
       if(id.includes("blu") && id.includes("eye") || name.includes("blu") && name.includes("eye")){
-        return imgBase + "BLU.EYE.png" + cacheBuster;
+        return imgBase + "BLU.EYE.png";
       }
       
       // Vespera products
       if(id.includes("vespera") || name.includes("vespera")){
-        return imgBase + "vespera.png" + cacheBuster;
+        return imgBase + "vespera.png";
       }
       
       // Glitch products
       if(id.includes("glitch") || name.includes("glitch")){
         if(id.includes("drone") || name.includes("drone")){
-          return imgBase + "glitch_drone.png" + cacheBuster;
+          return imgBase + "glitch_drone.png";
         }
         if(id.includes("aerovista") || name.includes("aerovista")){
-          return imgBase + "glitch.aerovista.png" + cacheBuster;
+          return imgBase + "glitch.aerovista.png";
         }
         if(id.includes("a ") || name.includes("glitch a")){
-          return imgBase + encodeURIComponent("glitch A.png") + cacheBuster;
+          return imgBase + encodeURIComponent("glitch A.png");
         }
-        return imgBase + encodeURIComponent("glitch A.png") + cacheBuster;
+        return imgBase + encodeURIComponent("glitch A.png");
       }
       
       // Kryptek products
       if(id.includes("kryptek") || name.includes("kryptek")){
         if(id.includes("hunter") || id.includes("orange") || name.includes("orange")){
-          return imgBase + "kryptek_Hunter_Orange_1_1500.jpg" + cacheBuster;
+          return imgBase + "kryptek_Hunter_Orange_1_1500.jpg";
         }
         if(id.includes("emt") || name.includes("emt")){
-          return imgBase + "kryptek_emt_Image1_1500.jpg" + cacheBuster;
+          return imgBase + "kryptek_emt_Image1_1500.jpg";
         }
         if(id.includes("black") || id.includes("blk") || name.includes("black")){
-          return imgBase + "kryptek_blk_1_1500.jpg" + cacheBuster;
+          return imgBase + "kryptek_blk_1_1500.jpg";
         }
-        return imgBase + "kryptek_blk_1_1500.jpg" + cacheBuster; // Default
+        return imgBase + "kryptek_blk_1_1500.jpg"; // Default
       }
       
       // Generic fallbacks based on product type
       if(id.includes("hoodie") || id.includes("pullover")){
-        return imgBase + "drafted_a_hoodie.jpeg" + cacheBuster;
+        return imgBase + "drafted_a_hoodie.jpeg";
       }
       if(id.includes("tee") || id.includes("shirt") || id.includes("long-sleeve")){
-        return imgBase + "drafted_a_hoodie.jpeg" + cacheBuster; // Use hoodie as placeholder for tees
+        return imgBase + "drafted_a_hoodie.jpeg"; // Use hoodie as placeholder for tees
       }
       if(id.includes("sticker")){
-        return imgBase + encodeURIComponent("bonsaid sticker.png") + cacheBuster;
+        return imgBase + encodeURIComponent("bonsaid sticker.png");
       }
       if(id.includes("sweatshirt") || id.includes("crewneck")){
-        return imgBase + "founders_zip_hoodie.png" + cacheBuster;
+        return imgBase + "founders_zip_hoodie.png";
       }
       
       // Default fallback - return null to use SVG fallback
@@ -1378,14 +1389,14 @@
     }
 
     async function loadProducts(){
-      // Try multiple paths - new catalog first, then fallback to old
+      // Try stable paths first; optional newer export paths remain as fallback.
       const paths = [
-        './square_products_2026-02-11.json',
-        '/store/square_products_2026-02-11.json',
-        'square_products_2026-02-11.json',
         './square_products_2026-02-10.json',
         '/square_products_2026-02-10.json',
-        'square_products_2026-02-10.json'
+        'square_products_2026-02-10.json',
+        './square_products_2026-02-11.json',
+        '/store/square_products_2026-02-11.json',
+        'square_products_2026-02-11.json'
       ];
       
       let lastError = null;
@@ -1470,6 +1481,27 @@
               if (sz && sku) skuBySize[sz] = sku;
             }
 
+            // Build Square variation map: {"Color__Size": "SKU"}
+            // Square uses SKUs as variation IDs, so we map Color__Size to SKU
+            const squareVariationMap = {};
+            const productColor = (color || "").trim() || "Default";
+            for (const v of variants){
+              const sz = (v.size||"").trim();
+              const sku = (v.sku||"").trim();
+              if (sz && sku) {
+                const key = `${productColor}__${sz}`;
+                squareVariationMap[key] = sku; // SKU is the Square variation ID
+              }
+            }
+            // Handle "One Size" products
+            if (variants.length > 0 && sizes.length === 0) {
+              const v = variants[0];
+              const sku = (v.sku||"").trim();
+              if (sku) {
+                squareVariationMap[`${productColor}__One Size`] = sku;
+              }
+            }
+
             const cat = guessCategory(displayName, p.category || "");
             const price = (typeof p.price === "number" && isFinite(p.price)) ? p.price : 0;
 
@@ -1499,6 +1531,7 @@
               checkoutUrl: "",
               imagePath: imagePath, // Path to actual image file
               imageCss: imageCssFor(p), // Fallback gradient
+              squareVariationMap: squareVariationMap, // Square variation mapping for checkout
               _skuBySize: skuBySize,
               _square: p
             };
@@ -1514,7 +1547,9 @@
       // If we get here, all paths failed
       console.error("All paths failed to load products:", lastError);
       PRODUCTS = [];
-      throw lastError || new Error("Failed to load products from all attempted paths");
+      // Throw user-friendly error
+      const errorMsg = lastError?.message || "Failed to load products";
+      throw new Error(`Unable to load product catalog. ${errorMsg.includes("404") ? "Catalog file not found." : "Please refresh the page or contact support if the problem persists."}`);
     }
 
     // Fallback hardcoded products (if JSON fails to load)
@@ -1690,7 +1725,7 @@
       // Limited
       {
         id:"lm-hoodie-pp",
-        name:"Limited Hoodie — Powder Peaks (Placeholder)",
+        name:"Limited Hoodie — Powder Peaks",
         collection:"Limited",
         category:"hoodies",
         price: 66.00,
@@ -1708,7 +1743,7 @@
       },
       {
         id:"lm-crew-mb",
-        name:"Limited Crewneck — Moonball (Placeholder)",
+        name:"Limited Crewneck — Moonball",
         collection:"Limited",
         category:"crewnecks",
         price: 58.00,
@@ -1763,6 +1798,7 @@
 
     const LS_KEY = "av_store_cart_v3";
     const LS_PROMO = "av_store_promo_v3";
+    const LS_SQUARE_ENV = "av_store_square_env_v1";
 
     function loadCart(){ try{ return JSON.parse(localStorage.getItem(LS_KEY) || "[]"); }catch(e){ return []; } }
     function saveCart(cart){ localStorage.setItem(LS_KEY, JSON.stringify(cart)); updateCartUI(); }
@@ -2064,7 +2100,7 @@
 
       $("#providerBtn").onclick = () => {
         if(p.checkoutUrl){
-          window.open(p.checkoutUrl, "_blank");
+          window.open(p.checkoutUrl, "_blank", "noopener,noreferrer");
         } else {
           toast("No provider link set yet.");
         }
@@ -2279,16 +2315,53 @@
       return base ? (base.replace(/\/+$/,"") + path) : path;
     }
 
-    async function squareBootstrap(){
-      if(__sqBoot) return __sqBoot;
+
+    function sandboxToggleAllowed(){
+      const host = (location.hostname || "").toLowerCase();
+      const qs = new URLSearchParams(location.search);
+      if (qs.get("squareEnvToggle") === "1" || qs.get("dev") === "1") return true;
+      return host === "localhost" || host === "127.0.0.1" || host === "0.0.0.0";
+    }
+
+    function getSquareEnv(){
+      if(!sandboxToggleAllowed()) return "production";
+      try{
+        const v = String(localStorage.getItem(LS_SQUARE_ENV) || "production").trim().toLowerCase();
+        return (v === "sandbox" || v === "production") ? v : "production";
+      }catch(e){
+        return "production";
+      }
+    }
+
+    function setSquareEnv(env){
+      if(!sandboxToggleAllowed()) return;
+      const v = (String(env || "production").trim().toLowerCase() === "sandbox") ? "sandbox" : "production";
+      try{ localStorage.setItem(LS_SQUARE_ENV, v); }catch(e){}
+    }
+
+    async function squareBootstrap(envOverride){
+      const requestedEnv = (envOverride || getSquareEnv());
+      if(__sqBoot && __sqBoot.__requestedEnv === requestedEnv) return __sqBoot;
       try {
-        const res = await fetch(apiUrl("/api/square/bootstrap"));
-        if(!res.ok) throw new Error("Square bootstrap failed: " + res.status);
+        const url = apiUrl(`/api/square/bootstrap?env=${encodeURIComponent(requestedEnv)}`);
+        const res = await fetch(url);
+        if(!res.ok) {
+          const errorText = await res.text().catch(() => "");
+          throw new Error(`Square bootstrap failed: ${res.status} ${res.statusText}${errorText ? ` - ${errorText}` : ""}`);
+        }
         __sqBoot = await res.json();
+        __sqBoot.__requestedEnv = requestedEnv;
         return __sqBoot;
       } catch(err) {
         console.error("Square bootstrap error:", err);
-        throw new Error("Unable to connect to payment service. Please check your connection and try again.");
+        const isNetworkError = err.message.includes("Failed to fetch") || err.message.includes("NetworkError");
+        if (isNetworkError) {
+          throw new Error("Unable to connect to payment service. Please check your internet connection and try again.");
+        }
+        if (err.message.includes("404") || err.message.includes("Not Found")) {
+          throw new Error("Payment service not configured. Please contact support.");
+        }
+        throw new Error("Unable to connect to payment service. Please try again later.");
       }
     }
 
@@ -2305,11 +2378,54 @@
         return __sqCard;
       } catch(err) {
         console.error("Square card setup error:", err);
+        // Provide more specific error messages
+        if (err.message.includes("applicationId") || err.message.includes("locationId")) {
+          throw new Error("Payment service configuration error. Please contact support.");
+        }
+        if (err.message.includes("attach") || err.message.includes("card-container")) {
+          throw new Error("Payment form failed to initialize. Please refresh the page and try again.");
+        }
         throw new Error("Payment form failed to load. Please refresh the page and try again.");
       }
     }
 
     let payOverlayTrigger = null;
+    let payFocusTrapHandler = null;
+
+    function trapPayOverlayFocus(el){
+      if(payFocusTrapHandler){
+        document.removeEventListener("keydown", payFocusTrapHandler);
+      }
+
+      const modal = el.querySelector(".modal");
+      if(!modal) return;
+
+      const focusableSelector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+      payFocusTrapHandler = function(e){
+        if(!el.classList.contains("open")){
+          document.removeEventListener("keydown", payFocusTrapHandler);
+          payFocusTrapHandler = null;
+          return;
+        }
+        if(e.key !== "Tab") return;
+
+        const focusable = Array.from(modal.querySelectorAll(focusableSelector))
+          .filter(node => !node.disabled && node.offsetParent !== null);
+        if(!focusable.length) return;
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if(e.shiftKey && document.activeElement === first){
+          e.preventDefault();
+          last.focus();
+        } else if(!e.shiftKey && document.activeElement === last){
+          e.preventDefault();
+          first.focus();
+        }
+      };
+
+      document.addEventListener("keydown", payFocusTrapHandler);
+    }
 
     function openOverlay(el){
       payOverlayTrigger = document.activeElement;
@@ -2319,12 +2435,17 @@
       setTimeout(() => {
         const closeBtn = el.querySelector("#payClose");
         if(closeBtn) closeBtn.focus();
+        trapPayOverlayFocus(el);
       }, 100);
     }
     function closeOverlay(el){
       el.classList.remove("open");
       el.setAttribute("aria-hidden","true");
       document.body.style.overflow = "";
+      if(payFocusTrapHandler){
+        document.removeEventListener("keydown", payFocusTrapHandler);
+        payFocusTrapHandler = null;
+      }
       if(payOverlayTrigger && typeof payOverlayTrigger.focus === "function"){
         payOverlayTrigger.focus();
       }
@@ -2347,6 +2468,9 @@
       payLog.textContent = "";
 
       openOverlay(payOverlay);
+      payOverlay.onclick = (e) => {
+        if(e.target === payOverlay) closeOverlay(payOverlay);
+      };
 
       // Close wiring
       $("#payClose").onclick = () => closeOverlay(payOverlay);
@@ -2361,7 +2485,8 @@
         toast("Checkout not ready. Please try again.");
         payLog.style.display = "block";
         payLog.textContent = errorMsg;
-        closeOverlay(payOverlay);
+        payLog.style.color = "var(--bad)";
+        // Don't close overlay - let user see the error and retry
         return;
       }
 
@@ -2371,7 +2496,21 @@
       const grand = (totals.total || 0) + (shipCents/100);
       $("#payTotal").textContent = fmt(grand);
 
-      $("#payMeta").textContent = `${cart.length} item(s) • ${boot.env || ""} • ${boot.currency || "USD"}`;
+      const envUi = (boot.env === "sandbox") ? "SANDBOX" : "PRODUCTION";
+      const envColor = (boot.env === "sandbox") ? "color: var(--bad);" : "color: var(--ok);";
+      const canToggle = sandboxToggleAllowed();
+      const desired = getSquareEnv();
+      const mismatch = (canToggle && boot.env && desired && boot.env !== desired) ? ` <span style="opacity:.75">(server locked: ${boot.env})</span>` : "";
+      const toggleLabel = (desired === "sandbox") ? "Switch to production" : "Switch to sandbox";
+      $("#payMeta").innerHTML = `${cart.length} item(s) • <span style="${envColor} font-weight:900; letter-spacing:.08em;">${envUi}</span>${mismatch} • ${boot.currency || "USD"}${canToggle ? ` • <button type="button" id="sqEnvToggle" class="btn" style="padding:6px 10px; font-size:12px;">${toggleLabel}</button>` : ""}`;
+      if(canToggle){
+        document.getElementById('sqEnvToggle')?.addEventListener('click', () => {
+          const next = (getSquareEnv() === 'sandbox') ? 'production' : 'sandbox';
+          setSquareEnv(next);
+          toast(`Switched payment mode to ${next}. Reloading…`);
+          location.reload();
+        }, { once: true });
+      }
 
       // Ensure every item has a mapped Square variation id
       const lines = cartToSquareLines(cart);
@@ -2391,7 +2530,9 @@
         const errorMsg = err.message || String(err);
         payLog.style.display = "block";
         payLog.textContent = errorMsg;
+        payLog.style.color = "var(--bad)";
         toast("Card form failed to load. Please refresh and try again.");
+        // Don't close overlay - let user see the error
         return;
       }
 
@@ -2462,7 +2603,9 @@
           const card = await ensureSquareCard();
           const tokenResult = await card.tokenize();
           if(tokenResult.status !== "OK"){
-            throw new Error("Tokenize failed: " + JSON.stringify(tokenResult.errors || tokenResult));
+            const errors = tokenResult.errors || [];
+            const errorMessages = errors.map(e => e.detail || e.code).join(", ");
+            throw new Error(`Card validation failed: ${errorMessages || "Please check your card information"}`);
           }
 
           const body = {
@@ -2481,22 +2624,41 @@
               },
               shipping_note: ""
             },
+            env: getSquareEnv(),
             cart: lines.map(x=>({ variation_id: x.variation_id, qty: x.qty, sku: x.key })),
             currency: boot.currency || "USD",
             payment_token: tokenResult.token
           };
 
-          const res = await fetch(apiUrl("/api/square/checkout"),{
-            method:"POST",
-            headers:{ "Content-Type":"application/json" },
-            body: JSON.stringify(body)
-          });
+          let res;
+          try {
+            res = await fetch(apiUrl("/api/square/checkout"),{
+              method:"POST",
+              headers:{ "Content-Type":"application/json" },
+              body: JSON.stringify(body)
+            });
+          } catch(networkErr) {
+            throw new Error("Network error: Unable to connect to payment server. Please check your connection and try again.");
+          }
+          
           const out = await res.json().catch(()=>({}));
+          
           if(!res.ok || !out.ok){
-            throw new Error("Checkout failed: " + (out.error || res.status));
+            // Provide user-friendly error messages
+            const errorMsg = out.error || `Server error (${res.status})`;
+            if (res.status === 400) {
+              throw new Error(`Invalid request: ${errorMsg}. Please check your information and try again.`);
+            }
+            if (res.status === 402 || res.status === 403) {
+              throw new Error(`Payment declined: ${errorMsg}. Please check your payment information or try a different card.`);
+            }
+            if (res.status >= 500) {
+              throw new Error(`Server error: Payment service is temporarily unavailable. Please try again in a few moments.`);
+            }
+            throw new Error(`Payment failed: ${errorMsg}`);
           }
 
-          toast("Payment complete!");
+          toast("Payment complete! Thank you for your order.");
           saveCart([]);
           updateCartUI();
           closeOverlay(payOverlay);
@@ -2504,12 +2666,13 @@
           const errorMsg = err.message || String(err);
           payLog.style.display = "block";
           payLog.textContent = errorMsg;
-          toast("Payment failed. Please check your information and try again.");
-          console.error("Payment error:", err);
-          }finally{
-            payBtn.disabled = false;
-            payBtn.textContent = originalText;
-          }
+          payLog.style.color = "var(--bad)";
+          toast("Payment failed. Please check the error message below.");
+          console.error("Checkout error:", err);
+        }finally{
+          payBtn.disabled = false;
+          payBtn.textContent = originalText;
+        }
       };
     }
 
@@ -2554,11 +2717,32 @@
     });
 
     $("#search").addEventListener("input", (e)=>{ state.search = e.target.value || ""; renderGrid(); });
+    
+    // Global error handler for unhandled errors
+    window.addEventListener("error", (event) => {
+      console.error("Unhandled error:", event.error);
+      // Don't show to user unless it's critical - most errors are handled locally
+    });
+    
+    window.addEventListener("unhandledrejection", (event) => {
+      console.error("Unhandled promise rejection:", event.reason);
+      // Log but don't show - most are handled in try-catch blocks
+    });
+    
+    // Initialize: Check API health on load (non-blocking)
+    checkApiHealth().then(isHealthy => {
+      if (!isHealthy && CHECKOUT_API_BASE) {
+        console.warn("API health check failed - checkout may not work");
+      }
+    }).catch(() => {
+      // Silently fail - API check is non-critical for initial page load
+    });
     $("#sort").addEventListener("change", (e)=>{ state.sort = e.target.value; renderGrid(); });
 
     // Nav
     $("#yr").textContent = new Date().getFullYear();
     $("#scrollToProducts").onclick = ()=> $("#productsSection").scrollIntoView({ behavior:"smooth", block:"start" });
+    $("#searchShortcut").onclick = ()=> $("#search").focus();
     $("#homeLink").onclick = (e)=>{ e.preventDefault(); window.scrollTo({top:0, behavior:"smooth"}); };
 
     function infoModal(title, text){
@@ -2579,10 +2763,14 @@
       $("#overlay").classList.add("show");
       $("#overlay").setAttribute("aria-hidden","false");
     }
-    $("#faqLink").onclick = (e)=>{ e.preventDefault(); infoModal("FAQ", "Placeholder FAQ. Add real sizing/returns details once your provider is chosen."); };
-    $("#shippingLink").onclick = (e)=>{ e.preventDefault(); infoModal("Shipping", "Made-to-order fulfillment. Add exact provider timelines per region when wired."); };
-    $("#returnsLink").onclick = (e)=>{ e.preventDefault(); infoModal("Returns", "Placeholder returns. Final policy depends on your provider + your decision on exchanges."); };
-    $("#contactLink").onclick = (e)=>{ e.preventDefault(); infoModal("Contact", `Email: ${STORE.emailFallback || "set STORE.emailFallback"}`); };
+    $("#faqLink").onclick = (e)=>{ e.preventDefault(); infoModal("FAQ", "Sizing and care details are listed per product in Quick View. More policy details are being finalized."); };
+    $("#shippingLink").onclick = (e)=>{ e.preventDefault(); infoModal("Shipping", "Orders are made to order. Production and transit times vary by destination and fulfillment load."); };
+    $("#returnsLink").onclick = (e)=>{ e.preventDefault(); infoModal("Returns", "Returns and exchanges are reviewed case-by-case based on item condition and order details."); };
+    $("#contactLink").onclick = (e)=>{ 
+      e.preventDefault();
+      const contactEmail = STORE.emailFallback ? STORE.emailFallback : "support email will be posted before launch";
+      infoModal("Contact", `Email: ${contactEmail}`);
+    };
 
     // Init
     async function init(){
@@ -2594,11 +2782,9 @@
           PRODUCTS = FALLBACK_PRODUCTS;
         }
       } catch(err) {
-        console.error("Products failed to load:", err);
-        const errorMsg = err.message || String(err);
-        console.error("Full error:", errorMsg);
-        toast(`Products failed to load: ${errorMsg.substring(0, 50)}... Using fallback data.`);
+        console.error("Failed to load products:", err);
         PRODUCTS = FALLBACK_PRODUCTS;
+        toast("Using fallback catalog while product feed is unavailable.");
       }
       console.log("Initializing with", PRODUCTS.length, "products");
       renderGrid();
@@ -2689,3 +2875,4 @@
 
 </body>
 </html>
+
