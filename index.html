@@ -944,7 +944,9 @@
             <div class="chip active" data-cat="all">All</div>
             <div class="chip" data-cat="hoodies">Hoodies</div>
             <div class="chip" data-cat="crewnecks">Crewnecks</div>
+            <div class="chip" data-cat="tees">T‑shirts</div>
             <div class="chip" data-cat="hats">Hats</div>
+            <div class="chip" data-cat="stickers">Stickers</div>
           </div>
 
           <div class="system" aria-label="Curated system">
@@ -1325,12 +1327,19 @@
       const s = (name || "").toLowerCase();
       const c = (cat || "").toLowerCase();
       const hay = s + " " + c;
+      // Canonical categories from JSON (use when present)
+      if (["hoodies","crewnecks","hats","tees","stickers"].includes(c)) return c;
+      if (c === "hoodie") return "hoodies";
+      if (c === "crewneck") return "crewnecks";
+      if (c === "tee" || c === "t-shirt" || c === "t shirts") return "tees";
+      if (c === "hat" || c === "cap") return "hats";
+      if (c === "sticker") return "stickers";
+      // Infer from name
+      if (hay.includes("sticker")) return "stickers";
       if (hay.includes("hood")) return "hoodies";
-      if (hay.includes("crew")) return "crewnecks";
-      if (hay.includes("beanie")) return "hats";
-      if (hay.includes("cap")) return "hats";
-      if (hay.includes("hat")) return "hats";
-      if (hay.includes("tee") || hay.includes("shirt")) return "tees";
+      if (hay.includes("crew") || hay.includes("sweatshirt")) return "crewnecks";
+      if (hay.includes("beanie") || hay.includes("cap") || hay.includes("hat")) return "hats";
+      if (hay.includes("tee") || hay.includes(" t-shirt") || hay.includes("shirt") || hay.includes("long sleeve")) return "tees";
       return "apparel";
     }
 
@@ -1574,6 +1583,8 @@
         }
       } else if(category === "tees"){
         fit = "Standard fit. Size up for oversized lounge; true for everyday clean.";
+      } else if(category === "stickers"){
+        fit = "One size. Die-cut or kiss-cut; application varies by design.";
       } else {
         fit = "True-to-size. If you prefer a looser drape, go one size up.";
       }
@@ -1591,6 +1602,8 @@
         }
       } else if(category === "tees"){
         fabric = "Chosen for provider consistency and a collar that stays crisp after multiple washes.";
+      } else if(category === "stickers"){
+        fabric = "Vinyl or paper depending on design. Weather-resistant where noted.";
       } else {
         fabric = "Curated blank chosen for consistency and comfort. Exact blend/weight varies by provider option.";
       }
@@ -1600,6 +1613,8 @@
         care = "Wash cold, inside-out. Low heat or hang dry to protect print/embroidery finish.";
       } else if(category === "hats" || category === "caps"){
         care = "Spot clean only. Avoid full wash cycles to protect embroidery.";
+      } else if(category === "stickers"){
+        care = "Apply to clean, dry surface. Avoid direct prolonged moisture on paper-based stickers.";
       } else {
         care = "Cold wash recommended. Avoid high heat to reduce shrink risk.";
       }
@@ -2109,7 +2124,9 @@
     function categoryLabel(cat){
       if(cat==="hoodies") return "Hoodie";
       if(cat==="crewnecks") return "Crewneck";
+      if(cat==="tees") return "T‑shirt";
       if(cat==="hats") return "Hat";
+      if(cat==="stickers") return "Sticker";
       return cat;
     }
 
@@ -2123,6 +2140,7 @@
       const b = p.category === "hats" ? "CAP" : 
                 p.category === "crewnecks" ? "CREW" : 
                 p.category === "tees" ? "TEE" :
+                p.category === "stickers" ? "STK" :
                 p.category === "apparel" ? "APP" :
                 "HOOD";
       const mark = (p.collection === "EchoVerse") ? "EV" :
