@@ -1626,18 +1626,19 @@
     }
 
     async function loadProducts(){
-      // Try multiple paths - merged catalog first, then latest/dated fallbacks.
-      const paths = [
-        './square_products_merged.json',
-        'square_products_merged.json',
-        '/store/square_products_merged.json',
-        './square_products_latest.json',
-        'square_products_latest.json',
-        './square_products_2026-02-11.json',
-        'square_products_2026-02-11.json',
-        './square_products_2026-02-10.json',
-        'square_products_2026-02-10.json'
-      ];
+      // Try multiple paths - canonical latest first, then dated fallbacks.
+      // Optional: set window.STORE_CATALOG_PATH (example: "./square_products_merged.json") before page load.
+      const paths = [];
+      const overridePath = (typeof window.STORE_CATALOG_PATH === "string") ? window.STORE_CATALOG_PATH.trim() : "";
+      if (overridePath) paths.push(overridePath);
+      paths.push(
+        "./square_products_latest.json",
+        "square_products_latest.json",
+        "./square_products_2026-02-11.json",
+        "square_products_2026-02-11.json",
+        "./square_products_2026-02-10.json",
+        "square_products_2026-02-10.json"
+      );
       
       let lastError = null;
       for (const path of paths) {
