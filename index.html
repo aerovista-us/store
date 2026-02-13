@@ -1273,8 +1273,8 @@
     // =========================
     // API Configuration: Set window.STORE_API_BASE before page load, or configure here.
     // Examples:
-    // - Local dev: "http://127.0.0.1:18088"
-    // - Local bare app.py: "http://127.0.0.1:8088"
+    // - Local dev (compose): "http://127.0.0.1:18088"
+    // - Local dev (app.py): "http://127.0.0.1:8088"
     // - Local test: "http://localhost:8009"
     // - Production: "https://api.aerovista.us"
     // - Staging: "https://staging-api.yourdomain.com"
@@ -1282,15 +1282,15 @@
     // Revert/reset: refresh after the flag is consumed, or load with "?api=prod".
     // If you set window.STORE_API_BASE="" explicitly, the storefront will use relative paths.
     const PROD_API_BASE = "https://api.aerovista.us";
-    const LOCAL_DEV_API_BASE = "http://127.0.0.1:18088";
-    const LOCAL_BARE_API_BASE = "http://127.0.0.1:8088";
+    const LOCAL_DEV_API_BASE = "http://127.0.0.1:8088";
+    const LOCAL_ALT_API_BASE = "http://127.0.0.1:18088";
     const LOCAL_TEST_API_BASE = "http://localhost:8009";
     const urlForApiToggle = new URL(window.location.href);
     const apiToggle = (urlForApiToggle.searchParams.get("api") || "").toLowerCase();
     const toggleApiBase =
       apiToggle === "local8009" ? LOCAL_TEST_API_BASE :
-      apiToggle === "local18088" ? LOCAL_DEV_API_BASE :
-      apiToggle === "local8088" ? LOCAL_BARE_API_BASE :
+      apiToggle === "local8088" ? LOCAL_DEV_API_BASE :
+      apiToggle === "local18088" ? LOCAL_ALT_API_BASE :
       apiToggle === "prod" ? PROD_API_BASE :
       null;
 
@@ -1306,7 +1306,7 @@
     const CHECKOUT_API_CANDIDATES = (() => {
       const raw = [CHECKOUT_API_BASE];
       if (isLocalHost) {
-        raw.push(LOCAL_DEV_API_BASE, LOCAL_BARE_API_BASE, PROD_API_BASE);
+        raw.push(LOCAL_DEV_API_BASE, LOCAL_ALT_API_BASE, PROD_API_BASE);
       } else {
         raw.push(PROD_API_BASE);
       }
@@ -1347,6 +1347,8 @@
       emailFallback: "orders@yourdomain.com",
       promoCodes: { "SEED10": 0.10, "CREW15": 0.15 }
     };
+    // Cache-busting token for static deploys (bump on release).
+    const STORE_BUILD_ID = "2026-02-13-2118";
 
     // Placeholder color swatches
     const SW = {
@@ -1678,16 +1680,21 @@
     async function loadProducts(){
       // Try multiple paths - canonical latest first, then dated fallbacks.
       // Optional: set window.STORE_CATALOG_PATH (example: "./square_products_merged.json") before page load.
+      function withBuildVersion(path){
+        if(!path) return path;
+        const sep = path.includes("?") ? "&" : "?";
+        return `${path}${sep}v=${encodeURIComponent(STORE_BUILD_ID)}`;
+      }
       const paths = [];
       const overridePath = (typeof window.STORE_CATALOG_PATH === "string") ? window.STORE_CATALOG_PATH.trim() : "";
-      if (overridePath) paths.push(overridePath);
+      if (overridePath) paths.push(withBuildVersion(overridePath));
       paths.push(
-        "./square_products_latest.json",
-        "square_products_latest.json",
-        "./square_products_2026-02-11.json",
-        "square_products_2026-02-11.json",
-        "./square_products_2026-02-10.json",
-        "square_products_2026-02-10.json"
+        withBuildVersion("./square_products_latest.json"),
+        withBuildVersion("square_products_latest.json"),
+        withBuildVersion("./square_products_2026-02-11.json"),
+        withBuildVersion("square_products_2026-02-11.json"),
+        withBuildVersion("./square_products_2026-02-10.json"),
+        withBuildVersion("square_products_2026-02-10.json")
       );
       
       let lastError = null;
@@ -3236,7 +3243,7 @@
         toast(`Products failed to load: ${errorMsg.substring(0, 50)}... Using fallback data.`);
         PRODUCTS = FALLBACK_PRODUCTS;
       }
-      console.log("Initializing with", PRODUCTS.length, "products");
+      console.log("Initializing with", PRODUCTS.length, "products. Build:", STORE_BUILD_ID);
       renderGrid();
       updateCartUI();
     }
