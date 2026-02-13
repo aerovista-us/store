@@ -3,16 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://web.squarecdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://connect.squareup.com https://web.squarecdn.com; font-src 'self' data:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://web.squarecdn.com https://stats.aerocoreos.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://connect.squareup.com https://web.squarecdn.com https://api.aerovista.us https://stats.aerocoreos.com http://127.0.0.1:* http://localhost:*; frame-src https://web.squarecdn.com https://connect.squareup.com https://pci-connect.squareup.com; font-src 'self' data:;">
   <title>AeroVista Apparel — Store</title>
   <meta name="description" content="Curated comfort essentials: hoodies, crewnecks, hats." />
   <meta property="og:title" content="AeroVista Apparel — Store" />
   <meta property="og:description" content="Curated comfort essentials: hoodies, crewnecks, hats." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <link rel="icon" type="image/svg+xml" href="/store/favicon.svg" />
-  <link rel="alternate icon" href="/store/favicon.ico" />
-  <link rel="apple-touch-icon" href="/store/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="apple-touch-icon" href="./favicon.svg" />
   <style>
     :root{
       --bg:#0b0f14;
@@ -374,33 +373,15 @@
                   linear-gradient(135deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
       transition: background 0.3s ease;
     }
-    /* Always-dark baseline so all products start "shadowed" consistently (even bright PNGs). */
-    .img::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      z-index:1;
-      background:
-        radial-gradient(280px 220px at 50% 35%, rgba(0,0,0,.36), transparent 65%),
-        linear-gradient(180deg, rgba(0,0,0,.30), rgba(0,0,0,.55));
-      opacity: .22;
-      transition: opacity .26s ease;
-    }
     .card:hover .img{
       background: radial-gradient(200px 160px at 70% 20%, rgba(110,231,255,.20), transparent 65%),
                   radial-gradient(220px 180px at 20% 85%, rgba(167,139,250,.16), transparent 65%),
                   linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
     }
-    .card:hover .img::after,
-    .card:focus-within .img::after{
-      opacity: .07;
-    }
     .img svg{
       position:absolute; inset:0;
       width:100%; height:100%;
       opacity:.95;
-      z-index:0;
     }
     .img img.product-image{
       position:absolute; inset:0;
@@ -413,17 +394,16 @@
       transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
       /* Remove white backgrounds - multiply blend mode makes white transparent */
       mix-blend-mode: multiply;
-      z-index:0;
-      filter: contrast(1.08) brightness(0.94) saturate(1.05);
+      filter: contrast(1.08) brightness(0.96) saturate(1.05);
     }
     /* For PNG images with transparency, use normal blend mode */
-    .img img.product-image[src*=".png" i]{
+    .img img.product-image[src$=".png"]{
       mix-blend-mode: normal;
-      filter: contrast(1.03) brightness(0.94) saturate(1.02);
+      filter: contrast(1.02) brightness(1.02) saturate(1.02);
     }
     /* For JPEG images, apply stronger white removal */
-    .img img.product-image[src*=".jpeg" i],
-    .img img.product-image[src*=".jpg" i]{
+    .img img.product-image[src$=".jpeg"],
+    .img img.product-image[src$=".jpg"]{
       mix-blend-mode: multiply;
       filter: contrast(1.1) brightness(0.94) saturate(1.08);
     }
@@ -431,13 +411,8 @@
       transform: scale(1.02);
       filter: contrast(1.12) brightness(0.98) saturate(1.08);
     }
-    .card:hover .img img.product-image[src*=".png" i]{
-      filter: contrast(1.06) brightness(1.02) saturate(1.03);
-    }
-    .card:hover .img svg,
-    .card:focus-within .img svg{
-      transform: scale(1.01);
-      filter: brightness(1.02) contrast(1.03);
+    .card:hover .img img.product-image[src$=".png"]{
+      filter: contrast(1.05) brightness(1.03) saturate(1.03);
     }
     .img .label{
       font-family: var(--mono);
@@ -566,22 +541,10 @@
                   radial-gradient(260px 220px at 20% 90%, rgba(167,139,250,.14), transparent 65%),
                   linear-gradient(135deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
     }
-    .mImg::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      z-index:1;
-      background:
-        radial-gradient(320px 260px at 50% 35%, rgba(0,0,0,.34), transparent 66%),
-        linear-gradient(180deg, rgba(0,0,0,.26), rgba(0,0,0,.58));
-      opacity: .20;
-      transition: opacity .26s ease;
-    }
     @media (min-width: 820px){
       .mImg{ min-height: 400px; }
     }
-    .mImg svg{ position:absolute; inset:0; width:100%; height:100%; opacity:.98; z-index:0; }
+    .mImg svg{ position:absolute; inset:0; width:100%; height:100%; opacity:.98; }
     .mImg img.product-image{
       position:absolute; inset:0;
       width:100%; height:100%;
@@ -593,38 +556,18 @@
       transition: transform 0.3s ease, filter 0.3s ease;
       /* Remove white backgrounds - multiply blend mode makes white transparent */
       mix-blend-mode: multiply;
-      z-index:0;
-      filter: contrast(1.08) brightness(0.94) saturate(1.05);
+      filter: contrast(1.08) brightness(0.96) saturate(1.05);
     }
     /* For PNG images with transparency, use normal blend mode */
-    .mImg img.product-image[src*=".png" i]{
+    .mImg img.product-image[src$=".png"]{
       mix-blend-mode: normal;
-      filter: contrast(1.03) brightness(0.94) saturate(1.02);
+      filter: contrast(1.02) brightness(1.02) saturate(1.02);
     }
     /* For JPEG images, apply stronger white removal */
-    .mImg img.product-image[src*=".jpeg" i],
-    .mImg img.product-image[src*=".jpg" i]{
+    .mImg img.product-image[src$=".jpeg"],
+    .mImg img.product-image[src$=".jpg"]{
       mix-blend-mode: multiply;
       filter: contrast(1.1) brightness(0.94) saturate(1.08);
-    }
-    /* Quick view should also "light up" on hover/focus within the modal. */
-    .modal:hover .mImg::after,
-    .modal:focus-within .mImg::after{
-      opacity: .06;
-    }
-    .modal:hover .mImg img.product-image,
-    .modal:focus-within .mImg img.product-image{
-      transform: scale(1.01);
-      filter: contrast(1.12) brightness(0.98) saturate(1.08);
-    }
-    .modal:hover .mImg img.product-image[src*=".png" i],
-    .modal:focus-within .mImg img.product-image[src*=".png" i]{
-      filter: contrast(1.06) brightness(1.02) saturate(1.03);
-    }
-    .modal:hover .mImg svg,
-    .modal:focus-within .mImg svg{
-      transform: scale(1.01);
-      filter: brightness(1.02) contrast(1.03);
     }
     @media (min-width: 820px){
       .mImg{ border-bottom:none; border-right: 1px solid rgba(255,255,255,.10); }
@@ -930,6 +873,7 @@
     }
   </style>
   <script src="https://web.squarecdn.com/v1/square.js"></script>
+  <script defer src="https://stats.aerocoreos.com/script.js" data-website-id="5f012bc0-4545-474a-a689-19c01818fadc"></script>
 </head>
 <body>
 
@@ -1001,7 +945,9 @@
             <div class="chip active" data-cat="all">All</div>
             <div class="chip" data-cat="hoodies">Hoodies</div>
             <div class="chip" data-cat="crewnecks">Crewnecks</div>
+            <div class="chip" data-cat="tees">T‑shirts</div>
             <div class="chip" data-cat="hats">Hats</div>
+            <div class="chip" data-cat="stickers">Stickers</div>
           </div>
 
           <div class="system" aria-label="Curated system">
@@ -1102,66 +1048,53 @@
                   <animateTransform attributeName="transform" type="rotate" values="360;0" dur="15s" repeatCount="indefinite"/>
                 </circle>
                 
-                <!-- Central "A" shape - geometric, aerospace-inspired -->
+                <!-- Central "A" shape - geometric, aerospace-inspired (order: left leg, ring, right leg so ring goes AROUND) -->
                 <g id="letterA" filter="url(#glitch)">
-                  <!-- Left leg - wider spread at base, thinner, meets at sharp peak -->
+                  <!-- Left leg - drawn first so ring will pass in front of it -->
                   <path d="M -42,50 L -41,49 L -6,-40 L 0,-35 L -6,50 Z" fill="url(#grad1)" opacity="0.9" filter="url(#glowStrong)">
                     <animate attributeName="opacity" values="0.7;0.95;0.7" dur="3s" repeatCount="indefinite"/>
                   </path>
-                  
-                  <!-- Right leg - wider spread at base, thinner, meets at sharp peak -->
-                  <path d="M 42,50 L 41,49 L 6,-40 L 0,-35 L 6,50 Z" fill="url(#grad1)" opacity="0.9" filter="url(#glowStrong)">
-                    <animate attributeName="opacity" values="0.7;0.95;0.7" dur="3s" begin="0.5s" repeatCount="indefinite"/>
-                  </path>
-                  
-                  <!-- Sharp peak point where legs meet -->
-                  <path d="M -6,-40 L 0,-35 L 6,-40 Z" fill="url(#grad2)" opacity="0.85" filter="url(#glowStrong)"/>
-                  
-                  <!-- Inner highlight - left leg -->
                   <path d="M -38,49 L -7,-38 L -2,-33 L -2,49 Z" fill="url(#rad1)" opacity="0.4"/>
-                  
-                  <!-- Inner highlight - right leg -->
-                  <path d="M 38,49 L 7,-38 L 2,-33 L 2,49 Z" fill="url(#rad1)" opacity="0.4"/>
-                  
-                  <!-- Horizontal noise overlay for glitch effect -->
-                  <rect x="-42" y="-40" width="84" height="90" fill="url(#noisePattern)" opacity="0.3" mix-blend-mode="screen"/>
                 </g>
                 
-                <!-- Orbital ring at angle - replaces crossbar -->
-                <g id="orbitalRing" transform="translate(0,-10)" filter="url(#glitch)">
-                  <!-- Circular ring rotated at angle, tilted upwards on right side - spins smoothly on circular axis -->
-                  <circle cx="0" cy="0" r="26" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="4" opacity="0.9" filter="url(#glowStrong)" transform="rotate(25)">
+                <!-- Orbital ring - large horizontal circle (hula hoop style), wraps around A -->
+                <g id="orbitalRing" transform="translate(0,5)" filter="url(#glitch)">
+                  <!-- Large horizontal circle wrapping around A like a hula hoop -->
+                  <circle cx="0" cy="0" r="42" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="4" opacity="0.9" filter="url(#glowStrong)">
                     <animate attributeName="opacity" values="0.8;0.98;0.8" dur="4s" repeatCount="indefinite"/>
-                    <animateTransform attributeName="transform" type="rotate" values="25;385" dur="18s" repeatCount="indefinite"/>
                   </circle>
-                  
-                  <!-- Horizontal noise overlay for glitch effect on ring -->
-                  <circle cx="0" cy="0" r="26" fill="none" stroke="url(#noisePattern)" stroke-width="4" opacity="0.3" transform="rotate(25)" mix-blend-mode="screen"/>
-                  
-                  <!-- Orbiting particles on the ring -->
+                  <circle cx="0" cy="0" r="42" fill="none" stroke="url(#noisePattern)" stroke-width="4" opacity="0.3" mix-blend-mode="screen"/>
                   <g id="ringParticle1">
-                    <circle cx="26" cy="0" r="2.5" fill="rgba(110,231,255,0.95)" filter="url(#glow)">
+                    <circle cx="42" cy="0" r="2.5" fill="rgba(110,231,255,0.95)" filter="url(#glow)">
                       <animateTransform attributeName="transform" type="rotate" values="0;360" dur="18s" repeatCount="indefinite"/>
                       <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
                     </circle>
                   </g>
-                  
                   <g id="ringParticle2">
-                    <circle cx="-26" cy="0" r="2" fill="rgba(167,139,250,0.9)" filter="url(#glow)">
+                    <circle cx="-42" cy="0" r="2" fill="rgba(167,139,250,0.9)" filter="url(#glow)">
                       <animateTransform attributeName="transform" type="rotate" values="180;180" dur="18s" repeatCount="indefinite"/>
                       <animateTransform attributeName="transform" type="rotate" values="0;360" dur="18s" additive="sum" repeatCount="indefinite"/>
                       <animate attributeName="opacity" values="0.6;0.95;0.6" dur="2.5s" begin="1s" repeatCount="indefinite"/>
                     </circle>
                   </g>
-                  
-                  <!-- Small accent dot -->
                   <g id="ringParticle3">
-                    <circle cx="0" cy="26" r="1.5" fill="rgba(110,231,255,0.8)" filter="url(#glow)">
+                    <circle cx="0" cy="42" r="1.5" fill="rgba(110,231,255,0.8)" filter="url(#glow)">
                       <animateTransform attributeName="transform" type="rotate" values="90;90" dur="18s" repeatCount="indefinite"/>
                       <animateTransform attributeName="transform" type="rotate" values="0;360" dur="18s" additive="sum" repeatCount="indefinite"/>
                       <animate attributeName="opacity" values="0.5;0.85;0.5" dur="1.8s" begin="0.8s" repeatCount="indefinite"/>
                     </circle>
                   </g>
+                </g>
+                
+                <!-- Right leg - drawn after ring so ring goes behind it -->
+                <g id="letterARight" filter="url(#glitch)">
+                  <path d="M 42,50 L 41,49 L 6,-40 L 0,-35 L 6,50 Z" fill="url(#grad1)" opacity="0.9" filter="url(#glowStrong)">
+                    <animate attributeName="opacity" values="0.7;0.95;0.7" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+                  </path>
+                  <path d="M 38,49 L 7,-38 L 2,-33 L 2,49 Z" fill="url(#rad1)" opacity="0.4"/>
+                  <!-- Sharp peak on top -->
+                  <path d="M -6,-40 L 0,-35 L 6,-40 Z" fill="url(#grad2)" opacity="0.85" filter="url(#glowStrong)"/>
+                  <rect x="-42" y="-40" width="84" height="90" fill="url(#noisePattern)" opacity="0.3" mix-blend-mode="screen"/>
                 </g>
                 
                 <!-- Orbiting elements - technical precision markers -->
@@ -1339,31 +1272,36 @@
     // =========================
     // STORE SETTINGS
     // =========================
-    // API Configuration: Set window.STORE_API_BASE before page load, or configure here
+    // API Configuration: Set window.STORE_API_BASE before page load, or configure here.
     // Examples:
-    // - Local dev: "" (uses relative paths)
-    // - Production: "https://api.yourdomain.com"
+    // - Local dev: "http://127.0.0.1:18088"
+    // - Local test: "http://localhost:8009"
+    // - Production: "https://api.aerovista.us"
     // - Staging: "https://staging-api.yourdomain.com"
-    const CHECKOUT_API_BASE = (window.STORE_API_BASE || ""); // set this in window or replace with your API URL
+    // Temporary test toggle (single load): add "?api=local8009" to the URL.
+    // Revert/reset: refresh after the flag is consumed, or load with "?api=prod".
+    // If you set window.STORE_API_BASE="" explicitly, the storefront will use relative paths.
+    const PROD_API_BASE = "https://api.aerovista.us";
+    const LOCAL_DEV_API_BASE = "http://127.0.0.1:18088";
+    const LOCAL_TEST_API_BASE = "http://localhost:8009";
+    const urlForApiToggle = new URL(window.location.href);
+    const apiToggle = (urlForApiToggle.searchParams.get("api") || "").toLowerCase();
+    const toggleApiBase =
+      apiToggle === "local8009" ? LOCAL_TEST_API_BASE :
+      apiToggle === "local18088" ? LOCAL_DEV_API_BASE :
+      apiToggle === "prod" ? PROD_API_BASE :
+      null;
 
-    function isLocalhostHost(){
-      const h = (location.hostname || "").toLowerCase();
-      return h === "localhost" || h === "127.0.0.1" || h === "[::1]" || h === "::1";
+    // Consume the api toggle so the override is temporary for this load.
+    if (apiToggle) {
+      urlForApiToggle.searchParams.delete("api");
+      history.replaceState(null, "", urlForApiToggle.pathname + urlForApiToggle.search + urlForApiToggle.hash);
     }
-    function isCheckoutConfigured(){
-      return !!String(CHECKOUT_API_BASE || "").trim();
-    }
-    function checkoutIsAvailable(){
-      // Allow relative-path API only on localhost. Public static hosting needs an explicit API base.
-      return isCheckoutConfigured() || isLocalhostHost();
-    }
-    function checkoutNotReadyMessage(){
-      return "Checkout not ready yet. Payment service is not configured for this site.";
-    }
+
+    const CHECKOUT_API_BASE = ("STORE_API_BASE" in window) ? window.STORE_API_BASE : (toggleApiBase || PROD_API_BASE);
     
     // Health check function to verify API connectivity
     async function checkApiHealth(){
-      if(!checkoutIsAvailable()) return null;
       try {
         const res = await fetch(apiUrl("/api/square/bootstrap"), { method: "HEAD" });
         return res.ok;
@@ -1399,7 +1337,7 @@
 
     // =========================
     // PRODUCTS: loaded dynamically from Square export JSON
-    // Put square_products_2026-02-10.json next to this HTML.
+    // Put `square_products_latest.json` next to this HTML (recommended).
     // =========================
     let PRODUCTS = [];
 
@@ -1407,12 +1345,19 @@
       const s = (name || "").toLowerCase();
       const c = (cat || "").toLowerCase();
       const hay = s + " " + c;
+      // Canonical categories from JSON (use when present)
+      if (["hoodies","crewnecks","hats","tees","stickers"].includes(c)) return c;
+      if (c === "hoodie") return "hoodies";
+      if (c === "crewneck") return "crewnecks";
+      if (c === "tee" || c === "t-shirt" || c === "t shirts") return "tees";
+      if (c === "hat" || c === "cap") return "hats";
+      if (c === "sticker") return "stickers";
+      // Infer from name
+      if (hay.includes("sticker")) return "stickers";
       if (hay.includes("hood")) return "hoodies";
-      if (hay.includes("crew")) return "crewnecks";
-      if (hay.includes("beanie")) return "hats";
-      if (hay.includes("cap")) return "hats";
-      if (hay.includes("hat")) return "hats";
-      if (hay.includes("tee") || hay.includes("shirt")) return "tees";
+      if (hay.includes("crew") || hay.includes("sweatshirt")) return "crewnecks";
+      if (hay.includes("beanie") || hay.includes("cap") || hay.includes("hat")) return "hats";
+      if (hay.includes("tee") || hay.includes(" t-shirt") || hay.includes("shirt") || hay.includes("long sleeve")) return "tees";
       return "apparel";
     }
 
@@ -1437,12 +1382,12 @@
     function findProductImage(productId, productName){
       // Map product IDs/names to image files in /img directory
       // Uses pattern matching based on product ID and name
-      // Paths work for both local development and GitHub Pages (/store/)
+      // Canonical deployment is repo root; image assets live in ./img/
       const id = (productId || "").toLowerCase();
       const name = (productName || "").toLowerCase();
       
-      // Try /store/img/ first (for GitHub Pages), then fall back to ./img/
-      const imgBase = window.location.pathname.includes('/store/') ? '/store/img/' : './img/';
+      const imgBaseRaw = (typeof window.STORE_IMG_BASE === "string") ? window.STORE_IMG_BASE.trim() : "";
+      const imgBase = imgBaseRaw ? (imgBaseRaw.endsWith("/") ? imgBaseRaw : (imgBaseRaw + "/")) : "./img/";
       
       // Cache buster - use timestamp to ensure fresh images
       const cacheBuster = '?v=' + Date.now();
@@ -1450,19 +1395,19 @@
       // AeroVista products
       if(id.includes("aerovista")){
         if(id.includes("apex-draft-pullover") || (id.includes("apex-draft") && !id.includes("zip"))){
-          return imgBase + "drafted_a_hoodie.jpeg" + cacheBuster;
+          return imgBase + "drafted_a_hoodie.png" + cacheBuster;
         }
         if(id.includes("apex-draft-zip") || (id.includes("apex-draft") && id.includes("zip"))){
-          return imgBase + "drafted_a__zip_hoodie.jpeg" + cacheBuster;
+          return imgBase + "drafted_a__zip_hoodie.png" + cacheBuster;
         }
         if(id.includes("apex-mesh") || id.includes("cap") || id.includes("trucker")){
-          return imgBase + "drafted-a-snapback.jpeg" + cacheBuster;
+          return imgBase + "drafted-a-snapback.png" + cacheBuster;
         }
         if(id.includes("wave-mark") || id.includes("wave")){
           return imgBase + "av_wave_white.png" + cacheBuster;
         }
         // Default AeroVista hoodie
-        return imgBase + "drafted_a_hoodie.jpeg" + cacheBuster;
+        return imgBase + "drafted_a_hoodie.png" + cacheBuster;
       }
       
       // Drafted A classic tee
@@ -1492,15 +1437,15 @@
       if(id.includes("echoverse") || name.includes("echoverse")){
         if((id.includes("frost-circuit") || name.includes("frost")) && (id.includes("pullover") || id.includes("hoodie") || (name.includes("pullover") || name.includes("hoodie")))){
           // Frost Circuit Pullover Hoodie - use existing JPEG file
-          return imgBase + "frost_circuit_black_hoodie.jpeg" + cacheBuster;
+          return imgBase + "frost_circuit_black_hoodie.png" + cacheBuster;
         }
         if((id.includes("frost-circuit") || name.includes("frost")) && (id.includes("tee") || name.includes("tee"))){
           // Frost Circuit Tee
-          return imgBase + "EchoVerse%20Frost%20Circuit%20Tee.png" + cacheBuster;
+          return imgBase + encodeURIComponent("EchoVerse \"Frost Circuit\" Tee.png") + cacheBuster;
         }
         if(id.includes("frost-circuit") || name.includes("frost")){
           // Default Frost Circuit (assume hoodie if not specified)
-          return imgBase + "frost_circuit_black_hoodie.jpeg" + cacheBuster;
+          return imgBase + "frost_circuit_black_hoodie.png" + cacheBuster;
         }
         if(id.includes("signal-dial")){
           return imgBase + "echoverse_hoodie.png" + cacheBuster;
@@ -1516,7 +1461,7 @@
       
       // Lumina
       if(id.includes("lumina") || name.includes("lumina")){
-        return imgBase + "lumina_hoodie.jpeg" + cacheBuster;
+        return imgBase + "lumina_hoodie.png" + cacheBuster;
       }
       
       // NeXuS TechWorks
@@ -1540,12 +1485,12 @@
       
       // Night Ranger Bear
       if(id.includes("night-ranger") || id.includes("bear") || name.includes("night ranger") || name.includes("bear")){
-        return imgBase + "nit_bear.jpeg" + cacheBuster;
+        return imgBase + "nit_bear.png" + cacheBuster;
       }
       
       // Neon BillyGoat / Sound Goat
       if(id.includes("billygoat") || id.includes("neon") || name.includes("billygoat") || name.includes("goat") || id.includes("sound-goat")){
-        return imgBase + "sound_goat_a_blk_hoodie.jpeg" + cacheBuster;
+        return imgBase + "sound_goat_a_blk_hoodie.png" + cacheBuster;
       }
       
       // CDA Pool League
@@ -1561,12 +1506,12 @@
       
       // Holographic stickers
       if(id.includes("holographic") || name.includes("holographic")){
-        return imgBase + "holographic_goat_sticker.jpeg" + cacheBuster;
+        return imgBase + "holographic_goat_sticker.png" + cacheBuster;
       }
       
       // Golden Eye Sigil
       if(id.includes("golden-eye") || name.includes("golden eye") || name.includes("golden-eye")){
-        return imgBase + "Golden%20Eye%20Sigil%20Premium%20Sweatshirt.jpeg" + cacheBuster;
+        return imgBase + encodeURIComponent("\"Golden Eye Sigil\" Premium Sweatshirt.png") + cacheBuster;
       }
       
       // Unisex Premium Sweatshirt
@@ -1601,23 +1546,23 @@
       // Kryptek products
       if(id.includes("kryptek") || name.includes("kryptek")){
         if(id.includes("hunter") || id.includes("orange") || name.includes("orange")){
-          return imgBase + "kryptek_Hunter_Orange_1_1500.jpg" + cacheBuster;
+          return imgBase + "kryptek_Hunter_Orange_1_1500.png" + cacheBuster;
         }
         if(id.includes("emt") || name.includes("emt")){
-          return imgBase + "kryptek_emt_Image1_1500.jpg" + cacheBuster;
+          return imgBase + "kryptek_emt_Image1_1500.png" + cacheBuster;
         }
         if(id.includes("black") || id.includes("blk") || name.includes("black")){
-          return imgBase + "kryptek_blk_1_1500.jpg" + cacheBuster;
+          return imgBase + "kryptek_blk_1_1500.png" + cacheBuster;
         }
-        return imgBase + "kryptek_blk_1_1500.jpg" + cacheBuster; // Default
+        return imgBase + "kryptek_blk_1_1500.png" + cacheBuster; // Default
       }
       
       // Generic fallbacks based on product type
       if(id.includes("hoodie") || id.includes("pullover")){
-        return imgBase + "drafted_a_hoodie.jpeg" + cacheBuster;
+        return imgBase + "drafted_a_hoodie.png" + cacheBuster;
       }
       if(id.includes("tee") || id.includes("shirt") || id.includes("long-sleeve")){
-        return imgBase + "drafted_a_hoodie.jpeg" + cacheBuster; // Use hoodie as placeholder for tees
+        return imgBase + "drafted_a_hoodie.png" + cacheBuster; // Use hoodie as placeholder for tees
       }
       if(id.includes("sticker")){
         return imgBase + encodeURIComponent("bonsaid sticker.png") + cacheBuster;
@@ -1656,6 +1601,8 @@
         }
       } else if(category === "tees"){
         fit = "Standard fit. Size up for oversized lounge; true for everyday clean.";
+      } else if(category === "stickers"){
+        fit = "One size. Die-cut or kiss-cut; application varies by design.";
       } else {
         fit = "True-to-size. If you prefer a looser drape, go one size up.";
       }
@@ -1673,6 +1620,8 @@
         }
       } else if(category === "tees"){
         fabric = "Chosen for provider consistency and a collar that stays crisp after multiple washes.";
+      } else if(category === "stickers"){
+        fabric = "Vinyl or paper depending on design. Weather-resistant where noted.";
       } else {
         fabric = "Curated blank chosen for consistency and comfort. Exact blend/weight varies by provider option.";
       }
@@ -1682,6 +1631,8 @@
         care = "Wash cold, inside-out. Low heat or hang dry to protect print/embroidery finish.";
       } else if(category === "hats" || category === "caps"){
         care = "Spot clean only. Avoid full wash cycles to protect embroidery.";
+      } else if(category === "stickers"){
+        care = "Apply to clean, dry surface. Avoid direct prolonged moisture on paper-based stickers.";
       } else {
         care = "Cold wash recommended. Avoid high heat to reduce shrink risk.";
       }
@@ -1693,15 +1644,19 @@
     }
 
     async function loadProducts(){
-      // Try multiple paths - new catalog first, then fallback to old
-      const paths = [
-        './square_products_2026-02-11.json',
-        '/store/square_products_2026-02-11.json',
-        'square_products_2026-02-11.json',
-        './square_products_2026-02-10.json',
-        '/square_products_2026-02-10.json',
-        'square_products_2026-02-10.json'
-      ];
+      // Try multiple paths - canonical latest first, then dated fallbacks.
+      // Optional: set window.STORE_CATALOG_PATH (example: "./square_products_merged.json") before page load.
+      const paths = [];
+      const overridePath = (typeof window.STORE_CATALOG_PATH === "string") ? window.STORE_CATALOG_PATH.trim() : "";
+      if (overridePath) paths.push(overridePath);
+      paths.push(
+        "./square_products_latest.json",
+        "square_products_latest.json",
+        "./square_products_2026-02-11.json",
+        "square_products_2026-02-11.json",
+        "./square_products_2026-02-10.json",
+        "square_products_2026-02-10.json"
+      );
       
       let lastError = null;
       for (const path of paths) {
@@ -1767,80 +1722,127 @@
 
           console.log(`Filtered ${items.length - filteredItems.length} utility products, ${filteredItems.length} remaining`);
 
-          PRODUCTS = filteredItems.map((p) => {
-            const baseName = p.name || "";
-            const color = p.color || "";
-            const displayName = color ? `${baseName} (${color})` : baseName;
+          // Build one product key per catalog item - group by normalized product name
+          // This ensures products with same name (even different IDs) merge into one card
+          function productBaseKey(p) {
+            const name = (p.name || "").trim();
+            // Normalize product name: lowercase, normalize quotes, collapse spaces
+            const normalizedName = name.toLowerCase()
+              .replace(/["""]/g, '"')  // Normalize smart quotes to regular quotes
+              .replace(/[""]/g, '"')
+              .replace(/\s+/g, " ")    // Collapse multiple spaces
+              .trim();
+            
+            // If name is empty or too generic, fall back to ID-based grouping
+            if (!normalizedName || normalizedName.length < 3) {
+              const id = (p.id || "").trim();
+              const color = (p.color || "").trim();
+              if (!color) return id;
+              // Strip trailing "-color" so "hoodie-black" and "hoodie-charcoal" share base "hoodie"
+              const lowered = id.toLowerCase();
+              const colorSuffix = "-" + color.toLowerCase().replace(/\s+/g, "-");
+              if (lowered.endsWith(colorSuffix)) return id.slice(0, -colorSuffix.length);
+              if (/-[a-z0-9]+$/i.test(id)) return id.replace(/-[^-]+$/, "");
+              return id;
+            }
+            
+            // Use normalized name as grouping key so same-named products merge
+            return normalizedName;
+          }
 
-            // Variants: from Square export, sizes sit in variants[].size and SKU in variants[].sku
+          // Map each raw item to a "row" with variant info, then group by base key
+          const rows = filteredItems.map((p) => {
+            const baseName = (p.name || "").trim();
+            const color = (p.color || "").trim();
             const variants = Array.isArray(p.variants) ? p.variants : [];
             const sizes = [...new Set(variants.map(v => (v.size||"").trim()).filter(Boolean))];
-            const colors = color ? [color] : [];
-
-            // sku map for later checkout wiring (size -> sku)
-            const skuBySize = {};
-            for (const v of variants){
-              const sz = (v.size||"").trim();
-              const sku = (v.sku||"").trim();
-              if (sz && sku) skuBySize[sz] = sku;
-            }
-
-            // Build Square variation map: {"Color__Size": "SKU"}
-            // Square uses SKUs as variation IDs, so we map Color__Size to SKU
+            // Use variant color when present (merged JSON), else product-level color
+            const productColor = color || "Default";
             const squareVariationMap = {};
-            const productColor = (color || "").trim() || "Default";
-            for (const v of variants){
-              const sz = (v.size||"").trim();
+            const skuBySize = {};
+            for (const v of variants) {
+              const vColor = (v.color || "").trim() || productColor;
+              const sz = (v.size||"").trim() || "One Size";
               const sku = (v.sku||"").trim();
-              if (sz && sku) {
-                const key = `${productColor}__${sz}`;
-                squareVariationMap[key] = sku; // SKU is the Square variation ID
+              const variationId = (v.variation_id || "").trim();
+              const idForCheckout = variationId || sku;
+              if (idForCheckout) {
+                skuBySize[sz] = sku;
+                squareVariationMap[`${vColor}__${sz}`] = idForCheckout;
               }
             }
-            // Handle "One Size" products
             if (variants.length > 0 && sizes.length === 0) {
-              const v = variants[0];
-              const sku = (v.sku||"").trim();
-              if (sku) {
-                squareVariationMap[`${productColor}__One Size`] = sku;
-              }
+              const v0 = variants[0];
+              const id0 = (v0.variation_id || "").trim() || (v0.sku||"").trim();
+              if (id0) squareVariationMap[`${productColor}__One Size`] = id0;
+            }
+            return {
+              _baseKey: productBaseKey(p),
+              baseName,
+              color,
+              sizes: sizes.length ? sizes : ["One Size"],
+              colors: color ? [color] : [],
+              squareVariationMap,
+              _skuBySize: skuBySize,
+              cat: guessCategory(baseName + (color ? " (" + color + ")" : ""), p.category || ""),
+              price: (typeof p.price === "number" && isFinite(p.price)) ? p.price : 0,
+              description_text: p.description_text || "",
+              id: p.id,
+              p
+            };
+          });
+
+          // Group by base key so one card per product with all variants
+          const byKey = {};
+          for (const r of rows) {
+            const k = r._baseKey;
+            if (!byKey[k]) byKey[k] = [];
+            byKey[k].push(r);
+          }
+
+          PRODUCTS = Object.keys(byKey).map((baseKey) => {
+            const group = byKey[baseKey];
+            const first = group[0];
+            const baseName = first.baseName;
+
+            // Merge colors and sizes from all rows
+            const allColors = [...new Set(group.flatMap(r => r.colors).filter(Boolean))];
+            const allSizes = [...new Set(group.flatMap(r => r.sizes).filter(Boolean))];
+            const mergedMap = {};
+            for (const r of group) {
+              for (const [key, sku] of Object.entries(r.squareVariationMap || {})) mergedMap[key] = sku;
             }
 
-            const cat = guessCategory(displayName, p.category || "");
-            const price = (typeof p.price === "number" && isFinite(p.price)) ? p.price : 0;
-
-            // Generate fit/care/blank/shipping notes based on category
-            const notes = generateProductNotes(cat, displayName, p.description_text || "");
-            
-            // Find matching image file
-            const imagePath = findProductImage(p.id, baseName);
+            const colors = allColors.length ? allColors : ["Default"];
+            const sizes = allSizes.length ? allSizes : ["One Size"];
+            const notes = generateProductNotes(first.cat, baseName, first.description_text);
+            const imagePath = findProductImage(first.id, baseName);
 
             return {
-              id: p.id || ("sq-" + Math.random().toString(16).slice(2)),
-              name: displayName,
+              id: baseKey,
+              name: baseName,
               collection: "Square",
-              category: cat,
-              price: price,
+              category: first.cat,
+              price: first.price,
               featured: false,
               isNew: false,
               flags: [],
-              blurb: shortBlurb(p.description_text || ""),
+              blurb: shortBlurb(first.description_text),
               fitNote: notes.fit,
               fabricNote: notes.fabric,
               careNote: notes.care,
               shipNote: notes.ship,
-              sizes: sizes.length ? sizes : ["One Size"],
-              colors: colors.length ? colors : ["Default"],
-              // Keep checkoutUrl empty for now; we'll wire single-cart checkout to your API next.
+              sizes,
+              colors,
               checkoutUrl: "",
-              imagePath: imagePath, // Path to actual image file
-              imageCss: imageCssFor(p), // Fallback gradient
-              squareVariationMap: squareVariationMap, // Square variation mapping for checkout
-              _skuBySize: skuBySize,
-              _square: p
+              imagePath,
+              imageCss: imageCssFor(first.p),
+              squareVariationMap: mergedMap,
+              _skuBySize: group[0]._skuBySize,
+              _square: first.p
             };
           });
-          console.log(`Successfully loaded ${PRODUCTS.length} products from: ${path}`);
+          console.log(`Successfully loaded ${PRODUCTS.length} products (one per item, variants merged) from: ${path}`);
           return; // Success, exit function
         } catch(err) {
           console.warn(`Failed to load from ${path}:`, err.message);
@@ -2156,7 +2158,9 @@
     function categoryLabel(cat){
       if(cat==="hoodies") return "Hoodie";
       if(cat==="crewnecks") return "Crewneck";
+      if(cat==="tees") return "T‑shirt";
       if(cat==="hats") return "Hat";
+      if(cat==="stickers") return "Sticker";
       return cat;
     }
 
@@ -2170,6 +2174,7 @@
       const b = p.category === "hats" ? "CAP" : 
                 p.category === "crewnecks" ? "CREW" : 
                 p.category === "tees" ? "TEE" :
+                p.category === "stickers" ? "STK" :
                 p.category === "apparel" ? "APP" :
                 "HOOD";
       const mark = (p.collection === "EchoVerse") ? "EV" :
@@ -2608,14 +2613,6 @@
 
     $("#clearCart").onclick = () => { saveCart([]); toast("Cart cleared"); };
 
-    // Public static hosting may not have an API configured yet.
-    // Keep checkout visible (so it's discoverable), but label it as "Soon" and show a clear message on click.
-    const __checkoutBtn = $("#checkout");
-    if(__checkoutBtn && !checkoutIsAvailable()){
-      __checkoutBtn.textContent = "Checkout (Soon)";
-      __checkoutBtn.title = checkoutNotReadyMessage();
-    }
-
 
     // === Square cart checkout (single bundled shipment) ===
     let __sqBoot = null;
@@ -2628,14 +2625,11 @@
 
     async function squareBootstrap(){
       if(__sqBoot) return __sqBoot;
-      if(!checkoutIsAvailable()){
-        throw new Error(checkoutNotReadyMessage());
-      }
       try {
         const res = await fetch(apiUrl("/api/square/bootstrap"));
         if(!res.ok) {
-          // Keep errors readable (GitHub Pages 404 returns a full HTML document).
-          throw new Error(`Square bootstrap failed: ${res.status} ${res.statusText}`.trim());
+          const errorText = await res.text().catch(() => "");
+          throw new Error(`Square bootstrap failed: ${res.status} ${res.statusText}${errorText ? ` - ${errorText}` : ""}`);
         }
         __sqBoot = await res.json();
         return __sqBoot;
@@ -2647,7 +2641,7 @@
           throw new Error("Unable to connect to payment service. Please check your internet connection and try again.");
         }
         if (err.message.includes("404") || err.message.includes("Not Found")) {
-          throw new Error(checkoutNotReadyMessage());
+          throw new Error("Payment service not configured. Please contact support.");
         }
         throw new Error("Unable to connect to payment service. Please try again later.");
       }
@@ -2709,14 +2703,12 @@
     }
 
     async function openPayOverlay(cart){
-      if(!checkoutIsAvailable()){
-        toast(checkoutNotReadyMessage());
-        return;
-      }
       const payOverlay = $("#payOverlay");
       const payLog = $("#payLog");
       payLog.style.display = "none";
       payLog.textContent = "";
+
+      openOverlay(payOverlay);
 
       // Close wiring
       $("#payClose").onclick = () => closeOverlay(payOverlay);
@@ -2728,12 +2720,13 @@
         boot = await squareBootstrap();
       }catch(err){
         const errorMsg = err.message || String(err);
-        toast(errorMsg || "Checkout not ready yet.");
+        toast("Checkout not ready. Please try again.");
+        payLog.style.display = "block";
+        payLog.textContent = errorMsg;
+        payLog.style.color = "var(--bad)";
+        // Don't close overlay - let user see the error and retry
         return;
       }
-      
-      // Only open the overlay once checkout is confirmed reachable.
-      openOverlay(payOverlay);
 
       const shipCents = Number(boot.flatShippingCents || 0);
       $("#payShip").textContent = shipCents ? fmt(shipCents/100) : fmt(0);
@@ -2911,10 +2904,6 @@
       // Open in-app checkout (Square Orders + Payments). Requires variant mappings.
       const cart = loadCart();
       if(!cart.length){ toast("Cart is empty"); return; }
-      if(!checkoutIsAvailable()){
-        toast(checkoutNotReadyMessage());
-        return;
-      }
 
       openPayOverlay(cart);
     };
@@ -3014,7 +3003,7 @@
         }
         
         // Brief intensity increase on orbital ring
-        const orbitalRing = svg?.querySelector("#orbitalRing circle");
+        const orbitalRing = svg?.querySelector("#orbitalRing ellipse");
         if (orbitalRing) {
           const originalOpacity = orbitalRing.getAttribute("opacity") || "0.9";
           orbitalRing.setAttribute("opacity", "1");

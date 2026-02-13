@@ -1,0 +1,13 @@
+.env
+..env.swp
+*.swp
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.venv/
+venv/
+.env.*
+.DS_Store
+README.zip

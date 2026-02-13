@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+node_modules/
+__pycache__/
+*.pyc
+backend/.venv/
+.pytest_cache/
+*.swp
+..env.swp
+_archive/
+.venv/
+.cursor/
+out/
+in/
+*.xlsx
+README (2).md
