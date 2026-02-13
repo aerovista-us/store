@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://web.squarecdn.com https://sandbox.web.squarecdn.com https://stats.aerocoreos.com; style-src 'self' 'unsafe-inline' https://web.squarecdn.com https://sandbox.web.squarecdn.com; img-src 'self' data:; connect-src 'self' https://connect.squareup.com https://connect.squareupsandbox.com https://web.squarecdn.com https://sandbox.web.squarecdn.com https://pci-connect.squareup.com https://pci-connect.squareupsandbox.com https://api.aerovista.us https://stats.aerocoreos.com http://127.0.0.1:* http://localhost:*; frame-src https://web.squarecdn.com https://sandbox.web.squarecdn.com https://connect.squareup.com https://connect.squareupsandbox.com https://pci-connect.squareup.com https://pci-connect.squareupsandbox.com; font-src 'self' data: https://square-fonts-production-f.squarecdn.com https://d1g145x70srn7h.cloudfront.net;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://web.squarecdn.com https://stats.aerocoreos.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://connect.squareup.com https://web.squarecdn.com https://api.aerovista.us https://stats.aerocoreos.com http://127.0.0.1:* http://localhost:*; frame-src https://web.squarecdn.com https://connect.squareup.com https://pci-connect.squareup.com; font-src 'self' data:;">
   <title>AeroVista Apparel — Store</title>
   <meta name="description" content="Curated comfort essentials: hoodies, crewnecks, hats." />
   <meta property="og:title" content="AeroVista Apparel — Store" />
@@ -397,13 +397,13 @@
       filter: contrast(1.08) brightness(0.96) saturate(1.05);
     }
     /* For PNG images with transparency, use normal blend mode */
-    .img img.product-image[src*=".png" i]{
+    .img img.product-image[src$=".png"]{
       mix-blend-mode: normal;
       filter: contrast(1.02) brightness(1.02) saturate(1.02);
     }
     /* For JPEG images, apply stronger white removal */
-    .img img.product-image[src*=".jpeg" i],
-    .img img.product-image[src*=".jpg" i]{
+    .img img.product-image[src$=".jpeg"],
+    .img img.product-image[src$=".jpg"]{
       mix-blend-mode: multiply;
       filter: contrast(1.1) brightness(0.94) saturate(1.08);
     }
@@ -411,7 +411,7 @@
       transform: scale(1.02);
       filter: contrast(1.12) brightness(0.98) saturate(1.08);
     }
-    .card:hover .img img.product-image[src*=".png" i]{
+    .card:hover .img img.product-image[src$=".png"]{
       filter: contrast(1.05) brightness(1.03) saturate(1.03);
     }
     .img .label{
@@ -559,13 +559,13 @@
       filter: contrast(1.08) brightness(0.96) saturate(1.05);
     }
     /* For PNG images with transparency, use normal blend mode */
-    .mImg img.product-image[src*=".png" i]{
+    .mImg img.product-image[src$=".png"]{
       mix-blend-mode: normal;
       filter: contrast(1.02) brightness(1.02) saturate(1.02);
     }
     /* For JPEG images, apply stronger white removal */
-    .mImg img.product-image[src*=".jpeg" i],
-    .mImg img.product-image[src*=".jpg" i]{
+    .mImg img.product-image[src$=".jpeg"],
+    .mImg img.product-image[src$=".jpg"]{
       mix-blend-mode: multiply;
       filter: contrast(1.1) brightness(0.94) saturate(1.08);
     }
@@ -872,7 +872,7 @@
       .glowStamp{ width: 100%; height: auto; }
     }
   </style>
-  <!-- Square SDK is loaded dynamically based on backend bootstrap env (sandbox/production). -->
+  <script src="https://web.squarecdn.com/v1/square.js"></script>
   <script defer src="https://stats.aerocoreos.com/script.js" data-website-id="5f012bc0-4545-474a-a689-19c01818fadc"></script>
 </head>
 <body>
@@ -1057,29 +1057,30 @@
                   <path d="M -38,49 L -7,-38 L -2,-33 L -2,49 Z" fill="url(#rad1)" opacity="0.4"/>
                 </g>
                 
-                <!-- Orbital ring - flattened ellipse encircling A, tilted 20° (right side highest) -->
-                <g id="orbitalRing" transform="translate(0,5) rotate(20)" filter="url(#glitch)">
-                  <!-- Flattened ellipse encircling the A shape, tilted so right side is highest -->
-                  <ellipse cx="0" cy="0" rx="72" ry="8" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="4" opacity="0.9" filter="url(#glowStrong)">
+                <!-- Orbital ring - large horizontal circle (hula hoop style), wraps around A -->
+                <g id="orbitalRing" transform="translate(0,5)" filter="url(#glitch)">
+                  <!-- Large horizontal circle wrapping around A like a hula hoop -->
+                  <circle cx="0" cy="0" r="42" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="4" opacity="0.9" filter="url(#glowStrong)">
                     <animate attributeName="opacity" values="0.8;0.98;0.8" dur="4s" repeatCount="indefinite"/>
-                  </ellipse>
-                  <ellipse cx="0" cy="0" rx="72" ry="8" fill="none" stroke="url(#noisePattern)" stroke-width="4" opacity="0.3" mix-blend-mode="screen"/>
+                  </circle>
+                  <circle cx="0" cy="0" r="42" fill="none" stroke="url(#noisePattern)" stroke-width="4" opacity="0.3" mix-blend-mode="screen"/>
                   <g id="ringParticle1">
-                    <circle cx="72" cy="0" r="2.5" fill="rgba(110,231,255,0.95)" filter="url(#glow)">
+                    <circle cx="42" cy="0" r="2.5" fill="rgba(110,231,255,0.95)" filter="url(#glow)">
                       <animateTransform attributeName="transform" type="rotate" values="0;360" dur="18s" repeatCount="indefinite"/>
                       <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
                     </circle>
                   </g>
                   <g id="ringParticle2">
-                    <circle cx="-72" cy="0" r="2" fill="rgba(167,139,250,0.9)" filter="url(#glow)">
+                    <circle cx="-42" cy="0" r="2" fill="rgba(167,139,250,0.9)" filter="url(#glow)">
                       <animateTransform attributeName="transform" type="rotate" values="180;180" dur="18s" repeatCount="indefinite"/>
                       <animateTransform attributeName="transform" type="rotate" values="0;360" dur="18s" additive="sum" repeatCount="indefinite"/>
                       <animate attributeName="opacity" values="0.6;0.95;0.6" dur="2.5s" begin="1s" repeatCount="indefinite"/>
                     </circle>
                   </g>
                   <g id="ringParticle3">
-                    <circle cx="0" cy="8" r="1.5" fill="rgba(110,231,255,0.8)" filter="url(#glow)">
-                      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="18s" repeatCount="indefinite"/>
+                    <circle cx="0" cy="42" r="1.5" fill="rgba(110,231,255,0.8)" filter="url(#glow)">
+                      <animateTransform attributeName="transform" type="rotate" values="90;90" dur="18s" repeatCount="indefinite"/>
+                      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="18s" additive="sum" repeatCount="indefinite"/>
                       <animate attributeName="opacity" values="0.5;0.85;0.5" dur="1.8s" begin="0.8s" repeatCount="indefinite"/>
                     </circle>
                   </g>
@@ -1257,7 +1258,7 @@
       </div>
 
       <div style="color:var(--muted); font-size:12px;">
-        Checkout opens secure Square payment. Requires API connectivity.
+        Checkout opens provider links if set — otherwise email fallback.
       </div>
     </div>
   </aside>
@@ -1274,7 +1275,6 @@
     // API Configuration: Set window.STORE_API_BASE before page load, or configure here.
     // Examples:
     // - Local dev: "http://127.0.0.1:18088"
-    // - Local bare app.py: "http://127.0.0.1:8088"
     // - Local test: "http://localhost:8009"
     // - Production: "https://api.aerovista.us"
     // - Staging: "https://staging-api.yourdomain.com"
@@ -1283,14 +1283,12 @@
     // If you set window.STORE_API_BASE="" explicitly, the storefront will use relative paths.
     const PROD_API_BASE = "https://api.aerovista.us";
     const LOCAL_DEV_API_BASE = "http://127.0.0.1:18088";
-    const LOCAL_BARE_API_BASE = "http://127.0.0.1:8088";
     const LOCAL_TEST_API_BASE = "http://localhost:8009";
     const urlForApiToggle = new URL(window.location.href);
     const apiToggle = (urlForApiToggle.searchParams.get("api") || "").toLowerCase();
     const toggleApiBase =
       apiToggle === "local8009" ? LOCAL_TEST_API_BASE :
       apiToggle === "local18088" ? LOCAL_DEV_API_BASE :
-      apiToggle === "local8088" ? LOCAL_BARE_API_BASE :
       apiToggle === "prod" ? PROD_API_BASE :
       null;
 
@@ -1300,46 +1298,16 @@
       history.replaceState(null, "", urlForApiToggle.pathname + urlForApiToggle.search + urlForApiToggle.hash);
     }
 
-    const isLocalHost = /^(localhost|127\.0\.0\.1|::1)$/i.test(window.location.hostname || "");
-    const defaultApiBase = isLocalHost ? LOCAL_DEV_API_BASE : PROD_API_BASE;
-    const CHECKOUT_API_BASE = ("STORE_API_BASE" in window) ? window.STORE_API_BASE : (toggleApiBase || defaultApiBase);
-    const CHECKOUT_API_CANDIDATES = (() => {
-      const raw = [CHECKOUT_API_BASE];
-      if (isLocalHost) {
-        raw.push(LOCAL_DEV_API_BASE, LOCAL_BARE_API_BASE, PROD_API_BASE);
-      } else {
-        raw.push(PROD_API_BASE);
-      }
-      const seen = new Set();
-      return raw
-        .map(v => (typeof v === "string" ? v.trim() : ""))
-        .filter(v => {
-          if (seen.has(v)) return false;
-          seen.add(v);
-          return true;
-        });
-    })();
-    let __resolvedApiBase = "";
-
-    function apiBaseWithPath(base, path){
-      const b = (base || "").trim();
-      return b ? (b.replace(/\/+$/,"") + path) : path;
-    }
+    const CHECKOUT_API_BASE = ("STORE_API_BASE" in window) ? window.STORE_API_BASE : (toggleApiBase || PROD_API_BASE);
     
     // Health check function to verify API connectivity
     async function checkApiHealth(){
-      for(const base of CHECKOUT_API_CANDIDATES){
-        try {
-          const res = await fetch(apiBaseWithPath(base, "/api/square/bootstrap"), { method: "HEAD" });
-          if(res.ok){
-            __resolvedApiBase = base;
-            return true;
-          }
-        } catch(e) {
-          // continue
-        }
+      try {
+        const res = await fetch(apiUrl("/api/square/bootstrap"), { method: "HEAD" });
+        return res.ok;
+      } catch(e) {
+        return false;
       }
-      return false;
     }
     const STORE = {
       name: "AeroVista Apparel",
@@ -1473,7 +1441,7 @@
         }
         if((id.includes("frost-circuit") || name.includes("frost")) && (id.includes("tee") || name.includes("tee"))){
           // Frost Circuit Tee
-          return imgBase + encodeURIComponent("EchoVerse Frost Circuit Tee.png") + cacheBuster;
+          return imgBase + encodeURIComponent("EchoVerse \"Frost Circuit\" Tee.png") + cacheBuster;
         }
         if(id.includes("frost-circuit") || name.includes("frost")){
           // Default Frost Circuit (assume hoodie if not specified)
@@ -1543,7 +1511,7 @@
       
       // Golden Eye Sigil
       if(id.includes("golden-eye") || name.includes("golden eye") || name.includes("golden-eye")){
-        return imgBase + encodeURIComponent("Golden Eye Sigil Premium Sweatshirt.png") + cacheBuster;
+        return imgBase + encodeURIComponent("\"Golden Eye Sigil\" Premium Sweatshirt.png") + cacheBuster;
       }
       
       // Unisex Premium Sweatshirt
@@ -2649,103 +2617,39 @@
     // === Square cart checkout (single bundled shipment) ===
     let __sqBoot = null;
     let __sqCard = null;
-    let __squareSdkEnv = "";
-    let __squareSdkPromise = null;
-
-    function squareSdkUrl(env){
-      return env === "sandbox"
-        ? "https://sandbox.web.squarecdn.com/v1/square.js"
-        : "https://web.squarecdn.com/v1/square.js";
-    }
-
-    async function ensureSquareSdk(env){
-      const targetEnv = (String(env || "").toLowerCase() === "sandbox") ? "sandbox" : "production";
-      if(window.Square && window.Square.payments){
-        if(__squareSdkEnv && __squareSdkEnv !== targetEnv){
-          throw new Error("Square SDK environment changed. Please refresh the page and try again.");
-        }
-        __squareSdkEnv = targetEnv;
-        return;
-      }
-
-      if(__squareSdkPromise && __squareSdkEnv === targetEnv){
-        await __squareSdkPromise;
-        return;
-      }
-
-      __squareSdkEnv = targetEnv;
-      const src = squareSdkUrl(targetEnv);
-      __squareSdkPromise = new Promise((resolve, reject) => {
-        const existing = document.querySelector(`script[data-square-sdk="${targetEnv}"]`);
-        if(existing){
-          if(window.Square && window.Square.payments){
-            resolve();
-            return;
-          }
-          existing.addEventListener("load", () => resolve(), { once: true });
-          existing.addEventListener("error", () => reject(new Error("Square Web Payments SDK failed to load.")), { once: true });
-          return;
-        }
-
-        const s = document.createElement("script");
-        s.src = src;
-        s.async = true;
-        s.defer = true;
-        s.setAttribute("data-square-sdk", targetEnv);
-        s.onload = () => resolve();
-        s.onerror = () => reject(new Error("Square Web Payments SDK failed to load."));
-        document.head.appendChild(s);
-      });
-
-      await __squareSdkPromise;
-    }
 
     function apiUrl(path){
-      return apiBaseWithPath(__resolvedApiBase || CHECKOUT_API_BASE, path);
+      const base = (CHECKOUT_API_BASE || "").trim();
+      return base ? (base.replace(/\/+$/,"") + path) : path;
     }
 
     async function squareBootstrap(){
       if(__sqBoot) return __sqBoot;
-      const errors = [];
-      for(const base of CHECKOUT_API_CANDIDATES){
-        try {
-          const res = await fetch(apiBaseWithPath(base, "/api/square/bootstrap"));
-          if(!res.ok) {
-            const errorText = await res.text().catch(() => "");
-            errors.push(`${base || "(same-origin)"} -> ${res.status} ${res.statusText}${errorText ? ` - ${errorText}` : ""}`);
-            continue;
-          }
-          __resolvedApiBase = base;
-          __sqBoot = await res.json();
-          return __sqBoot;
-        } catch(err) {
-          const msg = (err && err.message) ? err.message : String(err);
-          errors.push(`${base || "(same-origin)"} -> ${msg}`);
+      try {
+        const res = await fetch(apiUrl("/api/square/bootstrap"));
+        if(!res.ok) {
+          const errorText = await res.text().catch(() => "");
+          throw new Error(`Square bootstrap failed: ${res.status} ${res.statusText}${errorText ? ` - ${errorText}` : ""}`);
         }
+        __sqBoot = await res.json();
+        return __sqBoot;
+      } catch(err) {
+        console.error("Square bootstrap error:", err);
+        // Provide user-friendly error message
+        const isNetworkError = err.message.includes("Failed to fetch") || err.message.includes("NetworkError");
+        if (isNetworkError) {
+          throw new Error("Unable to connect to payment service. Please check your internet connection and try again.");
+        }
+        if (err.message.includes("404") || err.message.includes("Not Found")) {
+          throw new Error("Payment service not configured. Please contact support.");
+        }
+        throw new Error("Unable to connect to payment service. Please try again later.");
       }
-      const errSummary = errors.join(" | ");
-      console.error("Square bootstrap error:", errSummary);
-
-      const networkFailure = errors.some(m =>
-        m.includes("Failed to fetch") ||
-        m.includes("NetworkError") ||
-        m.includes("ERR_NAME_NOT_RESOLVED") ||
-        m.includes("ERR_CONNECTION_REFUSED")
-      );
-      if (networkFailure) {
-        throw new Error("Unable to connect to payment service. Start backend on 127.0.0.1:18088 (or 8088), or set window.STORE_API_BASE.");
-      }
-      const notFound = errors.some(m => m.includes("404") || m.includes("Not Found"));
-      if (notFound) {
-        throw new Error("Payment service not configured. Please contact support.");
-      }
-      throw new Error("Unable to connect to payment service. Please try again later.");
     }
 
     async function ensureSquareCard(){
       try {
         const boot = await squareBootstrap();
-        await ensureSquareSdk(boot.env);
         if(!window.Square || !window.Square.payments){
           throw new Error("Square Web Payments SDK not loaded. Please refresh the page.");
         }
@@ -3098,8 +3002,8 @@
           }, 200);
         }
         
-        // Brief intensity increase on orbital ring (first ellipse is the main visible ring)
-        const orbitalRing = svg?.querySelector("#orbitalRing > ellipse:first-of-type");
+        // Brief intensity increase on orbital ring
+        const orbitalRing = svg?.querySelector("#orbitalRing ellipse");
         if (orbitalRing) {
           const originalOpacity = orbitalRing.getAttribute("opacity") || "0.9";
           orbitalRing.setAttribute("opacity", "1");
