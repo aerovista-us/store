@@ -1,0 +1,17 @@
+import os
+from flask import request
+
+def _allowed_origins():
+    raw = os.getenv("ALLOWED_ORIGINS", "")
+    return {o.strip() for o in raw.split(",") if o.strip()}
+
+@app.after_request
+def add_cors(resp):
+    allowed = _allowed_origins()
+    req_origin = request.headers.get("Origin", "")
+    if req_origin in allowed:
+        resp.headers["Access-Control-Allow-Origin"] = req_origin
+        resp.headers["Vary"] = "Origin"
+        resp.headers["Access-Control-Allow-Headers"] = "Content-Type"
+        resp.headers["Access-Control-Allow-Methods"] = "GET,POST,OPTIONS"
+    return resp

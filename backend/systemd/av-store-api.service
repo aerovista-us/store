@@ -1,0 +1,15 @@
+[Unit]
+Description=AeroVista Store API (Square Checkout)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/srv/av-store/backend
+EnvironmentFile=/srv/av-store/backend/.env
+ExecStart=/usr/bin/gunicorn -b 0.0.0.0:8088 app:app
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

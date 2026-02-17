@@ -1,0 +1,1552 @@
+{
+  "generated_from": "Square catalog export CSV",
+  "count": 32,
+  "products": [
+    {
+      "id": "aerovista-apex-draft-pullover-hoodie-black",
+      "name": "AeroVista “Apex Draft” Pullover Hoodie",
+      "color": "Black",
+      "category": "Apparel",
+      "price": 57.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "The AeroVista Apex Draft hoodie features a strong, clean front graphic that instantly reads premium on black. Built for daily wear, built for the mission—whether you’re creating, building, or just moving through the world like you’ve got something in motion. Apparel: Unisex premium mid-weight pullover hoodie",
+      "description_html": "<p>The AeroVista Apex Draft hoodie features a strong, clean front graphic that instantly reads premium on black. Built for daily wear, built for the mission—whether you’re creating, building, or just moving through the world like you’ve got something in motion. <strong>Apparel:</strong> Unisex premium mid-weight pullover hoodie</p>",
+      "variants": [
+        {
+          "size": "S",
+          "sku": "694BABA9CED4F_10779",
+          "price": 57.0
+        },
+        {
+          "size": "M",
+          "sku": "694BABA9CED4F_10780",
+          "price": 57.0
+        },
+        {
+          "size": "L",
+          "sku": "694BABA9CED4F_10781",
+          "price": 57.0
+        },
+        {
+          "size": "XL",
+          "sku": "694BABA9CED4F_10782",
+          "price": 57.0
+        },
+        {
+          "size": "2XL",
+          "sku": "694BABA9CED4F_10783",
+          "price": 57.0
+        },
+        {
+          "size": "3XL",
+          "sku": "694BABA9CED4F_13416",
+          "price": 57.0
+        }
+      ]
+    },
+    {
+      "id": "aerovista-apex-draft-zip-hoodie-black",
+      "name": "AeroVista “Apex Draft” Zip Hoodie",
+      "color": "Black",
+      "category": "Apparel",
+      "price": 48.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "The Apex Draft Zip Hoodie is your everyday layer: sharp branding on the chest, full-zip versatility, and a clean look that works anywhere. Toss it on for early mornings, travel days, or when you need an effortless fit that still feels intentional. Apparel: Unisex premium mid-weight zip hoodie",
+      "description_html": "<p>The Apex Draft Zip Hoodie is your everyday layer: sharp branding on the chest, full-zip versatility, and a clean look that works anywhere. Toss it on for early mornings, travel days, or when you need an effortless fit that still feels intentional. <strong>Apparel:</strong> Unisex premium mid-weight zip hoodie</p>",
+      "variants": [
+        {
+          "size": "S",
+          "sku": "694BAE3D66E20_24251",
+          "price": 48.0
+        },
+        {
+          "size": "M",
+          "sku": "694BAE3D66E20_24257",
+          "price": 48.0
+        },
+        {
+          "size": "L",
+          "sku": "694BAE3D66E20_24263",
+          "price": 48.0
+        },
+        {
+          "size": "XL",
+          "sku": "694BAE3D66E20_24269",
+          "price": 48.0
+        },
+        {
+          "size": "2XL",
+          "sku": "694BAE3D66E20_24275",
+          "price": 48.0
+        },
+        {
+          "size": "3XL",
+          "sku": "694BAE3D66E20_25689",
+          "price": 48.0
+        }
+      ]
+    },
+    {
+      "id": "aerovista-apex-mesh-trucker-cap",
+      "name": "AeroVista “Apex Mesh” Trucker Cap",
+      "color": "",
+      "category": "Apparel",
+      "price": 30.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "The AeroVista Apex Mesh cap is built for daily wear: structured front panel, breathable mesh back, and a crisp embroidered-style logo that pops in silver and blue. It’s the kind of hat you can throw on for work days, road miles, shop time, or just keeping the sun out while you move.Key features:Structured front + breathable mesh backCurved brim for a classic silhouetteAeroVista Apex logo front and centerEasy, adjustable snapback fitFit note: One size fits most (adjustable snapback).",
+      "description_html": "<p>The <strong>AeroVista Apex Mesh</strong> cap is built for daily wear: structured front panel, breathable mesh back, and a crisp embroidered-style logo that pops in silver and blue. It’s the kind of hat you can throw on for work days, road miles, shop time, or just keeping the sun out while you move.</p><p><strong>Key features:</strong></p><ul><li>Structured front + breathable mesh back</li><li>Curved brim for a classic silhouette</li><li>AeroVista Apex logo front and center</li><li>Easy, adjustable snapback fit</li></ul><p><strong>Fit note:</strong> One size fits most (adjustable snapback).</p>",
+      "variants": [
+        {
+          "size": "",
+          "sku": "698A6A96555FB_8747",
+          "price": 30.0
+        }
+      ]
+    },
+    {
+      "id": "aerovista-wave-mark-zip-hoodie-white",
+      "name": "AeroVista “Wave Mark” Zip Hoodie",
+      "color": "White",
+      "category": "Apparel",
+      "price": 39.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "The AeroVista Wave Mark zip hoodie is a clean, bright layer with a minimalist chest logo that pops without overpowering. Lightweight-looking, premium-feeling, and easy to style—this one’s built for fresh fits, studio days, and anyone who likes their merch crisp. Apparel: Unisex premium mid-weight zip hoodie",
+      "description_html": "<p>The AeroVista Wave Mark zip hoodie is a clean, bright layer with a minimalist chest logo that pops without overpowering. Lightweight-looking, premium-feeling, and easy to style—this one’s built for fresh fits, studio days, and anyone who likes their merch crisp. <strong>Apparel:</strong> Unisex premium mid-weight zip hoodie</p>",
+      "variants": [
+        {
+          "size": "S",
+          "sku": "693794485BAA8_25695",
+          "price": 39.0
+        },
+        {
+          "size": "M",
+          "sku": "693794485BAA8_25696",
+          "price": 39.0
+        },
+        {
+          "size": "L",
+          "sku": "693794485BAA8_25697",
+          "price": 39.0
+        },
+        {
+          "size": "XL",
+          "sku": "693794485BAA8_25698",
+          "price": 39.0
+        },
+        {
+          "size": "2XL",
+          "sku": "693794485BAA8_25699",
+          "price": 39.0
+        },
+        {
+          "size": "3XL",
+          "sku": "693794485BAA8_25700",
+          "price": 39.0
+        }
+      ]
+    },
+    {
+      "id": "bonsaid-bubble-free-stickers",
+      "name": "BONSAID bubble-free stickers",
+      "color": "",
+      "category": "Utility",
+      "price": 5.5,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "Where grounding meets growth. Inspired by the rugged spirit of Idaho and the quiet strength of a well-trained bonsai, the Bonsaid sticker brings a striking visual balance of nature, patience, and power. Designed to look like a carved monolith with golden emboss, this original artwork turns your gear into a quiet rebellion — serene, but not soft. Stick it on your board, laptop, water bottle, or journal — wherever balance and chaos coexist. Features 🌲 Original Artwork – Idaho state silhouette with deep-rooted bonsai in earthy tones ✨ Durable Vinyl – Scratch-resistant, weatherproof finish 💨 Bubble-Free Application – Easy peel & stick with high-opacity backing 📏 95µ Density – Feels premium, not flimsy 🌍 Eco-Friendly Print – Made to order, less waste Tip: Wipe down the surface before applying for best results. This product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!",
+      "description_html": "Where grounding meets growth.\n\nInspired by the rugged spirit of Idaho and the quiet strength of a well-trained bonsai, the Bonsaid sticker brings a striking visual balance of nature, patience, and power. Designed to look like a carved monolith with golden emboss, this original artwork turns your gear into a quiet rebellion — serene, but not soft.\n\n\nStick it on your board, laptop, water bottle, or journal — wherever balance and chaos coexist.\n\n\nFeatures\n\n\n🌲 Original Artwork – Idaho state silhouette with deep-rooted bonsai in earthy tones\n\n✨ Durable Vinyl – Scratch-resistant, weatherproof finish\n\n💨 Bubble-Free Application – Easy peel & stick with high-opacity backing\n\n📏 95µ Density – Feels premium, not flimsy\n\n🌍 Eco-Friendly Print – Made to order, less waste\n\n\nTip: Wipe down the surface before applying for best results.\n\n\nThis product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!",
+      "variants": [
+        {
+          "size": "3″×3″",
+          "sku": "68F6E047D6E00_10163",
+          "price": 5.5
+        },
+        {
+          "size": "5.5″×5.5″",
+          "sku": "68F6E047D6E00_10165",
+          "price": 5.5
+        }
+      ]
+    },
+    {
+      "id": "bonsaid-rooted-resilience-hoodie-premium-print",
+      "name": "BONSAID “Rooted Resilience” Hoodie – Premium Print",
+      "color": "",
+      "category": "",
+      "price": 47.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "Find calm and strength in every layer with the BONSAID “Rooted Resilience” Hoodie — a design that honors growth through grounded roots and mindful balance. Featuring a vivid DTFlex print of the BONSAID bonsai tree growing from Idaho stone, this hoodie blends art, nature, and identity into a wearable statement piece. Crafted for durability and comfort, it’s soft on the inside, structured on the outside, making it perfect for creative work, chill days, or your next forest walk. Details: High-quality Direct-to-Film (DTFlex) print — rich colors, durable through washes Medium-heavy cotton blend for warmth and structure Spacious front pocket & soft brushed lining Double-stitched seams for lasting wear Unisex fit — comfortable, relaxed, and true to size Available in multiple colorways (tan, forest green, charcoal, sand, and more) Each BONSAID hoodie represents patience, resilience, and the art of growth — reminding you to stay rooted, even when you bend.",
+      "description_html": "Find calm and strength in every layer with the BONSAID “Rooted Resilience” Hoodie — a design that honors growth through grounded roots and mindful balance.\n\nFeaturing a vivid DTFlex print of the BONSAID bonsai tree growing from Idaho stone, this hoodie blends art, nature, and identity into a wearable statement piece.\n\n\nCrafted for durability and comfort, it’s soft on the inside, structured on the outside, making it perfect for creative work, chill days, or your next forest walk.\n\n\nDetails:\n\n\nHigh-quality Direct-to-Film (DTFlex) print — rich colors, durable through washes\n\n\nMedium-heavy cotton blend for warmth and structure\n\n\nSpacious front pocket & soft brushed lining\n\n\nDouble-stitched seams for lasting wear\n\n\nUnisex fit — comfortable, relaxed, and true to size\n\n\nAvailable in multiple colorways (tan, forest green, charcoal, sand, and more)\n\n\nEach BONSAID hoodie represents patience, resilience, and the art of growth — reminding you to stay rooted, even when you bend.",
+      "variants": [
+        {
+          "size": "Black",
+          "sku": "68F80CD7E2481_10779",
+          "price": 47.0
+        },
+        {
+          "size": "Black",
+          "sku": "68F80CD7E2481_10780",
+          "price": 47.0
+        },
+        {
+          "size": "Black",
+          "sku": "68F80CD7E2481_10781",
+          "price": 47.0
+        },
+        {
+          "size": "Black",
+          "sku": "68F80CD7E2481_10782",
+          "price": 47.0
+        },
+        {
+          "size": "Black",
+          "sku": "68F80CD7E2481_10783",
+          "price": 47.0
+        },
+        {
+          "size": "Black",
+          "sku": "68F80CD7E2481_13416",
+          "price": 47.0
+        },
+        {
+          "size": "Charcoal Heather",
+          "sku": "68F80CD7E2481_11481",
+          "price": 47.0
+        },
+        {
+          "size": "Charcoal Heather",
+          "sku": "68F80CD7E2481_11482",
+          "price": 47.0
+        },
+        {
+          "size": "Charcoal Heather",
+          "sku": "68F80CD7E2481_11483",
+          "price": 47.0
+        },
+        {
+          "size": "Charcoal Heather",
+          "sku": "68F80CD7E2481_11484",
+          "price": 47.0
+        },
+        {
+          "size": "Charcoal Heather",
+          "sku": "68F80CD7E2481_11485",
+          "price": 47.0
+        },
+        {
+          "size": "Charcoal Heather",
+          "sku": "68F80CD7E2481_13419",
+          "price": 47.0
+        },
+        {
+          "size": "Military Green",
+          "sku": "68F80CD7E2481_13893",
+          "price": 47.0
+        },
+        {
+          "size": "Military Green",
+          "sku": "68F80CD7E2481_13894",
+          "price": 47.0
+        },
+        {
+          "size": "Military Green",
+          "sku": "68F80CD7E2481_13895",
+          "price": 47.0
+        },
+        {
+          "size": "Military Green",
+          "sku": "68F80CD7E2481_13896",
+          "price": 47.0
+        },
+        {
+          "size": "Military Green",
+          "sku": "68F80CD7E2481_13897",
+          "price": 47.0
+        },
+        {
+          "size": "Military Green",
+          "sku": "68F80CD7E2481_13898",
+          "price": 47.0
+        },
+        {
+          "size": "Latte",
+          "sku": "68F80CD7E2481_24981",
+          "price": 47.0
+        },
+        {
+          "size": "Latte",
+          "sku": "68F80CD7E2481_24982",
+          "price": 47.0
+        },
+        {
+          "size": "Latte",
+          "sku": "68F80CD7E2481_24983",
+          "price": 47.0
+        },
+        {
+          "size": "Latte",
+          "sku": "68F80CD7E2481_24984",
+          "price": 47.0
+        },
+        {
+          "size": "Latte",
+          "sku": "68F80CD7E2481_24985",
+          "price": 47.0
+        },
+        {
+          "size": "Latte",
+          "sku": "68F80CD7E2481_24986",
+          "price": 47.0
+        },
+        {
+          "size": "Khaki",
+          "sku": "68F80CD7E2481_13899",
+          "price": 47.0
+        },
+        {
+          "size": "Khaki",
+          "sku": "68F80CD7E2481_13900",
+          "price": 47.0
+        },
+        {
+          "size": "Khaki",
+          "sku": "68F80CD7E2481_13901",
+          "price": 47.0
+        },
+        {
+          "size": "Khaki",
+          "sku": "68F80CD7E2481_13902",
+          "price": 47.0
+        },
+        {
+          "size": "Khaki",
+          "sku": "68F80CD7E2481_13903",
+          "price": 47.0
+        },
+        {
+          "size": "Khaki",
+          "sku": "68F80CD7E2481_13904",
+          "price": 47.0
+        },
+        {
+          "size": "Carbon Grey",
+          "sku": "68F80CD7E2481_10784",
+          "price": 47.0
+        },
+        {
+          "size": "Carbon Grey",
+          "sku": "68F80CD7E2481_10785",
+          "price": 47.0
+        },
+        {
+          "size": "Carbon Grey",
+          "sku": "68F80CD7E2481_10786",
+          "price": 47.0
+        },
+        {
+          "size": "Carbon Grey",
+          "sku": "68F80CD7E2481_10787",
+          "price": 47.0
+        },
+        {
+          "size": "Carbon Grey",
+          "sku": "68F80CD7E2481_10788",
+          "price": 47.0
+        },
+        {
+          "size": "Carbon Grey",
+          "sku": "68F80CD7E2481_13420",
+          "price": 47.0
+        },
+        {
+          "size": "Light Pink",
+          "sku": "68F80CD7E2481_24993",
+          "price": 47.0
+        },
+        {
+          "size": "Light Pink",
+          "sku": "68F80CD7E2481_24994",
+          "price": 47.0
+        },
+        {
+          "size": "Light Pink",
+          "sku": "68F80CD7E2481_24995",
+          "price": 47.0
+        },
+        {
+          "size": "Light Pink",
+          "sku": "68F80CD7E2481_24996",
+          "price": 47.0
+        },
+        {
+          "size": "Light Pink",
+          "sku": "68F80CD7E2481_24997",
+          "price": 47.0
+        },
+        {
+          "size": "Light Pink",
+          "sku": "68F80CD7E2481_24998",
+          "price": 47.0
+        },
+        {
+          "size": "Sky Blue",
+          "sku": "68F80CD7E2481_13917",
+          "price": 47.0
+        },
+        {
+          "size": "Sky Blue",
+          "sku": "68F80CD7E2481_13918",
+          "price": 47.0
+        },
+        {
+          "size": "Sky Blue",
+          "sku": "68F80CD7E2481_13919",
+          "price": 47.0
+        },
+        {
+          "size": "Sky Blue",
+          "sku": "68F80CD7E2481_13920",
+          "price": 47.0
+        },
+        {
+          "size": "Sky Blue",
+          "sku": "68F80CD7E2481_13921",
+          "price": 47.0
+        },
+        {
+          "size": "Sky Blue",
+          "sku": "68F80CD7E2481_13922",
+          "price": 47.0
+        },
+        {
+          "size": "Bone",
+          "sku": "68F80CD7E2481_20284",
+          "price": 47.0
+        },
+        {
+          "size": "Bone",
+          "sku": "68F80CD7E2481_20285",
+          "price": 47.0
+        },
+        {
+          "size": "Bone",
+          "sku": "68F80CD7E2481_20286",
+          "price": 47.0
+        },
+        {
+          "size": "Bone",
+          "sku": "68F80CD7E2481_20287",
+          "price": 47.0
+        },
+        {
+          "size": "Bone",
+          "sku": "68F80CD7E2481_20288",
+          "price": 47.0
+        },
+        {
+          "size": "Bone",
+          "sku": "68F80CD7E2481_20289",
+          "price": 47.0
+        },
+        {
+          "size": "White",
+          "sku": "68F80CD7E2481_10774",
+          "price": 47.0
+        },
+        {
+          "size": "White",
+          "sku": "68F80CD7E2481_10775",
+          "price": 47.0
+        },
+        {
+          "size": "White",
+          "sku": "68F80CD7E2481_10776",
+          "price": 47.0
+        },
+        {
+          "size": "White",
+          "sku": "68F80CD7E2481_10777",
+          "price": 47.0
+        },
+        {
+          "size": "White",
+          "sku": "68F80CD7E2481_10778",
+          "price": 47.0
+        },
+        {
+          "size": "White",
+          "sku": "68F80CD7E2481_13421",
+          "price": 47.0
+        }
+      ]
+    },
+    {
+      "id": "bonsaid-rooted-resilience-oversized-heavyweight-hoodie",
+      "name": "BONSAID “Rooted Resilience” Oversized Heavyweight Hoodie",
+      "color": "",
+      "category": "",
+      "price": 58.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "Wrap yourself in grounded comfort. The BONSAID “Rooted Resilience” Oversized Heavyweight Hoodie is where craftsmanship meets calm — soft, thick, and built for those who move slow but think fast. The bonsai emblem, rooted in Idaho stone, symbolizes balance, patience, and growth. Printed in vibrant DTFlex ink, every curve and contour feels alive — bold against the heavyweight fleece that drapes with structure and warmth. This isn’t just a hoodie; it’s a statement in stillness. Details: • Oversized fit — relaxed, gender-neutral, and ultra-cozy • 10 oz (339 g/m²) Airlume cotton/poly fleece blend • Brushed fleece interior for premium softness • Double-layered hood (no drawcords — clean silhouette) • Spacious front pocket • Print: high-fidelity DTFlex color for long-lasting vibrance • Fabric sourced responsibly from Nicaragua Style Note: Pairs perfectly with minimalist streetwear or earth-tone basics. Designed for days when you want to disappear into comfort but still make an impression.",
+      "description_html": "Wrap yourself in grounded comfort.\n\nThe BONSAID “Rooted Resilience” Oversized Heavyweight Hoodie is where craftsmanship meets calm — soft, thick, and built for those who move slow but think fast.\n\n\nThe bonsai emblem, rooted in Idaho stone, symbolizes balance, patience, and growth. Printed in vibrant DTFlex ink, every curve and contour feels alive — bold against the heavyweight fleece that drapes with structure and warmth.\n\n\nThis isn’t just a hoodie; it’s a statement in stillness.\n\n\nDetails:\n\n• Oversized fit — relaxed, gender-neutral, and ultra-cozy\n\n• 10 oz (339 g/m²) Airlume cotton/poly fleece blend\n\n• Brushed fleece interior for premium softness\n\n• Double-layered hood (no drawcords — clean silhouette)\n\n• Spacious front pocket\n\n• Print: high-fidelity DTFlex color for long-lasting vibrance\n\n• Fabric sourced responsibly from Nicaragua\n\n\nStyle Note:\n\nPairs perfectly with minimalist streetwear or earth-tone basics. Designed for days when you want to disappear into comfort but still make an impression.",
+      "variants": [
+        {
+          "size": "Black",
+          "sku": "68F80F9C3BB49_22958",
+          "price": 58.0
+        },
+        {
+          "size": "Black",
+          "sku": "68F80F9C3BB49_22960",
+          "price": 58.0
+        },
+        {
+          "size": "Black",
+          "sku": "68F80F9C3BB49_22962",
+          "price": 58.0
+        },
+        {
+          "size": "Black",
+          "sku": "68F80F9C3BB49_22964",
+          "price": 58.0
+        },
+        {
+          "size": "Black",
+          "sku": "68F80F9C3BB49_22966",
+          "price": 58.0
+        },
+        {
+          "size": "Black",
+          "sku": "68F80F9C3BB49_22968",
+          "price": 58.0
+        },
+        {
+          "size": "White",
+          "sku": "68F80F9C3BB49_23005",
+          "price": 58.0
+        },
+        {
+          "size": "White",
+          "sku": "68F80F9C3BB49_23006",
+          "price": 58.0
+        },
+        {
+          "size": "White",
+          "sku": "68F80F9C3BB49_23007",
+          "price": 58.0
+        },
+        {
+          "size": "White",
+          "sku": "68F80F9C3BB49_23008",
+          "price": 58.0
+        },
+        {
+          "size": "White",
+          "sku": "68F80F9C3BB49_23009",
+          "price": 58.0
+        },
+        {
+          "size": "White",
+          "sku": "68F80F9C3BB49_23010",
+          "price": 58.0
+        },
+        {
+          "size": "Forest",
+          "sku": "68F80F9C3BB49_22970",
+          "price": 58.0
+        },
+        {
+          "size": "Forest",
+          "sku": "68F80F9C3BB49_22972",
+          "price": 58.0
+        },
+        {
+          "size": "Forest",
+          "sku": "68F80F9C3BB49_22974",
+          "price": 58.0
+        },
+        {
+          "size": "Forest",
+          "sku": "68F80F9C3BB49_22976",
+          "price": 58.0
+        },
+        {
+          "size": "Forest",
+          "sku": "68F80F9C3BB49_22978",
+          "price": 58.0
+        },
+        {
+          "size": "Forest",
+          "sku": "68F80F9C3BB49_22980",
+          "price": 58.0
+        },
+        {
+          "size": "Asphalt",
+          "sku": "68F80F9C3BB49_22951",
+          "price": 58.0
+        },
+        {
+          "size": "Asphalt",
+          "sku": "68F80F9C3BB49_22952",
+          "price": 58.0
+        },
+        {
+          "size": "Asphalt",
+          "sku": "68F80F9C3BB49_22953",
+          "price": 58.0
+        },
+        {
+          "size": "Asphalt",
+          "sku": "68F80F9C3BB49_22954",
+          "price": 58.0
+        },
+        {
+          "size": "Asphalt",
+          "sku": "68F80F9C3BB49_22955",
+          "price": 58.0
+        },
+        {
+          "size": "Asphalt",
+          "sku": "68F80F9C3BB49_22956",
+          "price": 58.0
+        },
+        {
+          "size": "Vintage Brown",
+          "sku": "68F80F9C3BB49_22999",
+          "price": 58.0
+        },
+        {
+          "size": "Vintage Brown",
+          "sku": "68F80F9C3BB49_23000",
+          "price": 58.0
+        },
+        {
+          "size": "Vintage Brown",
+          "sku": "68F80F9C3BB49_23001",
+          "price": 58.0
+        },
+        {
+          "size": "Vintage Brown",
+          "sku": "68F80F9C3BB49_23002",
+          "price": 58.0
+        },
+        {
+          "size": "Vintage Brown",
+          "sku": "68F80F9C3BB49_23003",
+          "price": 58.0
+        },
+        {
+          "size": "Vintage Brown",
+          "sku": "68F80F9C3BB49_23004",
+          "price": 58.0
+        },
+        {
+          "size": "Dust",
+          "sku": "68F80F9C3BB49_22969",
+          "price": 58.0
+        },
+        {
+          "size": "Dust",
+          "sku": "68F80F9C3BB49_22971",
+          "price": 58.0
+        },
+        {
+          "size": "Dust",
+          "sku": "68F80F9C3BB49_22973",
+          "price": 58.0
+        },
+        {
+          "size": "Dust",
+          "sku": "68F80F9C3BB49_22975",
+          "price": 58.0
+        },
+        {
+          "size": "Dust",
+          "sku": "68F80F9C3BB49_22977",
+          "price": 58.0
+        },
+        {
+          "size": "Dust",
+          "sku": "68F80F9C3BB49_22979",
+          "price": 58.0
+        }
+      ]
+    },
+    {
+      "id": "bonsaid-rooted-resilience-trucker-cap-richardson-112-edition",
+      "name": "BONSAID “Rooted Resilience” Trucker Cap — Richardson 112 Edition",
+      "color": "",
+      "category": "Apparel",
+      "price": 28.5,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "Rooted in balance, built for everyday wear. The BONSAID Richardson 112 brings your mindset to the surface — strength, patience, and grounded growth stitched into a premium two-tone trucker. Each cap features a bold embroidery of the BONSAID bonsai growing from the Idaho rock silhouette — simplified and digitized for precision stitching. It’s clean, modern, and perfectly offset on the front panel for that subtle statement look. Details • Premium Richardson 112 Trucker — mid-profile structured fit • 60% cotton / 40% polyester twill front, mesh back • 6-panel design, pre-curved visor, adjustable snapback • Offset embroidery front logo, up to 6 thread colors • Breathable mesh keeps it cool and comfortable all day Whether you’re repping your roots or just vibing with the calm energy of bonsai culture — this hat is about staying steady, sharp, and grounded.",
+      "description_html": "Rooted in balance, built for everyday wear.\n\nThe BONSAID Richardson 112 brings your mindset to the surface — strength, patience, and grounded growth stitched into a premium two-tone trucker.\n\n\nEach cap features a bold embroidery of the BONSAID bonsai growing from the Idaho rock silhouette — simplified and digitized for precision stitching. It’s clean, modern, and perfectly offset on the front panel for that subtle statement look.\n\n\nDetails\n\n\n• Premium Richardson 112 Trucker — mid-profile structured fit\n\n• 60% cotton / 40% polyester twill front, mesh back\n\n• 6-panel design, pre-curved visor, adjustable snapback\n\n• Offset embroidery front logo, up to 6 thread colors\n\n• Breathable mesh keeps it cool and comfortable all day\n\n\nWhether you’re repping your roots or just vibing with the calm energy of bonsai culture — this hat is about staying steady, sharp, and grounded.",
+      "variants": [
+        {
+          "size": "Black",
+          "sku": "68F8663806807_11417",
+          "price": 28.5
+        },
+        {
+          "size": "Black / Charcoal",
+          "sku": "68F8663806807_16711",
+          "price": 28.5
+        },
+        {
+          "size": "Black / White",
+          "sku": "68F8663806807_11420",
+          "price": 28.5
+        },
+        {
+          "size": "Charcoal/Black",
+          "sku": "68F8663806807_16713",
+          "price": 28.5
+        },
+        {
+          "size": "Loden",
+          "sku": "68F8663806807_11418",
+          "price": 28.5
+        },
+        {
+          "size": "Heather Grey/White",
+          "sku": "68F8663806807_16712",
+          "price": 28.5
+        },
+        {
+          "size": "Heather Grey / Black",
+          "sku": "68F8663806807_11421",
+          "price": 28.5
+        }
+      ]
+    },
+    {
+      "id": "bonsaid-bubble-free-stickers",
+      "name": "Bonsaid bubble-free stickers",
+      "color": "",
+      "category": "Utility",
+      "price": 5.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "Where grounding meets growth. Inspired by the rugged spirit of Idaho and the quiet strength of a well-trained bonsai, the Bonsaid sticker brings a striking visual balance of nature, patience, and power. Designed to look like a carved monolith with golden emboss, this original artwork turns your gear into a quiet rebellion — serene, but not soft. Stick it on your board, laptop, water bottle, or journal — wherever balance and chaos coexist. Features 🌲 Original Artwork – Idaho state silhouette with deep-rooted bonsai in earthy tones ✨ Durable Vinyl – Scratch-resistant, weatherproof finish 💨 Bubble-Free Application – Easy peel & stick with high-opacity backing 📏 95µ Density – Feels premium, not flimsy 🌍 Eco-Friendly Print – Made to order, less waste Tip: Wipe down the surface before applying for best results. This product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!",
+      "description_html": "Where grounding meets growth.\n\n\nInspired by the rugged spirit of Idaho and the quiet strength of a well-trained bonsai, the Bonsaid sticker brings a striking visual balance of nature, patience, and power. Designed to look like a carved monolith with golden emboss, this original artwork turns your gear into a quiet rebellion — serene, but not soft.\n\n\nStick it on your board, laptop, water bottle, or journal — wherever balance and chaos coexist.\n\n\nFeatures\n\n\n🌲 Original Artwork – Idaho state silhouette with deep-rooted bonsai in earthy tones\n\n✨ Durable Vinyl – Scratch-resistant, weatherproof finish\n\n💨 Bubble-Free Application – Easy peel & stick with high-opacity backing\n\n📏 95µ Density – Feels premium, not flimsy\n\n🌍 Eco-Friendly Print – Made to order, less waste\n\n\nTip: Wipe down the surface before applying for best results.\n\n\nThis product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!",
+      "variants": [
+        {
+          "size": "3″×3″",
+          "sku": "68F6DCEEC9D6A_10163",
+          "price": 5.0
+        },
+        {
+          "size": "5.5″×5.5″",
+          "sku": "68F6DCEEC9D6A_10165",
+          "price": 5.0
+        }
+      ]
+    },
+    {
+      "id": "bubble-free-stickers",
+      "name": "Bubble-free stickers",
+      "color": "",
+      "category": "",
+      "price": 5.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "Where grounding meets growth. Inspired by the rugged spirit of Idaho and the quiet strength of a well-trained bonsai, the Bonsaid sticker brings a striking visual balance of nature, patience, and power. Designed to look like a carved monolith with golden emboss, this original artwork turns your gear into a quiet rebellion — serene, but not soft. Stick it on your board, laptop, water bottle, or journal — wherever balance and chaos coexist. Features 🌲 Original Artwork – Idaho state silhouette with deep-rooted bonsai in earthy tones ✨ Durable Vinyl – Scratch-resistant, weatherproof finish 💨 Bubble-Free Application – Easy peel & stick with high-opacity backing 📏 95µ Density – Feels premium, not flimsy 🌍 Eco-Friendly Print – Made to order, less waste Tip: Wipe down the surface before applying for best results. This product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!",
+      "description_html": "Where grounding meets growth.\n\nInspired by the rugged spirit of Idaho and the quiet strength of a well-trained bonsai, the Bonsaid sticker brings a striking visual balance of nature, patience, and power. Designed to look like a carved monolith with golden emboss, this original artwork turns your gear into a quiet rebellion — serene, but not soft.\n\n\nStick it on your board, laptop, water bottle, or journal — wherever balance and chaos coexist.\n\n\nFeatures\n\n\n🌲 Original Artwork – Idaho state silhouette with deep-rooted bonsai in earthy tones\n\n✨ Durable Vinyl – Scratch-resistant, weatherproof finish\n\n💨 Bubble-Free Application – Easy peel & stick with high-opacity backing\n\n📏 95µ Density – Feels premium, not flimsy\n\n🌍 Eco-Friendly Print – Made to order, less waste\n\n\nTip: Wipe down the surface before applying for best results.\n\n\nThis product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!",
+      "variants": [
+        {
+          "size": "3″×3″",
+          "sku": "68F6DF1003393_10163",
+          "price": 5.0
+        },
+        {
+          "size": "5.5″×5.5″",
+          "sku": "68F6DF1003393_10165",
+          "price": 5.0
+        },
+        {
+          "size": "3″×3″",
+          "sku": "6937FCDDD76D7_10163",
+          "price": 5.0
+        },
+        {
+          "size": "5.5″×5.5″",
+          "sku": "6937FCDDD76D7_10165",
+          "price": 5.0
+        },
+        {
+          "size": "3″×3″",
+          "sku": "69389266C0D50_10163",
+          "price": 5.0
+        },
+        {
+          "size": "5.5″×5.5″",
+          "sku": "69389266C0D50_10165",
+          "price": 5.0
+        }
+      ]
+    },
+    {
+      "id": "cda-pool-league-circuit-long-sleeve-tee-vintage-comic-print",
+      "name": "CDA Pool League Circuit Long Sleeve Tee — Vintage Comic Print",
+      "color": "",
+      "category": "Apparel",
+      "price": 31.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "A soft black long sleeve with a four-panel “CDA Pool League Circuit” comic poster—Moose Mug, Iron Horse, Lakers Pub, Backwoods—printed in warm vintage inks. Description League nights, framed like a retro comic cover. This long sleeve features the CDA Pool League Circuit in four panels—Moose Mug, Iron Horse, Lakers Pub, and Backwoods—with muted tones and grainy halftones for that classic poster feel. Longer sleeves add just-right warmth without jumping to a hoodie. Details Premium unisex long sleeve (ringspun cotton, smooth print surface) Front-center DTG graphic for rich color + fine linework Ribbed cuffs; tear-away label Color: Black (best contrast) — Bone/Ivory optional for a true vintage vibe Care Machine wash cold, inside out; mild detergent Tumble low or hang dry Do not iron directly on the print Fit Notes Unisex, modern fit (true to size) Size up for relaxed/oversized look or layering over a tee Tags: CDA, pool league, comic poster, Moose Mug, Iron Horse, Lakers Pub, Backwoods, retro, vintage ink This product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!",
+      "description_html": "A soft black long sleeve with a four-panel “CDA Pool League Circuit” comic poster—Moose Mug, Iron Horse, Lakers Pub, Backwoods—printed in warm vintage inks.\n\n\nDescription\n\nLeague nights, framed like a retro comic cover. This long sleeve features the CDA Pool League Circuit in four panels—Moose Mug, Iron Horse, Lakers Pub, and Backwoods—with muted tones and grainy halftones for that classic poster feel. Longer sleeves add just-right warmth without jumping to a hoodie.\n\n\nDetails\n\nPremium unisex long sleeve (ringspun cotton, smooth print surface)\n\nFront-center DTG graphic for rich color + fine linework\n\nRibbed cuffs; tear-away label\n\nColor: Black (best contrast) — Bone/Ivory optional for a true vintage vibe\n\n\nCare\n\nMachine wash cold, inside out; mild detergent\n\nTumble low or hang dry\n\nDo not iron directly on the print\n\n\nFit Notes\n\nUnisex, modern fit (true to size)\n\nSize up for relaxed/oversized look or layering over a tee\n\n\nTags: CDA, pool league, comic poster, Moose Mug, Iron Horse, Lakers Pub, Backwoods, retro, vintage ink\n\n\nThis product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!",
+      "variants": [
+        {
+          "size": "S",
+          "sku": "691704300B159_10142",
+          "price": 31.0
+        },
+        {
+          "size": "M",
+          "sku": "691704300B159_10143",
+          "price": 31.0
+        },
+        {
+          "size": "L",
+          "sku": "691704300B159_10144",
+          "price": 31.0
+        },
+        {
+          "size": "XL",
+          "sku": "691704300B159_10145",
+          "price": 31.0
+        },
+        {
+          "size": "2XL",
+          "sku": "691704300B159_10146",
+          "price": 31.0
+        },
+        {
+          "size": "XS",
+          "sku": "691704300B159_10141",
+          "price": 31.0
+        }
+      ]
+    },
+    {
+      "id": "cda-pool-league-circuit-tee-vintage-comic-print",
+      "name": "CDA Pool League Circuit Tee — Vintage Comic Print",
+      "color": "",
+      "category": "Apparel",
+      "price": 26.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "Soft tee with a four-panel “CDA Pool League Circuit” comic poster—Moose Mug, Iron Horse, Lakers Pub, Backwoods. CDA Pool League Circuit Tee — Vintage Comic Print A tribute to league nights in CDA, illustrated like a retro comic cover. Four panels spotlight local staples—Moose Mug, Iron Horse, Lakers Pub, and Backwoods—framed in warm vintage inks for that poster-on-a-brick-wall vibe. Printed front-center on a premium unisex tee that’s soft, durable, and made for late games. Details Premium ringspun cotton (Bella+Canvas 3001 or equivalent) DTG print for rich color and fine linework Unisex, modern fit; tear-away label Care Wash cold, inside out • Mild detergent Tumble low or hang dry • Do not iron directly on print Fit Notes True to size; size up for relaxed/oversized look This product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!",
+      "description_html": "Soft tee with a four-panel “CDA Pool League Circuit” comic poster—Moose Mug, Iron Horse, Lakers Pub, Backwoods.\n\n\nCDA Pool League Circuit Tee — Vintage Comic Print\n\nA tribute to league nights in CDA, illustrated like a retro comic cover. Four panels spotlight local staples—Moose Mug, Iron Horse, Lakers Pub, and Backwoods—framed in warm vintage inks for that poster-on-a-brick-wall vibe. Printed front-center on a premium unisex tee that’s soft, durable, and made for late games.\n\n\nDetails\n\nPremium ringspun cotton (Bella+Canvas 3001 or equivalent)\n\nDTG print for rich color and fine linework\n\nUnisex, modern fit; tear-away label\n\n\nCare\n\nWash cold, inside out • Mild detergent\n\nTumble low or hang dry • Do not iron directly on print\n\n\nFit Notes\n\nTrue to size; size up for relaxed/oversized look\n\n\nThis product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!",
+      "variants": [
+        {
+          "size": "S",
+          "sku": "69170197F0D73_24352",
+          "price": 26.0
+        },
+        {
+          "size": "M",
+          "sku": "69170197F0D73_24353",
+          "price": 26.0
+        },
+        {
+          "size": "L",
+          "sku": "69170197F0D73_24354",
+          "price": 26.0
+        },
+        {
+          "size": "XL",
+          "sku": "69170197F0D73_24355",
+          "price": 26.0
+        },
+        {
+          "size": "2XL",
+          "sku": "69170197F0D73_24356",
+          "price": 26.0
+        },
+        {
+          "size": "3XL",
+          "sku": "69170197F0D73_24357",
+          "price": 26.0
+        },
+        {
+          "size": "XS",
+          "sku": "69170197F0D73_24351",
+          "price": 26.0
+        }
+      ]
+    },
+    {
+      "id": "cash",
+      "name": "Cash",
+      "color": "",
+      "category": "",
+      "price": 25.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "",
+      "description_html": "",
+      "variants": []
+    },
+    {
+      "id": "drafted-a-classic-tee",
+      "name": "Drafted A classic tee",
+      "color": "",
+      "category": "Apparel",
+      "price": 17.5,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "The 100% cotton unisex classic tee will help you land a more structured look. It sits nicely, maintains sharp lines around the edges, and goes perfectly with layered streetwear outfits. Plus, it's extra trendy now! • 100% cotton • Sport Grey is 90% cotton, 10% polyester • Ash Grey is 99% cotton, 1% polyester • Heather colors are 50% cotton, 50% polyester • Fabric weight: 5.0–5.3 oz/yd² (170-180 g/m²) • Open-end yarn • Tubular fabric • Taped neck and shoulders • Double seam at sleeves and bottom hem • Blank product sourced from Honduras, Nicaragua, Haiti, Dominican Republic, Bangladesh, Mexico Disclaimers: • Due to the fabric properties, the White color variant may appear off-white rather than bright white. • Dark color speckles throughout the fabric are expected for the color Natural.",
+      "description_html": "The 100% cotton unisex classic tee will help you land a more structured look. It sits nicely, maintains sharp lines around the edges, and goes perfectly with layered streetwear outfits. Plus, it's extra trendy now! \n\n\n• 100% cotton\n\n• Sport Grey is 90% cotton, 10% polyester\n\n• Ash Grey is 99% cotton, 1% polyester\n\n• Heather colors are 50% cotton, 50% polyester\n\n• Fabric weight: 5.0–5.3 oz/yd² (170-180 g/m²) \n\n• Open-end yarn\n\n• Tubular fabric\n\n• Taped neck and shoulders\n\n• Double seam at sleeves and bottom hem\n\n• Blank product sourced from Honduras, Nicaragua, Haiti, Dominican Republic, Bangladesh, Mexico\n\n\nDisclaimers: \n\n• Due to the fabric properties, the White color variant may appear off-white rather than bright white.\n\n• Dark color speckles throughout the fabric are expected for the color Natural.",
+      "variants": [
+        {
+          "size": "",
+          "sku": "6950D9FBB0904_12644",
+          "price": 17.5
+        }
+      ]
+    },
+    {
+      "id": "echoverse-frost-circuit-pullover-hoodie",
+      "name": "EchoVerse “Frost Circuit” Pullover Hoodie",
+      "color": "",
+      "category": "Apparel",
+      "price": 49.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "The Frost Circuit hoodie blends cold-season energy with tech-art detail: a snowflake crest wired with circuit-like lines and EchoVerse lettering. It’s a standout piece—icy, clean, and weird in the best way. Perfect for winter drops, night walks, and people who like their merch to feel like a symbol. Apparel: Unisex premium mid-weight pullover hoodie",
+      "description_html": "<p>The Frost Circuit hoodie blends cold-season energy with tech-art detail: a snowflake crest wired with circuit-like lines and EchoVerse lettering. It’s a standout piece—icy, clean, and weird in the best way. Perfect for winter drops, night walks, and people who like their merch to feel like a symbol. <strong>Apparel:</strong> Unisex premium mid-weight pullover hoodie</p>",
+      "variants": [
+        {
+          "size": "S",
+          "sku": "6944A9E7A9404_22132",
+          "price": 49.0
+        },
+        {
+          "size": "M",
+          "sku": "6944A9E7A9404_22133",
+          "price": 49.0
+        },
+        {
+          "size": "L",
+          "sku": "6944A9E7A9404_22134",
+          "price": 49.0
+        },
+        {
+          "size": "XL",
+          "sku": "6944A9E7A9404_22135",
+          "price": 49.0
+        },
+        {
+          "size": "2XL",
+          "sku": "6944A9E7A9404_22136",
+          "price": 49.0
+        },
+        {
+          "size": "3XL",
+          "sku": "6944A9E7A9404_22137",
+          "price": 49.0
+        }
+      ]
+    },
+    {
+      "id": "echoverse-frost-circuit-tee",
+      "name": "EchoVerse “Frost Circuit” Tee",
+      "color": "",
+      "category": "Apparel",
+      "price": 19.5,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "The Frost Circuit blends cold-season energy with tech-art detail: a snowflake crest wired with circuit-like lines and EchoVerse lettering. It’s a standout piece—icy, clean, and weird in the best way.",
+      "description_html": "The Frost Circuit blends cold-season energy with tech-art detail: a snowflake crest wired with circuit-like lines and EchoVerse lettering. It’s a standout piece—icy, clean, and weird in the best way.",
+      "variants": [
+        {
+          "size": "S",
+          "sku": "6944AD10B3D8C_44067",
+          "price": 19.5
+        },
+        {
+          "size": "M",
+          "sku": "6944AD10B3D8C_44077",
+          "price": 19.5
+        },
+        {
+          "size": "L",
+          "sku": "6944AD10B3D8C_44087",
+          "price": 19.5
+        },
+        {
+          "size": "XL",
+          "sku": "6944AD10B3D8C_44097",
+          "price": 19.5
+        },
+        {
+          "size": "2XL",
+          "sku": "6944AD10B3D8C_44107",
+          "price": 19.5
+        },
+        {
+          "size": "3XL",
+          "sku": "6944AD10B3D8C_44117",
+          "price": 19.5
+        }
+      ]
+    },
+    {
+      "id": "echoverse-signal-dial-chest-emblem-hoodie",
+      "name": "EchoVerse “Signal Dial” Chest Emblem Hoodie",
+      "color": "",
+      "category": "Apparel",
+      "price": 26.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "Subtle, sharp, and wearable everywhere. The EchoVerse Signal Dial hoodie features a sleek chest emblem that feels like a piece of audio hardware—balanced, modern, and low-key. The kind of hoodie that looks “official” without trying too hard. Apparel: Unisex premium mid-weight pullover hoodie",
+      "description_html": "<p>Subtle, sharp, and wearable everywhere. The EchoVerse Signal Dial hoodie features a sleek chest emblem that feels like a piece of audio hardware—balanced, modern, and low-key. The kind of hoodie that looks “official” without trying too hard. <strong>Apparel: </strong>Unisex premium mid-weight pullover hoodie</p>",
+      "variants": [
+        {
+          "size": "S",
+          "sku": "694BDD42C8A43_22132",
+          "price": 26.0
+        },
+        {
+          "size": "M",
+          "sku": "694BDD42C8A43_22133",
+          "price": 26.0
+        },
+        {
+          "size": "L",
+          "sku": "694BDD42C8A43_22134",
+          "price": 26.0
+        },
+        {
+          "size": "XL",
+          "sku": "694BDD42C8A43_22135",
+          "price": 26.0
+        },
+        {
+          "size": "2XL",
+          "sku": "694BDD42C8A43_22136",
+          "price": 26.0
+        },
+        {
+          "size": "3XL",
+          "sku": "694BDD42C8A43_22137",
+          "price": 26.0
+        }
+      ]
+    },
+    {
+      "id": "founders-mark-full-zip-hoodie",
+      "name": "Founders Mark full zip hoodie",
+      "color": "",
+      "category": "",
+      "price": 53.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "This zip hoodie is soft, warm, and versatile enough for year-round layering. With its relaxed fit and clean design details, it’s the kind of hoodie you’ll reach for daily—whether you’re on the go or lounging at home. • 80% cotton, 20% recycled polyester • Heather Grey is 70% cotton, 30% recycled polyester • Other heather colors are 60% cotton, 40% recycled polyester • Fabric weight: 8.3 oz./yd.² (280 g/m²) • Relaxed fit • Three-panel hood with matching round drawcord • Zipper with auto-lock slider • Front kangaroo pockets • Ribbed cuffs and waistband • Blank product sourced from Pakistan",
+      "description_html": "This zip hoodie is soft, warm, and versatile enough for year-round layering. With its relaxed fit and clean design details, it’s the kind of hoodie you’ll reach for daily—whether you’re on the go or lounging at home.\n\n\n• 80% cotton, 20% recycled polyester\n\n• Heather Grey is 70% cotton, 30% recycled polyester\n\n• Other heather colors are 60% cotton, 40% recycled polyester\n\n• Fabric weight: 8.3 oz./yd.² (280 g/m²)\n\n• Relaxed fit\n\n• Three-panel hood with matching round drawcord\n\n• Zipper with auto-lock slider\n\n• Front kangaroo pockets\n\n• Ribbed cuffs and waistband\n\n• Blank product sourced from Pakistan",
+      "variants": [
+        {
+          "size": "S",
+          "sku": "6950D77B5AF8A_24251",
+          "price": 53.0
+        },
+        {
+          "size": "M",
+          "sku": "6950D77B5AF8A_24257",
+          "price": 53.0
+        },
+        {
+          "size": "L",
+          "sku": "6950D77B5AF8A_24263",
+          "price": 53.0
+        },
+        {
+          "size": "XL",
+          "sku": "6950D77B5AF8A_24269",
+          "price": 53.0
+        },
+        {
+          "size": "2XL",
+          "sku": "6950D77B5AF8A_24275",
+          "price": 53.0
+        },
+        {
+          "size": "3XL",
+          "sku": "6950D77B5AF8A_25689",
+          "price": 53.0
+        }
+      ]
+    },
+    {
+      "id": "holographic-stickers",
+      "name": "Holographic stickers",
+      "color": "",
+      "category": "Apparel",
+      "price": 6.5,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "Add some sparkle to your life with these holographic stickers. Made from high-quality vinyl, they’re easy to peel and stick, and their adhesive backing ensures long-lasting durability. The unique holographic effect catches the light in a mesmerizing way, making them the ultimate eye-catcher. • Hot-embossed, which creates a deep 3D pattern • Durable vinyl, perfect for indoor use • Fast and easy bubble-free application Disclaimer: Please note that this product is suitable for indoor use only.",
+      "description_html": "Add some sparkle to your life with these holographic stickers. Made from high-quality vinyl, they’re easy to peel and stick, and their adhesive backing ensures long-lasting durability. The unique holographic effect catches the light in a mesmerizing way, making them the ultimate eye-catcher.\n\n\n• Hot-embossed, which creates a deep 3D pattern\n\n• Durable vinyl, perfect for indoor use\n\n• Fast and easy bubble-free application\n\n\nDisclaimer: Please note that this product is suitable for indoor use only.",
+      "variants": [
+        {
+          "size": "3″×3″",
+          "sku": "6937FD7E16D6C_16705",
+          "price": 6.5
+        },
+        {
+          "size": "5.5″×5.5″",
+          "sku": "6937FD7E16D6C_16707",
+          "price": 6.5
+        }
+      ]
+    },
+    {
+      "id": "lumina-burst-lens-pullover-hoodie",
+      "name": "Lumina “Burst Lens” Pullover Hoodie",
+      "color": "",
+      "category": "Apparel",
+      "price": 44.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "The Lumina Burst Lens hoodie hits with a radiant, high-impact graphic that feels like inspiration detonating in real time. A bold centerpiece with clean branding makes this one look premium on black—built for creators, shooters, designers, and anyone who lives for the spark. Apparel: Unisex premium mid-weight pullover hoodie",
+      "description_html": "<p>The Lumina Burst Lens hoodie hits with a radiant, high-impact graphic that feels like inspiration detonating in real time. A bold centerpiece with clean branding makes this one look premium on black—built for creators, shooters, designers, and anyone who lives for the spark. <strong>Apparel:</strong> Unisex premium mid-weight pullover hoodie</p>",
+      "variants": [
+        {
+          "size": "S",
+          "sku": "694BE57CDEF17_22132",
+          "price": 44.0
+        },
+        {
+          "size": "M",
+          "sku": "694BE57CDEF17_22133",
+          "price": 44.0
+        },
+        {
+          "size": "L",
+          "sku": "694BE57CDEF17_22134",
+          "price": 44.0
+        },
+        {
+          "size": "XL",
+          "sku": "694BE57CDEF17_22135",
+          "price": 44.0
+        },
+        {
+          "size": "2XL",
+          "sku": "694BE57CDEF17_22136",
+          "price": 44.0
+        },
+        {
+          "size": "3XL",
+          "sku": "694BE57CDEF17_22137",
+          "price": 44.0
+        },
+        {
+          "size": "S",
+          "sku": "694BE4D5DF5B7_22132",
+          "price": 44.0
+        },
+        {
+          "size": "M",
+          "sku": "694BE4D5DF5B7_22133",
+          "price": 44.0
+        },
+        {
+          "size": "L",
+          "sku": "694BE4D5DF5B7_22134",
+          "price": 44.0
+        },
+        {
+          "size": "XL",
+          "sku": "694BE4D5DF5B7_22135",
+          "price": 44.0
+        },
+        {
+          "size": "2XL",
+          "sku": "694BE4D5DF5B7_22136",
+          "price": 44.0
+        },
+        {
+          "size": "3XL",
+          "sku": "694BE4D5DF5B7_22137",
+          "price": 44.0
+        }
+      ]
+    },
+    {
+      "id": "museface",
+      "name": "MuseFace",
+      "color": "",
+      "category": "",
+      "price": null,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "",
+      "description_html": "",
+      "variants": []
+    },
+    {
+      "id": "nexus-techworks-circuit-bloom-pullover-hoodie",
+      "name": "NeXuS TechWorks “Circuit Bloom” Pullover Hoodie",
+      "color": "",
+      "category": "Apparel",
+      "price": 60.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "The Circuit Bloom hoodie is tech-core done right: a central NeXuS mark surrounded by a clean network pattern that reads like infrastructure, connectivity, and momentum. It’s a statement piece without being loud—perfect for dev days, hack nights, and anyone who likes their style intelligently designed. Apparel: Unisex premium mid-weight pullover hoodie",
+      "description_html": "<p>The Circuit Bloom hoodie is tech-core done right: a central NeXuS mark surrounded by a clean network pattern that reads like infrastructure, connectivity, and momentum. It’s a statement piece without being loud—perfect for dev days, hack nights, and anyone who likes their style intelligently designed. <strong>Apparel:</strong> Unisex premium mid-weight pullover hoodie</p>",
+      "variants": [
+        {
+          "size": "S",
+          "sku": "694BD85E3C49A_22132",
+          "price": 60.0
+        },
+        {
+          "size": "M",
+          "sku": "694BD85E3C49A_22133",
+          "price": 60.0
+        },
+        {
+          "size": "L",
+          "sku": "694BD85E3C49A_22134",
+          "price": 60.0
+        },
+        {
+          "size": "XL",
+          "sku": "694BD85E3C49A_22135",
+          "price": 60.0
+        },
+        {
+          "size": "2XL",
+          "sku": "694BD85E3C49A_22136",
+          "price": 60.0
+        },
+        {
+          "size": "3XL",
+          "sku": "694BD85E3C49A_22137",
+          "price": 60.0
+        }
+      ]
+    },
+    {
+      "id": "neon-billygoat-pullover-hoodie",
+      "name": "Neon BillyGoat” Pullover Hoodie",
+      "color": "",
+      "category": "Apparel",
+      "price": 49.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "Chaos mascot energy—electric horns, neon glow, and a nasty grin.Full description: Turn the volume up. The Neon BillyGoat hoodie is pure mischief: a snarling goat skull-face with glowing green horns, a purple sigil crest, and a jagged soundwave crackling above it. It’s dark streetwear with a cyber-metal edge—built for late nights, loud music, and people who don’t do “quiet.”Key features:Bold neon graphic with high contrast on blackStatement piece that still wears easy with jeans or joggersMid-weight warmth for year-round layeringFront kangaroo pocket + hood for everyday comfortFit note: Unisex fit. Size up for an oversized/relaxed look.",
+      "description_html": "<p>Chaos mascot energy—electric horns, neon glow, and a nasty grin.</p><p><strong>Full description:</strong> Turn the volume up. The <strong>Neon BillyGoat</strong> hoodie is pure mischief: a snarling goat skull-face with glowing green horns, a purple sigil crest, and a jagged soundwave crackling above it. It’s dark streetwear with a cyber-metal edge—built for late nights, loud music, and people who don’t do “quiet.”</p><p><strong>Key features:</strong></p><ul><li>Bold neon graphic with high contrast on black</li><li>Statement piece that still wears easy with jeans or joggers</li><li>Mid-weight warmth for year-round layering</li><li>Front kangaroo pocket + hood for everyday comfort</li></ul><p><strong>Fit note:</strong> Unisex fit. Size up for an oversized/relaxed look.</p>",
+      "variants": [
+        {
+          "size": "",
+          "sku": "6937980D5A5AD_22137",
+          "price": 49.0
+        }
+      ]
+    },
+    {
+      "id": "night-ranger-bear-pullover-hoodie",
+      "name": "Night Ranger Bear Pullover Hoodie",
+      "color": "",
+      "category": "Apparel",
+      "price": 41.25,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "The Night Ranger Bear hoodie blends cozy comfort with an outdoors-at-night vibe: a standing bear, pine silhouette, and a crescent moon glow that feels calm but powerful. Minimal enough for everyday wear, detailed enough to get noticed. Perfect for late-night drives, cold mornings, and anyone who lives a little closer to the wild. Apparel: Unisex premium mid-weight pullover hoodie",
+      "description_html": "<p>The Night Ranger Bear hoodie blends cozy comfort with an outdoors-at-night vibe: a standing bear, pine silhouette, and a crescent moon glow that feels calm but powerful. Minimal enough for everyday wear, detailed enough to get noticed. Perfect for late-night drives, cold mornings, and anyone who lives a little closer to the wild. <strong>Apparel:</strong> Unisex premium mid-weight pullover hoodie</p>",
+      "variants": [
+        {
+          "size": "S",
+          "sku": "694C2BBC5FA02_22132",
+          "price": 41.25
+        },
+        {
+          "size": "M",
+          "sku": "694C2BBC5FA02_22133",
+          "price": 41.25
+        },
+        {
+          "size": "L",
+          "sku": "694C2BBC5FA02_22134",
+          "price": 41.25
+        },
+        {
+          "size": "XL",
+          "sku": "694C2BBC5FA02_22135",
+          "price": 41.25
+        },
+        {
+          "size": "2XL",
+          "sku": "694C2BBC5FA02_22136",
+          "price": 41.25
+        },
+        {
+          "size": "3XL",
+          "sku": "694C2BBC5FA02_22137",
+          "price": 41.25
+        }
+      ]
+    },
+    {
+      "id": "phone-bill",
+      "name": "Phone Bill",
+      "color": "",
+      "category": "Utility",
+      "price": 30.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "",
+      "description_html": "",
+      "variants": []
+    },
+    {
+      "id": "powder-peaks-8-ball-hoodie-black-white-ink",
+      "name": "Powder Peaks 8-Ball Hoodie — Black / White Ink",
+      "color": "",
+      "category": "Apparel",
+      "price": 46.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "Black fleece hoodie with the 8-ball moon over powder peaks—crisp white linework, cozy weight. Description The Powder Peaks 8-Ball Hoodie pairs a clean, monochrome print with a soft fleece blank. The eight-ball “moon” hangs over stacked powder mounds and a pine horizon, rendered in high-contrast white for that chalk-on-black look. Built for late nights, road trips, and winter sessions. Details Unisex fleece hoodie (soft ringspun face) Front-center white ink print (DTG for soft feel) Jersey-lined hood, matching drawcords, rib cuffs/hem Care Machine wash cold, inside out Gentle cycle; mild detergent Tumble low or hang dry Avoid ironing on the graphic Fit notes Relaxed unisex fit. Size up for a roomier, layered silhouette. Tags: hoodie, black & white, mountains, eight ball, winter, minimal This product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!",
+      "description_html": "Black fleece hoodie with the 8-ball moon over powder peaks—crisp white linework, cozy weight.\n\n\nDescription\n\nThe Powder Peaks 8-Ball Hoodie pairs a clean, monochrome print with a soft fleece blank. The eight-ball “moon” hangs over stacked powder mounds and a pine horizon, rendered in high-contrast white for that chalk-on-black look. Built for late nights, road trips, and winter sessions.\n\n\nDetails\n\nUnisex fleece hoodie (soft ringspun face)\n\nFront-center white ink print (DTG for soft feel)\n\nJersey-lined hood, matching drawcords, rib cuffs/hem\n\n\nCare\n\nMachine wash cold, inside out\n\nGentle cycle; mild detergent\n\nTumble low or hang dry\n\nAvoid ironing on the graphic\n\n\nFit notes\n\nRelaxed unisex fit. Size up for a roomier, layered silhouette.\n\n\nTags: hoodie, black & white, mountains, eight ball, winter, minimal\n\n\nThis product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!",
+      "variants": [
+        {
+          "size": "S",
+          "sku": "6916FB0D0D0BC_10779",
+          "price": 46.0
+        },
+        {
+          "size": "M",
+          "sku": "6916FB0D0D0BC_10780",
+          "price": 46.0
+        },
+        {
+          "size": "L",
+          "sku": "6916FB0D0D0BC_10781",
+          "price": 46.0
+        },
+        {
+          "size": "XL",
+          "sku": "6916FB0D0D0BC_10782",
+          "price": 46.0
+        },
+        {
+          "size": "2XL",
+          "sku": "6916FB0D0D0BC_10783",
+          "price": 46.0
+        },
+        {
+          "size": "3XL",
+          "sku": "6916FB0D0D0BC_13416",
+          "price": 46.0
+        }
+      ]
+    },
+    {
+      "id": "powder-peaks-8-ball-sticker-black-white-ink",
+      "name": "Powder Peaks 8-Ball Sticker — Black / White Ink",
+      "color": "",
+      "category": "Apparel",
+      "price": 5.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "Minimal mountain stack with an eight-ball moon. Vintage-white on deep black for that chalk-dust, night-ride vibe—perfect for laptops, cases, water bottles, boards. Description A durable, die-cut sticker featuring the Powder Peaks 8-Ball graphic: two snow-pile peaks, pine line, and the iconic “8” rising like a moon. Printed in crisp white against deep black for maximum contrast. Details Thick, weather-resistant vinyl with matte finish Strong adhesive; clean removal with minimal residue Indoor/outdoor rated (UV & scratch-resistant) Available in multiple sizes (choose in dropdown) Apply / Care Clean surface, dry fully, apply slowly from one edge Hand-wash bottles; avoid dishwashers for longest life Tags: mountains, billiards, night snow, minimal, vinyl sticker",
+      "description_html": "Minimal mountain stack with an eight-ball moon. Vintage-white on deep black for that chalk-dust, night-ride vibe—perfect for laptops, cases, water bottles, boards.\n\n\nDescription\n\nA durable, die-cut sticker featuring the Powder Peaks 8-Ball graphic: two snow-pile peaks, pine line, and the iconic “8” rising like a moon. Printed in crisp white against deep black for maximum contrast.\n\n\nDetails\n\nThick, weather-resistant vinyl with matte finish\n\nStrong adhesive; clean removal with minimal residue\n\nIndoor/outdoor rated (UV & scratch-resistant)\n\nAvailable in multiple sizes (choose in dropdown)\n\n\nApply / Care\n\nClean surface, dry fully, apply slowly from one edge\n\nHand-wash bottles; avoid dishwashers for longest life\n\n\nTags: mountains, billiards, night snow, minimal, vinyl sticker",
+      "variants": [
+        {
+          "size": "3″×3″",
+          "sku": "6916F9EC50A68_10163",
+          "price": 5.0
+        },
+        {
+          "size": "5.5″×5.5″",
+          "sku": "6916F9EC50A68_10165",
+          "price": 5.0
+        }
+      ]
+    },
+    {
+      "id": "powder-peaks-8-ball-tee-black-white-ink",
+      "name": "Powder Peaks 8-Ball Tee — Black / White Ink",
+      "color": "",
+      "category": "Apparel",
+      "price": 26.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "A black unisex tee with our 8-ball moon over snow-stack peaks—high-contrast white ink for a bold, minimal look. Description Powder Peaks 8-Ball brings pool-hall energy to the mountain night. The design stacks two powder-pile peaks beneath a pine line, crowned by an eight-ball moon. Printed front-center in vintage white on a premium black tee for a clean, graphic silhouette. Details Soft unisex staple tee (premium ringspun cotton) Front-center white ink print (DTG or screen, depending on batch) Modern fit; smooth hand feel; tear-away label Care Machine wash cold, inside out Mild detergent; no bleach Tumble low or hang dry Do not iron directly on the print Fit notes True-to-size unisex. Size up for relaxed/oversized look. Tags: mountains, eight ball, minimal, black tee, night snow This product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!",
+      "description_html": "A black unisex tee with our 8-ball moon over snow-stack peaks—high-contrast white ink for a bold, minimal look.\n\n\nDescription\n\nPowder Peaks 8-Ball brings pool-hall energy to the mountain night. The design stacks two powder-pile peaks beneath a pine line, crowned by an eight-ball moon. Printed front-center in vintage white on a premium black tee for a clean, graphic silhouette.\n\n\nDetails\n\nSoft unisex staple tee (premium ringspun cotton)\n\nFront-center white ink print (DTG or screen, depending on batch)\n\nModern fit; smooth hand feel; tear-away label\n\n\nCare\n\nMachine wash cold, inside out\n\nMild detergent; no bleach\n\nTumble low or hang dry\n\nDo not iron directly on the print\n\n\nFit notes\n\nTrue-to-size unisex. Size up for relaxed/oversized look.\n\n\nTags: mountains, eight ball, minimal, black tee, night snow\n\n\nThis product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!",
+      "variants": [
+        {
+          "size": "S",
+          "sku": "6916FC17A78CD_11869",
+          "price": 26.0
+        },
+        {
+          "size": "M",
+          "sku": "6916FC17A78CD_11870",
+          "price": 26.0
+        },
+        {
+          "size": "L",
+          "sku": "6916FC17A78CD_11871",
+          "price": 26.0
+        },
+        {
+          "size": "XL",
+          "sku": "6916FC17A78CD_11872",
+          "price": 26.0
+        },
+        {
+          "size": "2XL",
+          "sku": "6916FC17A78CD_11873",
+          "price": 26.0
+        },
+        {
+          "size": "3XL",
+          "sku": "6916FC17A78CD_17229",
+          "price": 26.0
+        },
+        {
+          "size": "4XL",
+          "sku": "6916FC17A78CD_17233",
+          "price": 26.0
+        },
+        {
+          "size": "5XL",
+          "sku": "6916FC17A78CD_17236",
+          "price": 26.0
+        }
+      ]
+    },
+    {
+      "id": "rent",
+      "name": "Rent",
+      "color": "",
+      "category": "Utility",
+      "price": 500.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "",
+      "description_html": "",
+      "variants": []
+    },
+    {
+      "id": "rent-wk",
+      "name": "Rent Wk",
+      "color": "",
+      "category": "Utility",
+      "price": 125.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "",
+      "description_html": "",
+      "variants": []
+    },
+    {
+      "id": "unisex-premium-sweatshirt",
+      "name": "Unisex Premium Sweatshirt",
+      "color": "",
+      "category": "Apparel",
+      "price": 61.5,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "Rock a classic sweatshirt silhouette with ribbed crew neck, long sleeve cuffs, and a flat hem. Layer it up or wear it on its own for a contemporary streetwear look. With the soft fleece inside and comfortable fit, it’s sure to become your favorite everyday sweater right away! • 100% cotton face • 65% cotton, 35% polyester • Charcoal Heather is 55% cotton, 45% polyester • Fabric weight: 8.5 oz/y² (288.2 g/m²) • Tightly knit 3-end fleece • Side-seamed construction • Self-fabric patch on the back • Double-needle stitched rib collar, cuffs, and hem • Blank product sourced from Pakistan Disclaimer: This sweatshirt runs small. For the perfect fit, we recommend ordering one size larger than your usual size. This product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!",
+      "description_html": "Rock a classic sweatshirt silhouette with ribbed crew neck, long sleeve cuffs, and a flat hem. Layer it up or wear it on its own for a contemporary streetwear look. With the soft fleece inside and comfortable fit, it’s sure to become your favorite everyday sweater right away!\n\n\n• 100% cotton face\n\n• 65% cotton, 35% polyester\n\n• Charcoal Heather is 55% cotton, 45% polyester\n\n• Fabric weight: 8.5 oz/y² (288.2 g/m²)\n\n• Tightly knit 3-end fleece \n\n• Side-seamed construction\n\n• Self-fabric patch on the back\n\n• Double-needle stitched rib collar, cuffs, and hem\n\n• Blank product sourced from Pakistan\n\n\nDisclaimer: This sweatshirt runs small. For the perfect fit, we recommend ordering one size larger than your usual size.\n\n\nThis product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!",
+      "variants": [
+        {
+          "size": "S",
+          "sku": "694BCC3DE8928_11254",
+          "price": 61.5
+        },
+        {
+          "size": "M",
+          "sku": "694BCC3DE8928_11255",
+          "price": 61.5
+        },
+        {
+          "size": "L",
+          "sku": "694BCC3DE8928_11256",
+          "price": 61.5
+        },
+        {
+          "size": "XL",
+          "sku": "694BCC3DE8928_11257",
+          "price": 61.5
+        },
+        {
+          "size": "2XL",
+          "sku": "694BCC3DE8928_11258",
+          "price": 61.5
+        },
+        {
+          "size": "3XL",
+          "sku": "694BCC3DE8928_13258",
+          "price": 61.5
+        }
+      ]
+    },
+    {
+      "id": "golden-eye-sigil-premium-sweatshirt",
+      "name": "“Golden Eye Sigil” Premium Sweatshirt",
+      "color": "",
+      "category": "Apparel",
+      "price": 46.0,
+      "visibility": "visible",
+      "shipping_enabled": "Y",
+      "description_text": "The Golden Eye Sigil crewneck looks like an ancient symbol fused with cosmic energy—glowing gold lines, a luminous eye at the center, and a halo of crackling light around it. It’s the kind of piece that feels like protection, vision, and intention all in one. Clean black base, high-impact center graphic, and a vibe that lands somewhere between sacred geometry and sci-fi artifact.Key features:Bold center-chest “eye sigil” graphic with radiant gold tonesPremium crewneck look—easy to dress up or downCozy mid-weight warmth for year-round wearClean fit that layers perfectly under jacketsFit note: Unisex fit. True-to-size for a classic look; size up for a roomier streetwear fit.",
+      "description_html": "<p>The <strong>Golden Eye Sigil</strong> crewneck looks like an ancient symbol fused with cosmic energy—glowing gold lines, a luminous eye at the center, and a halo of crackling light around it. It’s the kind of piece that feels like protection, vision, and intention all in one. Clean black base, high-impact center graphic, and a vibe that lands somewhere between sacred geometry and sci-fi artifact.</p><p><strong>Key features:</strong></p><ul><li>Bold center-chest “eye sigil” graphic with radiant gold tones</li><li>Premium crewneck look—easy to dress up or down</li><li>Cozy mid-weight warmth for year-round wear</li><li>Clean fit that layers perfectly under jackets</li></ul><p><strong>Fit note:</strong> Unisex fit. True-to-size for a classic look; size up for a roomier streetwear fit.</p>",
+      "variants": [
+        {
+          "size": "S",
+          "sku": "696D58339B613_5498",
+          "price": 46.0
+        },
+        {
+          "size": "M",
+          "sku": "696D58339B613_5499",
+          "price": 46.0
+        },
+        {
+          "size": "L",
+          "sku": "696D58339B613_5500",
+          "price": 46.0
+        },
+        {
+          "size": "XL",
+          "sku": "696D58339B613_5501",
+          "price": 46.0
+        },
+        {
+          "size": "2XL",
+          "sku": "696D58339B613_5502",
+          "price": 46.0
+        },
+        {
+          "size": "3XL",
+          "sku": "696D58339B613_5503",
+          "price": 46.0
+        },
+        {
+          "size": "4XL",
+          "sku": "696D58339B613_5504",
+          "price": 46.0
+        },
+        {
+          "size": "5XL",
+          "sku": "696D58339B613_5505",
+          "price": 46.0
+        }
+      ]
+    }
+  ]
+}

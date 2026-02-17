@@ -1,0 +1,29 @@
+services:
+  av-store-api:
+    build: .
+    container_name: av-store-api
+    env_file: .env
+    restart: unless-stopped
+    healthcheck:
+      test: ['CMD', 'python', '-c', "import urllib.request; urllib.request.urlopen('http://localhost:8088/api/health', timeout=2).read()"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.avstoreapi.rule=Host(`api.aerovista.us`)"
+      - "traefik.http.routers.avstoreapi.entrypoints=websecure"
+      - "traefik.http.routers.avstoreapi.tls=true"
+      # Requires Traefik static config to define this resolver (see /srv/core/ops/traefik/traefik.yml on nxcore).
+      - "traefik.http.routers.avstoreapi.tls.certresolver=le_dns"
+      - "traefik.http.services.avstoreapi.loadbalancer.server.port=8088"
+      # Prevent Traefik from guessing the network (avoids "Defaulting to first available network" warnings).
+      - "traefik.docker.network=nxtraefik_default"
+    networks:
+      - nxtraefik
+
+networks:
+  nxtraefik:
+    external: true
+    name: nxtraefik_default
