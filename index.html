@@ -1330,8 +1330,13 @@
     async function checkApiHealth(){
       for(const base of CHECKOUT_API_CANDIDATES){
         try {
-          const res = await fetch(apiBaseWithPath(base, "/api/square/bootstrap"), { method: "HEAD" });
+          const res = await fetch(apiBaseWithPath(base, "/api/square/bootstrap"), {
+            method: "GET",
+            cache: "no-store",
+            headers: { "Accept": "application/json" }
+          });
           if(res.ok){
+            await res.json().catch(() => ({}));
             __resolvedApiBase = base;
             return true;
           }
@@ -3180,7 +3185,14 @@
       const cart = loadCart();
       if(!cart.length){ toast("Cart is empty"); return; }
 
-      const cartPayload = cart.map(it => ({ sku: it.key, qty: it.qty }));
+      const cartPayload = cart.map(it => ({
+        sku: String(it.sku || it.key || it.id || ""),
+        qty: Number(it.qty || it.quantity || 1)
+      })).filter(x => x.sku && Number.isFinite(x.qty) && x.qty > 0);
+      if(!cartPayload.length){
+        toast("Cart payload is empty. Please refresh and try again.");
+        return;
+      }
       let boot;
       try {
         boot = await squareBootstrap();
@@ -3196,12 +3208,14 @@
       btn.disabled = true;
       btn.textContent = "Redirecting...";
       try {
+        console.log("CHECKOUT payload:", body);
         const res = await fetch(apiUrl("/api/square/checkout"), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(body)
         });
         const out = await res.json().catch(() => ({}));
+        console.log("CHECKOUT response:", res.status, out);
         if(res.ok && out.ok && out.checkoutUrl) {
           window.location = out.checkoutUrl;
           return;
