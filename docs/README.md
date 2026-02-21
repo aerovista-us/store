@@ -25,6 +25,11 @@ Override example (only if needed):
 ## Backend
 See `backend/README.md` for backend setup and env variables.
 
+## Catalog planning helpers
+- `docs/VARIANT_PRICING_SCHEMA_AND_WORKSHEET.md` — schema + process for sizing/color/price-per-item planning.
+- `docs/variant_pricing_worksheet.csv` — fillable worksheet for variant pricing and key mapping (`cartKey`, `variationId`, tags).
+- `docs/variant_pricing_dashboard.html` — browser helper to convert worksheet CSV into `SQUARE_SKU_MAP_JSON` and a paste-ready `.env` line.
+
 **CORS:** Backend must allow your storefront origin(s), e.g.:
 - Production (Firebase): `ALLOWED_ORIGINS=https://aerovista.us,https://www.aerovista.us`
 - GitHub Pages: `ALLOWED_ORIGINS=https://aerovista-us.github.io`

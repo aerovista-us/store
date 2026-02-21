@@ -1,0 +1,8 @@
+itemId,itemTitle,color,size,cartColorToken,cartKey,variationId,sku,basePriceCents,colorDeltaCents,sizeDeltaCents,finalPriceCents,enabled,tags,notes
+apex-draft-pullover-hoodie,Apex Draft Pullover Hoodie,Black,S,Default,Default__S,,,5500,0,0,5500,true,division:nexus|featured|hoodie,default size row
+apex-draft-pullover-hoodie,Apex Draft Pullover Hoodie,Black,M,Default,Default__M,,,5500,0,0,5500,true,division:nexus|featured|hoodie,default size row
+apex-draft-pullover-hoodie,Apex Draft Pullover Hoodie,Black,L,Default,Default__L,,,5500,0,0,5500,true,division:nexus|featured|hoodie,default size row
+apex-draft-pullover-hoodie,Apex Draft Pullover Hoodie,Black,XL,Default,Default__XL,,,5500,0,0,5500,true,division:nexus|featured|hoodie,default size row
+apex-draft-pullover-hoodie,Apex Draft Pullover Hoodie,Black,2XL,Default,Default__2XL,,,5500,0,500,6000,true,division:nexus|hoodie,plus size surcharge
+apex-draft-pullover-hoodie,Apex Draft Pullover Hoodie,Black,3XL,Default,Default__3XL,,,5500,0,500,6000,true,division:nexus|hoodie,plus size surcharge
+apex-draft-pullover-hoodie,Apex Draft Pullover Hoodie,White,L,White,White__L,,,5500,0,0,5500,true,division:nexus|hoodie,color variant

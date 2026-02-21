@@ -146,7 +146,19 @@
       background: rgba(0,0,0,.18);
     }
 
+    /* 3D scene for hero card tilt (Option A) */
+    .heroScene{
+      perspective: 1200px;
+      transform-style: preserve-3d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 400px;
+      height: 300px;
+    }
     .heroVisual{
+      --logo-phase: 0.5;
       width: 100%;
       max-width: 400px;
       height: 300px;
@@ -156,6 +168,9 @@
       justify-content: center;
       cursor: pointer;
       user-select: none;
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform 0.15s ease-out;
     }
     .heroSvg{
       width: 100%;
@@ -169,6 +184,116 @@
     .heroVisual:active .heroSvg{
       transform: scale(0.98);
       transition: transform 0.1s ease;
+    }
+    /* Phase-driven logo glow (Option D) - --logo-phase set by tilt (0..1) */
+    .heroVisual .heroSvg #outerRing,
+    .heroVisual .heroSvg #middleRing{
+      opacity: calc(0.45 + var(--logo-phase, 0.5) * 0.4);
+    }
+    .heroVisual .heroSvg #orbitalRing > ellipse:first-of-type{
+      opacity: calc(0.75 + var(--logo-phase, 0.5) * 0.2);
+    }
+    /* Morph panels - image shift behind logo (Option F) */
+    .heroMorphPanels{
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      border-radius: inherit;
+      pointer-events: none;
+    }
+    .heroMorphImg{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity .4s cubic-bezier(.4,0,.2,1), filter .4s ease;
+      filter: contrast(1.05) saturate(1.08);
+      will-change: opacity;
+    }
+    .heroMorphImg.active{
+      opacity: 1;
+      filter: contrast(1.08) saturate(1.12);
+    }
+    .heroMorphImg.morphing{
+      mix-blend-mode: screen;
+      filter: contrast(1.1) saturate(1.15) hue-rotate(5deg);
+    }
+    /* Flip card inner (Option E) */
+    .heroInner{
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.5s cubic-bezier(.2,.8,.2,1);
+    }
+    .heroVisual.is-flipped .heroInner{
+      transform: rotateY(180deg);
+    }
+    .heroFaceFront,
+    .heroFaceBack{
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .heroFaceBack{
+      transform: rotateY(180deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(7,10,15,.95), rgba(11,15,20,.98));
+      border: 1px solid rgba(255,255,255,.1);
+      padding: 24px;
+      text-align: center;
+    }
+    .heroFaceBack .backTitle{
+      font: 800 14px/1.2 system-ui;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(110,231,255,.9);
+    }
+    .heroFaceBack .backCopy{
+      margin-top: 12px;
+      font: 650 13px/1.4 system-ui;
+      color: rgba(231,237,246,.85);
+      max-width: 260px;
+    }
+    /* Parallax holo overlay (Option B) */
+    .heroHolo{
+      position: absolute;
+      inset: -20%;
+      background: conic-gradient(from 180deg,
+        rgba(0,255,255,0),
+        rgba(255,0,255,.35),
+        rgba(0,255,255,.25),
+        rgba(255,255,255,.28),
+        rgba(0,255,255,.22),
+        rgba(255,0,255,.32),
+        rgba(0,255,255,0)
+      );
+      mix-blend-mode: screen;
+      opacity: .55;
+      filter: blur(0.3px) saturate(1.3);
+      pointer-events: none;
+      will-change: transform;
+    }
+    /* Noise/scanline overlay - holo card texture (Option C) */
+    .heroNoise{
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,.035),
+        rgba(255,255,255,.035) 1px,
+        transparent 1px,
+        transparent 4px
+      );
+      mix-blend-mode: overlay;
+      opacity: .25;
+      pointer-events: none;
     }
     
     /* Legacy glowStamp - kept for backwards compatibility */
@@ -968,7 +1093,15 @@
         </div>
 
         <div class="heroRight">
-          <div class="heroVisual" id="heroVisual" aria-label="AeroVista brand animation">
+          <div class="heroScene" id="heroScene">
+            <div class="heroVisual" id="heroVisual" aria-label="AeroVista brand animation">
+            <div class="heroInner" id="heroInner">
+            <div class="heroFaceFront">
+            <div class="heroMorphPanels" aria-hidden="true">
+              <div class="heroMorphImg" id="heroMorph1" style="background:linear-gradient(135deg, rgba(110,231,255,.15), rgba(167,139,250,.1));"></div>
+              <div class="heroMorphImg" id="heroMorph2" style="background:linear-gradient(180deg, rgba(167,139,250,.12), rgba(110,231,255,.08));"></div>
+              <div class="heroMorphImg" id="heroMorph3" style="background:linear-gradient(225deg, rgba(110,231,255,.1), rgba(167,139,250,.15));"></div>
+            </div>
             <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" class="heroSvg">
               <defs>
                 <!-- Gradients -->
@@ -1159,6 +1292,17 @@
                 </circle>
               </g>
             </svg>
+            <div class="heroHolo" id="heroHolo" aria-hidden="true"></div>
+            <div class="heroNoise" aria-hidden="true"></div>
+            </div>
+            <div class="heroFaceBack" aria-hidden="true">
+              <div>
+                <div class="backTitle">AeroVista</div>
+                <div class="backCopy">Engineered minimal. Curated essentials—hoodies, crewnecks, hats. Built on curation, not clutter.</div>
+              </div>
+            </div>
+            </div>
+            </div>
           </div>
         </div>
       </div>
@@ -3307,56 +3451,125 @@
 
     $("#search").addEventListener("input", (e)=>{ state.search = e.target.value || ""; renderGrid(); });
     
-    // Interactive hero visual - mouse tracking and click effects
+    // Interactive hero visual - 3D tilt, holo, morph, phase, click (Options A/B/F/D)
+    const heroScene = $("#heroScene");
     const heroVisual = $("#heroVisual");
-    if (heroVisual) {
+    if (heroVisual && heroScene) {
       const svg = heroVisual.querySelector(".heroSvg");
       const mainShape = svg?.querySelector("#mainShape");
       const letterA = svg?.querySelector("#letterA");
       const orbits = svg?.querySelectorAll("#orbit1, #orbit2, #orbit3");
+      const heroHolo = heroVisual.querySelector(".heroHolo");
+      const morphImgs = heroVisual.querySelectorAll(".heroMorphImg");
       
-      // Store original transform
       const originalTransform = mainShape?.getAttribute("transform") || "translate(200,150)";
       let animationFrame = null;
+      let pointerActive = false;
+      let useGyro = false;
+      let gyroTiltX = 0, gyroTiltY = 0;
+      const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+      const maxTilt = 12;
       
-      // Mouse tracking - subtle parallax effect using SVG transforms
-      heroVisual.addEventListener("mousemove", (e) => {
-        if (!mainShape) return;
-        
-        // Cancel any pending animation frame
-        if (animationFrame) cancelAnimationFrame(animationFrame);
-        
-        animationFrame = requestAnimationFrame(() => {
-          const rect = heroVisual.getBoundingClientRect();
-          const centerX = rect.left + rect.width / 2;
-          const centerY = rect.top + rect.height / 2;
-          const x = (e.clientX - centerX) / (rect.width / 2);
-          const y = (e.clientY - centerY) / (rect.height / 2);
-          
-          // Subtle rotation based on mouse position (using SVG transform)
-          const rotateX = y * 3; // Max 3 degrees
-          const rotateY = x * -3; // Max 3 degrees
-          const scale = 1 + Math.abs(x) * 0.02 + Math.abs(y) * 0.02; // Subtle scale
-          
-          // Apply SVG transform (translate first, then rotate)
-          mainShape.setAttribute("transform", 
-            `translate(200,150) rotate(${rotateY},0,0) scale(${scale})`);
-          
-          // Add CSS transition for smoothness
-          mainShape.style.transition = "transform 0.15s ease-out";
+      function applyTilt(rotateX, rotateY, holoX, holoY, nx) {
+        heroVisual.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        if (heroHolo) heroHolo.style.transform = `translate(${holoX}px, ${holoY}px)`;
+        if (typeof nx === "number") setMorphState(nx);
+        if (typeof nx === "number") setPhaseState(nx);
+      }
+      
+      function setMorphState(nx) {
+        if (!morphImgs || morphImgs.length < 3) return;
+        const w1 = clamp(1 - nx * 2, 0, 1);
+        const w3 = clamp(nx * 2 - 1, 0, 1);
+        const w2 = 1 - Math.abs(nx - 0.5) * 2;
+        const weights = [w1, w2, w3];
+        morphImgs.forEach((img, i) => {
+          img.style.opacity = String(weights[i]);
+          img.classList.remove("active", "morphing");
+          const w = weights[i];
+          if (w >= 0.95) img.classList.add("active");
+          else if (w > 0.05) img.classList.add("morphing");
         });
-      });
+      }
       
-      // Reset on mouse leave
-      heroVisual.addEventListener("mouseleave", () => {
-        if (mainShape) {
-          mainShape.setAttribute("transform", originalTransform);
-          mainShape.style.transition = "transform 0.4s ease-out";
+      function setPhaseState(nx) {
+        heroVisual.style.setProperty("--logo-phase", String(nx));
+      }
+      
+      function updateFromPointer(clientX, clientY) {
+        const rect = heroVisual.getBoundingClientRect();
+        const nx = rect.width ? clamp((clientX - rect.left) / rect.width, 0, 1) : 0.5;
+        const ny = rect.height ? clamp((clientY - rect.top) / rect.height, 0, 1) : 0.5;
+        const tiltX = (ny - 0.5) * -10;
+        const tiltY = (nx - 0.5) * 12;
+        const holoX = (0.5 - nx) * 60;
+        const holoY = (0.5 - ny) * 60;
+        applyTilt(tiltX, tiltY, holoX, holoY, nx);
+      }
+      
+      function onPointerLeave() {
+        pointerActive = false;
+        if (!useGyro) {
+          applyTilt(0, 0, 0, 0, 0.5);
+        } else {
+          const nx = clamp(0.5 + gyroTiltY / 18, 0, 1);
+          applyTilt(gyroTiltX, gyroTiltY, -gyroTiltY * 6, -gyroTiltX * 6, nx);
         }
-      });
+      }
       
-      // Click interaction - pulse effect
-      heroVisual.addEventListener("click", () => {
+      function onDeviceOrientation(e) {
+        if (e.beta == null || e.gamma == null) return;
+        const scale = 0.5;
+        gyroTiltX = clamp((e.beta - 45) * scale, -maxTilt, maxTilt);
+        gyroTiltY = clamp(e.gamma * scale, -maxTilt, maxTilt);
+        if (pointerActive) return;
+        const nx = clamp(0.5 + e.gamma / 90, 0, 1);
+        applyTilt(gyroTiltX, gyroTiltY, -gyroTiltY * 6, -gyroTiltX * 6, nx);
+      }
+      
+      function startGyro() {
+        useGyro = true;
+        window.addEventListener("deviceorientation", onDeviceOrientation, { passive: true });
+        onDeviceOrientation({ beta: 45, gamma: 0 });
+      }
+      
+      heroVisual.addEventListener("mouseenter", () => { pointerActive = true; });
+      heroVisual.addEventListener("mouseleave", onPointerLeave);
+      heroVisual.addEventListener("mousemove", (e) => {
+        if (animationFrame) cancelAnimationFrame(animationFrame);
+        animationFrame = requestAnimationFrame(() => { if (pointerActive) updateFromPointer(e.clientX, e.clientY); });
+      });
+      heroVisual.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        pointerActive = true;
+        if (e.touches.length) updateFromPointer(e.touches[0].clientX, e.touches[0].clientY);
+      }, { passive: false });
+      heroVisual.addEventListener("touchmove", (e) => {
+        if (e.touches.length) updateFromPointer(e.touches[0].clientX, e.touches[0].clientY);
+      }, { passive: true });
+      heroVisual.addEventListener("touchend", onPointerLeave);
+      heroVisual.addEventListener("touchcancel", onPointerLeave);
+      
+      setMorphState(0.5);
+      setPhaseState(0.5);
+      if (typeof DeviceOrientationEvent !== "undefined" && !DeviceOrientationEvent.requestPermission) {
+        try {
+          window.addEventListener("deviceorientation", function once(ev) {
+            if (ev.beta != null) { useGyro = true; startGyro(); window.removeEventListener("deviceorientation", once); }
+          }, { once: true });
+        } catch (_) {}
+      }
+      
+      // Click: double-tap = flip (Option E), single = pulse
+      let lastClickTime = 0;
+      heroVisual.addEventListener("click", (e) => {
+        const now = Date.now();
+        const isDoubleTap = (now - lastClickTime) < 400;
+        lastClickTime = now;
+        if (isDoubleTap) {
+          heroVisual.classList.toggle("is-flipped");
+          return;
+        }
         if (letterA) {
           const originalScale = letterA.getAttribute("transform") || "";
           letterA.setAttribute("transform", `${originalScale} scale(1.15)`);
