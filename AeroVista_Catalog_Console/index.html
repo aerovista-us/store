@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AeroVista Catalog Console</title>
+  <meta name="description" content="Import, edit, and export Square-style product JSON catalogs locally." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%2300e5ff' d='M32 2l10 20 22 3-16 15 4 22-20-10-20 10 4-22L0 25l22-3z'/%3E%3C/svg%3E">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --av-cyan:#00E5FF;
+      --av-mag:#FF2D95;
+      --av-ink:#0B1020;
+      --av-card:#0f1730;
+      --av-line:rgba(255,255,255,.12);
+    }
+    html,body{height:100%;}
+    body{
+      background:
+        radial-gradient(1200px 600px at 20% 0%, rgba(0,229,255,.18), transparent 60%),
+        radial-gradient(900px 500px at 90% 10%, rgba(255,45,149,.14), transparent 55%),
+        radial-gradient(700px 450px at 55% 85%, rgba(0,229,255,.10), transparent 60%),
+        linear-gradient(180deg, #060816, #0B1020 40%, #060816);
+      color: #e8ecff;
+    }
+    .glass{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid var(--av-line);
+      box-shadow: 0 20px 50px rgba(0,0,0,.35);
+      backdrop-filter: blur(10px);
+    }
+    .btn{
+      border: 1px solid rgba(255,255,255,.15);
+      background: rgba(255,255,255,.06);
+    }
+    .btn:hover{ background: rgba(255,255,255,.10); }
+    .btn-primary{
+      border-color: rgba(0,229,255,.35);
+      background: rgba(0,229,255,.12);
+    }
+    .btn-primary:hover{ background: rgba(0,229,255,.18); }
+    .chip{
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+    }
+    .mono{ font-variant-ligatures:none; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .soft-scroll::-webkit-scrollbar{height:10px;width:10px;}
+    .soft-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15); border-radius: 10px;}
+    .soft-scroll::-webkit-scrollbar-track{background:rgba(255,255,255,.05);}
+    .hint{ color: rgba(232,236,255,.75); }
+    .danger{ color: #ff8aa8; }
+    .ok{ color: #8affc8; }
+    .warn{ color: #ffe08a; }
+    input,textarea,select{ color-scheme: dark; }
+    .field{
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .field:focus{ outline:none; border-color: rgba(0,229,255,.4); box-shadow: 0 0 0 3px rgba(0,229,255,.12); }
+    .split{
+      background: linear-gradient(90deg, rgba(0,229,255,.12), rgba(255,45,149,.10));
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .kbd{
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="max-w-[1400px] mx-auto px-4 py-6">
+    <header class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-2xl split flex items-center justify-center">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7.5C6.2 5.3 9.1 4 12.2 4c3.8 0 7.3 2 9.2 5.2" stroke="rgba(0,229,255,.95)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M20 16.5c-2.2 2.2-5.1 3.5-8.2 3.5-3.8 0-7.3-2-9.2-5.2" stroke="rgba(255,45,149,.9)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M8.2 12a3.8 3.8 0 1 0 7.6 0 3.8 3.8 0 0 0-7.6 0Z" stroke="rgba(232,236,255,.9)" stroke-width="2"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="text-xl md:text-2xl font-semibold leading-tight">AeroVista Catalog Console</h1>
+          <p class="hint text-sm">Import • review • edit • export — Square-style product JSON, locally.</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-2 items-center">
+        <button id="btnImport" class="btn btn-primary px-3 py-2 rounded-xl text-sm font-medium">Import JSON</button>
+        <button id="btnExport" class="btn px-3 py-2 rounded-xl text-sm font-medium">Export JSON</button>
+        <button id="btnExportEdits" class="btn px-3 py-2 rounded-xl text-sm font-medium">Export Edits CSV</button>
+        <button id="btnNewProduct" class="btn px-3 py-2 rounded-xl text-sm font-medium">+ New Product</button>
+        <button id="btnSaveLocal" class="btn px-3 py-2 rounded-xl text-sm font-medium">Save Local</button>
+        <button id="btnLoadLocal" class="btn px-3 py-2 rounded-xl text-sm font-medium">Load Local</button>
+        <button id="btnReset" class="btn px-3 py-2 rounded-xl text-sm font-medium danger">Reset</button>
+      </div>
+      <input id="fileInput" type="file" accept=".json,application/json" class="hidden" />
+    </header>
+
+    <section class="mt-5 grid grid-cols-1 lg:grid-cols-12 gap-4">
+      <div class="glass rounded-2xl p-4 lg:col-span-4">
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center justify-between">
+            <h2 class="font-semibold">Catalog</h2>
+            <span id="badgeDirty" class="chip text-xs px-2 py-1 rounded-xl hint hidden">Unsaved changes</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2">
+            <div class="col-span-2">
+              <label class="text-xs hint">Search</label>
+              <input id="q" class="field w-full rounded-xl px-3 py-2 text-sm" placeholder="title, description, tag, group, sku…" />
+            </div>
+            <div>
+              <label class="text-xs hint">Group</label>
+              <select id="filterGroup" class="field w-full rounded-xl px-3 py-2 text-sm"></select>
+            </div>
+            <div>
+              <label class="text-xs hint">Type</label>
+              <select id="filterType" class="field w-full rounded-xl px-3 py-2 text-sm"></select>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 items-center">
+            <span class="chip text-xs px-2 py-1 rounded-xl"><span class="hint">Items:</span> <span id="statItems" class="mono">0</span></span>
+            <span class="chip text-xs px-2 py-1 rounded-xl"><span class="hint">Variants:</span> <span id="statVariants" class="mono">0</span></span>
+            <span class="chip text-xs px-2 py-1 rounded-xl"><span class="hint">Dirty:</span> <span id="statDirty" class="mono">0</span></span>
+          </div>
+
+          <div id="list" class="mt-2 max-h-[65vh] overflow-auto soft-scroll pr-1"></div>
+        </div>
+      </div>
+
+      <div class="glass rounded-2xl p-4 lg:col-span-8">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <h2 class="font-semibold">Editor</h2>
+            <p class="hint text-sm">Select a product to edit. Use <span class="kbd">Ctrl</span> + <span class="kbd">S</span> to Save Local.</p>
+          </div>
+          <div class="flex gap-2">
+            <button id="btnDuplicate" class="btn px-3 py-2 rounded-xl text-sm font-medium" disabled>Duplicate</button>
+            <button id="btnDelete" class="btn px-3 py-2 rounded-xl text-sm font-medium danger" disabled>Delete</button>
+          </div>
+        </div>
+
+        <div id="emptyState" class="mt-6 rounded-2xl split p-6">
+          <div class="max-w-xl">
+            <h3 class="text-lg font-semibold">Drop a JSON catalog in here.</h3>
+            <p class="hint mt-1">Import your <span class="mono">square_products_latest.json</span>, edit titles, descriptions, sizes, colors, pricing, tags, and export a clean JSON again. Everything runs in your browser.</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <button id="btnImport2" class="btn btn-primary px-4 py-2 rounded-xl text-sm font-medium">Import JSON</button>
+              <button id="btnLoadSample" class="btn px-4 py-2 rounded-xl text-sm font-medium">Load Sample</button>
+            </div>
+          </div>
+        </div>
+
+        <form id="editor" class="mt-4 hidden">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div>
+              <label class="text-xs hint">Title</label>
+              <input id="p_title" class="field w-full rounded-xl px-3 py-2 text-sm" />
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="text-xs hint">Group</label>
+                <input id="p_group" class="field w-full rounded-xl px-3 py-2 text-sm" placeholder="AeroVista / EchoVerse / NXCore …" />
+              </div>
+              <div>
+                <label class="text-xs hint">Type</label>
+                <input id="p_type" class="field w-full rounded-xl px-3 py-2 text-sm" placeholder="hoodie / tee / hat / sticker …" />
+              </div>
+            </div>
+
+            <div class="md:col-span-2">
+              <label class="text-xs hint">Description</label>
+              <textarea id="p_desc" rows="4" class="field w-full rounded-xl px-3 py-2 text-sm"></textarea>
+            </div>
+
+            <div>
+              <label class="text-xs hint">Tags (comma-separated)</label>
+              <input id="p_tags" class="field w-full rounded-xl px-3 py-2 text-sm" placeholder="glitch, minimal, premium, …" />
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="text-xs hint">Handle / Key</label>
+                <input id="p_key" class="field w-full rounded-xl px-3 py-2 text-sm mono" placeholder="autogen if blank" />
+              </div>
+              <div>
+                <label class="text-xs hint">Status</label>
+                <select id="p_status" class="field w-full rounded-xl px-3 py-2 text-sm">
+                  <option value="active">active</option>
+                  <option value="hidden">hidden</option>
+                  <option value="archived">archived</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="md:col-span-2">
+              <div class="flex items-center justify-between">
+                <label class="text-xs hint">Variants</label>
+                <div class="flex gap-2">
+                  <button type="button" id="btnAddVar" class="btn px-3 py-2 rounded-xl text-sm font-medium">+ Add Variant</button>
+                  <button type="button" id="btnAutoVar" class="btn px-3 py-2 rounded-xl text-sm font-medium">Auto: split sizes/colors</button>
+                </div>
+              </div>
+              <div class="mt-2 overflow-auto soft-scroll">
+                <table class="w-full text-sm">
+                  <thead class="hint">
+                    <tr>
+                      <th class="text-left py-2 pr-2">SKU</th>
+                      <th class="text-left py-2 pr-2">Color</th>
+                      <th class="text-left py-2 pr-2">Size</th>
+                      <th class="text-left py-2 pr-2">Price</th>
+                      <th class="text-left py-2 pr-2">Inventory</th>
+                      <th class="py-2"></th>
+                    </tr>
+                  </thead>
+                  <tbody id="vars"></tbody>
+                </table>
+              </div>
+              <p class="hint text-xs mt-2">Tip: If your old data has variants like <span class="mono">"Black, L"</span> we can auto-split into color + size.</p>
+            </div>
+
+            <div class="md:col-span-2">
+              <div class="flex items-center justify-between">
+                <label class="text-xs hint">Raw JSON (selected product)</label>
+                <button type="button" id="btnCopyRaw" class="btn px-3 py-2 rounded-xl text-sm font-medium">Copy</button>
+              </div>
+              <textarea id="p_raw" rows="8" class="field w-full rounded-xl px-3 py-2 text-xs mono"></textarea>
+              <p class="hint text-xs mt-2">If you paste JSON edits here and hit <span class="kbd">Apply Raw</span>, the form will update.</p>
+              <div class="mt-2 flex gap-2">
+                <button type="button" id="btnApplyRaw" class="btn btn-primary px-3 py-2 rounded-xl text-sm font-medium">Apply Raw</button>
+                <button type="button" id="btnRebuildRaw" class="btn px-3 py-2 rounded-xl text-sm font-medium">Rebuild Raw</button>
+              </div>
+            </div>
+
+          </div>
+        </form>
+
+        <div id="toast" class="fixed bottom-4 right-4 hidden">
+          <div class="glass rounded-2xl px-4 py-3 text-sm"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="mt-6 hint text-xs">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+        <span>Local-first • no network calls • safe to run offline.</span>
+        <span class="mono">v1.0 • Catalog Console</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

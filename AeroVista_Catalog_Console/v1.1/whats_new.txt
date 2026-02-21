@@ -1,0 +1,73 @@
+What’s new in v1.1 (your “next upgrade”)
+Bulk Actions (applies to Filtered, Selected, or All)
+
+Mass tag add/remove
+
+Set Group + Type in bulk
+
+Pricing rules
+
+set all variant prices to a value
+
+add delta (+/-)
+
+type-based pricing JSON (e.g. {"tee":29.99,"hoodie":54.99})
+
+Round to .99
+
+Normalize
+
+sizes → standard aliases + order (XS…5XL)
+
+colors → title-case + common alias fixes (Grey→Gray, etc.)
+
+sort variants Color → Size
+
+Dedupe / Merge
+
+Preview merge groups
+
+Merge duplicates (normalized title + group + type), union variants and tags, keep best description
+
+Validation Panel
+
+One click Run Validation with:
+
+Missing description
+
+Missing/invalid price
+
+Duplicate SKUs
+
+Invalid sizes (outside XS…5XL)
+
+No variants
+
+Click any issue row → jumps straight to that product.
+Also includes Export Issues CSV.
+
+How you’ll use it (fast workflow)
+
+Import square_products_latest.json
+
+Filter left list (Group/Type/Search)
+
+Go Bulk tab → set scope = filtered
+
+Normalize sizes/colors + sort variants
+
+Apply pricing rules
+
+Go Validate tab → run validation → fix remaining edge cases
+
+Export JSON
+
+If you want Upgrade ❷ next, I can add:
+
+Rule presets (pricing ladders + tag packs you can save/load)
+
+Conflict resolver for duplicate SKUs (auto-append suffix)
+
+“Merge by handle/title only” option + stronger merge heuristics
+
+Inline issue badges in the left list (so problems show without opening Validate)

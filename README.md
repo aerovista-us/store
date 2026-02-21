@@ -23,5 +23,7 @@ Example:
 ## Backend
 See `backend/README.md` for backend setup and env variables.
 
+**Docs:** [HOSTING_AND_DNS](docs/HOSTING_AND_DNS.md) (DNS, Cloudflare, NXCore). **API/routing status & verify commands:** [NXCORE_STORE_API_ROUTING_STATUS](docs/NXCORE_STORE_API_ROUTING_STATUS.md).
+
 For GitHub Pages frontend origin, backend CORS should allow:
 - `ALLOWED_ORIGINS=https://aerovista-us.github.io`

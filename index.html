@@ -3003,12 +3003,46 @@
     }
 
 
-    $("#checkout").onclick = () => {
-      // Open in-app checkout (Square Orders + Payments). Requires variant mappings.
+    $("#checkout").onclick = async () => {
+      // Option A: create hosted checkout URL and redirect.
       const cart = loadCart();
       if(!cart.length){ toast("Cart is empty"); return; }
 
-      openPayOverlay(cart);
+      const cartPayload = cart.map(it => ({ sku: it.key, qty: it.qty }));
+      let boot;
+      try {
+        boot = await squareBootstrap();
+      } catch(err) {
+        toast("Checkout not ready. " + (err.message || String(err)));
+        return;
+      }
+      const currency = (boot && boot.currency) ? boot.currency : "USD";
+      const body = { cart: cartPayload, currency };
+
+      const btn = $("#checkout");
+      const origText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = "Redirecting...";
+      try {
+        const res = await fetch(apiUrl("/api/square/checkout"), {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body)
+        });
+        const out = await res.json().catch(() => ({}));
+        if(res.ok && out.ok && out.checkoutUrl) {
+          window.location = out.checkoutUrl;
+          return;
+        }
+        const errMsg = out.error || out.message || "Checkout failed";
+        toast(errMsg);
+      } catch(err) {
+        toast("Network error. Please try again.");
+        console.error(err);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = origText;
+      }
     };
 
     // Filters
