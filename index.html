@@ -2703,8 +2703,13 @@
       const cart = loadCart();
       const key = `${productId}__${size}__${color}`;
       const existing = cart.find(it => it.key === key);
-      if(existing) existing.qty = Math.min(99, (existing.qty||0) + qty);
-      else cart.push({ key, productId, name:p.name, price:p.price, size, color, qty });
+      const cartSku = `${color}__${size}`;
+      if(existing) {
+        existing.qty = Math.min(99, (existing.qty||0) + qty);
+        existing.cartSku = existing.cartSku || cartSku;
+      } else {
+        cart.push({ key, cartSku, productId, name:p.name, price:p.price, size, color, qty });
+      }
       saveCart(cart);
       toast("Added to cart");
     }
@@ -2784,16 +2789,25 @@
     }
 
     function openDrawer(){
-      $("#drawer").classList.add("show");
-      $("#drawer").setAttribute("aria-hidden","false");
+      const drawer = $("#drawer");
+      drawer.classList.add("show");
+      drawer.setAttribute("aria-hidden","false");
+      drawer.inert = false;
     }
     function closeDrawer(){
-      $("#drawer").classList.remove("show");
-      $("#drawer").setAttribute("aria-hidden","true");
+      const drawer = $("#drawer");
+      if(drawer.contains(document.activeElement)){
+        const opener = $("#cartOpen");
+        if(opener && typeof opener.focus === "function") opener.focus();
+      }
+      drawer.classList.remove("show");
+      drawer.setAttribute("aria-hidden","true");
+      drawer.inert = true;
     }
 
     $("#cartOpen").onclick = () => openDrawer();
     $("#cartClose").onclick = closeDrawer;
+    $("#drawer").inert = true;
 
     // Promo
     function loadPromo(){
@@ -3186,7 +3200,14 @@
       if(!cart.length){ toast("Cart is empty"); return; }
 
       const cartPayload = cart.map(it => ({
-        sku: String(it.sku || it.key || it.id || ""),
+        sku: String(
+          it.sku ||
+          it.cartSku ||
+          ((it.color && it.size) ? `${it.color}__${it.size}` : "") ||
+          it.key ||
+          it.id ||
+          ""
+        ),
         qty: Number(it.qty || it.quantity || 1)
       })).filter(x => x.sku && Number.isFinite(x.qty) && x.qty > 0);
       if(!cartPayload.length){
