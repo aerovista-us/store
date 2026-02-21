@@ -76,7 +76,38 @@ Checkout stub was replaced with **Square Payment Links API** (Option A):
 
 ---
 
+## Overlay catalog (Level A) implemented
+
+Static overlay support is now enabled to control storefront presentation without changing payment routing.
+
+- **Overlay file:** `storefront_overlay.json` at repo root.
+- **Load behavior:** frontend fetches overlay at startup (`cache: no-store`). If missing or invalid, storefront fails open to base catalog.
+- **Dual-key resolution (locked):**
+  1. Match `itemsByVariationId[variationId]` first
+  2. Fallback to `itemsByCartKey[cartKey]`
+  3. Otherwise no overlay
+- **Mergeable fields:** `title`, `subtitle`, `description`, `tags`, `order`, `visible`.
+- **Collections:** overlay `collections[]` adds dynamic collection tabs using `rule` values (for example `tag:featured`).
+- **Ads:** overlay `ads[]` renders product-like ad tiles with CTA links in the catalog grid.
+
+### Overlay schema (current)
+
+- `meta`
+- `itemsByVariationId` (primary key space)
+- `itemsByCartKey` (fallback key space)
+- `collections[]` with `{ id, title, rule, order }`
+- `ads[]` with `{ id, title, body, cta{label,href}, order, visible }`
+
+### Safety/compatibility notes
+
+- Option A checkout flow remains unchanged (`POST /api/square/checkout` -> `checkoutUrl` redirect).
+- `SQUARE_SKU_MAP_JSON` stays cart-key driven for now (recommended during migration).
+- Hidden overlay items (`visible: false`) are excluded from rendered products.
+
+---
+
 ## Changelog
 
 - 2026-02-20: Initial review; bootstrap updated with `flatShippingCents` and `CHECKOUT_CURRENCY` fallback; report added.
 - 2026-02-20: Option A implemented: Payment Links checkout; frontend redirects to `checkoutUrl`; `SQUARE_SKU_MAP_JSON` added to `.env.example` and docs.
+- 2026-02-21: Level A overlay implemented: static `storefront_overlay.json`, dual-key resolver (`variationId` then cart key), overlay collections, and ad tiles.

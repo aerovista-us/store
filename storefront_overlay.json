@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "updatedAt": "2026-02-21T00:00:00Z",
+    "schemaVersion": 1,
+    "notes": "Dual-key overlay: variationId first, cartKey fallback."
+  },
+  "itemsByVariationId": {},
+  "itemsByCartKey": {
+    "Black__M": {
+      "title": "Founders Hoodie (Black, M)",
+      "subtitle": "Dirty Bass / Clean Signal",
+      "description": "Starter overlay entry keyed by cart key.",
+      "tags": [
+        "division:nexus",
+        "featured",
+        "hoodie"
+      ],
+      "order": 10,
+      "visible": true
+    },
+    "TEST": {
+      "title": "Test Item",
+      "description": "Seed SKU used to validate checkout wiring.",
+      "tags": [
+        "featured",
+        "test"
+      ],
+      "order": 999,
+      "visible": false
+    }
+  },
+  "collections": [
+    {
+      "id": "featured",
+      "title": "Featured",
+      "rule": "tag:featured",
+      "order": 0
+    },
+    {
+      "id": "division-nexus",
+      "title": "Nexus TechWorks",
+      "rule": "tag:division:nexus",
+      "order": 10
+    }
+  ],
+  "ads": [
+    {
+      "id": "ad-01",
+      "title": "Synthetic Souls Drop",
+      "body": "New merch live tonight.",
+      "cta": {
+        "label": "See Drop",
+        "href": "#collection=featured"
+      },
+      "order": 5,
+      "visible": true
+    }
+  ]
+}

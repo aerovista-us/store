@@ -1799,6 +1799,7 @@
             const productColor = color || "Default";
             const squareVariationMap = {};
             const skuBySize = {};
+            const variationIds = [];
             for (const v of variants) {
               const vColor = (v.color || "").trim() || productColor;
               const sz = (v.size||"").trim() || "One Size";
@@ -1808,6 +1809,7 @@
               if (idForCheckout) {
                 skuBySize[sz] = sku;
                 squareVariationMap[`${vColor}__${sz}`] = idForCheckout;
+                if (variationId) variationIds.push(variationId);
               }
             }
             if (variants.length > 0 && sizes.length === 0) {
@@ -1822,6 +1824,7 @@
               sizes: sizes.length ? sizes : ["One Size"],
               colors: color ? [color] : [],
               squareVariationMap,
+              _variationIds: variationIds,
               _skuBySize: skuBySize,
               cat: guessCategory(baseName + (color ? " (" + color + ")" : ""), p.category || ""),
               price: (typeof p.price === "number" && isFinite(p.price)) ? p.price : 0,
@@ -1848,8 +1851,10 @@
             const allColors = [...new Set(group.flatMap(r => r.colors).filter(Boolean))];
             const allSizes = [...new Set(group.flatMap(r => r.sizes).filter(Boolean))];
             const mergedMap = {};
+            const mergedVariationIds = [];
             for (const r of group) {
               for (const [key, sku] of Object.entries(r.squareVariationMap || {})) mergedMap[key] = sku;
+              mergedVariationIds.push(...(r._variationIds || []));
             }
 
             const colors = allColors.length ? allColors : ["Default"];
@@ -1877,6 +1882,9 @@
               imagePath,
               imageCss: imageCssFor(first.p),
               squareVariationMap: mergedMap,
+              _overlayCartKeys: Object.keys(mergedMap),
+              _overlayVariationIds: [...new Set(mergedVariationIds)],
+              tags: [],
               _skuBySize: group[0]._skuBySize,
               _square: first.p
             };
@@ -2140,6 +2148,8 @@
       promo: "",
       discountRate: 0
     };
+    let OVERLAY_DATA = null;
+    let OVERLAY_COLLECTIONS = [];
 
     const LS_KEY = "av_store_cart_v3";
     const LS_PROMO = "av_store_promo_v3";
@@ -2157,18 +2167,137 @@
       toast._t = setTimeout(()=>t.classList.remove("show"), 1600);
     }
 
+    function toFiniteNumber(v){
+      const n = Number(v);
+      return Number.isFinite(n) ? n : null;
+    }
+
+    function normalizeOverlay(raw){
+      const data = raw && typeof raw === "object" ? raw : {};
+      const itemsByVariationId = data.itemsByVariationId && typeof data.itemsByVariationId === "object" ? data.itemsByVariationId : {};
+      const itemsByCartKey = data.itemsByCartKey && typeof data.itemsByCartKey === "object" ? data.itemsByCartKey : {};
+      const collections = Array.isArray(data.collections) ? data.collections : [];
+      const ads = Array.isArray(data.ads) ? data.ads : [];
+      return { meta: data.meta || {}, itemsByVariationId, itemsByCartKey, collections, ads };
+    }
+
+    async function loadOverlay(){
+      try{
+        const r = await fetch("storefront_overlay.json", { cache: "no-store" });
+        if(!r.ok) throw new Error(`overlay ${r.status} ${r.statusText}`);
+        OVERLAY_DATA = normalizeOverlay(await r.json());
+      }catch(err){
+        OVERLAY_DATA = normalizeOverlay({});
+        console.warn("Overlay unavailable; continuing with base catalog.", err?.message || err);
+      }
+      OVERLAY_COLLECTIONS = (OVERLAY_DATA.collections || [])
+        .filter(c => c && c.rule && c.title)
+        .map(c => ({ id: c.id || c.rule, title: c.title, rule: c.rule, order: toFiniteNumber(c.order) ?? 9999 }))
+        .sort((a,b) => a.order - b.order);
+      return OVERLAY_DATA;
+    }
+
+    function resolveOverlay(variationId, cartKey, overlay){
+      if(!overlay || typeof overlay !== "object") return null;
+      const byVar = overlay.itemsByVariationId || {};
+      const byKey = overlay.itemsByCartKey || {};
+      if(variationId && byVar[variationId]) return byVar[variationId];
+      if(cartKey && byKey[cartKey]) return byKey[cartKey];
+      return null;
+    }
+
+    function resolveOverlayForProduct(p, overlay){
+      const variationIds = Array.isArray(p._overlayVariationIds) ? p._overlayVariationIds : [];
+      const cartKeys = Array.isArray(p._overlayCartKeys) ? p._overlayCartKeys : Object.keys(p.squareVariationMap || {});
+      for(const variationId of variationIds){
+        const hit = resolveOverlay(variationId, null, overlay);
+        if(hit) return hit;
+      }
+      for(const cartKey of cartKeys){
+        const hit = resolveOverlay(null, cartKey, overlay);
+        if(hit) return hit;
+      }
+      return null;
+    }
+
+    function normalizeTags(tags){
+      if(!Array.isArray(tags)) return [];
+      return [...new Set(tags.map(t => String(t || "").trim()).filter(Boolean))];
+    }
+
+    function applyOverlayToProducts(baseProducts){
+      const overlay = OVERLAY_DATA || normalizeOverlay({});
+      const out = [];
+      for(const p of (baseProducts || [])){
+        const merged = { ...p };
+        const hit = resolveOverlayForProduct(p, overlay);
+        const tags = normalizeTags(hit?.tags || p.tags || []);
+        merged.tags = tags;
+        merged._overlayOrder = toFiniteNumber(hit?.order);
+        merged._overlayHidden = hit?.visible === false;
+
+        if(hit){
+          if(typeof hit.title === "string" && hit.title.trim()) merged.name = hit.title.trim();
+          if(typeof hit.subtitle === "string" && hit.subtitle.trim()) merged.subtitle = hit.subtitle.trim();
+          if(typeof hit.description === "string" && hit.description.trim()) merged.blurb = hit.description.trim();
+        }
+        if(tags.includes("featured")) merged.featured = true;
+        if(merged._overlayHidden) continue;
+        out.push(merged);
+      }
+
+      const adTiles = (overlay.ads || [])
+        .filter(a => a && a.visible !== false && a.title && a.cta && a.cta.href)
+        .map((a, idx) => ({
+          id: `ad-${a.id || idx}`,
+          isAd: true,
+          name: String(a.title),
+          blurb: String(a.body || ""),
+          subtitle: String(a.subtitle || ""),
+          collection: "Ad",
+          category: "ad",
+          featured: true,
+          isNew: false,
+          flags: ["ad"],
+          colors: [],
+          sizes: [],
+          price: 0,
+          tags: normalizeTags(a.tags || []),
+          _overlayOrder: toFiniteNumber(a.order),
+          adHref: String(a.cta.href || ""),
+          adCtaLabel: String(a.cta.label || "Learn more")
+        }));
+      return out.concat(adTiles);
+    }
+
+    function collectionRuleMatch(p, rule){
+      if(!rule) return true;
+      if(rule.startsWith("tag:")){
+        const tag = rule.slice(4);
+        return Array.isArray(p.tags) && p.tags.includes(tag);
+      }
+      return p.collection === rule;
+    }
+
     function sortProducts(list){
       const s = state.sort;
       const copy = list.slice();
-      if(s === "featured"){
-        copy.sort((a,b)=> (b.featured===true) - (a.featured===true) || (b.isNew===true) - (a.isNew===true) );
-      } else if(s === "price_asc"){
-        copy.sort((a,b)=> a.price - b.price);
-      } else if(s === "price_desc"){
-        copy.sort((a,b)=> b.price - a.price);
-      } else if(s === "newest"){
-        copy.sort((a,b)=> (b.isNew===true) - (a.isNew===true));
-      }
+      copy.sort((a,b) => {
+        const ao = Number.isFinite(a._overlayOrder) ? a._overlayOrder : null;
+        const bo = Number.isFinite(b._overlayOrder) ? b._overlayOrder : null;
+        if(ao !== null || bo !== null){
+          if(ao === null) return 1;
+          if(bo === null) return -1;
+          if(ao !== bo) return ao - bo;
+        }
+        if(s === "featured"){
+          return (b.featured===true) - (a.featured===true) || (b.isNew===true) - (a.isNew===true);
+        }
+        if(s === "price_asc") return (a.price || 0) - (b.price || 0);
+        if(s === "price_desc") return (b.price || 0) - (a.price || 0);
+        if(s === "newest") return (b.isNew===true) - (a.isNew===true);
+        return 0;
+      });
       return copy;
     }
 
@@ -2176,17 +2305,17 @@
       let list = PRODUCTS;
 
       if(state.collection !== "all"){
-        list = list.filter(p => p.collection === state.collection);
+        list = list.filter(p => collectionRuleMatch(p, state.collection));
       }
 
       if(state.cat !== "all"){
-        list = list.filter(p => p.category === state.cat);
+        list = list.filter(p => !p.isAd && p.category === state.cat);
       }
 
       const q = state.search.trim().toLowerCase();
       if(q){
         list = list.filter(p => {
-          const hay = `${p.name} ${p.blurb} ${p.fitNote} ${p.collection} ${p.category} ${(p.colors||[]).join(" ")} ${(p.sizes||[]).join(" ")}`.toLowerCase();
+          const hay = `${p.name} ${p.subtitle || ""} ${p.blurb} ${p.fitNote} ${p.collection} ${p.category} ${(p.tags||[]).join(" ")} ${(p.colors||[]).join(" ")} ${(p.sizes||[]).join(" ")}`.toLowerCase();
           return hay.includes(q);
         });
       }
@@ -2333,6 +2462,26 @@
       if(statusEl) statusEl.textContent = `${list.length} product${list.length === 1 ? '' : 's'} found`;
 
       grid.innerHTML = list.map(p => {
+        if(p.isAd){
+          return `
+        <article class="card">
+          <div class="img" role="img" aria-label="${escapeHtml(p.name)} ad">
+            ${productSvg({ ...p, collection: "Square", category: "apparel" })}
+            <div class="label"><span class="dot"></span>Sponsored · Spotlight</div>
+            <div class="flags"><span class="flag drop">ad</span></div>
+          </div>
+          <div class="body">
+            <h3 class="title">${escapeHtml(p.name)}</h3>
+            <p class="desc">${escapeHtml(p.blurb || "")}</p>
+            <div class="row">
+              <div class="price">Featured</div>
+              <button class="btn primary" data-ad-href="${escapeHtml(p.adHref)}">${escapeHtml(p.adCtaLabel || "Learn more")}</button>
+            </div>
+          </div>
+        </article>
+      `;
+        }
+
         // Use actual image if available, otherwise fall back to SVG
         let imgContent;
         if (p.imagePath) {
@@ -2365,6 +2514,19 @@
 
       $$("[data-quick]").forEach(btn=>{
         btn.onclick = () => openModal(btn.getAttribute("data-quick"));
+      });
+      $$("[data-ad-href]").forEach(btn => {
+        btn.onclick = () => {
+          const href = btn.getAttribute("data-ad-href") || "";
+          if(href.startsWith("#collection=")){
+            const rule = decodeURIComponent(href.replace("#collection=", ""));
+            state.collection = rule;
+            setActiveCollection(state.collection);
+            renderGrid();
+            return;
+          }
+          if(href) window.open(href, "_blank");
+        };
       });
     }
 
@@ -2532,7 +2694,7 @@
     // ===== Cart =====
     function addToCart(productId, size, color, qty){
       const p = PRODUCTS.find(x=>x.id===productId);
-      if(!p) return;
+      if(!p || p._overlayHidden) return;
       const cart = loadCart();
       const key = `${productId}__${size}__${color}`;
       const existing = cart.find(it => it.key === key);
@@ -2711,6 +2873,15 @@
       return apiBaseWithPath(__resolvedApiBase || CHECKOUT_API_BASE, path);
     }
 
+    function normalizeBootstrap(boot){
+      const appId = boot.applicationId || boot.appId;
+      const locationId = boot.locationId;
+      const currency = boot.currency || boot.checkoutCurrency || "USD";
+      if(!appId) throw new Error("Square bootstrap missing appId/applicationId");
+      if(!locationId) throw new Error("Square bootstrap missing locationId");
+      return { ...boot, appId, locationId, currency };
+    }
+
     async function squareBootstrap(){
       if(__sqBoot) return __sqBoot;
       const errors = [];
@@ -2723,7 +2894,8 @@
             continue;
           }
           __resolvedApiBase = base;
-          __sqBoot = await res.json();
+          const raw = await res.json();
+          __sqBoot = normalizeBootstrap(raw);
           return __sqBoot;
         } catch(err) {
           const msg = (err && err.message) ? err.message : String(err);
@@ -2757,7 +2929,7 @@
           throw new Error("Square Web Payments SDK not loaded. Please refresh the page.");
         }
         if(__sqCard) return __sqCard;
-        const payments = window.Square.payments(boot.applicationId, boot.locationId);
+        const payments = window.Square.payments(boot.appId, boot.locationId);
         __sqCard = await payments.card();
         await __sqCard.attach("#card-container");
         return __sqCard;
@@ -2837,7 +3009,7 @@
       const grand = (totals.total || 0) + (shipCents/100);
       $("#payTotal").textContent = fmt(grand);
 
-      $("#payMeta").textContent = `${cart.length} item(s) • ${boot.env || ""} • ${boot.currency || "USD"}`;
+      $("#payMeta").textContent = `${cart.length} item(s) • ${boot.env || ""} • ${boot.currency}`;
 
       // Ensure every item has a mapped Square variation id
       const lines = cartToSquareLines(cart);
@@ -2952,7 +3124,7 @@
               shipping_note: ""
             },
             cart: lines.map(x=>({ variation_id: x.variation_id, qty: x.qty, sku: x.key })),
-            currency: boot.currency || "USD",
+            currency: boot.currency,
             payment_token: tokenResult.token
           };
 
@@ -3016,7 +3188,7 @@
         toast("Checkout not ready. " + (err.message || String(err)));
         return;
       }
-      const currency = (boot && boot.currency) ? boot.currency : "USD";
+      const currency = boot ? boot.currency : "USD";
       const body = { cart: cartPayload, currency };
 
       const btn = $("#checkout");
@@ -3064,17 +3236,39 @@
     function setActiveCollection(name){
       $$(".col").forEach(c=> c.classList.toggle("active", c.getAttribute("data-collection") === name));
     }
-    $$(".col").forEach(c=>{
-      c.setAttribute("role", "button");
-      c.setAttribute("tabindex", "0");
-      c.onclick = () => { state.collection = c.getAttribute("data-collection"); setActiveCollection(state.collection); renderGrid(); };
-      c.onkeydown = (e) => {
-        if(e.key === "Enter" || e.key === " "){
-          e.preventDefault();
-          c.click();
-        }
-      };
-    });
+    function bindCollectionControls(){
+      $$(".col").forEach(c=>{
+        c.setAttribute("role", "button");
+        c.setAttribute("tabindex", "0");
+        c.onclick = () => {
+          state.collection = c.getAttribute("data-collection");
+          setActiveCollection(state.collection);
+          renderGrid();
+        };
+        c.onkeydown = (e) => {
+          if(e.key === "Enter" || e.key === " "){
+            e.preventDefault();
+            c.click();
+          }
+        };
+      });
+    }
+
+    function injectOverlayCollections(){
+      const wrap = $(".collections");
+      if(!wrap) return;
+      $$(".col.overlay-col", wrap).forEach(el => el.remove());
+      for(const c of OVERLAY_COLLECTIONS){
+        const el = document.createElement("div");
+        el.className = "col overlay-col";
+        el.setAttribute("data-collection", c.rule);
+        el.innerHTML = `<b>${escapeHtml(c.title)}</b> <span style="opacity:.85">Overlay</span>`;
+        wrap.appendChild(el);
+      }
+      bindCollectionControls();
+      setActiveCollection(state.collection);
+    }
+    bindCollectionControls();
 
     $("#search").addEventListener("input", (e)=>{ state.search = e.target.value || ""; renderGrid(); });
     
@@ -3237,12 +3431,15 @@
     // Init
     async function init(){
       loadPromo();
+      await loadOverlay();
+      injectOverlayCollections();
       try {
         await loadProducts();
         if (PRODUCTS.length === 0) {
           console.warn("No products loaded from JSON, using fallback");
           PRODUCTS = FALLBACK_PRODUCTS;
         }
+        PRODUCTS = applyOverlayToProducts(PRODUCTS);
         renderGrid();
         updateCartUI();
       } catch(err) {
@@ -3250,6 +3447,7 @@
         // Use fallback products if available
         if (FALLBACK_PRODUCTS && FALLBACK_PRODUCTS.length > 0) {
           PRODUCTS = FALLBACK_PRODUCTS;
+          PRODUCTS = applyOverlayToProducts(PRODUCTS);
           renderGrid();
           updateCartUI();
           toast("Using cached products. Some items may be outdated.");
@@ -3276,6 +3474,7 @@
         console.error("Full error:", errorMsg);
         toast(`Products failed to load: ${errorMsg.substring(0, 50)}... Using fallback data.`);
         PRODUCTS = FALLBACK_PRODUCTS;
+        PRODUCTS = applyOverlayToProducts(PRODUCTS);
       }
       console.log("Initializing with", PRODUCTS.length, "products. Build:", STORE_BUILD_ID);
       renderGrid();
