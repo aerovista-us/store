@@ -149,6 +149,30 @@ curl -sS -k -i https://127.0.0.1:443/api/health -H "Host: api.aerovista.us"
 ```
 **Expected:** `200 OK`. Public clients use `https://api.aerovista.us` and don’t need `-k`.
 
+### G) Checkout 400 sanity checks (NXCore)
+If `/api/square/checkout` returns `400`:
+
+```bash
+# 1) Confirm backend map has entries
+docker exec av-store-api sh -lc 'python - <<PY
+import os, json
+raw = os.environ.get("SQUARE_SKU_MAP_JSON","").strip()
+if raw:
+    m = json.loads(raw)
+else:
+    path = os.environ.get("SQUARE_SKU_MAP_FILE","/app/sku_map.generated.json")
+    m = json.load(open(path))
+print("entries:", len(m))
+print("sample keys:", list(m)[:15])
+PY'
+
+# 2) Probe checkout with known key
+curl -sS -i -X POST https://api.aerovista.us/api/square/checkout \
+  -H "Content-Type: application/json" \
+  -d '{"cart":[{"sku":"Default__2XL","qty":1}]}'
+```
+Expected: `200 OK` with `checkoutUrl`. If unknown SKU, align frontend payload key with map key.
+
 ---
 
 ## 5) Cloudflare tunnel target (what it SHOULD be)

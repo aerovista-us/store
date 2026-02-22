@@ -3343,15 +3343,19 @@
       const cart = loadCart();
       if(!cart.length){ toast("Cart is empty"); return; }
 
-      const cartPayload = cart.map(it => ({
+      const lines = cartToSquareLines(cart);
+      const cartPayload = lines.map(it => ({
+        // Checkout identity (current): cartKey
         sku: String(
-          it.sku ||
           it.cartSku ||
           ((it.color && it.size) ? `${it.color}__${it.size}` : "") ||
+          it.sku ||
           it.key ||
           it.id ||
           ""
         ),
+        // Merchandising/canonical identity (bridge for strict mode later)
+        variationId: String(it.variation_id || ""),
         qty: Number(it.qty || it.quantity || 1)
       })).filter(x => x.sku && Number.isFinite(x.qty) && x.qty > 0);
       if(!cartPayload.length){

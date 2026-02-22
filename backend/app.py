@@ -92,20 +92,37 @@ def money(amount_cents: int, currency: str) -> dict:
 
 
 def load_sku_map() -> dict:
-    raw = os.getenv("SQUARE_SKU_MAP_JSON") or "{}"
+    raw = os.getenv("SQUARE_SKU_MAP_JSON", "").strip()
+    if raw:
+        try:
+            m = json.loads(raw)
+            if isinstance(m, dict):
+                return m
+        except Exception:
+            pass
+
+    map_file = os.getenv("SQUARE_SKU_MAP_FILE", "").strip() or os.path.join(os.path.dirname(__file__), "sku_map.generated.json")
     try:
-        m = json.loads(raw)
-        return m if isinstance(m, dict) else {}
+        with open(map_file, "r", encoding="utf-8") as f:
+            m = json.load(f)
+            return m if isinstance(m, dict) else {}
     except Exception:
         return {}
 
 
 def build_line_items_from_cart(cart: list, currency: str) -> list:
     sku_map = load_sku_map()
+    variation_index = {}
+    for _, meta in sku_map.items():
+        if isinstance(meta, dict):
+            vid = str(meta.get("variationId", "")).strip()
+            if vid:
+                variation_index[vid] = meta
     line_items = []
 
     for idx, item in enumerate(cart):
         sku = str(item.get("sku", "")).strip()
+        variation_id = str(item.get("variationId") or item.get("variation_id") or "").strip()
         qty = item.get("qty", 0)
 
         if not sku:
@@ -118,7 +135,11 @@ def build_line_items_from_cart(cart: list, currency: str) -> list:
             raise ValueError(f"cart[{idx}].qty must be > 0")
 
         meta = sku_map.get(sku)
+        if not meta and variation_id:
+            meta = variation_index.get(variation_id)
         if not meta:
+            if variation_id:
+                raise ValueError(f"Unknown SKU: {sku} / variationId: {variation_id} (add to SQUARE_SKU_MAP_JSON)")
             raise ValueError(f"Unknown SKU: {sku} (add to SQUARE_SKU_MAP_JSON)")
 
         name = str(meta.get("name") or sku)

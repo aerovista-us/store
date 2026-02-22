@@ -113,9 +113,69 @@ From worksheet rows, you can generate:
 - If you add a third key later (canonical AV SKU), lookup order should be:
   - `variationId` -> `canonicalSku` -> `cartKey`.
 
+Identity split (current):
+- **Merchandising identity:** `variationId`
+- **Checkout identity:** `cartKey` (`cart[].sku`)
+
 ---
 
-## 6) First real `SQUARE_SKU_MAP_JSON` block (Default sizes)
+## 6) Auto-generate SKU map from Square export
+
+Generator script:
+- `tools/generate_sku_map.py`
+
+Inputs/outputs:
+- input: `square_products_latest.json`
+- output JSON: `backend/sku_map.generated.json`
+- output env line: `backend/sku_map.generated.env`
+
+Run (Python-enabled environment):
+
+```bash
+python tools/generate_sku_map.py --input square_products_latest.json --output backend/sku_map.generated.json --env-output backend/sku_map.generated.env
+```
+
+Backend map resolution order:
+1. `SQUARE_SKU_MAP_JSON` env
+2. `SQUARE_SKU_MAP_FILE` (default `backend/sku_map.generated.json`)
+
+---
+
+## 7) Incident sanity checks (Unknown SKU 400)
+
+### A) What did the UI send?
+- Check browser console for:
+  - `CHECKOUT payload: { cart: [{ sku, variationId, qty }], ... }`
+
+### B) Does backend contain that key?
+
+On NXCore:
+
+```bash
+docker exec av-store-api sh -lc 'python - <<PY
+import os, json
+raw = os.environ.get("SQUARE_SKU_MAP_JSON","").strip()
+if raw:
+    m = json.loads(raw)
+else:
+    path = os.environ.get("SQUARE_SKU_MAP_FILE","/app/sku_map.generated.json")
+    m = json.load(open(path))
+print("entries:", len(m))
+print("sample keys:", list(m)[:15])
+PY'
+```
+
+### C) Direct checkout probe
+
+```bash
+curl -sS -i -X POST https://api.aerovista.us/api/square/checkout \
+  -H "Content-Type: application/json" \
+  -d '{"cart":[{"sku":"Default__2XL","qty":1}]}'
+```
+
+---
+
+## 8) First real `SQUARE_SKU_MAP_JSON` block (Default sizes)
 
 Generated from `docs/variant_pricing_worksheet.csv` starter rows:
 

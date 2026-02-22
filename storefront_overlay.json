@@ -2,9 +2,25 @@
   "meta": {
     "updatedAt": "2026-02-21T00:00:00Z",
     "schemaVersion": 1,
-    "notes": "Dual-key overlay: variationId first, cartKey fallback."
+    "notes": "Dual-key overlay: variationId first, cartKey fallback.",
+    "identityModel": {
+      "merchandisingIdentity": "variationId",
+      "checkoutIdentityCurrent": "cartKey"
+    }
   },
-  "itemsByVariationId": {},
+  "itemsByVariationId": {
+    "EHDPCB4W5OHY4MFRVHVZERAD": {
+      "cartKey": "Black__M",
+      "title": "AeroVista Apex Draft Pullover Hoodie (Black, M)",
+      "tags": [
+        "division:aerovista",
+        "featured",
+        "hoodie"
+      ],
+      "order": 20,
+      "visible": true
+    }
+  },
   "itemsByCartKey": {
     "Black__M": {
       "title": "Founders Hoodie (Black, M)",

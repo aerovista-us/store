@@ -65,6 +65,12 @@ Checkout stub was replaced with **Square Payment Links API** (Option A):
 - **Frontend:** Checkout button calls bootstrap (for API base + currency), POSTs cart to `/api/square/checkout`; on `ok && checkoutUrl` does `window.location = checkoutUrl`. No in-page card form; customer pays on Square’s hosted page (PCI out of scope).
 - **Env:** Add `SQUARE_SKU_MAP_JSON` in `.env`: JSON object mapping SKU string → `{ "name": "Display name", "cents": 5500 }`. SKU keys must match frontend cart item `key` (e.g. `BLK__M` for color__size). See `backend/.env.example`.
 
+### Identity split (current bridge model)
+
+- **Merchandising identity:** `variationId` (primary in overlay and reconciliation)
+- **Checkout identity:** `cartKey` via `cart[].sku` (current live contract)
+- **Backend bridge:** if cartKey lookup misses and payload includes `variationId`, backend can resolve by `variationId`.
+
 ---
 
 ## Checkout (Option A) env checklist
