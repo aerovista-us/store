@@ -99,6 +99,12 @@
 
     /* Hero */
     .hero{ padding: 26px 0 10px; }
+    .topCap{
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .topCap .headline{ margin: 0 0 8px; }
+    .topCap .tagline{ margin: 0; max-width: 64ch; }
     .heroCard{
       background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
       border:1px solid var(--line);
@@ -341,6 +347,41 @@
       color:var(--text);
       border-color: rgba(110,231,255,.35);
       background: rgba(110,231,255,.08);
+    }
+
+    /* Collection dropdown (replaces .col row + promo pill) */
+    .collectionDropdownWrap{
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+    .collectionSelect{
+      appearance: none;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 999px;
+      padding: 8px 28px 8px 14px;
+      font-size: 12px;
+      color: var(--muted);
+      cursor: pointer;
+      min-width: 140px;
+    }
+    .collectionSelect:hover{
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.05);
+    }
+    .collectionSelect:focus{
+      outline: none;
+      border-color: rgba(110,231,255,.35);
+      background: rgba(110,231,255,.08);
+      color: var(--text);
+    }
+    .collectionSelect-chev{
+      position: absolute;
+      right: 10px;
+      pointer-events: none;
+      opacity: .7;
+      font-size: 10px;
     }
 
     /* Controls */
@@ -1028,25 +1069,28 @@
 
   <main class="wrap">
     <section class="hero">
+      <div class="topCap" aria-label="Store intro">
+        <h2 class="headline">Engineered Minimal, built on curation.</h2>
+        <p class="tagline">
+          We don’t pretend to reinvent hoodies. We choose the best-ready options, keep the palette disciplined,
+          and design marks that stay quiet until you’re close enough to notice.
+        </p>
+      </div>
+
       <div class="heroCard">
         <div class="heroLeft">
-          <h2 class="headline">Engineered Minimal, built on curation.</h2>
-          <p class="tagline">
-            We don’t pretend to reinvent hoodies. We choose the best-ready options, keep the palette disciplined,
-            and design marks that stay quiet until you’re close enough to notice.
-          </p>
-
           <div class="heroRow">
             <button class="cta" id="scrollToProducts">Browse essentials →</button>
-            <div class="note">Promo <span style="font-family:var(--mono)">SEED10</span> (placeholder)</div>
-          </div>
-
-          <div class="collections" aria-label="Collections">
-            <div class="col active" data-collection="all"><b>All</b> <span style="opacity:.85">Essentials</span></div>
-            <div class="col" data-collection="EchoVerse"><b>EchoVerse</b> <span style="opacity:.85">Wave</span></div>
-            <div class="col" data-collection="NXCore"><b>NXCore</b> <span style="opacity:.85">Operator</span></div>
-            <div class="col" data-collection="AeroVista"><b>AeroVista</b> <span style="opacity:.85">Minimal</span></div>
-            <div class="col" data-collection="Limited"><b>Limited</b> <span style="opacity:.85">Drop</span></div>
+            <div class="collectionDropdownWrap" aria-label="Collection">
+              <select id="collectionSelect" class="collectionSelect" aria-label="Filter by collection">
+                <option value="all">All — Essentials</option>
+                <option value="EchoVerse">EchoVerse — Wave</option>
+                <option value="NXCore">NXCore — Operator</option>
+                <option value="AeroVista">AeroVista — Minimal</option>
+                <option value="Limited">Limited — Drop</option>
+              </select>
+              <span class="collectionSelect-chev" aria-hidden="true">▾</span>
+            </div>
           </div>
 
           <div class="controls" aria-label="Store controls">
@@ -1387,12 +1431,12 @@
     <div class="dBody" id="cartItems"></div>
     <div class="totals">
       <div class="promo">
-        <input id="promo" placeholder="Promo code (try: SEED10)" />
+        <input id="promo" placeholder="Promo code" />
         <button class="btn" id="applyPromo">Apply</button>
       </div>
 
       <div class="lineRow"><span>Subtotal</span><strong id="subTotal">$0.00</strong></div>
-      <div class="lineRow"><span>Discount</span><strong id="discount">$0.00</strong></div>
+      <div class="lineRow lineRow--discount" id="discountRow" style="display:none;"><span>Discount</span><strong id="discount">$0.00</strong></div>
       <div class="lineRow"><span>Estimated Total</span><strong id="grandTotal">$0.00</strong></div>
 
       <div class="footerBtns">
@@ -2747,8 +2791,10 @@
         $("#mImg").innerHTML = productSvg(p);
       }
 
-      $("#mSize").innerHTML = (p.sizes||["One Size"]).map(x=>`<option>${escapeHtml(x)}</option>`).join("");
-      $("#mColor").innerHTML = (p.colors||["Default"]).map(x=>`<option>${escapeHtml(x)}</option>`).join("");
+      const sizes = p.sizes && p.sizes.length ? p.sizes : ["One Size"];
+      const colors = p.colors && p.colors.length ? p.colors : ["Default"];
+      $("#mSize").innerHTML = `<option value="">Select size…</option>` + sizes.map(x=>`<option value="${escapeHtml(x)}">${escapeHtml(x)}</option>`).join("");
+      $("#mColor").innerHTML = `<option value="">Select color…</option>` + colors.map(x=>`<option value="${escapeHtml(x)}">${escapeHtml(x)}</option>`).join("");
       $("#mQty").value = "1";
 
       $("#mFit").innerHTML   = `<b>Fit:</b> ${escapeHtml(p.fitNote || "—")}`;
@@ -2765,8 +2811,12 @@
       };
 
       $("#addToCartBtn").onclick = () => {
-        const size = $("#mSize").value;
-        const color = $("#mColor").value;
+        const size = ($("#mSize").value || "").trim();
+        const color = ($("#mColor").value || "").trim();
+        if (!size || !color) {
+          toast("Please select size and color.");
+          return;
+        }
         const qty = clampInt($("#mQty").value, 1, 99);
         addToCart(p.id, size, color, qty);
         closeModal();
@@ -2926,7 +2976,11 @@
 
       const totals = computeTotals(cart);
       $("#subTotal").textContent = fmt(totals.subtotal);
-      $("#discount").textContent = "- " + fmt(totals.discount);
+      const dr = $("#discountRow");
+      if (dr) {
+        dr.style.display = totals.discount > 0 ? "" : "none";
+        $("#discount").textContent = "- " + fmt(totals.discount);
+      }
       $("#grandTotal").textContent = fmt(totals.total);
 
       $("#promo").value = state.promo || "";
@@ -3434,41 +3488,34 @@
     });
 
     function setActiveCollection(name){
-      $$(".col").forEach(c=> c.classList.toggle("active", c.getAttribute("data-collection") === name));
+      const sel = $("#collectionSelect");
+      if(sel && sel.value !== name) sel.value = name;
     }
     function bindCollectionControls(){
-      $$(".col").forEach(c=>{
-        c.setAttribute("role", "button");
-        c.setAttribute("tabindex", "0");
-        c.onclick = () => {
-          state.collection = c.getAttribute("data-collection");
-          setActiveCollection(state.collection);
-          renderGrid();
-        };
-        c.onkeydown = (e) => {
-          if(e.key === "Enter" || e.key === " "){
-            e.preventDefault();
-            c.click();
-          }
-        };
-      });
+      const sel = $("#collectionSelect");
+      if(!sel) return;
+      sel.onchange = () => {
+        state.collection = sel.value;
+        renderGrid();
+      };
     }
 
     function injectOverlayCollections(){
-      const wrap = $(".collections");
-      if(!wrap) return;
-      $$(".col.overlay-col", wrap).forEach(el => el.remove());
+      const sel = $("#collectionSelect");
+      if(!sel) return;
+      const opts = sel.querySelectorAll("option[data-overlay]");
+      opts.forEach(el => el.remove());
       for(const c of OVERLAY_COLLECTIONS){
-        const el = document.createElement("div");
-        el.className = "col overlay-col";
-        el.setAttribute("data-collection", c.rule);
-        el.innerHTML = `<b>${escapeHtml(c.title)}</b> <span style="opacity:.85">Overlay</span>`;
-        wrap.appendChild(el);
+        const el = document.createElement("option");
+        el.setAttribute("value", c.rule);
+        el.setAttribute("data-overlay", "1");
+        el.textContent = c.title + " — Overlay";
+        sel.appendChild(el);
       }
-      bindCollectionControls();
       setActiveCollection(state.collection);
     }
     bindCollectionControls();
+    setActiveCollection(state.collection);
 
     $("#search").addEventListener("input", (e)=>{ state.search = e.target.value || ""; renderGrid(); });
     
