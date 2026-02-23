@@ -2769,6 +2769,23 @@
           if(href) window.open(href, "_blank");
         };
       });
+
+      // Holo overlay parallax on product cards: respond to mouse over .img
+      $$(".img.has-holo").forEach(imgWrap => {
+        const overlay = imgWrap.querySelector(".holo-overlay");
+        if (!overlay) return;
+        const move = (e) => {
+          const rect = imgWrap.getBoundingClientRect();
+          const nx = rect.width ? Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width)) : 0.5;
+          const ny = rect.height ? Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height)) : 0.5;
+          const holoX = (0.5 - nx) * 36;
+          const holoY = (0.5 - ny) * 36;
+          overlay.style.transform = `translate(${holoX}px, ${holoY}px)`;
+        };
+        const leave = () => { overlay.style.transform = "translate(0, 0)"; };
+        imgWrap.addEventListener("mousemove", move, { passive: true });
+        imgWrap.addEventListener("mouseleave", leave);
+      });
     }
 
     function escapeHtml(s){
