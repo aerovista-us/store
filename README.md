@@ -27,3 +27,15 @@ See `backend/README.md` for backend setup and env variables.
 
 For GitHub Pages frontend origin, backend CORS should allow:
 - `ALLOWED_ORIGINS=https://aerovista-us.github.io`
+
+## Holographic overlay & later tagging
+
+Products whose name or tags include "Holographic" (e.g. "Holographic stickers", "Holographic Goat Sticker") get a holographic overlay on their card image automatically.
+
+### Later tagging / enhancements
+
+You can:
+
+- **Use `data-holo="1"` (or new `data-tags="..."`)** for extra styling or behavior.
+- **Extend `productHasHolo(p)`** to check more tags (e.g. "audio", "enhanced") and apply different overlays or features.
+- **Reuse `.holo-overlay`** anywhere (e.g. modal, featured strip) by adding the class to a positioned container and putting the overlay div inside it.

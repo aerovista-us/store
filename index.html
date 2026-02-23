@@ -294,6 +294,27 @@
       pointer-events: none;
       will-change: transform;
     }
+    /* Reusable holo overlay — apply to product cards or any container (modular; extend via tags later) */
+    .holo-overlay{
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: conic-gradient(from 180deg,
+        rgba(0,255,255,0),
+        rgba(255,0,255,.32),
+        rgba(0,255,255,.22),
+        rgba(255,255,255,.26),
+        rgba(0,255,255,.18),
+        rgba(255,0,255,.28),
+        rgba(0,255,255,0)
+      );
+      mix-blend-mode: screen;
+      opacity: .5;
+      filter: blur(0.3px) saturate(1.25);
+      pointer-events: none;
+    }
+    .img.has-holo{ position: relative; overflow: hidden; }
+
     /* Noise/scanline overlay - holo card texture (Option C) */
     .heroNoise{
       position: absolute;
@@ -2639,6 +2660,16 @@
       return `<div class="flags">${f.slice(0,3).map(mk).join("")}</div>`;
     }
 
+    /** Whether product gets the holographic overlay (name contains "Holographic"; later extend via p.tags) */
+    function productHasHolo(p){
+      if(!p) return false;
+      const name = (p.name || "").toLowerCase();
+      if(name.includes("holographic")) return true;
+      const tags = (p.tags || []).map(t=>String(t).toLowerCase());
+      if(tags.includes("holographic")) return true;
+      return false;
+    }
+
     function renderGrid(){
       const grid = $("#grid");
       const list = filterProducts();
@@ -2699,12 +2730,14 @@
         } else {
           imgContent = productSvg(p);
         }
+        const hasHolo = productHasHolo(p);
         return `
-        <article class="card">
-          <div class="img" role="img" aria-label="${escapeHtml(p.name)} image">
+        <article class="card" ${hasHolo ? 'data-holo="1"' : ''}>
+          <div class="img${hasHolo ? ' has-holo' : ''}" role="img" aria-label="${escapeHtml(p.name)} image">
             ${imgContent}
             <div class="label"><span class="dot"></span>${escapeHtml(p.collection)} · ${categoryLabel(p.category)}</div>
             ${flagsHtml(p) || `<div></div>`}
+            ${hasHolo ? '<div class="holo-overlay" aria-hidden="true"></div>' : ''}
           </div>
 
           <div class="body">
