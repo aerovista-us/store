@@ -19,16 +19,22 @@ def main():
     m = {}
     for p in products:
         name = (p.get("name") or "").strip() or "Item"
+        product_id = (p.get("id") or "").strip()
         color_base = (p.get("color") or "").strip()
         for v in p.get("variants", []):
             c = (v.get("color") or color_base or "").strip() or "Default"
             sz = (v.get("size") or "").strip() or "One Size"
-            key = c + "__" + sz
+            # Product-scoped key so same color+size across products don't collide (matches storefront cart key).
+            key = (product_id or "item") + "__" + sz + "__" + c
             price = v.get("price") or p.get("price") or 0
             cents = int(round(float(price) * 100))
             if cents < 0:
                 cents = 0
-            m[key] = {"name": name + " (" + c + ", " + sz + ")", "cents": cents}
+            entry = {"name": name + " (" + c + ", " + sz + ")", "cents": cents}
+            vid = (v.get("variation_id") or v.get("variationId") or "").strip()
+            if vid:
+                entry["variationId"] = vid
+            m[key] = entry
 
     sku_json = json.dumps(m, separators=(",", ":"))
 

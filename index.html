@@ -3345,12 +3345,13 @@
 
       const lines = cartToSquareLines(cart);
       const cartPayload = lines.map(it => ({
-        // Checkout identity (current): cartKey
+        // Product-scoped key so backend maps to correct item (id__size__color); fallback to color__size for legacy.
         sku: String(
+          it.key ||
+          (it.productId && it.size && it.color ? `${it.productId}__${it.size}__${it.color}` : "") ||
           it.cartSku ||
           ((it.color && it.size) ? `${it.color}__${it.size}` : "") ||
           it.sku ||
-          it.key ||
           it.id ||
           ""
         ),
