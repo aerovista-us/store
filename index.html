@@ -225,6 +225,11 @@
       mix-blend-mode: screen;
       filter: contrast(1.1) saturate(1.15) hue-rotate(5deg);
     }
+    .heroMorphImg.heroMorphSvg svg{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
     /* Flip card inner (Option E) */
     .heroInner{
       position: relative;
@@ -266,10 +271,14 @@
       color: rgba(231,237,246,.85);
       max-width: 260px;
     }
-    /* Parallax holo overlay (Option B) */
+    /* Parallax holo overlay (Option B) - contained to logo boundary */
+    .heroFaceFront{
+      overflow: hidden;
+      border-radius: inherit;
+    }
     .heroHolo{
       position: absolute;
-      inset: -20%;
+      inset: 0;
       background: conic-gradient(from 180deg,
         rgba(0,255,255,0),
         rgba(255,0,255,.35),
@@ -1145,6 +1154,12 @@
               <div class="heroMorphImg" id="heroMorph1" style="background:linear-gradient(135deg, rgba(110,231,255,.15), rgba(167,139,250,.1));"></div>
               <div class="heroMorphImg" id="heroMorph2" style="background:linear-gradient(180deg, rgba(167,139,250,.12), rgba(110,231,255,.08));"></div>
               <div class="heroMorphImg" id="heroMorph3" style="background:linear-gradient(225deg, rgba(110,231,255,.1), rgba(167,139,250,.15));"></div>
+              <div class="heroMorphImg heroMorphSvg" id="heroMorph4" aria-hidden="true">
+                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="m4grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(110,231,255,0.25)"/><stop offset="100%" stop-color="rgba(167,139,250,0.2)"/></linearGradient></defs><g transform="translate(200,150)"><circle cx="0" cy="0" r="75" fill="none" stroke="url(#m4grad)" stroke-width="2" opacity="0.7"/><circle cx="0" cy="0" r="55" fill="none" stroke="url(#m4grad)" stroke-width="1.5" opacity="0.5"/><path d="M -35,42 L 0,-28 L 35,42 Z" fill="none" stroke="url(#m4grad)" stroke-width="2" opacity="0.6"/></g></svg>
+              </div>
+              <div class="heroMorphImg heroMorphSvg" id="heroMorph5" aria-hidden="true">
+                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="m5grad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="rgba(167,139,250,0.22)"/><stop offset="100%" stop-color="rgba(110,231,255,0.18)"/></linearGradient></defs><g transform="translate(200,150)"><ellipse cx="0" cy="0" rx="70" ry="6" fill="none" stroke="url(#m5grad)" stroke-width="2.5" opacity="0.75"/><path d="M -38,48 L -8,-36 L 0,-32 L 8,-36 L 38,48" fill="none" stroke="url(#m5grad)" stroke-width="1.8" opacity="0.6"/></g></svg>
+              </div>
             </div>
             <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" class="heroSvg">
               <defs>
@@ -3546,15 +3561,23 @@
       }
       
       function setMorphState(nx) {
-        if (!morphImgs || morphImgs.length < 3) return;
-        const w1 = clamp(1 - nx * 2, 0, 1);
-        const w3 = clamp(nx * 2 - 1, 0, 1);
-        const w2 = 1 - Math.abs(nx - 0.5) * 2;
-        const weights = [w1, w2, w3];
+        if (!morphImgs || !morphImgs.length) return;
+        const n = morphImgs.length;
+        const weights = n === 5
+          ? [
+              clamp(1 - nx * 4, 0, 1),
+              clamp(1 - Math.abs(nx - 0.25) * 4, 0, 1),
+              clamp(1 - Math.abs(nx - 0.5) * 4, 0, 1),
+              clamp(1 - Math.abs(nx - 0.75) * 4, 0, 1),
+              clamp(nx * 4 - 3, 0, 1)
+            ]
+          : n >= 3
+            ? [ clamp(1 - nx * 2, 0, 1), 1 - Math.abs(nx - 0.5) * 2, clamp(nx * 2 - 1, 0, 1) ]
+            : [];
         morphImgs.forEach((img, i) => {
-          img.style.opacity = String(weights[i]);
+          const w = weights[i] != null ? weights[i] : 0;
+          img.style.opacity = String(w);
           img.classList.remove("active", "morphing");
-          const w = weights[i];
           if (w >= 0.95) img.classList.add("active");
           else if (w > 0.05) img.classList.add("morphing");
         });
