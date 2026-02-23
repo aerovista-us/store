@@ -3,6 +3,7 @@ import json
 import uuid
 import requests
 from flask import Flask, request, jsonify, make_response, render_template
+from werkzeug.exceptions import BadRequest
 from datetime import datetime
 
 app = Flask(__name__, template_folder="templates")
@@ -139,8 +140,14 @@ def build_line_items_from_cart(cart: list, currency: str) -> list:
             meta = variation_index.get(variation_id)
         if not meta:
             if variation_id:
-                raise ValueError(f"Unknown SKU: {sku} / variationId: {variation_id} (add to SQUARE_SKU_MAP_JSON)")
-            raise ValueError(f"Unknown SKU: {sku} (add to SQUARE_SKU_MAP_JSON)")
+                raise ValueError(
+                    f"Unknown SKU '{sku}' (variationId: {variation_id}). "
+                    "Add this key to SQUARE_SKU_MAP_JSON on the server with name and cents."
+                )
+            raise ValueError(
+                f"Unknown SKU '{sku}'. "
+                "Add this key to SQUARE_SKU_MAP_JSON on the server with \"name\" and \"cents\"."
+            )
 
         name = str(meta.get("name") or sku)
         cents = int(meta.get("cents"))
@@ -226,11 +233,20 @@ def square_checkout():
     if request.method == "OPTIONS":
         return ("", 204)
 
-    # This endpoint is the “bridge” from your store UI to Square checkout.
-    # Keep it simple and safe: validate payload, return stub if you haven't wired Square SDK yet.
+    # Avoid get_json(silent=False) so we never raise; return clear JSON 400 if body missing/invalid
+    payload = request.get_json(force=True, silent=True)
+    if payload is None:
+        return jsonify({
+            "ok": False,
+            "error": "Missing or invalid JSON body",
+            "detail": "Send Content-Type: application/json and a valid JSON body with cart and optional currency.",
+        }), 400
+    if not isinstance(payload, dict):
+        payload = {}
+
+    # This endpoint is the "bridge" from your store UI to Square checkout.
     try:
         require_square_creds()
-        payload = request.get_json(force=True, silent=False) or {}
 
         cart = payload.get("cart", [])
         if not isinstance(cart, list) or len(cart) == 0:
@@ -278,8 +294,10 @@ def square_checkout():
 
     except ValueError as ve:
         return jsonify({"ok": False, "error": str(ve)}), 400
+    except BadRequest as e:
+        return jsonify({"ok": False, "error": "Invalid or missing JSON body", "detail": str(e)}), 400
     except Exception as e:
-        return jsonify({"ok": False, "error": str(e)}), 500
+        return jsonify({"ok": False, "error": f"{type(e).__name__}: {str(e)}"}), 500
 
 
 @app.route("/ops/printful", methods=["GET"])

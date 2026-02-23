@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CSV → JSON Converter (Offline)</title>
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --panel: #121625;
+      --panel2: #0f1220;
+      --text: #e7e9ff;
+      --muted: rgba(231,233,255,.7);
+      --line: rgba(231,233,255,.12);
+      --accent: #7c5cff;
+      --good: #20d3a7;
+      --warn: #ffcc66;
+      --bad: #ff5c7a;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --r: 16px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(1200px 700px at 20% 10%, rgba(124,92,255,.25), transparent 60%),
+                  radial-gradient(900px 600px at 90% 30%, rgba(32,211,167,.18), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.35;
+      min-height: 100vh;
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 22px 14px 48px;
+    }
+    header {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .title {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .logo {
+      width: 44px; height: 44px;
+      border-radius: 14px;
+      background:
+        linear-gradient(135deg, rgba(124,92,255,.95), rgba(32,211,167,.7));
+      box-shadow: 0 12px 26px rgba(0,0,0,.35);
+      position: relative;
+      overflow: hidden;
+    }
+    .logo:after {
+      content:"";
+      position:absolute; inset:-40%;
+      background: repeating-linear-gradient(45deg, rgba(255,255,255,.25) 0 2px, transparent 2px 10px);
+      transform: rotate(12deg);
+      opacity: .25;
+    }
+    h1 { margin: 0; font-size: 20px; letter-spacing: .2px; }
+    .sub { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 920px) {
+      .grid { grid-template-columns: 1.05fr .95fr; }
+    }
+    .card {
+      background: linear-gradient(180deg, rgba(18,22,37,.95), rgba(15,18,32,.92));
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+      overflow: hidden;
+    }
+    .card .hd {
+      padding: 14px 14px 10px;
+      border-bottom: 1px solid var(--line);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .card .hd b { font-size: 13px; letter-spacing: .3px; }
+    .card .bd { padding: 14px; }
+    .row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+    .pill {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 9px 11px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size: 12px;
+    }
+    input[type="file"] {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px dashed rgba(231,233,255,.26);
+      background: rgba(255,255,255,.02);
+      color: var(--muted);
+    }
+    select, button, textarea {
+      font-family: inherit;
+    }
+    select {
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      outline: none;
+    }
+    button {
+      cursor: pointer;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(124,92,255,.55);
+      background: linear-gradient(180deg, rgba(124,92,255,.95), rgba(124,92,255,.65));
+      color: white;
+      font-weight: 650;
+      letter-spacing: .2px;
+      box-shadow: 0 14px 24px rgba(124,92,255,.18);
+      transition: transform .08s ease, filter .12s ease;
+    }
+    button.secondary {
+      border-color: rgba(231,233,255,.16);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      box-shadow: none;
+    }
+    button:active { transform: translateY(1px); }
+    .btns { display:flex; gap:10px; flex-wrap:wrap; }
+    textarea {
+      width: 100%;
+      min-height: 420px;
+      resize: vertical;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,.22);
+      color: var(--text);
+      padding: 12px;
+      font-family: var(--mono);
+      font-size: 12.5px;
+      outline: none;
+    }
+    .hint {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 8px;
+    }
+    .kpi {
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+    .kpi .pill strong { color: var(--text); }
+    .status {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      padding-top: 6px;
+    }
+    a {
+      color: rgba(124,92,255,.95);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+    .footer {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>CSV → JSON Converter</h1>
+          <p class="sub">Offline, single-file. Drop a CSV, pick output mode, download JSON.</p>
+        </div>
+      </div>
+      <div class="kpi">
+        <span class="pill">Mode: <strong id="modeLabel">Array</strong></span>
+        <span class="pill">Rows: <strong id="rowsCount">0</strong></span>
+        <span class="pill">Cols: <strong id="colsCount">0</strong></span>
+      </div>
+    </header>
+
+    <div class="grid">
+      <section class="card">
+        <div class="hd">
+          <b>Input</b>
+          <span class="pill">Tip: UTF-8 with headers works best</span>
+        </div>
+        <div class="bd">
+          <div class="row" style="margin-bottom:10px;">
+            <input id="file" type="file" accept=".csv,text/csv" />
+          </div>
+
+          <div class="row" style="margin-bottom:10px;">
+            <label class="pill" for="mode">Output mode</label>
+            <select id="mode">
+              <option value="array" selected>Array of objects (default)</option>
+              <option value="map">Keyed map (choose key column)</option>
+              <option value="jsonl">JSON Lines (one object per line)</option>
+            </select>
+
+            <label class="pill" for="keycol" id="keyLabel" style="display:none;">Key column</label>
+            <select id="keycol" style="display:none; min-width: 220px;"></select>
+          </div>
+
+          <div class="btns">
+            <button id="convert">Convert</button>
+            <button id="download" class="secondary" disabled>Download .json</button>
+            <button id="copy" class="secondary" disabled>Copy to clipboard</button>
+            <button id="clear" class="secondary">Clear</button>
+          </div>
+
+          <div class="status" id="status">No file loaded.</div>
+          <div class="hint">
+            Supports quoted fields, commas, and newlines inside quotes.
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="hd">
+          <b>Output</b>
+          <span class="pill">Preview</span>
+        </div>
+        <div class="bd">
+          <textarea id="out" spellcheck="false" placeholder="Your JSON will appear here..."></textarea>
+          <div class="footer">
+            Generated locally in your browser. Nothing uploads anywhere.
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+<script>
+/**
+ * Robust-ish CSV parser (RFC 4180-ish).
+ * Handles:
+ *  - Commas
+ *  - Quotes ("")
+ *  - Newlines inside quoted fields
+ *  - CRLF/LF
+ */
+function parseCSV(text) {
+  // Normalize newlines
+  text = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+
+  const rows = [];
+  let row = [];
+  let field = '';
+  let inQuotes = false;
+
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+
+    if (inQuotes) {
+      if (c === '"') {
+        const next = text[i + 1];
+        if (next === '"') {
+          field += '"';
+          i++;
+        } else {
+          inQuotes = false;
+        }
+      } else {
+        field += c;
+      }
+    } else {
+      if (c === '"') {
+        inQuotes = true;
+      } else if (c === ',') {
+        row.push(field);
+        field = '';
+      } else if (c === '\n') {
+        row.push(field);
+        field = '';
+        // Skip possible trailing empty lines
+        // But keep legit empty rows if there are commas
+        rows.push(row);
+        row = [];
+      } else {
+        field += c;
+      }
+    }
+  }
+
+  // Final field
+  row.push(field);
+  rows.push(row);
+
+  // Drop a final empty row if file ends with newline and row is single empty cell
+  if (rows.length && rows[rows.length - 1].length === 1 && rows[rows.length - 1][0] === '') {
+    rows.pop();
+  }
+
+  return rows;
+}
+
+function rowsToObjects(rows) {
+  if (!rows.length) return { headers: [], objects: [] };
+  const headers = rows[0].map(h => String(h).trim());
+  const objects = [];
+  for (let i = 1; i < rows.length; i++) {
+    const r = rows[i];
+    if (!r || (r.length === 1 && r[0] === '')) continue;
+    const obj = {}
+    for (let c = 0; c < headers.length; c++) {
+      const key = headers[c] ?? `col_${c+1}`;
+      obj[key] = (r[c] ?? '').trim();
+    }
+    objects.push(obj);
+  }
+  return { headers, objects };
+}
+
+function downloadText(filename, text) {
+  const blob = new Blob([text], { type: 'application/json;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 2500);
+}
+
+const elFile = document.getElementById('file');
+const elMode = document.getElementById('mode');
+const elKeyCol = document.getElementById('keycol');
+const elKeyLabel = document.getElementById('keyLabel');
+const elConvert = document.getElementById('convert');
+const elDownload = document.getElementById('download');
+const elCopy = document.getElementById('copy');
+const elClear = document.getElementById('clear');
+const elOut = document.getElementById('out');
+const elStatus = document.getElementById('status');
+const elRows = document.getElementById('rowsCount');
+const elCols = document.getElementById('colsCount');
+const elModeLabel = document.getElementById('modeLabel');
+
+let currentFilenameBase = 'output';
+let currentJSONText = '';
+let cachedObjects = [];
+let cachedHeaders = [];
+
+function setKPIs(rows, cols) {
+  elRows.textContent = String(rows);
+  elCols.textContent = String(cols);
+}
+
+function setModeUI() {
+  const mode = elMode.value;
+  elModeLabel.textContent =
+    mode === 'array' ? 'Array' : (mode === 'map' ? 'Map' : 'JSONL');
+
+  const showKey = (mode === 'map');
+  elKeyCol.style.display = showKey ? 'inline-flex' : 'none';
+  elKeyLabel.style.display = showKey ? 'inline-flex' : 'none';
+}
+
+elMode.addEventListener('change', setModeUI);
+setModeUI();
+
+elFile.addEventListener('change', async (e) => {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+
+  currentFilenameBase = file.name.replace(/\.csv$/i, '') || 'output';
+  elStatus.textContent = `Loaded: ${file.name} (${Math.round(file.size/1024)} KB). Click Convert.`;
+  elOut.value = '';
+  currentJSONText = '';
+  cachedObjects = [];
+  cachedHeaders = [];
+  setKPIs(0, 0);
+  elDownload.disabled = true;
+  elCopy.disabled = true;
+
+  try {
+    const text = await file.text();
+    const rows = parseCSV(text);
+    const {
+      headers,
+      objects
+    } = rowsToObjects(rows);
+    cachedHeaders = headers;
+    cachedObjects = objects;
+
+    // Populate key column dropdown
+    elKeyCol.innerHTML = '';
+    for (const h of headers) {
+      const opt = document.createElement('option');
+      opt.value = h;
+      opt.textContent = h;
+      elKeyCol.appendChild(opt);
+    }
+    setKPIs(objects.length, headers.length);
+  } catch (err) {
+    console.error(err);
+    elStatus.textContent = 'Error reading file. See console.';
+  }
+});
+
+elConvert.addEventListener('click', () => {
+  if (!cachedObjects.length && !(elFile.files && elFile.files[0])) {
+    elStatus.textContent = 'Pick a CSV file first.';
+    return;
+  }
+
+  const mode = elMode.value;
+  let outText = '';
+  try {
+    if (mode === 'array') {
+      outText = JSON.stringify(cachedObjects, null, 2);
+    } else if (mode === 'jsonl') {
+      outText = cachedObjects.map(o => JSON.stringify(o)).join('\n') + (cachedObjects.length ? '\n' : '');
+    } else if (mode === 'map') {
+      const key = elKeyCol.value || cachedHeaders[0];
+      const map = {};
+      let collisions = 0;
+      for (const o of cachedObjects) {
+        const k = (o[key] ?? '').trim();
+        if (!k) continue;
+        if (Object.prototype.hasOwnProperty.call(map, k)) collisions++;
+        map[k] = o;
+      }
+      outText = JSON.stringify({
+        keyColumn: key,
+        collisions,
+        count: Object.keys(map).length,
+        data: map
+      }, null, 2);
+    }
+
+    currentJSONText = outText;
+    elOut.value = outText;
+    elDownload.disabled = !outText;
+    elCopy.disabled = !outText;
+    elStatus.textContent = `Converted ${cachedObjects.length} rows.`;
+  } catch (err) {
+    console.error(err);
+    elStatus.textContent = 'Conversion failed. See console.';
+  }
+});
+
+elDownload.addEventListener('click', () => {
+  if (!currentJSONText) return;
+  const mode = elMode.value;
+  const ext = (mode === 'jsonl') ? '.jsonl' : '.json';
+  downloadText(`${currentFilenameBase}${mode === 'map' ? '.map' : ''}${ext}`, currentJSONText);
+});
+
+elCopy.addEventListener('click', async () => {
+  if (!currentJSONText) return;
+  try {
+    await navigator.clipboard.writeText(currentJSONText);
+    elStatus.textContent = 'Copied to clipboard.';
+  } catch {
+    elStatus.textContent = 'Clipboard blocked by browser permissions.';
+  }
+});
+
+elClear.addEventListener('click', () => {
+  elFile.value = '';
+  elOut.value = '';
+  currentJSONText = '';
+  cachedObjects = [];
+  cachedHeaders = [];
+  setKPIs(0, 0);
+  elDownload.disabled = true;
+  elCopy.disabled = true;
+  elStatus.textContent = 'Cleared.';
+});
+</script>
+</body>
+</html>

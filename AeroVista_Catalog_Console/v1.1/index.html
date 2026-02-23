@@ -90,6 +90,7 @@
 
       <div class="flex flex-wrap gap-2 items-center">
         <button id="btnImport" class="btn btn-primary px-3 py-2 rounded-xl text-sm font-medium">Import JSON</button>
+        <button id="btnImportCsv" class="btn px-3 py-2 rounded-xl text-sm font-medium">Import CSV</button>
         <button id="btnExport" class="btn px-3 py-2 rounded-xl text-sm font-medium">Export JSON</button>
         <button id="btnExportEdits" class="btn px-3 py-2 rounded-xl text-sm font-medium">Export Edits CSV</button>
         <button id="btnNewProduct" class="btn px-3 py-2 rounded-xl text-sm font-medium">+ New Product</button>
@@ -98,6 +99,7 @@
         <button id="btnReset" class="btn px-3 py-2 rounded-xl text-sm font-medium danger">Reset</button>
       </div>
       <input id="fileInput" type="file" accept=".json,application/json" class="hidden" />
+      <input id="csvFileInput" type="file" accept=".csv,text/csv,text/plain" class="hidden" />
     </header>
 
     <section class="mt-5 grid grid-cols-1 lg:grid-cols-12 gap-4">

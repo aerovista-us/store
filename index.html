@@ -3372,16 +3372,31 @@
       const currency = boot ? boot.currency : "USD";
       const body = { cart: cartPayload, currency };
 
+      // Ensure body is present and valid before sending
+      let bodyJson;
+      try {
+        bodyJson = JSON.stringify(body);
+      } catch (e) {
+        toast("Checkout error: could not build request.");
+        console.error("CHECKOUT JSON.stringify failed:", e);
+        return;
+      }
+      if (!bodyJson || bodyJson.length < 10) {
+        toast("Checkout error: empty request body.");
+        console.warn("CHECKOUT body empty or too short:", bodyJson?.length);
+        return;
+      }
+      console.log("CHECKOUT payload:", body, "| body length:", bodyJson.length, "| preview:", bodyJson.slice(0, 120) + (bodyJson.length > 120 ? "…" : ""));
+
       const btn = $("#checkout");
       const origText = btn.textContent;
       btn.disabled = true;
       btn.textContent = "Redirecting...";
       try {
-        console.log("CHECKOUT payload:", body);
         const res = await fetch(apiUrl("/api/square/checkout"), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body)
+          body: bodyJson
         });
         const out = await res.json().catch(() => ({}));
         console.log("CHECKOUT response:", res.status, out);
@@ -3389,7 +3404,8 @@
           window.location = out.checkoutUrl;
           return;
         }
-        const errMsg = out.error || out.message || "Checkout failed";
+        const errMsg = out.error || out.message || (res.status === 400 ? "Bad request: check cart SKUs match server SQUARE_SKU_MAP_JSON" : "Checkout failed");
+        if (res.status === 400) console.warn("Checkout 400 — server says:", errMsg, "Payload cart keys:", cartPayload.map(x => x.sku));
         toast(errMsg);
       } catch(err) {
         toast("Network error. Please try again.");

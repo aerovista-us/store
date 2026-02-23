@@ -140,6 +140,95 @@
     return Math.round(n*100);
   };
 
+  // ---- CSV → Catalog JSON (schema: { products: [...] }) ----
+  const parseCSV = (text) => {
+    const rows = [];
+    let i = 0;
+    const s = String(text).replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+    while (i < s.length) {
+      const row = [];
+      while (i < s.length) {
+        if (s[i] === '"') {
+          i += 1;
+          let cell = '';
+          while (i < s.length) {
+            if (s[i] === '"') {
+              i += 1;
+              if (s[i] === '"') { cell += '"'; i += 1; }
+              else break;
+            } else { cell += s[i]; i += 1; }
+          }
+          row.push(cell);
+        } else {
+          let cell = '';
+          while (i < s.length && s[i] !== ',' && s[i] !== '\n') { cell += s[i]; i += 1; }
+          row.push(cell.trim());
+        }
+        if (i < s.length && s[i] === ',') { i += 1; continue; }
+        if (i < s.length && s[i] === '\n') { i += 1; break; }
+      }
+      if (row.length) rows.push(row);
+    }
+    return rows;
+  };
+
+  const toCamelCase = (str) => {
+    const s = String(str).trim().replace(/\s+/g, ' ');
+    if (!s) return '';
+    return s.split(/[\s_-]+/).filter(Boolean).map((p, i) => {
+      const lower = p.toLowerCase();
+      return i === 0 ? lower : lower.charAt(0).toUpperCase() + lower.slice(1);
+    }).join('');
+  };
+
+  const csvToCatalogJson = (csvText) => {
+    const rows = parseCSV(csvText);
+    if (!rows.length) throw new Error('CSV is empty');
+    const rawHeaders = rows[0];
+    const headers = rawHeaders.map((h, idx) => {
+      const key = toCamelCase(h);
+      return key || 'field' + idx;
+    });
+    const products = [];
+    for (let r = 1; r < rows.length; r++) {
+      const row = rows[r];
+      const obj = {};
+      for (let c = 0; c < headers.length; c++) {
+        const key = headers[c];
+        let val = row[c] !== undefined ? String(row[c]).trim() : '';
+        if (key.toLowerCase() === 'price') {
+          const num = parseFloat(val.replace(/[$,]/g, ''));
+          if (!isNaN(num)) val = (num < 100 && num > 0 && val.includes('.')) ? Math.round(num * 100) : Math.round(num);
+        } else if (/^\d+$/.test(val)) val = parseInt(val, 10);
+        else if (/^\d*\.\d+$/.test(val)) val = parseFloat(val);
+        obj[key] = val;
+      }
+      const title = obj.title || obj.name || obj.Title || obj.Name || '';
+      const priceVal = obj.price != null && obj.price !== '' ? obj.price : (obj.priceCents != null ? obj.priceCents : '');
+      const priceDisplay = typeof priceVal === 'number' && priceVal >= 100 ? (priceVal / 100).toFixed(2) : (priceVal === '' ? '' : String(priceVal));
+      products.push({
+        id: obj.id || obj.productId || obj.sku || uuid(),
+        title: title || ('Item ' + r),
+        description: obj.description || obj.desc || '',
+        group: obj.group || obj.collection || '',
+        type: obj.type || obj.category || obj.productType || '',
+        tags: typeof obj.tags === 'string' ? obj.tags.split(',').map(s => s.trim()).filter(Boolean) : (Array.isArray(obj.tags) ? obj.tags : []),
+        status: obj.status || 'active',
+        key: obj.key || obj.handle || slugify(title || ('item-' + r)),
+        imagePath: obj.imagePath || obj.image || obj.img || '',
+        variants: [{
+          id: uuid(),
+          sku: obj.sku || obj.variantSku || '',
+          color: obj.color || '',
+          size: obj.size || '',
+          price: priceDisplay,
+          inventory: obj.inventory ?? ''
+        }]
+      });
+    }
+    return { products };
+  };
+
   const computeStats = () => {
     const items = state.catalog.products.length;
     const variants = state.catalog.products.reduce((a,p)=>a+(p.variants?.length||0),0);
@@ -477,6 +566,21 @@
     toast(`Imported ${norm.products.length} products.`);
   };
 
+  const importCsv = async (file) => {
+    const text = await file.text();
+    const data = csvToCatalogJson(text);
+    const norm = normalizeIncoming(data);
+    state.catalog = { meta: norm.meta, products: norm.products };
+    state.selectedId = null;
+    state.dirtyIds.clear();
+    state.lastImportedName = (file.name || '').replace(/\.csv$/i, '') + '.json';
+    setEditorEnabled(false);
+    fillFilters();
+    renderList();
+    computeStats();
+    toast(`Imported CSV: ${norm.products.length} products.`);
+  };
+
   const exportJson = () => {
     // Export in our canonical shape: {meta, products}
     const payload = {
@@ -667,6 +771,15 @@
       if (!f) return;
       try { await importJson(f); }
       catch(err){ toast('Import failed: ' + err.message); }
+      e.target.value = '';
+    });
+
+    $('btnImportCsv').addEventListener('click', ()=> $('csvFileInput').click());
+    $('csvFileInput').addEventListener('change', async (e)=>{
+      const f = e.target.files?.[0];
+      if (!f) return;
+      try { await importCsv(f); }
+      catch(err){ toast('CSV import failed: ' + err.message); }
       e.target.value = '';
     });
 
