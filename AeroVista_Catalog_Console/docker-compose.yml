@@ -1,0 +1,11 @@
+services:
+  catalog-console:
+    build: .
+    container_name: av-catalog-console
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+# Usage:
+#   cd AeroVista_Catalog_Console && docker compose up -d --build
+#   Open http://localhost:8080 (index.html = main app; csv_to_json_converter.html at /csv_to_json_converter.html)

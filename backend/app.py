@@ -112,6 +112,10 @@ def load_sku_map() -> dict:
 
 
 def build_line_items_from_cart(cart: list, currency: str) -> list:
+    """
+    Build Square line items from cart. Price is always from sku_map (Square authoritative).
+    Client-sent price/cents are ignored to guarantee what you charge matches Square catalog.
+    """
     sku_map = load_sku_map()
     variation_index = {}
     for _, meta in sku_map.items():
@@ -125,6 +129,13 @@ def build_line_items_from_cart(cart: list, currency: str) -> list:
         sku = str(item.get("sku", "")).strip()
         variation_id = str(item.get("variationId") or item.get("variation_id") or "").strip()
         qty = item.get("qty", 0)
+        # Log if client sent price (we ignore it; Square/sku_map is authoritative)
+        if "price" in item or "cents" in item:
+            import logging
+            logging.getLogger(__name__).warning(
+                "Checkout: ignoring client-sent price for sku=%s (variationId=%s); using sku_map.",
+                sku or "(none)", variation_id or "(none)"
+            )
 
         if not sku:
             raise ValueError(f"cart[{idx}].sku required")

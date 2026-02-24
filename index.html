@@ -96,6 +96,13 @@
       font-size: 11px;
       border:1px solid rgba(255,255,255,.20);
     }
+    .catalogSourceWrap{ display:flex; align-items:center; gap:6px; color:var(--muted); font-size:12px; }
+    .catalogSourceLabel{ white-space:nowrap; }
+    .catalogSourceSelect{
+      background: rgba(255,255,255,.04); border:1px solid var(--line); border-radius: 8px;
+      color:var(--text); padding: 6px 10px; font-size: 12px; cursor:pointer;
+    }
+    .catalogSourceSelect:hover{ border-color: rgba(110,231,255,.35); }
 
     /* Hero */
     .hero{ padding: 26px 0 10px; }
@@ -1085,6 +1092,13 @@
       </a>
 
       <div class="actions">
+        <label class="catalogSourceWrap" title="Switch between live catalog and local edited catalog">
+          <span class="catalogSourceLabel">Catalog</span>
+          <select id="catalogSource" class="catalogSourceSelect" aria-label="Catalog source: Live or Edited">
+            <option value="live">Live</option>
+            <option value="edited">Edited</option>
+          </select>
+        </label>
         <div class="pill" title="Search shortcut (press / to focus search)" role="button" tabindex="0" aria-label="Search shortcut">
           <span style="opacity:.85">Search</span>
           <span class="k">/</span>
@@ -1906,43 +1920,94 @@
       return { fit, fabric, care, ship };
     }
 
+    function getCatalogSource(){
+      try {
+        const v = (localStorage.getItem(LS_CATALOG_SOURCE) || "live").trim().toLowerCase();
+        return (v === "edited") ? "edited" : "live";
+      } catch(e) { return "live"; }
+    }
+    function setCatalogSource(v){ try { localStorage.setItem(LS_CATALOG_SOURCE, v === "edited" ? "edited" : "live"); } catch(e) {} }
+
     async function loadProducts(){
-      // Try multiple paths - canonical latest first, then dated fallbacks.
-      // Optional: set window.STORE_CATALOG_PATH (example: "./square_products_merged.json") before page load.
+      // Two sources: "live" (default JSON files) or "edited" (local edited JSON file or localStorage).
       function withBuildVersion(path){
         if(!path) return path;
         const sep = path.includes("?") ? "&" : "?";
         return `${path}${sep}v=${encodeURIComponent(STORE_BUILD_ID)}`;
       }
-      const paths = [];
-      const overridePath = (typeof window.STORE_CATALOG_PATH === "string") ? window.STORE_CATALOG_PATH.trim() : "";
-      if (overridePath) paths.push(withBuildVersion(overridePath));
-      paths.push(
-        withBuildVersion("./square_products_latest.json"),
-        withBuildVersion("square_products_latest.json"),
-        withBuildVersion("./square_products_2026-02-11.json"),
-        withBuildVersion("square_products_2026-02-11.json"),
-        withBuildVersion("./square_products_2026-02-10.json"),
-        withBuildVersion("square_products_2026-02-10.json")
-      );
-      
-      let lastError = null;
-      for (const path of paths) {
-        try {
-          console.log("Trying to load products from:", path);
-          const r = await fetch(path, {cache:"no-store"});
-          console.log("Fetch response status:", r.status, r.ok, "for path:", path);
-          if (!r.ok) {
-            throw new Error(`Failed to load products JSON: ${r.status} ${r.statusText}`);
-          }
-          const j = await r.json();
-          console.log("JSON loaded, products count:", j?.products?.length || 0);
-          const items = (j && j.products) ? j.products : [];
+      const source = getCatalogSource();
+      let items = null;
+      let pathUsed = null;
 
-          if (items.length === 0) {
-            console.warn("No products found in JSON file");
-            continue; // Try next path
+      if (source === "edited") {
+        // Edited: try STORE_EDITED_CATALOG_PATH, then square_products_edited.json, then localStorage.
+        const editedOverride = (typeof window.STORE_EDITED_CATALOG_PATH === "string") ? window.STORE_EDITED_CATALOG_PATH.trim() : "";
+        const editedPaths = editedOverride
+          ? [withBuildVersion(editedOverride)]
+          : [withBuildVersion("./square_products_edited.json"), withBuildVersion("square_products_edited.json")];
+        for (const path of editedPaths) {
+          try {
+            const r = await fetch(path, { cache: "no-store" });
+            if (!r.ok) continue;
+            const j = await r.json();
+            const list = (j && j.products) ? j.products : [];
+            if (list.length > 0) { items = list; pathUsed = path; break; }
+          } catch(e) { continue; }
+        }
+        if (items === null) {
+          try {
+            const raw = localStorage.getItem(LS_EDITED_CATALOG);
+            if (raw) {
+              const j = JSON.parse(raw);
+              const list = (j && j.products) ? j.products : [];
+              if (list.length > 0) { items = list; pathUsed = "(localStorage)"; }
+            }
+          } catch(e) {}
+        }
+        if (items === null) {
+          console.warn("Edited catalog: no file or localStorage data; falling back to live paths.");
+        }
+      }
+
+      if (items === null) {
+        // Live (or edited fallback): use standard paths.
+        const paths = [];
+        const overridePath = (typeof window.STORE_CATALOG_PATH === "string") ? window.STORE_CATALOG_PATH.trim() : "";
+        if (overridePath) paths.push(withBuildVersion(overridePath));
+        paths.push(
+          withBuildVersion("./square_products_latest.json"),
+          withBuildVersion("square_products_latest.json"),
+          withBuildVersion("./square_products_2026-02-11.json"),
+          withBuildVersion("square_products_2026-02-11.json"),
+          withBuildVersion("./square_products_2026-02-10.json"),
+          withBuildVersion("square_products_2026-02-10.json")
+        );
+        let lastError = null;
+        for (const path of paths) {
+          try {
+            console.log("Trying to load products from:", path);
+            const r = await fetch(path, {cache:"no-store"});
+            if (!r.ok) throw new Error(`Failed to load products JSON: ${r.status} ${r.statusText}`);
+            const j = await r.json();
+            const list = (j && j.products) ? j.products : [];
+            if (list.length === 0) { console.warn("No products found in JSON file"); continue; }
+            items = list;
+            pathUsed = path;
+            break;
+          } catch(err) {
+            lastError = err;
+            continue;
           }
+        }
+        if (items === null) {
+          const errorMsg = lastError?.message || "Failed to load products";
+          throw new Error(`Unable to load product catalog. ${errorMsg.includes("404") ? "Catalog file not found." : "Please refresh the page or contact support if the problem persists."}`);
+        }
+      }
+
+      // Process items (same for both sources): filter, group, build PRODUCTS.
+      {
+          console.log("Loaded catalog from:", pathUsed, "items:", items.length);
 
           // Filter out utility-type products that won't be sold online
           const excludedIds = [
@@ -2091,8 +2156,12 @@
             const notes = generateProductNotes(first.cat, baseName, first.description_text);
             const imagePath = findProductImage(first.id, baseName);
 
+            const rawId = (first.p && first.p.id) ? String(first.p.id).trim() : "";
+            const productKey = rawId ? ("sq_" + rawId) : slug(baseKey);
             return {
               id: baseKey,
+              productKey,
+              squareItemIdRaw: rawId || null,
               name: baseName,
               collection: "Square",
               category: first.cat,
@@ -2118,20 +2187,8 @@
               _square: first.p
             };
           });
-          console.log(`Successfully loaded ${PRODUCTS.length} products (one per item, variants merged) from: ${path}`);
-          return; // Success, exit function
-        } catch(err) {
-          console.warn(`Failed to load from ${path}:`, err.message);
-          lastError = err;
-          continue; // Try next path
-        }
+          console.log(`Successfully loaded ${PRODUCTS.length} products (one per item, variants merged) from: ${pathUsed}`);
       }
-      // If we get here, all paths failed
-      console.error("All paths failed to load products:", lastError);
-      PRODUCTS = [];
-      // Throw user-friendly error
-      const errorMsg = lastError?.message || "Failed to load products";
-      throw new Error(`Unable to load product catalog. ${errorMsg.includes("404") ? "Catalog file not found." : "Please refresh the page or contact support if the problem persists."}`);
     }
 
     // Fallback hardcoded products (if JSON fails to load)
@@ -2382,6 +2439,8 @@
 
     const LS_KEY = "av_store_cart_v3";
     const LS_PROMO = "av_store_promo_v3";
+    const LS_CATALOG_SOURCE = "av_storefront_catalog_source";
+    const LS_EDITED_CATALOG = "av_storefront_edited_catalog";
 
     function loadCart(){ try{ return JSON.parse(localStorage.getItem(LS_KEY) || "[]"); }catch(e){ return []; } }
     function saveCart(cart){ localStorage.setItem(LS_KEY, JSON.stringify(cart)); updateCartUI(); }
@@ -2401,13 +2460,21 @@
       return Number.isFinite(n) ? n : null;
     }
 
+    /** Stable key for overlay overrides: lowercase, alphanumeric + underscore. */
+    function slug(s){
+      if (s == null || s === "") return "";
+      return String(s).trim().toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "") || "product";
+    }
+
     function normalizeOverlay(raw){
       const data = raw && typeof raw === "object" ? raw : {};
       const itemsByVariationId = data.itemsByVariationId && typeof data.itemsByVariationId === "object" ? data.itemsByVariationId : {};
       const itemsByCartKey = data.itemsByCartKey && typeof data.itemsByCartKey === "object" ? data.itemsByCartKey : {};
       const collections = Array.isArray(data.collections) ? data.collections : [];
       const ads = Array.isArray(data.ads) ? data.ads : [];
-      return { meta: data.meta || {}, itemsByVariationId, itemsByCartKey, collections, ads };
+      const rules = data.rules && typeof data.rules === "object" ? data.rules : {};
+      const overrides = data.overrides && typeof data.overrides === "object" ? data.overrides : {};
+      return { meta: data.meta || {}, itemsByVariationId, itemsByCartKey, collections, ads, rules, overrides };
     }
 
     async function loadOverlay(){
@@ -2454,22 +2521,104 @@
       return [...new Set(tags.map(t => String(t || "").trim()).filter(Boolean))];
     }
 
+    /** Category -> price ladder key (rules.priceLadders). */
+    function categoryToLadderKey(cat){
+      if(!cat) return "";
+      const c = String(cat).toLowerCase();
+      if(c.includes("hoodie") && !c.includes("zip")) return "hoodie_pullover";
+      if(c.includes("hoodie") && c.includes("zip")) return "hoodie_zip";
+      if(c.includes("tee") || c === "tees") return "tee";
+      if(c.includes("hat") || c === "hats") return "trucker_hat";
+      if(c.includes("crew")) return "crewneck";
+      return "";
+    }
+
+    /** Format title from template {brand}, {collection}, {productType}, {color}. */
+    function formatTitle(tpl, vars){
+      if(!tpl || typeof tpl !== "string") return "";
+      return tpl
+        .replace(/\{brand\}/g, vars.brand || "")
+        .replace(/\{collection\}/g, vars.collection || "")
+        .replace(/\{productType\}/g, vars.productType || "")
+        .replace(/\{color\}/g, vars.color || "");
+    }
+
+    /** Price for add-to-cart: ladder by size (2XL/3XL) or base, else product.price. */
+    function getPriceForProduct(p, size){
+      const ladder = p._priceLadder;
+      if(ladder && typeof ladder === "object"){
+        const sz = (size && String(size).trim()) || "";
+        const sizePrice = sz && typeof ladder[sz] === "number" ? ladder[sz] : null;
+        const base = typeof ladder.base === "number" ? ladder.base : null;
+        if(Number.isFinite(sizePrice)) return sizePrice;
+        if(Number.isFinite(base)) return base;
+      }
+      return typeof p.price === "number" && Number.isFinite(p.price) ? p.price : 0;
+    }
+
     function applyOverlayToProducts(baseProducts){
       const overlay = OVERLAY_DATA || normalizeOverlay({});
+      const rules = overlay.rules || {};
+      const overrides = overlay.overrides || {};
       const out = [];
       for(const p of (baseProducts || [])){
         const merged = { ...p };
+        const productKey = merged.productKey || slug(merged.id);
+        merged.productKey = productKey;
+
         const hit = resolveOverlayForProduct(p, overlay);
         const tags = normalizeTags(hit?.tags || p.tags || []);
         merged.tags = tags;
         merged._overlayOrder = toFiniteNumber(hit?.order);
         merged._overlayHidden = hit?.visible === false;
 
-        if(hit){
+        // Consistency layer: rules + overrides (same for Live or Edited catalog)
+        const ov = overrides[productKey] || (merged.squareItemIdRaw ? overrides["sq_" + merged.squareItemIdRaw] : null);
+        // Copy lock: if ov.copyLock is true (or ov supplies descriptions),
+        // do not auto-generate or overwrite name/description from global rules
+        // or per-product overlay hits. Intentional override copy still applies.
+        let copyLock = false;
+        if(ov){
+          if(ov.copyLock === true || ov.copyLock === "true" || ov.copyLock === 1){
+            copyLock = true;
+          }
+          if(!copyLock){
+            if(typeof ov.description === "string" && ov.description.trim()) copyLock = true;
+            if(typeof ov.descriptionShort === "string" && ov.descriptionShort.trim()) copyLock = true;
+          }
+        }
+
+        if(hit && !copyLock){
           if(typeof hit.title === "string" && hit.title.trim()) merged.name = hit.title.trim();
           if(typeof hit.subtitle === "string" && hit.subtitle.trim()) merged.subtitle = hit.subtitle.trim();
           if(typeof hit.description === "string" && hit.description.trim()) merged.blurb = hit.description.trim();
         }
+
+        const titleFormat = rules.titleFormat;
+        const defaultBrand = (rules.defaultBrand != null && rules.defaultBrand !== "") ? String(rules.defaultBrand) : "AeroVista";
+        if(titleFormat && !copyLock){
+          const collection = (ov && ov.collection != null) ? ov.collection : merged.collection;
+          const productType = (ov && ov.productType != null) ? ov.productType : (merged.category === "hoodies" ? "Pullover Hoodie" : merged.category === "tees" ? "T-Shirt" : merged.category === "hats" ? "Hat" : merged.category === "crewnecks" ? "Crewneck" : merged.name || "");
+          const color = (ov && ov.color != null) ? ov.color : (Array.isArray(merged.colors) && merged.colors[0] ? merged.colors[0] : "Default");
+          const formatted = formatTitle(titleFormat, { brand: defaultBrand, collection, productType, color });
+          if(formatted) merged.name = formatted;
+        }
+        if(ov){
+          if(ov.collection != null) merged.collection = ov.collection;
+          if(ov.productType != null) merged.productType = ov.productType;
+          // Curated override copy should always apply, even when copyLock is true.
+          if(typeof ov.descriptionShort === "string" && ov.descriptionShort.trim()) merged.descriptionShort = ov.descriptionShort.trim();
+          if(typeof ov.description === "string" && ov.description.trim()) merged.description = ov.description.trim();
+        }
+        const ladderKey = (ov && ov.ladderKey != null) ? ov.ladderKey : categoryToLadderKey(merged.category);
+        const priceLadders = rules.priceLadders && typeof rules.priceLadders === "object" ? rules.priceLadders : {};
+        const ladder = ladderKey ? priceLadders[ladderKey] : null;
+        if(ladder && typeof ladder === "object"){
+          const base = typeof ladder.base === "number" ? ladder.base : null;
+          if(Number.isFinite(base)) merged.price = base;
+          merged._priceLadder = ladder;
+        }
+
         if(tags.includes("featured")) merged.featured = true;
         if(merged._overlayHidden) continue;
         out.push(merged);
@@ -2544,7 +2693,7 @@
       const q = state.search.trim().toLowerCase();
       if(q){
         list = list.filter(p => {
-          const hay = `${p.name} ${p.subtitle || ""} ${p.blurb} ${p.fitNote} ${p.collection} ${p.category} ${(p.tags||[]).join(" ")} ${(p.colors||[]).join(" ")} ${(p.sizes||[]).join(" ")}`.toLowerCase();
+          const hay = `${p.name} ${p.subtitle || ""} ${p.blurb} ${p.descriptionShort || ""} ${p.description || ""} ${p.fitNote} ${p.collection} ${p.category} ${(p.tags||[]).join(" ")} ${(p.colors||[]).join(" ")} ${(p.sizes||[]).join(" ")}`.toLowerCase();
           return hay.includes(q);
         });
       }
@@ -2742,7 +2891,7 @@
 
           <div class="body">
             <h3 class="title">${escapeHtml(p.name)}</h3>
-            <p class="desc">${escapeHtml(p.blurb || "")}</p>
+            <p class="desc">${escapeHtml(p.descriptionShort != null ? p.descriptionShort : (p.blurb || ""))}</p>
             <div class="swatches">${swatches(p.colors)}</div>
             <div class="row">
               <div class="price">${fmt(p.price)}</div>
@@ -2837,7 +2986,7 @@
       modalTrigger = document.activeElement; // Store trigger
 
       $("#mTitle").textContent = p.name;
-      $("#mDesc").textContent = p.blurb || "";
+      $("#mDesc").textContent = (p.description != null ? p.description : p.blurb) || "";
       $("#mPrice").textContent = fmt(p.price);
 
       $("#mMeta").innerHTML = `
@@ -2967,7 +3116,8 @@
         existing.qty = Math.min(99, (existing.qty||0) + qty);
         existing.cartSku = existing.cartSku || cartSku;
       } else {
-        cart.push({ key, cartSku, productId, name:p.name, price:p.price, size, color, qty });
+        const price = getPriceForProduct(p, size);
+        cart.push({ key, cartSku, productId, name:p.name, price, size, color, qty });
       }
       saveCart(cart);
       toast("Added to cart");
@@ -3405,7 +3555,7 @@
               },
               shipping_note: ""
             },
-            cart: lines.map(x=>({ variation_id: x.variation_id, qty: x.qty, sku: x.key })),
+            cart: lines.map(x=>({ sku: x.cartSku, variationId: x.variation_id, qty: x.qty, size: x.size, color: x.color })),
             currency: boot.currency,
             payment_token: tokenResult.token
           };
@@ -3788,6 +3938,26 @@
       // Silently fail - API check is non-critical for initial page load
     });
     $("#sort").addEventListener("change", (e)=>{ state.sort = e.target.value; renderGrid(); });
+    (function(){
+      const el = $("#catalogSource");
+      if (!el) return;
+      el.value = getCatalogSource();
+      el.addEventListener("change", async (e)=>{
+        const v = e.target.value === "edited" ? "edited" : "live";
+        setCatalogSource(v);
+        try {
+          await loadProducts();
+          if (PRODUCTS.length === 0) { PRODUCTS = FALLBACK_PRODUCTS; }
+          PRODUCTS = applyOverlayToProducts(PRODUCTS);
+          renderGrid();
+          updateCartUI();
+          toast(v === "edited" ? "Showing edited catalog" : "Showing live catalog");
+        } catch(err) {
+          console.warn("Catalog switch failed:", err);
+          toast("Could not load catalog. Check console.");
+        }
+      });
+    })();
 
     // Nav
     $("#yr").textContent = new Date().getFullYear();
@@ -3819,6 +3989,8 @@
 
     // Init
     async function init(){
+      const catalogSourceEl = $("#catalogSource");
+      if (catalogSourceEl) catalogSourceEl.value = getCatalogSource();
       loadPromo();
       await loadOverlay();
       injectOverlayCollections();

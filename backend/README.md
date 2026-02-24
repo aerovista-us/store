@@ -1,5 +1,7 @@
 # AeroVista Store API (NXCore)
 
+**Storefront context:** The storefront can use two catalog sources (live vs edited); see repo root [README.md](../README.md) and [handoffnotes.md](../handoffnotes.md). This backend does not care which source the storefront used — it only receives cart items keyed by SKU/cart key and looks them up in the SKU map.
+
 ## What this is
 A minimal Flask API that:
 - exposes `/api/square/bootstrap` for the storefront
@@ -45,6 +47,11 @@ You can find variation IDs via:
 - Square Developer Console / Catalog API
 - or Square Dashboard → item variation details (depending on UI)
 
+The backend prices line items from **Square-shaped data only** (via
+`sku_map` / `SQUARE_SKU_MAP_JSON`) and ignores any client-sent price
+fields. Frontend ladders (overlay) are for display; Square remains
+checkout truth.
+
 ## Checkout returns 400
 `POST /api/square/checkout` returns 400 when the cart contains a SKU the server doesn’t know. The backend looks up each `cart[].sku` (e.g. `Black__M`) in **SQUARE_SKU_MAP_JSON** (or SQUARE_SKU_MAP_FILE). Fix:
 
@@ -53,3 +60,39 @@ You can find variation IDs via:
 3. Optional: add `"variationId": "SQ_..."` for Square catalog linkage.
 
 The response body includes an `error` message listing the unknown SKU. Use the same keys as the frontend’s cart (e.g. `Color__Size`).
+
+---
+
+## Scripts and utilities
+
+All scripts below are optional helpers; they do not change the runtime
+behavior of the API unless you explicitly wire them in.
+
+- `backend/scripts/update_sku_map_from_catalog.py`  
+  Generate `SQUARE_SKU_MAP_JSON` from `square_products_merged.json`
+  and update `backend/.env` with a JSON blob of SKU → `{ name, cents, variationId? }`.
+
+- `backend/scripts/generate_data_quality_report.py`  
+  Square-first data quality report. Run it against a Square export CSV
+  or a Square-shaped catalog JSON to find missing descriptions, images,
+  and prices. See `docs/DATA_QUALITY_AND_VALIDATION.md`.
+
+- `backend/scripts/validate_profit_floor.py`  
+  Profit floor validator that reads `storefront_overlay.json` and a
+  catalog JSON and fails when any laddered retail price dips below
+  `cost + shipBuffer + processor fees`. See
+  `docs/DATA_QUALITY_AND_VALIDATION.md`.
+
+- `backend/scripts/printful_my_products_export.py`  
+  Optional Printful helper (copied from dropship.store). Exports
+  `printful_my_products.csv` and `printful_my_variants.csv` using the
+  Printful API. Used **only** for fulfillment / cost reference, not as
+  a catalog or price source. See
+  `docs/PRINTFUL_FULFILLMENT_AND_MAPPING.md`.
+
+- `backend/scripts/build_printful_variant_map.py`  
+  Reads `printful_my_variants.csv` and writes
+  `backend/data/printful_variant_map.json` mapping your `external_id`
+  (typically a Square variation id) → Printful `variant_id`. This map
+  is safe to consume later when you are ready to integrate backend
+  fulfillment calls to Printful.

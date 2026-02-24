@@ -564,6 +564,7 @@
     renderList();
     computeStats();
     toast(`Imported ${norm.products.length} products.`);
+    setTimeout(() => { const q = $('q'); if (q) q.focus(); }, 80);
   };
 
   const importCsv = async (file) => {
@@ -579,6 +580,18 @@
     renderList();
     computeStats();
     toast(`Imported CSV: ${norm.products.length} products.`);
+    setTimeout(() => { const q = $('q'); if (q) q.focus(); }, 80);
+  };
+
+  const handleFileDrop = async (file) => {
+    if (!file) return;
+    const name = (file.name || '').toLowerCase();
+    try {
+      if (name.endsWith('.csv')) await importCsv(file);
+      else await importJson(file);
+    } catch (err) {
+      toast('Import failed: ' + (err.message || String(err)));
+    }
   };
 
   const exportJson = () => {
@@ -682,7 +695,7 @@
 
   const loadSample = () => {
     const sample = {
-      meta: { tool: 'sample', version: '1.0' },
+      meta: { tool: 'sample', version: '1.1' },
       products: [
         {
           id: uuid(),
@@ -691,12 +704,40 @@
           group: 'EchoVerse',
           type: 'tee',
           status: 'active',
-          tags: ['glitch','minimal','echopulse'],
+          tags: ['glitch', 'minimal', 'echopulse'],
           description: 'A clean EchoVerse tee with subtle pulse-line energy. Soft feel, durable print, daily-driver fit.',
           variants: [
-            { id: uuid(), sku: 'EP-TEE-BLK-S', color:'Black', size:'S', price:'29.99', inventory:'' },
-            { id: uuid(), sku: 'EP-TEE-BLK-M', color:'Black', size:'M', price:'29.99', inventory:'' },
-            { id: uuid(), sku: 'EP-TEE-WHT-S', color:'White', size:'S', price:'29.99', inventory:'' }
+            { id: uuid(), sku: 'EP-TEE-BLK-S', color: 'Black', size: 'S', price: '29.99', inventory: '' },
+            { id: uuid(), sku: 'EP-TEE-BLK-M', color: 'Black', size: 'M', price: '29.99', inventory: '' },
+            { id: uuid(), sku: 'EP-TEE-WHT-S', color: 'White', size: 'S', price: '29.99', inventory: '' }
+          ]
+        },
+        {
+          id: uuid(),
+          key: 'minimal-north-hoodie',
+          title: 'AeroVista Hoodie — Minimal North',
+          group: 'AeroVista',
+          type: 'hoodie',
+          status: 'active',
+          tags: ['minimal', 'curated', 'hoodie'],
+          description: 'Engineered minimal. Premium blank, clean placement, built for daily wear.',
+          variants: [
+            { id: uuid(), sku: 'AV-HOOD-BLK-M', color: 'Black', size: 'M', price: '54.99', inventory: '' },
+            { id: uuid(), sku: 'AV-HOOD-BLK-L', color: 'Black', size: 'L', price: '54.99', inventory: '' },
+            { id: uuid(), sku: 'AV-HOOD-WHT-M', color: 'White', size: 'M', price: '54.99', inventory: '' }
+          ]
+        },
+        {
+          id: uuid(),
+          key: 'holographic-goat-sticker',
+          title: 'Holographic Goat Sticker',
+          group: 'AeroVista',
+          type: 'sticker',
+          status: 'active',
+          tags: ['holographic', 'sticker', 'goat'],
+          description: 'Holo finish sticker. Laptop, bottle, or board—adds a little signal.',
+          variants: [
+            { id: uuid(), sku: 'STICK-HOLO-1', color: 'Holographic', size: 'One Size', price: '5.00', inventory: '' }
           ]
         }
       ]
@@ -710,6 +751,7 @@
     renderList();
     computeStats();
     toast('Loaded sample catalog.');
+    setTimeout(() => { const q = $('q'); if (q) q.focus(); }, 80);
   };
 
   // ---- Bind editor fields ----
@@ -766,6 +808,18 @@
   const bindUi = () => {
     $('btnImport').addEventListener('click', ()=> $('fileInput').click());
     $('btnImport2').addEventListener('click', ()=> $('fileInput').click());
+    const emptyState = $('emptyState');
+    if (emptyState) {
+      emptyState.addEventListener('dragover', (e) => { e.preventDefault(); e.stopPropagation(); emptyState.classList.add('opacity-90', 'ring-2', 'ring-cyan-400'); });
+      emptyState.addEventListener('dragleave', (e) => { e.preventDefault(); emptyState.classList.remove('opacity-90', 'ring-2', 'ring-cyan-400'); });
+      emptyState.addEventListener('drop', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        emptyState.classList.remove('opacity-90', 'ring-2', 'ring-cyan-400');
+        const file = e.dataTransfer?.files?.[0];
+        if (file) handleFileDrop(file);
+      });
+    }
     $('fileInput').addEventListener('change', async (e)=>{
       const f = e.target.files?.[0];
       if (!f) return;
@@ -860,6 +914,13 @@
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase()==='s'){
         e.preventDefault();
         saveLocal();
+        return;
+      }
+      // "/" focus search (when not typing in an input)
+      if (e.key === '/' && !/^(input|textarea|select)$/i.test((e.target||{}).tagName) && !e.ctrlKey && !e.metaKey && !e.altKey){
+        e.preventDefault();
+        const q = $('q');
+        if (q) { q.focus(); q.select && q.select(); }
       }
     });
   };

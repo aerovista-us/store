@@ -1,22 +1,51 @@
 {
+  "version": 1,
   "meta": {
     "updatedAt": "2026-02-21T00:00:00Z",
     "schemaVersion": 1,
-    "notes": "Dual-key overlay: variationId first, cartKey fallback.",
-    "identityModel": {
-      "merchandisingIdentity": "variationId",
-      "checkoutIdentityCurrent": "cartKey"
+    "notes": "Dual-key overlay: variationId first, cartKey fallback. Consistency: rules + overrides apply to both Live and Edited catalog."
+  },
+  "rules": {
+    "titleFormat": "{brand} • {collection} • {productType} • {color}",
+    "defaultBrand": "AeroVista",
+    "priceLadders": {
+      "tee": { "base": 34.99, "2XL": 37.99, "3XL": 39.99 },
+      "hoodie_pullover": { "base": 59.99, "2XL": 64.99, "3XL": 69.99 },
+      "hoodie_zip": { "base": 64.99, "2XL": 67.99, "3XL": 69.99 },
+      "trucker_hat": { "base": 34.99 },
+      "crewneck": { "base": 48.99, "2XL": 51.99, "3XL": 53.99 }
+    },
+    "fees": { "processorPct": 0.03, "processorFixedCents": 30 },
+    "shipBufferCents": 400,
+    "costByLadder": {
+      "tee": { "base": 1495, "2XL": 1795, "3XL": 1995 },
+      "hoodie_pullover": { "base": 3395, "2XL": 3695, "3XL": 3995 },
+      "hoodie_zip": { "base": 3795, "2XL": 4095, "3XL": 4395 },
+      "trucker_hat": { "base": 1329 },
+      "crewneck": { "base": 2495, "2XL": 2695, "3XL": 2895 }
+    }
+  },
+  "overrides": {
+    "aerovista_apex-draft_pullover_hoodie": {
+      "collection": "Apex Draft",
+      "productType": "Pullover Hoodie",
+      "color": "Black",
+      "descriptionShort": "Clean front mark, warm structure, built for daily wear.",
+      "description": "FULL CUSTOMER-FACING DESCRIPTION HERE"
+    },
+    "aerovista_orbit_trucker_hat": {
+      "collection": "Orbit",
+      "productType": "Retro Trucker Hat",
+      "color": "Gray",
+      "descriptionShort": "Structured front, breathable mesh, clean orbit mark.",
+      "description": "FULL CUSTOMER-FACING DESCRIPTION HERE"
     }
   },
   "itemsByVariationId": {
     "EHDPCB4W5OHY4MFRVHVZERAD": {
       "cartKey": "Black__M",
       "title": "AeroVista Apex Draft Pullover Hoodie (Black, M)",
-      "tags": [
-        "division:aerovista",
-        "featured",
-        "hoodie"
-      ],
+      "tags": ["division:aerovista", "featured", "hoodie"],
       "order": 20,
       "visible": true
     }
@@ -26,48 +55,28 @@
       "title": "Founders Hoodie (Black, M)",
       "subtitle": "Dirty Bass / Clean Signal",
       "description": "Starter overlay entry keyed by cart key.",
-      "tags": [
-        "division:nexus",
-        "featured",
-        "hoodie"
-      ],
+      "tags": ["division:nexus", "featured", "hoodie"],
       "order": 10,
       "visible": true
     },
     "TEST": {
       "title": "Test Item",
       "description": "Seed SKU used to validate checkout wiring.",
-      "tags": [
-        "featured",
-        "test"
-      ],
+      "tags": ["featured", "test"],
       "order": 999,
       "visible": false
     }
   },
   "collections": [
-    {
-      "id": "featured",
-      "title": "Featured",
-      "rule": "tag:featured",
-      "order": 0
-    },
-    {
-      "id": "division-nexus",
-      "title": "Nexus TechWorks",
-      "rule": "tag:division:nexus",
-      "order": 10
-    }
+    { "id": "featured", "title": "Featured", "rule": "tag:featured", "order": 0 },
+    { "id": "division-nexus", "title": "Nexus TechWorks", "rule": "tag:division:nexus", "order": 10 }
   ],
   "ads": [
     {
       "id": "ad-01",
       "title": "Synthetic Souls Drop",
       "body": "New merch live tonight.",
-      "cta": {
-        "label": "See Drop",
-        "href": "#collection=featured"
-      },
+      "cta": { "label": "See Drop", "href": "#collection=featured" },
       "order": 5,
       "visible": true
     }

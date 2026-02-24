@@ -13,7 +13,8 @@ A local-first HTML editor for Square-style product JSON catalogs.
 - Save/load from `localStorage`
 
 ## Run
-Open `index.html` in a browser (Chrome/Edge recommended).
+- **Local:** Open `v1.1/index.html` in a browser (Chrome/Edge recommended).
+- **Docker:** From this directory run `docker compose up -d --build`, then open http://localhost:8080 (serves `v1.1/` via nginx).
 
 ## Notes
 - No server needed
