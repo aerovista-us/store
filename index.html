@@ -10,6 +10,8 @@
   <meta property="og:description" content="Curated comfort essentials: hoodies, crewnecks, hats." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
+  <link rel="canonical" id="canonicalLink" href="" />
+  <link rel="preload" href="https://web.squarecdn.com/v1/square.js" as="script" />
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
   <link rel="apple-touch-icon" href="./favicon.svg" />
   <style>
@@ -321,6 +323,66 @@
       pointer-events: none;
     }
     .img.has-holo{ position: relative; overflow: hidden; }
+
+    /* Glitch overlay — applies to products with "Glitch" in name/tags; reacts to hover */
+    .glitch-overlay{
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+    }
+    .img.has-glitch{ position: relative; overflow: hidden; }
+    .img.has-glitch:hover .glitch-overlay{
+      opacity: 1;
+      animation: glitch-burst 0.35s ease-out forwards;
+    }
+    .img.has-glitch:hover .glitch-overlay::before{
+      animation: glitch-split-left 0.35s ease-out;
+    }
+    .img.has-glitch:hover .glitch-overlay::after{
+      animation: glitch-split-right 0.35s ease-out;
+    }
+    .glitch-overlay::before,
+    .glitch-overlay::after{
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      opacity: 0.4;
+      mix-blend-mode: screen;
+    }
+    .glitch-overlay::before{
+      background: linear-gradient(90deg, rgba(255,0,80,.6) 0%, transparent 50%, transparent 100%);
+      transform: translateX(0);
+    }
+    .glitch-overlay::after{
+      background: linear-gradient(90deg, transparent 0%, transparent 50%, rgba(0,255,255,.6) 100%);
+      transform: translateX(0);
+    }
+    @keyframes glitch-burst{
+      0%{ opacity: 0; filter: hue-rotate(0deg); }
+      15%{ opacity: 1; filter: hue-rotate(-5deg); }
+      30%{ opacity: 0.9; filter: hue-rotate(8deg); }
+      45%{ opacity: 1; filter: hue-rotate(-3deg); }
+      60%{ opacity: 0.95; filter: hue-rotate(4deg); }
+      100%{ opacity: 0; filter: hue-rotate(0deg); }
+    }
+    @keyframes glitch-split-left{
+      0%,100%{ transform: translateX(0); }
+      20%{ transform: translateX(-4px); }
+      40%{ transform: translateX(3px); }
+      60%{ transform: translateX(-2px); }
+      80%{ transform: translateX(2px); }
+    }
+    @keyframes glitch-split-right{
+      0%,100%{ transform: translateX(0); }
+      20%{ transform: translateX(4px); }
+      40%{ transform: translateX(-3px); }
+      60%{ transform: translateX(2px); }
+      80%{ transform: translateX(-2px); }
+    }
 
     /* Noise/scanline overlay - holo card texture (Option C) */
     .heroNoise{
@@ -1162,6 +1224,7 @@
             <div class="chip" data-cat="hats">Hats</div>
             <div class="chip" data-cat="stickers">Stickers</div>
           </div>
+          <div id="tagChips" class="chips mt-2" aria-label="Tag filters" style="margin-top:8px"></div>
 
           <div class="system" aria-label="Curated system">
             <div class="sysCard">
@@ -1496,6 +1559,9 @@
 
       <div style="color:var(--muted); font-size:12px;">
         Checkout opens secure Square payment. Requires API connectivity.
+      </div>
+      <div style="color:var(--muted); font-size:11px; margin-top:8px;">
+        Cart saved locally.
       </div>
     </div>
   </aside>
@@ -2428,6 +2494,7 @@
     const state = {
       collection: "all",
       cat: "all",
+      tagFilter: "all",
       search: "",
       sort: "featured",
       modalProduct: null,
@@ -2690,6 +2757,10 @@
         list = list.filter(p => !p.isAd && p.category === state.cat);
       }
 
+      if(state.tagFilter !== "all"){
+        list = list.filter(p => !p.isAd && Array.isArray(p.tags) && p.tags.some(t => String(t).toLowerCase() === state.tagFilter.toLowerCase()));
+      }
+
       const q = state.search.trim().toLowerCase();
       if(q){
         list = list.filter(p => {
@@ -2729,8 +2800,10 @@
                    (p.collection === "Square") ? "SQ" :
                    "AV";
 
+      const title = (p && (p.name || p.title)) ? escapeHtml(String(p.name || p.title)) : "Product image";
       return `
       <svg viewBox="0 0 900 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <title>${title}</title>
         <defs>
           <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
             <stop offset="0" stop-color="${a}"/>
@@ -2819,6 +2892,16 @@
       return false;
     }
 
+    /** Whether product gets the glitch overlay (name or tags contain "Glitch"); reacts to hover */
+    function productHasGlitch(p){
+      if(!p) return false;
+      const name = (p.name || "").toLowerCase();
+      if(name.includes("glitch")) return true;
+      const tags = (p.tags || []).map(t=>String(t).toLowerCase());
+      if(tags.includes("glitch")) return true;
+      return false;
+    }
+
     function renderGrid(){
       const grid = $("#grid");
       const list = filterProducts();
@@ -2839,7 +2922,7 @@
         if(statusEl) statusEl.textContent = "No products found. Try adjusting your filters.";
         $("#clearFilters").onclick = () => {
           state.collection="all"; setActiveCollection("all");
-          state.cat="all"; setActiveChip("all");
+          state.cat="all"; state.tagFilter="all"; setActiveChip("all"); setActiveTagChip("all");
           state.search=""; $("#search").value="";
           state.sort="featured"; $("#sort").value="featured";
           renderGrid();
@@ -2880,13 +2963,16 @@
           imgContent = productSvg(p);
         }
         const hasHolo = productHasHolo(p);
+        const hasGlitch = productHasGlitch(p);
+        const imgClasses = ['img'].concat(hasHolo ? ['has-holo'] : [], hasGlitch ? ['has-glitch'] : []).join(' ');
         return `
-        <article class="card" ${hasHolo ? 'data-holo="1"' : ''}>
-          <div class="img${hasHolo ? ' has-holo' : ''}" role="img" aria-label="${escapeHtml(p.name)} image">
+        <article class="card" ${hasHolo ? 'data-holo="1"' : ''}${hasGlitch ? ' data-glitch="1"' : ''}>
+          <div class="${imgClasses}" role="img" aria-label="${escapeHtml(p.name)} image">
             ${imgContent}
             <div class="label"><span class="dot"></span>${escapeHtml(p.collection)} · ${categoryLabel(p.category)}</div>
             ${flagsHtml(p) || `<div></div>`}
             ${hasHolo ? '<div class="holo-overlay" aria-hidden="true"></div>' : ''}
+            ${hasGlitch ? '<div class="glitch-overlay" aria-hidden="true"></div>' : ''}
           </div>
 
           <div class="body">
@@ -2911,7 +2997,11 @@
           if(href.startsWith("#collection=")){
             const rule = decodeURIComponent(href.replace("#collection=", ""));
             state.collection = rule;
+            state.cat = "all";
+            state.tagFilter = "all";
             setActiveCollection(state.collection);
+            setActiveChip("all");
+            setActiveTagChip("all");
             renderGrid();
             return;
           }
@@ -3513,6 +3603,11 @@
           $("#payZip").focus();
           return false;
         }
+        if(!/^[0-9]{5}(-[0-9]{4})?$/.test(zip)){
+          toast("Please enter a valid US ZIP code (e.g. 12345 or 12345-6789)");
+          $("#payZip").focus();
+          return false;
+        }
         if(!country){
           toast("Please enter your country");
           $("#payCountry").focus();
@@ -3521,13 +3616,16 @@
         return true;
       }
 
+      let payButtonCooldown = false;
       $("#payNow").onclick = async () => {
+        if (payButtonCooldown) return;
         // Validate form first
         if(!validateCheckoutForm()) return;
 
         const payBtn = $("#payNow");
         const originalText = payBtn.textContent;
         payBtn.disabled = true;
+        payButtonCooldown = true;
         payBtn.textContent = "Processing...";
         
         try{
@@ -3602,6 +3700,7 @@
         }finally{
           payBtn.disabled = false;
           payBtn.textContent = originalText;
+          setTimeout(() => { payButtonCooldown = false; }, 2000);
         }
       };
     }
@@ -3614,12 +3713,12 @@
 
       const lines = cartToSquareLines(cart);
       const cartPayload = lines.map(it => ({
-        // Product-scoped key so backend maps to correct item (id__size__color); fallback to color__size for legacy.
+        // Backend sku_map and overlay use cartKey = color__size (e.g. Black__M). Must send that as sku.
         sku: String(
+          it.cartSku ||
+          ((it.color != null && it.size != null) ? `${it.color}__${it.size}` : "") ||
           it.key ||
           (it.productId && it.size && it.color ? `${it.productId}__${it.size}__${it.color}` : "") ||
-          it.cartSku ||
-          ((it.color && it.size) ? `${it.color}__${it.size}` : "") ||
           it.sku ||
           it.id ||
           ""
@@ -3688,12 +3787,47 @@
 
     // Filters
     function setActiveChip(cat){
-      $$(".chip").forEach(c=> c.classList.toggle("active", c.getAttribute("data-cat") === cat));
+      $$(".chips .chip[data-cat]").forEach(c=> c.classList.toggle("active", c.getAttribute("data-cat") === cat));
     }
-    $$(".chip").forEach(c=>{
+    function setActiveTagChip(tag){
+      $$("#tagChips .chip").forEach(c=> c.classList.toggle("active", c.getAttribute("data-tag") === tag));
+    }
+    function buildTagChips(){
+      const container = $("#tagChips");
+      if(!container) return;
+      const tagSet = new Set();
+      for(const p of PRODUCTS){
+        if(p.isAd) continue;
+        for(const t of (p.tags||[])) if(t) tagSet.add(String(t).trim());
+      }
+      const tags = [...tagSet].sort((a,b)=>a.localeCompare(b));
+      container.innerHTML = "";
+      if(tags.length === 0) return;
+      const allBtn = document.createElement("div");
+      allBtn.className = "chip" + (state.tagFilter === "all" ? " active" : "");
+      allBtn.setAttribute("data-tag", "all");
+      allBtn.textContent = "All tags";
+      allBtn.setAttribute("role", "button");
+      allBtn.setAttribute("tabindex", "0");
+      allBtn.onclick = ()=>{ state.tagFilter = "all"; setActiveTagChip("all"); renderGrid(); };
+      allBtn.onkeydown = (e)=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); allBtn.click(); }};
+      container.appendChild(allBtn);
+      for(const tag of tags){
+        const btn = document.createElement("div");
+        btn.className = "chip" + (state.tagFilter.toLowerCase() === tag.toLowerCase() ? " active" : "");
+        btn.setAttribute("data-tag", tag);
+        btn.textContent = tag;
+        btn.setAttribute("role", "button");
+        btn.setAttribute("tabindex", "0");
+        btn.onclick = ()=>{ state.tagFilter = tag; setActiveTagChip(tag); setActiveChip("all"); state.cat = "all"; renderGrid(); };
+        btn.onkeydown = (e)=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); btn.click(); }};
+        container.appendChild(btn);
+      }
+    }
+    $$(".chips .chip[data-cat]").forEach(c=>{
       c.setAttribute("role", "button");
       c.setAttribute("tabindex", "0");
-      c.onclick = () => { state.cat = c.getAttribute("data-cat"); setActiveChip(state.cat); renderGrid(); };
+      c.onclick = () => { state.cat = c.getAttribute("data-cat"); state.tagFilter = "all"; setActiveChip(state.cat); setActiveTagChip("all"); renderGrid(); };
       c.onkeydown = (e) => {
         if(e.key === "Enter" || e.key === " "){
           e.preventDefault();
@@ -3949,6 +4083,7 @@
           await loadProducts();
           if (PRODUCTS.length === 0) { PRODUCTS = FALLBACK_PRODUCTS; }
           PRODUCTS = applyOverlayToProducts(PRODUCTS);
+          buildTagChips();
           renderGrid();
           updateCartUI();
           toast(v === "edited" ? "Showing edited catalog" : "Showing live catalog");
@@ -3961,6 +4096,8 @@
 
     // Nav
     $("#yr").textContent = new Date().getFullYear();
+    const canonicalEl = document.getElementById("canonicalLink");
+    if (canonicalEl) canonicalEl.href = (window.STORE_CANONICAL_URL || (window.location.origin + window.location.pathname)).replace(/\/?$/, "") || window.location.href.split("?")[0];
     $("#scrollToProducts").onclick = ()=> $("#productsSection").scrollIntoView({ behavior:"smooth", block:"start" });
     $("#homeLink").onclick = (e)=>{ e.preventDefault(); window.scrollTo({top:0, behavior:"smooth"}); };
 
@@ -4001,6 +4138,7 @@
           PRODUCTS = FALLBACK_PRODUCTS;
         }
         PRODUCTS = applyOverlayToProducts(PRODUCTS);
+        buildTagChips();
         renderGrid();
         updateCartUI();
       } catch(err) {
@@ -4009,6 +4147,7 @@
         if (FALLBACK_PRODUCTS && FALLBACK_PRODUCTS.length > 0) {
           PRODUCTS = FALLBACK_PRODUCTS;
           PRODUCTS = applyOverlayToProducts(PRODUCTS);
+          buildTagChips();
           renderGrid();
           updateCartUI();
           toast("Using cached products. Some items may be outdated.");
@@ -4038,6 +4177,7 @@
         PRODUCTS = applyOverlayToProducts(PRODUCTS);
       }
       console.log("Initializing with", PRODUCTS.length, "products. Build:", STORE_BUILD_ID);
+      buildTagChips();
       renderGrid();
       updateCartUI();
     }
