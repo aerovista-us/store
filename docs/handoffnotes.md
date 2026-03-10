@@ -116,6 +116,7 @@ One layer normalizes **how** products are shown, for **both** Live and Edited ca
 
 - **Root:** `README.md` — layout, catalog sources, Catalog Console, API config, backend pointer.
 - **This file:** `handoffnotes.md` — dev quick-reference (you are here).
+- **How to update products:** `docs/HOW_TO_UPDATE_PRODUCTS.md` — step-by-step guide for live catalog, edited catalog, overlay, and validation.
 - **Backend:** `backend/README.md` — setup, env, CORS, SKU map, checkout 400.
 - **Data quality + validation:** `docs/DATA_QUALITY_AND_VALIDATION.md` — Square export data quality script, Catalog Console v1.1 Validate tab, profit floor validator; recommended order.
 - **Printful mapping:** `docs/PRINTFUL_FULFILLMENT_AND_MAPPING.md` — how to run Printful exports and build a Square → Printful variant map (fulfillment/cost only).

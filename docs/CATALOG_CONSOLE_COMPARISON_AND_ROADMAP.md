@@ -33,7 +33,9 @@
 | Export Edits CSV (overlay) | ✅ | ✅ |
 | Save/Load localStorage | ✅ | ✅ |
 | Filter by group/type/search | ✅ | ✅ |
+| Filter by tag (dropdown) | ❌ | ✅ |
 | Edit product: title, description, group, type, tags, status | ✅ | ✅ |
+| Preset tags (chips) + custom tags per product | ❌ | ✅ |
 | Edit variants: SKU, color, size, price, inventory | ✅ | ✅ |
 | Auto-split variants (e.g. "Color, Size") | ✅ | ✅ |
 | Duplicate / Delete product | ✅ | ✅ |

@@ -15,6 +15,10 @@ This folder holds hosting, routing, deployment, and planning docs. The **canonic
 - **Catalog Console:** `AeroVista_Catalog_Console/v1.1/` — import Square export, clean/merge, export JSON for the storefront (edited source).
 - **Backend API:** `backend/` — served at **api.aerovista.us** via Cloudflare Tunnel → NXCore → Traefik → av-store-api.
 
+## What to push (site requirements)
+
+- **[FILES_REQUIRED_FOR_SITE.md](FILES_REQUIRED_FOR_SITE.md)** — which files are required for the site to work; how to stop tracking unnecessary files. Run `scripts/remove-unneeded-from-git.ps1` to untrack unneeded paths.
+
 ## Hosting & DNS
 
 - **[HOSTING_AND_DNS.md](HOSTING_AND_DNS.md)** — DNS, Firebase, Cloudflare Tunnel, NXCore split-DNS, CORS.
@@ -42,6 +46,16 @@ In root `index.html`, checkout uses `window.STORE_API_BASE` (e.g. `https://api.a
 
 - **[DATA_QUALITY_AND_VALIDATION.md](DATA_QUALITY_AND_VALIDATION.md)** — Square export data quality script, Catalog Console v1.1 Validate tab, and profit floor validator; recommended pre-publish order.
 - **[PRINTFUL_FULFILLMENT_AND_MAPPING.md](PRINTFUL_FULFILLMENT_AND_MAPPING.md)** — how to run Printful exports and build a Square → Printful variant map without making Printful a catalog or price source.
+
+## Project review
+
+- **[PROJECT_REVIEW.md](PROJECT_REVIEW.md)** — full project review: layout, tech stack, Catalog Console root vs v1.1, storefront/backend behavior, findings and recommendations.
+- **[HOW_TO_UPDATE_PRODUCTS.md](HOW_TO_UPDATE_PRODUCTS.md)** — step-by-step guide for updating catalog (live/edited), overlay, and validation.
+
+## Audits
+
+- **[PROJECT_AUDIT_2026-03.md](PROJECT_AUDIT_2026-03.md)** — March 2026 project audit: structure, security, dependencies, config, testing gaps.
+- **[AUDIT_REPORT.md](AUDIT_REPORT.md)** — Feb 2026 storefront audit (a11y, CSP, forms); **[AUDIT_RESOLUTION_CHECKLIST.md](AUDIT_RESOLUTION_CHECKLIST.md)** — resolution status.
 
 ## Other docs
 

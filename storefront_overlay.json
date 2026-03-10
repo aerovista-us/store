@@ -73,6 +73,15 @@
   ],
   "ads": [
     {
+      "id": "gift-card",
+      "title": "AeroVista eGift Card",
+      "body": "Let them pick their own signal — send an AeroVista digital gift card.",
+      "cta": { "label": "Buy Gift Card", "href": "https://app.squareup.com/gift/1149XBNG8C8ZE/order" },
+      "order": 3,
+      "visible": true,
+      "tags": ["featured", "gift-card"]
+    },
+    {
       "id": "ad-01",
       "title": "Synthetic Souls Drop",
       "body": "New merch live tonight.",

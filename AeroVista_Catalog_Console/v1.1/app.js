@@ -11,7 +11,12 @@
     selectedId: null,
     dirtyIds: new Set(),
     lastImportedName: null,
+    projectDirHandle: null,    // File System Access API handle (session)
+    existingOverlay: null,     // Loaded storefront_overlay.json for merge
   };
+
+  // Preset tags for multi-select dropdown; used for grouping/filtering on storefront
+  const PRESET_TAGS = ['featured', 'hoodies', 'crewnecks', 'tees', 'hats', 'stickers', 'echoverse', 'nxcore', 'aerovista', 'limited'];
 
   // ---- Helpers ----
   const nowIso = () => new Date().toISOString();
@@ -140,95 +145,6 @@
     return Math.round(n*100);
   };
 
-  // ---- CSV → Catalog JSON (schema: { products: [...] }) ----
-  const parseCSV = (text) => {
-    const rows = [];
-    let i = 0;
-    const s = String(text).replace(/\r\n/g, '\n').replace(/\r/g, '\n');
-    while (i < s.length) {
-      const row = [];
-      while (i < s.length) {
-        if (s[i] === '"') {
-          i += 1;
-          let cell = '';
-          while (i < s.length) {
-            if (s[i] === '"') {
-              i += 1;
-              if (s[i] === '"') { cell += '"'; i += 1; }
-              else break;
-            } else { cell += s[i]; i += 1; }
-          }
-          row.push(cell);
-        } else {
-          let cell = '';
-          while (i < s.length && s[i] !== ',' && s[i] !== '\n') { cell += s[i]; i += 1; }
-          row.push(cell.trim());
-        }
-        if (i < s.length && s[i] === ',') { i += 1; continue; }
-        if (i < s.length && s[i] === '\n') { i += 1; break; }
-      }
-      if (row.length) rows.push(row);
-    }
-    return rows;
-  };
-
-  const toCamelCase = (str) => {
-    const s = String(str).trim().replace(/\s+/g, ' ');
-    if (!s) return '';
-    return s.split(/[\s_-]+/).filter(Boolean).map((p, i) => {
-      const lower = p.toLowerCase();
-      return i === 0 ? lower : lower.charAt(0).toUpperCase() + lower.slice(1);
-    }).join('');
-  };
-
-  const csvToCatalogJson = (csvText) => {
-    const rows = parseCSV(csvText);
-    if (!rows.length) throw new Error('CSV is empty');
-    const rawHeaders = rows[0];
-    const headers = rawHeaders.map((h, idx) => {
-      const key = toCamelCase(h);
-      return key || 'field' + idx;
-    });
-    const products = [];
-    for (let r = 1; r < rows.length; r++) {
-      const row = rows[r];
-      const obj = {};
-      for (let c = 0; c < headers.length; c++) {
-        const key = headers[c];
-        let val = row[c] !== undefined ? String(row[c]).trim() : '';
-        if (key.toLowerCase() === 'price') {
-          const num = parseFloat(val.replace(/[$,]/g, ''));
-          if (!isNaN(num)) val = (num < 100 && num > 0 && val.includes('.')) ? Math.round(num * 100) : Math.round(num);
-        } else if (/^\d+$/.test(val)) val = parseInt(val, 10);
-        else if (/^\d*\.\d+$/.test(val)) val = parseFloat(val);
-        obj[key] = val;
-      }
-      const title = obj.title || obj.name || obj.Title || obj.Name || '';
-      const priceVal = obj.price != null && obj.price !== '' ? obj.price : (obj.priceCents != null ? obj.priceCents : '');
-      const priceDisplay = typeof priceVal === 'number' && priceVal >= 100 ? (priceVal / 100).toFixed(2) : (priceVal === '' ? '' : String(priceVal));
-      products.push({
-        id: obj.id || obj.productId || obj.sku || uuid(),
-        title: title || ('Item ' + r),
-        description: obj.description || obj.desc || '',
-        group: obj.group || obj.collection || '',
-        type: obj.type || obj.category || obj.productType || '',
-        tags: typeof obj.tags === 'string' ? obj.tags.split(',').map(s => s.trim()).filter(Boolean) : (Array.isArray(obj.tags) ? obj.tags : []),
-        status: obj.status || 'active',
-        key: obj.key || obj.handle || slugify(title || ('item-' + r)),
-        imagePath: obj.imagePath || obj.image || obj.img || '',
-        variants: [{
-          id: uuid(),
-          sku: obj.sku || obj.variantSku || '',
-          color: obj.color || '',
-          size: obj.size || '',
-          price: priceDisplay,
-          inventory: obj.inventory ?? ''
-        }]
-      });
-    }
-    return { products };
-  };
-
   const computeStats = () => {
     const items = state.catalog.products.length;
     const variants = state.catalog.products.reduce((a,p)=>a+(p.variants?.length||0),0);
@@ -241,11 +157,15 @@
   const fillFilters = () => {
     const groups = new Set(['(all)']);
     const types = new Set(['(all)']);
+    const tags = new Set(['(all)']);
     for (const p of state.catalog.products){
       if (p.group) groups.add(p.group);
       if (p.type) types.add(p.type);
+      for (const t of (p.tags || [])) if (t) tags.add(t);
     }
+    for (const t of PRESET_TAGS) tags.add(t);
     const setOptions = (sel, set) => {
+      if (!sel) return;
       sel.innerHTML = '';
       [...set].sort((a,b)=>a.localeCompare(b)).forEach(v=>{
         const o = document.createElement('option');
@@ -256,6 +176,7 @@
     };
     setOptions($('filterGroup'), groups);
     setOptions($('filterType'), types);
+    setOptions($('filterTags'), tags);
   };
 
   const matches = (p, q) => {
@@ -272,10 +193,12 @@
     const q = $('q').value.trim().toLowerCase();
     const fg = $('filterGroup').value;
     const ft = $('filterType').value;
+    const ftag = ($('filterTags') && $('filterTags').value) || '(all)';
 
     const items = state.catalog.products
       .filter(p => (fg==='(all)' || (p.group||'')===fg))
       .filter(p => (ft==='(all)' || (p.type||'')===ft))
+      .filter(p => (ftag==='(all)' || (Array.isArray(p.tags) && p.tags.some(t=>String(t).toLowerCase()===ftag.toLowerCase()))))
       .filter(p => (q==='' || matches(p,q)))
       .map(p => ({
         p,
@@ -336,6 +259,35 @@
     return (Math.min(...prices)).toFixed(2);
   };
 
+  const renderTagPresets = (p) => {
+    const container = $('p_tagPresets');
+    if (!container) return;
+    container.innerHTML = '';
+    const tags = Array.isArray(p?.tags) ? p.tags.map(t=>String(t).toLowerCase()) : [];
+    for (const tag of PRESET_TAGS) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = `chip text-[11px] px-2 py-1 rounded-lg tagToggle ${tags.includes(tag) ? 'active border-[rgba(0,229,255,.4)] bg-[rgba(0,229,255,.12)]' : ''}`;
+      btn.textContent = tag;
+      btn.dataset.tag = tag;
+      btn.addEventListener('click', () => {
+        const prod = getSelected();
+        if (!prod) return;
+        prod.tags = prod.tags || [];
+        const idx = prod.tags.map(t=>String(t).toLowerCase()).indexOf(tag);
+        if (idx >= 0) prod.tags.splice(idx, 1);
+        else prod.tags.push(tag);
+        setDirty(prod.id, true);
+        rebuildRaw(prod);
+        renderList();
+        renderTagPresets(prod);
+        const custom = (prod.tags||[]).filter(t=>!PRESET_TAGS.includes(String(t).toLowerCase()));
+        if ($('p_tagsCustom')) $('p_tagsCustom').value = custom.join(', ');
+      });
+      container.appendChild(btn);
+    }
+  };
+
   const setDirty = (pid, dirty=true) => {
     if (!pid) return;
     if (dirty) state.dirtyIds.add(pid);
@@ -363,7 +315,9 @@
     $('p_group').value = p.group||'';
     $('p_type').value = p.type||'';
     $('p_desc').value = p.description||'';
-    $('p_tags').value = (p.tags||[]).join(', ');
+    renderTagPresets(p);
+    const customTags = (p.tags||[]).filter(t=>!PRESET_TAGS.includes(String(t).toLowerCase()));
+    if ($('p_tagsCustom')) $('p_tagsCustom').value = customTags.join(', ');
     $('p_key').value = p.key||'';
     $('p_status').value = p.status||'active';
 
@@ -564,46 +518,51 @@
     renderList();
     computeStats();
     toast(`Imported ${norm.products.length} products.`);
-    setTimeout(() => { const q = $('q'); if (q) q.focus(); }, 80);
   };
 
-  const importCsv = async (file) => {
-    const text = await file.text();
-    const data = csvToCatalogJson(text);
-    const norm = normalizeIncoming(data);
-    state.catalog = { meta: norm.meta, products: norm.products };
-    state.selectedId = null;
-    state.dirtyIds.clear();
-    state.lastImportedName = (file.name || '').replace(/\.csv$/i, '') + '.json';
-    setEditorEnabled(false);
-    fillFilters();
-    renderList();
-    computeStats();
-    toast(`Imported CSV: ${norm.products.length} products.`);
-    setTimeout(() => { const q = $('q'); if (q) q.focus(); }, 80);
-  };
-
-  const handleFileDrop = async (file) => {
-    if (!file) return;
-    const name = (file.name || '').toLowerCase();
-    try {
-      if (name.endsWith('.csv')) await importCsv(file);
-      else await importJson(file);
-    } catch (err) {
-      toast('Import failed: ' + (err.message || String(err)));
-    }
+  // Convert Console internal format to storefront catalog format
+  const toStoreCatalogFormat = (products) => {
+    const isSquareId = (s) => s && /^[A-Z0-9]{20,}$/i.test(String(s).trim());
+    return (products || []).map((p) => {
+      const desc = (p.description || '').trim();
+      const descHtml = desc ? (desc.includes('<') ? desc : '<p>' + desc.replace(/\n/g,'</p><p>') + '</p>') : '';
+      const productColor = (p.variants && p.variants[0] && p.variants[0].color) ? p.variants[0].color : '';
+      const variants = (p.variants || []).map((v) => {
+        const vid = (v.id || v.variation_id || '').toString().trim();
+        const priceNum = Number(String(v.price || '').replace(/[^\d.]/g, ''));
+        return {
+          size: (v.size || '').trim() || 'One Size',
+          sku: (v.sku || '').trim(),
+          price: Number.isFinite(priceNum) ? priceNum : (p.price ? Number(p.price) : 0),
+          variation_id: isSquareId(vid) ? vid : ''
+        };
+      });
+      return {
+        id: p.id || slugify(p.title),
+        name: (p.title || '').trim() || 'Untitled',
+        color: productColor,
+        category: (p.group || p.type || p.category || '').trim(),
+        price: variants[0]?.price ?? 0,
+        visibility: p.status === 'hidden' ? 'hidden' : 'visible',
+        shipping_enabled: p.shipping_enabled || '',
+        description_text: desc.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim(),
+        description_html: descHtml,
+        variants
+      };
+    });
   };
 
   const exportJson = () => {
-    // Export in our canonical shape: {meta, products}
+    const storeProducts = toStoreCatalogFormat(state.catalog.products);
     const payload = {
       meta: {
         ...(state.catalog.meta||{}),
         exportedAt: nowIso(),
         exportedBy: 'AeroVista Catalog Console',
-        sourceFile: state.lastImportedName || null
+        sourceFile: state.lastImportedName || null,
+        count: storeProducts.length
       },
-      products: state.catalog.products
+      products: storeProducts
     };
     const name = (state.lastImportedName ? state.lastImportedName.replace(/\.json$/i,'') : 'square_products_latest')
       + '_edited.json';
@@ -635,6 +594,79 @@
     toast('Exported edits CSV.');
   };
 
+  const DEFAULT_OVERLAY_TEMPLATE = () => ({
+    version: 1,
+    meta: { updatedAt: nowIso(), schemaVersion: 1, notes: 'Exported from Catalog Console' },
+    rules: {
+      titleFormat: '{brand} • {collection} • {productType} • {color}',
+      defaultBrand: 'AeroVista',
+      priceLadders: { tee: { base: 34.99 }, hoodie_pullover: { base: 59.99 }, hoodie_zip: { base: 64.99 }, trucker_hat: { base: 34.99 }, crewneck: { base: 48.99 } },
+      fees: { processorPct: 0.03, processorFixedCents: 30 },
+      shipBufferCents: 400,
+      costByLadder: {}
+    },
+    overrides: {},
+    itemsByVariationId: {},
+    itemsByCartKey: {},
+    collections: [],
+    ads: []
+  });
+
+  const buildOverlayFromCatalog = () => {
+    const base = state.existingOverlay ? { ...state.existingOverlay } : DEFAULT_OVERLAY_TEMPLATE();
+    const overrides = { ...(base.overrides || {}) };
+    const itemsByCartKey = { ...(base.itemsByCartKey || {}) };
+    const itemsByVariationId = { ...(base.itemsByVariationId || {}) };
+    const isSquareId = (s) => s && /^[A-Z0-9]{20,}$/i.test(String(s).trim());
+
+    for (let order = 0; order < state.catalog.products.length; order++) {
+      const p = state.catalog.products[order];
+      const rawId = (p.id || '').toString().trim();
+      const productKey = rawId ? ('sq_' + rawId) : (p.key || slugify(p.title) || 'item').trim() || 'item';
+      const color = (p.variants && p.variants[0] && p.variants[0].color) ? p.variants[0].color : '';
+      const desc = (p.description || '').trim();
+      overrides[productKey] = {
+        collection: (p.group || '').trim(),
+        productType: (p.type || '').trim(),
+        color: color || 'Default',
+        descriptionShort: desc.slice(0, 120) + (desc.length > 120 ? '…' : ''),
+        description: desc
+      };
+
+      for (const v of (p.variants || [])) {
+        const vColor = (v.color || color || 'Default').trim();
+        const vSize = (v.size || 'One Size').trim();
+        const cartKey = `${vColor}__${vSize}`;
+        itemsByCartKey[cartKey] = {
+          title: (p.title || '').trim(),
+          tags: p.tags || [],
+          order: order * 100 + (p.variants.indexOf(v) || 0),
+          visible: p.status !== 'hidden'
+        };
+        const vid = (v.id || v.variation_id || '').toString().trim();
+        if (isSquareId(vid)) {
+          itemsByVariationId[vid] = {
+            cartKey,
+            title: (p.title || '').trim(),
+            tags: p.tags || [],
+            order: order * 100,
+            visible: p.status !== 'hidden'
+          };
+        }
+      }
+    }
+
+    return { ...base, overrides, itemsByCartKey, itemsByVariationId };
+  };
+
+  const exportOverlayJson = () => {
+    const overlay = buildOverlayFromCatalog();
+    overlay.meta = { ...overlay.meta, updatedAt: nowIso(), exportedBy: 'AeroVista Catalog Console' };
+    const name = state.existingOverlay ? 'storefront_overlay_export.json' : 'storefront_overlay.json';
+    download(name, JSON.stringify(overlay, null, 2), 'application/json');
+    toast('Exported overlay JSON.');
+  };
+
   const csvCell = (v) => {
     const s = String(v ?? '');
     if (/[",\n]/.test(s)) return `"${s.replaceAll('"','""')}"`;
@@ -651,6 +683,284 @@
     a.remove();
     setTimeout(()=>URL.revokeObjectURL(a.href), 500);
   };
+
+  const hasFileSystemAccess = () => typeof window !== 'undefined' && 'showDirectoryPicker' in window;
+
+  const getProjectDir = async () => {
+    if (!hasFileSystemAccess()) return null;
+    try {
+      state.projectDirHandle = await window.showDirectoryPicker({ mode: 'readwrite' });
+      return state.projectDirHandle;
+    } catch (e) {
+      if (e.name === 'AbortError') return null;
+      throw e;
+    }
+  };
+
+  const backupAndWrite = async (dirHandle, filename, content) => {
+    const ts = new Date().toISOString().slice(0,16).replace(/[T:]/g,'-');
+    const backupName = `backups/${filename.replace('.json','')}-${ts}.json`;
+    try {
+      const fileHandle = await dirHandle.getFileHandle(filename, { create: false });
+      const f = await fileHandle.getFile();
+      const existing = await f.text();
+      const backupsDir = await dirHandle.getDirectoryHandle('backups', { create: true });
+      const backupHandle = await backupsDir.getFileHandle(backupName.split('/')[1], { create: true });
+      const w = await backupHandle.createWritable();
+      await w.write(existing);
+      await w.close();
+    } catch (e) {
+      if (e.name !== 'NotFoundError') console.warn('Backup failed:', e);
+    }
+    const fileHandle = await dirHandle.getFileHandle(filename, { create: true });
+    const w = await fileHandle.createWritable();
+    await w.write(content);
+    await w.close();
+  };
+
+  const saveToProject = async () => {
+    if (!hasFileSystemAccess()) {
+      toast('Save to Project requires Chrome/Edge. Downloading both files instead.');
+      const catalogPayload = {
+        meta: { ...(state.catalog.meta||{}), exportedAt: nowIso(), exportedBy: 'AeroVista Catalog Console', sourceFile: state.lastImportedName || null, count: toStoreCatalogFormat(state.catalog.products).length },
+        products: toStoreCatalogFormat(state.catalog.products)
+      };
+      const overlay = buildOverlayFromCatalog();
+      overlay.meta = { ...overlay.meta, updatedAt: nowIso(), exportedBy: 'AeroVista Catalog Console' };
+      download('square_products_edited.json', JSON.stringify(catalogPayload, null, 2), 'application/json');
+      setTimeout(() => download('storefront_overlay.json', JSON.stringify(overlay, null, 2), 'application/json'), 300);
+      return;
+    }
+    let dir = state.projectDirHandle;
+    if (!dir) {
+      dir = await getProjectDir();
+      if (!dir) { toast('No folder selected.'); return; }
+    }
+    try {
+      const catalogPayload = {
+        meta: {
+          ...(state.catalog.meta||{}),
+          exportedAt: nowIso(),
+          exportedBy: 'AeroVista Catalog Console',
+          sourceFile: state.lastImportedName || null,
+          count: toStoreCatalogFormat(state.catalog.products).length
+        },
+        products: toStoreCatalogFormat(state.catalog.products)
+      };
+      const overlay = buildOverlayFromCatalog();
+      overlay.meta = { ...overlay.meta, updatedAt: nowIso(), exportedBy: 'AeroVista Catalog Console' };
+
+      await backupAndWrite(dir, 'square_products_edited.json', JSON.stringify(catalogPayload, null, 2));
+      await backupAndWrite(dir, 'storefront_overlay.json', JSON.stringify(overlay, null, 2));
+      state.dirtyIds.clear();
+      computeStats();
+      toast('Saved to project with backup.');
+    } catch (e) {
+      if (e.name === 'NotAllowedError') {
+        state.projectDirHandle = null;
+        toast('Permission lost. Select folder again.');
+      } else {
+        toast('Save failed: ' + (e.message || 'Unknown error'));
+        console.error(e);
+      }
+    }
+  };
+
+  const loadExistingOverlay = async (file) => {
+    if (!file) return;
+    try {
+      const text = await file.text();
+      const data = JSON.parse(text);
+      state.existingOverlay = data;
+      toast('Loaded overlay for merge.');
+    } catch (e) {
+      toast('Failed to load overlay: ' + (e.message || 'Invalid JSON'));
+    }
+  };
+
+  // ---- Square table import/export (Excel/CSV, same schema in and out) ----
+  const SQUARE_TABLE_HEADERS = [
+    'Reference Handle','Token','Item Name','Customer-facing Name','Variation Name','SKU','Description','Categories','Reporting Category','SEO Title','SEO Description','Permalink','GTIN','Square Online Item Visibility','Item Type','Weight (lb)','Social Media Link Title','Social Media Link Description','Shipping Enabled','Self-serve Ordering Enabled','Delivery Enabled','Pickup Enabled','Price','Online Sale Price','Archived','Sellable','Contains Alcohol','Stockable','Skip Detail Screen in POS','Option Name 1','Option Value 1','Option Name 2','Option Value 2','Current Quantity AeroVista','New Quantity AeroVista','Stock Alert Enabled AeroVista','Stock Alert Count AeroVista','Modifier Set - Trial'
+  ];
+
+  async function fileToRows(file) {
+    const name = (file.name || '').toLowerCase();
+    if (name.endsWith('.xlsx') || name.endsWith('.xls')) {
+      if (typeof XLSX === 'undefined') throw new Error('XLSX parser not loaded. Refresh and try again.');
+      const buf = await file.arrayBuffer();
+      const wb = XLSX.read(buf, { type: 'array' });
+      const ws = wb.Sheets[wb.SheetNames[0]];
+      return XLSX.utils.sheet_to_json(ws, { header: 1, defval: '' });
+    }
+    const text = await file.text();
+    const lines = text.split(/\r?\n/).filter(l => l.trim() !== '');
+    const sep = lines[0] && lines[0].includes('\t') ? '\t' : ',';
+    const rows = [];
+    for (const line of lines) {
+      const out = [];
+      let cur = '';
+      let inQuotes = false;
+      for (let i = 0; i < line.length; i++) {
+        const ch = line[i];
+        if (ch === '"') {
+          if (inQuotes && line[i + 1] === '"') { cur += '"'; i++; }
+          else inQuotes = !inQuotes;
+        } else if (ch === sep && !inQuotes) {
+          out.push(cur);
+          cur = '';
+        } else {
+          cur += ch;
+        }
+      }
+      out.push(cur);
+      rows.push(out);
+    }
+    return rows;
+  }
+
+  function rowsToProducts(tableRows) {
+    if (!tableRows.length) throw new Error('No rows in file.');
+    const hint = (s) => s.toLowerCase().replace(/\s+/g, ' ');
+    const rowHasHeader = (row) => {
+      const joined = (row || []).map(c => String(c || '').toLowerCase()).join(' ');
+      return /reference\s*handle|item\s*name|sku|variation\s*name|price/.test(joined);
+    };
+    let headerRowIdx = 0;
+    for (let i = 0; i < Math.min(5, tableRows.length); i++) {
+      if (rowHasHeader(tableRows[i])) { headerRowIdx = i; break; }
+    }
+    const rawHeader = (tableRows[headerRowIdx] || []).map(h => String(h || '').trim());
+    const headerLower = rawHeader.map(h => hint(h));
+    const dataRows = tableRows.slice(headerRowIdx + 1);
+    const colIndex = (name) => {
+      const n = hint(name);
+      const i = headerLower.findIndex(h => hint(h) === n);
+      if (i >= 0) return i;
+      const partial = rawHeader.findIndex(h => hint(h).includes(n) || n.includes(hint(h)));
+      return partial >= 0 ? partial : -1;
+    };
+    const col = (row, name) => {
+      const i = colIndex(name);
+      return i >= 0 && row[i] != null ? String(row[i]).trim() : '';
+    };
+    const productsByHandle = new Map();
+    for (const row of dataRows) {
+      if (!row || !Array.isArray(row)) continue;
+      const refHandle = col(row, 'Reference Handle') || col(row, 'Item Name') || col(row, 'Customer-facing Name');
+      const sku = col(row, 'SKU');
+      const hasData = refHandle || sku || col(row, 'Price') || col(row, 'Variation Name');
+      if (!hasData) continue;
+      const handle = refHandle || 'unnamed';
+      let p = productsByHandle.get(handle);
+      if (!p) {
+        p = {
+          id: uuid(),
+          key: slugify(col(row, 'Reference Handle') || col(row, 'Item Name') || handle),
+          title: col(row, 'Item Name') || col(row, 'Customer-facing Name') || '(untitled)',
+          description: col(row, 'Description') || '',
+          group: col(row, 'Categories') || '',
+          type: col(row, 'Reporting Category') || col(row, 'Item Type') || '',
+          tags: [],
+          status: col(row, 'Archived') === 'true' || col(row, 'Archived') === '1' ? 'archived' : 'active',
+          variants: [],
+          _tableRow: {}
+        };
+        rawHeader.forEach((h, i) => { p._tableRow[h] = row[i] != null ? String(row[i]) : ''; });
+        productsByHandle.set(handle, p);
+      }
+      const color = col(row, 'Option Value 1') || col(row, 'Variation Name') || '';
+      const size = col(row, 'Option Value 2') || '';
+      const price = col(row, 'Price') || col(row, 'Online Sale Price') || '';
+      const inv = col(row, 'New Quantity AeroVista') || col(row, 'Current Quantity AeroVista') || '';
+      const v = {
+        id: uuid(),
+        sku: col(row, 'SKU') || '',
+        color: color,
+        size: size,
+        price: price,
+        inventory: inv,
+        _tableRow: {}
+      };
+      rawHeader.forEach((h, i) => { v._tableRow[h] = row[i] != null ? String(row[i]) : ''; });
+      p.variants.push(v);
+    }
+    const out = Array.from(productsByHandle.values());
+    if (!out.length && dataRows.length) {
+      const preview = rawHeader.slice(0, 8).join(', ') || '(no headers)';
+      throw new Error(`No products parsed. Headers found: ${preview}… Check column names match Square export.`);
+    }
+    return out;
+  }
+
+  async function importTableFile(file) {
+    const rows = await fileToRows(file);
+    const products = rowsToProducts(rows);
+    state.catalog = {
+      meta: { tool: 'AeroVista Catalog Console', version: '1.1', source: 'table', importedAt: nowIso(), fileName: file.name || '' },
+      products
+    };
+    state.selectedId = products[0]?.id || null;
+    state.dirtyIds = new Set(products.map(p => p.id));
+    state.lastImportedName = file.name || null;
+    computeStats();
+    fillFilters();
+    renderList();
+    selectProduct(state.selectedId);
+    toast(`Imported ${products.length} products from table.`);
+  }
+
+  function productsToTableRows() {
+    const header = SQUARE_TABLE_HEADERS;
+    const rows = [header];
+    for (const p of state.catalog.products) {
+      const base = (p._tableRow && typeof p._tableRow === 'object') ? { ...p._tableRow } : {};
+      base['Reference Handle'] = base['Reference Handle'] || p.key || '';
+      base['Item Name'] = base['Item Name'] || p.title || '';
+      base['Customer-facing Name'] = base['Customer-facing Name'] || p.title || '';
+      base['Description'] = base['Description'] || p.description || '';
+      base['Categories'] = base['Categories'] || p.group || '';
+      base['Reporting Category'] = base['Reporting Category'] || p.type || '';
+      base['Item Type'] = base['Item Type'] || p.type || '';
+      base['Archived'] = p.status === 'archived' ? 'true' : (base['Archived'] || 'false');
+      if (!Array.isArray(p.variants) || !p.variants.length) {
+        base['Variation Name'] = '';
+        base['SKU'] = '';
+        base['Option Value 1'] = '';
+        base['Option Value 2'] = '';
+        base['Price'] = '';
+        base['Online Sale Price'] = '';
+        base['New Quantity AeroVista'] = '';
+        base['Current Quantity AeroVista'] = '';
+        rows.push(header.map(h => base[h] != null ? base[h] : ''));
+        continue;
+      }
+      for (const v of p.variants) {
+        const r = (v._tableRow && typeof v._tableRow === 'object') ? { ...base, ...v._tableRow } : { ...base };
+        r['Variation Name'] = r['Variation Name'] || (v.color && v.size ? `${v.color}, ${v.size}` : v.color || v.size || '');
+        r['SKU'] = v.sku || r['SKU'] || '';
+        r['Option Value 1'] = v.color || r['Option Value 1'] || '';
+        r['Option Value 2'] = v.size || r['Option Value 2'] || '';
+        r['Price'] = v.price != null && v.price !== '' ? v.price : r['Price'] || '';
+        r['Online Sale Price'] = r['Online Sale Price'] || r['Price'] || '';
+        r['New Quantity AeroVista'] = v.inventory != null && v.inventory !== '' ? v.inventory : r['New Quantity AeroVista'] || '';
+        r['Current Quantity AeroVista'] = r['Current Quantity AeroVista'] || r['New Quantity AeroVista'] || '';
+        rows.push(header.map(h => r[h] != null ? r[h] : ''));
+      }
+    }
+    return rows;
+  }
+
+  function exportTableCsv() {
+    const rows = productsToTableRows();
+    const escapeCell = (v) => {
+      const s = String(v ?? '');
+      if (/[",\n]/.test(s)) return '"' + s.replace(/"/g, '""') + '"';
+      return s;
+    };
+    const csv = rows.map(r => r.map(escapeCell).join(',')).join('\n');
+    download('catalog_table_export.csv', csv, 'text/csv');
+    toast('Exported table CSV.');
+  }
 
   const saveLocal = () => {
     const payload = {
@@ -695,7 +1005,7 @@
 
   const loadSample = () => {
     const sample = {
-      meta: { tool: 'sample', version: '1.1' },
+      meta: { tool: 'sample', version: '1.0' },
       products: [
         {
           id: uuid(),
@@ -704,40 +1014,12 @@
           group: 'EchoVerse',
           type: 'tee',
           status: 'active',
-          tags: ['glitch', 'minimal', 'echopulse'],
+          tags: ['glitch','minimal','echopulse'],
           description: 'A clean EchoVerse tee with subtle pulse-line energy. Soft feel, durable print, daily-driver fit.',
           variants: [
-            { id: uuid(), sku: 'EP-TEE-BLK-S', color: 'Black', size: 'S', price: '29.99', inventory: '' },
-            { id: uuid(), sku: 'EP-TEE-BLK-M', color: 'Black', size: 'M', price: '29.99', inventory: '' },
-            { id: uuid(), sku: 'EP-TEE-WHT-S', color: 'White', size: 'S', price: '29.99', inventory: '' }
-          ]
-        },
-        {
-          id: uuid(),
-          key: 'minimal-north-hoodie',
-          title: 'AeroVista Hoodie — Minimal North',
-          group: 'AeroVista',
-          type: 'hoodie',
-          status: 'active',
-          tags: ['minimal', 'curated', 'hoodie'],
-          description: 'Engineered minimal. Premium blank, clean placement, built for daily wear.',
-          variants: [
-            { id: uuid(), sku: 'AV-HOOD-BLK-M', color: 'Black', size: 'M', price: '54.99', inventory: '' },
-            { id: uuid(), sku: 'AV-HOOD-BLK-L', color: 'Black', size: 'L', price: '54.99', inventory: '' },
-            { id: uuid(), sku: 'AV-HOOD-WHT-M', color: 'White', size: 'M', price: '54.99', inventory: '' }
-          ]
-        },
-        {
-          id: uuid(),
-          key: 'holographic-goat-sticker',
-          title: 'Holographic Goat Sticker',
-          group: 'AeroVista',
-          type: 'sticker',
-          status: 'active',
-          tags: ['holographic', 'sticker', 'goat'],
-          description: 'Holo finish sticker. Laptop, bottle, or board—adds a little signal.',
-          variants: [
-            { id: uuid(), sku: 'STICK-HOLO-1', color: 'Holographic', size: 'One Size', price: '5.00', inventory: '' }
+            { id: uuid(), sku: 'EP-TEE-BLK-S', color:'Black', size:'S', price:'29.99', inventory:'' },
+            { id: uuid(), sku: 'EP-TEE-BLK-M', color:'Black', size:'M', price:'29.99', inventory:'' },
+            { id: uuid(), sku: 'EP-TEE-WHT-S', color:'White', size:'S', price:'29.99', inventory:'' }
           ]
         }
       ]
@@ -751,7 +1033,6 @@
     renderList();
     computeStats();
     toast('Loaded sample catalog.');
-    setTimeout(() => { const q = $('q'); if (q) q.focus(); }, 80);
   };
 
   // ---- Bind editor fields ----
@@ -784,9 +1065,11 @@
       setDirty(p.id,true);
       rebuildRaw(p); renderList();
     });
-    bindField($('p_tags'), ()=>{
+    bindField($('p_tagsCustom'), ()=>{
       const p = getSelected(); if (!p) return;
-      p.tags = $('p_tags').value.split(',').map(s=>s.trim()).filter(Boolean);
+      const presetSelected = (p.tags||[]).filter(t=>PRESET_TAGS.includes(String(t).toLowerCase()));
+      const custom = $('p_tagsCustom').value.split(',').map(s=>s.trim()).filter(Boolean);
+      p.tags = [...presetSelected, ...custom];
       setDirty(p.id,true);
       rebuildRaw(p); renderList();
     });
@@ -808,18 +1091,6 @@
   const bindUi = () => {
     $('btnImport').addEventListener('click', ()=> $('fileInput').click());
     $('btnImport2').addEventListener('click', ()=> $('fileInput').click());
-    const emptyState = $('emptyState');
-    if (emptyState) {
-      emptyState.addEventListener('dragover', (e) => { e.preventDefault(); e.stopPropagation(); emptyState.classList.add('opacity-90', 'ring-2', 'ring-cyan-400'); });
-      emptyState.addEventListener('dragleave', (e) => { e.preventDefault(); emptyState.classList.remove('opacity-90', 'ring-2', 'ring-cyan-400'); });
-      emptyState.addEventListener('drop', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        emptyState.classList.remove('opacity-90', 'ring-2', 'ring-cyan-400');
-        const file = e.dataTransfer?.files?.[0];
-        if (file) handleFileDrop(file);
-      });
-    }
     $('fileInput').addEventListener('change', async (e)=>{
       const f = e.target.files?.[0];
       if (!f) return;
@@ -828,17 +1099,27 @@
       e.target.value = '';
     });
 
-    $('btnImportCsv').addEventListener('click', ()=> $('csvFileInput').click());
-    $('csvFileInput').addEventListener('change', async (e)=>{
+    $('btnImportTable').addEventListener('click', () => $('tableFileInput').click());
+    $('btnImportTable2').addEventListener('click', () => $('tableFileInput').click());
+    $('tableFileInput').addEventListener('change', async (e) => {
       const f = e.target.files?.[0];
       if (!f) return;
-      try { await importCsv(f); }
-      catch(err){ toast('CSV import failed: ' + err.message); }
+      try { await importTableFile(f); }
+      catch (err) { toast('Table import failed: ' + err.message); console.error(err); }
       e.target.value = '';
     });
 
     $('btnExport').addEventListener('click', exportJson);
+    $('btnExportTable').addEventListener('click', exportTableCsv);
+    $('btnExportOverlay').addEventListener('click', exportOverlayJson);
     $('btnExportEdits').addEventListener('click', exportEditsCsv);
+    $('btnSaveToProject').addEventListener('click', saveToProject);
+    $('btnLoadOverlay').addEventListener('click', ()=> $('overlayFileInput').click());
+    $('overlayFileInput').addEventListener('change', (e)=>{
+      const f = e.target.files?.[0];
+      if (f) loadExistingOverlay(f);
+      e.target.value = '';
+    });
 
     $('btnNewProduct').addEventListener('click', newProduct);
     $('btnAddVar').addEventListener('click', addVariant);
@@ -856,6 +1137,7 @@
     $('q').addEventListener('input', renderList);
     $('filterGroup').addEventListener('change', renderList);
     $('filterType').addEventListener('change', renderList);
+    if ($('filterTags')) $('filterTags').addEventListener('change', renderList);
 
     $('btnCopyRaw').addEventListener('click', ()=>{
       navigator.clipboard.writeText($('p_raw').value);
@@ -868,594 +1150,14 @@
       toast('Rebuilt raw JSON from form.');
     });
 
-
-    // Tabs
-    $('tabEdit').addEventListener('click', ()=>setTab('edit'));
-    $('tabBulk').addEventListener('click', ()=>setTab('bulk'));
-    $('tabValidate').addEventListener('click', ()=>setTab('validate'));
-
-    // Bulk scope label
-    $('bulkScope').addEventListener('change', ()=>{
-      $('bulkScopeLabel').textContent = $('bulkScope').value;
-    });
-
-    // Bulk actions
-    $('btnBulkApplyTags').addEventListener('click', bulkApplyTagGroupChanges);
-    $('btnBulkNormalizeTags').addEventListener('click', bulkNormalizeAllTags);
-
-    $('btnBulkApplyPricing').addEventListener('click', bulkApplyPricing);
-    $('btnBulkRoundPrices').addEventListener('click', bulkRoundPrices99);
-
-    $('btnBulkNormalizeSizes').addEventListener('click', bulkNormalizeSizes);
-    $('btnBulkNormalizeColors').addEventListener('click', bulkNormalizeColors);
-    $('btnBulkSortVariants').addEventListener('click', bulkSortVariants);
-
-    $('btnBulkMergePreview').addEventListener('click', mergePreview);
-    $('btnBulkMerge').addEventListener('click', ()=>{
-      const ok = confirm('Merge duplicates in current scope? This changes the catalog (safe, but not reversible except re-import).');
-      if (!ok) return;
-      mergeDuplicatesSafe();
-    });
-
-    // Validation
-    let lastIssues = [];
-    $('btnRunValidate').addEventListener('click', ()=>{
-      lastIssues = validateCatalog();
-      toast('Validation complete.');
-    });
-    $('btnExportIssues').addEventListener('click', ()=>{
-      if (!lastIssues.length) lastIssues = validateCatalog();
-      exportIssuesCsv(lastIssues);
-    });
-
-
     // Ctrl+S save local
     window.addEventListener('keydown', (e)=>{
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase()==='s'){
         e.preventDefault();
         saveLocal();
-        return;
-      }
-      // "/" focus search (when not typing in an input)
-      if (e.key === '/' && !/^(input|textarea|select)$/i.test((e.target||{}).tagName) && !e.ctrlKey && !e.metaKey && !e.altKey){
-        e.preventDefault();
-        const q = $('q');
-        if (q) { q.focus(); q.select && q.select(); }
       }
     });
   };
-
-
-
-  // ---- Tabs (Edit / Bulk / Validate) ----
-  const setTab = (name) => {
-    const isEdit = name === 'edit';
-    const isBulk = name === 'bulk';
-    const isVal  = name === 'validate';
-    $('panelEdit').classList.toggle('hidden', !isEdit);
-    $('panelBulk').classList.toggle('hidden', !isBulk);
-    $('panelValidate').classList.toggle('hidden', !isVal);
-
-    $('tabEdit').classList.toggle('btn-primary', isEdit);
-    $('tabBulk').classList.toggle('btn-primary', isBulk);
-    $('tabValidate').classList.toggle('btn-primary', isVal);
-
-    // Remove primary class from others
-    if (!isEdit) $('tabEdit').classList.remove('btn-primary');
-    if (!isBulk) $('tabBulk').classList.remove('btn-primary');
-    if (!isVal) $('tabValidate').classList.remove('btn-primary');
-
-    // Ensure active tab has primary styling
-    if (isEdit) $('tabEdit').classList.add('btn-primary');
-    if (isBulk) $('tabBulk').classList.add('btn-primary');
-    if (isVal) $('tabValidate').classList.add('btn-primary');
-  };
-
-  // ---- Scope helpers ----
-  const getFilteredIds = () => {
-    const q = $('q').value.trim().toLowerCase();
-    const fg = $('filterGroup').value;
-    const ft = $('filterType').value;
-
-    return state.catalog.products
-      .filter(p => (fg==='(all)' || (p.group||'')===fg))
-      .filter(p => (ft==='(all)' || (p.type||'')===ft))
-      .filter(p => (q==='' || matches(p,q)))
-      .map(p => p.id);
-  };
-
-  const getScopeProducts = () => {
-    const scope = $('bulkScope')?.value || 'filtered';
-    $('bulkScopeLabel').textContent = scope;
-    if (scope === 'selected') {
-      const p = getSelected();
-      return p ? [p] : [];
-    }
-    if (scope === 'all') return [...state.catalog.products];
-    const ids = new Set(getFilteredIds());
-    return state.catalog.products.filter(p => ids.has(p.id));
-  };
-
-  // ---- Normalizers ----
-  const SIZE_ORDER = ['XS','S','M','L','XL','2XL','3XL','4XL','5XL'];
-  const SIZE_ALIASES = {
-    'X-SMALL':'XS','XS':'XS','EXTRA SMALL':'XS',
-    'SMALL':'S','S':'S',
-    'MEDIUM':'M','M':'M',
-    'LARGE':'L','L':'L',
-    'X-LARGE':'XL','XL':'XL','EXTRA LARGE':'XL',
-    '2X':'2XL','XXL':'2XL','2XL':'2XL',
-    '3X':'3XL','XXXL':'3XL','3XL':'3XL',
-    '4X':'4XL','4XL':'4XL',
-    '5X':'5XL','5XL':'5XL',
-  };
-
-  const normSize = (s) => {
-    const raw = String(s||'').trim();
-    if (!raw) return '';
-    const u = raw.toUpperCase().replace(/\./g,'').replace(/\s+/g,' ').trim();
-    // handle patterns like "2XL" already
-    return SIZE_ALIASES[u] || raw.trim();
-  };
-
-  const titleCase = (s) => String(s||'').toLowerCase().replace(/\b[a-z]/g, c=>c.toUpperCase());
-  const COLOR_ALIASES = {
-    'Grey':'Gray',
-    'Heather Grey':'Heather Gray',
-    'Charcoal Grey':'Charcoal Gray'
-  };
-  const normColor = (c) => {
-    const raw = String(c||'').trim();
-    if (!raw) return '';
-    // normalize separators
-    const cleaned = raw.replace(/\s+/g,' ').trim();
-    const tc = titleCase(cleaned);
-    return COLOR_ALIASES[tc] || tc;
-  };
-
-  const normTags = (tags) => {
-    const seen = new Set();
-    const out = [];
-    for (const t of (tags||[])) {
-      const v = String(t||'').trim().toLowerCase();
-      if (!v) continue;
-      if (seen.has(v)) continue;
-      seen.add(v);
-      out.push(v);
-    }
-    return out;
-  };
-
-  const sortVariantsColorSize = (p) => {
-    const idx = (s) => {
-      const ns = normSize(s);
-      const pos = SIZE_ORDER.indexOf(ns);
-      return pos === -1 ? 999 : pos;
-    };
-    p.variants = (p.variants||[]).slice().sort((a,b)=>{
-      const ca = normColor(a.color||'');
-      const cb = normColor(b.color||'');
-      if (ca !== cb) return ca.localeCompare(cb);
-      return idx(a.size) - idx(b.size);
-    });
-  };
-
-  // ---- Bulk actions ----
-  const bulkApplyTagGroupChanges = () => {
-    const ps = getScopeProducts();
-    if (!ps.length) { toast('No products in scope.'); return; }
-
-    const addTags = $('bulkAddTags').value.split(',').map(s=>s.trim()).filter(Boolean).map(s=>s.toLowerCase());
-    const remTags = $('bulkRemoveTags').value.split(',').map(s=>s.trim()).filter(Boolean).map(s=>s.toLowerCase());
-    const setGroup = $('bulkSetGroup').value.trim();
-    const setType = $('bulkSetType').value.trim();
-
-    let changed = 0;
-    for (const p of ps){
-      let tags = Array.isArray(p.tags) ? p.tags : [];
-      tags = tags.map(t=>String(t).trim().toLowerCase()).filter(Boolean);
-      if (addTags.length) tags = tags.concat(addTags);
-      if (remTags.length) tags = tags.filter(t=>!remTags.includes(t));
-      const newTags = normTags(tags);
-      const tagsChanged = JSON.stringify(newTags) !== JSON.stringify(p.tags||[]);
-      if (tagsChanged) p.tags = newTags;
-
-      if (setGroup && p.group !== setGroup) p.group = setGroup;
-      if (setType && p.type !== setType) p.type = setType;
-
-      if (tagsChanged || (setGroup && p.group===setGroup) || (setType && p.type===setType)) {
-        setDirty(p.id,true);
-        changed++;
-      }
-    }
-    fillFilters();
-    renderList();
-    computeStats();
-    toast(`Applied changes to ${changed} products.`);
-  };
-
-  const bulkNormalizeAllTags = () => {
-    const ps = getScopeProducts();
-    if (!ps.length) { toast('No products in scope.'); return; }
-    let changed = 0;
-    for (const p of ps){
-      const old = Array.isArray(p.tags) ? p.tags : [];
-      const n = normTags(old);
-      if (JSON.stringify(n) !== JSON.stringify(old)){
-        p.tags = n;
-        setDirty(p.id,true);
-        changed++;
-      }
-    }
-    renderList(); computeStats();
-    toast(`Normalized tags on ${changed} products.`);
-  };
-
-  const bulkApplyPricing = () => {
-    const ps = getScopeProducts();
-    if (!ps.length) { toast('No products in scope.'); return; }
-
-    const setP = $('bulkSetPrice').value.trim();
-    const delta = $('bulkPriceDelta').value.trim();
-    const typePricingRaw = $('bulkTypePricing').value.trim();
-    let typePricing = null;
-    if (typePricingRaw) {
-      try { typePricing = JSON.parse(typePricingRaw); }
-      catch(e){ toast('Type pricing JSON invalid.'); return; }
-    }
-
-    const asNum = (x) => {
-      const n = Number(String(x).replace(/[^\d.-]/g,''));
-      return Number.isFinite(n) ? n : null;
-    };
-
-    const setVal = setP ? asNum(setP) : null;
-    const dVal = delta ? asNum(delta) : null;
-
-    let changed = 0;
-    for (const p of ps){
-      const priceForType = typePricing && p.type ? asNum(typePricing[p.type]) : null;
-      for (const v of (p.variants||[])){
-        const cur = asNum(v.price);
-        let next = cur;
-        if (priceForType !== null) next = priceForType;
-        else if (setVal !== null) next = setVal;
-        else if (dVal !== null && cur !== null) next = cur + dVal;
-
-        if (next !== null) {
-          const fixed = next.toFixed(2);
-          if (String(v.price||'') !== fixed){
-            v.price = fixed;
-            setDirty(p.id,true);
-            changed++;
-          }
-        }
-      }
-    }
-    if (state.selectedId) {
-      const sel = getSelected();
-      if (sel) { renderVariants(sel); rebuildRaw(sel); }
-    }
-    renderList(); computeStats();
-    toast(`Updated ${changed} variant prices.`);
-  };
-
-  const bulkRoundPrices99 = () => {
-    const ps = getScopeProducts();
-    if (!ps.length) { toast('No products in scope.'); return; }
-    const asNum = (x) => {
-      const n = Number(String(x).replace(/[^\d.-]/g,''));
-      return Number.isFinite(n) ? n : null;
-    };
-    let changed=0;
-    for (const p of ps){
-      for (const v of (p.variants||[])){
-        const cur = asNum(v.price);
-        if (cur === null) continue;
-        const rounded = Math.floor(cur) + 0.99;
-        const fixed = rounded.toFixed(2);
-        if (String(v.price||'') !== fixed){
-          v.price = fixed;
-          setDirty(p.id,true);
-          changed++;
-        }
-      }
-    }
-    if (state.selectedId) {
-      const sel = getSelected();
-      if (sel) { renderVariants(sel); rebuildRaw(sel); }
-    }
-    renderList(); computeStats();
-    toast(`Rounded ${changed} prices to .99.`);
-  };
-
-  const bulkNormalizeSizes = () => {
-    const ps = getScopeProducts();
-    if (!ps.length) { toast('No products in scope.'); return; }
-    let changed=0;
-    for (const p of ps){
-      for (const v of (p.variants||[])){
-        const n = normSize(v.size);
-        if (n && n !== v.size){
-          v.size = n;
-          setDirty(p.id,true);
-          changed++;
-        }
-      }
-    }
-    if (state.selectedId) {
-      const sel = getSelected();
-      if (sel) { renderVariants(sel); rebuildRaw(sel); }
-    }
-    renderList(); computeStats();
-    toast(`Normalized ${changed} sizes.`);
-  };
-
-  const bulkNormalizeColors = () => {
-    const ps = getScopeProducts();
-    if (!ps.length) { toast('No products in scope.'); return; }
-    let changed=0;
-    for (const p of ps){
-      for (const v of (p.variants||[])){
-        const n = normColor(v.color);
-        if (n && n !== v.color){
-          v.color = n;
-          setDirty(p.id,true);
-          changed++;
-        }
-      }
-    }
-    if (state.selectedId) {
-      const sel = getSelected();
-      if (sel) { renderVariants(sel); rebuildRaw(sel); }
-    }
-    renderList(); computeStats();
-    toast(`Normalized ${changed} colors.`);
-  };
-
-  const bulkSortVariants = () => {
-    const ps = getScopeProducts();
-    if (!ps.length) { toast('No products in scope.'); return; }
-    let changed=0;
-    for (const p of ps){
-      const before = JSON.stringify(p.variants||[]);
-      sortVariantsColorSize(p);
-      const after = JSON.stringify(p.variants||[]);
-      if (before !== after){
-        setDirty(p.id,true);
-        changed++;
-      }
-    }
-    if (state.selectedId) {
-      const sel = getSelected();
-      if (sel) { renderVariants(sel); rebuildRaw(sel); }
-    }
-    renderList(); computeStats();
-    toast(`Sorted variants on ${changed} products.`);
-  };
-
-  // ---- Merge / Dedupe ----
-  const normKey = (p) => {
-    const t = String(p.title||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
-    const g = String(p.group||'').toLowerCase().trim();
-    const ty = String(p.type||'').toLowerCase().trim();
-    return [t,g,ty].join('||');
-  };
-
-  const variantKey = (v) => {
-    const sku = String(v.sku||'').trim();
-    if (sku) return 'sku:'+sku.toLowerCase();
-    return 'cs:' + (normColor(v.color||'')+'|'+normSize(v.size||'')).toLowerCase();
-  };
-
-  const mergePreview = () => {
-    const ps = getScopeProducts();
-    if (!ps.length) { $('bulkMergeLog').value = 'No products in scope.'; return; }
-    const buckets = new Map();
-    for (const p of ps){
-      const k = normKey(p);
-      if (!buckets.has(k)) buckets.set(k, []);
-      buckets.get(k).push(p);
-    }
-    const lines = [];
-    let groups=0;
-    for (const [k, arr] of buckets.entries()){
-      if (arr.length<=1) continue;
-      groups++;
-      lines.push(`MERGE GROUP (${arr.length}) :: ${arr[0].title} [${arr[0].group||'-'} • ${arr[0].type||'-'}]`);
-      arr.forEach(p=>lines.push(`  - ${p.id} (${(p.variants||[]).length} variants)`));
-    }
-    $('bulkMergeLog').value = lines.length ? lines.join('\n') : 'No duplicates found for merge rules.';
-  };
-
-  const mergeDuplicatesSafe = () => {
-    const ps = getScopeProducts();
-    if (!ps.length) { toast('No products in scope.'); return; }
-
-    const buckets = new Map();
-    for (const p of ps){
-      const k = normKey(p);
-      if (!buckets.has(k)) buckets.set(k, []);
-      buckets.get(k).push(p);
-    }
-
-    let mergedGroups = 0;
-    let removed = 0;
-
-    for (const [k, arr] of buckets.entries()){
-      if (arr.length<=1) continue;
-
-      // Choose keeper: first with longest description, else first
-      arr.sort((a,b)=> (String(b.description||'').length) - (String(a.description||'').length));
-      const keep = arr[0];
-      keep.source_ids = Array.isArray(keep.source_ids) ? keep.source_ids : [];
-      keep.source_ids.push(...arr.slice(1).map(x=>x.id));
-
-      // Union tags
-      const tagUnion = normTags([...(keep.tags||[]), ...arr.slice(1).flatMap(x=>x.tags||[])]);
-      keep.tags = tagUnion;
-
-      // Keep best group/type/status if missing
-      if (!keep.group) keep.group = arr.find(x=>x.group)?.group || '';
-      if (!keep.type) keep.type = arr.find(x=>x.type)?.type || '';
-      if (!keep.description) keep.description = arr.find(x=>x.description)?.description || '';
-
-      // Merge variants
-      const seen = new Set();
-      const outVars = [];
-      for (const p of arr){
-        for (const v of (p.variants||[])){
-          const vk = variantKey(v);
-          if (seen.has(vk)) continue;
-          seen.add(vk);
-          outVars.push({
-            id: v.id || uuid(),
-            sku: v.sku || '',
-            color: v.color || '',
-            size: v.size || '',
-            price: v.price ?? '',
-            inventory: v.inventory ?? ''
-          });
-        }
-      }
-      keep.variants = outVars;
-      sortVariantsColorSize(keep);
-      setDirty(keep.id,true);
-
-      // Remove the others from main catalog
-      const removeIds = new Set(arr.slice(1).map(x=>x.id));
-      const beforeLen = state.catalog.products.length;
-      state.catalog.products = state.catalog.products.filter(p => !removeIds.has(p.id));
-      removed += (beforeLen - state.catalog.products.length);
-
-      // Clean dirty markers for removed
-      removeIds.forEach(id=>state.dirtyIds.delete(id));
-
-      mergedGroups++;
-    }
-
-    fillFilters();
-    renderList();
-    computeStats();
-    mergePreview();
-    toast(`Merged ${mergedGroups} groups. Removed ${removed} duplicates.`);
-  };
-
-  // ---- Validation ----
-  const validateCatalog = () => {
-    const issues = [];
-    const missingDesc = [];
-    const missingPrice = [];
-    const dupSku = [];
-    const invalidSize = [];
-    const noVariants = [];
-
-    const skuMap = new Map(); // sku -> [{pid, vid}]
-    const validSizes = new Set(SIZE_ORDER);
-
-    for (const p of state.catalog.products){
-      if (!p.variants || p.variants.length===0){
-        noVariants.push({ pid: p.id, title: p.title });
-      }
-      if (!String(p.description||'').trim()){
-        missingDesc.push({ pid: p.id, title: p.title });
-      }
-
-      for (const v of (p.variants||[])){
-        const priceNum = Number(String(v.price||'').replace(/[^\d.]/g,''));
-        if (!Number.isFinite(priceNum) || priceNum<=0){
-          missingPrice.push({ pid: p.id, title: p.title, sku: v.sku||'', detail: `price="${v.price}"` });
-        }
-        const ns = normSize(v.size);
-        if (v.size && ns && !validSizes.has(ns)){
-          invalidSize.push({ pid: p.id, title: p.title, sku: v.sku||'', detail: `size="${v.size}"` });
-        }
-        const sku = String(v.sku||'').trim();
-        if (sku){
-          const key = sku.toLowerCase();
-          if (!skuMap.has(key)) skuMap.set(key, []);
-          skuMap.get(key).push({ pid: p.id, title: p.title, sku });
-        }
-      }
-    }
-
-    for (const [sku, arr] of skuMap.entries()){
-      if (arr.length<=1) continue;
-      arr.forEach(x=>dupSku.push({ pid: x.pid, title: x.title, sku: x.sku, detail: `duplicate SKU` }));
-    }
-
-    const addIssueBlock = (kind, arr, severity) => {
-      for (const it of arr){
-        issues.push({
-          kind, severity,
-          pid: it.pid,
-          title: it.title || '',
-          sku: it.sku || '',
-          detail: it.detail || ''
-        });
-      }
-    };
-
-    addIssueBlock('Missing description', missingDesc, 'warn');
-    addIssueBlock('Missing/invalid price', missingPrice, 'danger');
-    addIssueBlock('Duplicate SKU', dupSku, 'danger');
-    addIssueBlock('Invalid size', invalidSize, 'warn');
-    addIssueBlock('No variants', noVariants, 'warn');
-
-    // summary
-    $('v_missingDesc').textContent = String(missingDesc.length);
-    $('v_missingPrice').textContent = String(missingPrice.length);
-    $('v_dupSku').textContent = String(new Set(dupSku.map(x=>x.sku.toLowerCase())).size);
-    $('v_invalidSize').textContent = String(invalidSize.length);
-    $('v_noVariants').textContent = String(noVariants.length);
-
-    // render issues list
-    const container = $('issuesList');
-    container.innerHTML = '';
-    if (!issues.length){
-      container.innerHTML = `<div class="ok text-sm">No issues found 🎉</div>`;
-      return issues;
-    }
-
-    issues.sort((a,b)=> (a.severity===b.severity? a.kind.localeCompare(b.kind) : (a.severity==='danger'?-1:1)));
-
-    for (const it of issues){
-      const row = document.createElement('button');
-      const badge = it.severity==='danger' ? 'danger' : (it.severity==='warn'?'warn':'hint');
-      row.className = `w-full text-left rounded-2xl px-3 py-3 mb-2 border border-[rgba(255,255,255,.10)] bg-[rgba(255,255,255,.03)] hover:bg-[rgba(255,255,255,.06)] transition`;
-      row.innerHTML = `
-        <div class="flex items-start justify-between gap-2">
-          <div class="min-w-0">
-            <div class="flex items-center gap-2">
-              <span class="chip text-[11px] px-2 py-0.5 rounded-lg ${badge}">${escapeHtml(it.kind)}</span>
-              ${it.sku?`<span class="chip text-[11px] px-2 py-0.5 rounded-lg mono">${escapeHtml(it.sku)}</span>`:''}
-            </div>
-            <div class="mt-1 font-medium truncate">${escapeHtml(it.title||'')}</div>
-            ${it.detail?`<div class="hint text-xs mt-1 truncate">${escapeHtml(it.detail)}</div>`:''}
-          </div>
-          <div class="hint text-xs mono">${escapeHtml(it.pid.slice(0,8))}</div>
-        </div>
-      `;
-      row.addEventListener('click', ()=>{
-        setTab('edit');
-        selectProduct(it.pid);
-      });
-      container.appendChild(row);
-    }
-    return issues;
-  };
-
-  const exportIssuesCsv = (issues) => {
-    const rows = [];
-    rows.push(['kind','severity','product_id','title','sku','detail']);
-    for (const it of issues){
-      rows.push([it.kind, it.severity, it.pid, it.title, it.sku, it.detail]);
-    }
-    const csv = rows.map(r=>r.map(csvCell).join(',')).join('\n');
-    download('catalog_validation_issues.csv', csv, 'text/csv');
-    toast('Exported issues CSV.');
-  };
-
 
   // ---- Initialize ----
   function init(){
@@ -1464,10 +1166,6 @@
     $('filterType').innerHTML = `<option>(all)</option>`;
     bindUi();
     bindProductFields();
-    // default tab
-    setTab('edit');
-    if ($('bulkScopeLabel') && $('bulkScope')) $('bulkScopeLabel').textContent = $('bulkScope').value;
-
     computeStats();
     renderList();
   }

@@ -90,16 +90,21 @@
 
       <div class="flex flex-wrap gap-2 items-center">
         <button id="btnImport" class="btn btn-primary px-3 py-2 rounded-xl text-sm font-medium">Import JSON</button>
-        <button id="btnImportCsv" class="btn px-3 py-2 rounded-xl text-sm font-medium">Import CSV</button>
+        <button id="btnImportTable" class="btn px-3 py-2 rounded-xl text-sm font-medium">Import table</button>
         <button id="btnExport" class="btn px-3 py-2 rounded-xl text-sm font-medium">Export JSON</button>
+        <button id="btnExportTable" class="btn px-3 py-2 rounded-xl text-sm font-medium">Export table</button>
+        <button id="btnExportOverlay" class="btn px-3 py-2 rounded-xl text-sm font-medium">Export Overlay JSON</button>
         <button id="btnExportEdits" class="btn px-3 py-2 rounded-xl text-sm font-medium">Export Edits CSV</button>
+        <button id="btnSaveToProject" class="btn btn-primary px-3 py-2 rounded-xl text-sm font-medium">Save to Project</button>
+        <button id="btnLoadOverlay" class="btn px-3 py-2 rounded-xl text-sm font-medium hint" title="Load storefront_overlay.json to merge with export">Load overlay</button>
         <button id="btnNewProduct" class="btn px-3 py-2 rounded-xl text-sm font-medium">+ New Product</button>
         <button id="btnSaveLocal" class="btn px-3 py-2 rounded-xl text-sm font-medium">Save Local</button>
         <button id="btnLoadLocal" class="btn px-3 py-2 rounded-xl text-sm font-medium">Load Local</button>
         <button id="btnReset" class="btn px-3 py-2 rounded-xl text-sm font-medium danger">Reset</button>
       </div>
       <input id="fileInput" type="file" accept=".json,application/json" class="hidden" />
-      <input id="csvFileInput" type="file" accept=".csv,text/csv,text/plain" class="hidden" />
+      <input id="tableFileInput" type="file" accept=".xlsx,.xls,.csv,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" class="hidden" />
+      <input id="overlayFileInput" type="file" accept=".json,application/json" class="hidden" />
     </header>
 
     <section class="mt-5 grid grid-cols-1 lg:grid-cols-12 gap-4">
@@ -112,7 +117,7 @@
 
           <div class="grid grid-cols-2 gap-2">
             <div class="col-span-2">
-              <label class="text-xs hint">Search <span class="kbd">/</span></label>
+              <label class="text-xs hint">Search</label>
               <input id="q" class="field w-full rounded-xl px-3 py-2 text-sm" placeholder="title, description, tag, group, sku…" />
             </div>
             <div>
@@ -122,6 +127,10 @@
             <div>
               <label class="text-xs hint">Type</label>
               <select id="filterType" class="field w-full rounded-xl px-3 py-2 text-sm"></select>
+            </div>
+            <div>
+              <label class="text-xs hint">Tag</label>
+              <select id="filterTags" class="field w-full rounded-xl px-3 py-2 text-sm" aria-label="Filter by tag"></select>
             </div>
           </div>
 
@@ -144,27 +153,23 @@
           <div class="flex gap-2">
             <button id="btnDuplicate" class="btn px-3 py-2 rounded-xl text-sm font-medium" disabled>Duplicate</button>
             <button id="btnDelete" class="btn px-3 py-2 rounded-xl text-sm font-medium danger" disabled>Delete</button>
-          
-        <div class="mt-4 flex flex-wrap gap-2">
-          <button id="tabEdit" class="btn btn-primary px-3 py-2 rounded-xl text-sm font-medium">Edit</button>
-          <button id="tabBulk" class="btn px-3 py-2 rounded-xl text-sm font-medium">Bulk</button>
-          <button id="tabValidate" class="btn px-3 py-2 rounded-xl text-sm font-medium">Validate</button>
+          </div>
         </div>
 
-        <div id="panelEdit" class="mt-4">
-          <div id="emptyState" class="rounded-2xl split p-6" data-drag-drop="import">
-            <div class="max-w-xl">
-              <h3 class="text-lg font-semibold">Import a catalog to get started</h3>
-              <p class="hint mt-1">Drop a <span class="mono">.json</span> or <span class="mono">.csv</span> here, or use the buttons above. Edit titles, descriptions, sizes, colors, pricing, tags—then export. All in your browser, no server.</p>
-              <p class="hint text-xs mt-2">Drag & drop a file anywhere on this card to import.</p>
-              <div class="mt-4 flex flex-wrap gap-2">
-                <button id="btnImport2" class="btn btn-primary px-4 py-2 rounded-xl text-sm font-medium">Import JSON</button>
-                <button id="btnLoadSample" class="btn px-4 py-2 rounded-xl text-sm font-medium">Load Sample</button>
-              </div>
+        <div id="emptyState" class="mt-6 rounded-2xl split p-6">
+          <div class="max-w-xl">
+            <h3 class="text-lg font-semibold">Drop a JSON catalog in here.</h3>
+            <p class="hint mt-1">Import your <span class="mono">square_products_latest.json</span>, edit titles, descriptions, sizes, colors, pricing, tags, and export a clean JSON again. Everything runs in your browser.</p>
+            <p class="hint mt-2">Supports Square export: Excel (.xlsx) or CSV with columns like Reference Handle, Item Name, SKU, Price, Option Value 1/2 (Color/Size), etc.</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <button id="btnImport2" class="btn btn-primary px-4 py-2 rounded-xl text-sm font-medium">Import JSON</button>
+              <button id="btnImportTable2" class="btn px-4 py-2 rounded-xl text-sm font-medium">Import table</button>
+              <button id="btnLoadSample" class="btn px-4 py-2 rounded-xl text-sm font-medium">Load Sample</button>
             </div>
           </div>
+        </div>
 
-          <form id="editor" class="mt-4 hidden">
+        <form id="editor" class="mt-4 hidden">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
               <label class="text-xs hint">Title</label>
@@ -186,9 +191,10 @@
               <textarea id="p_desc" rows="4" class="field w-full rounded-xl px-3 py-2 text-sm"></textarea>
             </div>
 
-            <div>
-              <label class="text-xs hint">Tags (comma-separated)</label>
-              <input id="p_tags" class="field w-full rounded-xl px-3 py-2 text-sm" placeholder="glitch, minimal, premium, …" />
+            <div class="md:col-span-2">
+              <label class="text-xs hint">Tags (multi-select for grouping: hoodies, featured, echoverse…)</label>
+              <div id="p_tagPresets" class="flex flex-wrap gap-2 mt-2"></div>
+              <input id="p_tagsCustom" class="field w-full rounded-xl px-3 py-2 text-sm mt-2" placeholder="Custom tags (comma-separated)" />
             </div>
             <div class="grid grid-cols-2 gap-2">
               <div>
@@ -246,147 +252,6 @@
 
           </div>
         </form>
-        </div>
-      </div>
-
-        <!-- Bulk Panel -->
-        <div id="panelBulk" class="mt-4 hidden">
-          <div class="rounded-2xl split p-4">
-            <div class="flex items-start justify-between gap-3">
-              <div>
-                <h3 class="text-lg font-semibold">Bulk Actions</h3>
-                <p class="hint text-sm mt-1">Apply changes to the <b>current filtered list</b> (left side) or to the <b>selected product</b>.</p>
-              </div>
-              <div class="chip text-xs px-2 py-1 rounded-xl">Scope: <span id="bulkScopeLabel" class="mono">filtered</span></div>
-            </div>
-
-            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
-              <div class="glass rounded-2xl p-4">
-                <div class="flex items-center justify-between">
-                  <h4 class="font-semibold">Tags & Grouping</h4>
-                  <select id="bulkScope" class="field rounded-xl px-3 py-2 text-sm">
-                    <option value="filtered">Apply to filtered</option>
-                    <option value="selected">Apply to selected</option>
-                    <option value="all">Apply to all</option>
-                  </select>
-                </div>
-                <div class="mt-3">
-                  <label class="text-xs hint">Add tags (comma-separated)</label>
-                  <input id="bulkAddTags" class="field w-full rounded-xl px-3 py-2 text-sm" placeholder="glitch, echopulse, premium" />
-                </div>
-                <div class="mt-3">
-                  <label class="text-xs hint">Remove tags (comma-separated)</label>
-                  <input id="bulkRemoveTags" class="field w-full rounded-xl px-3 py-2 text-sm" placeholder="oldtag, draft" />
-                </div>
-                <div class="mt-3 grid grid-cols-2 gap-2">
-                  <div>
-                    <label class="text-xs hint">Set group</label>
-                    <input id="bulkSetGroup" class="field w-full rounded-xl px-3 py-2 text-sm" placeholder="EchoVerse" />
-                  </div>
-                  <div>
-                    <label class="text-xs hint">Set type</label>
-                    <input id="bulkSetType" class="field w-full rounded-xl px-3 py-2 text-sm" placeholder="hoodie" />
-                  </div>
-                </div>
-                <div class="mt-3 flex flex-wrap gap-2">
-                  <button id="btnBulkApplyTags" class="btn btn-primary px-3 py-2 rounded-xl text-sm font-medium">Apply Tag/Group Changes</button>
-                  <button id="btnBulkNormalizeTags" class="btn px-3 py-2 rounded-xl text-sm font-medium">Normalize Tags</button>
-                </div>
-                <p class="hint text-xs mt-2">Normalize tags trims/lowers/uniques (keeps order).</p>
-              </div>
-
-              <div class="glass rounded-2xl p-4">
-                <h4 class="font-semibold">Pricing</h4>
-                <div class="mt-3 grid grid-cols-2 gap-2">
-                  <div>
-                    <label class="text-xs hint">Set all variant prices to</label>
-                    <input id="bulkSetPrice" class="field w-full rounded-xl px-3 py-2 text-sm mono" placeholder="34.99" />
-                  </div>
-                  <div>
-                    <label class="text-xs hint">Or add delta (+/-)</label>
-                    <input id="bulkPriceDelta" class="field w-full rounded-xl px-3 py-2 text-sm mono" placeholder="+5" />
-                  </div>
-                </div>
-                <div class="mt-3">
-                  <label class="text-xs hint">Type-based pricing (JSON)</label>
-                  <textarea id="bulkTypePricing" rows="4" class="field w-full rounded-xl px-3 py-2 text-xs mono" placeholder='{"tee":29.99,"hoodie":54.99,"hat":32.99}'></textarea>
-                </div>
-                <div class="mt-3 flex flex-wrap gap-2">
-                  <button id="btnBulkApplyPricing" class="btn btn-primary px-3 py-2 rounded-xl text-sm font-medium">Apply Pricing</button>
-                  <button id="btnBulkRoundPrices" class="btn px-3 py-2 rounded-xl text-sm font-medium">Round .99</button>
-                </div>
-                <p class="hint text-xs mt-2">Pricing applies to all variants in scope.</p>
-              </div>
-
-              <div class="glass rounded-2xl p-4">
-                <h4 class="font-semibold">Normalize Sizes & Colors</h4>
-                <div class="mt-3 grid grid-cols-2 gap-2">
-                  <div>
-                    <label class="text-xs hint">Normalize sizes</label>
-                    <button id="btnBulkNormalizeSizes" class="btn btn-primary w-full px-3 py-2 rounded-xl text-sm font-medium">Normalize</button>
-                  </div>
-                  <div>
-                    <label class="text-xs hint">Normalize colors</label>
-                    <button id="btnBulkNormalizeColors" class="btn btn-primary w-full px-3 py-2 rounded-xl text-sm font-medium">Normalize</button>
-                  </div>
-                </div>
-                <div class="mt-3">
-                  <label class="text-xs hint">Sort variants by (Color → Size)</label>
-                  <button id="btnBulkSortVariants" class="btn w-full px-3 py-2 rounded-xl text-sm font-medium">Sort Variants</button>
-                </div>
-                <p class="hint text-xs mt-2">Size order uses: XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL.</p>
-              </div>
-
-              <div class="glass rounded-2xl p-4">
-                <h4 class="font-semibold">Dedupe / Merge</h4>
-                <p class="hint text-sm mt-2">Merge items that share the same normalized <b>title + group + type</b>. Variants are unioned (by SKU, then by color+size).</p>
-                <div class="mt-3 flex flex-wrap gap-2">
-                  <button id="btnBulkMerge" class="btn btn-primary px-3 py-2 rounded-xl text-sm font-medium">Merge Duplicates (Safe)</button>
-                  <button id="btnBulkMergePreview" class="btn px-3 py-2 rounded-xl text-sm font-medium">Preview Merge</button>
-                </div>
-                <div class="mt-3">
-                  <label class="text-xs hint">Merge preview</label>
-                  <textarea id="bulkMergeLog" rows="6" class="field w-full rounded-xl px-3 py-2 text-xs mono" readonly></textarea>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Validate Panel -->
-        <div id="panelValidate" class="mt-4 hidden">
-          <div class="rounded-2xl split p-4">
-            <div class="flex items-start justify-between gap-3">
-              <div>
-                <h3 class="text-lg font-semibold">Validation Panel</h3>
-                <p class="hint text-sm mt-1">Find issues fast. Click any issue row to jump to the product.</p>
-              </div>
-              <div class="flex gap-2">
-                <button id="btnRunValidate" class="btn btn-primary px-3 py-2 rounded-xl text-sm font-medium">Run Validation</button>
-                <button id="btnExportIssues" class="btn px-3 py-2 rounded-xl text-sm font-medium">Export Issues CSV</button>
-              </div>
-            </div>
-
-            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
-              <div class="glass rounded-2xl p-4">
-                <h4 class="font-semibold">Summary</h4>
-                <div class="mt-3 flex flex-wrap gap-2">
-                  <span class="chip text-xs px-2 py-1 rounded-xl"><span class="hint">Missing desc:</span> <span id="v_missingDesc" class="mono">0</span></span>
-                  <span class="chip text-xs px-2 py-1 rounded-xl"><span class="hint">Missing price:</span> <span id="v_missingPrice" class="mono">0</span></span>
-                  <span class="chip text-xs px-2 py-1 rounded-xl"><span class="hint">Dup SKUs:</span> <span id="v_dupSku" class="mono">0</span></span>
-                  <span class="chip text-xs px-2 py-1 rounded-xl"><span class="hint">Invalid sizes:</span> <span id="v_invalidSize" class="mono">0</span></span>
-                  <span class="chip text-xs px-2 py-1 rounded-xl"><span class="hint">No variants:</span> <span id="v_noVariants" class="mono">0</span></span>
-                </div>
-                <p class="hint text-xs mt-3">Validation is opinionated (store-ready defaults). Adjust rules in <span class="mono">app.js</span>.</p>
-              </div>
-
-              <div class="glass rounded-2xl p-4">
-                <h4 class="font-semibold">Issues</h4>
-                <div id="issuesList" class="mt-3 max-h-[45vh] overflow-auto soft-scroll pr-1"></div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <div id="toast" class="fixed bottom-4 right-4 hidden">
           <div class="glass rounded-2xl px-4 py-3 text-sm"></div>
@@ -396,12 +261,13 @@
 
     <footer class="mt-6 hint text-xs">
       <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-        <span>Local-first • no network calls • safe to run offline. <span class="kbd">Ctrl+S</span> Save Local.</span>
-        <span class="mono">v1.1 • AeroVista Catalog Console</span>
+        <span>Local-first • no network calls • safe to run offline.</span>
+        <span class="mono">v1.0 • Catalog Console</span>
       </div>
     </footer>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>

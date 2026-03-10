@@ -34,6 +34,17 @@ Use `cloudflared/config.yml` as a starting point. Route `api.yourdomain.com` to 
 ## Linux service template
 Systemd unit template: `systemd/av-store-api.service`
 
+## Database (Postgres) for fulfillment bridge
+
+The fulfillment bridge and internal job queue use **Postgres** via
+SQLAlchemy 2.x, Alembic, and psycopg3.
+
+- Set `DATABASE_URL` in `.env`, for example:
+  - `DATABASE_URL=postgresql+psycopg://av_store:strongpassword@postgres:5432/av_storefront`
+- Optional:
+  - `SQLALCHEMY_ECHO=1` to log SQL statements in dev.
+  - `SQUARE_WEBHOOK_SIGNATURE_KEY` for verifying Square webhooks.
+
 ## Suggested CORS for GitHub Pages
 If your storefront is served from GitHub Pages, set:
 - `ALLOWED_ORIGINS=https://aerovista-us.github.io`
@@ -60,6 +71,11 @@ checkout truth.
 3. Optional: add `"variationId": "SQ_..."` for Square catalog linkage.
 
 The response body includes an `error` message listing the unknown SKU. Use the same keys as the frontend’s cart (e.g. `Color__Size`).
+
+## Checkout: shipping address and Printful
+
+- **Shipping address:** The backend creates a Square Payment Link with `checkout_options.ask_for_shipping_address: true`, so Square's hosted checkout page collects the buyer's shipping address and attaches it to the order as a SHIPMENT fulfillment. You can see it in the Square Dashboard for each order.
+- **Printful:** Orders are **not** automatically sent to Printful. Payment is captured in Square only. To fulfill, either create the order manually in Printful using the shipping address from Square, or add a webhook/script that reads Square orders and creates Printful orders (using `printful_variant_map.json` and your Printful API).
 
 ---
 

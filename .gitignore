@@ -15,3 +15,36 @@ out/
 in/
 *.xlsx
 README (2).md
+
+# ---- Unnecessary for site (do not push) ----
+# Temp/backup
+index.temp.save.html
+*.temp.save.html
+* - Copy.env
+* - Copy.zip
+# Generated reports/data
+square_products_merge_report.csv
+square_products_merged_flat.csv
+data_quality_reports/
+backend/sku_map.generated.json
+backend/sku_map.generated.env
+test_excel_result.json
+# Dated Square exports in backend (use root catalog only)
+backend/square_products_*.json
+# Dated exports in Catalog Console (regenerate as needed)
+AeroVista_Catalog_Console/v1.1/1149*.csv
+AeroVista_Catalog_Console/v1.1/1149*.json
+AeroVista_Catalog_Console/ava_catalog-*.csv
+AeroVista_Catalog_Console/v1.1/square_products_latest.json
+AeroVista_Catalog_Console/square_products_latest.json
+# Root-level one-off Square export CSVs (catalog lives in square_products_*.json)
+1149XBNG8C8ZE_catalog-*.csv
+# Legacy frontend (not served)
+public/
+# Catalog Console archive (old copies)
+AeroVista_Catalog_Console/v1.1/archive/
+# Scratch/dev
+trigger helper.sql
+backend/api.txt
+# Duplicate of docs version (keep docs/MASTER_FIX_PLAN.md)
+/MASTER_FIX_PLAN.md

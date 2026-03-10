@@ -1,10 +1,25 @@
 import os
 import json
 import uuid
+import hmac
+import hashlib
+import base64
 import requests
 from flask import Flask, request, jsonify, make_response, render_template
 from werkzeug.exceptions import BadRequest
 from datetime import datetime
+
+from db import (
+    engine,
+    get_session,
+    WebhookEvent,
+    Order,
+    OrderItem,
+    FulfillmentJob,
+)
+from sqlalchemy.orm import Session
+from sqlalchemy import select
+
 
 app = Flask(__name__, template_folder="templates")
 
@@ -287,6 +302,9 @@ def square_checkout():
                 "location_id": location_id,
                 "line_items": line_items,
             },
+            "checkout_options": {
+                "ask_for_shipping_address": True,
+            },
         }
 
         result = square_create_payment_link(pl_payload)
@@ -309,6 +327,158 @@ def square_checkout():
         return jsonify({"ok": False, "error": "Invalid or missing JSON body", "detail": str(e)}), 400
     except Exception as e:
         return jsonify({"ok": False, "error": f"{type(e).__name__}: {str(e)}"}), 500
+
+
+def _verify_square_signature(body: bytes, provided: str | None) -> bool:
+    key = os.getenv("SQUARE_WEBHOOK_SIGNATURE_KEY", "").strip()
+    if not key or not provided:
+        return False
+    digest = hmac.new(key.encode("utf-8"), body, hashlib.sha1).hexdigest()
+    expected = base64.b64encode(bytes.fromhex(digest)).decode("ascii")
+    # Square docs compare base64-encoded HMAC; keep it simple here.
+    return hmac.compare_digest(expected, provided.strip())
+
+
+def _upsert_order_from_square_payload(db: Session, payload: dict) -> Order:
+    """
+    Normalize a Square order webhook payload into Order + OrderItem rows.
+    This assumes the payload contains `data.object.order` (Orders API shape).
+    """
+    data = payload.get("data") or {}
+    obj = data.get("object") or {}
+    order = obj.get("order") or {}
+    if not isinstance(order, dict):
+        raise ValueError("Webhook payload missing order")
+
+    order_id = order.get("id") or order.get("order_id")
+    if not order_id:
+        raise ValueError("Webhook order missing id")
+
+    source_provider = "square"
+
+    stmt = select(Order).where(
+        Order.source_provider == source_provider,
+        Order.source_order_id == str(order_id),
+    )
+    existing = db.execute(stmt).scalar_one_or_none()
+
+    if existing is None:
+        o = Order(
+            store_id=order.get("location_id"),
+            source_provider=source_provider,
+            source_order_id=str(order_id),
+            currency=(order.get("total_money") or {}).get("currency", "USD"),
+            order_total=(order.get("total_money") or {}).get("amount"),
+            raw_order_json=order,
+        )
+        db.add(o)
+        db.flush()
+    else:
+        o = existing
+        o.raw_order_json = order
+        money = order.get("total_money") or {}
+        o.currency = money.get("currency", o.currency)
+        o.order_total = money.get("amount", o.order_total)
+
+    fulfillments = order.get("fulfillments") or []
+    if isinstance(fulfillments, list) and fulfillments:
+        f = fulfillments[0] or {}
+        recip = (f.get("shipment_details") or {}).get("recipient") or {}
+        addr = recip.get("address") or {}
+        o.customer_name = recip.get("display_name") or ""
+        o.customer_email = recip.get("email_address") or ""
+        o.customer_phone = recip.get("phone_number") or ""
+        o.ship_name = recip.get("display_name") or ""
+        o.ship_addr1 = addr.get("address_line_1") or ""
+        o.ship_addr2 = addr.get("address_line_2") or ""
+        o.ship_city = addr.get("locality") or ""
+        o.ship_state = addr.get("administrative_district_level_1") or ""
+        o.ship_postal_code = addr.get("postal_code") or ""
+        o.ship_country = addr.get("country") or ""
+
+    db.query(OrderItem).filter(OrderItem.order_id == o.id).delete()
+
+    line_items = order.get("line_items") or []
+    for li in line_items:
+        if not isinstance(li, dict):
+            continue
+        qty_raw = li.get("quantity", "0")
+        try:
+            qty_int = int(qty_raw)
+        except Exception:
+            qty_int = 0
+        if qty_int <= 0:
+            continue
+        price_money = (li.get("base_price_money") or li.get("gross_sales_money") or {})
+        unit_price = price_money.get("amount")
+        variation_id = None
+        catalog_id = None
+        for uid in li.get("catalog_object_ids") or []:
+            catalog_id = uid
+        variation_id = li.get("variation_id") or li.get("catalog_object_id")
+
+        item = OrderItem(
+            order_id=o.id,
+            line_item_uid=li.get("uid"),
+            square_catalog_object_id=catalog_id,
+            square_variation_id=variation_id,
+            sku=(li.get("note") or "").replace("sku:", "") if li.get("note") else None,
+            title=(li.get("name") or ""),
+            variant_name=li.get("variation_name") or "",
+            quantity=qty_int,
+            unit_price=unit_price,
+            raw_line_json=li,
+        )
+        db.add(item)
+
+    return o
+
+
+def _ensure_fulfillment_job(db: Session, order: Order) -> FulfillmentJob:
+    job = db.execute(
+        select(FulfillmentJob).where(
+            FulfillmentJob.order_id == order.id,
+            FulfillmentJob.provider == "printful",
+        )
+    ).scalar_one_or_none()
+    if job is None:
+        job = FulfillmentJob(order_id=order.id, provider="printful", job_status="pending")
+        db.add(job)
+    return job
+
+
+@app.route("/api/webhooks/square", methods=["POST"])
+def square_webhook():
+    raw_body = request.get_data(cache=False) or b""
+    provided_sig = request.headers.get("x-square-hmacsha256", "")
+
+    verified = _verify_square_signature(raw_body, provided_sig)
+
+    try:
+        payload = json.loads(raw_body.decode("utf-8") or "{}")
+    except Exception:
+        payload = {}
+
+    with next(get_session()) as db:  # type: ignore
+        ev = WebhookEvent(
+            source_provider="square",
+            source_event_id=str(((payload.get("event_id") or payload.get("id")) or "")),
+            signature_verified=bool(verified),
+            event_type=str(payload.get("type") or ""),
+            payload_json=payload or {},
+        )
+        db.add(ev)
+
+        if not verified:
+            return jsonify({"ok": False, "error": "invalid signature"}), 400
+
+        try:
+            order = _upsert_order_from_square_payload(db, payload)
+            _ensure_fulfillment_job(db, order)
+        except Exception as e:
+            return jsonify({"ok": False, "error": str(e)}), 400
+
+    return jsonify({"ok": True}), 200
 
 
 @app.route("/ops/printful", methods=["GET"])

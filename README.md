@@ -9,7 +9,7 @@ Canonical static storefront for AeroVista Apparel, backed by a Square JSON catal
 - `index.html` – primary storefront (GitHub Pages–friendly, no build step).
 - `square_products_latest.json` – **live** Square export the storefront reads by default (with dated fallbacks like `square_products_2026-02-11.json`).
 - `AeroVista_Catalog_Console/` – Catalog Console for cleaning/merging Square exports and producing an edited JSON catalog.
-- `backend/` – optional FastAPI/Starlette-style backend used for checkout, ops dashboards, etc.
+- `backend/` – optional Flask API used for checkout, ops dashboards, etc.
 - `public/` – legacy/archived frontend; not served in production.
 
 Archived Firebase/public variants are not used or served; `index.html` at the repo root is authoritative.
@@ -141,6 +141,7 @@ Future enhancements / extension points:
 ## Docs
 
 - **Handoff for devs:** [handoffnotes.md](handoffnotes.md) — where to look, catalog sources, Catalog Console, backend, troubleshooting.
+- **How to update products:** [docs/HOW_TO_UPDATE_PRODUCTS.md](docs/HOW_TO_UPDATE_PRODUCTS.md) — step-by-step guide for catalog updates, overlay, and validation.
 - Hosting & DNS: [docs/HOSTING_AND_DNS.md](docs/HOSTING_AND_DNS.md)
 - API/Routing status & verification: [docs/NXCORE_STORE_API_ROUTING_STATUS.md](docs/NXCORE_STORE_API_ROUTING_STATUS.md)
 

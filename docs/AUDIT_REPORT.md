@@ -4,6 +4,17 @@
 
 ---
 
+## Resolution status (February 24, 2026)
+
+Critical and High issues have been addressed. See [AUDIT_RESOLUTION_CHECKLIST.md](AUDIT_RESOLUTION_CHECKLIST.md) for per-issue status.
+
+- **Critical:** #1 Form labels, #2 Input validation (incl. ZIP format), #3 CSP — Resolved.
+- **High:** #4 Modal focus, #5 Keyboard for custom controls, #6 Loading states, #7 Error boundaries, #8 Form submit prevention, #9 Alt/title for SVGs, #10 Skip link, #11 SEO (incl. canonical) — Resolved.
+- **Medium:** #13 ARIA live, #14–15 Input types/required, #17 Preload, #21 Rate limiting, #22 Cart persistence — Resolved. Others (e.g. #12 inline styles, #16 structured data) partial or deferred.
+- **Low:** #25 Favicon, viewport — Resolved. #24, #26–29 deferred or optional.
+
+---
+
 ## Executive Summary
 
 Overall, the storefront is well-structured with good accessibility foundations and modern design. However, there are several critical and moderate issues that should be addressed for production readiness, particularly around form accessibility, security headers, SEO, and error handling.
