@@ -1,0 +1,64 @@
+Catalog image assignments
+Catalog: \\100.115.9.61\Collab\mini.shops\av_storefront\square_products_latest.json
+Image dir: \\100.115.9.61\Collab\mini.shops\av_storefront\img
+Available files: AeroVista Apex Camo Flexfit Hat.png, Apex Flexfit Structured.png, BLU.EYE.png, CDA Pool League Circuit Long Sleeve.png, CDA Pool League Circuit Tee.png, Drafted A Premium Sweatshirt.png, Drafted A classic tee.png, EchoVerse Frost Circuit Tee.png, Glitch Pullover Hoodie.png, Glitch Pullover Tee.png, Glitched Orbit Embroidered Hat.png, Golden Eye Sigil Premium Sweatshirt.png, Neck Gaiter black.png, Neck Gaiter orange.png, Neck Gaiter red.png, POWDER_PEAKS.png, Powder Peaks 8-Ball Tee Black.png, aerovista_apex_camo_flexfit_hat.png, av_wave_white.png, bonsaid sticker.png, bonsaid_gr.png, bonsaid_grn.png, bonsaid_snapback.png, closed-back-structured-cap-multicam-black-front-69b1c9e082ae6.png, drafted-a-snapback.png, drafted_a__zip_hoodie.png, drafted_a_hoodie.png, echoverse_hoodie.png, founders_zip_hoodie.png, frost_circuit_black_hoodie.png, giftcard.png, glitch A.png, glitch.aerovista.png, glitch_drone.png, holographic_goat_sticker.png, kryptek_Hunter_Orange_1_1500.png, kryptek_blk_1_1500.png, kryptek_emt_Image1_1500.png, lumina_hoodie.png, nexus_hoodie.png, nit_bear.png, original.png, power_peaks_hoodie_1.png, skyline_drone_crest.png, sound_goat_a_blk_hoodie.png, vespera.png
+
+  aerovista-apex-mesh-trucker-cap- | AeroVista “Apex Mesh” Trucker Cap -> drafted-a-snapback.png
+  aerovista-skyline-drone-crest-sticker- | AeroVista “Skyline Drone Crest” Sticker -> skyline_drone_crest.png
+  aerovista-wave-mark-zip-hoodie-white | AeroVista “Wave Mark” Zip Hoodie -> av_wave_white.png
+  aerovista-apex-camo-flexfit-hat-s-m | AeroVista Apex Camo Flexfit Hat -> aerovista_apex_camo_flexfit_hat.png
+  aerovista-apex-flexfit-structured-cap-black | AeroVista Apex Flexfit Structured Cap -> Apex Flexfit Structured.png
+  aerovista-apex-glitch-premium-pullover-hoodie-black | AeroVista Apex Glitch Premium Pullover Hoodie | Black -> Glitch Pullover Hoodie.png
+  aerovista-apex-glitch-tee-black | AeroVista Apex Glitch Tee | Black -> Glitch Pullover Tee.png
+  aerovista-premium-embroidered-hat-black-cap-with-signature-apex-mark- | AeroVista Glitched Orbit Embroidered Hat -> Glitched Orbit Embroidered Hat.png
+  aerovista-wave-mark-full-zip-hoodie-white | AeroVista Wave Mark Full-Zip Hoodie – White -> av_wave_white.png
+  aerovista-apex-draft-full-zip-hoodie-black | AeroVista • Apex Draft • Full-Zip Hoodie • Black -> drafted_a_hoodie.png
+  aerovista-apex-draft-pullover-hoodie-black | AeroVista • Apex Draft • Pullover Hoodie • Black -> drafted_a_hoodie.png
+  aerovista-hoodie-orbit-a-mark-black- | AeroVista • Hoodie • Orbit “A” Mark • Black -> original.png
+  aerovista-retro-trucker-hat-orbit-a-gray- | AeroVista • Retro Trucker Hat • Orbit “A” • Gray -> Glitched Orbit Embroidered Hat.png
+  aerovista-the-blue-witness-urban-hoodie-black | AeroVista • The Blue Witness • Urban Hoodie • Black -> BLU.EYE.png
+  bonsaid-rooted-resilience-hoodie-premium-print-black-s | BONSAID “Rooted Resilience” Hoodie – Premium Print | Black -> bonsaid_grn.png
+  bonsaid-rooted-resilience-hoodie-premium-print-bone-bone | BONSAID “Rooted Resilience” Hoodie – Premium Print | Bone -> bonsaid_grn.png
+  bonsaid-rooted-resilience-hoodie-premium-print-bone-carbon-grey | BONSAID “Rooted Resilience” Hoodie – Premium Print | Carbon  -> bonsaid_grn.png
+  bonsaid-rooted-resilience-hoodie-premium-print-bone-charcoal-heather | BONSAID “Rooted Resilience” Hoodie – Premium Print | Charcoa -> bonsaid_grn.png
+  bonsaid-rooted-resilience-hoodie-premium-print-bone-khaki | BONSAID “Rooted Resilience” Hoodie – Premium Print | Khaki -> bonsaid_grn.png
+  bonsaid-rooted-resilience-hoodie-premium-print-bone-latte | BONSAID “Rooted Resilience” Hoodie – Premium Print | Latte -> bonsaid_grn.png
+  bonsaid-rooted-resilience-hoodie-premium-print-bone-light-pink | BONSAID “Rooted Resilience” Hoodie – Premium Print | Light P -> bonsaid_grn.png
+  bonsaid-rooted-resilience-hoodie-premium-print-bone-military-green | BONSAID “Rooted Resilience” Hoodie – Premium Print | Militar -> bonsaid_grn.png
+  bonsaid-rooted-resilience-hoodie-premium-print-bone-sky-blue | BONSAID “Rooted Resilience” Hoodie – Premium Print | Sky Blu -> bonsaid_grn.png
+  bonsaid-rooted-resilience-hoodie-premium-print-bone-white | BONSAID “Rooted Resilience” Hoodie – Premium Print | White -> bonsaid_grn.png
+  bonsaid-rooted-resilience-oversized-heavyweight-hoodie-asphalt-asphalt | BONSAID “Rooted Resilience” Oversized Heavyweight Hoodie | A -> bonsaid_grn.png
+  bonsaid-rooted-resilience-oversized-heavyweight-hoodie-black-s | BONSAID “Rooted Resilience” Oversized Heavyweight Hoodie | B -> bonsaid_grn.png
+  bonsaid-rooted-resilience-oversized-heavyweight-hoodie-asphalt-dust | BONSAID “Rooted Resilience” Oversized Heavyweight Hoodie | D -> bonsaid_grn.png
+  bonsaid-rooted-resilience-oversized-heavyweight-hoodie-asphalt-forest | BONSAID “Rooted Resilience” Oversized Heavyweight Hoodie | F -> bonsaid_grn.png
+  bonsaid-rooted-resilience-oversized-heavyweight-hoodie-asphalt-vintage-brown | BONSAID “Rooted Resilience” Oversized Heavyweight Hoodie | V -> bonsaid_grn.png
+  bonsaid-rooted-resilience-oversized-heavyweight-hoodie-asphalt-white | BONSAID “Rooted Resilience” Oversized Heavyweight Hoodie | W -> bonsaid_grn.png
+  bonsaid-rooted-resilience-trucker-cap-richardson-112-edition-black | BONSAID “Rooted Resilience” Trucker Cap — Richardson 112 Edi -> bonsaid_snapback.png
+  bonsaid-bubble-free-stickers-3-3- | BONSAID bubble-free stickers -> bonsaid sticker.png
+  bubble-free-stickers-3-3- | Bubble-free stickers -> bonsaid sticker.png
+  burst-lens-lumina-pullover-hoodie | Burst Lens • Lumina • Pullover Hoodie -> lumina_hoodie.png
+  cda-pool-league-circuit-long-sleeve-tee-vintage-comic-print | CDA Pool League Circuit Long Sleeve Tee — Vintage Comic Prin -> CDA Pool League Circuit Long Sleeve.png
+  cda-pool-league-circuit-vintage-comic-tee-white | CDA Pool League Circuit • Vintage Comic Tee • White -> CDA Pool League Circuit Tee.png
+  circuit-bloom-nexus-techworks-pullover-hoodie | Circuit Bloom • NeXuS TechWorks • Pullover Hoodie -> nexus_hoodie.png
+  drafted-a-classic-tee- | Drafted A classic tee -> Drafted A classic tee.png
+  drafted-a-premium-sweatshirt | Drafted A  • Premium Sweatshirt -> Drafted A Premium Sweatshirt.png
+  echoverse-frost-circuit-pullover-hoodie | EchoVerse “Frost Circuit” Pullover Hoodie -> frost_circuit_black_hoodie.png
+  echoverse-frost-circuit-tee | EchoVerse “Frost Circuit” Tee -> EchoVerse Frost Circuit Tee.png
+  echoverse-signal-dial-chest-emblem-hoodie | EchoVerse “Signal Dial” Chest Emblem Hoodie -> echoverse_hoodie.png
+  founders-mark-full-zip-hoodie | Founders Mark full zip hoodie -> founders_zip_hoodie.png
+  glitch-logo-aerovista-tee-black | AeroVista Glitch Logo Tee -> glitch.aerovista.png
+  glitch-orbit-logo-black- | Glitch Orbit Logo - Black -> glitch A.png
+  glitch_drone-aerovista-tee-black | glitch_drone  • AeroVista • Tee - black -> glitch_drone.png
+  golden-eye-sigil-premium-sweatshirt | Golden Eye Sigil Premium Sweatshirt -> Golden Eye Sigil Premium Sweatshirt.png
+  holographic-stickers-3-3- | Holographic stickers -> holographic_goat_sticker.png
+  neck-gaiter- | AeroVista Performance Neck Gaiter -> Neck Gaiter black.png
+  neon-billygoat-pullover-hoodie- | Neon 'BillyGoat' Pullover Hoodie -> sound_goat_a_blk_hoodie.png
+  night-ranger-bear-pullover-hoodie | Night Ranger Bear Pullover Hoodie -> nit_bear.png
+  observer-eye-sigel-pullover-hoodie-black-w-blue-print | Observer • eye sigel • Pullover Hoodie • Black w/blue print -> BLU.EYE.png
+  powder-peaks-8-ball-hoodie-black-white-ink | Powder Peaks 8-Ball Hoodie — Black / White Ink -> Powder Peaks 8-Ball Tee Black.png
+  powder-peaks-8-ball-sticker-black-white-ink-3-3- | Powder Peaks 8-Ball Sticker — Black / White Ink -> POWDER_PEAKS.png
+  powder-peaks-8-ball-tee-black-white-ink | Powder Peaks 8-Ball Tee — Black / White Ink -> Powder Peaks 8-Ball Tee Black.png
+  powder-peaks-v2-premium-pullover-hoodie-black | Powder Peaks v2 Premium Pullover Hoodie | Black -> Powder Peaks 8-Ball Tee Black.png
+  powder-peaks-v2-black-s | Powder Peaks v2 | Black -> Powder Peaks 8-Ball Tee Black.png
+  powder-peaks-v2-black-white | Powder Peaks v2 | White -> Powder Peaks 8-Ball Tee Black.png
+  unisex-premium-mid-weight-hoodie | AeroVista Core Midweight Hoodie -> original.png

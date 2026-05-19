@@ -1,0 +1,41 @@
+Punch-list fix log
+
+[category] AeroVista “Skyline Drone Crest” Sticker: utility -> stickers
+[category] AeroVista Apex Flexfit Structured Cap: apparel -> hats
+[category] AeroVista Apex Glitch Premium Pullover Hoodie | Bl: apparel -> hoodies
+[category] AeroVista Apex Glitch Tee | Black: utility -> tees
+[category] AeroVista Wave Mark Full-Zip Hoodie – White: utility -> hoodies
+[category] AeroVista • Hoodie • Orbit “A” Mark • Black: apparel -> hoodies
+[category] AeroVista • Retro Trucker Hat • Orbit “A” • Gray: apparel -> hats
+[desc] Propagated BONSAID PP desc -> BONSAID “Rooted Resilience” Hoodie – Premium Print | Bone
+[desc] Propagated BONSAID PP desc -> BONSAID “Rooted Resilience” Hoodie – Premium Print | Carbon Grey
+[desc] Propagated BONSAID PP desc -> BONSAID “Rooted Resilience” Hoodie – Premium Print | Charcoal Heather
+[desc] Propagated BONSAID PP desc -> BONSAID “Rooted Resilience” Hoodie – Premium Print | Khaki
+[desc] Propagated BONSAID PP desc -> BONSAID “Rooted Resilience” Hoodie – Premium Print | Latte
+[desc] Propagated BONSAID PP desc -> BONSAID “Rooted Resilience” Hoodie – Premium Print | Light Pink
+[desc] Propagated BONSAID PP desc -> BONSAID “Rooted Resilience” Hoodie – Premium Print | Military Green
+[desc] Propagated BONSAID PP desc -> BONSAID “Rooted Resilience” Hoodie – Premium Print | Sky Blue
+[desc] Propagated BONSAID PP desc -> BONSAID “Rooted Resilience” Hoodie – Premium Print | White
+[desc] Propagated BONSAID OH desc -> BONSAID “Rooted Resilience” Oversized Heavyweight Hoodie | Asphalt
+[desc] Propagated BONSAID OH desc -> BONSAID “Rooted Resilience” Oversized Heavyweight Hoodie | Dust
+[desc] Propagated BONSAID OH desc -> BONSAID “Rooted Resilience” Oversized Heavyweight Hoodie | Forest
+[desc] Propagated BONSAID OH desc -> BONSAID “Rooted Resilience” Oversized Heavyweight Hoodie | Vintage Brown
+[desc] Propagated BONSAID OH desc -> BONSAID “Rooted Resilience” Oversized Heavyweight Hoodie | White
+[category] CDA Pool League Circuit Long Sleeve Tee — Vintage : longsleevetee -> tees
+[category] Drafted A  • Premium Sweatshirt: sweatshirt -> crewnecks
+[rename+desc] glitch logo • AeroVista • Tee - black -> AeroVista Glitch Logo Tee
+[category] Golden Eye Sigil Premium Sweatshirt: sweatshirt -> crewnecks
+[hide] MuseFace -> hidden (internal service)
+[rename+desc] Neck Gaiter -> AeroVista Performance Neck Gaiter
+[category] AeroVista Performance Neck Gaiter: neckgaiter -> apparel
+[category] Powder Peaks v2 Premium Pullover Hoodie | Black: apparel -> hoodies
+[desc] Added PP v2 White desc -> Powder Peaks v2 | White
+[rename+hide] Rental -> AeroVista Rental Reservation
+[rename+desc] Unisex premium mid-weight hoodie -> AeroVista Core Midweight Hoodie
+[category] AeroVista Core Midweight Hoodie: utility -> hoodies
+
+Catalog written: 62 products
+[overlay] Removed dead overrides: aerovista_apex-draft_pullover_hoodie, aerovista_orbit_trucker_hat
+[overlay] ad-01 (Synthetic Souls Drop): set visible=false (missing image)
+[overlay] Removed stale cartKey 'Black__M' from variation EHDPCB4W5OHY4MFRVHVZERAD
+Overlay written

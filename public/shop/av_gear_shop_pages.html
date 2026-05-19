@@ -4,18 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://web.squarecdn.com https://sandbox.web.squarecdn.com https://stats.aerocoreos.com; style-src 'self' 'unsafe-inline' https://web.squarecdn.com https://sandbox.web.squarecdn.com; img-src 'self' data:; connect-src 'self' https://connect.squareup.com https://connect.squareupsandbox.com https://web.squarecdn.com https://sandbox.web.squarecdn.com https://pci-connect.squareup.com https://pci-connect.squareupsandbox.com https://api.aerovista.us https://stats.aerocoreos.com http://127.0.0.1:* http://localhost:*; frame-src https://web.squarecdn.com https://sandbox.web.squarecdn.com https://connect.squareup.com https://connect.squareupsandbox.com https://pci-connect.squareup.com https://pci-connect.squareupsandbox.com; font-src 'self' data: https://square-fonts-production-f.squarecdn.com https://d1g145x70srn7h.cloudfront.net;">
-  <title>AeroVista Apparel — Store</title>
-  <meta name="description" content="Curated comfort essentials: hoodies, crewnecks, hats." />
-  <meta property="og:title" content="AeroVista Apparel — Store" />
-  <meta property="og:description" content="Curated comfort essentials: hoodies, crewnecks, hats." />
-  <meta property="og:site_name" content="AeroVista Apparel" />
+  <title>AeroVista Gear Shop — Fieldwear for Creative Operators</title>
+  <meta name="description" content="Fieldwear, signal pieces, and limited-run gear from the AeroVista ecosystem." />
+  <meta property="og:title" content="AeroVista Gear Shop — Fieldwear for Creative Operators" />
+  <meta property="og:description" content="Fieldwear, signal pieces, and limited-run gear from the AeroVista ecosystem." />
+  <meta property="og:site_name" content="AeroVista Gear Shop" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://aerovista.us/" />
   <meta property="og:image" content="https://aerovista.us/img/original.png" />
   <meta property="og:image:alt" content="AeroVista Apparel" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AeroVista Apparel — Store" />
-  <meta name="twitter:description" content="Curated comfort essentials: hoodies, crewnecks, hats." />
+  <meta name="twitter:title" content="AeroVista Gear Shop — Fieldwear for Creative Operators" />
+  <meta name="twitter:description" content="Fieldwear, signal pieces, and limited-run gear from the AeroVista ecosystem." />
   <meta name="twitter:image" content="https://aerovista.us/img/original.png" />
   <link rel="canonical" href="https://aerovista.us/" />
   <link rel="preconnect" href="https://web.squarecdn.com" crossorigin />
@@ -162,17 +162,6 @@
       box-shadow: 0 10px 26px rgba(0,0,0,.35);
     }
     .cta:hover{ transform: translateY(-1px); border-color: rgba(167,139,250,.35); }
-    .btn{
-      display:inline-flex; align-items:center; gap:8px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.05);
-      border-radius:999px;
-      padding:10px 14px;
-      cursor:pointer;
-      transition:.15s ease;
-      color:var(--text);
-    }
-    .btn:hover{ border-color:rgba(110,231,255,.35); background:rgba(255,255,255,.08); }
     .note{
       display:inline-flex; align-items:center; gap:8px;
       font-size: 12px;
@@ -594,6 +583,142 @@
       background: rgba(110,231,255,.08);
     }
 
+
+
+    /* Brand-first Gear Shop landing */
+    .landingHeroCopy{ max-width: 720px; }
+    .heroKicker{
+      display:inline-flex; align-items:center; gap:8px;
+      margin-bottom:12px;
+      font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+      color:rgba(110,231,255,.85);
+      border:1px solid rgba(110,231,255,.18);
+      background:rgba(110,231,255,.06);
+      border-radius:999px; padding:7px 10px;
+    }
+    .landingHeadline{ font-size: clamp(34px, 7vw, 72px); line-height:.94; letter-spacing:-.055em; margin:0; }
+    .landingTagline{ margin:16px 0 0; color:var(--muted); font-size:16px; line-height:1.55; max-width:68ch; }
+    .heroStats{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px; margin-top:18px; max-width:680px; }
+    .heroStat{ border:1px solid rgba(255,255,255,.09); background:rgba(255,255,255,.025); border-radius:16px; padding:12px; }
+    .heroStat b{ display:block; font-size:18px; letter-spacing:.02em; }
+    .heroStat span{ display:block; margin-top:3px; color:var(--muted); font-size:12px; line-height:1.3; }
+    .landingSection{ margin-top:22px; }
+    .sectionHead{ display:flex; align-items:flex-end; justify-content:space-between; gap:14px; margin:0 0 12px; }
+    .sectionHead h2{ margin:0; font-size:22px; letter-spacing:-.02em; }
+    .sectionHead p{ margin:6px 0 0; color:var(--muted); max-width:72ch; font-size:14px; line-height:1.45; }
+    .collectionGrid{ display:grid; grid-template-columns:repeat(12,1fr); gap:12px; }
+    .collectionDoor{
+      grid-column:span 12;
+      min-height:230px;
+      border-radius:var(--radius2);
+      border:1px solid rgba(255,255,255,.09);
+      background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018));
+      box-shadow:0 12px 34px rgba(0,0,0,.32);
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      cursor:pointer;
+      transition:transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .collectionDoor:before{
+      content:""; position:absolute; inset:-2px;
+      background:radial-gradient(380px 240px at 8% 0%, var(--doorGlow, rgba(110,231,255,.16)), transparent 58%),
+                 linear-gradient(135deg, transparent, rgba(255,255,255,.035));
+      opacity:.9; pointer-events:none;
+    }
+    .collectionDoor:after{
+      content:attr(data-mark);
+      position:absolute; right:16px; bottom:-16px;
+      font-family:var(--mono); font-size:92px; font-weight:900; letter-spacing:-.12em;
+      color:rgba(255,255,255,.035); line-height:1;
+    }
+    .collectionDoor:hover{ transform:translateY(-3px); border-color:rgba(110,231,255,.28); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); }
+    .doorTop,.doorBottom{ position:relative; z-index:1; }
+    .doorLabel{ font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:rgba(231,237,246,.72); }
+    .collectionDoor h3{ margin:10px 0 0; font-size:24px; letter-spacing:-.035em; }
+    .collectionDoor p{ margin:10px 0 0; color:var(--muted); font-size:14px; line-height:1.45; max-width:55ch; }
+    .doorCTA{ display:inline-flex; align-items:center; gap:8px; margin-top:16px; color:var(--text); font-size:13px; font-weight:800; }
+    @media (min-width:720px){ .collectionDoor{ grid-column:span 6; } }
+    @media (min-width:1040px){ .collectionDoor{ grid-column:span 4; } }
+    .featuredDrop{
+      border:1px solid rgba(255,255,255,.09);
+      background:radial-gradient(720px 320px at 10% 0%, rgba(110,231,255,.12), transparent 62%), linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018));
+      border-radius:var(--radius2); padding:18px; display:grid; grid-template-columns:1fr; gap:16px; overflow:hidden;
+    }
+    @media (min-width:900px){ .featuredDrop{ grid-template-columns:1fr .9fr; align-items:center; } }
+    .dropTitle{ margin:0; font-size:30px; letter-spacing:-.04em; }
+    .dropCopy{ margin:10px 0 0; color:var(--muted); line-height:1.55; max-width:70ch; }
+    .dropPieces{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .dropPiece{ min-height:110px; border:1px solid rgba(255,255,255,.09); background:rgba(0,0,0,.18); border-radius:18px; padding:12px; display:flex; flex-direction:column; justify-content:space-between; }
+    .dropPiece .mini{ font-family:var(--mono); font-size:10px; color:rgba(110,231,255,.78); letter-spacing:.12em; text-transform:uppercase; }
+    .dropPiece b{ font-size:13px; line-height:1.25; }
+    .brandSystemGrid{ display:grid; grid-template-columns:repeat(12,1fr); gap:12px; }
+    .brandSystemCard{ grid-column:span 12; border:1px solid rgba(255,255,255,.09); background:rgba(255,255,255,.025); border-radius:20px; padding:16px; }
+    .brandSystemCard .num{ font-family:var(--mono); font-size:11px; color:rgba(110,231,255,.8); letter-spacing:.14em; text-transform:uppercase; }
+    .brandSystemCard h3{ margin:8px 0 0; }
+    .brandSystemCard p{ margin:8px 0 0; color:var(--muted); line-height:1.45; font-size:14px; }
+    @media (min-width:760px){ .brandSystemCard{ grid-column:span 4; } }
+    .guideGrid{ display:grid; grid-template-columns:repeat(12,1fr); gap:10px; }
+    .guideCard{ grid-column:span 12; border:1px solid rgba(255,255,255,.09); background:rgba(0,0,0,.16); border-radius:18px; padding:14px; }
+    .guideCard b{ display:block; }
+    .guideCard span{ display:block; margin-top:5px; color:var(--muted); font-size:13px; line-height:1.35; }
+    @media (min-width:700px){ .guideCard{ grid-column:span 6; } }
+    @media (min-width:1040px){ .guideCard{ grid-column:span 4; } }
+    .catalogArea{ margin-top:26px; border-top:1px solid rgba(255,255,255,.08); padding-top:18px; }
+    .catalogArea.is-hidden{ display:none; }
+    .catalogIntro{ display:flex; justify-content:space-between; gap:16px; align-items:flex-end; flex-wrap:wrap; margin-bottom:10px; }
+    .catalogIntro h2{ margin:0; font-size:24px; letter-spacing:-.02em; }
+    .catalogIntro p{ margin:6px 0 0; color:var(--muted); font-size:14px; line-height:1.45; max-width:70ch; }
+    .footerSignal{ margin-top:22px; border:1px solid rgba(110,231,255,.14); background:linear-gradient(135deg, rgba(110,231,255,.08), rgba(167,139,250,.06)); border-radius:var(--radius2); padding:20px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:center; }
+    .footerSignal h2{ margin:0; }
+    .footerSignal p{ margin:6px 0 0; color:var(--muted); max-width:64ch; line-height:1.45; }
+    @media (max-width:720px){ .heroStats{ grid-template-columns:1fr; } .landingHeadline{ font-size:42px; } }
+
+
+    .collectionDoor.hasArt{ min-height:260px; }
+    .doorArt{
+      position:absolute; right:14px; bottom:12px; width:42%; max-width:210px; height:150px;
+      object-fit:contain; opacity:.28; filter:drop-shadow(0 16px 28px rgba(0,0,0,.55));
+      pointer-events:none; z-index:0;
+    }
+    .collectionDoor:hover .doorArt{ opacity:.42; transform:translateY(-2px) scale(1.02); transition:.18s ease; }
+    .signalLabGrid{ display:grid; grid-template-columns:repeat(12,1fr); gap:12px; }
+    .signalCard{ grid-column:span 12; border:1px dashed rgba(255,255,255,.14); background:rgba(255,255,255,.018); border-radius:20px; padding:15px; position:relative; overflow:hidden; }
+    .signalCard:before{ content:""; position:absolute; inset:-2px; background:radial-gradient(300px 180px at 0% 0%, rgba(251,191,36,.09), transparent 60%); pointer-events:none; }
+    .signalCard > *{ position:relative; z-index:1; }
+    .signalCard .status{ display:inline-flex; font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(251,191,36,.9); border:1px solid rgba(251,191,36,.18); border-radius:999px; padding:5px 8px; background:rgba(251,191,36,.06); }
+    .signalCard h3{ margin:10px 0 0; font-size:17px; }
+    .signalCard p{ margin:8px 0 0; color:var(--muted); font-size:13px; line-height:1.42; }
+    @media (min-width:760px){ .signalCard{ grid-column:span 6; } }
+    @media (min-width:1040px){ .signalCard{ grid-column:span 3; } }
+    .pageStack{ display:grid; gap:16px; }
+    .collectionPage{
+      border:1px solid rgba(255,255,255,.09);
+      background:linear-gradient(180deg, rgba(7,10,15,.88), rgba(7,10,15,.94)), var(--pageBg, none);
+      background-size:cover, auto;
+      background-position:center;
+      border-radius:var(--radius2); padding:18px; overflow:hidden; position:relative;
+    }
+    .collectionPage:before{ content:""; position:absolute; inset:-2px; background:radial-gradient(620px 260px at 0% 0%, var(--pageGlow, rgba(110,231,255,.12)), transparent 60%); pointer-events:none; }
+    .pageInner{ position:relative; z-index:1; display:grid; grid-template-columns:1fr; gap:16px; align-items:center; }
+    @media (min-width:900px){ .pageInner{ grid-template-columns:1.15fr .85fr; } }
+    .pageEyebrow{ font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:rgba(231,237,246,.7); }
+    .collectionPage h2{ margin:8px 0 0; font-size:clamp(28px, 4vw, 48px); letter-spacing:-.05em; line-height:.98; }
+    .pageLead{ margin:12px 0 0; color:var(--muted); line-height:1.55; max-width:74ch; }
+    .pageBullets{ display:grid; grid-template-columns:1fr; gap:8px; margin-top:14px; }
+    @media (min-width:650px){ .pageBullets{ grid-template-columns:1fr 1fr; } }
+    .pageBullet{ border:1px solid rgba(255,255,255,.09); background:rgba(0,0,0,.16); border-radius:14px; padding:10px; font-size:13px; color:var(--muted); line-height:1.35; }
+    .pageBullet b{ display:block; color:var(--text); margin-bottom:3px; }
+    .pageActions{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+    .pageArtPanel{ min-height:260px; border:1px solid rgba(255,255,255,.08); background:rgba(0,0,0,.22); border-radius:22px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+    .pageArtPanel:after{ content:""; position:absolute; inset:0; background:radial-gradient(circle at 50% 10%, rgba(255,255,255,.08), transparent 50%); pointer-events:none; }
+    .pageArtPanel img{ max-width:88%; max-height:245px; object-fit:contain; filter:drop-shadow(0 18px 38px rgba(0,0,0,.7)); position:relative; z-index:1; }
+    .pageNameExamples{ margin-top:14px; display:flex; flex-wrap:wrap; gap:8px; }
+    .nameChip{ font-family:var(--mono); font-size:11px; color:rgba(231,237,246,.8); border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.03); border-radius:999px; padding:7px 9px; }
+
     /* Curated System */
     .system{
       margin-top: 12px;
@@ -627,137 +752,6 @@
       color: var(--muted);
       line-height: 1.35;
     }
-
-    /* Collection-first landing (premium entry — catalog hidden until chosen) */
-    .landingHeroCopy{ max-width: 720px; }
-    .heroKicker{
-      display:inline-flex; align-items:center; gap:8px;
-      margin-bottom:12px;
-      font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase;
-      color:rgba(110,231,255,.85);
-      border:1px solid rgba(110,231,255,.18);
-      background:rgba(110,231,255,.06);
-      border-radius:999px; padding:7px 10px;
-    }
-    .landingHeadline{ font-size: clamp(28px, 5vw, 52px); line-height:1.05; letter-spacing:-.03em; margin:0; }
-    .landingTagline{ margin:14px 0 0; color:var(--muted); font-size:15px; line-height:1.55; max-width:68ch; }
-    .heroStats{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px; margin-top:18px; max-width:680px; }
-    .heroStat{ border:1px solid rgba(255,255,255,.09); background:rgba(255,255,255,.025); border-radius:16px; padding:12px; }
-    .heroStat b{ display:block; font-size:17px; letter-spacing:.02em; }
-    .heroStat span{ display:block; margin-top:3px; color:var(--muted); font-size:12px; line-height:1.3; }
-    .landingSection{ margin-top:22px; }
-    .sectionHead{ display:flex; align-items:flex-end; justify-content:space-between; gap:14px; margin:0 0 12px; }
-    .sectionHead h2{ margin:0; font-size:22px; letter-spacing:-.02em; }
-    .sectionHead p{ margin:6px 0 0; color:var(--muted); max-width:72ch; font-size:14px; line-height:1.45; }
-    .collectionGrid{ display:grid; grid-template-columns:repeat(12,1fr); gap:12px; }
-    .collectionDoor{
-      grid-column:span 12; min-height:230px; border-radius:var(--radius2);
-      border:1px solid rgba(255,255,255,.09);
-      background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018));
-      box-shadow:0 12px 34px rgba(0,0,0,.32);
-      padding:18px; position:relative; overflow:hidden;
-      display:flex; flex-direction:column; justify-content:space-between;
-      cursor:pointer; transition:transform .18s ease, border-color .18s ease;
-    }
-    .collectionDoor:before{
-      content:""; position:absolute; inset:0;
-      background:radial-gradient(380px 240px at 8% 0%, var(--doorGlow, rgba(110,231,255,.16)), transparent 58%),
-                 linear-gradient(135deg, transparent, rgba(0,0,0,.55));
-      opacity:.92; pointer-events:none;
-    }
-    .collectionDoor:after{
-      content:attr(data-mark); position:absolute; right:16px; bottom:-16px;
-      font-family:var(--mono); font-size:92px; font-weight:900; letter-spacing:-.12em;
-      color:rgba(255,255,255,.04); line-height:1; pointer-events:none;
-    }
-    .collectionDoor:hover{ transform:translateY(-3px); border-color:rgba(110,231,255,.28); }
-    .doorTop,.doorBottom{ position:relative; z-index:1; }
-    .doorLabel{ font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:rgba(231,237,246,.72); }
-    .collectionDoor h3{ margin:10px 0 0; font-size:22px; letter-spacing:-.035em; }
-    .collectionDoor p{ margin:10px 0 0; color:var(--muted); font-size:14px; line-height:1.45; max-width:55ch; }
-    .doorCTA{ display:inline-flex; align-items:center; gap:8px; margin-top:16px; color:var(--text); font-size:13px; font-weight:700; }
-    @media (min-width:720px){ .collectionDoor{ grid-column:span 6; } }
-    @media (min-width:1040px){ .collectionDoor{ grid-column:span 4; } }
-    .collectionDoor.hasArt{ min-height:260px; }
-    .doorArt{
-      position:absolute; inset:0; width:100%; height:100%;
-      object-fit:cover; opacity:.22; filter:saturate(1.05) contrast(1.02);
-      pointer-events:none; z-index:0;
-    }
-    .collectionDoor:hover .doorArt{ opacity:.32; }
-    .featuredDrop{
-      border:1px solid rgba(255,255,255,.09);
-      background:radial-gradient(720px 320px at 10% 0%, rgba(110,231,255,.12), transparent 62%),
-                 linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018));
-      border-radius:var(--radius2); padding:18px; display:grid; grid-template-columns:1fr; gap:16px;
-    }
-    @media (min-width:900px){ .featuredDrop{ grid-template-columns:1.1fr .9fr; align-items:center; } }
-    .dropTitle{ margin:0; font-size:28px; letter-spacing:-.04em; }
-    .dropCopy{ margin:10px 0 0; color:var(--muted); line-height:1.55; max-width:70ch; }
-    .dropPieces{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-    .dropPiece{ min-height:100px; border:1px solid rgba(255,255,255,.09); background:rgba(0,0,0,.2); border-radius:16px; padding:12px; display:flex; flex-direction:column; justify-content:space-between; }
-    .dropPiece .mini{ font-family:var(--mono); font-size:10px; color:rgba(110,231,255,.78); letter-spacing:.12em; text-transform:uppercase; }
-    .dropPiece b{ font-size:13px; line-height:1.25; }
-    .pageStack{ display:grid; gap:16px; }
-    .collectionPage{
-      border:1px solid rgba(255,255,255,.09);
-      border-radius:var(--radius2); padding:18px; overflow:hidden; position:relative;
-      background:linear-gradient(180deg, rgba(7,10,15,.88), rgba(7,10,15,.94)), var(--pageBg, none);
-      background-size:cover, auto;
-      background-position:center;
-    }
-    .collectionPage:before{
-      content:""; position:absolute; inset:0;
-      background:radial-gradient(620px 260px at 0% 0%, var(--pageGlow, rgba(110,231,255,.12)), transparent 60%);
-      pointer-events:none;
-    }
-    .pageInner{ position:relative; z-index:1; display:grid; grid-template-columns:1fr; gap:16px; align-items:center; }
-    @media (min-width:900px){ .pageInner{ grid-template-columns:1.15fr .85fr; } }
-    .pageEyebrow{ font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:rgba(231,237,246,.7); }
-    .collectionPage h2{ margin:8px 0 0; font-size:clamp(26px, 4vw, 40px); letter-spacing:-.05em; line-height:.98; }
-    .pageLead{ margin:12px 0 0; color:var(--muted); line-height:1.55; max-width:74ch; }
-    .pageActions{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
-    .pageArtPanel{
-      min-height:220px; border:1px solid rgba(255,255,255,.08);
-      background:rgba(0,0,0,.25); border-radius:20px;
-      display:flex; align-items:center; justify-content:center; overflow:hidden;
-    }
-    .pageArtPanel img{ max-width:88%; max-height:200px; object-fit:contain; filter:drop-shadow(0 16px 32px rgba(0,0,0,.65)); }
-    .guideGrid{ display:grid; grid-template-columns:repeat(12,1fr); gap:10px; }
-    .guideCard{ grid-column:span 12; border:1px solid rgba(255,255,255,.09); background:rgba(0,0,0,.16); border-radius:16px; padding:14px; }
-    .guideCard b{ display:block; }
-    .guideCard span{ display:block; margin-top:5px; color:var(--muted); font-size:13px; line-height:1.35; }
-    @media (min-width:700px){ .guideCard{ grid-column:span 6; } }
-    .catalogArea{ margin-top:26px; border-top:1px solid rgba(255,255,255,.08); padding-top:18px; }
-    .catalogArea.is-hidden{ display:none; }
-    .catalogIntro{ display:flex; justify-content:space-between; gap:16px; align-items:flex-end; flex-wrap:wrap; margin-bottom:10px; }
-    .catalogIntro h2{ margin:0; font-size:24px; letter-spacing:-.02em; }
-    .catalogIntro p{ margin:6px 0 0; color:var(--muted); font-size:14px; max-width:70ch; }
-    .footerSignal{
-      margin-top:22px; border:1px solid rgba(110,231,255,.14);
-      background:linear-gradient(135deg, rgba(110,231,255,.08), rgba(167,139,250,.06));
-      border-radius:var(--radius2); padding:20px;
-      display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:center;
-    }
-    .footerSignal p{ margin:6px 0 0; color:var(--muted); max-width:64ch; }
-    @media (max-width:720px){ .heroStats{ grid-template-columns:1fr; } }
-    .doorTop,.doorBottom{ position:relative; z-index:1; }
-    .pageBullets{ display:grid; grid-template-columns:1fr; gap:8px; margin-top:14px; }
-    @media (min-width:650px){ .pageBullets{ grid-template-columns:1fr 1fr; } }
-    .pageBullet{ border:1px solid rgba(255,255,255,.09); background:rgba(0,0,0,.16); border-radius:14px; padding:10px; font-size:13px; color:var(--muted); line-height:1.35; }
-    .pageBullet b{ display:block; color:var(--text); margin-bottom:3px; }
-    .pageNameExamples{ margin-top:14px; display:flex; flex-wrap:wrap; gap:8px; }
-    .nameChip{ font-family:var(--mono); font-size:11px; color:rgba(231,237,246,.8); border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.03); border-radius:999px; padding:7px 9px; }
-    .signalLabGrid{ display:grid; grid-template-columns:repeat(12,1fr); gap:12px; }
-    .signalCard{ grid-column:span 12; border:1px dashed rgba(255,255,255,.14); background:rgba(255,255,255,.018); border-radius:20px; padding:15px; position:relative; overflow:hidden; }
-    .signalCard:before{ content:""; position:absolute; inset:-2px; background:radial-gradient(300px 180px at 0% 0%, rgba(251,191,36,.09), transparent 60%); pointer-events:none; }
-    .signalCard > *{ position:relative; z-index:1; }
-    .signalCard .status{ display:inline-flex; font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(251,191,36,.9); border:1px solid rgba(251,191,36,.18); border-radius:999px; padding:5px 8px; background:rgba(251,191,36,.06); }
-    .signalCard h3{ margin:10px 0 0; font-size:17px; }
-    .signalCard p{ margin:8px 0 0; color:var(--muted); font-size:13px; line-height:1.42; }
-    @media (min-width:760px){ .signalCard{ grid-column:span 6; } }
-    @media (min-width:1040px){ .signalCard{ grid-column:span 3; } }
-
 
     /* Grid */
     .grid{
@@ -1370,145 +1364,6 @@
       to{ transform:rotate(360deg); }
     }
 
-    /* Compact audio player */
-    .audioDock{
-      position:fixed;
-      right:18px;
-      bottom:18px;
-      z-index:90;
-      width:min(340px, calc(100vw - 32px));
-      display:flex;
-      align-items:flex-end;
-      justify-content:flex-end;
-      pointer-events:none;
-    }
-    .audioPlayer{
-      --audio-level:.18;
-      pointer-events:auto;
-      width:58px;
-      min-height:58px;
-      overflow:hidden;
-      border:1px solid rgba(110,231,255,.24);
-      border-radius:22px;
-      background:linear-gradient(180deg, rgba(15,23,34,.94), rgba(7,10,15,.94));
-      box-shadow:0 18px 44px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.04) inset;
-      -webkit-backdrop-filter:blur(14px);
-      backdrop-filter:blur(14px);
-      transition:width .24s ease, min-height .24s ease, border-color .2s ease, transform .2s ease;
-    }
-    .audioPlayer:hover{ border-color:rgba(110,231,255,.42); transform:translateY(-1px); }
-    .audioPlayer.expanded{ width:100%; min-height:154px; }
-    .audioTop{
-      display:grid;
-      grid-template-columns:58px 1fr 38px;
-      align-items:center;
-      min-height:58px;
-    }
-    .audioToggle,.audioCollapse,.audioIconBtn{
-      border:0;
-      background:transparent;
-      color:var(--text);
-      display:grid;
-      place-items:center;
-      cursor:pointer;
-    }
-    .audioToggle{
-      width:58px;
-      height:58px;
-      border-radius:22px;
-    }
-    .audioCollapse{
-      width:38px;
-      height:38px;
-      margin-right:8px;
-      border-radius:14px;
-      opacity:.78;
-    }
-    .audioCollapse:hover,.audioIconBtn:hover{ background:rgba(255,255,255,.07); opacity:1; }
-    .audioMeta{
-      opacity:0;
-      min-width:0;
-      transform:translateX(8px);
-      transition:opacity .18s ease, transform .18s ease;
-    }
-    .audioPlayer.expanded .audioMeta{ opacity:1; transform:translateX(0); }
-    .audioTitle{
-      font-size:13px;
-      font-weight:800;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-    .audioStatus{ margin-top:2px; color:var(--muted); font-size:12px; white-space:nowrap; }
-    .audioBody{
-      display:none;
-      padding:0 14px 14px;
-    }
-    .audioPlayer.expanded .audioBody{ display:block; }
-    .audioVisualizer{
-      height:46px;
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:16px;
-      background:radial-gradient(180px 60px at 28% 20%, rgba(110,231,255,.14), transparent 70%),
-                 radial-gradient(140px 70px at 86% 42%, rgba(167,139,250,.13), transparent 70%),
-                 rgba(255,255,255,.035);
-      overflow:hidden;
-      position:relative;
-    }
-    .audioVisualizer svg{ width:100%; height:100%; display:block; }
-    .audioWave{ stroke-dasharray:8 12; animation:audioWave 1.7s linear infinite; }
-    .audioBars rect{ transform-origin:50% 100%; animation:audioBars .82s ease-in-out infinite; }
-    .audioBars rect:nth-child(2){ animation-delay:-.18s; }
-    .audioBars rect:nth-child(3){ animation-delay:-.34s; }
-    .audioBars rect:nth-child(4){ animation-delay:-.09s; }
-    .audioBars rect:nth-child(5){ animation-delay:-.27s; }
-    .audioPlayer:not(.playing) .audioWave,
-    .audioPlayer:not(.playing) .audioBars rect{
-      animation-play-state:paused;
-      opacity:.42;
-    }
-    .audioPlayer.playing .audioVisualizer{
-      box-shadow:0 0 calc(10px + var(--audio-level) * 22px) rgba(110,231,255,.16) inset;
-    }
-    @keyframes audioWave{ to{ stroke-dashoffset:-40; } }
-    @keyframes audioBars{
-      0%,100%{ transform:scaleY(.36); }
-      50%{ transform:scaleY(1); }
-    }
-    .audioControls{
-      margin-top:10px;
-      display:grid;
-      grid-template-columns:36px 1fr 36px 72px;
-      gap:9px;
-      align-items:center;
-    }
-    .audioIconBtn{
-      width:36px;
-      height:36px;
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:14px;
-      background:rgba(255,255,255,.035);
-    }
-    .audioSeek,.audioVolume{
-      width:100%;
-      accent-color:var(--accent);
-    }
-    .audioTime{
-      margin-top:6px;
-      display:flex;
-      justify-content:space-between;
-      color:var(--muted);
-      font-family:var(--mono);
-      font-size:11px;
-    }
-    @media (max-width: 520px){
-      .audioDock{ right:12px; bottom:12px; width:calc(100vw - 24px); }
-      .audioControls{ grid-template-columns:36px 1fr 36px; }
-      .audioVolume{ grid-column:1 / -1; }
-    }
-
     @media (max-width: 720px){
       .heroCard{ grid-template-columns: 1fr; }
       .heroRight{ justify-content:flex-start; }
@@ -1546,8 +1401,8 @@
       <a class="brand" href="#" id="homeLink" aria-label="Home">
         <div class="logo" aria-hidden="true"></div>
         <div>
-          <h1>AeroVista Apparel</h1>
-          <div class="sub">Curated Comfort · Minimal Signal</div>
+          <h1>AeroVista Gear Shop</h1>
+          <div class="sub">Fieldwear · Signal Pieces · Limited Drops</div>
         </div>
       </a>
 
@@ -1567,11 +1422,10 @@
   <main class="wrap">
     <section class="hero">
       <div class="topCap landingHeroCopy" aria-label="Store intro">
-        <div class="heroKicker">AV-APPAREL / CURATED / 2026</div>
-        <h2 class="landingHeadline">Engineered minimal, built on curation.</h2>
+        <div class="heroKicker">AV-GEAR / FIELD ISSUE / 2026</div>
+        <h2 class="landingHeadline">Gear for the ones building the signal.</h2>
         <p class="landingTagline">
-          We choose proven blanks, keep the palette disciplined, and design marks that stay quiet until you are close enough to notice.
-          Start with a collection — the full catalog opens when you are ready.
+          Fieldwear, creative armor, and limited-run drops from AeroVista and its connected worlds — built for operators, artists, anglers, founders, and the people who move different.
         </p>
       </div>
 
@@ -1579,28 +1433,28 @@
         <div class="heroLeft">
           <div class="heroRow">
             <button class="cta" id="exploreCollectionsBtn">Explore Collections →</button>
-            <button class="btn" id="scrollToProducts">Browse All Apparel</button>
-            <div class="note">Curated drops, not a warehouse grid.</div>
+            <button class="btn" id="scrollToProducts">Browse All Gear</button>
+            <div class="note">Not merch. Gear from the ecosystem.</div>
           </div>
 
-          <div class="heroStats" aria-label="Collection lanes">
-            <div class="heroStat"><b>Core</b><span>Clean essentials and disciplined marks.</span></div>
-            <div class="heroStat"><b>Glitch</b><span>Signal interference and tech-forward art.</span></div>
-            <div class="heroStat"><b>Apex</b><span>Emblem-led identity pieces.</span></div>
+          <div class="heroStats" aria-label="Gear shop positioning">
+            <div class="heroStat"><b>Core</b><span>Clean founder and operator essentials.</span></div>
+            <div class="heroStat"><b>Shadow</b><span>Dark tactical streetwear and black-on-black signal.</span></div>
+            <div class="heroStat"><b>Field</b><span>Outdoor, angler, EchoVerse, and story-driven drops.</span></div>
           </div>
 
-          <div class="system" aria-label="Curated system">
+          <div class="system" aria-label="Curated gear system">
             <div class="sysCard">
-              <div class="t">01 · Curation</div>
-              <div class="b">We select proven blanks and keep options tight. Less noise, better decisions.</div>
+              <div class="t">01 · Fieldwear</div>
+              <div class="b">Pieces designed to feel useful, wearable, and grounded — not novelty merch.</div>
             </div>
             <div class="sysCard">
-              <div class="t">02 · Palette</div>
-              <div class="b">Neutral colorways that repeat across the line—so your pieces always match.</div>
+              <div class="t">02 · Signal</div>
+              <div class="b">Marks, patterns, and collection language connect every item back to the AeroVista world.</div>
             </div>
             <div class="sysCard">
-              <div class="t">03 · Signal</div>
-              <div class="b">Small marks, clean placement, and tonal execution—recognizable without shouting.</div>
+              <div class="t">03 · Drops</div>
+              <div class="b">Collections release as capsules, stories, and visual systems — not isolated products.</div>
             </div>
           </div>
 
@@ -1832,32 +1686,32 @@
       <div class="sectionHead">
         <div>
           <h2>Choose your entry point.</h2>
-          <p>The homepage is the curated storefront. Product browsing starts after a visitor understands the world they are stepping into.</p>
+          <p>The homepage is the gear vault. Product browsing starts after a visitor understands the world they are stepping into.</p>
         </div>
       </div>
       <div class="collectionGrid" aria-label="AeroVista gear collections">
         <article class="collectionDoor hasArt" data-mark="AV" data-page-target="page-core" data-landing-search="aerovista core built different standard issue" style="--doorGlow:rgba(110,231,255,.15)">
-          <img class="doorArt" src="./img/collection-cards/core.png" alt="" loading="lazy" />
+          <img class="doorArt" src="./AeroVista_GoldCore_PrintReady_Transparent_HiRes.png" alt="" loading="lazy" />
           <div class="doorTop"><div class="doorLabel">Foundation / Operator Essentials</div><h3>Core</h3><p>Clean, disciplined AeroVista gear. The daily uniform: sharp marks, wearable colors, and pieces that feel issued instead of decorated.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open Core Page →</span></div>
         </article>
         <article class="collectionDoor hasArt" data-mark="SW" data-page-target="page-shadow" data-landing-search="shadow wear shadow apex black pattern stealth camo" style="--doorGlow:rgba(148,163,184,.16)">
-          <img class="doorArt" src="./img/collection-cards/shadowwear.png" alt="" loading="lazy" />
+          <img class="doorArt" src="./img/ghost.ridge.png" alt="" loading="lazy" />
           <div class="doorTop"><div class="doorLabel">Stealth / Pattern / Tactical Streetwear</div><h3>Shadow Wear</h3><p>Black-on-black, low-contrast, shadow camo, and pattern-heavy pieces. This is where the darker all-over system lives.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open Shadow Wear Page →</span></div>
         </article>
         <article class="collectionDoor hasArt" data-mark="AX" data-page-target="page-apex" data-landing-search="apex aero vista a mark emblem" style="--doorGlow:rgba(59,130,246,.16)">
-          <img class="doorArt" src="./img/collection-cards/apex.png" alt="" loading="lazy" />
+          <img class="doorArt" src="./aerovista_ultra_detail_600dpi.png" alt="" loading="lazy" />
           <div class="doorTop"><div class="doorLabel">Icon / Emblem / Signature Mark</div><h3>Apex</h3><p>The AeroVista A-mark as the hero. Symbol-led pieces, geometric marks, badges, and visual identity that can stand alone.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open Apex Page →</span></div>
         </article>
         <article class="collectionDoor hasArt" data-mark="GL" data-page-target="page-glitch" data-landing-search="glitch signal node scan waveform cyber cyan" style="--doorGlow:rgba(34,211,238,.14)">
-          <img class="doorArt" src="./img/collection-cards/glitch.png" alt="" loading="lazy" />
+          <img class="doorArt" src="./img/glitch%20A.png" alt="" loading="lazy" />
           <div class="doorTop"><div class="doorLabel">Digital Disruption / Signal Drift</div><h3>Glitch</h3><p>Broken transmission, cyan static, scan-card graphics, waveform artifacts, and tech-forward distortion from inside the AV system.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open Glitch Page →</span></div>
         </article>
         <article class="collectionDoor hasArt" data-mark="AR" data-page-target="page-architect" data-landing-search="architect drafted built different nxcore build floor system map" style="--doorGlow:rgba(251,191,36,.13)">
-          <img class="doorArt" src="./img/collection-cards/architect.png" alt="" loading="lazy" />
+          <img class="doorArt" src="./adrafted.png" alt="" loading="lazy" />
           <div class="doorTop"><div class="doorLabel">Limited-ish / Making-of / Build Archive</div><h3>Architect</h3><p>Artifacts from the making of AeroVista: drafts, diagrams, system maps, founder notes, prototype labels, and build-floor gear.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open Architect Page →</span></div>
         </article>
@@ -1884,7 +1738,7 @@
     <section class="landingSection" id="collectionPages">
       <div class="sectionHead"><div><h2>Collection pages.</h2><p>These are the five live pages. The shop can feel full with a tight spine now, while future worlds sit in Signal Lab until they have enough product depth.</p></div></div>
       <div class="pageStack">
-        <article class="collectionPage" id="page-core" style="--pageGlow:rgba(110,231,255,.12);--pageBg:url(./img/collection-cards/core.png)">
+        <article class="collectionPage" id="page-core" style="--pageGlow:rgba(110,231,255,.12)">
           <div class="pageInner">
             <div>
               <div class="pageEyebrow">Live Collection / Foundation</div><h2>Core</h2>
@@ -1893,10 +1747,10 @@
               <div class="pageNameExamples"><span class="nameChip">Core — Standard Issue Hoodie — Black</span><span class="nameChip">Core — Built Different Tee — Graphite</span><span class="nameChip">Core — Operator Mark Hat — Black</span></div>
               <div class="pageActions"><button class="cta" data-landing-search="aerovista core built different standard issue">Shop Core →</button></div>
             </div>
-            <div class="pageArtPanel"><img src="./img/collection-cards/core.png" alt="AeroVista Core collection" loading="lazy" /></div>
+            <div class="pageArtPanel"><img src="./AeroVista_GoldCore_PrintReady_Transparent_HiRes.png" alt="AeroVista Core mark" loading="lazy" /></div>
           </div>
         </article>
-        <article class="collectionPage" id="page-shadow" style="--pageGlow:rgba(148,163,184,.13);--pageBg:url(./img/collection-cards/shadowwear.png)">
+        <article class="collectionPage" id="page-shadow" style="--pageGlow:rgba(148,163,184,.13);--pageBg:url(./img/ghost.ridge.png)">
           <div class="pageInner">
             <div>
               <div class="pageEyebrow">Live Collection / Stealth + Pattern</div><h2>Shadow Wear</h2>
@@ -1905,10 +1759,10 @@
               <div class="pageNameExamples"><span class="nameChip">Shadow Wear — Apex Pattern Hoodie — Midnight</span><span class="nameChip">Shadow Wear — Stealth Bomber — Black Camo</span><span class="nameChip">Shadow Wear — Pattern Long Sleeve — Graphite</span></div>
               <div class="pageActions"><button class="cta" data-landing-search="shadow wear shadow apex black pattern stealth camo">Shop Shadow Wear →</button></div>
             </div>
-            <div class="pageArtPanel"><img src="./img/collection-cards/shadowwear.png" alt="Shadow Wear collection" loading="lazy" /></div>
+            <div class="pageArtPanel"><img src="./img/ghost.ridge.png" alt="Shadow Wear ghost ridge mark" loading="lazy" /></div>
           </div>
         </article>
-        <article class="collectionPage" id="page-apex" style="--pageGlow:rgba(59,130,246,.14);--pageBg:url(./img/collection-cards/apex.png)">
+        <article class="collectionPage" id="page-apex" style="--pageGlow:rgba(59,130,246,.14)">
           <div class="pageInner">
             <div>
               <div class="pageEyebrow">Live Collection / Icon System</div><h2>Apex</h2>
@@ -1917,10 +1771,10 @@
               <div class="pageNameExamples"><span class="nameChip">Apex — Signal Mark Tee — White on Black</span><span class="nameChip">Apex — Ultra Detail Sticker — Silver</span><span class="nameChip">Apex — Emblem Hoodie — Black</span></div>
               <div class="pageActions"><button class="cta" data-landing-search="apex aero vista a mark emblem">Shop Apex →</button></div>
             </div>
-            <div class="pageArtPanel"><img src="./img/collection-cards/apex.png" alt="Apex collection" loading="lazy" /></div>
+            <div class="pageArtPanel"><img src="./aerovista_ultra_detail_600dpi.png" alt="Apex emblem" loading="lazy" /></div>
           </div>
         </article>
-        <article class="collectionPage" id="page-glitch" style="--pageGlow:rgba(34,211,238,.13);--pageBg:url(./img/collection-cards/glitch.png)">
+        <article class="collectionPage" id="page-glitch" style="--pageGlow:rgba(34,211,238,.13);--pageBg:url(./img/glitch%20A.png)">
           <div class="pageInner">
             <div>
               <div class="pageEyebrow">Live Collection / Signal Interference</div><h2>Glitch</h2>
@@ -1929,10 +1783,10 @@
               <div class="pageNameExamples"><span class="nameChip">Glitch — Broken Transmission Hoodie — Cyan Static</span><span class="nameChip">Glitch — Node-17 Tee — Black</span><span class="nameChip">Glitch — Bio-Sec Scan Sticker — NX.AV</span></div>
               <div class="pageActions"><button class="cta" data-landing-search="glitch signal node scan waveform cyber cyan">Shop Glitch →</button></div>
             </div>
-            <div class="pageArtPanel"><img src="./img/collection-cards/glitch.png" alt="Glitch collection" loading="lazy" /></div>
+            <div class="pageArtPanel"><img src="./img/glitch%20A.png" alt="Glitch distorted A mark" loading="lazy" /></div>
           </div>
         </article>
-        <article class="collectionPage" id="page-architect" style="--pageGlow:rgba(251,191,36,.12);--pageBg:url(./img/collection-cards/architect.png)">
+        <article class="collectionPage" id="page-architect" style="--pageGlow:rgba(251,191,36,.12)">
           <div class="pageInner">
             <div>
               <div class="pageEyebrow">Live Collection / Limited-ish Build Archive</div><h2>Architect</h2>
@@ -1941,7 +1795,7 @@
               <div class="pageNameExamples"><span class="nameChip">Architect — Drafted A Sticker Pack</span><span class="nameChip">Architect — Build Floor Tee — Graphite</span><span class="nameChip">Architect — System Map Hoodie — Black</span></div>
               <div class="pageActions"><button class="cta" data-landing-search="architect drafted built different nxcore build floor system map">Shop Architect →</button></div>
             </div>
-            <div class="pageArtPanel"><img src="./img/collection-cards/architect.png" alt="Architect collection" loading="lazy" /></div>
+            <div class="pageArtPanel"><img src="./adrafted.png" alt="Architect drafted A mark" loading="lazy" /></div>
           </div>
         </article>
       </div>
@@ -1965,15 +1819,15 @@
         <div class="guideCard"><b>Go bold.</b><span>Apex: A-mark led emblem and identity pieces.</span></div>
         <div class="guideCard"><b>Go experimental.</b><span>Glitch: waveform, scan-card, node, and broken-transmission graphics.</span></div>
         <div class="guideCard"><b>Capture the build.</b><span>Architect: drafts, diagrams, build artifacts, and limited-ish making-of gear.</span></div>
-        <div class="guideCard"><b>Open the full catalog.</b><span>Browse All Apparel when you already know what you are hunting for.</span></div>
+        <div class="guideCard"><b>Grab the vault.</b><span>Browse All Gear when you already know what you are hunting for.</span></div>
       </div>
     </section>
 
     <section id="productsSection" class="catalogArea is-hidden">
       <div class="catalogIntro">
         <div>
-          <h2>Browse All Apparel</h2>
-          <p>Full catalog: search, filter by collection, and open product pages when you are ready.</p>
+          <h2>Browse All Gear</h2>
+          <p>Full catalog mode: search, filter by collection, and open product pages without losing the landing-page brand flow.</p>
         </div>
         <button class="btn" id="hideCatalogBtn">Hide Catalog</button>
       </div>
@@ -2013,11 +1867,10 @@
 
     <section class="footerSignal">
       <div><h2>Wear the system.</h2><p>Join the signal for new drops, field notes, limited pieces, and behind-the-scenes build updates.</p></div>
-      <button class="cta" id="footerBrowseBtn">Browse All Apparel →</button>
+      <button class="cta" id="footerBrowseBtn">Browse All Gear →</button>
     </section>
 
-    
-<footer class="foot">
+    <footer class="foot">
       <div>© <span id="yr"></span> AeroVista LLC</div>
       <div class="links">
         <a href="#" id="faqLink">FAQ</a>
@@ -2076,7 +1929,7 @@
           <button class="btn" id="providerBtn" title="Open provider link">Provider</button>
         </div>
 
-        <div class="modalPodNote" style="color:var(--muted); font-size:12px; line-height:1.35;">
+        <div style="color:var(--muted); font-size:12px; line-height:1.35;">
           Notes are written for POD reality: we curate available blanks and focus on placement, palette, and finish.
         </div>
       </div>
@@ -2200,64 +2053,14 @@
       }
       return false;
     }
+    const _policyPack = window.AV_STORE_POLICY_PACK || {};
     const STORE = {
-      name: "AeroVista Apparel",
+      name: "AeroVista Gear Shop",
       currency: "USD",
-      emailFallback: "orders@aerovista.us",
-      supportEmail: "orders@aerovista.us",
+      emailFallback: _policyPack.emailFallback || "orders@aerovista.us",
+      supportEmail: _policyPack.supportEmail || "orders@aerovista.us",
       promoCodes: { "SEED10": 0.10, "CREW15": 0.15 },
-      policies: {
-        faq: `<div class="policyBody">
-          <h4>Sizing &amp; fit</h4>
-          <p>Most apparel runs <strong>true to size</strong> on premium POD blanks. Hoodies and crewnecks are comfort-forward; size up if you want a looser drape. Hats are structured or adjustable per style (see product notes).</p>
-          <ul>
-            <li>Between sizes → size up for relaxed fit, stay true for a cleaner line.</li>
-            <li>Check the size and color on the product page before checkout — every piece is made to order.</li>
-            <li>Print placement is designed for each garment; slight position variance (within ~¼″) is normal for fulfillment.</li>
-          </ul>
-          <h4>Made to order</h4>
-          <p>We do not hold finished inventory. Your order is produced after purchase, which is why production and shipping times apply (see <strong>Shipping</strong>).</p>
-          <h4>Care</h4>
-          <p>Wash cold, inside-out. Low heat or hang dry to protect print and embroidery. Spot-clean hats; avoid machine washing structured caps.</p>
-        </div>`,
-        shipping: `<div class="policyBody">
-          <h4>How it works</h4>
-          <p>Every order is <strong>printed or embroidered on demand</strong> through our fulfillment partner, then handed to the carrier. You will receive a tracking email when the package ships.</p>
-          <h4>United States</h4>
-          <ul>
-            <li><strong>Production:</strong> typically 2–5 business days after checkout</li>
-            <li><strong>Transit:</strong> typically 3–7 business days after production (carrier-dependent)</li>
-            <li><strong>Total estimate:</strong> about 5–12 business days door-to-door in most US locations</li>
-          </ul>
-          <p>Alaska, Hawaii, and remote areas may take longer. Peak seasons and weather can add delay after the handoff to the carrier.</p>
-          <h4>International</h4>
-          <p>Where available, international delivery is often <strong>10–20 business days</strong> after production. Duties, taxes, and customs fees (if any) are the buyer’s responsibility.</p>
-          <h4>Address issues</h4>
-          <p>Confirm your shipping address at checkout. We cannot change an address once production has started. Undeliverable packages returned by the carrier may require a reship fee.</p>
-        </div>`,
-        returns: `<div class="policyBody">
-          <h4>Made-to-order items</h4>
-          <p>Because each piece is produced for you, <strong>all sales are final</strong> except for the cases below. Please review size, color, and design before ordering.</p>
-          <h4>Defects &amp; fulfillment errors</h4>
-          <p>Contact us within <strong>7 days of delivery</strong> with your order number and photos if you receive:</p>
-          <ul>
-            <li>A misprint, stain, or material flaw from production</li>
-            <li>The wrong item, size, or color versus what you ordered</li>
-            <li>A package that arrived damaged in transit (photo of box and garment)</li>
-          </ul>
-          <p>After review, we will offer a <strong>replacement or refund</strong> at no extra cost for verified production or fulfillment errors.</p>
-          <h4>Size exchanges</h4>
-          <p>Size exchanges may be available within <strong>14 days of delivery</strong> if the item is unworn, unwashed, and in original condition. You are responsible for return shipping unless we made an error. Contact <a href="mailto:orders@aerovista.us">orders@aerovista.us</a> before sending anything back.</p>
-          <h4>Non-returnable</h4>
-          <p>We cannot accept returns for buyer’s remorse, incorrect size selection, or normal color variation between screens and fabric.</p>
-        </div>`,
-        contact: `<div class="policyBody">
-          <p>Questions about sizing, an order, or a production issue? We are here to help.</p>
-          <p><strong>Email:</strong> <a href="mailto:orders@aerovista.us">orders@aerovista.us</a></p>
-          <p>Include your <strong>order number</strong> and any photos for defect claims. We aim to reply within <strong>1–2 business days</strong> (Mon–Fri, US time).</p>
-          <p>For fastest help: subject line <em>Order #[your number] — [short issue]</em>.</p>
-        </div>`
-      }
+      policies: _policyPack.policies || {}
     };
     // Cache-busting token for static deploys (bump on release).
     const STORE_BUILD_ID = "2026-04-01-docs";
@@ -3578,6 +3381,18 @@
       document.addEventListener("keydown", focusTrapHandler);
     }
 
+    function gearStoryForProduct(p){
+      const name = (p.name || "").toLowerCase();
+      const base = (p.description != null ? p.description : p.blurb) || "";
+      if(name.includes("bomber")) return "A black-on-black statement layer built for late-night operators, creative founders, and anyone who moves better in the shadows. " + base;
+      if(name.includes("skater") || name.includes("dress")) return "A full-pattern statement piece with movement, edge, and AeroVista signal woven through the shape. " + base;
+      if(name.includes("swamp") || name.includes("scale") || name.includes("fish")) return "Built for anglers, lake runners, and backroad operators — quiet field gear with a little bite. " + base;
+      if(name.includes("synthetic") || name.includes("sigil") || name.includes("no latch")) return "Dark signal gear from the machine myth layer of AeroVista. " + base;
+      if(name.includes("apex") || name.includes("shadow")) return "A stealth piece for people who prefer signal over noise. " + base;
+      if(name.includes("echoverse")) return "A story-driven drop connected to AeroVista sound worlds, characters, albums, and signal mythology. " + base;
+      return base;
+    }
+
     function openModal(id){
       const p = PRODUCTS.find(x=>x.id===id);
       if(!p) return;
@@ -3585,7 +3400,7 @@
       modalTrigger = document.activeElement; // Store trigger
 
       $("#mTitle").textContent = p.name;
-      $("#mDesc").textContent = (p.description != null ? p.description : p.blurb) || "";
+      $("#mDesc").textContent = gearStoryForProduct(p);
       $("#mPrice").textContent = fmt(p.price);
 
       $("#mMeta").innerHTML = `
@@ -4691,23 +4506,10 @@
     const footerBrowseBtn = $("#footerBrowseBtn"); if(footerBrowseBtn) footerBrowseBtn.onclick = ()=> revealCatalog();
     const exploreCollectionsBtn = $("#exploreCollectionsBtn"); if(exploreCollectionsBtn) exploreCollectionsBtn.onclick = ()=> $("#collectionsLanding").scrollIntoView({ behavior:"smooth", block:"start" });
     const hideCatalogBtn = $("#hideCatalogBtn"); if(hideCatalogBtn) hideCatalogBtn.onclick = hideCatalog;
-    $('[data-landing-collection]').forEach(el => { el.onclick = () => revealCatalog({ collection: el.getAttribute('data-landing-collection') || 'all' }); });
-    $('[data-landing-search]').forEach(el => { el.onclick = () => revealCatalog({ search: el.getAttribute('data-landing-search') || '' }); });
-    $('[data-page-target]').forEach(el => { el.onclick = () => { const target = document.getElementById(el.getAttribute('data-page-target') || ''); if(target) target.scrollIntoView({ behavior:'smooth', block:'start' }); }; });
-    $("#homeLink").onclick = (e)=>{ e.preventDefault(); hideCatalog(); window.scrollTo({top:0, behavior:"smooth"}); };
-    const searchPill = document.querySelector('.topbar .pill[aria-label="Search shortcut"]');
-    if (searchPill) {
-      const openSearch = () => { revealCatalog(); setTimeout(() => $("#search")?.focus(), 280); };
-      searchPill.onclick = openSearch;
-      searchPill.onkeydown = (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openSearch(); } };
-    }
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "/" && !/input|textarea|select/i.test(document.activeElement?.tagName || "")) {
-        e.preventDefault();
-        revealCatalog();
-        setTimeout(() => $("#search")?.focus(), 120);
-      }
-    });
+    $$('[data-landing-collection]').forEach(el => { el.onclick = () => revealCatalog({ collection: el.getAttribute('data-landing-collection') || 'all' }); });
+    $$('[data-landing-search]').forEach(el => { el.onclick = () => revealCatalog({ search: el.getAttribute('data-landing-search') || '' }); });
+    $$('[data-page-target]').forEach(el => { el.onclick = () => { const target = document.getElementById(el.getAttribute('data-page-target') || ''); if(target) target.scrollIntoView({ behavior:'smooth', block:'start' }); }; });
+    $("#homeLink").onclick = (e)=>{ e.preventDefault(); window.scrollTo({top:0, behavior:"smooth"}); };
 
     function infoModal(title, text, opts = {}){
       const overlay = $("#overlay");
@@ -4826,7 +4628,7 @@
       const ld = {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        "name": "AeroVista Apparel",
+        "name": "AeroVista Gear Shop",
         "url": storeUrl,
         "numberOfItems": items.length,
         "itemListElement": items.map((item, i) => ({
@@ -4923,228 +4725,6 @@
       </div>
     </div>
   </div>
-
-  <div class="audioDock" aria-label="Store audio player">
-    <section class="audioPlayer" id="storeAudioPlayer" aria-label="Store signal player">
-      <div class="audioTop">
-        <button class="audioToggle" id="audioToggle" type="button" aria-label="Play store signal" aria-expanded="false">
-          <svg viewBox="0 0 64 64" width="38" height="38" aria-hidden="true">
-            <defs>
-              <linearGradient id="audioOrbGrad" x1="0" x2="1" y1="0" y2="1">
-                <stop offset="0" stop-color="#6ee7ff"/>
-                <stop offset="1" stop-color="#a78bfa"/>
-              </linearGradient>
-            </defs>
-            <circle cx="32" cy="32" r="24" fill="rgba(110,231,255,.08)" stroke="url(#audioOrbGrad)" stroke-width="2"/>
-            <path class="audioWave" d="M14 34 C22 22, 28 46, 36 34 S48 22, 54 34" fill="none" stroke="#6ee7ff" stroke-width="3" stroke-linecap="round"/>
-            <g class="audioBars" fill="#e7edf6">
-              <rect x="23" y="24" width="3.8" height="17" rx="1.9"/>
-              <rect x="30" y="18" width="3.8" height="29" rx="1.9"/>
-              <rect x="37" y="25" width="3.8" height="15" rx="1.9"/>
-            </g>
-          </svg>
-        </button>
-        <div class="audioMeta" aria-hidden="true">
-          <div class="audioTitle">Store Signal</div>
-          <div class="audioStatus" id="audioStatus">Tap to play</div>
-        </div>
-        <button class="audioCollapse" id="audioCollapse" type="button" aria-label="Collapse audio player">
-          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-            <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      </div>
-      <div class="audioBody">
-        <div class="audioVisualizer" aria-hidden="true">
-          <svg viewBox="0 0 320 64" preserveAspectRatio="none">
-            <path class="audioWave" d="M0 34 C32 12, 48 56, 80 34 S128 12, 160 34 S208 56, 240 34 S288 12, 320 34" fill="none" stroke="rgba(110,231,255,.72)" stroke-width="3" stroke-linecap="round"/>
-            <g class="audioBars" fill="rgba(231,237,246,.82)">
-              <rect x="122" y="22" width="8" height="22" rx="4"/>
-              <rect x="138" y="14" width="8" height="36" rx="4"/>
-              <rect x="154" y="26" width="8" height="16" rx="4"/>
-              <rect x="170" y="18" width="8" height="30" rx="4"/>
-              <rect x="186" y="24" width="8" height="20" rx="4"/>
-            </g>
-          </svg>
-        </div>
-        <div class="audioControls">
-          <button class="audioIconBtn" id="audioPlay" type="button" aria-label="Play">
-            <svg class="audioPlayIcon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-              <path d="M8 5v14l11-7z" fill="currentColor"/>
-            </svg>
-            <svg class="audioPauseIcon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" hidden>
-              <path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/>
-            </svg>
-          </button>
-          <input class="audioSeek" id="audioSeek" type="range" min="0" max="1000" value="0" aria-label="Audio progress" />
-          <button class="audioIconBtn" id="audioMute" type="button" aria-label="Mute audio">
-            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-              <path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/>
-              <path id="audioMuteWave" d="M16 9c1.4 1.4 1.4 4.6 0 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </button>
-          <input class="audioVolume" id="audioVolume" type="range" min="0" max="1" step="0.01" value="0.45" aria-label="Audio volume" />
-        </div>
-        <div class="audioTime">
-          <span id="audioCurrent">0:00</span>
-          <span id="audioDuration">0:00</span>
-        </div>
-      </div>
-      <audio id="storeAudio" src="./audio/store-signal.mp3" preload="metadata" loop></audio>
-    </section>
-  </div>
-
-  <script>
-    (() => {
-      const player = document.getElementById("storeAudioPlayer");
-      const audio = document.getElementById("storeAudio");
-      const toggle = document.getElementById("audioToggle");
-      const collapse = document.getElementById("audioCollapse");
-      const playBtn = document.getElementById("audioPlay");
-      const muteBtn = document.getElementById("audioMute");
-      const seek = document.getElementById("audioSeek");
-      const volume = document.getElementById("audioVolume");
-      const status = document.getElementById("audioStatus");
-      const current = document.getElementById("audioCurrent");
-      const duration = document.getElementById("audioDuration");
-      const playIcon = playBtn?.querySelector(".audioPlayIcon");
-      const pauseIcon = playBtn?.querySelector(".audioPauseIcon");
-      const muteWave = document.getElementById("audioMuteWave");
-      const visualWave = player?.querySelector(".audioVisualizer .audioWave");
-      const visualBars = [...(player?.querySelectorAll(".audioVisualizer .audioBars rect") || [])];
-      if (!player || !audio || !toggle || !playBtn) return;
-      let audioCtx = null;
-      let analyser = null;
-      let freqData = null;
-      let rafId = 0;
-      let mediaSource = null;
-
-      const savedVolume = Number(localStorage.getItem("av_store_audio_volume"));
-      if (!Number.isNaN(savedVolume)) {
-        audio.volume = Math.max(0, Math.min(1, savedVolume));
-        volume.value = String(audio.volume);
-      } else {
-        audio.volume = Number(volume.value || 0.45);
-      }
-
-      function fmt(seconds){
-        if (!Number.isFinite(seconds)) return "0:00";
-        const m = Math.floor(seconds / 60);
-        const s = Math.floor(seconds % 60).toString().padStart(2, "0");
-        return `${m}:${s}`;
-      }
-      function setExpanded(expanded){
-        player.classList.toggle("expanded", expanded);
-        toggle.setAttribute("aria-expanded", String(expanded));
-      }
-      function updateUi(){
-        const playing = !audio.paused && !audio.ended;
-        player.classList.toggle("playing", playing);
-        toggle.setAttribute("aria-label", playing ? "Pause store signal" : "Play store signal");
-        playBtn.setAttribute("aria-label", playing ? "Pause" : "Play");
-        if (playIcon && pauseIcon) {
-          playIcon.hidden = playing;
-          pauseIcon.hidden = !playing;
-        }
-        status.textContent = playing ? "Playing" : "Paused";
-        if (muteWave) muteWave.style.display = audio.muted || audio.volume === 0 ? "none" : "";
-        if (audio.duration) {
-          seek.value = String(Math.round((audio.currentTime / audio.duration) * 1000));
-        }
-        current.textContent = fmt(audio.currentTime);
-        duration.textContent = fmt(audio.duration);
-      }
-      function initAnalyser(){
-        if (analyser) return true;
-        const AudioContextCtor = window.AudioContext || window.webkitAudioContext;
-        if (!AudioContextCtor) return false;
-        audioCtx = audioCtx || new AudioContextCtor();
-        analyser = audioCtx.createAnalyser();
-        analyser.fftSize = 128;
-        analyser.smoothingTimeConstant = 0.78;
-        freqData = new Uint8Array(analyser.frequencyBinCount);
-        mediaSource = mediaSource || audioCtx.createMediaElementSource(audio);
-        mediaSource.connect(analyser);
-        analyser.connect(audioCtx.destination);
-        return true;
-      }
-      function animateAudio(){
-        if (audio.paused || audio.ended) {
-          rafId = 0;
-          return;
-        }
-        let level = 0.18 + Math.sin(performance.now() / 160) * 0.08;
-        if (analyser && freqData) {
-          analyser.getByteFrequencyData(freqData);
-          const low = freqData.slice(1, 14).reduce((a, b) => a + b, 0) / 13 / 255;
-          const mid = freqData.slice(14, 32).reduce((a, b) => a + b, 0) / 18 / 255;
-          level = Math.max(0.08, Math.min(1, low * .75 + mid * .55));
-          visualBars.forEach((bar, i) => {
-            const bin = freqData[3 + i * 5] || 0;
-            const scale = .28 + (bin / 255) * 1.05;
-            bar.style.transform = `scaleY(${scale.toFixed(3)})`;
-            bar.style.opacity = String(.46 + Math.min(.5, bin / 510));
-          });
-        } else {
-          visualBars.forEach((bar, i) => {
-            const scale = .42 + Math.abs(Math.sin(performance.now() / (210 + i * 24))) * .72;
-            bar.style.transform = `scaleY(${scale.toFixed(3)})`;
-          });
-        }
-        player.style.setProperty("--audio-level", level.toFixed(3));
-        if (visualWave) {
-          visualWave.style.strokeWidth = String(2.2 + level * 3.4);
-          visualWave.style.strokeDashoffset = String(-audio.currentTime * (24 + level * 34));
-        }
-        rafId = requestAnimationFrame(animateAudio);
-      }
-      async function startAudioMotion(){
-        try {
-          if (initAnalyser() && audioCtx?.state === "suspended") await audioCtx.resume();
-        } catch {}
-        if (!rafId) rafId = requestAnimationFrame(animateAudio);
-      }
-      async function togglePlay(){
-        setExpanded(true);
-        if (audio.paused) {
-          try {
-            await startAudioMotion();
-            await audio.play();
-          } catch (err) {
-            status.textContent = "Audio blocked";
-          }
-        } else {
-          audio.pause();
-        }
-        updateUi();
-      }
-
-      toggle.addEventListener("click", togglePlay);
-      playBtn.addEventListener("click", togglePlay);
-      collapse?.addEventListener("click", () => setExpanded(false));
-      player.addEventListener("dblclick", () => setExpanded(!player.classList.contains("expanded")));
-      seek.addEventListener("input", () => {
-        if (!audio.duration) return;
-        audio.currentTime = (Number(seek.value) / 1000) * audio.duration;
-        updateUi();
-      });
-      volume.addEventListener("input", () => {
-        audio.volume = Number(volume.value);
-        audio.muted = audio.volume === 0;
-        localStorage.setItem("av_store_audio_volume", String(audio.volume));
-        updateUi();
-      });
-      muteBtn?.addEventListener("click", () => {
-        audio.muted = !audio.muted;
-        updateUi();
-      });
-      ["play","pause","timeupdate","loadedmetadata","volumechange","ended"].forEach(eventName => {
-        audio.addEventListener(eventName, updateUi);
-      });
-      audio.addEventListener("play", startAudioMotion);
-      updateUi();
-    })();
-  </script>
 
 </body>
 </html>

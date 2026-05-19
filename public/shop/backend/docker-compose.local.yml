@@ -1,0 +1,15 @@
+services:
+  av-store-api:
+    build: .
+    container_name: av-store-api-local
+    env_file: .env
+    restart: unless-stopped
+    ports:
+      # Avoid host-port collisions on shared hosts (8088 is commonly already used).
+      - "18088:8088"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8088/api/health', timeout=2).read()"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+      start_period: 10s

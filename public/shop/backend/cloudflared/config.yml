@@ -1,0 +1,9 @@
+# Cloudflare Tunnel config template
+# Put this at /etc/cloudflared/config.yml (or your preferred path)
+tunnel: av-store-api
+credentials-file: /root/.cloudflared/<TUNNEL_ID>.json
+
+ingress:
+  - hostname: api.yourdomain.com
+    service: http://localhost:8088
+  - service: http_status:404

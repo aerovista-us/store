@@ -1,0 +1,61 @@
+{
+  "in_dir": "/app/scripts/in",
+  "out_dir": "/app/scripts/out",
+  "count": 5,
+  "options": {
+    "in_dir": "/app/scripts/in",
+    "out_dir": "/app/scripts/out",
+    "square": true,
+    "size": 1024,
+    "trim": true,
+    "matte": 2,
+    "overwrite": false
+  },
+  "items": [
+    {
+      "input": "/app/scripts/in/AeroVista Apex Pattern Hoodie.png",
+      "output": "/app/scripts/out/AeroVista Apex Pattern Hoodie.png",
+      "status": "ok",
+      "out_size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "input": "/app/scripts/in/AeroVista Apex Pattern Skater Dress.png",
+      "output": "/app/scripts/out/AeroVista Apex Pattern Skater Dress.png",
+      "status": "ok",
+      "out_size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "input": "/app/scripts/in/AeroVistaApexShadowLongSleeveTee.png",
+      "output": "/app/scripts/out/AeroVistaApexShadowLongSleeveTee.png",
+      "status": "ok",
+      "out_size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "input": "/app/scripts/in/Apex Embroidered Hat Black.png",
+      "output": "/app/scripts/out/Apex Embroidered Hat Black.png",
+      "status": "ok",
+      "out_size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "input": "/app/scripts/in/moonscripthoodie.png",
+      "output": "/app/scripts/out/moonscripthoodie.png",
+      "status": "ok",
+      "out_size": [
+        1024,
+        1024
+      ]
+    }
+  ]
+}
