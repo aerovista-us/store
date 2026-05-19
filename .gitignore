@@ -72,3 +72,36 @@ store/bulk_remove_bg.py
 store/trigger helper.sql
 store/docker logs*.txt
 store/tmp_*
+
+# local-only / generated after public build
+public/.nojekyll
+public/build-source-manifest.json
+
+# local working source / private bulk workspace
+store/
+
+# shop working tools not meant for public repo
+public/shop/package.json
+public/shop/package-lock.json
+public/shop/requirements.txt
+public/shop/run.sh
+public/shop/*.py
+public/shop/*.bat
+public/shop/test_excel.py
+public/shop/tmp_*
+public/shop/scripts/
+public/shop/docker logs*.txt
+public/shop/hook.js*
+public/shop/trigger helper.sql
+
+# old/generated catalog copies
+public/shop/square_products_2026-*.json
+public/shop/square_products_cleaned*.json
+public/shop/square_products_latest.backup*
+public/shop/square_products_latest2.json
+public/shop/square_products_latest_pre*.json
+public/shop/square_products_merged.json
+
+# local server/dev
+Dockerfile
+nginx/
