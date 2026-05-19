@@ -1,23 +1,10 @@
-node_modules
-dist
-.DS_Store
-*.log
-.env
-.env.*
-!.env.example
-Thumbs.db
-coverage
-.idea
-.vscode/*
-!.vscode/extensions.json
-robocopy-log.txt
+# =============================================================================
+# aerovista-us/store — public shop repo (.gitignore)
+# Canonical storefront: store/  |  Generated: public/shop, dist/
+# Private console: console/ on NXCore (not committed)
+# =============================================================================
 
-# Optional: uncomment if you always prebuild before commit
-# public/shop
-# public/console
-# public/store
-
-# dependencies/build
+# --- Build & dependencies ---
 node_modules/
 dist/
 .vite/
@@ -25,83 +12,104 @@ dist/
 **/__pycache__/
 *.pyc
 *.pyo
-*.log
-.DS_Store
+coverage/
 
-# env/secrets
+# --- Generated public/ (always from npm run sync:*) ---
+public/shop/
+public/console/
+public/store/
+public/build-source-manifest.json
+
+# --- Private / archived trees (not for public repo) ---
+console/
+archive/
+
+# --- Env & secrets ---
 .env
 .env.*
+!.env.example
 **/.env
 **/.env.*
 *.pem
 *.key
 *secret*
 *token*
+sku_map.generated.*
 
-# private/operator/backend
-console/
-public/console/
-archive/
+# --- OS & editor ---
+.DS_Store
+Thumbs.db
+*.log
+robocopy-log.txt
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# --- Raw Square exports & bulky data (NAS intake; not for git) ---
+*.xlsx
+*.xls
+*.xlsm
+*.csv
+*.jsonl
+
+# =============================================================================
+# store/ — commit storefront only (index, policy, catalog JSON, img/)
+# =============================================================================
+
+# Operator API & tooling (NXCore / local dev)
 store/backend/
-store/output/
 store/tools/
+store/scripts/
+store/docs/
+store/output/
 store/data_quality_reports/
 store/bg_remove_in/
 store/bg_remove_out/
-
-# bulky/raw exports and working files
-*.xlsx
-*.xls
-*.csv
-*.jsonl
-output/
-exports/
-
-# duplicated working store tree - do not commit old working root wholesale
-store/docs/
-store/scripts/
+store/in/
+store/out/
+store/_archive/
+store/node_modules/
 store/__pycache__/
-store/package-lock.json
+store/image/
+
+# Python / Node junk under store
 store/package.json
+store/package-lock.json
 store/requirements.txt
+store/*.py
+store/*.bat
 store/run.sh
 store/test_excel.py
-store/convert_catalog.py
-store/convert_catalog.bat
-store/bulk_remove_bg.py
 store/trigger helper.sql
 store/docker logs*.txt
 store/tmp_*
+store/hook.js*
 
-# local-only / generated after public build
-public/.nojekyll
-public/build-source-manifest.json
+# Alternate / operator HTML (canonical: store/index.html)
+store/av_gear_shop_*.html
+store/HOWTO_*.html
+store/store_health_dashboard.html
 
-# local working source / private bulk workspace
-store/
+# SOT copies (console metadata; not needed for public shop)
+store/SOT.json
+store/SOT_*.md
+store/README.md
+store/handoffnotes.md
+store/catalog_alignment_report.md
 
-# shop working tools not meant for public repo
-public/shop/package.json
-public/shop/package-lock.json
-public/shop/requirements.txt
-public/shop/run.sh
-public/shop/*.py
-public/shop/*.bat
-public/shop/test_excel.py
-public/shop/tmp_*
-public/shop/scripts/
-public/shop/docker logs*.txt
-public/shop/hook.js*
-public/shop/trigger helper.sql
+# Old / backup catalog JSON (commit only square_products_latest + overlay)
+store/square_products_2026-*.json
+store/square_products_cleaned*.json
+store/square_products_latest.backup*
+store/square_products_latest2.json
+store/square_products_latest_pre*.json
+store/square_products_merged.json
+store/square_products_merge_report.csv
 
-# old/generated catalog copies
-public/shop/square_products_2026-*.json
-public/shop/square_products_cleaned*.json
-public/shop/square_products_latest.backup*
-public/shop/square_products_latest2.json
-public/shop/square_products_latest_pre*.json
-public/shop/square_products_merged.json
+# Misc working files at store root
+store/synthetic_souls_drop.png
+store/*.txt
+!store/policy-content.js
 
-# local server/dev
-Dockerfile
-nginx/
+# Dated catalog exports at store root (xlsx/csv covered by global rules)
+store/1149XBNG8C8ZE_catalog-*
