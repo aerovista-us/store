@@ -1,0 +1,38 @@
+{
+  "name": "aerovista-store",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "npm run sync:all",
+    "build": "tsc --noEmit && vite build",
+    "build:pages": "node scripts/build-github-pages.mjs && node scripts/strip-private-pages-build.mjs && node scripts/audit-public-pages-build.mjs && node scripts/gh-pages-postbuild.mjs",
+    "preview": "vite preview",
+    "preview:pages": "npm run build:pages && vite preview --host 0.0.0.0",
+    "sync:store": "node scripts/sync-store.mjs",
+    "sync:console": "node scripts/sync-console.mjs",
+    "sync:all": "node scripts/sync-store.mjs && node scripts/sync-console.mjs && node scripts/write-build-source-manifest.mjs",
+    "console:server": "node console/server.js",
+    "audit:overlay": "node scripts/audit-storefront-overlay.cjs",
+    "clean:overlay": "node scripts/clean-storefront-overlay.mjs",
+    "deploy:catalog": "node scripts/deploy-store-catalog.mjs",
+    "deploy:server": "node scripts/catalog-deploy-server.mjs",
+    "audit:repo": "node scripts/audit-orphans.mjs"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.9.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "~5.7.2",
+    "vite": "^6.0.0"
+  }
+}

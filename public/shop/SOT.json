@@ -1,0 +1,242 @@
+{
+  "sot_version": "2.0-aerovista",
+  "project": {
+    "name": "av_storefront (mini.shop)",
+    "slug": "av-storefront",
+    "brand": "AeroVista",
+    "division": "Nexus TechWorks",
+    "owner": "AeroVista LLC",
+    "status": "active",
+    "lifecycle": "production",
+    "type": "app",
+    "category": "mini-shop",
+    "root": "./",
+    "primary_language": "javascript",
+    "repo_visibility": "private",
+    "created": "2026-03-18",
+    "updated": "2026-04-01",
+    "timezone": "America/Los_Angeles"
+  },
+  "purpose": {
+    "summary": "Mini shop root for av_storefront. Includes an AeroVista SOT pack scaffold for scanning and documentation auditing.",
+    "source_of_truth_policy": "Only files listed here and stored in approved canon locations are treated as master files.",
+    "business_role": "Mini shop content bundle: av_storefront."
+  },
+  "technical_profile": {
+    "stack": {
+      "frontend": [
+        "HTML",
+        "CSS",
+        "JavaScript (inline in index.html)"
+      ],
+      "backend": [
+        "Python Flask (see backend/SOT.json)"
+      ],
+      "database": [],
+      "infra": [],
+      "analytics": [],
+      "ai": []
+    },
+    "runtime": {
+      "local_ports": [],
+      "service_urls": [
+        "https://aerovista.us",
+        "https://www.aerovista.us",
+        "https://api.aerovista.us"
+      ],
+      "health_endpoint": "/api/health",
+      "entry_command": "",
+      "build_command": "",
+      "start_command": ""
+    },
+    "deployment": {
+      "primary_host": "",
+      "deploy_path": "",
+      "public_url": "https://aerovista.us",
+      "internal_url": "",
+      "containerized": false,
+      "compose_file": "",
+      "reverse_proxy": "",
+      "networking_notes": "Store API and infra: backend/SOT.json; DNS and tunnels: docs/HOSTING_AND_DNS.md"
+    },
+    "data_model": {
+      "core_db_dependency": false,
+      "domain_db": "",
+      "canonical_event_ledger": "",
+      "shared_storage": []
+    }
+  },
+  "canon": {
+    "canon_root": "./",
+    "allowed_master_locations": [
+      "./"
+    ],
+    "forbidden_master_locations": [
+      "./archive",
+      "./intake",
+      "./tmp",
+      "./build",
+      "./dist",
+      "./coverage",
+      "./node_modules"
+    ]
+  },
+  "entrypoints": [
+    {
+      "id": "sot_self",
+      "label": "SOT scaffold root",
+      "path": "SOT.json",
+      "required": true,
+      "notes": "Mini shop SOT scaffold."
+    }
+  ],
+  "canon_files": [
+    {
+      "id": "sot_self",
+      "path": "SOT.json",
+      "type": "json",
+      "role": "source of truth manifest",
+      "required": true,
+      "owner": "project-owner",
+      "status": "active"
+    },
+    {
+      "id": "sot_readme",
+      "path": "SOT_README.md",
+      "type": "md",
+      "role": "mini shop root SOT usage",
+      "required": true,
+      "owner": "project-owner",
+      "status": "active"
+    },
+    {
+      "id": "sot_template_guide",
+      "path": "SOT_AEROVISTA_TEMPLATE_GUIDE.md",
+      "type": "md",
+      "role": "field guide and recommended layout",
+      "required": false,
+      "owner": "project-owner",
+      "status": "active"
+    },
+    {
+      "id": "sot_example_notes",
+      "path": "SOT_EXAMPLE_NOTES.md",
+      "type": "md",
+      "role": "example SOT usage notes",
+      "required": false,
+      "owner": "project-owner",
+      "status": "active"
+    }
+  ],
+  "canon_folders": [
+    {
+      "id": "root",
+      "path": "./",
+      "role": "mini shop scaffold root (masters live in the folder root)"
+    }
+  ],
+  "systems": {
+    "linked_projects": [],
+    "depends_on": [],
+    "feeds": [],
+    "consumes": [],
+    "shares_with": [],
+    "related_domains": [],
+    "tailscale_hosts": [],
+    "cloudflare_tunnels": []
+  },
+  "portfolio": {
+    "division_slug": "aerovista",
+    "portfolio_lane": "promote",
+    "maturity_stage": 4,
+    "maturity_label": "external-beta",
+    "system_role": "storefront",
+    "exposure": "public-edge",
+    "strategic_tier": "core",
+    "owner_team": "Commerce / Storefront",
+    "owner_person": "glyph",
+    "commercial_status": "market-facing",
+    "scorecard": {
+      "security": 1,
+      "reliability": 2,
+      "data_safety": 1,
+      "documentation": 2,
+      "repeatability": 2,
+      "owner_clarity": 2
+    },
+    "decision_notes": "av_storefront is a polished outward-facing surface and should stay visible in the founder portfolio as part of the active body of work."
+  },
+  "ops": {
+    "service_name": "project-service-name",
+    "health_check_paths": [
+      "/health"
+    ],
+    "backup_targets": [],
+    "log_locations": [],
+    "secrets_locations": [],
+    "monitoring": {
+      "enabled": false,
+      "providers": []
+    }
+  },
+  "governance": {
+    "review_cycle": "when major changes ship",
+    "update_rule": "Update this file whenever a canonical file moves, is replaced, changes purpose, or deploy behavior changes.",
+    "promotion_rule": "Files are promoted into canon only after review.",
+    "archive_rule": "Old versions move to archive and are never treated as master files.",
+    "owner_roles": [
+      "project-owner",
+      "ops-owner",
+      "tech-owner"
+    ]
+  },
+  "duplicates": [
+    {
+      "pattern": "README",
+      "known_locations": [
+        "README.md",
+        "docs/README.md"
+      ],
+      "winner": "README.md",
+      "note": "Keep one main README only."
+    }
+  ],
+  "checks": {
+    "required_paths_exist": [
+      "SOT.json",
+      "SOT_README.md",
+      "SOT_AEROVISTA_TEMPLATE_GUIDE.md",
+      "SOT_EXAMPLE_NOTES.md"
+    ],
+    "marker": {
+      "enabled": true,
+      "marker_key": "SOT:",
+      "accepted_ext": [
+        ".md",
+        ".html",
+        ".json",
+        ".txt",
+        ".yml",
+        ".yaml",
+        ".ts",
+        ".tsx",
+        ".js",
+        ".jsx"
+      ]
+    },
+    "hash_canon_files": true,
+    "warn_on_duplicate_ids": true,
+    "warn_on_missing_required": true,
+    "warn_on_master_outside_allowed_locations": true
+  },
+  "notes": [
+    "tag: #mini.shop",
+    "mini.shop: av_storefront",
+    "copied_from: \\\\100.115.9.61\\Collab\\SOT\\aerovista_sot_root_pack",
+    "copied_on: 2026-03-20",
+    "Copy this file to the root of each tracked AeroVista project.",
+    "Update project metadata first.",
+    "List true master docs, configs, and schemas in canon_files.",
+    "Use docs/docs_index.md where a project has a structured docs set."
+  ]
+}

@@ -1,0 +1,74 @@
+node_modules
+dist
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
+Thumbs.db
+coverage
+.idea
+.vscode/*
+!.vscode/extensions.json
+robocopy-log.txt
+
+# Optional: uncomment if you always prebuild before commit
+# public/shop
+# public/console
+# public/store
+
+# dependencies/build
+node_modules/
+dist/
+.vite/
+**/.vite/
+**/__pycache__/
+*.pyc
+*.pyo
+*.log
+.DS_Store
+
+# env/secrets
+.env
+.env.*
+**/.env
+**/.env.*
+*.pem
+*.key
+*secret*
+*token*
+
+# private/operator/backend
+console/
+public/console/
+archive/
+store/backend/
+store/output/
+store/tools/
+store/data_quality_reports/
+store/bg_remove_in/
+store/bg_remove_out/
+
+# bulky/raw exports and working files
+*.xlsx
+*.xls
+*.csv
+*.jsonl
+output/
+exports/
+
+# duplicated working store tree - do not commit old working root wholesale
+store/docs/
+store/scripts/
+store/__pycache__/
+store/package-lock.json
+store/package.json
+store/requirements.txt
+store/run.sh
+store/test_excel.py
+store/convert_catalog.py
+store/convert_catalog.bat
+store/bulk_remove_bg.py
+store/trigger helper.sql
+store/docker logs*.txt
+store/tmp_*
