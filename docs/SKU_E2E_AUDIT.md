@@ -1,7 +1,8 @@
 # SKU end-to-end audit — add product → ship
 
 **Scope:** `av-store` static bridge + `api.aerovista.us` (backend not in this repo).  
-**Date:** 2026-05-15
+**Shop URL:** https://gear.aerovista.us/ (see **`docs/STOREFRONT.md`**).  
+**Date:** 2026-05-15 (updated 2026-05-18)
 
 ## Executive summary
 

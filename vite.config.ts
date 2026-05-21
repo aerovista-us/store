@@ -53,9 +53,13 @@ export default defineConfig({
   server: {
     port: 5174,
     strictPort: false,
+    open: '/app.html',
   },
   build: {
     outDir: 'dist',
     sourcemap: true,
+    rollupOptions: {
+      input: path.resolve(root, 'app.html'),
+    },
   },
 });

@@ -8,7 +8,7 @@
 
 | Path | Role |
 |------|------|
-| **`store/`** | Canonical static shop + catalog JSON. Synced to **`public/shop`**. |
+| **`store/`** | Canonical static shop + catalog JSON + `js/collection-lane-svg.js`. Synced to **`public/shop`**. |
 | **`console/`** | Catalog console **v2** (`aerovista_catalog_console_v2.html`). Synced to **`public/console`**. |
 | **`public/`** | Generated static assets for Vite/`dist` (run sync before dev/build). |
 | **`src/`** | React bridge: home, `/console/` iframe, link to `/shop/`. |
@@ -74,7 +74,11 @@ docker compose -f console/docker-compose.yml up -d --build
 
 ## Docs
 
+- **`docs/STOREFRONT.md`** — shop UX, collection lanes, SVG art, checkout, routing  
 - **`docs/WORKFLOWS.md`** — operator + deploy flows  
 - **`docs/CATALOG_PIPELINE.md`** — Square xlsx intake  
 - **`docs/STOREFRONT_OVERLAY.md`** — overlay rules  
+- **`docs/DEPLOY_GITHUB_PAGES.md`** — public shop (gear.aerovista.us)  
 - **`docs/REPO_LAYOUT.md`** — folder reference  
+- **`docs/README.md`** — documentation index  
+- **`store/handoffnotes.md`** — quick storefront dev map  

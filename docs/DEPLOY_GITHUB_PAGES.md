@@ -14,10 +14,13 @@ Pages sites are **public on the internet** even when the source repo is private.
 ## One-time GitHub setup
 
 1. **Settings → Pages → Build and deployment**
-   - **Source:** GitHub Actions
+   - **Source:** **GitHub Actions** (not “Deploy from a branch”)
+   - If **Source** is “branch / (root)”, the site serves repo-root `index.html` (Vite dev shell) → **white screen**. The static shop only appears at `/store/index.html` until you switch to Actions.
 2. **Custom domain:** `gear.aerovista.us` → Save → wait for DNS check
 3. Enable **Enforce HTTPS** when available
 4. Push to `main` or run **Actions → Deploy GitHub Pages**
+
+After a successful Actions deploy, **https://gear.aerovista.us/** should serve the full storefront HTML (~200KB+), not a tiny ~400-byte React shell.
 
 Workflow: `.github/workflows/deploy-github-pages.yml`
 
@@ -81,10 +84,13 @@ Verify these **404**:
 Allow checkout from the public shop origin on **`api.aerovista.us`**, e.g.:
 
 ```text
-ALLOWED_ORIGINS=https://gear.aerovista.us,https://aerovista-us.github.io
+ALLOWED_ORIGINS=https://gear.aerovista.us,https://aerovista-us.github.io,http://localhost:5174
 ```
 
-No wildcard CORS for checkout.
+- **`http://localhost:5174`** — Vite dev (`npm run dev` → `/shop/`)
+- Add **`http://127.0.0.1:5174`** if you open the shop by IP
+
+No wildcard CORS for checkout. Local checkout without CORS: run the payment API on **8088** / **18088** (see **`docs/STOREFRONT.md`** § Checkout).
 
 ---
 

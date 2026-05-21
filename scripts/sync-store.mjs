@@ -24,13 +24,15 @@ function shouldCopy(srcPath) {
   if (segments.includes('.git')) return false;
   if (segments[0] === 'docs' && segments.length > 1) return false;
 
-  // Public GitHub Pages / gear.aerovista.us — storefront files only
+  // Never copy operator / server paths into public/shop (Pages, Vite dev, or dist).
+  if (segments[0] === 'backend') return false;
+  if (segments[0] === 'tools') return false;
+  if (segments[0] === 'data_quality_reports') return false;
+  if (segments[0] === 'output') return false;
+  if (segments[0] === 'bg_remove_in' || segments[0] === 'bg_remove_out') return false;
+
+  // Extra exclusions for public Pages artifact builds
   if (process.env.PUBLIC_SITE_MODE === 'shop') {
-    if (segments[0] === 'backend') return false;
-    if (segments[0] === 'tools') return false;
-    if (segments[0] === 'data_quality_reports') return false;
-    if (segments[0] === 'output') return false;
-    if (segments[0] === 'bg_remove_in' || segments[0] === 'bg_remove_out') return false;
     const base = segments[segments.length - 1] || '';
     if (segments.length === 1 && /\.(xlsx|csv|xlsm)$/i.test(base)) return false;
     if (/^HOWTO_|store_health_dashboard|av_gear_shop_pages/i.test(base)) return false;
@@ -56,6 +58,22 @@ for (const name of ['square_products_latest.json', 'storefront_overlay.json']) {
   if (fs.existsSync(from)) {
     fs.copyFileSync(from, path.join(bridgeDir, name));
   }
+}
+
+// Cache-bust storefront scripts so hard refresh picks up SVG/CSS/JS edits after sync.
+const indexPath = path.join(dest, 'index.html');
+if (fs.existsSync(indexPath)) {
+  const v = Date.now().toString(36);
+  let html = fs.readFileSync(indexPath, 'utf8');
+  html = html.replace(
+    /collection-lane-svg\.js(\?[^"']*)?/g,
+    `collection-lane-svg.js?v=${v}`,
+  );
+  html = html.replace(
+    /collection-header-svg\.js(\?[^"']*)?/g,
+    `collection-header-svg.js?v=${v}`,
+  );
+  fs.writeFileSync(indexPath, html);
 }
 
 console.log('[sync:store]', src, '->', dest, '+ public/store/*.json bridge');

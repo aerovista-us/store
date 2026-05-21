@@ -17,6 +17,10 @@ export function CatalogHome() {
         <li>
           <strong>Shop (customers):</strong>{' '}
           <a href={withBase('shop/index.html')}>Open storefront</a>
+          {' '}
+          <span style={{ opacity: 0.85 }}>
+            — use this link; <code>npm run dev</code> alone does not show collection SVG changes.
+          </span>
         </li>
         {isOperatorMode ? (
           <li>

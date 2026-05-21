@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:shop": "npm run sync:store && vite --open /shop/index.html",
     "prebuild": "npm run sync:all",
     "build": "tsc --noEmit && vite build",
     "build:pages": "node scripts/build-github-pages.mjs && node scripts/strip-private-pages-build.mjs && node scripts/audit-public-pages-build.mjs && node scripts/gh-pages-postbuild.mjs",
@@ -32,6 +33,7 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.3.4",
+    "playwright": "^1.49.0",
     "typescript": "~5.7.2",
     "vite": "^6.0.0"
   }

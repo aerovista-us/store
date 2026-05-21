@@ -15,6 +15,10 @@ Part of **AV Store Static Bridge v1**.
 | **Built static shop** | `public/shop/` (after `npm run sync:store`) | Copy of `store/` for Vite / deploy. |
 | **Policies & support** | `store/policy-content.js`, `docs/STORE_POLICIES.md` | FAQ / shipping / returns modals; support **orders@aerovista.us**. |
 | **Storefront overlay** | `store/storefront_overlay.json`, `docs/STOREFRONT_OVERLAY.md` | Presentation only; `npm run clean:overlay` before launch. |
+| **Collection lane art** | `store/js/collection-lane-svg.js` | SVG `/\` marks on home doors + collection pages — see `docs/STOREFRONT.md`. |
+| **Live shop URL** | https://gear.aerovista.us/ | GitHub Pages (`npm run build:pages`). |
+
+Set export field **`collection`** (e.g. `Core`, `Shadow Wear`, `Apex`, `Glitch`, `Architect`) so products appear in the correct **collection lane** on the homepage.
 
 ## Typical workflow
 
@@ -25,7 +29,8 @@ Part of **AV Store Static Bridge v1**.
    - In console **Exports** tab: **Deploy to store** — writes `store/square_products_latest.json`, optional overlay, runs sync → `public/shop/`
    - Or manual: **Export storefront JSON**, then `npm run deploy:catalog -- path/to/downloaded.json`
 4. Confirm **`store/img/`** contains every `image` filename referenced in the JSON.
-5. `npm run build` and deploy **`dist`** when publishing to production.
+5. **Public shop:** `npm run build:pages` → push `main` (Pages). **Private full stack:** `npm run build` → deploy `dist/`.
+6. Spot-check **`docs/STOREFRONT.md`** checklist (home, lanes, catalog, checkout).
 
 ## Next phase (AVCC)
 

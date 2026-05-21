@@ -38,42 +38,71 @@
       --warn:#fbbf24;
       --bad:#fb7185;
       --shadow: 0 14px 40px rgba(0,0,0,.45);
+      --shadow-lg: 0 22px 56px rgba(0,0,0,.52);
       --radius: 18px;
       --radius2: 26px;
       --max: 1200px;
+      --ease: cubic-bezier(.22, 1, .36, 1);
+      --ease-out: cubic-bezier(.16, 1, .3, 1);
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --sans: "Segoe UI Variable", "Segoe UI", ui-sans-serif, system-ui, -apple-system, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
     }
+    html{ scroll-behavior:smooth; }
+    @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
     *{ box-sizing:border-box; }
     body{
       margin:0;
-      background: radial-gradient(900px 500px at 12% 0%, rgba(110,231,255,.12), transparent 60%),
-                  radial-gradient(700px 420px at 82% 8%, rgba(167,139,250,.11), transparent 55%),
-                  linear-gradient(180deg, #070a0f, var(--bg) 30%, #070a0f 130%);
+      background:
+        radial-gradient(ellipse 120% 80% at 50% -20%, rgba(110,231,255,.09), transparent 50%),
+        radial-gradient(900px 500px at 12% 0%, rgba(110,231,255,.10), transparent 60%),
+        radial-gradient(700px 420px at 88% 6%, rgba(167,139,250,.09), transparent 55%),
+        linear-gradient(180deg, #06090e 0%, var(--bg) 28%, #070a0f 100%);
       color:var(--text);
       font-family:var(--sans);
+      font-size:15px;
+      line-height:1.55;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      text-rendering:optimizeLegibility;
       overflow-x:hidden;
+    }
+    body[data-shop-view="collection"] #collectionView,
+    body[data-shop-view="catalog"] #productsSection{
+      animation:viewIn .35s var(--ease-out) both;
+    }
+    @keyframes viewIn{
+      from{ opacity:0; transform:translateY(8px); }
+      to{ opacity:1; transform:translateY(0); }
     }
     a{ color:inherit; text-decoration:none; }
     button, input, select{ font:inherit; }
 
-    .wrap{ max-width:var(--max); margin:0 auto; padding: 18px 16px 80px; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding:20px 18px 88px; }
+    @media (max-width: 520px){ .wrap{ padding:16px 14px 72px; } }
 
     /* Header */
     .topbar{
       position:sticky; top:0; z-index:50;
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
-      background: rgba(7,10,15,.72);
+      -webkit-backdrop-filter: blur(14px) saturate(1.2);
+      backdrop-filter: blur(14px) saturate(1.2);
+      background: rgba(7,10,15,.68);
       border-bottom:1px solid var(--line);
-      transition: background 0.3s ease, border-color 0.3s ease;
+      transition: background .25s var(--ease), border-color .25s var(--ease), box-shadow .25s var(--ease);
     }
-    .topbar:hover{
-      background: rgba(7,10,15,.78);
-      border-bottom-color: rgba(110,231,255,.15);
+    .topbar.is-scrolled{
+      background: rgba(7,10,15,.88);
+      border-bottom-color: rgba(110,231,255,.12);
+      box-shadow: 0 8px 32px rgba(0,0,0,.35);
     }
-    .topbar .wrap{ padding: 14px 16px; display:flex; gap:12px; align-items:center; justify-content:space-between; }
-    .brand{ display:flex; align-items:center; gap:12px; min-width: 220px; }
+    .topbar .wrap{ padding:12px 18px; display:flex; gap:12px; align-items:center; justify-content:space-between; }
+    @media (max-width: 520px){ .topbar .wrap{ padding:10px 14px; } }
+    .brand{
+      display:flex; align-items:center; gap:12px; min-width:0;
+      border-radius:14px; padding:4px 8px 4px 4px; margin:-4px 0 -4px -4px;
+      transition: background .2s var(--ease);
+    }
+    .brand:hover{ background:rgba(255,255,255,.04); }
+    .brand:focus-visible{ outline-offset:4px; }
     .logo{
       width:36px; height:36px; border-radius: 12px;
       background:
@@ -92,11 +121,13 @@
       background: rgba(255,255,255,.04);
       border:1px solid var(--line);
       border-radius: 999px;
-      padding: 10px 12px;
+      padding:10px 14px;
+      min-height:44px;
       color: var(--text);
-      transition: .15s ease;
+      transition: border-color .2s var(--ease), background .2s var(--ease), transform .2s var(--ease);
     }
-    .pill:hover{ border-color: rgba(110,231,255,.35); }
+    .pill:hover{ border-color: rgba(110,231,255,.35); background:rgba(255,255,255,.06); }
+    .pill:active{ transform:scale(.98); }
     .pill .k{ font-family: var(--mono); font-size: 11px; opacity:.7; border:1px solid var(--line); padding:2px 6px; border-radius: 8px; }
     .cartBtn{ position:relative; cursor:pointer; -webkit-user-select:none; user-select:none; }
     .badge{
@@ -152,27 +183,35 @@
 
     .heroRow{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px; align-items:center; }
     .cta{
-      display:inline-flex; align-items:center; gap:10px;
-      background: linear-gradient(135deg, rgba(110,231,255,.22), rgba(167,139,250,.18));
-      border:1px solid rgba(110,231,255,.30);
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      background: linear-gradient(135deg, rgba(110,231,255,.24), rgba(167,139,250,.18));
+      border:1px solid rgba(110,231,255,.32);
       border-radius: 999px;
-      padding: 10px 14px;
+      padding:11px 18px;
+      min-height:44px;
+      font-weight:600;
+      font-size:14px;
       cursor:pointer;
-      transition:.15s ease;
-      box-shadow: 0 10px 26px rgba(0,0,0,.35);
+      transition: transform .2s var(--ease), border-color .2s var(--ease), box-shadow .2s var(--ease);
+      box-shadow: 0 10px 28px rgba(0,0,0,.38), 0 0 0 1px rgba(110,231,255,.06) inset;
     }
-    .cta:hover{ transform: translateY(-1px); border-color: rgba(167,139,250,.35); }
+    .cta:hover{ transform: translateY(-2px); border-color: rgba(167,139,250,.4); box-shadow: 0 14px 36px rgba(0,0,0,.45), 0 0 24px rgba(110,231,255,.08); }
+    .cta:active{ transform: translateY(0); }
     .btn{
-      display:inline-flex; align-items:center; gap:8px;
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
       border:1px solid rgba(255,255,255,.14);
       background:rgba(255,255,255,.05);
       border-radius:999px;
-      padding:10px 14px;
+      padding:10px 16px;
+      min-height:44px;
+      font-size:14px;
+      font-weight:500;
       cursor:pointer;
-      transition:.15s ease;
+      transition: transform .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease);
       color:var(--text);
     }
-    .btn:hover{ border-color:rgba(110,231,255,.35); background:rgba(255,255,255,.08); }
+    .btn:hover{ border-color:rgba(110,231,255,.35); background:rgba(255,255,255,.08); transform:translateY(-1px); }
+    .btn:active{ transform:translateY(0); }
     .note{
       display:inline-flex; align-items:center; gap:8px;
       font-size: 12px;
@@ -516,10 +555,16 @@
       display:flex; align-items:center; gap:10px;
       background: rgba(255,255,255,.03);
       border:1px solid var(--line);
-      border-radius: 14px;
-      padding: 10px 12px;
-      flex: 1 1 220px;
-      min-width: 220px;
+      border-radius:14px;
+      padding:10px 14px;
+      flex:1 1 220px;
+      min-width:min(100%, 220px);
+      transition: border-color .2s var(--ease), background .2s var(--ease), box-shadow .2s var(--ease);
+    }
+    .field:focus-within{
+      border-color:rgba(110,231,255,.35);
+      background:rgba(255,255,255,.05);
+      box-shadow:0 0 0 3px rgba(110,231,255,.08);
     }
     .field input{
       border:none; outline:none; background:transparent; color:var(--text);
@@ -579,20 +624,31 @@
       background: rgba(255,255,255,.03);
       border:1px solid var(--line);
       border-radius: 999px;
-      padding: 8px 10px;
-      font-size: 12px;
+      padding:9px 14px;
+      min-height:38px;
+      font-size:13px;
       color: var(--muted);
-      transition:.12s ease;
+      transition: border-color .18s var(--ease), background .18s var(--ease), color .18s var(--ease), box-shadow .18s var(--ease);
     }
     .chip:hover:not(.active){
-      border-color: rgba(255,255,255,.18);
-      background: rgba(255,255,255,.05);
+      border-color: rgba(255,255,255,.2);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
     }
     .chip.active{
       color:var(--text);
-      border-color: rgba(110,231,255,.35);
-      background: rgba(110,231,255,.08);
+      font-weight:600;
+      border-color: rgba(110,231,255,.4);
+      background: rgba(110,231,255,.1);
+      box-shadow: 0 0 20px rgba(110,231,255,.08);
     }
+    .resultsMeta{
+      margin-top:10px;
+      font-size:13px;
+      color:var(--muted);
+      min-height:1.25em;
+    }
+    .resultsMeta:empty{ display:none; }
 
     /* Curated System */
     .system{
@@ -645,11 +701,15 @@
     .heroStat{ border:1px solid rgba(255,255,255,.09); background:rgba(255,255,255,.025); border-radius:16px; padding:12px; }
     .heroStat b{ display:block; font-size:17px; letter-spacing:.02em; }
     .heroStat span{ display:block; margin-top:3px; color:var(--muted); font-size:12px; line-height:1.3; }
-    .landingSection{ margin-top:22px; }
-    .sectionHead{ display:flex; align-items:flex-end; justify-content:space-between; gap:14px; margin:0 0 12px; }
-    .sectionHead h2{ margin:0; font-size:22px; letter-spacing:-.02em; }
-    .sectionHead p{ margin:6px 0 0; color:var(--muted); max-width:72ch; font-size:14px; line-height:1.45; }
-    .collectionGrid{ display:grid; grid-template-columns:repeat(12,1fr); gap:12px; }
+    .landingSection{ margin-top:36px; }
+    .landingSection:first-of-type{ margin-top:8px; }
+    .sectionHead{ display:flex; align-items:flex-end; justify-content:space-between; gap:14px; margin:0 0 16px; }
+    .sectionHead h2{ margin:0; font-size:clamp(20px, 3vw, 26px); letter-spacing:-.03em; font-weight:700; }
+    .sectionHead p{ margin:8px 0 0; color:var(--muted); max-width:72ch; font-size:14px; line-height:1.5; }
+    .collectionGrid{
+      display:grid; grid-template-columns:repeat(12,1fr); gap:12px;
+      perspective:1100px;
+    }
     .collectionDoor{
       grid-column:span 12; min-height:230px; border-radius:var(--radius2);
       border:1px solid rgba(255,255,255,.09);
@@ -657,34 +717,451 @@
       box-shadow:0 12px 34px rgba(0,0,0,.32);
       padding:18px; position:relative; overflow:hidden;
       display:flex; flex-direction:column; justify-content:space-between;
-      cursor:pointer; transition:transform .18s ease, border-color .18s ease;
+      cursor:pointer; transition:transform .22s ease, box-shadow .22s ease, border-color .18s ease;
+      transform-style:preserve-3d;
     }
     .collectionDoor:before{
-      content:""; position:absolute; inset:0;
+      content:""; position:absolute; inset:0; z-index:1;
       background:radial-gradient(380px 240px at 8% 0%, var(--doorGlow, rgba(110,231,255,.16)), transparent 58%),
                  linear-gradient(135deg, transparent, rgba(0,0,0,.55));
       opacity:.92; pointer-events:none;
     }
     .collectionDoor:after{
-      content:attr(data-mark); position:absolute; right:16px; bottom:-16px;
+      content:attr(data-mark); position:absolute; right:16px; bottom:-16px; z-index:1;
       font-family:var(--mono); font-size:92px; font-weight:900; letter-spacing:-.12em;
       color:rgba(255,255,255,.04); line-height:1; pointer-events:none;
     }
     .collectionDoor:hover{ transform:translateY(-3px); border-color:rgba(110,231,255,.28); }
+    /* PNG door cards — full-bleed art + beveled fabric-over-cutout lip */
+    .collectionDoor.hasArt{
+      min-height:280px;
+      padding:0;
+      border:1px solid rgba(255,255,255,.11);
+      background:#050608;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.16),
+        inset 1px 0 0 rgba(255,255,255,.07),
+        inset -1px 0 0 rgba(0,0,0,.45),
+        inset 0 -2px 0 rgba(0,0,0,.55),
+        0 18px 44px rgba(0,0,0,.52),
+        0 6px 16px rgba(0,0,0,.38);
+    }
+    .collectionDoor.hasArt:hover{
+      transform:translateY(-5px) rotateX(2.5deg);
+      border-color:rgba(110,231,255,.22);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.2),
+        inset 1px 0 0 rgba(255,255,255,.1),
+        inset -1px 0 0 rgba(0,0,0,.5),
+        inset 0 -3px 0 rgba(0,0,0,.6),
+        0 24px 52px rgba(0,0,0,.58),
+        0 10px 22px rgba(0,0,0,.42);
+    }
+    .collectionDoor.hasArt:before{
+      z-index:2;
+      opacity:1;
+      background:
+        radial-gradient(ellipse 120% 80% at 12% 0%, var(--doorGlow, rgba(110,231,255,.14)), transparent 55%),
+        linear-gradient(145deg, rgba(255,255,255,.11) 0%, transparent 42%),
+        linear-gradient(325deg, rgba(0,0,0,.42) 0%, transparent 48%),
+        linear-gradient(180deg, rgba(0,0,0,.55) 0%, transparent 38%, rgba(0,0,0,.65) 100%);
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.09),
+        inset 0 2px 5px rgba(255,255,255,.07),
+        inset 0 -5px 14px rgba(0,0,0,.55),
+        inset 4px 0 10px rgba(0,0,0,.22),
+        inset -4px 0 10px rgba(0,0,0,.22);
+    }
+    .collectionDoor.hasArt:after{
+      z-index:2;
+      right:12px; bottom:-12px;
+      opacity:.55;
+      mix-blend-mode:soft-light;
+    }
+    .collectionDoor.hasArt .doorTop{
+      padding:16px 18px 8px;
+      background:linear-gradient(180deg, rgba(5,6,8,.9) 0%, rgba(5,6,8,.45) 65%, transparent 100%);
+    }
+    .collectionDoor.hasArt .doorBottom{
+      padding:8px 18px 16px;
+      background:linear-gradient(0deg, rgba(5,6,8,.94) 0%, rgba(5,6,8,.5) 58%, transparent 100%);
+    }
+    .collectionDoor.hasArt .doorTop,
+    .collectionDoor.hasArt .doorBottom{ position:relative; z-index:3; }
+    .collectionDoor.hasArt[data-collection-lane="architect"]:before{
+      background:
+        linear-gradient(180deg, rgba(6,7,10,.82) 0%, rgba(6,7,10,.5) 38%, rgba(6,7,10,.88) 100%),
+        linear-gradient(145deg, rgba(255,255,255,.09) 0%, transparent 40%),
+        linear-gradient(325deg, rgba(0,0,0,.48) 0%, transparent 46%),
+        radial-gradient(ellipse 100% 80% at 50% 45%, rgba(251,191,36,.07), transparent 68%);
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.09),
+        inset 0 2px 5px rgba(255,255,255,.06),
+        inset 0 -5px 14px rgba(0,0,0,.55),
+        inset 4px 0 10px rgba(0,0,0,.22),
+        inset -4px 0 10px rgba(0,0,0,.22);
+    }
+    .collectionDoor.hasArt[data-collection-lane="apex"] .doorArt{
+      object-position:center 64%;
+      transform:scale(1.05) translateY(7%);
+      transform-origin:center center;
+    }
+    .collectionDoor.hasArt[data-collection-lane="apex"]:hover .doorArt{
+      transform:scale(1.07) translateY(7%);
+    }
+    .collectionDoor.hasArt[data-collection-lane="apex"] .doorTop{
+      background:linear-gradient(180deg, rgba(5,6,8,.94) 0%, rgba(5,6,8,.6) 48%, transparent 100%);
+    }
+    .collectionViewHero[data-lane="apex"] .pageDoorArt{
+      object-position:center 64%;
+    }
+    .collectionDoor.hasArt[data-collection-lane="architect"] .doorTop{
+      background:linear-gradient(180deg, rgba(5,6,8,.96) 0%, rgba(5,6,8,.72) 55%, rgba(5,6,8,.25) 100%);
+    }
+    .collectionDoor.hasArt[data-collection-lane="architect"] .doorBottom{
+      background:linear-gradient(0deg, rgba(5,6,8,.98) 0%, rgba(5,6,8,.78) 52%, rgba(5,6,8,.3) 100%);
+    }
+    .collectionViewHero[data-lane="architect"] .pageArtPanel{
+      position:relative;
+    }
+    .collectionViewHero[data-lane="architect"] .pageArtPanel:has(.pageDoorArt):after{
+      content:"";
+      position:absolute; inset:0; z-index:1; pointer-events:none;
+      border-radius:var(--radius2);
+      background:linear-gradient(180deg, rgba(6,7,10,.7) 0%, rgba(6,7,10,.35) 45%, rgba(6,7,10,.75) 100%);
+    }
+    .collectionViewHero[data-lane="architect"] .pageDoorArt{
+      position:relative; z-index:0;
+    }
     .doorTop,.doorBottom{ position:relative; z-index:1; }
     .doorLabel{ font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:rgba(231,237,246,.72); }
-    .collectionDoor h3{ margin:10px 0 0; font-size:22px; letter-spacing:-.035em; }
-    .collectionDoor p{ margin:10px 0 0; color:var(--muted); font-size:14px; line-height:1.45; max-width:55ch; }
-    .doorCTA{ display:inline-flex; align-items:center; gap:8px; margin-top:16px; color:var(--text); font-size:13px; font-weight:700; }
+    .collectionDoor h3{ margin:10px 0 0; font-size:clamp(20px, 2.5vw, 24px); letter-spacing:-.04em; font-weight:700; line-height:1.1; }
+    .collectionDoor p{ margin:10px 0 0; color:var(--muted); font-size:14px; line-height:1.5; max-width:55ch; }
+    .doorCTA{
+      display:inline-flex; align-items:center; gap:8px;
+      color:var(--text); font-size:13px; font-weight:700;
+      transition: gap .2s var(--ease), color .2s var(--ease);
+    }
+    .collectionDoor:hover .doorCTA{ gap:12px; color:var(--accent); }
     @media (min-width:720px){ .collectionDoor{ grid-column:span 6; } }
     @media (min-width:1040px){ .collectionDoor{ grid-column:span 4; } }
-    .collectionDoor.hasArt{ min-height:260px; }
     .doorArt{
       position:absolute; inset:0; width:100%; height:100%;
-      object-fit:cover; opacity:.22; filter:saturate(1.05) contrast(1.02);
+      object-fit:cover; object-position:center center;
+      transform:scale(1.06);
+      transform-origin:center center;
+      opacity:1; filter:saturate(1.04) contrast(1.03);
       pointer-events:none; z-index:0;
+      border-radius:inherit;
     }
-    .collectionDoor:hover .doorArt{ opacity:.32; }
+    .collectionDoor.hasArt:hover .doorArt{
+      transform:scale(1.08);
+    }
+    .pageDoorArt{
+      position:relative; width:100%; height:min(240px, 42vw);
+      min-height:180px;
+      object-fit:cover; object-position:center center;
+      opacity:1; display:block;
+      border-radius:var(--radius2);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.12),
+        inset 0 -3px 10px rgba(0,0,0,.45);
+    }
+    /* SVG lane art — bottom-weighted; do NOT use .doorArt (full-card inset wash) */
+    .doorArtSvg{
+      position:absolute;
+      left:0; right:0; bottom:0; top:18%;
+      display:flex; align-items:flex-end; justify-content:center;
+      opacity:1;
+      filter:none;
+      mix-blend-mode:normal;
+      overflow:hidden;
+      pointer-events:none;
+      z-index:0;
+      background:transparent;
+      border-radius:0 0 var(--radius2) var(--radius2);
+    }
+    .collectionDoor:hover .doorArtSvg{ opacity:1; }
+    .doorArtSvg .laneMarkSvg{
+      background:transparent;
+      opacity:1;
+      overflow:hidden;
+      isolation:isolate;
+    }
+    .collectionDoor.is-door-active .doorArtSvg .laneMarkSvg{
+      filter:drop-shadow(0 14px 28px rgba(0,0,0,.55)) drop-shadow(0 0 24px rgba(110,231,255,.12));
+    }
+    .collectionDoor[data-collection-lane="apex"] .doorArtSvg .laneMarkSvg,
+    .collectionDoor[data-collection-lane="apex"].is-door-active .doorArtSvg .laneMarkSvg{
+      filter:none;
+    }
+    .collectionDoor[data-collection-lane="apex"] .doorArtSvg .laneMark,
+    #collectionViewHero[data-lane="apex"] .laneMark{
+      filter:drop-shadow(0 8px 18px rgba(0,0,0,.5)) drop-shadow(0 0 14px rgba(167,139,250,.1));
+    }
+    .collectionDoor[data-collection-lane="apex"].is-door-active .doorArtSvg .laneMark,
+    #collectionViewHero[data-lane="apex"].is-door-active .laneMark{
+      filter:drop-shadow(0 12px 24px rgba(0,0,0,.52)) drop-shadow(0 0 calc(10px + var(--holo-phase, 0.5) * 10px) rgba(110,231,255,.18));
+    }
+    .doorScene{
+      perspective:900px;
+      transform-style:preserve-3d;
+      width:100%; height:100%;
+      display:flex; align-items:flex-end; justify-content:center;
+    }
+    .doorVisual{
+      --holo-phase:0.5;
+      --holo-x:0.5;
+      --holo-y:0.5;
+      position:relative;
+      transform-style:preserve-3d;
+      will-change:transform;
+      transition:transform .15s ease-out;
+      display:flex; align-items:flex-end; justify-content:center;
+      overflow:hidden;
+      border-radius:inherit;
+    }
+    .doorVisual .laneMarkSvg{
+      width:min(125%, 500px); height:auto; max-height:96%;
+      transform:translateY(4%);
+      filter:drop-shadow(0 10px 28px rgba(0,0,0,.5));
+      transition:filter .25s ease;
+      overflow:hidden;
+    }
+    .collectionDoor[data-collection-lane="apex"] .doorVisual .laneMarkSvg{
+      filter:none;
+    }
+    /* Full-card holo rects read as squares on Core / Shadow / Architect */
+    .laneMarkSvg--core .laneHoloFoil,
+    .laneMarkSvg--shadow .laneHoloFoil,
+    .laneMarkSvg--architect .laneHoloFoil,
+    .laneMarkSvg--core .laneHoloShine,
+    .laneMarkSvg--shadow .laneHoloShine,
+    .laneMarkSvg--architect .laneHoloShine{
+      display:none;
+    }
+    .laneMarkSvg--core .laneHoloStackIdle,
+    .laneMarkSvg--shadow .laneHoloStackIdle,
+    .laneMarkSvg--architect .laneHoloStackIdle{
+      opacity:0 !important;
+    }
+    .laneMarkSvg .laneBg{
+      transition:transform .15s ease-out;
+      transform:translate(
+        calc((0.5 - var(--holo-x, 0.5)) * 10px),
+        calc((0.5 - var(--holo-y, 0.5)) * 6px)
+      );
+    }
+    .laneMarkSvg .laneMarkParallax{
+      transition:transform .15s ease-out;
+      transform:translate(
+        calc((var(--holo-x, 0.5) - 0.5) * 18px),
+        calc((var(--holo-y, 0.5) - 0.5) * 12px)
+      );
+    }
+    .collectionDoor.is-door-active .laneMarkSvg .laneMarkParallax,
+    #collectionViewHero.is-door-active .laneMarkSvg .laneMarkParallax{
+      filter:drop-shadow(0 14px 22px rgba(0,0,0,.55));
+    }
+    .doorHolo{
+      position:absolute; inset:0;
+      pointer-events:none; opacity:0;
+      background:conic-gradient(from 180deg,
+        rgba(0,255,255,0),
+        rgba(255,0,255,.32),
+        rgba(0,255,255,.22),
+        rgba(255,255,255,.26),
+        rgba(0,255,255,.18),
+        rgba(255,0,255,.28),
+        rgba(0,255,255,0)
+      );
+      mix-blend-mode:screen;
+      filter:blur(0.3px) saturate(1.3);
+      will-change:transform, opacity;
+      transition:opacity .22s ease;
+      z-index:2;
+    }
+    .doorHolo::after{
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(115deg, transparent 36%, rgba(255,255,255,.14) 50%, transparent 64%);
+      transform:translateX(-100%);
+      pointer-events:none;
+    }
+    .collectionDoor[data-collection-lane="core"] .doorHolo,
+    #collectionViewHero[data-lane="core"] .doorHolo{
+      background:conic-gradient(from 200deg,
+        rgba(0,255,255,0), rgba(110,231,255,.28), rgba(79,209,197,.2),
+        rgba(167,139,250,.18), rgba(110,231,255,.22), rgba(0,255,255,0));
+    }
+    .collectionDoor[data-collection-lane="shadow"] .doorHolo,
+    #collectionViewHero[data-lane="shadow"] .doorHolo{
+      background:conic-gradient(from 190deg,
+        rgba(0,255,255,0), rgba(148,163,184,.25), rgba(110,231,255,.12),
+        rgba(71,85,105,.15), rgba(148,163,184,.2), rgba(0,255,255,0));
+    }
+    .collectionDoor[data-collection-lane="apex"] .doorHolo,
+    #collectionViewHero[data-lane="apex"] .doorHolo{
+      background:conic-gradient(from 175deg,
+        rgba(0,255,255,0), rgba(167,139,250,.3), rgba(110,231,255,.22),
+        rgba(236,72,153,.16), rgba(59,130,246,.2), rgba(0,255,255,0));
+    }
+    .collectionDoor[data-collection-lane="glitch"] .doorHolo,
+    #collectionViewHero[data-lane="glitch"] .doorHolo{
+      background:conic-gradient(from 185deg,
+        rgba(0,255,255,0), rgba(34,211,238,.3), rgba(236,72,153,.24),
+        rgba(167,139,250,.14), rgba(34,211,238,.2), rgba(0,255,255,0));
+    }
+    .collectionDoor[data-collection-lane="architect"] .doorHolo,
+    #collectionViewHero[data-lane="architect"] .doorHolo{
+      background:conic-gradient(from 195deg,
+        rgba(0,255,255,0), rgba(251,191,36,.26), rgba(245,158,11,.18),
+        rgba(234,179,8,.12), rgba(251,191,36,.22), rgba(0,255,255,0));
+    }
+    .doorNoise{
+      position:absolute; inset:0;
+      pointer-events:none; opacity:0;
+      border-radius:inherit;
+      background:repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,.03),
+        rgba(255,255,255,.03) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+      mix-blend-mode:overlay;
+      z-index:1;
+      transition:opacity .22s ease;
+    }
+    /* SVG holo — idle hidden; active phase-driven */
+    .laneMarkSvg .laneHoloStackIdle{ opacity:0; transition:opacity .28s ease; }
+    .collectionDoor.is-door-active .laneMarkSvg .laneHoloStackIdle,
+    #collectionViewHero.is-door-active .laneMarkSvg .laneHoloStackIdle{ opacity:1; }
+    .laneMarkSvg .laneHoloStackActive .laneHoloFoil,
+    .laneMarkSvg .laneHoloStackActive .laneHoloShine{ opacity:0; transition:opacity .28s ease, transform .2s ease; }
+    #collectionViewHero.is-door-active .pageLaneSvgWrap{
+      opacity:1;
+    }
+    .collectionDoor.is-door-active .laneMarkSvg--core .laneReticle,
+    #collectionViewHero.is-door-active .laneMarkSvg--core .laneReticle{
+      opacity:calc(0.2 + var(--holo-phase, 0.5) * 0.38);
+    }
+    .collectionDoor.is-door-active .laneMarkSvg--apex .laneReticle,
+    #collectionViewHero.is-door-active .laneMarkSvg--apex .laneReticle{
+      opacity:calc(0.18 + var(--holo-phase, 0.5) * 0.32);
+    }
+    .collectionDoor.is-door-active .laneMarkSvg--apex .laneApexStripes,
+    #collectionViewHero.is-door-active .laneMarkSvg--apex .laneApexStripes{
+      opacity:calc(0.22 + var(--holo-phase, 0.5) * 0.28);
+    }
+    .collectionDoor.is-door-active .laneMarkSvg--apex .laneHoloStackActive .laneHoloFoil,
+    #collectionViewHero.is-door-active .laneMarkSvg--apex .laneHoloStackActive .laneHoloFoil{
+      opacity:calc(0.28 + var(--holo-phase, 0.5) * 0.35);
+    }
+    .collectionDoor.is-door-active .laneMarkSvg--apex .laneHoloStackActive .laneHoloShine,
+    #collectionViewHero.is-door-active .laneMarkSvg--apex .laneHoloStackActive .laneHoloShine{
+      opacity:calc(0.32 + var(--holo-phase, 0.5) * 0.3);
+    }
+    .laneMarkSvg--apex .laneHoloStackIdle{ display:none; }
+    .collectionDoor.is-door-active .laneMarkSvg--glitch .laneMarkOrbit,
+    #collectionViewHero.is-door-active .laneMarkSvg--glitch .laneMarkOrbit{
+      opacity:calc(0.65 + var(--holo-phase, 0.5) * 0.3);
+    }
+    .collectionDoor.is-door-active .laneMarkSvg .laneHoloFoil,
+    #collectionViewHero.is-door-active .laneMarkSvg .laneHoloFoil{
+      opacity:calc(0.32 + var(--holo-phase, 0.5) * 0.38);
+    }
+    .collectionDoor.is-door-active .laneMarkSvg .laneHoloShine,
+    #collectionViewHero.is-door-active .laneMarkSvg .laneHoloShine{
+      opacity:calc(0.45 + var(--holo-phase, 0.5) * 0.35);
+      transform:translate(calc((var(--holo-x, 0.5) - 0.5) * 24px), calc((var(--holo-y, 0.5) - 0.5) * 12px));
+    }
+    .collectionDoor.is-door-active .doorVisual .laneMarkSvg,
+    #collectionViewHero.is-door-active .doorVisual .laneMarkSvg{
+      filter:drop-shadow(0 10px 24px rgba(0,0,0,.55)) drop-shadow(0 8px 20px rgba(110,231,255,.12)) saturate(1.08);
+    }
+    .collectionDoor:not(.is-door-active) .laneMark,
+    #collectionViewHero:not(.is-door-active) .laneMark{
+      filter:none;
+    }
+    .collectionDoor.is-door-active .laneMark,
+    #collectionViewHero.is-door-active .laneMark{
+      filter:drop-shadow(0 0 calc(8px + var(--holo-phase, 0.5) * 10px) rgba(110,231,255,.18));
+    }
+    .collectionDoor[data-collection-lane="glitch"].is-door-active .laneMark,
+    #collectionViewHero[data-lane="glitch"].is-door-active .laneMark{
+      filter:drop-shadow(0 0 calc(12px + var(--holo-phase, 0.5) * 16px) rgba(34,211,238,.3));
+    }
+    .collectionDoor[data-collection-lane="architect"].is-door-active .laneMark,
+    #collectionViewHero[data-lane="architect"].is-door-active .laneMark{
+      filter:drop-shadow(0 0 calc(10px + var(--holo-phase, 0.5) * 12px) rgba(251,191,36,.24));
+    }
+    .collectionDoor.is-door-active .doorHolo,
+    #collectionViewHero.is-door-active .doorHolo{
+      opacity:calc(0.42 + var(--holo-phase, 0.5) * 0.28);
+    }
+    .collectionDoor.is-door-active .doorNoise,
+    #collectionViewHero.is-door-active .doorNoise{ opacity:.35; }
+    .collectionDoor.is-door-active .doorHolo::after,
+    #collectionViewHero.is-door-active .doorHolo::after{
+      animation:doorShineSweep 2.4s ease-in-out infinite;
+    }
+    .collectionDoor[data-collection-lane="glitch"].is-door-active .doorHolo::after{
+      background:linear-gradient(115deg, transparent 34%, rgba(34,211,238,.2) 48%, rgba(236,72,153,.14) 52%, transparent 66%);
+    }
+    .collectionDoor[data-collection-lane="architect"].is-door-active .doorHolo::after{
+      background:linear-gradient(115deg, transparent 36%, rgba(251,191,36,.16) 50%, transparent 64%);
+    }
+    @keyframes doorShineSweep{
+      0%{ transform:translateX(-100%); }
+      100%{ transform:translateX(100%); }
+    }
+    .collectionDoor:not(.is-door-active) .laneHoloAnim,
+    .collectionDoor:not(.is-door-active) .laneHoloAnim *,
+    #collectionViewHero:not(.is-door-active) .laneHoloAnim,
+    #collectionViewHero:not(.is-door-active) .laneHoloAnim *{
+      visibility:hidden;
+    }
+    .collectionDoor:not(.is-door-active) .laneGlitchSlices,
+    #collectionViewHero:not(.is-door-active) .laneGlitchSlices{
+      visibility:hidden; opacity:0;
+    }
+    .collectionDoor.is-door-active .laneGlitchSlices,
+    #collectionViewHero.is-door-active .laneGlitchSlices{
+      visibility:visible; opacity:.38;
+    }
+    .collectionDoor.is-door-active .laneHoloAnim,
+    #collectionViewHero.is-door-active .laneHoloAnim{
+      visibility:visible;
+    }
+    .pageLaneSvgWrap{
+      width:100%; max-width:340px; margin:0 auto;
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden;
+      border-radius:20px;
+    }
+    .pageLaneSvgWrap .doorScene{ min-height:200px; }
+    .pageLaneSvgWrap .doorScene{ width:100%; max-width:360px; }
+    .pageLaneSvgWrap .doorVisual .laneMarkSvg{
+      width:100%; max-height:200px; transform:none;
+      object-fit:contain;
+    }
+    .collectionViewHero .pageArtPanel .doorArtSvg,
+    .collectionViewHero .pageLaneSvgWrap{
+      width:100%;
+    }
+    @media (prefers-reduced-motion: reduce){
+      .doorHolo::after{ animation:none !important; }
+      .collectionDoor.is-door-active .laneHoloAnim,
+      .collectionDoor.is-door-active .laneHoloAnim *,
+      #collectionViewHero.is-door-active .laneHoloAnim,
+      #collectionViewHero.is-door-active .laneHoloAnim *{
+        visibility:hidden !important;
+      }
+      .doorVisual{ transition:none; }
+      .laneMarkSvg .laneBg,
+      .laneMarkSvg .laneMarkParallax{ transform:none !important; transition:none; }
+    }
     .featuredDrop{
       border:1px solid rgba(255,255,255,.09);
       background:radial-gradient(720px 320px at 10% 0%, rgba(110,231,255,.12), transparent 62%),
@@ -695,7 +1172,17 @@
     .dropTitle{ margin:0; font-size:28px; letter-spacing:-.04em; }
     .dropCopy{ margin:10px 0 0; color:var(--muted); line-height:1.55; max-width:70ch; }
     .dropPieces{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-    .dropPiece{ min-height:100px; border:1px solid rgba(255,255,255,.09); background:rgba(0,0,0,.2); border-radius:16px; padding:12px; display:flex; flex-direction:column; justify-content:space-between; }
+    .dropPiece{
+      min-height:100px; border:1px solid rgba(255,255,255,.09); background:rgba(0,0,0,.2);
+      border-radius:16px; padding:14px;
+      display:flex; flex-direction:column; justify-content:space-between;
+      transition: border-color .2s var(--ease), transform .2s var(--ease), background .2s var(--ease);
+    }
+    .dropPiece:hover{
+      border-color:rgba(110,231,255,.25);
+      background:rgba(0,0,0,.28);
+      transform:translateY(-2px);
+    }
     .dropPiece .mini{ font-family:var(--mono); font-size:10px; color:rgba(110,231,255,.78); letter-spacing:.12em; text-transform:uppercase; }
     .dropPiece b{ font-size:13px; line-height:1.25; }
     .pageStack{ display:grid; gap:16px; }
@@ -719,27 +1206,235 @@
     .pageActions{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
     .pageArtPanel{
       min-height:220px; border:1px solid rgba(255,255,255,.08);
-      background:rgba(0,0,0,.25); border-radius:20px;
+      background:transparent; border-radius:20px;
       display:flex; align-items:center; justify-content:center; overflow:hidden;
     }
     .pageArtPanel img{ max-width:88%; max-height:200px; object-fit:contain; filter:drop-shadow(0 16px 32px rgba(0,0,0,.65)); }
+    /* Glitch: full-width panoramic SVG header (collection page) */
+    .collectionViewHero[data-lane="glitch"] .pageArtPanel{
+      min-height:min(300px, 42vw);
+      padding:0;
+      background:#030508;
+      border-color:rgba(34,211,238,.14);
+      box-shadow:inset 0 0 0 1px rgba(34,211,238,.06), inset 0 -24px 48px rgba(0,0,0,.5);
+    }
+    .collectionViewHero[data-lane="glitch"] .pageLaneSvgWrap{
+      max-width:none;
+      width:100%;
+      margin:0;
+      border-radius:inherit;
+      min-height:min(280px, 40vw);
+      align-items:stretch;
+    }
+    .collectionViewHero[data-lane="glitch"] .collectionHeaderBanner{
+      width:100%;
+      height:100%;
+      min-height:260px;
+      display:block;
+    }
+    @media (prefers-reduced-motion: reduce){
+      .collectionGlitchHdrAnim,
+      .collectionGlitchHdrAnim *{
+        visibility:hidden !important;
+      }
+    }
+    /* Architect: full-width blueprint banner */
+    .collectionViewHero[data-lane="architect"] .pageArtPanel{
+      min-height:min(300px, 42vw);
+      padding:0;
+      background:#070504;
+      border-color:rgba(251,191,36,.16);
+      box-shadow:inset 0 0 0 1px rgba(251,191,36,.08), inset 0 -20px 40px rgba(0,0,0,.52);
+    }
+    .collectionViewHero[data-lane="architect"] .pageLaneSvgWrap{
+      max-width:none;
+      width:100%;
+      margin:0;
+      border-radius:inherit;
+      min-height:min(280px, 40vw);
+      align-items:stretch;
+    }
+    .collectionViewHero[data-lane="architect"] .collectionHeaderBanner{
+      width:100%;
+      height:100%;
+      min-height:260px;
+      display:block;
+    }
+    /* Core: cyan blueprint / ops reticle banner */
+    .collectionViewHero[data-lane="core"] .pageArtPanel{
+      position:relative;
+      min-height:min(300px, 42vw);
+      padding:0;
+      background:#05090f;
+      border-color:rgba(110,231,255,.16);
+      box-shadow:inset 0 0 0 1px rgba(110,231,255,.06), inset 0 -22px 44px rgba(0,0,0,.52);
+    }
+    .collectionViewHero[data-lane="core"] .pageLaneSvgWrap{
+      max-width:none;
+      width:100%;
+      margin:0;
+      border-radius:inherit;
+      min-height:min(280px, 40vw);
+      align-items:stretch;
+    }
+    .collectionViewHero[data-lane="core"] .collectionHeaderBanner{
+      width:100%;
+      height:100%;
+      min-height:260px;
+      display:block;
+    }
+    /* Core collection: optional PNG tint only when fallback img loads */
+    .collectionViewHero[data-lane="core"] .pageArtPanel:has(.pageDoorArt):after{
+      content:"";
+      position:absolute; inset:0; z-index:1; pointer-events:none;
+      border-radius:var(--radius2);
+      background:linear-gradient(180deg, rgba(5,10,18,.58) 0%, rgba(5,10,18,.28) 50%, rgba(5,10,18,.72) 100%);
+    }
+    /* Shadow Wear: stealth topo / HUD banner */
+    .collectionViewHero[data-lane="shadow"] .pageArtPanel{
+      position:relative;
+      min-height:min(300px, 42vw);
+      padding:0;
+      background:#060708;
+      border-color:rgba(148,163,184,.14);
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.05), inset 0 -22px 48px rgba(0,0,0,.58);
+    }
+    .collectionViewHero[data-lane="shadow"] .pageLaneSvgWrap{
+      max-width:none;
+      width:100%;
+      margin:0;
+      border-radius:inherit;
+      min-height:min(280px, 40vw);
+      align-items:stretch;
+    }
+    .collectionViewHero[data-lane="shadow"] .collectionHeaderBanner{
+      width:100%;
+      height:100%;
+      min-height:260px;
+      display:block;
+    }
+    .collectionViewHero[data-lane="shadow"] .pageArtPanel:has(.pageDoorArt):after{
+      content:"";
+      position:absolute; inset:0; z-index:1; pointer-events:none;
+      border-radius:var(--radius2);
+      background:linear-gradient(180deg, rgba(5,7,10,.62) 0%, rgba(5,7,10,.26) 45%, rgba(5,7,10,.78) 100%);
+    }
+    /* Apex: prism / summit banner */
+    .collectionViewHero[data-lane="apex"] .pageArtPanel{
+      position:relative;
+      min-height:min(300px, 42vw);
+      padding:0;
+      background:#08060e;
+      border-color:rgba(167,139,250,.22);
+      box-shadow:inset 0 0 0 1px rgba(110,231,255,.07), inset 0 -26px 52px rgba(0,0,0,.52);
+    }
+    .collectionViewHero[data-lane="apex"] .pageLaneSvgWrap{
+      max-width:none;
+      width:100%;
+      margin:0;
+      border-radius:inherit;
+      min-height:min(280px, 40vw);
+      align-items:stretch;
+    }
+    .collectionViewHero[data-lane="apex"] .collectionHeaderBanner{
+      width:100%;
+      height:100%;
+      min-height:260px;
+      display:block;
+    }
+    .collectionViewHero[data-lane="apex"] .pageArtPanel:has(.pageDoorArt):after{
+      content:"";
+      position:absolute; inset:0; z-index:1; pointer-events:none;
+      border-radius:var(--radius2);
+      background:linear-gradient(180deg, rgba(8,6,14,.62) 0%, rgba(8,6,14,.22) 48%, rgba(8,6,14,.74) 100%);
+    }
+    .pageProductGrid{
+      margin-top:18px; display:grid; grid-template-columns:repeat(12,1fr); gap:10px;
+    }
+    .pageProductGrid .card{ grid-column:span 12; min-height:300px; }
+    @media (min-width:700px){ .pageProductGrid .card{ grid-column:span 6; } }
+    @media (min-width:1040px){ .pageProductGrid .card{ grid-column:span 4; } }
+    .pageGridEmpty{ margin:14px 0 0; color:var(--muted); font-size:14px; line-height:1.45; }
+    .pageGridFoot{ margin-top:12px; }
     .guideGrid{ display:grid; grid-template-columns:repeat(12,1fr); gap:10px; }
-    .guideCard{ grid-column:span 12; border:1px solid rgba(255,255,255,.09); background:rgba(0,0,0,.16); border-radius:16px; padding:14px; }
-    .guideCard b{ display:block; }
-    .guideCard span{ display:block; margin-top:5px; color:var(--muted); font-size:13px; line-height:1.35; }
+    .guideCard{
+      grid-column:span 12;
+      border:1px solid rgba(255,255,255,.09);
+      background:rgba(0,0,0,.16);
+      border-radius:16px;
+      padding:16px;
+      transition: border-color .2s var(--ease), background .2s var(--ease), transform .2s var(--ease);
+    }
+    .guideCard:hover{
+      border-color:rgba(110,231,255,.22);
+      background:rgba(255,255,255,.03);
+      transform:translateY(-2px);
+    }
+    .guideCard b{ display:block; font-size:14px; }
+    .guideCard span{ display:block; margin-top:6px; color:var(--muted); font-size:13px; line-height:1.45; }
     @media (min-width:700px){ .guideCard{ grid-column:span 6; } }
     .catalogArea{ margin-top:26px; border-top:1px solid rgba(255,255,255,.08); padding-top:18px; }
-    .catalogArea.is-hidden{ display:none; }
-    .catalogIntro{ display:flex; justify-content:space-between; gap:16px; align-items:flex-end; flex-wrap:wrap; margin-bottom:10px; }
-    .catalogIntro h2{ margin:0; font-size:24px; letter-spacing:-.02em; }
-    .catalogIntro p{ margin:6px 0 0; color:var(--muted); font-size:14px; max-width:70ch; }
-    .footerSignal{
-      margin-top:22px; border:1px solid rgba(110,231,255,.14);
-      background:linear-gradient(135deg, rgba(110,231,255,.08), rgba(167,139,250,.06));
-      border-radius:var(--radius2); padding:20px;
-      display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:center;
+    .catalogArea.is-hidden,
+    .shop-view.is-hidden{ display:none !important; }
+    body[data-shop-view="collection"] #homeLanding,
+    body[data-shop-view="catalog"] #homeLanding{ display:none; }
+    body[data-shop-view="home"] #collectionView,
+    body[data-shop-view="home"] #productsSection{ display:none !important; }
+    body[data-shop-view="catalog"] .collectionDropdownWrap{ display:none; }
+    .collectionViewHero{
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:var(--radius2);
+      padding:22px 20px 20px;
+      margin-bottom:18px;
+      position:relative;
+      overflow:hidden;
+      background-size:cover;
+      background-position:center;
+      box-shadow:var(--shadow);
     }
-    .footerSignal p{ margin:6px 0 0; color:var(--muted); max-width:64ch; }
+    .collectionViewHero .backRow .btn{
+      font-size:13px;
+      padding:8px 14px;
+      min-height:40px;
+    }
+    #cvTitle{ margin:6px 0 0; font-size:clamp(26px, 4vw, 36px); letter-spacing:-.04em; line-height:1.05; }
+    .collectionViewHero:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(620px 260px at 0% 0%, var(--pageGlow, rgba(110,231,255,.12)), transparent 60%),
+                 linear-gradient(180deg, rgba(7,10,15,.82), rgba(7,10,15,.94));
+      pointer-events:none;
+    }
+    .collectionViewHero > *{ position:relative; z-index:1; }
+    .collectionViewHero .backRow{ margin-bottom:12px; }
+    .collectionViewHero .pageArtPanel{
+      margin-top:14px;
+      min-height:160px;
+    }
+    .catalogIntro{ display:flex; justify-content:space-between; gap:16px; align-items:flex-end; flex-wrap:wrap; margin-bottom:16px; }
+    .catalogIntro h2{ margin:0; font-size:clamp(22px, 3vw, 28px); letter-spacing:-.03em; font-weight:700; }
+    .catalogIntro p{ margin:8px 0 0; color:var(--muted); font-size:14px; max-width:70ch; line-height:1.5; }
+    .catalogArea .controls{
+      position:sticky;
+      top:58px;
+      z-index:40;
+      margin-top:0;
+      padding:12px 0 10px;
+      background:linear-gradient(180deg, rgba(7,10,15,.92) 70%, transparent);
+      -webkit-backdrop-filter:blur(8px);
+      backdrop-filter:blur(8px);
+    }
+    @media (max-width: 520px){ .catalogArea .controls{ top:52px; } }
+    .footerSignal{
+      margin-top:40px; border:1px solid rgba(110,231,255,.18);
+      background:linear-gradient(135deg, rgba(110,231,255,.1), rgba(167,139,250,.07));
+      border-radius:var(--radius2); padding:24px 22px;
+      display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; align-items:center;
+      box-shadow:var(--shadow);
+    }
+    .footerSignal h2{ margin:0; font-size:clamp(20px, 3vw, 26px); letter-spacing:-.03em; }
+    .footerSignal p{ margin:8px 0 0; color:var(--muted); max-width:64ch; line-height:1.5; }
     @media (max-width:720px){ .heroStats{ grid-template-columns:1fr; } }
     .doorTop,.doorBottom{ position:relative; z-index:1; }
     .pageBullets{ display:grid; grid-template-columns:1fr; gap:8px; margin-top:14px; }
@@ -749,7 +1444,20 @@
     .pageNameExamples{ margin-top:14px; display:flex; flex-wrap:wrap; gap:8px; }
     .nameChip{ font-family:var(--mono); font-size:11px; color:rgba(231,237,246,.8); border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.03); border-radius:999px; padding:7px 9px; }
     .signalLabGrid{ display:grid; grid-template-columns:repeat(12,1fr); gap:12px; }
-    .signalCard{ grid-column:span 12; border:1px dashed rgba(255,255,255,.14); background:rgba(255,255,255,.018); border-radius:20px; padding:15px; position:relative; overflow:hidden; }
+    .signalCard{
+      grid-column:span 12;
+      border:1px dashed rgba(255,255,255,.14);
+      background:rgba(255,255,255,.018);
+      border-radius:20px;
+      padding:16px;
+      position:relative;
+      overflow:hidden;
+      transition: border-color .2s var(--ease), background .2s var(--ease);
+    }
+    .signalCard:hover{
+      border-color:rgba(251,191,36,.28);
+      background:rgba(255,255,255,.03);
+    }
     .signalCard:before{ content:""; position:absolute; inset:-2px; background:radial-gradient(300px 180px at 0% 0%, rgba(251,191,36,.09), transparent 60%); pointer-events:none; }
     .signalCard > *{ position:relative; z-index:1; }
     .signalCard .status{ display:inline-flex; font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(251,191,36,.9); border:1px solid rgba(251,191,36,.18); border-radius:999px; padding:5px 8px; background:rgba(251,191,36,.06); }
@@ -767,10 +1475,10 @@
       gap: 12px;
     }
     .card{
+      position:relative;
       grid-column: span 12;
       border-radius: var(--radius);
       border:1px solid var(--line);
-      /* Slightly lighter, satin-like panel so black products pop */
       background:
         radial-gradient(220px 180px at 15% 0%, rgba(255,255,255,.06), transparent 55%),
         radial-gradient(260px 200px at 85% 100%, rgba(255,255,255,.03), transparent 60%),
@@ -779,7 +1487,19 @@
       box-shadow: 0 10px 32px rgba(0,0,0,.35);
       display:flex; flex-direction:column;
       min-height: 332px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
+    }
+    .card.gridEmpty{
+      min-height:200px;
+      justify-content:center;
+      text-align:center;
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border-style:dashed;
+      border-color:rgba(255,255,255,.12);
+    }
+    .card.gridEmpty .body{ align-items:center; }
+    .card.gridEmpty .emptyIcon{
+      font-size:28px; opacity:.5; margin-bottom:4px;
     }
     .card::before{
       content:"";
@@ -907,9 +1627,9 @@
     .flag.best{ background: rgba(251,113,133,.10); color: rgba(251,113,133,.95); border-color: rgba(251,113,133,.22); }
 
     .body{ padding: 12px; display:flex; flex-direction:column; gap:10px; flex:1; }
-    .title{ margin:0; font-size: 15px; line-height: 1.2; transition: color 0.2s ease; }
-    .card:hover .title{ color: var(--text); }
-    .desc{ margin:0; font-size: 13px; color:var(--muted); line-height: 1.35; }
+    .title{ margin:0; font-size:15px; font-weight:600; line-height:1.25; letter-spacing:-.01em; transition: color .2s var(--ease); }
+    .card:hover .title{ color:var(--accent); }
+    .desc{ margin:0; font-size:13px; color:var(--muted); line-height:1.45; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
     .swatches{ display:flex; gap:6px; flex-wrap:wrap; }
     .sw{
       width: 20px; height: 20px; border-radius: 999px;
@@ -928,58 +1648,44 @@
       display:flex; align-items:center; justify-content:space-between; gap:10px;
     }
     .price{ font-size: 15px; font-weight: 900; letter-spacing:.02em; }
-    .btn{
-      border:none;
-      border-radius: 14px;
-      padding: 10px 12px;
-      cursor:pointer;
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.10);
-      color: var(--text);
-      transition: all 0.2s ease;
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      -webkit-user-select:none;
-      user-select:none;
-      white-space:nowrap;
-      box-shadow: 0 2px 8px rgba(0,0,0,.2);
+    .card .btn{
+      border-radius:14px;
+      padding:10px 14px;
+      min-height:40px;
+      box-shadow:0 2px 8px rgba(0,0,0,.2);
     }
-    .btn:hover:not(:disabled){ 
-      border-color: rgba(110,231,255,.35); 
-      transform: translateY(-1px); 
-      box-shadow: 0 4px 12px rgba(0,0,0,.3);
-      background: rgba(255,255,255,.06);
+    .card .btn:hover:not(:disabled){
+      border-color:rgba(110,231,255,.35);
+      transform:translateY(-1px);
+      box-shadow:0 4px 12px rgba(0,0,0,.3);
+      background:rgba(255,255,255,.06);
     }
-    .btn:disabled{
-      opacity: 0.6;
-      cursor: not-allowed;
-      pointer-events: none;
+    .card .btn:disabled{
+      opacity:.6;
+      cursor:not-allowed;
+      pointer-events:none;
     }
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(110,231,255,.20), rgba(167,139,250,.16));
-      border-color: rgba(110,231,255,.25);
-      box-shadow: 0 2px 12px rgba(110,231,255,.15);
+    .card .btn.primary{
+      background:linear-gradient(135deg, rgba(110,231,255,.20), rgba(167,139,250,.16));
+      border-color:rgba(110,231,255,.25);
+      box-shadow:0 2px 12px rgba(110,231,255,.15);
     }
-    .btn.primary:hover:not(:disabled){
-      background: linear-gradient(135deg, rgba(110,231,255,.28), rgba(167,139,250,.22));
-      border-color: rgba(110,231,255,.40);
-      box-shadow: 0 4px 16px rgba(110,231,255,.25);
-    }
-    .btn.primary:disabled{
-      opacity: 0.5;
-      background: rgba(110,231,255,.10);
-      box-shadow: none;
+    .card .btn.primary:hover:not(:disabled){
+      background:linear-gradient(135deg, rgba(110,231,255,.28), rgba(167,139,250,.22));
+      border-color:rgba(110,231,255,.40);
+      box-shadow:0 4px 16px rgba(110,231,255,.25);
     }
 
     /* Modal */
     .overlay{
       position:fixed; inset:0;
-      background: rgba(0,0,0,.62);
-      -webkit-backdrop-filter: blur(8px);
-      backdrop-filter: blur(8px);
+      background: rgba(0,0,0,.72);
+      -webkit-backdrop-filter: blur(12px) saturate(1.1);
+      backdrop-filter: blur(12px) saturate(1.1);
       display:none;
       align-items:center; justify-content:center;
-      padding: 16px;
-      z-index: 90;
+      padding:16px;
+      z-index:90;
     }
     .overlay.show{ display:flex; }
     .modal{
@@ -1176,20 +1882,23 @@
       position:fixed; top:0; right:0;
       width:min(420px, 92vw);
       height:100vh;
-      background: rgba(10,14,20,.96);
-      border-left:1px solid rgba(255,255,255,.10);
-      box-shadow: -22px 0 70px rgba(0,0,0,.55);
-      transform: translateX(105%);
-      transition: .2s ease;
-      z-index: 99;
+      height:100dvh;
+      background:linear-gradient(180deg, rgba(12,16,24,.98), rgba(8,11,16,.98));
+      border-left:1px solid rgba(255,255,255,.12);
+      box-shadow:-24px 0 80px rgba(0,0,0,.6);
+      transform:translateX(105%);
+      transition:transform .28s var(--ease-out);
+      z-index:99;
       display:flex; flex-direction:column;
     }
-    .drawer.show{ transform: translateX(0); }
+    .drawer.show{ transform:translateX(0); }
     .drawer-backdrop{
       position:fixed; inset:0; z-index:98;
-      background:rgba(0,0,0,.45);
+      background:rgba(0,0,0,.55);
+      -webkit-backdrop-filter:blur(4px);
+      backdrop-filter:blur(4px);
       opacity:0; pointer-events:none;
-      transition: opacity .2s ease;
+      transition:opacity .25s var(--ease);
     }
     .drawer-backdrop.show{ opacity:1; pointer-events:auto; }
     .dHead{
@@ -1293,16 +2002,27 @@
 
     /* Footer */
     .foot{
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 12px;
-      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top:28px;
+      color:var(--muted);
+      font-size:13px;
+      display:flex; flex-wrap:wrap; gap:14px;
       align-items:center; justify-content:space-between;
-      border-top: 1px solid rgba(255,255,255,.06);
-      padding-top: 16px;
+      border-top:1px solid rgba(255,255,255,.08);
+      padding-top:20px;
     }
-    .foot .links{ display:flex; gap:12px; flex-wrap:wrap; }
-    .dotSep{ opacity:.6; }
+    .foot .links{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+    .foot .links a{
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid transparent;
+      transition: color .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease);
+    }
+    .foot .links a:hover{
+      color:var(--text);
+      border-color:rgba(255,255,255,.1);
+      background:rgba(255,255,255,.04);
+    }
+    .dotSep{ display:none; }
 
     /* Toast */
     .toast{
@@ -1518,10 +2238,17 @@
 
     @media (prefers-reduced-motion: reduce){
       *, *::before, *::after{
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        animation-duration:0.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:0.01ms !important;
       }
+      body[data-shop-view="collection"] #collectionView,
+      body[data-shop-view="catalog"] #productsSection{
+        animation:none !important;
+      }
+    }
+    @media (max-width: 400px){
+      .pill[aria-label="Search shortcut"] > span:first-child{ display:none; }
     }
 
     :focus-visible{
@@ -1565,6 +2292,7 @@
   </header>
 
   <main class="wrap">
+    <div id="homeLanding">
     <section class="hero">
       <div class="topCap landingHeroCopy" aria-label="Store intro">
         <div class="heroKicker">AV-APPAREL / CURATED / 2026</div>
@@ -1836,28 +2564,28 @@
         </div>
       </div>
       <div class="collectionGrid" aria-label="AeroVista gear collections">
-        <article class="collectionDoor hasArt" data-mark="AV" data-page-target="page-core" data-landing-search="aerovista core built different standard issue" style="--doorGlow:rgba(110,231,255,.15)">
-          <img class="doorArt" src="./img/collection-cards/core.png" alt="" loading="lazy" />
+        <article class="collectionDoor hasArt" data-mark="AV" data-collection-lane="core" style="--doorGlow:rgba(110,231,255,.15)" title="Open Core collection">
+          <img class="doorArt" src="./img/collection-cards/core.png" alt="" loading="lazy" decoding="async" />
           <div class="doorTop"><div class="doorLabel">Foundation / Operator Essentials</div><h3>Core</h3><p>Clean, disciplined AeroVista gear. The daily uniform: sharp marks, wearable colors, and pieces that feel issued instead of decorated.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open Core Page →</span></div>
         </article>
-        <article class="collectionDoor hasArt" data-mark="SW" data-page-target="page-shadow" data-landing-search="shadow wear shadow apex black pattern stealth camo" style="--doorGlow:rgba(148,163,184,.16)">
-          <img class="doorArt" src="./img/collection-cards/shadowwear.png" alt="" loading="lazy" />
+        <article class="collectionDoor hasArt" data-mark="SW" data-collection-lane="shadow" style="--doorGlow:rgba(148,163,184,.16)">
+          <img class="doorArt" src="./img/ghost.ridge.drk.png" alt="" loading="lazy" decoding="async" />
           <div class="doorTop"><div class="doorLabel">Stealth / Pattern / Tactical Streetwear</div><h3>Shadow Wear</h3><p>Black-on-black, low-contrast, shadow camo, and pattern-heavy pieces. This is where the darker all-over system lives.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open Shadow Wear Page →</span></div>
         </article>
-        <article class="collectionDoor hasArt" data-mark="AX" data-page-target="page-apex" data-landing-search="apex aero vista a mark emblem" style="--doorGlow:rgba(59,130,246,.16)">
-          <img class="doorArt" src="./img/collection-cards/apex.png" alt="" loading="lazy" />
+        <article class="collectionDoor hasArt" data-mark="AX" data-collection-lane="apex" style="--doorGlow:rgba(59,130,246,.16)">
+          <img class="doorArt" src="./img/Apex%20mark.png" alt="" loading="lazy" decoding="async" />
           <div class="doorTop"><div class="doorLabel">Icon / Emblem / Signature Mark</div><h3>Apex</h3><p>The AeroVista A-mark as the hero. Symbol-led pieces, geometric marks, badges, and visual identity that can stand alone.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open Apex Page →</span></div>
         </article>
-        <article class="collectionDoor hasArt" data-mark="GL" data-page-target="page-glitch" data-landing-search="glitch signal node scan waveform cyber cyan" style="--doorGlow:rgba(34,211,238,.14)">
-          <img class="doorArt" src="./img/collection-cards/glitch.png" alt="" loading="lazy" />
+        <article class="collectionDoor hasArt" data-mark="GL" data-collection-lane="glitch" style="--doorGlow:rgba(34,211,238,.14)">
+          <img class="doorArt" src="./img/collection-cards/glitch.png" alt="" loading="lazy" decoding="async" />
           <div class="doorTop"><div class="doorLabel">Digital Disruption / Signal Drift</div><h3>Glitch</h3><p>Broken transmission, cyan static, scan-card graphics, waveform artifacts, and tech-forward distortion from inside the AV system.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open Glitch Page →</span></div>
         </article>
-        <article class="collectionDoor hasArt" data-mark="AR" data-page-target="page-architect" data-landing-search="architect drafted built different nxcore build floor system map" style="--doorGlow:rgba(251,191,36,.13)">
-          <img class="doorArt" src="./img/collection-cards/architect.png" alt="" loading="lazy" />
+        <article class="collectionDoor hasArt" data-mark="AR" data-collection-lane="architect" style="--doorGlow:rgba(251,191,36,.13)">
+          <img class="doorArt" src="./img/adrafted.png" alt="" loading="lazy" decoding="async" />
           <div class="doorTop"><div class="doorLabel">Limited-ish / Making-of / Build Archive</div><h3>Architect</h3><p>Artifacts from the making of AeroVista: drafts, diagrams, system maps, founder notes, prototype labels, and build-floor gear.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open Architect Page →</span></div>
         </article>
@@ -1870,7 +2598,7 @@
           <div class="heroKicker">Featured Drop</div>
           <h2 class="dropTitle">Shadow Wear</h2>
           <p class="dropCopy">The quietest gear in the room usually has the heaviest presence. Shadow Wear brings black-on-black camo, tactical geometry, and low-signal streetwear into the AeroVista gear system.</p>
-          <div class="heroRow"><button class="cta" data-landing-search="shadow apex black">View the Shadow Wear Drop →</button><button class="btn" data-landing-search="apex aero vista a mark emblem">Browse Apex</button></div>
+          <div class="heroRow"><button class="cta" data-collection-lane="shadow">View the Shadow Wear Drop →</button><button class="btn" data-collection-lane="apex">Browse Apex</button></div>
         </div>
         <div class="dropPieces" aria-label="Featured Shadow Wear pieces">
           <div class="dropPiece"><span class="mini">Outerwear</span><b>Apex Pattern Bomber Jacket</b></div>
@@ -1880,74 +2608,7 @@
         </div>
       </div>
     </section>
-
-    <section class="landingSection" id="collectionPages">
-      <div class="sectionHead"><div><h2>Collection pages.</h2><p>These are the five live pages. The shop can feel full with a tight spine now, while future worlds sit in Signal Lab until they have enough product depth.</p></div></div>
-      <div class="pageStack">
-        <article class="collectionPage" id="page-core" style="--pageGlow:rgba(110,231,255,.12);--pageBg:url(./img/collection-cards/core.png)">
-          <div class="pageInner">
-            <div>
-              <div class="pageEyebrow">Live Collection / Foundation</div><h2>Core</h2>
-              <p class="pageLead">The clean AeroVista line: everyday essentials for operators, founders, and signal carriers. Core should feel like standard issue gear — simple enough to wear often, sharp enough to represent the system.</p>
-              <div class="pageBullets"><div class="pageBullet"><b>Belongs here</b>Logo hoodies, clean tees, standard-issue marks, Built Different pieces, subtle AV essentials.</div><div class="pageBullet"><b>Does not belong here</b>Heavy distortion, dense patterns, lore-heavy art, or anything that needs too much explanation.</div></div>
-              <div class="pageNameExamples"><span class="nameChip">Core — Standard Issue Hoodie — Black</span><span class="nameChip">Core — Built Different Tee — Graphite</span><span class="nameChip">Core — Operator Mark Hat — Black</span></div>
-              <div class="pageActions"><button class="cta" data-landing-search="aerovista core built different standard issue">Shop Core →</button></div>
-            </div>
-            <div class="pageArtPanel"><img src="./img/collection-cards/core.png" alt="AeroVista Core collection" loading="lazy" /></div>
-          </div>
-        </article>
-        <article class="collectionPage" id="page-shadow" style="--pageGlow:rgba(148,163,184,.13);--pageBg:url(./img/collection-cards/shadowwear.png)">
-          <div class="pageInner">
-            <div>
-              <div class="pageEyebrow">Live Collection / Stealth + Pattern</div><h2>Shadow Wear</h2>
-              <p class="pageLead">The dark gear lane. Shadow Wear absorbs the pattern system: black-on-black camo, stealth texture, low-contrast marks, tactical streetwear, and pieces that look quiet until the details catch light.</p>
-              <div class="pageBullets"><div class="pageBullet"><b>Belongs here</b>All-over shadow patterns, dark hoodies, bomber jackets, black camo, stealth swimsuits, tonal long sleeves.</div><div class="pageBullet"><b>Product rule</b>If the pattern is the mood and the piece is dark, it probably belongs in Shadow Wear.</div></div>
-              <div class="pageNameExamples"><span class="nameChip">Shadow Wear — Apex Pattern Hoodie — Midnight</span><span class="nameChip">Shadow Wear — Stealth Bomber — Black Camo</span><span class="nameChip">Shadow Wear — Pattern Long Sleeve — Graphite</span></div>
-              <div class="pageActions"><button class="cta" data-landing-search="shadow wear shadow apex black pattern stealth camo">Shop Shadow Wear →</button></div>
-            </div>
-            <div class="pageArtPanel"><img src="./img/collection-cards/shadowwear.png" alt="Shadow Wear collection" loading="lazy" /></div>
-          </div>
-        </article>
-        <article class="collectionPage" id="page-apex" style="--pageGlow:rgba(59,130,246,.14);--pageBg:url(./img/collection-cards/apex.png)">
-          <div class="pageInner">
-            <div>
-              <div class="pageEyebrow">Live Collection / Icon System</div><h2>Apex</h2>
-              <p class="pageLead">Apex is the mark-led collection. The A becomes the product’s center of gravity: badges, clean emblems, metallic marks, geometric layouts, and pieces where the symbol carries the story.</p>
-              <div class="pageBullets"><div class="pageBullet"><b>Belongs here</b>Big A-mark graphics, crest-like symbols, mark studies, premium emblem pieces, clean badge stickers.</div><div class="pageBullet"><b>Product rule</b>If the A-mark is the hero, make it Apex. If the pattern is the hero, make it Shadow Wear.</div></div>
-              <div class="pageNameExamples"><span class="nameChip">Apex — Signal Mark Tee — White on Black</span><span class="nameChip">Apex — Ultra Detail Sticker — Silver</span><span class="nameChip">Apex — Emblem Hoodie — Black</span></div>
-              <div class="pageActions"><button class="cta" data-landing-search="apex aero vista a mark emblem">Shop Apex →</button></div>
-            </div>
-            <div class="pageArtPanel"><img src="./img/collection-cards/apex.png" alt="Apex collection" loading="lazy" /></div>
-          </div>
-        </article>
-        <article class="collectionPage" id="page-glitch" style="--pageGlow:rgba(34,211,238,.13);--pageBg:url(./img/collection-cards/glitch.png)">
-          <div class="pageInner">
-            <div>
-              <div class="pageEyebrow">Live Collection / Signal Interference</div><h2>Glitch</h2>
-              <p class="pageLead">Glitch is the experimental tech-art lane: broken marks, scan-card visuals, cyan interference, waveform graphics, corrupted labels, and designs that feel pulled from a system log.</p>
-              <div class="pageBullets"><div class="pageBullet"><b>Belongs here</b>Waveforms, node IDs, cyan static marks, security scan art, distorted AV symbols, transmission graphics.</div><div class="pageBullet"><b>Design note</b>Keep it energetic but controlled. Glitch is disruption, not clutter.</div></div>
-              <div class="pageNameExamples"><span class="nameChip">Glitch — Broken Transmission Hoodie — Cyan Static</span><span class="nameChip">Glitch — Node-17 Tee — Black</span><span class="nameChip">Glitch — Bio-Sec Scan Sticker — NX.AV</span></div>
-              <div class="pageActions"><button class="cta" data-landing-search="glitch signal node scan waveform cyber cyan">Shop Glitch →</button></div>
-            </div>
-            <div class="pageArtPanel"><img src="./img/collection-cards/glitch.png" alt="Glitch collection" loading="lazy" /></div>
-          </div>
-        </article>
-        <article class="collectionPage" id="page-architect" style="--pageGlow:rgba(251,191,36,.12);--pageBg:url(./img/collection-cards/architect.png)">
-          <div class="pageInner">
-            <div>
-              <div class="pageEyebrow">Live Collection / Limited-ish Build Archive</div><h2>Architect</h2>
-              <p class="pageLead">Architect captures the making-of AeroVista. It is the build-floor lane: drafts, diagrams, system maps, founder artifacts, construction marks, prototype stickers, and limited pieces that document the process.</p>
-              <div class="pageBullets"><div class="pageBullet"><b>Belongs here</b>Drafted A graphics, system maps, NXCore references, build notes, internal labels, prototype marks, limited workshop drops.</div><div class="pageBullet"><b>Release rule</b>Architect can be limited-ish. Small runs, archive drops, and “made during the build” pieces make sense here.</div></div>
-              <div class="pageNameExamples"><span class="nameChip">Architect — Drafted A Sticker Pack</span><span class="nameChip">Architect — Build Floor Tee — Graphite</span><span class="nameChip">Architect — System Map Hoodie — Black</span></div>
-              <div class="pageActions"><button class="cta" data-landing-search="architect drafted built different nxcore build floor system map">Shop Architect →</button></div>
-            </div>
-            <div class="pageArtPanel"><img src="./img/collection-cards/architect.png" alt="Architect collection" loading="lazy" /></div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="landingSection" id="signalLab">
+<section class="landingSection" id="signalLab">
       <div class="sectionHead"><div><h2>Signal Lab / Coming Online.</h2><p>These worlds are real, but they should not pretend to be full top-level collections until they have enough depth. Tease them, gather interest, then promote them when the product line catches up.</p></div></div>
       <div class="signalLabGrid">
         <article class="signalCard"><span class="status">Coming Online</span><h3>EchoVerse</h3><p>Music-linked apparel, album drops, sound-world visuals, and story-driven signal pieces.</p></article>
@@ -1968,12 +2629,54 @@
         <div class="guideCard"><b>Open the full catalog.</b><span>Browse All Apparel when you already know what you are hunting for.</span></div>
       </div>
     </section>
+    </div><!-- /homeLanding -->
 
-    <section id="productsSection" class="catalogArea is-hidden">
+    <section id="collectionView" class="catalogArea shop-view is-hidden" aria-label="Collection shop">
+      <article class="collectionViewHero" id="collectionViewHero" style="--pageGlow:rgba(110,231,255,.12)">
+        <div class="backRow"><a href="index.html" class="btn" id="collectionBackHome">← All collections</a></div>
+        <div class="pageEyebrow" id="cvEyebrow">Live Collection</div>
+        <h2 id="cvTitle">Collection</h2>
+        <p class="pageLead" id="cvLead"></p>
+        <div class="pageArtPanel" id="cvArtPanel"><div class="pageLaneSvgWrap" id="cvArtSvg" aria-hidden="true"></div></div>
+      </article>
+      <div class="controls" aria-label="Collection filters">
+        <div class="field" role="search">
+          <span style="opacity:.75">🔎</span>
+          <input id="collectionSearch" type="search" placeholder="Search this collection…" autocomplete="off" />
+        </div>
+        <div class="field select">
+          <select id="collectionSort" aria-label="Sort products">
+            <option value="featured">Sort: Featured</option>
+            <option value="price_asc">Price: Low → High</option>
+            <option value="price_desc">Price: High → Low</option>
+            <option value="newest">Newest</option>
+          </select>
+          <span class="chev">▾</span>
+        </div>
+      </div>
+      <div class="chips collectionCatChips" aria-label="Category filters">
+        <div class="chip active" data-cat="all" data-scope="collection">All</div>
+        <div class="chip" data-cat="hoodies" data-scope="collection">Hoodies</div>
+        <div class="chip" data-cat="crewnecks" data-scope="collection">Crewnecks</div>
+        <div class="chip" data-cat="tees" data-scope="collection">T‑shirts</div>
+        <div class="chip" data-cat="hats" data-scope="collection">Hats</div>
+        <div class="chip" data-cat="stickers" data-scope="collection">Stickers</div>
+      </div>
+      <p class="resultsMeta" id="collectionResultsMeta" aria-live="polite"></p>
+      <div id="collectionGridStatus" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+      <div class="grid" id="collectionGrid" aria-label="Collection products"></div>
+      <div class="pageGridFoot" style="margin-top:14px">
+        <button class="btn" type="button" id="collectionBrowseAllBtn">Browse all apparel →</button>
+      </div>
+    </section>
+
+
+
+    <section id="productsSection" class="catalogArea shop-view is-hidden">
       <div class="catalogIntro">
         <div>
           <h2>Browse All Apparel</h2>
-          <p>Full catalog: search, filter by collection, and open product pages when you are ready.</p>
+          <p>Search and filter by category. Every piece in one flat grid — no collection grouping.</p>
         </div>
         <button class="btn" id="hideCatalogBtn">Hide Catalog</button>
       </div>
@@ -2007,6 +2710,7 @@
         <div class="chip" data-cat="stickers">Stickers</div>
       </div>
       <div id="tagChips" class="chips mt-2" aria-label="Tag filters" style="margin-top:8px"></div>
+      <p class="resultsMeta" id="catalogResultsMeta" aria-live="polite"></p>
       <div id="gridStatus" class="sr-only" aria-live="polite" aria-atomic="true"></div>
       <div class="grid" id="grid" aria-label="Product grid"></div>
     </section>
@@ -2121,6 +2825,7 @@
   </div>
 
   <script src="./policy-content.js"></script>
+  <script src="./js/collection-header-svg.js"></script>
   <script>
     // =========================
     // STORE SETTINGS
@@ -2660,12 +3365,15 @@
 
             const rawId = (first.p && first.p.id) ? String(first.p.id).trim() : "";
             const productKey = rawId ? ("sq_" + rawId) : slug(baseKey);
+            const catalogCollection = (firstRaw.collection != null && String(firstRaw.collection).trim())
+              ? String(firstRaw.collection).trim()
+              : "";
             return {
               id: baseKey,
               productKey,
               squareItemIdRaw: rawId || null,
               name: baseName,
-              collection: collectionFromName(baseName, first.id),
+              collection: catalogCollection || collectionFromName(baseName, first.id),
               category: first.cat,
               price: first.price,
               featured: false,
@@ -2684,7 +3392,7 @@
               squareVariationMap: mergedMap,
               _overlayCartKeys: Object.keys(mergedMap),
               _overlayVariationIds: [...new Set(mergedVariationIds)],
-              tags: [],
+              tags: normalizeTags(firstRaw.tags || []),
               _skuBySize: group[0]._skuBySize,
               _square: first.p
             };
@@ -2937,6 +3645,68 @@
       promo: "",
       discountRate: 0
     };
+
+    /** Landing lanes — filter by catalog export `collection` field (same labels as Square/console). */
+    function catalogCollectionKey(p){
+      return (p.collection || "").trim().toLowerCase();
+    }
+    function laneMatchesCollection(p, patterns){
+      const c = catalogCollectionKey(p);
+      if(!c) return false;
+      return patterns.some(re => re.test(c));
+    }
+    const COLLECTION_LANES = [
+      {
+        id: "core",
+        label: "Core",
+        eyebrow: "Live Collection / Foundation",
+        lead: "The clean AeroVista line: everyday essentials for operators, founders, and signal carriers.",
+        pageGlow: "rgba(110,231,255,.12)",
+        cardImg: "./img/collection-cards/core.png",
+        match(p) { return laneMatchesCollection(p, [/^core$/]); }
+      },
+      {
+        id: "shadow",
+        label: "Shadow Wear",
+        eyebrow: "Live Collection / Stealth + Pattern",
+        lead: "Black-on-black camo, stealth texture, and tactical streetwear — quiet until the details catch light.",
+        pageGlow: "rgba(148,163,184,.13)",
+        cardImg: "./img/ghost.ridge.drk.png",
+        match(p) { return laneMatchesCollection(p, [/^shadow wear$/, /^apex pattern$/]); }
+      },
+      {
+        id: "apex",
+        label: "Apex",
+        eyebrow: "Live Collection / Icon System",
+        lead: "The A-mark as center of gravity: badges, emblems, and symbol-led identity pieces.",
+        pageGlow: "rgba(59,130,246,.14)",
+        cardImg: "./img/Apex%20mark.png",
+        match(p) { return laneMatchesCollection(p, [/^apex$/]); }
+      },
+      {
+        id: "glitch",
+        label: "Glitch",
+        eyebrow: "Live Collection / Signal Interference",
+        lead: "Broken transmission, cyan static, scan-card graphics, and designs from inside the system log.",
+        pageGlow: "rgba(34,211,238,.13)",
+        cardImg: "./img/collection-cards/glitch.png",
+        match(p) { return laneMatchesCollection(p, [/^glitch$/, /^glitch line$/]); }
+      },
+      {
+        id: "architect",
+        label: "Architect",
+        eyebrow: "Live Collection / Build Archive",
+        lead: "Drafts, diagrams, system maps, and limited pieces that document the making of AeroVista.",
+        pageGlow: "rgba(251,191,36,.12)",
+        cardImg: "./img/adrafted.png",
+        match(p) { return laneMatchesCollection(p, [/^architect$/, /^draft series$/, /^division$/]); }
+      }
+    ];
+
+    function collectionLaneById(id){
+      return COLLECTION_LANES.find(l => l.id === id) || null;
+    }
+
     let OVERLAY_DATA = null;
     let OVERLAY_COLLECTIONS = [];
 
@@ -3181,12 +3951,134 @@
     }
 
     function collectionRuleMatch(p, rule){
-      if(!rule) return true;
+      if(!rule || rule === "all") return true;
       if(rule.startsWith("tag:")){
         const tag = rule.slice(4);
         return Array.isArray(p.tags) && p.tags.includes(tag);
       }
+      const lane = collectionLaneById(rule);
+      if(lane) return lane.match(p);
       return p.collection === rule;
+    }
+
+    function productsForLane(laneId, limit){
+      const lane = collectionLaneById(laneId);
+      if(!lane) return [];
+      const list = PRODUCTS.filter(p => !p.isAd && !p._overlayHidden && lane.match(p));
+      return typeof limit === "number" ? sortProducts(list).slice(0, limit) : sortProducts(list);
+    }
+
+    function productCardHtml(p){
+      let imgContent;
+      if (p.imagePath) {
+        imgContent = `<img src="${escapeHtml(p.imagePath)}" alt="${escapeHtml(p.name)}" class="product-image" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center; border-radius:var(--radius); image-rendering:-webkit-optimize-contrast;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" loading="lazy" />`;
+        imgContent += `<div style="display:none;">${productSvg(p)}</div>`;
+      } else {
+        imgContent = productSvg(p);
+      }
+      const hasHolo = productHasHolo(p);
+      const hasGlitch = productHasGlitch(p);
+      const imgClasses = ['img'].concat(hasHolo ? ['has-holo'] : [], hasGlitch ? ['has-glitch'] : []).join(' ');
+      return `
+        <article class="card" ${hasHolo ? 'data-holo="1"' : ''}${hasGlitch ? ' data-glitch="1"' : ''}>
+          <div class="${imgClasses}" role="img" aria-label="${escapeHtml(p.name)} image">
+            ${imgContent}
+            <div class="label"><span class="dot"></span>${escapeHtml(p.collection)} · ${categoryLabel(p.category)}</div>
+            ${flagsHtml(p) || `<div></div>`}
+            ${hasHolo ? '<div class="holo-overlay" aria-hidden="true"></div>' : ''}
+            ${hasGlitch ? '<div class="glitch-overlay" aria-hidden="true"></div>' : ''}
+          </div>
+          <div class="body">
+            <h3 class="title">${escapeHtml(p.name)}</h3>
+            <p class="desc">${escapeHtml(p.descriptionShort != null ? p.descriptionShort : (p.blurb || ""))}</p>
+            <div class="swatches">${swatches(p.colors)}</div>
+            <div class="row">
+              <div class="price">${fmt(p.price)}</div>
+              <button class="btn primary" data-quick="${p.id}">Quick View</button>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function bindQuickViewButtons(root){
+      const scope = root || document;
+      $$("[data-quick]", scope).forEach(btn => {
+        btn.onclick = () => openModal(btn.getAttribute("data-quick"));
+      });
+    }
+
+    function refreshProductViews(){
+      if(document.body.dataset.shopView === "catalog") renderGrid();
+      if(document.body.dataset.shopView === "collection") renderCollectionGrid();
+    }
+
+    function renderCollectionGrid(){
+      const grid = $("#collectionGrid");
+      if(!grid) return;
+      const laneId = document.body.dataset.collectionLane || state.collection;
+      const lane = collectionLaneById(laneId);
+      if(!lane){
+        grid.innerHTML = "";
+        return;
+      }
+      state.collection = laneId;
+      const list = filterProducts().filter(p => !p.isAd);
+      renderProductGridInto(grid, list, $("#collectionGridStatus"), { clearButtonId: "clearCollectionFilters" });
+    }
+
+    function renderProductGridInto(grid, list, statusEl, opts = {}){
+      if(!grid) return;
+      const clearId = opts.clearButtonId || "clearFilters";
+      if(list.length === 0){
+        grid.innerHTML = `
+          <div class="card gridEmpty" style="grid-column: span 12;">
+            <div class="body">
+              <div class="emptyIcon" aria-hidden="true">◇</div>
+              <h3 class="title">No matches in this view</h3>
+              <p class="desc">Try another search term, category, or tag — or reset filters to see everything again.</p>
+              <div class="row" style="justify-content:center; margin-top:8px;">
+                <button class="btn primary" type="button" id="${clearId}">Reset filters</button>
+              </div>
+            </div>
+          </div>
+        `;
+        if(statusEl) statusEl.textContent = "No products found. Try adjusting your filters.";
+        const metaEl = document.body.dataset.shopView === "collection" ? $("#collectionResultsMeta") : $("#catalogResultsMeta");
+        if(metaEl) metaEl.textContent = "";
+        const btn = document.getElementById(clearId);
+        if(btn) btn.onclick = () => {
+          state.cat = "all"; state.tagFilter = "all"; setActiveChip("all"); setActiveTagChip("all");
+          state.search = "";
+          const searchEl = document.body.dataset.shopView === "collection" ? $("#collectionSearch") : $("#search");
+          if(searchEl) searchEl.value = "";
+          state.sort = "featured";
+          const sortEl = document.body.dataset.shopView === "collection" ? $("#collectionSort") : $("#sort");
+          if(sortEl) sortEl.value = "featured";
+          refreshProductViews();
+        };
+        return;
+      }
+      if(statusEl) statusEl.textContent = `${list.length} product${list.length === 1 ? "" : "s"} found`;
+      const metaEl = document.body.dataset.shopView === "collection" ? $("#collectionResultsMeta") : $("#catalogResultsMeta");
+      if(metaEl) metaEl.textContent = `${list.length} piece${list.length === 1 ? "" : "s"} showing`;
+      grid.innerHTML = list.map(p => productCardHtml(p)).join("");
+      bindQuickViewButtons(grid);
+      bindAdButtons(grid);
+    }
+
+    function bindAdButtons(root){
+      $$("[data-ad-href]", root || document).forEach(btn => {
+        btn.onclick = () => {
+          const href = btn.getAttribute("data-ad-href") || "";
+          if(href.startsWith("#collection=")){
+            const rule = decodeURIComponent(href.replace("#collection=", ""));
+            goToCollection(rule);
+            return;
+          }
+          if(href) window.open(href, "_blank");
+        };
+      });
     }
 
     function sortProducts(list){
@@ -3400,7 +4292,8 @@
           state.cat="all"; state.tagFilter="all"; setActiveChip("all"); setActiveTagChip("all");
           state.search=""; $("#search").value="";
           state.sort="featured"; $("#sort").value="featured";
-          renderGrid();
+          const cs = $("#collectionSort"); if(cs) cs.value = "featured";
+          refreshProductViews();
         };
         return;
       }
@@ -4385,10 +5278,28 @@
         container.appendChild(btn);
       }
     }
-    $$(".chips .chip[data-cat]").forEach(c=>{
+    function bindCategoryChips(scope){
+      const root = scope === "collection" ? document.querySelector(".collectionCatChips") : document;
+      const chips = scope === "collection"
+        ? $$(".collectionCatChips .chip[data-cat]", root)
+        : $$(".chips .chip[data-cat]:not([data-scope])", root);
+      chips.forEach(c=>{
       c.setAttribute("role", "button");
       c.setAttribute("tabindex", "0");
-      c.onclick = () => { state.cat = c.getAttribute("data-cat"); state.tagFilter = "all"; setActiveChip(state.cat); setActiveTagChip("all"); renderGrid(); };
+      c.onclick = () => {
+        state.cat = c.getAttribute("data-cat");
+        state.tagFilter = "all";
+        setActiveChip(state.cat);
+        setActiveTagChip("all");
+        if(scope === "collection"){
+          $$(".collectionCatChips .chip[data-cat]").forEach(x => {
+            const active = x.getAttribute("data-cat") === state.cat;
+            x.classList.toggle("active", active);
+            x.setAttribute("aria-pressed", String(active));
+          });
+        }
+        refreshProductViews();
+      };
       c.onkeydown = (e) => {
         if(e.key === "Enter" || e.key === " "){
           e.preventDefault();
@@ -4396,6 +5307,9 @@
         }
       };
     });
+    }
+    bindCategoryChips();
+    bindCategoryChips("collection");
 
     function setActiveCollection(name){
       const sel = $("#collectionSelect");
@@ -4423,6 +5337,15 @@
       const visibleProducts = PRODUCTS.filter(p => !p._overlayHidden);
       sel.options[0].textContent = `All collections (${visibleProducts.length})`;
       const seen = new Set(["all"]);
+      for (const lane of COLLECTION_LANES) {
+        const count = visibleProducts.filter(p => !p.isAd && lane.match(p)).length;
+        if (count === 0) continue;
+        const el = document.createElement("option");
+        el.value = lane.id;
+        el.textContent = `${lane.label} (${count})`;
+        sel.appendChild(el);
+        seen.add(lane.id);
+      }
       const fromProducts = [...new Set(visibleProducts.map(p => p.collection).filter(Boolean))];
       const countByCollection = {};
       visibleProducts.forEach(p => { const c = p.collection || ""; countByCollection[c] = (countByCollection[c]||0) + 1; });
@@ -4669,42 +5592,168 @@
     }).catch(() => {
       // Silently fail - API check is non-critical for initial page load
     });
-    $("#sort").addEventListener("change", (e)=>{ state.sort = e.target.value; renderGrid(); });
+    $("#sort").addEventListener("change", (e)=>{ state.sort = e.target.value; const cs = $("#collectionSort"); if(cs) cs.value = state.sort; refreshProductViews(); });
     // Nav
     $("#yr").textContent = new Date().getFullYear();
+    (function initTopbarScroll(){
+      const bar = document.querySelector(".topbar");
+      if(!bar) return;
+      const onScroll = () => bar.classList.toggle("is-scrolled", window.scrollY > 12);
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive:true });
+    })();
+    function shopIndexHref(params = {}){
+      const u = new URL("index.html", location.href);
+      u.search = "";
+      if(params.view === "catalog") u.searchParams.set("view", "catalog");
+      if(params.collection) u.searchParams.set("collection", params.collection);
+      return u.pathname.split("/").pop() + u.search;
+    }
+
+    function goHome(){
+      location.href = "index.html";
+    }
+    function goToCatalog(){
+      location.href = "catalog.html";
+    }
+    function goToCollection(laneId){
+      if(!collectionLaneById(laneId)) return;
+      location.href = "collection.html?collection=" + encodeURIComponent(laneId);
+    }
+
+    function parseShopRoute(){
+      const p = new URLSearchParams(location.search);
+      if(p.get("view") === "catalog") return { view: "catalog" };
+      const lane = p.get("collection");
+      if(lane && collectionLaneById(lane)) return { view: "collection", lane };
+      return { view: "home" };
+    }
+
+    function showCollectionView(laneId){
+      const lane = collectionLaneById(laneId);
+      if(!lane) return;
+      document.body.dataset.collectionLane = laneId;
+      state.collection = laneId;
+      state.cat = "all";
+      state.tagFilter = "all";
+      state.search = "";
+      setActiveChip("all");
+      const hero = $("#collectionViewHero");
+      if(hero){
+        hero.setAttribute("data-lane", String(laneId).toLowerCase());
+        hero.style.setProperty("--pageGlow", lane.pageGlow || "rgba(110,231,255,.12)");
+        hero.style.setProperty("--pageBg", "none");
+      }
+      const eyebrow = $("#cvEyebrow"); if(eyebrow) eyebrow.textContent = lane.eyebrow || "Live Collection";
+      const title = $("#cvTitle"); if(title) title.textContent = lane.label;
+      const lead = $("#cvLead"); if(lead) lead.textContent = lane.lead || "";
+      const artSvg = $("#cvArtSvg");
+      const laneKey = String(laneId || "").toLowerCase();
+      const bannerHtml =
+        typeof collectionHeaderBannerSvg === "function" ? collectionHeaderBannerSvg(laneKey) : "";
+      if (artSvg && bannerHtml) {
+        artSvg.innerHTML = bannerHtml;
+      } else if (artSvg && lane.cardImg) {
+        artSvg.innerHTML = `<img class="pageDoorArt" src="${lane.cardImg}" alt="" loading="lazy" decoding="async" />`;
+      } else if (artSvg) {
+        artSvg.innerHTML = "";
+      }
+      const cSearch = $("#collectionSearch"); if(cSearch) cSearch.value = "";
+      const cSort = $("#collectionSort"); if(cSort) cSort.value = state.sort;
+      $$(".collectionCatChips .chip[data-cat]").forEach(x => {
+        const active = x.getAttribute("data-cat") === "all";
+        x.classList.toggle("active", active);
+        x.setAttribute("aria-pressed", String(active));
+      });
+      document.title = `${lane.label} — AeroVista Apparel`;
+      renderCollectionGrid();
+    }
+
+    function applyShopRoute(route){
+      const home = $("#homeLanding");
+      const coll = $("#collectionView");
+      const cat = $("#productsSection");
+      document.body.dataset.shopView = route.view;
+      if(home) home.classList.toggle("is-hidden", route.view !== "home");
+      if(coll) coll.classList.toggle("is-hidden", route.view !== "collection");
+      if(cat) cat.classList.toggle("is-hidden", route.view !== "catalog");
+      if(route.view === "home"){
+        state.collection = "all";
+        document.title = "AeroVista Apparel — Store";
+        window.scrollTo(0, 0);
+        return;
+      }
+      if(route.view === "catalog"){
+        state.collection = "all";
+        state.search = "";
+        state.cat = "all";
+        state.tagFilter = "all";
+        const searchEl = $("#search");
+        if(searchEl) searchEl.value = "";
+        setActiveCollection("all");
+        setActiveChip("all");
+        setActiveTagChip("all");
+        document.title = "Browse All Apparel — AeroVista";
+        renderGrid();
+        window.scrollTo(0, 0);
+        return;
+      }
+      if(route.view === "collection"){
+        showCollectionView(route.lane);
+        window.scrollTo(0, 0);
+      }
+    }
+
     function revealCatalog(opts = {}){
+      if(!opts.inline) return goToCatalog();
       const sec = $("#productsSection");
       if(!sec) return;
-      sec.classList.remove("is-hidden");
-      if(opts.collection){ state.collection = opts.collection; setActiveCollection(opts.collection); }
-      if(typeof opts.search === "string"){
-        state.search = opts.search;
-        const searchEl = $("#search");
-        if(searchEl) searchEl.value = opts.search;
-      }
-      if(opts.cat){ state.cat = opts.cat; setActiveChip(opts.cat); }
-      renderGrid();
-      sec.scrollIntoView({ behavior:"smooth", block:"start" });
+      applyShopRoute({ view: "catalog" });
     }
-    function hideCatalog(){ const sec = $("#productsSection"); if(sec) sec.classList.add("is-hidden"); }
-    $("#scrollToProducts").onclick = ()=> revealCatalog();
-    const footerBrowseBtn = $("#footerBrowseBtn"); if(footerBrowseBtn) footerBrowseBtn.onclick = ()=> revealCatalog();
-    const exploreCollectionsBtn = $("#exploreCollectionsBtn"); if(exploreCollectionsBtn) exploreCollectionsBtn.onclick = ()=> $("#collectionsLanding").scrollIntoView({ behavior:"smooth", block:"start" });
-    const hideCatalogBtn = $("#hideCatalogBtn"); if(hideCatalogBtn) hideCatalogBtn.onclick = hideCatalog;
-    $('[data-landing-collection]').forEach(el => { el.onclick = () => revealCatalog({ collection: el.getAttribute('data-landing-collection') || 'all' }); });
-    $('[data-landing-search]').forEach(el => { el.onclick = () => revealCatalog({ search: el.getAttribute('data-landing-search') || '' }); });
-    $('[data-page-target]').forEach(el => { el.onclick = () => { const target = document.getElementById(el.getAttribute('data-page-target') || ''); if(target) target.scrollIntoView({ behavior:'smooth', block:'start' }); }; });
-    $("#homeLink").onclick = (e)=>{ e.preventDefault(); hideCatalog(); window.scrollTo({top:0, behavior:"smooth"}); };
+
+    $("#scrollToProducts").onclick = ()=> goToCatalog();
+    const footerBrowseBtn = $("#footerBrowseBtn"); if(footerBrowseBtn) footerBrowseBtn.onclick = ()=> goToCatalog();
+    const exploreCollectionsBtn = $("#exploreCollectionsBtn");
+    if(exploreCollectionsBtn) exploreCollectionsBtn.onclick = ()=> $("#collectionsLanding")?.scrollIntoView({ behavior:"smooth", block:"start" });
+    const hideCatalogBtn = $("#hideCatalogBtn"); if(hideCatalogBtn) hideCatalogBtn.onclick = goHome;
+    const collectionBackHome = $("#collectionBackHome"); if(collectionBackHome) collectionBackHome.onclick = (e)=>{ e.preventDefault(); goHome(); };
+    const collectionBrowseAllBtn = $("#collectionBrowseAllBtn"); if(collectionBrowseAllBtn) collectionBrowseAllBtn.onclick = goToCatalog;
+    $$("[data-collection-lane]").forEach(el => {
+      const lane = el.getAttribute("data-collection-lane");
+      if(!lane) return;
+      el.setAttribute("role", "link");
+      el.setAttribute("tabindex", "0");
+      const open = () => goToCollection(lane);
+      el.onclick = open;
+      el.onkeydown = (e) => { if(e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } };
+    });
+    const collectionSearch = $("#collectionSearch");
+    if(collectionSearch){
+      let t = null;
+      collectionSearch.addEventListener("input", () => {
+        state.search = collectionSearch.value || "";
+        clearTimeout(t);
+        t = setTimeout(() => renderCollectionGrid(), 200);
+      });
+    }
+    const collectionSort = $("#collectionSort");
+    if(collectionSort) collectionSort.addEventListener("change", (e) => {
+      state.sort = e.target.value;
+      const mainSort = $("#sort");
+      if(mainSort) mainSort.value = state.sort;
+      renderCollectionGrid();
+    });
+  $("#homeLink").onclick = (e)=>{ e.preventDefault(); goHome(); };
     const searchPill = document.querySelector('.topbar .pill[aria-label="Search shortcut"]');
     if (searchPill) {
-      const openSearch = () => { revealCatalog(); setTimeout(() => $("#search")?.focus(), 280); };
+      const openSearch = () => { goToCatalog(); setTimeout(() => $("#search")?.focus(), 280); };
       searchPill.onclick = openSearch;
       searchPill.onkeydown = (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openSearch(); } };
     }
     document.addEventListener("keydown", (e) => {
       if (e.key === "/" && !/input|textarea|select/i.test(document.activeElement?.tagName || "")) {
         e.preventDefault();
-        revealCatalog();
+        goToCatalog();
         setTimeout(() => $("#search")?.focus(), 120);
       }
     });
@@ -4759,7 +5808,6 @@
         buildCollectionDropdown();
         injectOverlayCollections();
         buildTagChips();
-        renderGrid();
         updateCartUI();
       } catch(err) {
         console.error("Failed to load products:", err);
@@ -4770,7 +5818,6 @@
           buildCollectionDropdown();
           injectOverlayCollections();
           buildTagChips();
-          renderGrid();
           updateCartUI();
           toast("Using cached products. Some items may be outdated.");
         } else {
@@ -4802,9 +5849,9 @@
       }
       console.log("Initializing with", PRODUCTS.length, "products. Build:", STORE_BUILD_ID);
       buildTagChips();
-      renderGrid();
       updateCartUI();
       injectStructuredData();
+      applyShopRoute(parseShopRoute());
     }
 
     function injectStructuredData(){

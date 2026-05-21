@@ -15,8 +15,11 @@ Operator tooling is **not** deployed to GitHub Pages. Host it behind **Cloudflar
 | Catalog console v2 | `console/aerovista_catalog_console_v2.html` |
 | Static server + bg removal API | `console/server.js` |
 | Catalog / overlay data | `store/square_products_latest.json`, `store/storefront_overlay.json` |
+| Offline console overlay stub | **`console/overlay_baseline.js`** — auto-generated from `store/storefront_overlay.json` via **`npm run sync:console`** (avoids stray “Unmatched” rows vs `catalog_baseline.js`) |
 | Images | `store/img/` |
 | Deploy API (optional) | `npm run deploy:server` on NXCore |
+
+When you edit **`store/storefront_overlay.json`**, run **`npm run sync:console`** so **`console/overlay_baseline.js`** (and **`public/console/`**) pick up the same JSON. Catalog Console loads that script before fetching `storefront_overlay.json`; overlay keys that don’t exist on your **imported** catalog still show as **Unmatched** (stale Square tokens or mixed exports).
 
 ## Suggested NXCore layout
 
@@ -84,3 +87,10 @@ VITE_OPERATOR_MODE=true
 ```
 
 Public Pages build sets `VITE_OPERATOR_MODE=false` and does not include console assets.
+
+## Related docs
+
+- **`docs/WORKFLOWS.md`** — sync and deploy commands  
+- **`docs/CATALOG_PIPELINE.md`** — Square export intake  
+- **`docs/STOREFRONT.md`** — public shop behavior (gear.aerovista.us)  
+- **`docs/DEPLOY_GITHUB_PAGES.md`** — Pages build and CORS  

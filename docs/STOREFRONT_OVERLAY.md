@@ -2,6 +2,17 @@
 
 The overlay is a **presentation layer** on top of `square_products_latest.json`. It does not replace Square as the source of truth for **checkout prices** or **variation IDs**.
 
+**Catalog-export-only mode:** An empty overlay (`itemsByVariationId`, `overrides`, `ads`, `collections` all empty) means the shop uses each product’s **`collection`**, **`tags`**, **`visibility`**, and **`description_text`** from `square_products_latest.json` only. Landing lanes (Core, Shadow Wear, …) filter on that same export `collection` field.
+
+To reset after experimentation, replace `store/storefront_overlay.json` with the minimal template in-repo (or restore from `storefront_overlay.backup-*.json` if you kept one).
+
+### Catalog Console: “Unmatched” overlay rows
+
+Catalog Console v2 compares each `itemsByVariationId` and `itemsByCartKey` entry to variants in the catalog **currently loaded**. Keys with no matching variant appear under **Unmatched Overlay Entries**.
+
+- **Stale Square tokens:** An overlay from an old export pasted on top of a **newer** export leaves orphan variation IDs.
+- **`console/overlay_baseline.js`:** The offline default is **generated from `store/storefront_overlay.json`** when you run **`npm run sync:console`** (also run from **`npm run sync:all`**). If this file differs from both your loaded catalog *and* the store overlay, you’ll see bogus unmatched rows until you trim the overlay JSON or regenerate the baseline.
+
 ## Resolution order
 
 1. **`itemsByVariationId[variationId]`** — preferred (matches Square Token)
@@ -94,7 +105,7 @@ Keys must use catalog id form: **`sq_<product.id>`** (e.g. `sq_aerovista-apex-dr
 | `featured` | `tag:featured` | Featured filter |
 | `division-nexus` | `tag:division:nexus` | Nexus TechWorks tag filter |
 
-Primary collection names still come from catalog + `collectionFromName()` in `index.html`.
+**Collection landing lanes** (Core, Shadow Wear, Apex, Glitch, Architect) filter by export field **`collection`** via `COLLECTION_LANES` in `index.html`. Overlay `overrides.collection` affects card copy/metadata, not lane membership. See **`docs/STOREFRONT.md`**.
 
 ## Scripts
 
@@ -138,5 +149,7 @@ Then `npm run sync:store` before deploy.
 
 ## Related docs
 
-- `docs/CATALOG_PIPELINE.md` — export and deploy flow
-- `docs/SKU_E2E_AUDIT.md` — checkout cart keys and variation IDs
+- **`docs/STOREFRONT.md`** — shop views, collection SVG, hero/door holo, checkout
+- **`docs/CATALOG_PIPELINE.md`** — export and deploy flow
+- **`docs/SKU_E2E_AUDIT.md`** — checkout cart keys and variation IDs
+- **`docs/WORKFLOWS.md`** — sync and deploy commands

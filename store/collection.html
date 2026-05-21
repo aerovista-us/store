@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Collection — AeroVista</title>
+  <script>
+    (function () {
+      var p = new URLSearchParams(location.search);
+      var lane = p.get("collection") || p.get("lane") || "core";
+      location.replace("index.html?collection=" + encodeURIComponent(lane));
+    })();
+  </script>
+</head>
+<body>
+  <p>Opening collection… <a href="index.html">Home</a></p>
+</body>
+</html>
