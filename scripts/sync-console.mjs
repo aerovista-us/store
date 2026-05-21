@@ -49,4 +49,11 @@ for (const name of INCLUDE) {
   fs.copyFileSync(from, path.join(dest, name));
 }
 
-console.log('[sync:console]', src, '->', dest, `(${INCLUDE.size} files)`);
+// So /console/ resolves (Vite otherwise serves repo-root index.html → shop redirect).
+const consoleHtml = path.join(src, 'aerovista_catalog_console_v2.html');
+const consoleIndex = path.join(dest, 'index.html');
+if (fs.existsSync(consoleHtml)) {
+  fs.copyFileSync(consoleHtml, consoleIndex);
+}
+
+console.log('[sync:console]', src, '->', dest, `(${INCLUDE.size} files + index.html)`);

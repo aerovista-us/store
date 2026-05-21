@@ -25,8 +25,8 @@ export function CatalogHome() {
         {isOperatorMode ? (
           <li>
             <strong>Catalog console (local dev):</strong>{' '}
-            <a href={withBase('console/')}>Open in-app</a> — requires <code>npm run sync:console</code> and{' '}
-            <code>VITE_OPERATOR_MODE=true</code>.
+            <a href={withBase('console/')}>Open in-app</a> — run <code>npm run dev:console</code> or{' '}
+            <code>npm run sync:console</code> then <code>/console/</code> (not on gear.aerovista.us).
           </li>
         ) : (
           <li>

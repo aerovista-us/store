@@ -152,7 +152,7 @@ Products need top-level **`{ "products": [ ... ] }`**. Collection labels on card
 
 ## Product cards
 
-- Prefer **`imagePath`** from catalog when file exists under `store/img/`
+- Prefer **`imagePath`** from catalog when file exists under `store/img/` (built via **`resolveCatalogImagePath`** — spaces in filenames are URL-encoded)
 - Fallback: inline **`productSvg()`** placeholder in `index.html`
 - Optional **holographic** / **glitch** card overlays when name/tags match
 

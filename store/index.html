@@ -1162,29 +1162,150 @@
       .laneMarkSvg .laneBg,
       .laneMarkSvg .laneMarkParallax{ transform:none !important; transition:none; }
     }
+    /* Featured Drop — Shadow Wear hero band */
     .featuredDrop{
-      border:1px solid rgba(255,255,255,.09);
-      background:radial-gradient(720px 320px at 10% 0%, rgba(110,231,255,.12), transparent 62%),
-                 linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018));
-      border-radius:var(--radius2); padding:18px; display:grid; grid-template-columns:1fr; gap:16px;
+      border:1px solid rgba(110,231,255,.14);
+      background:
+        radial-gradient(ellipse 90% 70% at 8% 0%, rgba(110,231,255,.14), transparent 55%),
+        radial-gradient(ellipse 60% 50% at 92% 100%, rgba(148,163,184,.08), transparent 50%),
+        linear-gradient(165deg, rgba(12,16,24,.92), rgba(8,10,14,.98));
+      border-radius:var(--radius2);
+      padding:22px 20px;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:22px;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.06), var(--shadow);
     }
-    @media (min-width:900px){ .featuredDrop{ grid-template-columns:1.1fr .9fr; align-items:center; } }
-    .dropTitle{ margin:0; font-size:28px; letter-spacing:-.04em; }
-    .dropCopy{ margin:10px 0 0; color:var(--muted); line-height:1.55; max-width:70ch; }
-    .dropPieces{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    @media (min-width:900px){
+      .featuredDrop{
+        grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+        align-items:center;
+        gap:28px;
+        padding:28px 26px;
+      }
+    }
+    .featuredDrop__copy{ min-width:0; }
+    .dropKicker{
+      display:inline-flex;
+      align-items:center;
+      margin:0 0 14px;
+      font-family:var(--mono);
+      font-size:10px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:rgba(110,231,255,.88);
+      border:1px solid rgba(110,231,255,.28);
+      background:rgba(110,231,255,.06);
+      border-radius:999px;
+      padding:7px 12px;
+    }
+    .dropTitle{
+      margin:0;
+      font-size:clamp(28px, 4vw, 36px);
+      font-weight:700;
+      letter-spacing:-.04em;
+      line-height:1.05;
+    }
+    .dropCopy{
+      margin:14px 0 0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.55;
+      max-width:52ch;
+    }
+    .dropActions{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:20px;
+      max-width:340px;
+    }
+    .dropCtaPrimary{
+      width:100%;
+      justify-content:center;
+      background:linear-gradient(105deg, rgba(110,231,255,.42), rgba(167,139,250,.28) 55%, rgba(110,231,255,.22));
+      border-color:rgba(110,231,255,.45);
+      color:#061018;
+      font-weight:700;
+      box-shadow:0 12px 32px rgba(0,0,0,.35), 0 0 28px rgba(110,231,255,.12);
+    }
+    .dropCtaPrimary:hover{
+      color:#061018;
+      border-color:rgba(167,139,250,.5);
+      box-shadow:0 16px 40px rgba(0,0,0,.42), 0 0 36px rgba(110,231,255,.18);
+    }
+    .dropCtaSecondary{
+      width:100%;
+      justify-content:center;
+      background:rgba(0,0,0,.28);
+      border-color:rgba(255,255,255,.12);
+    }
+    .dropPieces{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      min-width:0;
+    }
+    @media (max-width:520px){
+      .dropPieces{ grid-template-columns:1fr; }
+    }
     .dropPiece{
-      min-height:100px; border:1px solid rgba(255,255,255,.09); background:rgba(0,0,0,.2);
-      border-radius:16px; padding:14px;
-      display:flex; flex-direction:column; justify-content:space-between;
-      transition: border-color .2s var(--ease), transform .2s var(--ease), background .2s var(--ease);
+      appearance:none;
+      -webkit-appearance:none;
+      min-height:132px;
+      border:1px solid rgba(255,255,255,.1);
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.35));
+      border-radius:16px;
+      padding:14px 14px 12px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      align-items:flex-start;
+      text-align:left;
+      cursor:pointer;
+      font:inherit;
+      color:inherit;
+      transition:border-color .2s var(--ease), transform .2s var(--ease), box-shadow .2s var(--ease);
     }
     .dropPiece:hover{
-      border-color:rgba(110,231,255,.25);
-      background:rgba(0,0,0,.28);
-      transform:translateY(-2px);
+      border-color:rgba(110,231,255,.32);
+      transform:translateY(-3px);
+      box-shadow:0 14px 28px rgba(0,0,0,.4);
     }
-    .dropPiece .mini{ font-family:var(--mono); font-size:10px; color:rgba(110,231,255,.78); letter-spacing:.12em; text-transform:uppercase; }
-    .dropPiece b{ font-size:13px; line-height:1.25; }
+    .dropPiece:focus-visible{
+      outline:2px solid var(--accent);
+      outline-offset:2px;
+    }
+    .dropPiece__label{
+      font-family:var(--mono);
+      font-size:10px;
+      color:rgba(110,231,255,.82);
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    .dropPiece__thumb{
+      width:100%;
+      height:56px;
+      margin:10px 0 8px;
+      border-radius:10px;
+      overflow:hidden;
+      background:rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.06);
+    }
+    .dropPiece__thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center top;
+      display:block;
+      opacity:.92;
+    }
+    .dropPiece__title{
+      font-size:14px;
+      font-weight:700;
+      line-height:1.28;
+      letter-spacing:-.02em;
+    }
     .pageStack{ display:grid; gap:16px; }
     .collectionPage{
       border:1px solid rgba(255,255,255,.09);
@@ -2592,19 +2713,38 @@
       </div>
     </section>
 
-    <section class="landingSection">
+    <section class="landingSection" id="featuredDrop" aria-labelledby="featuredDropTitle">
       <div class="featuredDrop">
-        <div>
-          <div class="heroKicker">Featured Drop</div>
-          <h2 class="dropTitle">Shadow Wear</h2>
+        <div class="featuredDrop__copy">
+          <p class="dropKicker">Featured Drop</p>
+          <h2 class="dropTitle" id="featuredDropTitle">Shadow Wear</h2>
           <p class="dropCopy">The quietest gear in the room usually has the heaviest presence. Shadow Wear brings black-on-black camo, tactical geometry, and low-signal streetwear into the AeroVista gear system.</p>
-          <div class="heroRow"><button class="cta" data-collection-lane="shadow">View the Shadow Wear Drop →</button><button class="btn" data-collection-lane="apex">Browse Apex</button></div>
+          <div class="dropActions">
+            <button type="button" class="cta dropCtaPrimary" data-collection-lane="shadow">View the Shadow Wear Drop →</button>
+            <button type="button" class="btn dropCtaSecondary" data-collection-lane="apex">Browse Apex</button>
+          </div>
         </div>
         <div class="dropPieces" aria-label="Featured Shadow Wear pieces">
-          <div class="dropPiece"><span class="mini">Outerwear</span><b>Apex Pattern Bomber Jacket</b></div>
-          <div class="dropPiece"><span class="mini">Core Layer</span><b>Apex Pattern Hoodie</b></div>
-          <div class="dropPiece"><span class="mini">Long Sleeve</span><b>Apex Pattern Long Sleeve Tee</b></div>
-          <div class="dropPiece"><span class="mini">Statement</span><b>Shadow Wear One-Piece Swimsuit</b></div>
+          <button type="button" class="dropPiece" data-quick="aerovista-apex-pattern-bomber-jacket" aria-label="Quick view: Apex Pattern Bomber Jacket">
+            <span class="dropPiece__label">Outerwear</span>
+            <span class="dropPiece__thumb"><img src="./img/AeroVista%20Apex%20Pattern%20Bomber%20Jacket.png" alt="" loading="lazy" decoding="async" /></span>
+            <span class="dropPiece__title">Apex Pattern Bomber Jacket</span>
+          </button>
+          <button type="button" class="dropPiece" data-quick="aerovista-apex-pattern-hoodie" aria-label="Quick view: Apex Pattern Hoodie">
+            <span class="dropPiece__label">Core Layer</span>
+            <span class="dropPiece__thumb"><img src="./img/AeroVista%20Apex%20Pattern%20Hoodie%20(3).png" alt="" loading="lazy" decoding="async" /></span>
+            <span class="dropPiece__title">Apex Pattern Hoodie</span>
+          </button>
+          <button type="button" class="dropPiece" data-quick="aerovista-shadow-pattern-long-sleeve-tee" aria-label="Quick view: Apex Pattern Long Sleeve Tee">
+            <span class="dropPiece__label">Long Sleeve</span>
+            <span class="dropPiece__thumb"><img src="./img/AeroVistaApexShadowLongSleeveTee.png" alt="" loading="lazy" decoding="async" /></span>
+            <span class="dropPiece__title">Apex Pattern Long Sleeve Tee</span>
+          </button>
+          <button type="button" class="dropPiece" data-quick="aerovista-apex-pattern-print-swimsuit-one-piece" aria-label="Quick view: Shadow Wear One-Piece Swimsuit">
+            <span class="dropPiece__label">Statement</span>
+            <span class="dropPiece__thumb"><img src="./img/AeroVistaApex%20ShadowOnePieceSwimsuit.png" alt="" loading="lazy" decoding="async" /></span>
+            <span class="dropPiece__title">Shadow Wear One-Piece Swimsuit</span>
+          </button>
         </div>
       </div>
     </section>
@@ -3030,6 +3170,14 @@
       return t.slice(0, 177) + "…";
     }
 
+    function resolveCatalogImagePath(imgBase, catalogImage){
+      const fn = String(catalogImage || "").trim().replace(/^\.\/img\//, "").replace(/^img\//, "");
+      if (!fn) return "";
+      const encoded = fn.split("/").map(encodeURIComponent).join("/");
+      const cb = fn.includes("?") ? "" : ("?v=" + STORE_BUILD_ID);
+      return imgBase + encoded + cb;
+    }
+
     function findProductImage(productId, productName){
       // Legacy fallback -- all products now have catalog-assigned images via
       // scripts/assign_catalog_images.py. This only runs if a product somehow
@@ -3360,7 +3508,7 @@
             const cacheBuster = "?v=" + STORE_BUILD_ID;
             const catalogImage = (first.p && first.p.image) ? String(first.p.image).trim() : "";
             const imagePath = catalogImage
-              ? (imgBase + catalogImage.replace(/^\.\/img\//, "").replace(/^img\//, "") + (catalogImage.includes("?") ? "" : cacheBuster))
+              ? resolveCatalogImagePath(imgBase, catalogImage)
               : findProductImage(first.id, baseName);
 
             const rawId = (first.p && first.p.id) ? String(first.p.id).trim() : "";
@@ -3922,8 +4070,7 @@
         if (!raw || typeof raw !== "string") return "";
         const s = raw.trim();
         if (s.startsWith("http://") || s.startsWith("https://")) return s;
-        const filename = s.replace(/^\.\/img\//, "").replace(/^img\//, "");
-        return filename ? (imgBase + filename + (filename.includes("?") ? "" : adCacheBuster)) : "";
+        return resolveCatalogImagePath(imgBase, s);
       }
       const adTiles = (overlay.ads || [])
         .filter(a => a && a.visible !== false && a.title && a.cta && a.cta.href)
@@ -5852,6 +5999,7 @@
       updateCartUI();
       injectStructuredData();
       applyShopRoute(parseShopRoute());
+      bindQuickViewButtons(document.getElementById("featuredDrop"));
     }
 
     function injectStructuredData(){

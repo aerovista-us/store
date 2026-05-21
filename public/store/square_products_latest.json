@@ -1,9 +1,9 @@
 {
   "meta": {
     "tool": "AeroVista Catalog Console v2",
-    "source": "1149XBNG8C8ZE_catalog-2026-05-18-0345.xlsx",
-    "exportedAt": "2026-05-19T00:50:05.248Z",
-    "count": 39
+    "source": "1149XBNG8C8ZE_catalog-2026-05-20-2134.xlsx",
+    "exportedAt": "2026-05-21T00:34:03.640Z",
+    "count": 57
   },
   "products": [
     {
@@ -13,12 +13,12 @@
       "category": "hats",
       "collection": "APEX",
       "visibility": "visible",
-      "price": 38,
+      "price": 32.99,
       "image": "aerovista_apex_camo_flexfit_hat.png",
       "description_text": "A sleek, low-profile cap built for a clean premium look. The dark camo finish gives it subtle texture, while the embroidered AeroVista Apex mark adds a sharp metallic-style focal point up front. Structured, versatile, and easy to pair with everyday wear, this hat works equally well for streetwear, shop days, and polished casual fits. Finished on a closed-back Flexfit style for a secure, comfortable feel.",
       "description_html": "<p>A sleek, low-profile cap built for a clean premium look. The dark camo finish gives it subtle texture, while the embroidered AeroVista Apex mark adds a sharp metallic-style focal point up front. Structured, versatile, and easy to pair with everyday wear, this hat works equally well for streetwear, shop days, and polished casual fits. Finished on a closed-back Flexfit style for a secure, comfortable feel.</p>",
-      "seo_title": "",
-      "seo_description": "",
+      "seo_title": "AeroVista Apex Camo Flexfit Hat",
+      "seo_description": "A sleek, low-profile cap built for a clean premium look. The dark camo finish gives it subtle texture, while the embroidered AeroVista Apex mark adds a sha",
       "tags": [
         "hats",
         "aerovista"
@@ -28,14 +28,14 @@
           "size": "L/XL",
           "color": "",
           "sku": "69B1C9EB37723_15898",
-          "price": 38,
+          "price": 32.99,
           "variation_id": "XF6WLKIXGAMT4B4LXBOX7OLZ"
         },
         {
           "size": "S/M",
           "color": "",
           "sku": "69B1C9EB37723_15897",
-          "price": 38,
+          "price": 32.99,
           "variation_id": "QTCUFJM25FYMBTXBWHLFDTF4"
         }
       ]
@@ -44,17 +44,17 @@
       "id": "aerovista-apex-flexfit-structured-cap-black",
       "name": "AeroVista Apex Flexfit Structured Cap — Black",
       "color": "Black",
-      "category": "hats",
-      "collection": "Core",
+      "category": "apparel",
+      "collection": "core",
       "visibility": "visible",
-      "price": 39.99,
+      "price": 32.99,
       "image": "Apex Flexfit Structured.png",
       "description_text": "Meet the Apex cap—clean, structured, and built to wear every day. This Flexfit closed-back hat has a crisp silhouette, stretch-fit comfort, and the AeroVista Apex mark front and center. No snap, no noise—just a premium fit that stays locked in from shop time to road miles. Details: • Flexfit closed-back stretch fit (no snapback) • Structured crown with a clean, sharp profile • Black colorway with the AeroVista Apex logo • Sizes: S/M and L/XL",
       "description_html": "<p>Meet the Apex cap—clean, structured, and built to wear every day. This Flexfit closed-back hat has a crisp silhouette, stretch-fit comfort, and the AeroVista Apex mark front and center. No snap, no noise—just a premium fit that stays locked in from shop time to road miles. Details: • Flexfit closed-back stretch fit (no snapback) • Structured crown with a clean, sharp profile • Black colorway with the AeroVista Apex logo • Sizes: S/M and L/XL</p>",
       "seo_title": "",
       "seo_description": "",
       "tags": [
-        "hats",
+        "apparel",
         "aerovista"
       ],
       "variants": [
@@ -62,23 +62,23 @@
           "size": "L/XL",
           "color": "Black",
           "sku": "699DFF2DB9C21_5277",
-          "price": 39.99,
+          "price": 59.99,
           "variation_id": "622ZSIORLPZS4PHLK4LLECIG"
         },
         {
           "size": "S/M",
           "color": "Black",
           "sku": "699DFF2DB9C21_5276",
-          "price": 39.99,
+          "price": 32.99,
           "variation_id": "UWUZNY7XU5IVXPH7XQHRE3OT"
         }
       ]
     },
     {
       "id": "aerovista-apex-glitch-premium-pullover-hoodie-black",
-      "name": "AeroVista Apex Glitch Premium Pullover Hoodie — Black",
-      "color": "Black",
-      "category": "hoodies",
+      "name": "AeroVista Apex Glitch Premium Pullover Hoodie | Black",
+      "color": "",
+      "category": "apparel",
       "collection": "Glitch Line",
       "visibility": "visible",
       "price": 59.99,
@@ -88,49 +88,49 @@
       "seo_title": "",
       "seo_description": "",
       "tags": [
-        "hoodies",
+        "apparel",
         "glitch-line",
         "aerovista"
       ],
       "variants": [
         {
           "size": "S",
-          "color": "Black",
+          "color": "",
           "sku": "699E1C41DC0B5_22132",
           "price": 59.99,
           "variation_id": "AU7X5PB6VLRDM77TIGRFGJZK"
         },
         {
           "size": "M",
-          "color": "Black",
+          "color": "",
           "sku": "699E1C41DC0B5_22133",
           "price": 59.99,
           "variation_id": "T2MH2Z6XNCZC4LPVSXZ7WX4B"
         },
         {
           "size": "L",
-          "color": "Black",
+          "color": "",
           "sku": "699E1C41DC0B5_22134",
           "price": 59.99,
           "variation_id": "U3PMCP7JNCEYJLPWPFRDHOIV"
         },
         {
           "size": "XL",
-          "color": "Black",
+          "color": "",
           "sku": "699E1C41DC0B5_22135",
           "price": 59.99,
           "variation_id": "67AMMNQO4EFZBCTJ2KVNKDVH"
         },
         {
           "size": "2XL",
-          "color": "Black",
+          "color": "",
           "sku": "699E1C41DC0B5_22136",
           "price": 59.99,
           "variation_id": "HVZO77PVR6EQSNYX2SSOXOXD"
         },
         {
           "size": "3XL",
-          "color": "Black",
+          "color": "",
           "sku": "699E1C41DC0B5_22137",
           "price": 59.99,
           "variation_id": "XM62UHG2IXDIZRRRCLQWXPR2"
@@ -139,101 +139,101 @@
     },
     {
       "id": "aerovista-apex-glitch-tee-black",
-      "name": "AeroVista Apex Glitch Tee — Black",
-      "color": "Black",
-      "category": "tees",
+      "name": "AeroVista Apex Glitch Tee | Black",
+      "color": "",
+      "category": "services",
       "collection": "Glitch Line",
       "visibility": "visible",
-      "price": 34.99,
+      "price": 39.99,
       "image": "Glitch Pullover Tee.png",
       "description_text": "A glitched take on the AeroVista Apex mark. This premium black tee keeps the foundation clean while introducing a subtle chroma fracture that adds motion without noise. Minimal at a distance, detailed up close—built for everyday wear with a digital edge. Details: • Premium Bella + Canvas unisex tee • Soft, modern fit • Glitched Apex front mark with subtle chroma edge • Clean black colorway • Part of the AeroVista Apex Glitch line",
       "description_html": "<p>A glitched take on the AeroVista Apex mark. This premium black tee keeps the foundation clean while introducing a subtle chroma fracture that adds motion without noise. Minimal at a distance, detailed up close—built for everyday wear with a digital edge. Details: • Premium Bella + Canvas unisex tee • Soft, modern fit • Glitched Apex front mark with subtle chroma edge • Clean black colorway • Part of the AeroVista Apex Glitch line</p>",
       "seo_title": "",
       "seo_description": "",
       "tags": [
-        "tees",
+        "services",
         "glitch-line",
         "aerovista"
       ],
       "variants": [
         {
           "size": "XS",
-          "color": "Black",
+          "color": "",
           "sku": "699E2BA559980_9527",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "Q6PTEBBGLDJFINS2XMSFIWJP"
         },
         {
           "size": "S",
-          "color": "Black",
+          "color": "",
           "sku": "699E2BA559980_4016",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "WAMOA7V7LQKN2224OXDKHHJB"
         },
         {
           "size": "M",
-          "color": "Black",
+          "color": "",
           "sku": "699E2BA559980_4017",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "AOIDOJ2WIS6Z4CU2PLBWURAX"
         },
         {
           "size": "L",
-          "color": "Black",
+          "color": "",
           "sku": "699E2BA559980_4018",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "VHWM2LTOHCQMF7I2WMZV6PS4"
         },
         {
           "size": "XL",
-          "color": "Black",
+          "color": "",
           "sku": "699E2BA559980_4019",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "O4CSKY4VBTOLD5XOTIV472CO"
         },
         {
           "size": "2XL",
-          "color": "Black",
+          "color": "",
           "sku": "699E2BA559980_4020",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "5WBPB4MWVLP4XLXEP55WJNAD"
         },
         {
           "size": "3XL",
-          "color": "Black",
+          "color": "",
           "sku": "699E2BA559980_5295",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "35RNMAM7LNJ2JAGRSXBJ3KGD"
         },
         {
           "size": "4XL",
-          "color": "Black",
+          "color": "",
           "sku": "699E2BA559980_5310",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "JD3EWRWGH2JHKH2NKCENL7DK"
         },
         {
           "size": "5XL",
-          "color": "Black",
+          "color": "",
           "sku": "699E2BA559980_12871",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "QZQPOG3WXGBFFGW6KNQ4BQ5L"
         }
       ]
     },
     {
       "id": "aerovista-apex-mark-draft-series-s01-sticker",
-      "name": "AeroVista Apex Mark Draft Series S01 Sticker",
+      "name": "AeroVista Apex Mark — Draft Series S01 Sticker",
       "color": "",
       "category": "stickers",
       "collection": "Draft Series",
       "visibility": "visible",
       "price": 5.5,
-      "image": "aerovista_A_ultra_600dpi.png",
+      "image": "adrafted.png",
       "description_text": "Part of the AeroVista Draft Series, released during active build phases. This version of the Apex Mark captures the system mid-evolution—raw, functional, and unrefined by design. Issued during development cycles, Draft Series pieces represent real progress, not polished final states. The “A” mark signals direction and control, while the structure reflects early-stage construction—tested, adjusted, and pushed forward in real time. These aren’t mass-produced designs. They’re snapshots of movement. Draft Series Notes: • Released during active build phases • May differ from final production versions • Limited run feel — not part of mainline drops • Represents real-time system evolution Sticker Details: • High-opacity adhesive vinyl • Bubble-free application • Durable and weather-resistant • Clean-cut edges for precise placement AeroVista Draft Series Built while building.",
       "description_html": "<p>Part of the AeroVista Draft Series, released during active build phases. This version of the Apex Mark captures the system mid-evolution—raw, functional, and unrefined by design. Issued during development cycles, Draft Series pieces represent real progress, not polished final states. The “A” mark signals direction and control, while the structure reflects early-stage construction—tested, adjusted, and pushed forward in real time. These aren’t mass-produced designs. They’re snapshots of movement. Draft Series Notes: • Released during active build phases • May differ from final production versions • Limited run feel — not part of mainline drops • Represents real-time system evolution Sticker Details: • High-opacity adhesive vinyl • Bubble-free application • Durable and weather-resistant • Clean-cut edges for precise placement AeroVista Draft Series Built while building.</p>",
-      "seo_title": "",
-      "seo_description": "",
+      "seo_title": "AeroVista Apex Mark — Draft Series S01 Sticker",
+      "seo_description": "Part of the AeroVista Draft Series, released during active build phases. This version of the Apex Mark captures the system mid-evolution—raw, functional, a",
       "tags": [
         "stickers",
         "draft-series",
@@ -260,17 +260,17 @@
       "id": "aerovista-apex-pattern-bomber-jacket",
       "name": "AeroVista Apex Pattern Bomber Jacket",
       "color": "",
-      "category": "outerwear",
-      "collection": "Apex Pattern",
+      "category": "services",
+      "collection": "APEX",
       "visibility": "visible",
-      "price": 90,
+      "price": 89.99,
       "image": "AeroVista Apex Pattern Bomber Jacket.png",
       "description_text": "Add a little zing to your wardrobe with this vibrant All-Over Print Bomber Jacket. Wear it on a basic t-shirt, or layer it on top of a warm hoodie—it’ll look great either way. With a brushed fleece inside, and a relaxed unisex fit, this Bomber Jacket is just the stuff of the dreams, so be quick to grab yourself one! • 100% polyester • Fabric weight: 6.49 oz/yd² (220 g/m²), weight may vary by 5% • Brushed fleece fabric inside • Unisex fit • Overlock seams • Sturdy neck tape • Silver YKK zipper • 2 self-fabric pockets • Blank product components sourced from the US and China Disclaimer: In areas where the fabric is double-layered (like pockets), details from the inner fabric layer may subtly show through, especially with lighter designs.",
       "description_html": "<p>Add a little zing to your wardrobe with this vibrant All-Over Print Bomber Jacket. Wear it on a basic t-shirt, or layer it on top of a warm hoodie—it’ll look great either way. With a brushed fleece inside, and a relaxed unisex fit, this Bomber Jacket is just the stuff of the dreams, so be quick to grab yourself one! • 100% polyester • Fabric weight: 6.49 oz/yd² (220 g/m²), weight may vary by 5% • Brushed fleece fabric inside • Unisex fit • Overlock seams • Sturdy neck tape • Silver YKK zipper • 2 self-fabric pockets • Blank product components sourced from the US and China Disclaimer: In areas where the fabric is double-layered (like pockets), details from the inner fabric layer may subtly show through, especially with lighter designs.</p>",
-      "seo_title": "",
-      "seo_description": "",
+      "seo_title": "AeroVista Apex Pattern Bomber Jacket",
+      "seo_description": "Add a little zing to your wardrobe with this vibrant All-Over Print Bomber Jacket. Wear it on a basic t-shirt, or layer it on top of a warm hoodie—it’ll lo",
       "tags": [
-        "outerwear",
+        "services",
         "apex-pattern",
         "aerovista"
       ],
@@ -279,49 +279,49 @@
           "size": "XS",
           "color": "",
           "sku": "6A00DDC5D47A6_10877",
-          "price": 90,
+          "price": 89.99,
           "variation_id": "WQ227JE7NY2XWVD5AQ7QH33R"
         },
         {
           "size": "S",
           "color": "",
           "sku": "6A00DDC5D47A6_10878",
-          "price": 90,
+          "price": 89.99,
           "variation_id": "ADGXZBFL6LERF73JKLHHMMNO"
         },
         {
           "size": "M",
           "color": "",
           "sku": "6A00DDC5D47A6_10879",
-          "price": 90,
+          "price": 89.99,
           "variation_id": "3CQBSCPSR3IBC2AAVOARP7KG"
         },
         {
           "size": "L",
           "color": "",
           "sku": "6A00DDC5D47A6_10880",
-          "price": 90,
+          "price": 89.99,
           "variation_id": "JPAFEKUNTN2ZPOCYQSAVTEEB"
         },
         {
           "size": "XL",
           "color": "",
           "sku": "6A00DDC5D47A6_10881",
-          "price": 90,
+          "price": 89.99,
           "variation_id": "73OVF4OJKVTDJ2T443IUOOXR"
         },
         {
           "size": "2XL",
           "color": "",
           "sku": "6A00DDC5D47A6_10882",
-          "price": 90,
+          "price": 89.99,
           "variation_id": "RKEU6BLKADJ2XIOOLW2RYZIZ"
         },
         {
           "size": "3XL",
           "color": "",
           "sku": "6A00DDC5D47A6_10883",
-          "price": 90,
+          "price": 89.99,
           "variation_id": "YUIIM7RFJ7UENXDRRFVHO3IA"
         }
       ]
@@ -330,17 +330,17 @@
       "id": "aerovista-apex-pattern-hoodie",
       "name": "AeroVista Apex Pattern Hoodie",
       "color": "",
-      "category": "hoodies",
+      "category": "apparel",
       "collection": "Apex Pattern",
       "visibility": "visible",
-      "price": 70.5,
-      "image": "AeroVista Apex Pattern Hoodie.png",
-      "description_text": "Built for colder days and low-key statement wear, the AeroVista Apex Pattern Hoodie features a dark textured base with a repeating AeroVista-inspired motif for a clean, stealth-forward look. The outside has a soft cotton-feel finish, while the brushed fleece interior adds warmth and comfort for everyday wear. With a relaxed unisex fit, double-lined hood, and all-over print, it works just as well layered for the street as it does thrown on for a chill night. Short Description A soft, fleece-lined all-over print hoodie with a dark textured base and repeating AeroVista-inspired motif. Relaxed fit, double-lined hood, and everyday comfort with a clean stealth-style finish. Details Soft cotton-feel fabric face Brushed fleece fabric inside Double-lined hood with design on both sides Relaxed unisex fit Comes with drawstrings Overlock seams Fabric weight: 9.08 oz./yd.² (308 g/m²)",
-      "description_html": "<p>Built for colder days and low-key statement wear, the AeroVista Apex Pattern Hoodie features a dark textured base with a repeating AeroVista-inspired motif for a clean, stealth-forward look. The outside has a soft cotton-feel finish, while the brushed fleece interior adds warmth and comfort for everyday wear. With a relaxed unisex fit, double-lined hood, and all-over print, it works just as well layered for the street as it does thrown on for a chill night. Short Description A soft, fleece-lined all-over print hoodie with a dark textured base and repeating AeroVista-inspired motif. Relaxed fit, double-lined hood, and everyday comfort with a clean stealth-style finish. Details Soft cotton-feel fabric face Brushed fleece fabric inside Double-lined hood with design on both sides Relaxed unisex fit Comes with drawstrings Overlock seams Fabric weight: 9.08 oz./yd.² (308 g/m²)</p>",
-      "seo_title": "",
-      "seo_description": "",
+      "price": 79.99,
+      "image": "AeroVista Apex Pattern Hoodie (3).png",
+      "description_text": "Built for colder days and low-key statement wear, the AeroVista Apex Pattern Hoodie features a dark textured base with a repeating AeroVista-inspired motif for a clean, stealth-forward look. The outside has a soft cotton-feel finish, while the brushed fleece interior adds warmth and comfort for everyday wear. With a relaxed unisex fit, double-lined hood, and all-over print, it works just as well layered for the street as it does thrown on for a chill night.",
+      "description_html": "<p>Built for colder days and low-key statement wear, the AeroVista Apex Pattern Hoodie features a dark textured base with a repeating AeroVista-inspired motif for a clean, stealth-forward look. The outside has a soft cotton-feel finish, while the brushed fleece interior adds warmth and comfort for everyday wear. With a relaxed unisex fit, double-lined hood, and all-over print, it works just as well layered for the street as it does thrown on for a chill night.</p>",
+      "seo_title": "AeroVista Apex Pattern Hoodie",
+      "seo_description": "Built for colder days and low-key statement wear, the AeroVista Apex Pattern Hoodie features a dark textured base with a repeating AeroVista-inspired motif",
       "tags": [
-        "hoodies",
+        "apparel",
         "apex-pattern",
         "aerovista"
       ],
@@ -349,96 +349,96 @@
           "size": "2XS",
           "color": "",
           "sku": "69E806D4A562B_18730",
-          "price": 70.5,
+          "price": 79.99,
           "variation_id": "7BSJUOMZLLCKKNBC423VU6ME"
         },
         {
           "size": "XS",
           "color": "",
           "sku": "69E806D4A562B_10869",
-          "price": 72,
+          "price": 79.99,
           "variation_id": "NVM2P6KTWCPKUZ4Z6D3VNWXR"
         },
         {
           "size": "S",
           "color": "",
           "sku": "69E806D4A562B_10870",
-          "price": 72,
+          "price": 79.99,
           "variation_id": "UWPBN3XX23SQ3PTNFEUOCJMP"
         },
         {
           "size": "M",
           "color": "",
           "sku": "69E806D4A562B_10871",
-          "price": 72,
+          "price": 79.99,
           "variation_id": "QFOXB7BC64S7KI55F4NYW6RM"
         },
         {
           "size": "L",
           "color": "",
           "sku": "69E806D4A562B_10872",
-          "price": 72,
+          "price": 79.99,
           "variation_id": "3AHFPCY2RWUJJKAYFF5VWBAU"
         },
         {
           "size": "XL",
           "color": "",
           "sku": "69E806D4A562B_10873",
-          "price": 72,
+          "price": 79.99,
           "variation_id": "AK2B7N7TYAE3BGOYGCK2D33M"
         },
         {
           "size": "2XL",
           "color": "",
           "sku": "69E806D4A562B_10874",
-          "price": 75.5,
+          "price": 79.99,
           "variation_id": "G64EYEUY4IIYPX75L65S6XUF"
         },
         {
           "size": "3XL",
           "color": "",
           "sku": "69E806D4A562B_10875",
-          "price": 79,
+          "price": 79.99,
           "variation_id": "RUF7AOFV54IUUXPYUBNVYTS4"
         },
         {
           "size": "4XL",
           "color": "",
           "sku": "69E806D4A562B_18731",
-          "price": 82.5,
+          "price": 79.99,
           "variation_id": "RLXWYV22NIGYFIFBPPXUOISE"
         },
         {
           "size": "5XL",
           "color": "",
           "sku": "69E806D4A562B_18732",
-          "price": 86,
+          "price": 79.99,
           "variation_id": "BPTGJKGNED2XV5VIOQ5IFK3I"
         },
         {
           "size": "6XL",
           "color": "",
           "sku": "69E806D4A562B_18733",
-          "price": 89.5,
+          "price": 79.99,
           "variation_id": "MP55FI63QP2GI3ZD5YVTKZ5B"
         }
       ]
     },
     {
-      "id": "aerovista-apex-pattern-one-piece-swimsuit",
-      "name": "AeroVista Apex Pattern One-Piece Swimsuit",
+      "id": "aerovista-apex-pattern-print-swimsuit-one-piece",
+      "name": "AeroVista Apex Pattern Print Swimsuit - one-piece",
       "color": "",
-      "category": "swimwear",
+      "category": "services",
       "collection": "Apex Pattern",
       "visibility": "visible",
-      "price": 43,
+      "price": 43.99,
       "image": "AeroVistaApex ShadowOnePieceSwimsuit.png",
       "description_text": "This one-piece swimsuit for all figures will bring out your best features. Enjoy the smooth fabric and the flattering design, and show it off by the sea or pool! • 75% recycled polyester, 25% elastane for production in the US/Mexico • 82% polyester, 18% elastane for production in Latvia • Fabric weight: 6.64 oz./yd.² (225 g/m²) in the US/Mexico • Fabric weight: 6.78 oz./yd.² (230 g/m²) in Latvia • Chlorine-resistant fabric • Cheeky fit with a scoop neckline and a low scoop back • Zig-zag stitching • Double-layer front • Four-way stretch material stretches and recovers on the cross and lengthwise grains • Blank product components sourced from Mexico and China",
       "description_html": "<p>This one-piece swimsuit for all figures will bring out your best features. Enjoy the smooth fabric and the flattering design, and show it off by the sea or pool! • 75% recycled polyester, 25% elastane for production in the US/Mexico • 82% polyester, 18% elastane for production in Latvia • Fabric weight: 6.64 oz./yd.² (225 g/m²) in the US/Mexico • Fabric weight: 6.78 oz./yd.² (230 g/m²) in Latvia • Chlorine-resistant fabric • Cheeky fit with a scoop neckline and a low scoop back • Zig-zag stitching • Double-layer front • Four-way stretch material stretches and recovers on the cross and lengthwise grains • Blank product components sourced from Mexico and China</p>",
-      "seo_title": "",
-      "seo_description": "",
+      "seo_title": "AeroVista Apex Pattern Print Swimsuit - one-piece",
+      "seo_description": "This one-piece swimsuit for all figures will bring out your best features. Enjoy the smooth fabric and the flattering design, and show it off by the sea or",
       "tags": [
-        "swimwear",
+        "services",
         "apex-pattern",
         "aerovista"
       ],
@@ -447,28 +447,28 @@
           "size": "XS",
           "color": "",
           "sku": "6A0120F1D2F81_9014",
-          "price": 43,
+          "price": 43.99,
           "variation_id": "PEEQKSW34MEHRNGMIQLS52P2"
         },
         {
           "size": "S",
           "color": "",
           "sku": "6A0120F1D2F81_9015",
-          "price": 43,
+          "price": 43.99,
           "variation_id": "2RIKAXZS7662KLWJZIDFSMEU"
         },
         {
           "size": "M",
           "color": "",
           "sku": "6A0120F1D2F81_9016",
-          "price": 43,
+          "price": 43.99,
           "variation_id": "LFJHB7WBW6VIO2ZWSKP5AYPA"
         },
         {
           "size": "L",
           "color": "",
           "sku": "6A0120F1D2F81_9017",
-          "price": 43,
+          "price": 43.99,
           "variation_id": "QPJV2QV5BJUHZOK3KDUXABIL"
         }
       ]
@@ -477,17 +477,17 @@
       "id": "aerovista-apex-pattern-skater-dress",
       "name": "AeroVista Apex Pattern Skater Dress",
       "color": "",
-      "category": "dress",
+      "category": "apparel",
       "collection": "Apex Pattern",
       "visibility": "visible",
-      "price": 90,
+      "price": 89.99,
       "image": "AeroVista Apex Pattern Skater Dress.png",
       "description_text": "The AeroVista Apex Pattern Skater Dress pairs a clean fitted bodice with a flowing skirt for a balanced, easy-to-wear silhouette. The upper features a repeating AeroVista Apex motif, while the lower half transitions into a darker shadow-textured finish for a sleek, more refined look. Comfortable, versatile, and easy to style, it brings subtle branded detail without overpowering the design. • 75% recycled polyester, 25% elastane • Fabric weight: 6.64 oz./yd.² (225 g/m²) • Smooth and elastic fabric • Mid-thigh length flared skirt • Elastic waistline • Overlock seams, coverstitch hemline • Blank product components sourced from Mexico and China",
       "description_html": "<p>The AeroVista Apex Pattern Skater Dress pairs a clean fitted bodice with a flowing skirt for a balanced, easy-to-wear silhouette. The upper features a repeating AeroVista Apex motif, while the lower half transitions into a darker shadow-textured finish for a sleek, more refined look. Comfortable, versatile, and easy to style, it brings subtle branded detail without overpowering the design. • 75% recycled polyester, 25% elastane • Fabric weight: 6.64 oz./yd.² (225 g/m²) • Smooth and elastic fabric • Mid-thigh length flared skirt • Elastic waistline • Overlock seams, coverstitch hemline • Blank product components sourced from Mexico and China</p>",
-      "seo_title": "",
-      "seo_description": "",
+      "seo_title": "AeroVista Apex Pattern Skater Dress",
+      "seo_description": "The AeroVista Apex Pattern Skater Dress pairs a clean fitted bodice with a flowing skirt for a balanced, easy-to-wear silhouette. The upper features a repe",
       "tags": [
-        "dress",
+        "apparel",
         "apex-pattern",
         "aerovista"
       ],
@@ -496,54 +496,54 @@
           "size": "XS",
           "color": "",
           "sku": "69EA4CD98B173_9613",
-          "price": 90,
+          "price": 89.99,
           "variation_id": "6VRKJ6PAXL7SK7FJ3NHI7Q75"
         },
         {
           "size": "S",
           "color": "",
           "sku": "69EA4CD98B173_9614",
-          "price": 90,
+          "price": 89.99,
           "variation_id": "N2WOULQODMUNHZV5CGRQOXTV"
         },
         {
           "size": "M",
           "color": "",
           "sku": "69EA4CD98B173_9615",
-          "price": 90,
+          "price": 89.99,
           "variation_id": "ZRXJHUPI76FF3S6KEJDUD5M7"
         },
         {
           "size": "L",
           "color": "",
           "sku": "69EA4CD98B173_9616",
-          "price": 90,
+          "price": 89.99,
           "variation_id": "JB4RMQXAI6ASLCSC2DXBNYB5"
         },
         {
           "size": "XL",
           "color": "",
           "sku": "69EA4CD98B173_9617",
-          "price": 90,
+          "price": 89.99,
           "variation_id": "54MOZSM3W7GOESGPPBFBTZZA"
         }
       ]
     },
     {
-      "id": "aerovista-apex-pattern-cotton-skater-dress",
-      "name": "AeroVista Apex Pattern Cotton Skater Dress",
+      "id": "aerovista-apex-pattern-skater-dress-cotton",
+      "name": "AeroVista Apex Pattern Skater Dress Cotton",
       "color": "",
-      "category": "dress",
+      "category": "apparel",
       "collection": "Apex Pattern",
-      "visibility": "visible",
-      "price": 80,
-      "image": "AeroVista Apex Pattern Skater Dress.png",
+      "visibility": "hidden",
+      "price": 89.99,
+      "image": "",
       "description_text": "The AeroVista Apex Pattern Skater Dress pairs a clean fitted bodice with a flowing skirt for a balanced, easy-to-wear silhouette. The upper features a repeating AeroVista Apex motif, while the lower half transitions into a darker shadow-textured finish for a sleek, more refined look. Comfortable, versatile, and easy to style, it brings subtle branded detail without overpowering the design. Cotton dress sits a bit shorter in the torso",
       "description_html": "<p>The AeroVista Apex Pattern Skater Dress pairs a clean fitted bodice with a flowing skirt for a balanced, easy-to-wear silhouette. The upper features a repeating AeroVista Apex motif, while the lower half transitions into a darker shadow-textured finish for a sleek, more refined look. Comfortable, versatile, and easy to style, it brings subtle branded detail without overpowering the design. Cotton dress sits a bit shorter in the torso</p>",
       "seo_title": "",
       "seo_description": "",
       "tags": [
-        "dress",
+        "apparel",
         "apex-pattern",
         "aerovista"
       ],
@@ -552,29 +552,294 @@
           "size": "XS",
           "color": "",
           "sku": "69E803BF9193C_46399",
-          "price": 80,
+          "price": 89.99,
           "variation_id": "5IVL7D7NOA6KFBX64YZR4RYJ"
         },
         {
           "size": "S",
           "color": "",
           "sku": "69E803BF9193C_46400",
-          "price": 80,
+          "price": 89.99,
           "variation_id": "7A2H4UG3VINPDSYXLKJG2PUP"
         },
         {
           "size": "M",
           "color": "",
           "sku": "69E803BF9193C_46401",
-          "price": 80,
+          "price": 89.99,
           "variation_id": "YLT3CGZNN4BTZEQ5O4HEOK7Q"
         },
         {
           "size": "L",
           "color": "",
           "sku": "69E803BF9193C_46402",
-          "price": 80,
+          "price": 89.99,
           "variation_id": "MZ3CAQCIIGNJDVW3ZYASZCZ5"
+        }
+      ]
+    },
+    {
+      "id": "aerovista-apex-signal-sweatshirt",
+      "name": "AeroVista Apex Signal Sweatshirt",
+      "color": "",
+      "category": "crewnecks",
+      "collection": "APEX",
+      "visibility": "visible",
+      "price": 49.99,
+      "image": "AeroVista Apex Signal Sweatshirt.png",
+      "description_text": "The AeroVista Apex Signal Sweatshirt is built around the flagship Apex emblem — a sharp geometric mark representing structure, focus, and forward motion. Featuring a premium centered chest print with engineered metallic styling, this piece blends clean minimalism with futuristic identity design. Soft, durable, and designed for everyday wear, the Apex Signal Sweatshirt works equally well as a layered streetwear piece, creative workspace uniform, or statement essential within the AeroVista system. Part of the AeroVista Apex Collection: One Mark. Many Systems.",
+      "description_html": "<p>The AeroVista Apex Signal Sweatshirt is built around the flagship Apex emblem — a sharp geometric mark representing structure, focus, and forward motion. Featuring a premium centered chest print with engineered metallic styling, this piece blends clean minimalism with futuristic identity design. Soft, durable, and designed for everyday wear, the Apex Signal Sweatshirt works equally well as a layered streetwear piece, creative workspace uniform, or statement essential within the AeroVista system. Part of the AeroVista Apex Collection: One Mark. Many Systems.</p>",
+      "seo_title": "AeroVista Apex Signal Sweatshirt",
+      "seo_description": "The AeroVista Apex Signal Sweatshirt is built around the flagship Apex emblem — a sharp geometric mark representing structure, focus, and forward motion. F",
+      "tags": [
+        "crewnecks",
+        "aerovista",
+        "apex"
+      ],
+      "variants": [
+        {
+          "size": "S",
+          "color": "",
+          "sku": "6A0D7EF282F07_11254",
+          "price": 49.99,
+          "variation_id": "ALUTCBAGSA2FJ2Z27Q5ETOHI"
+        },
+        {
+          "size": "M",
+          "color": "",
+          "sku": "6A0D7EF282F07_11255",
+          "price": 49.99,
+          "variation_id": "NG4QBYILAPC7QXMIVO6J3EMD"
+        },
+        {
+          "size": "L",
+          "color": "",
+          "sku": "6A0D7EF282F07_11256",
+          "price": 49.99,
+          "variation_id": "HGXVJSHXE6QWNYBXH5OK3YI2"
+        },
+        {
+          "size": "XL",
+          "color": "",
+          "sku": "6A0D7EF282F07_11257",
+          "price": 49.99,
+          "variation_id": "PQQ4ACUL36WYOL3VABQLUZ3E"
+        },
+        {
+          "size": "2XL",
+          "color": "",
+          "sku": "6A0D7EF282F07_11258",
+          "price": 49.99,
+          "variation_id": "QF7XLKC4NSU6K56XSEV6NVEX"
+        },
+        {
+          "size": "3XL",
+          "color": "",
+          "sku": "6A0D7EF282F07_13258",
+          "price": 49.99,
+          "variation_id": "5OZJRXRZKIYQVS5BIMUTTINH"
+        }
+      ]
+    },
+    {
+      "id": "aerovista-apex-vintage-tee",
+      "name": "AeroVista Apex Vintage Tee",
+      "color": "",
+      "category": "tees",
+      "collection": "core",
+      "visibility": "visible",
+      "price": 39.99,
+      "image": "AeroVista Apex Vintage Tee.png",
+      "description_text": "The AeroVista Apex Vintage Tee combines washed garment-dyed texture with the flagship Apex emblem for a clean, engineered streetwear look. Built on the Stanley/Stella Creator 2.0 Vintage platform, this premium heavyweight tee delivers a soft lived-in feel while keeping the visual identity sharp and structured. The centered Apex Signal mark gives the shirt a refined futuristic presence without overcomplicating the design — making it easy to wear daily while still carrying the AeroVista system identity. Designed for creators, operators, builders, and signal carriers. One Mark. Many Systems.",
+      "description_html": "<p>The AeroVista Apex Vintage Tee combines washed garment-dyed texture with the flagship Apex emblem for a clean, engineered streetwear look. Built on the Stanley/Stella Creator 2.0 Vintage platform, this premium heavyweight tee delivers a soft lived-in feel while keeping the visual identity sharp and structured. The centered Apex Signal mark gives the shirt a refined futuristic presence without overcomplicating the design — making it easy to wear daily while still carrying the AeroVista system identity. Designed for creators, operators, builders, and signal carriers. One Mark. Many Systems.</p>",
+      "seo_title": "AeroVista Apex Vintage Tee",
+      "seo_description": "The AeroVista Apex Vintage Tee combines washed garment-dyed texture with the flagship Apex emblem for a clean, engineered streetwear look. Built on the Sta",
+      "tags": [
+        "tees",
+        "aerovista"
+      ],
+      "variants": [
+        {
+          "size": "S",
+          "color": "",
+          "sku": "6A0D817E807E0_46045",
+          "price": 39.99,
+          "variation_id": "GAGYMOH4XQMFMV6W5IPJWPB5"
+        },
+        {
+          "size": "M",
+          "color": "",
+          "sku": "6A0D817E807E0_46052",
+          "price": 39.99,
+          "variation_id": "NBEHXYOQW472BTZMF6VRQSJP"
+        },
+        {
+          "size": "L",
+          "color": "",
+          "sku": "6A0D817E807E0_46059",
+          "price": 39.99,
+          "variation_id": "4ZFK3SBGOU4KC3QKX6PZIZ5V"
+        },
+        {
+          "size": "XL",
+          "color": "",
+          "sku": "6A0D817E807E0_46066",
+          "price": 39.99,
+          "variation_id": "OPXNXLMKDBP3FYNC4WRGIXDF"
+        },
+        {
+          "size": "2XL",
+          "color": "",
+          "sku": "6A0D817E807E0_46073",
+          "price": 39.99,
+          "variation_id": "7GXCEE56QNQSP3JQLC2XJPDC"
+        },
+        {
+          "size": "3XL",
+          "color": "",
+          "sku": "6A0D817E807E0_46080",
+          "price": 39.99,
+          "variation_id": "F7PUBBX5QRYL4EEHZGCKBX6O"
+        }
+      ]
+    },
+    {
+      "id": "aerovista-core-hoodie",
+      "name": "AeroVista Core Hoodie",
+      "color": "",
+      "category": "hoodies",
+      "collection": "core",
+      "visibility": "visible",
+      "price": 49.99,
+      "image": "AeroVista Core Hoodie.png",
+      "description_text": "A clean daily hoodie built for comfort, movement, and low-key brand presence. The AeroVista Core Hoodie keeps the look simple with one intentional Apex mark, making it easy to layer, easy to wear, and strong enough to anchor the full Core uniform. A minimal everyday hoodie with a quiet AeroVista signal.",
+      "description_html": "<p>A clean daily hoodie built for comfort, movement, and low-key brand presence. The AeroVista Core Hoodie keeps the look simple with one intentional Apex mark, making it easy to layer, easy to wear, and strong enough to anchor the full Core uniform. A minimal everyday hoodie with a quiet AeroVista signal.</p>",
+      "seo_title": "AeroVista Core Hoodie",
+      "seo_description": "A clean daily hoodie built for comfort, movement, and low-key brand presence. The AeroVista Core Hoodie keeps the look simple with one intentional Apex mar",
+      "tags": [
+        "hoodies",
+        "aerovista",
+        "core"
+      ],
+      "variants": [
+        {
+          "size": "S",
+          "color": "",
+          "sku": "6A0A5208DE10D_10779",
+          "price": 49.99,
+          "variation_id": "KA6G7Z65PJYPXANWWHQISKAE"
+        },
+        {
+          "size": "M",
+          "color": "",
+          "sku": "6A0A5208DE10D_10780",
+          "price": 49.99,
+          "variation_id": "HLRJR5FAGLQFWEQ64SDYSV6H"
+        },
+        {
+          "size": "L",
+          "color": "",
+          "sku": "6A0A5208DE10D_10781",
+          "price": 49.99,
+          "variation_id": "YQRQ62IKUJRYZ3W5LKXXBKRG"
+        },
+        {
+          "size": "XL",
+          "color": "",
+          "sku": "6A0A5208DE10D_10782",
+          "price": 49.99,
+          "variation_id": "24SGANMVVRMVBBMMQKXE6OLZ"
+        },
+        {
+          "size": "2XL",
+          "color": "",
+          "sku": "6A0A5208DE10D_10783",
+          "price": 49.99,
+          "variation_id": "FYCDVU5P7MTLCOXIDL2HL6IJ"
+        },
+        {
+          "size": "3XL",
+          "color": "",
+          "sku": "6A0A5208DE10D_13416",
+          "price": 49.99,
+          "variation_id": "3TTHKA7QSEYBXTVRDNHI2DOP"
+        }
+      ]
+    },
+    {
+      "id": "aerovista-core-tee",
+      "name": "AeroVista Core Tee",
+      "color": "",
+      "category": "tees",
+      "collection": "core",
+      "visibility": "visible",
+      "price": 39.99,
+      "image": "AeroVista Core Tee (2).png",
+      "description_text": "The everyday foundation piece of the AeroVista Core line. Clean, lightweight, and easy to wear, this tee features a single subtle Apex mark for a sharp, minimal brand signal. Built for daily rotation, work sessions, travel days, and everything in between. A clean everyday tee with one subtle AeroVista Apex mark.",
+      "description_html": "<p>The everyday foundation piece of the AeroVista Core line. Clean, lightweight, and easy to wear, this tee features a single subtle Apex mark for a sharp, minimal brand signal. Built for daily rotation, work sessions, travel days, and everything in between. A clean everyday tee with one subtle AeroVista Apex mark.</p>",
+      "seo_title": "AeroVista Core Tee",
+      "seo_description": "The everyday foundation piece of the AeroVista Core line. Clean, lightweight, and easy to wear, this tee features a single subtle Apex mark for a sharp, mi",
+      "tags": [
+        "tees",
+        "aerovista",
+        "core"
+      ],
+      "variants": [
+        {
+          "size": "XS",
+          "color": "",
+          "sku": "6A0A4D5624CF7_9527",
+          "price": 39.99,
+          "variation_id": "4LSN45TXPC76YPD3CHSPG6B7"
+        },
+        {
+          "size": "S",
+          "color": "",
+          "sku": "6A0A4D5624CF7_4016",
+          "price": 39.99,
+          "variation_id": "27VXXFGXU54V2TMHASPNXPFL"
+        },
+        {
+          "size": "M",
+          "color": "",
+          "sku": "6A0A4D5624CF7_4017",
+          "price": 39.99,
+          "variation_id": "MJUOSQIBD23EXT4VAHM7ZMNO"
+        },
+        {
+          "size": "L",
+          "color": "",
+          "sku": "6A0A4D5624CF7_4018",
+          "price": 39.99,
+          "variation_id": "R3BYERB4SBDWEPAOARA66RYE"
+        },
+        {
+          "size": "XL",
+          "color": "",
+          "sku": "6A0A4D5624CF7_4019",
+          "price": 39.99,
+          "variation_id": "3KUQEJU6MQHM6T5OFH4W3TPQ"
+        },
+        {
+          "size": "2XL",
+          "color": "",
+          "sku": "6A0A4D5624CF7_4020",
+          "price": 39.99,
+          "variation_id": "QHOAHZJEZX6YLKFJNMCZV5WT"
+        },
+        {
+          "size": "3XL",
+          "color": "",
+          "sku": "6A0A4D5624CF7_5295",
+          "price": 39.99,
+          "variation_id": "RZRRVMS7QC2HNRESMPRB5VCU"
+        },
+        {
+          "size": "4XL",
+          "color": "",
+          "sku": "6A0A4D5624CF7_5310",
+          "price": 39.99,
+          "variation_id": "SCVAHPSWF6P26LFFJOLHB2WR"
         }
       ]
     },
@@ -582,17 +847,17 @@
       "id": "aerovista-division-hoodie",
       "name": "AeroVista Division Hoodie",
       "color": "",
-      "category": "hoodies",
-      "collection": "Division",
+      "category": "services",
+      "collection": "core",
       "visibility": "visible",
       "price": 59.99,
       "image": "aerovista divisions.png",
-      "description_text": "AeroVista Division Hoodie is a premium AeroVista hoodie built for daily rotation, late-night build sessions, and clean operator style. The piece ties into the AeroVista Divisions line with a wearable balance of comfort, signal, and visual identity. Soft structure, repeat-wear comfort, and a sharp front-facing concept make it easy to pair with jeans, joggers, shop gear, or travel layers.",
-      "description_html": "<p>AeroVista Division Hoodie is a premium AeroVista hoodie built for daily rotation, late-night build sessions, and clean operator style. The piece ties into the AeroVista Divisions line with a wearable balance of comfort, signal, and visual identity. Soft structure, repeat-wear comfort, and a sharp front-facing concept make it easy to pair with jeans, joggers, shop gear, or travel layers.</p>",
+      "description_text": "Who knew that the softest hoodie you'll ever own comes with such a cool design. You won't regret buying this classic streetwear piece of apparel with a convenient pouch pocket and warm hood for chilly evenings. • 100% cotton face • 65% ring-spun cotton, 35% polyester • Front pouch pocket • Self-fabric patch on the back • Matching flat drawstrings • 3-panel hood • Blank product sourced from Pakistan Disclaimer: This hoodie runs small. For the perfect fit, we recommend ordering one size larger than your usual size.",
+      "description_html": "<p>Who knew that the softest hoodie you&#039;ll ever own comes with such a cool design. You won&#039;t regret buying this classic streetwear piece of apparel with a convenient pouch pocket and warm hood for chilly evenings. • 100% cotton face • 65% ring-spun cotton, 35% polyester • Front pouch pocket • Self-fabric patch on the back • Matching flat drawstrings • 3-panel hood • Blank product sourced from Pakistan Disclaimer: This hoodie runs small. For the perfect fit, we recommend ordering one size larger than your usual size.</p>",
       "seo_title": "",
       "seo_description": "",
       "tags": [
-        "hoodies",
+        "services",
         "aerovista"
       ],
       "variants": [
@@ -641,138 +906,302 @@
       ]
     },
     {
-      "id": "aerovista-premium-embroidered-apex-hat-black",
-      "name": "AeroVista Premium Embroidered Apex Hat — Black",
-      "color": "Black",
+      "id": "aerovista-premium-embroidered-hat-black-cap-with-signature-apex-mark",
+      "name": "AeroVista Premium Embroidered Hat — Black Cap with Signature Apex Mark",
+      "color": "",
       "category": "hats",
-      "collection": "Core",
+      "collection": "APEX",
       "visibility": "visible",
-      "price": 38,
-      "image": "AeroVista Premium Embroidered Hat.png",
+      "price": 32.99,
+      "image": "Apex Embroidered Hat Black.png",
       "description_text": "Clean, sharp, and built for a premium everyday look, this black AeroVista hat features the signature apex mark embroidered on the front in a high-contrast metallic-inspired thread. The design keeps things minimal while still standing out, giving it a modern tech-luxury feel that works with casual wear, shop wear, or branded team gear. Sleek lines, strong shape, and a low-noise aesthetic make this a versatile cap for anyone who wants understated style with a polished edge.",
       "description_html": "<p>Clean, sharp, and built for a premium everyday look, this black AeroVista hat features the signature apex mark embroidered on the front in a high-contrast metallic-inspired thread. The design keeps things minimal while still standing out, giving it a modern tech-luxury feel that works with casual wear, shop wear, or branded team gear. Sleek lines, strong shape, and a low-noise aesthetic make this a versatile cap for anyone who wants understated style with a polished edge.</p>",
-      "seo_title": "",
-      "seo_description": "",
+      "seo_title": "AeroVista Premium Embroidered Hat — Black Cap with Signature Apex Ma",
+      "seo_description": "Clean, sharp, and built for a premium everyday look, this black AeroVista hat features the signature apex mark embroidered on the front in a high-contrast ",
       "tags": [
         "hats",
-        "aerovista"
+        "aerovista",
+        "apex"
       ],
       "variants": [
         {
           "size": "One Size",
-          "color": "Black",
+          "color": "",
           "sku": "69B13517A9C97_5277",
-          "price": 38,
+          "price": 32.99,
           "variation_id": "I5KWC4KY7KWNSF73WJPRSTDL"
         }
       ]
     },
     {
-      "id": "aerovista-wave-mark-full-zip-hoodie-white",
-      "name": "AeroVista Wave Mark Full-Zip Hoodie — White",
-      "color": "White",
+      "id": "aerovista-shadow-pattern-hoodie",
+      "name": "AeroVista Shadow Pattern Hoodie",
+      "color": "",
       "category": "hoodies",
+      "collection": "APEX",
+      "visibility": "visible",
+      "price": 58,
+      "image": "AeroVista Apex Pattern Hoodie (3).png",
+      "description_text": "This comfy unisex hoodie has a soft outside with a vibrant print and an even softer brushed fleece inside. The hoodie has a relaxed fit, and it’s perfect for wrapping yourself into on a chilly evening. • 96% recycled polyester, 4% elastane for manufacturing in the US/Mexico • 95% recycled polyester, 5% elastane for manufacturing in Latvia • Fabric weight (may vary by 5%): 9.08 oz./yd.² (308 g/m²) • Soft cotton-feel fabric face • Brushed fleece fabric inside • Double-lined hood with design on both sides • Unisex style • Comes with drawstrings • Overlock seams • Blank product components in Mexico sourced from Poland and Mexico • Blank product components in the EU sourced from China and Poland Disclaimer: In areas where the fabric is double-layered (like pockets), details from the inner fabric layer may subtly show through, especially with lighter designs.",
+      "description_html": "<p>This comfy unisex hoodie has a soft outside with a vibrant print and an even softer brushed fleece inside. The hoodie has a relaxed fit, and it’s perfect for wrapping yourself into on a chilly evening. • 96% recycled polyester, 4% elastane for manufacturing in the US/Mexico • 95% recycled polyester, 5% elastane for manufacturing in Latvia • Fabric weight (may vary by 5%): 9.08 oz./yd.² (308 g/m²) • Soft cotton-feel fabric face • Brushed fleece fabric inside • Double-lined hood with design on both sides • Unisex style • Comes with drawstrings • Overlock seams • Blank product components in Mexico sourced from Poland and Mexico • Blank product components in the EU sourced from China and Poland Disclaimer: In areas where the fabric is double-layered (like pockets), details from the inner fabric layer may subtly show through, especially with lighter designs.</p>",
+      "seo_title": "AeroVista Shadow Pattern Hoodie",
+      "seo_description": "This comfy unisex hoodie has a soft outside with a vibrant print and an even softer brushed fleece inside. The hoodie has a relaxed fit, and it’s perfect f",
+      "tags": [
+        "hoodies",
+        "aerovista",
+        "apex"
+      ],
+      "variants": [
+        {
+          "size": "2XS",
+          "color": "",
+          "sku": "6A0E278AE849D_18730",
+          "price": 58,
+          "variation_id": "FMWZ6F55ROOMHWEICCDEQAC6"
+        },
+        {
+          "size": "XS",
+          "color": "",
+          "sku": "6A0E278AE849D_10869",
+          "price": 59.5,
+          "variation_id": "YBUJQJYN7QAD5SUONXQOFGAP"
+        },
+        {
+          "size": "S",
+          "color": "",
+          "sku": "6A0E278AE849D_10870",
+          "price": 59.5,
+          "variation_id": "MP3KNDIENL6ODP5N7GQLJ6XL"
+        },
+        {
+          "size": "M",
+          "color": "",
+          "sku": "6A0E278AE849D_10871",
+          "price": 59.5,
+          "variation_id": "L3RW2AWTHRL5YILXMOODFTFK"
+        },
+        {
+          "size": "L",
+          "color": "",
+          "sku": "6A0E278AE849D_10872",
+          "price": 59.5,
+          "variation_id": "EIBNHLPIST22P2BLZFRGVTMV"
+        },
+        {
+          "size": "XL",
+          "color": "",
+          "sku": "6A0E278AE849D_10873",
+          "price": 59.5,
+          "variation_id": "H6YGDMOCSWPWONMEMF7P2DFK"
+        },
+        {
+          "size": "2XL",
+          "color": "",
+          "sku": "6A0E278AE849D_10874",
+          "price": 62,
+          "variation_id": "5PNXQY7PB5EOZK6Y4PQ3JAQC"
+        },
+        {
+          "size": "3XL",
+          "color": "",
+          "sku": "6A0E278AE849D_10875",
+          "price": 65,
+          "variation_id": "2BS54536IKXSQFXMTBTNKVYN"
+        },
+        {
+          "size": "4XL",
+          "color": "",
+          "sku": "6A0E278AE849D_18731",
+          "price": 68,
+          "variation_id": "UOMOMIEO3LZWTPINJ73SLTG2"
+        },
+        {
+          "size": "5XL",
+          "color": "",
+          "sku": "6A0E278AE849D_18732",
+          "price": 71,
+          "variation_id": "O34AEN3AU364RTEZSYHUPBAQ"
+        },
+        {
+          "size": "6XL",
+          "color": "",
+          "sku": "6A0E278AE849D_18733",
+          "price": 74,
+          "variation_id": "I4YGRMK3PLAMDE2LIFQXQGN4"
+        }
+      ]
+    },
+    {
+      "id": "aerovista-wave-mark-full-zip-hoodie-white",
+      "name": "AeroVista Wave Mark Full-Zip Hoodie – White",
+      "color": "",
+      "category": "services",
       "collection": "Wave Mark",
       "visibility": "visible",
-      "price": 64.99,
+      "price": 59.99,
       "image": "av_wave_white.png",
       "description_text": "A bright, clean layer with a minimalist chest logo that pops without overpowering. Premium feel, easy styling, and ready for studio days, travel, and everyday fits. Highlights: Unisex mid-weight zip hoodie • Smooth, crisp look • Everyday comfort • Layer-friendly",
       "description_html": "<p>A bright, clean layer with a minimalist chest logo that pops without overpowering. Premium feel, easy styling, and ready for studio days, travel, and everyday fits. Highlights: Unisex mid-weight zip hoodie • Smooth, crisp look • Everyday comfort • Layer-friendly</p>",
       "seo_title": "",
       "seo_description": "",
       "tags": [
-        "hoodies",
+        "services",
         "wave-mark",
         "aerovista"
       ],
       "variants": [
         {
           "size": "S",
-          "color": "White",
+          "color": "",
           "sku": "699E02B377FE0_25695",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "HHIKYAMXVORYTFSAG4HX6U3H"
         },
         {
           "size": "M",
-          "color": "White",
+          "color": "",
           "sku": "699E02B377FE0_25696",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "SGDOHMZO4UDKVWBVDIMQC67F"
         },
         {
           "size": "L",
-          "color": "White",
+          "color": "",
           "sku": "699E02B377FE0_25697",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "GAMWI6BKCLNNGLZZLZYLMSSJ"
         },
         {
           "size": "XL",
-          "color": "White",
+          "color": "",
           "sku": "699E02B377FE0_25698",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "MHK2PY2HZIURB2SPSTZFZRFQ"
         },
         {
           "size": "2XL",
-          "color": "White",
+          "color": "",
           "sku": "699E02B377FE0_25699",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "2EUJDYZDTDNM5RUDIS3ZTCDF"
         },
         {
           "size": "3XL",
-          "color": "White",
+          "color": "",
           "sku": "699E02B377FE0_25700",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "W64AEN7JN6XH3E2DKD4W6ZW5"
         }
       ]
     },
     {
+      "id": "aerovista-shadow-pattern-long-sleeve-tee",
+      "name": "AeroVista shadow Pattern Long Sleeve Tee",
+      "color": "",
+      "category": "tees",
+      "collection": "APEX",
+      "visibility": "visible",
+      "price": 41.5,
+      "image": "AeroVistaApexShadowLongSleeveTee.png",
+      "description_text": "Made from 100% brushed polyester, this long-sleeve tee is soft, comfortable, and perfect for layering or wearing on its own. Its smooth fabric is ideal for showcasing your designs while keeping you stylish and versatile all day. • 100% polyester • Fabric weight: 5.16 oz./yd.² (175 g/m²) • Printed-in size and care label • Double needle sleeve, neck and bottom hem • Blank product sourced from USA Care Instructions: Machine wash cold (up to 90 °F / 30 °C ) and tumble dry on low heat. Do not bleach, iron, or dry clean to maintain the fabric’s quality and longevity.",
+      "description_html": "<p>Made from 100% brushed polyester, this long-sleeve tee is soft, comfortable, and perfect for layering or wearing on its own. Its smooth fabric is ideal for showcasing your designs while keeping you stylish and versatile all day. • 100% polyester • Fabric weight: 5.16 oz./yd.² (175 g/m²) • Printed-in size and care label • Double needle sleeve, neck and bottom hem • Blank product sourced from USA Care Instructions: Machine wash cold (up to 90 °F / 30 °C ) and tumble dry on low heat. Do not bleach, iron, or dry clean to maintain the fabric’s quality and longevity.</p>",
+      "seo_title": "AeroVista shadow Pattern Long Sleeve Tee",
+      "seo_description": "Made from 100% brushed polyester, this long-sleeve tee is soft, comfortable, and perfect for layering or wearing on its own. Its smooth fabric is ideal for",
+      "tags": [
+        "tees",
+        "aerovista"
+      ],
+      "variants": [
+        {
+          "size": "XS",
+          "color": "",
+          "sku": "6A0E2781C51E2_23673",
+          "price": 41.5,
+          "variation_id": "7PCFZBZLGRXJZPXF7OAW67J5"
+        },
+        {
+          "size": "S",
+          "color": "",
+          "sku": "6A0E2781C51E2_23674",
+          "price": 41.5,
+          "variation_id": "BJ6JPBPUD266PDEW4PJ3BISB"
+        },
+        {
+          "size": "M",
+          "color": "",
+          "sku": "6A0E2781C51E2_23675",
+          "price": 41.5,
+          "variation_id": "RL44YNQ7AMVSE5YLT45TW6LC"
+        },
+        {
+          "size": "L",
+          "color": "",
+          "sku": "6A0E2781C51E2_23676",
+          "price": 41.5,
+          "variation_id": "COLK7JAU5L2SXH6GWRKQELTT"
+        },
+        {
+          "size": "XL",
+          "color": "",
+          "sku": "6A0E2781C51E2_23677",
+          "price": 41.5,
+          "variation_id": "7E4VE7EFPACFPXEQXNJ2ZOEC"
+        },
+        {
+          "size": "2XL",
+          "color": "",
+          "sku": "6A0E2781C51E2_23678",
+          "price": 46,
+          "variation_id": "4YV42WUX7CZXUFPLG4DVU7LG"
+        }
+      ]
+    },
+    {
       "id": "aerovista-apex-mesh-trucker-cap",
-      "name": "AeroVista Apex Mesh Trucker Cap",
+      "name": "AeroVista “Apex Mesh” Trucker Cap",
       "color": "",
       "category": "hats",
-      "collection": "Draft Series",
+      "collection": "drafted",
       "visibility": "visible",
-      "price": 34.99,
+      "price": 32.99,
       "image": "drafted-a-snapback.png",
       "description_text": "The AeroVista Apex Mesh cap is built for daily wear: structured front panel, breathable mesh back, and a crisp embroidered-style logo that pops in silver and blue. It’s the kind of hat you can throw on for work days, road miles, shop time, or just keeping the sun out while you move. Key features: Structured front + breathable mesh back Curved brim for a classic silhouette AeroVista Apex logo front and center Easy, adjustable snapback fit Fit note: One size fits most (adjustable snapback).",
       "description_html": "<p>The AeroVista Apex Mesh cap is built for daily wear: structured front panel, breathable mesh back, and a crisp embroidered-style logo that pops in silver and blue. It’s the kind of hat you can throw on for work days, road miles, shop time, or just keeping the sun out while you move. Key features: Structured front + breathable mesh back Curved brim for a classic silhouette AeroVista Apex logo front and center Easy, adjustable snapback fit Fit note: One size fits most (adjustable snapback).</p>",
-      "seo_title": "",
-      "seo_description": "",
+      "seo_title": "AeroVista “Apex Mesh” Trucker Cap",
+      "seo_description": "The AeroVista Apex Mesh cap is built for daily wear: structured front panel, breathable mesh back, and a crisp embroidered-style logo that pops in silver a",
       "tags": [
         "hats",
-        "aerovista"
+        "aerovista",
+        "draf",
+        "drafted"
       ],
       "variants": [
         {
           "size": "One Size",
           "color": "",
           "sku": "698A6A96555FB_8747",
-          "price": 34.99,
+          "price": 32.99,
           "variation_id": "7CTKCADMVJBJRHQNT2IPUQKG"
         }
       ]
     },
     {
       "id": "aerovista-skyline-drone-crest-sticker",
-      "name": "AeroVista Skyline Drone Crest Sticker",
+      "name": "AeroVista “Skyline Drone Crest” Sticker",
       "color": "",
       "category": "stickers",
-      "collection": "Horizon",
+      "collection": "horizon",
       "visibility": "visible",
       "price": 5.5,
       "image": "skyline_sticker.png",
       "description_text": "Bring AeroVista with you wherever you go. This “Skyline Drone Crest” design features a bold drone silhouette over a vivid mountain-and-lake horizon—built to feel adventurous, clean, and tech-forward. Perfect for laptops, water bottles, gear cases, notebooks, Pelican cases, toolboxes, and anywhere you want a sharp, high-contrast brand mark that pops. Highlights: • Iconic drone + mountain crest look • High-contrast colors that stay readable at a distance • Looks great as a die-cut sticker with a white border • Outdoor/aviation vibe with a modern tech edge",
       "description_html": "<p>Bring AeroVista with you wherever you go. This “Skyline Drone Crest” design features a bold drone silhouette over a vivid mountain-and-lake horizon—built to feel adventurous, clean, and tech-forward. Perfect for laptops, water bottles, gear cases, notebooks, Pelican cases, toolboxes, and anywhere you want a sharp, high-contrast brand mark that pops. Highlights: • Iconic drone + mountain crest look • High-contrast colors that stay readable at a distance • Looks great as a die-cut sticker with a white border • Outdoor/aviation vibe with a modern tech edge</p>",
-      "seo_title": "",
-      "seo_description": "",
+      "seo_title": "AeroVista “Skyline Drone Crest” Sticker",
+      "seo_description": "Bring AeroVista with you wherever you go. This “Skyline Drone Crest” design features a bold drone silhouette over a vivid mountain-and-lake horizon—built t",
       "tags": [
         "stickers",
-        "aerovista"
+        "aerovista",
+        "horizon"
       ],
       "variants": [
         {
@@ -786,12 +1215,12 @@
     },
     {
       "id": "aerovista-wave-mark-zip-hoodie-white",
-      "name": "AeroVista Wave Mark Zip Hoodie — White",
+      "name": "AeroVista “Wave Mark” Zip Hoodie (White)",
       "color": "White",
       "category": "hoodies",
       "collection": "Wave Mark",
       "visibility": "visible",
-      "price": 64.99,
+      "price": 59.99,
       "image": "av_wave_white.png",
       "description_text": "The AeroVista Wave Mark zip hoodie is a clean, bright layer with a minimalist chest logo that pops without overpowering. Lightweight-looking, premium-feeling, and easy to style—this one’s built for fresh fits, studio days, and anyone who likes their merch crisp. Apparel: Unisex premium mid-weight zip hoodie",
       "description_html": "<p>The AeroVista Wave Mark zip hoodie is a clean, bright layer with a minimalist chest logo that pops without overpowering. Lightweight-looking, premium-feeling, and easy to style—this one’s built for fresh fits, studio days, and anyone who likes their merch crisp. Apparel: Unisex premium mid-weight zip hoodie</p>",
@@ -807,54 +1236,54 @@
           "size": "S",
           "color": "White",
           "sku": "693794485BAA8_25695",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "CPA6XTA4T5IQB537M5W4Q4VF"
         },
         {
           "size": "M",
           "color": "White",
           "sku": "693794485BAA8_25696",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "53QE2TLU4PEQON5R72AT7KTJ"
         },
         {
           "size": "L",
           "color": "White",
           "sku": "693794485BAA8_25697",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "PILOMOJABQBCPOJUR6U6S4IV"
         },
         {
           "size": "XL",
           "color": "White",
           "sku": "693794485BAA8_25698",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "SHORMSQAFZKCHCUD2DRTRVRO"
         },
         {
           "size": "2XL",
           "color": "White",
           "sku": "693794485BAA8_25699",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "57O6PTL6RREP6OFPD3SXYJPC"
         },
         {
           "size": "3XL",
           "color": "White",
           "sku": "693794485BAA8_25700",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "USVD5S24F6WDO7ZMUGTDPFBS"
         }
       ]
     },
     {
       "id": "aerovista-apex-draft-full-zip-hoodie-black",
-      "name": "AeroVista Apex Draft Full-Zip Hoodie — Black",
-      "color": "Black",
+      "name": "AeroVista • Apex Draft • Full-Zip Hoodie • Black",
+      "color": "",
       "category": "hoodies",
       "collection": "Draft Series",
       "visibility": "visible",
-      "price": 64.99,
+      "price": 59.99,
       "image": "drafted_a__zip_hoodie.png",
       "description_text": "Apex Draft is the zip hoodie you throw on when you want a clean look that still works hard. Sharp chest branding, full-zip versatility, and an easy everyday fit—perfect for early mornings, travel days, or late-night build sessions. Apparel: Unisex premium mid-weight zip hoodie Full-zip for quick layering Front pockets + structured hood Soft, durable feel built for repeat wear Fit note: If you prefer a roomier layer, go one size up .",
       "description_html": "<p>Apex Draft is the zip hoodie you throw on when you want a clean look that still works hard. Sharp chest branding, full-zip versatility, and an easy everyday fit—perfect for early mornings, travel days, or late-night build sessions. Apparel: Unisex premium mid-weight zip hoodie Full-zip for quick layering Front pockets + structured hood Soft, durable feel built for repeat wear Fit note: If you prefer a roomier layer, go one size up .</p>",
@@ -868,56 +1297,56 @@
       "variants": [
         {
           "size": "S",
-          "color": "Black",
+          "color": "",
           "sku": "694BAE3D66E20_24251",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "626UEKN7DNZOSK47GPDNUBSX"
         },
         {
           "size": "M",
-          "color": "Black",
+          "color": "",
           "sku": "694BAE3D66E20_24257",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "UIZWJP7GNQ4MYLTFHX5X42NQ"
         },
         {
           "size": "L",
-          "color": "Black",
+          "color": "",
           "sku": "694BAE3D66E20_24263",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "YCD5LKVJLM5AAOPVN2RS4HCR"
         },
         {
           "size": "XL",
-          "color": "Black",
+          "color": "",
           "sku": "694BAE3D66E20_24269",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "AYTBHRR3SOXVQVZT4JZ7L2FO"
         },
         {
           "size": "2XL",
-          "color": "Black",
+          "color": "",
           "sku": "694BAE3D66E20_24275",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "SLQ3WM4MMLK7UYOJZZBSBK7P"
         },
         {
           "size": "3XL",
-          "color": "Black",
+          "color": "",
           "sku": "694BAE3D66E20_25689",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "R46VZTULGJQ2LGOAEVKYQXMJ"
         }
       ]
     },
     {
       "id": "aerovista-apex-draft-pullover-hoodie-black",
-      "name": "AeroVista Apex Draft Pullover Hoodie — Black",
-      "color": "Black",
+      "name": "AeroVista • Apex Draft • Pullover Hoodie • Black",
+      "color": "",
       "category": "hoodies",
       "collection": "Draft Series",
       "visibility": "visible",
-      "price": 64.99,
+      "price": 59.99,
       "image": "drafted_a_hoodie.png",
       "description_text": "The Apex Draft Pullover is built to look premium on black—clean front mark, warm structure, and an easy everyday fit. Made for daily wear: early mornings, travel days, long sessions, and everything in motion. Apparel: Unisex premium mid-weight pullover hoodie Soft, durable feel with a structured drape Front pouch pocket + cozy hood Clean front graphic designed to stay sharp Fit: True to size for a standard fit. Size up for a roomier/oversized layer.",
       "description_html": "<p>The Apex Draft Pullover is built to look premium on black—clean front mark, warm structure, and an easy everyday fit. Made for daily wear: early mornings, travel days, long sessions, and everything in motion. Apparel: Unisex premium mid-weight pullover hoodie Soft, durable feel with a structured drape Front pouch pocket + cozy hood Clean front graphic designed to stay sharp Fit: True to size for a standard fit. Size up for a roomier/oversized layer.</p>",
@@ -931,56 +1360,84 @@
       "variants": [
         {
           "size": "S",
-          "color": "Black",
+          "color": "",
           "sku": "694BABA9CED4F_10779",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "CPMLDAUFKCAE75V46BQXT2F5"
         },
         {
           "size": "M",
-          "color": "Black",
+          "color": "",
           "sku": "694BABA9CED4F_10780",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "EHDPCB4W5OHY4MFRVHVZERAD"
         },
         {
           "size": "L",
-          "color": "Black",
+          "color": "",
           "sku": "694BABA9CED4F_10781",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "XERBPU4IEU3ZE6JTTAMED5LX"
         },
         {
           "size": "XL",
-          "color": "Black",
+          "color": "",
           "sku": "694BABA9CED4F_10782",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "CT4KQZPXATDVWJ5I6PPV5X4X"
         },
         {
           "size": "2XL",
-          "color": "Black",
+          "color": "",
           "sku": "694BABA9CED4F_10783",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "VOEBSOGEPUBYLBVKCEZM3RVL"
         },
         {
           "size": "3XL",
-          "color": "Black",
+          "color": "",
           "sku": "694BABA9CED4F_13416",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "2AUBLOMJLLNGFNLBB5PATCV5"
         }
       ]
     },
     {
-      "id": "aerovista-the-blue-witness-urban-hoodie-black",
-      "name": "AeroVista The Blue Witness Urban Hoodie — Black",
-      "color": "Black",
-      "category": "hoodies",
-      "collection": "offs",
+      "id": "aerovista-retro-trucker-hat-orbit-a-gray",
+      "name": "AeroVista • Retro Trucker Hat • Orbit “A” • Gray",
+      "color": "",
+      "category": "apparel",
+      "collection": "Orbit Mark",
       "visibility": "visible",
-      "price": 64.99,
+      "price": 32.99,
+      "image": "Glitched Orbit grayHat.png",
+      "description_text": "The AeroVista Orbit “A” Retro Trucker Hat is built for sun, speed, and everyday wear—structured front, breathable mesh back, and a clean mark that hits from across the room. • Classic retro trucker silhouette (Yupoong 6606) • Structured front with a curved bill • Mesh back for airflow on warm days • Adjustable snapback for an easy fit Fit: One size fits most (adjustable). Care: Spot clean; air dry.",
+      "description_html": "<p>The AeroVista Orbit “A” Retro Trucker Hat is built for sun, speed, and everyday wear—structured front, breathable mesh back, and a clean mark that hits from across the room. • Classic retro trucker silhouette (Yupoong 6606) • Structured front with a curved bill • Mesh back for airflow on warm days • Adjustable snapback for an easy fit Fit: One size fits most (adjustable). Care: Spot clean; air dry.</p>",
+      "seo_title": "",
+      "seo_description": "",
+      "tags": [
+        "apparel",
+        "orbit-mark",
+        "aerovista"
+      ],
+      "variants": [
+        {
+          "size": "One Size",
+          "color": "",
+          "sku": "699CDDA7C0502_22454",
+          "price": 32.99,
+          "variation_id": "WMOSIHUNBUXQMBP2ETAMB7ZI"
+        }
+      ]
+    },
+    {
+      "id": "aerovista-the-blue-witness-urban-hoodie-black",
+      "name": "AeroVista — The Blue Witness — Urban Hoodie — Black",
+      "color": "",
+      "category": "hoodies",
+      "collection": "core",
+      "visibility": "visible",
+      "price": 59.99,
       "image": "blueye_hoodie.png",
       "description_text": "Built for city nights, shop days, and everything between. The Urban Hoodie has a clean silhouette with a structured feel—comfortable enough for daily wear, sharp enough to look intentional. Apparel: Lane Seven LS16001 Urban Hoodie (unisex) Premium mid/heavy feel with a modern streetwear shape Front pouch pocket + cozy hood Designed to layer clean without looking bulky Fit note: True-to-size for a standard fit. For an oversized streetwear fit, size up.",
       "description_html": "<p>Built for city nights, shop days, and everything between. The Urban Hoodie has a clean silhouette with a structured feel—comfortable enough for daily wear, sharp enough to look intentional. Apparel: Lane Seven LS16001 Urban Hoodie (unisex) Premium mid/heavy feel with a modern streetwear shape Front pouch pocket + cozy hood Designed to layer clean without looking bulky Fit note: True-to-size for a standard fit. For an oversized streetwear fit, size up.</p>",
@@ -993,44 +1450,44 @@
       "variants": [
         {
           "size": "S",
-          "color": "Black",
+          "color": "",
           "sku": "69941C089CBBA_34378",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "4PPVG6XV4MCHAHX2ESOVWGGY"
         },
         {
           "size": "M",
-          "color": "Black",
+          "color": "",
           "sku": "69941C089CBBA_34381",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "ZBOZRZLOWYYCWHZIGHILD4JX"
         },
         {
           "size": "L",
-          "color": "Black",
+          "color": "",
           "sku": "69941C089CBBA_34384",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "OUOZV44NZ7YLPCVELV6WVNYH"
         },
         {
           "size": "XL",
-          "color": "Black",
+          "color": "",
           "sku": "69941C089CBBA_34387",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "HVIRKMWRSNFBPQJBEKNWTBRI"
         },
         {
           "size": "2XL",
-          "color": "Black",
+          "color": "",
           "sku": "69941C089CBBA_34390",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "2HMIV2RM5NEF64MDLBKE5WRA"
         },
         {
           "size": "3XL",
-          "color": "Black",
+          "color": "",
           "sku": "69941C089CBBA_34393",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "G2GUO6QXZJX5S47WVP7TE7UE"
         }
       ]
@@ -1039,17 +1496,17 @@
       "id": "architect-built-different-hoodie-black",
       "name": "Architect — Built Different Hoodie — Black",
       "color": "Black",
-      "category": "hoodies",
+      "category": "apparel",
       "collection": "Draft Series",
       "visibility": "visible",
       "price": 59.99,
-      "image": "Architect Built Different Hoodie.png",
+      "image": "drafted_a_hoodie.png",
       "description_text": "The Built Different Hoodie is the statement layer of the Architect Collection. Centered around the AeroVista A-mark, this design carries founder-built energy, drafting geometry, limited-issue framing, and the phrase that sits at the heart of the build: Built Different.",
       "description_html": "<p>The Built Different Hoodie is the statement layer of the Architect Collection. Centered around the AeroVista A-mark, this design carries founder-built energy, drafting geometry, limited-issue framing, and the phrase that sits at the heart of the build: Built Different.</p>",
-      "seo_title": "",
-      "seo_description": "",
+      "seo_title": "Architect — Built Different Hoodie — Black",
+      "seo_description": "The Built Different Hoodie is the statement layer of the Architect Collection. Centered around the AeroVista A-mark, this design carries founder-built ener",
       "tags": [
-        "hoodies",
+        "apparel",
         "draft-series"
       ],
       "variants": [
@@ -1099,169 +1556,267 @@
     },
     {
       "id": "architect-field-issue-tee-ash",
-      "name": "Architect — Field Issue Tee — Ash",
+      "name": "Architect — Field Issue Tee - Ash",
       "color": "",
-      "category": "tees",
-      "collection": "Draft Series",
+      "category": "apparel",
+      "collection": "drafted",
       "visibility": "visible",
-      "price": 34.99,
+      "price": 39.99,
       "image": "Architect Field Issue Tee - Ash.png",
       "description_text": "The Signal Archive Crewneck captures the quieter side of the Architect Collection — a clean build-archive piece shaped around AeroVista’s signal history, system memory, and technical design language.",
       "description_html": "<p>The Signal Archive Crewneck captures the quieter side of the Architect Collection — a clean build-archive piece shaped around AeroVista’s signal history, system memory, and technical design language.</p>",
-      "seo_title": "",
-      "seo_description": "",
+      "seo_title": "Architect — Field Issue Tee - Ash",
+      "seo_description": "The Signal Archive Crewneck captures the quieter side of the Architect Collection — a clean build-archive piece shaped around AeroVista’s signal history, s",
       "tags": [
-        "tees"
+        "apparel",
+        "architect",
+        "drafted"
       ],
       "variants": [
         {
           "size": "S",
           "color": "",
           "sku": "69FB889176043_4026",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "35WM62NJATAP3QVVDNI2JBH2"
         },
         {
           "size": "M",
           "color": "",
           "sku": "69FB889176043_4027",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "DNCBV3PUF5UDIFRE6V7KUTYM"
         },
         {
           "size": "L",
           "color": "",
           "sku": "69FB889176043_4028",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "HSS36QNGIQKPD3A7FE5BWUP6"
         },
         {
           "size": "XL",
           "color": "",
           "sku": "69FB889176043_4029",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "57HZOIEQ5HABZULJ776IZVZ5"
         },
         {
           "size": "2XL",
           "color": "",
           "sku": "69FB889176043_4030",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "Z6PW3F6QWJWM3RY4I6AR5EEK"
         },
         {
           "size": "3XL",
           "color": "",
           "sku": "69FB889176043_8447",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "5BBFVWKVA4476ZD4HLBOPZHE"
         },
         {
           "size": "4XL",
           "color": "",
           "sku": "69FB889176043_8448",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "FCQWSABJMBYVZSIMARTTBBTS"
         }
       ]
     },
     {
       "id": "architect-field-issue-tee-black",
-      "name": "Architect — Field Issue Tee — Black",
+      "name": "Architect — Field Issue Tee - Black",
       "color": "Black",
-      "category": "tees",
-      "collection": "Draft Series",
+      "category": "services",
+      "collection": "drafted",
       "visibility": "visible",
-      "price": 34.99,
+      "price": 39.99,
       "image": "Architect  Field Issue Tee - Black.png",
       "description_text": "This t-shirt is everything you've dreamed of and more. It feels soft and lightweight, with the right amount of stretch. It's comfortable and flattering for all. • 100% combed and ring-spun cotton (Heather colors contain polyester) • Fabric weight: 4.2 oz./yd.² (142 g/m²) • Pre-shrunk fabric • Side-seamed construction • Shoulder-to-shoulder taping • Blank product sourced from Nicaragua, Mexico, Honduras, or the US Disclaimer: The fabric is slightly sheer and may appear see-through, especially in lighter colors or under certain lighting conditions.",
       "description_html": "<p>This t-shirt is everything you&#039;ve dreamed of and more. It feels soft and lightweight, with the right amount of stretch. It&#039;s comfortable and flattering for all. • 100% combed and ring-spun cotton (Heather colors contain polyester) • Fabric weight: 4.2 oz./yd.² (142 g/m²) • Pre-shrunk fabric • Side-seamed construction • Shoulder-to-shoulder taping • Blank product sourced from Nicaragua, Mexico, Honduras, or the US Disclaimer: The fabric is slightly sheer and may appear see-through, especially in lighter colors or under certain lighting conditions.</p>",
-      "seo_title": "",
-      "seo_description": "",
+      "seo_title": "Architect — Field Issue Tee - Black",
+      "seo_description": "This t-shirt is everything you've dreamed of and more. It feels soft and lightweight, with the right amount of stretch. It's comfortable and flattering for",
       "tags": [
-        "tees"
+        "services",
+        "drafted"
       ],
       "variants": [
         {
           "size": "XS",
           "color": "Black",
           "sku": "6A00E3BE52BEE_9527",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "M7GT45TPT6IQEL4D22DZW52Q"
         },
         {
           "size": "S",
           "color": "Black",
           "sku": "6A00E3BE52BEE_4016",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "M5KBSGHUVWLR3NJF2A3VT2YS"
         },
         {
           "size": "M",
           "color": "Black",
           "sku": "6A00E3BE52BEE_4017",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "KUC56RH2M25UDQDHPKVAX5B6"
         },
         {
           "size": "L",
           "color": "Black",
           "sku": "6A00E3BE52BEE_4018",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "6M7EBYEV2Z7BGJFJ5N7BPCNG"
         },
         {
           "size": "XL",
           "color": "Black",
           "sku": "6A00E3BE52BEE_4019",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "WTYNRPW75P6PSBJN4WWSK7OS"
         },
         {
           "size": "2XL",
           "color": "Black",
           "sku": "6A00E3BE52BEE_4020",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "6KR2O5DHFGE6T56WI2SNAESL"
         },
         {
           "size": "3XL",
           "color": "Black",
           "sku": "6A00E3BE52BEE_5295",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "L7HDRFTWB3RCX6JKUT6AB4NE"
         },
         {
           "size": "4XL",
           "color": "Black",
           "sku": "6A00E3BE52BEE_5310",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "MU25CANMIJWWK2GPOTNCGNVX"
         },
         {
           "size": "5XL",
           "color": "Black",
           "sku": "6A00E3BE52BEE_12871",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "OXSXSBL7M66SPLW543SE6ZRL"
-        },
-        {
-          "size": "One Size",
-          "color": "Black",
-          "sku": "69FB877E6C84A_4020",
-          "price": 34.99,
-          "variation_id": "GY6IQILR3HNKNFR2U4DQ3BJV"
         }
       ]
     },
     {
-      "id": "nexus-techworks-circuit-bloom-pullover-hoodie",
-      "name": "Nexus TechWorks Circuit Bloom Pullover Hoodie",
+      "id": "bonsaid-rooted-resilience-trucker-cap-richardson-112-edition",
+      "name": "BONSAID “Rooted Resilience” Trucker Cap — Richardson 112 Edition",
+      "color": "Black",
+      "category": "hats",
+      "collection": "BONSAID",
+      "visibility": "hidden",
+      "price": 34.99,
+      "image": "bonsaid_snapback.png",
+      "description_text": "Rooted in balance, built for everyday wear. The BONSAID Richardson 112 brings your mindset to the surface — strength, patience, and grounded growth stitched into a premium two-tone trucker. Each cap features a bold embroidery of the BONSAID bonsai growing from the Idaho rock silhouette — simplified and digitized for precision stitching. It’s clean, modern, and perfectly offset on the front panel for that subtle statement look. Details • Premium Richardson 112 Trucker — mid-profile structured fit • 60% cotton / 40% polyester twill front, mesh back • 6-panel design, pre-curved visor, adjustable snapback • Offset embroidery front logo, up to 6 thread colors • Breathable mesh keeps it cool and comfortable all day Whether you’re repping your roots or just vibing with the calm energy of bonsai culture — this hat is about staying steady, sharp, and grounded.",
+      "description_html": "<p>Rooted in balance, built for everyday wear. The BONSAID Richardson 112 brings your mindset to the surface — strength, patience, and grounded growth stitched into a premium two-tone trucker. Each cap features a bold embroidery of the BONSAID bonsai growing from the Idaho rock silhouette — simplified and digitized for precision stitching. It’s clean, modern, and perfectly offset on the front panel for that subtle statement look. Details • Premium Richardson 112 Trucker — mid-profile structured fit • 60% cotton / 40% polyester twill front, mesh back • 6-panel design, pre-curved visor, adjustable snapback • Offset embroidery front logo, up to 6 thread colors • Breathable mesh keeps it cool and comfortable all day Whether you’re repping your roots or just vibing with the calm energy of bonsai culture — this hat is about staying steady, sharp, and grounded.</p>",
+      "seo_title": "",
+      "seo_description": "",
+      "tags": [
+        "hats",
+        "bonsaid"
+      ],
+      "variants": [
+        {
+          "size": "BLACK",
+          "color": "Black",
+          "sku": "68F8663806807_11417",
+          "price": 34.99,
+          "variation_id": "3322JBHD3A4V5ZT7KL5GDFWX"
+        },
+        {
+          "size": "BLACK / CHARCOAL",
+          "color": "Black / Charcoal",
+          "sku": "68F8663806807_16711",
+          "price": 34.99,
+          "variation_id": "QI34DZZLW2HF44ASZLED7MD7"
+        },
+        {
+          "size": "BLACK / WHITE",
+          "color": "Black / White",
+          "sku": "68F8663806807_11420",
+          "price": 34.99,
+          "variation_id": "TLYUAQBRLJQ4V3MZ4MGJTUJN"
+        },
+        {
+          "size": "CHARCOAL/BLACK",
+          "color": "Charcoal/Black",
+          "sku": "68F8663806807_16713",
+          "price": 34.99,
+          "variation_id": "76ZQZJN6AMZKBLEVG5M62QC2"
+        },
+        {
+          "size": "HEATHER GREY / BLACK",
+          "color": "Heather Gray / Black",
+          "sku": "68F8663806807_11421",
+          "price": 34.99,
+          "variation_id": "7EHSQZTLCAQFFMQYONLPYVXE"
+        },
+        {
+          "size": "HEATHER GREY/WHITE",
+          "color": "Heather Gray/White",
+          "sku": "68F8663806807_16712",
+          "price": 34.99,
+          "variation_id": "OVRQQFLQLV7UDTI2TR7XU5MA"
+        },
+        {
+          "size": "LODEN",
+          "color": "Loden",
+          "sku": "68F8663806807_11418",
+          "price": 34.99,
+          "variation_id": "JT4BWUQATD5EWJZYJCMNSOKF"
+        }
+      ]
+    },
+    {
+      "id": "billygoat-sticker",
+      "name": "BillyGoat Sticker",
+      "color": "",
+      "category": "stickers",
+      "collection": "",
+      "visibility": "hidden",
+      "price": 5,
+      "image": "bonsaid sticker.png",
+      "description_text": "These stickers are printed on durable, high opacity adhesive vinyl which makes them perfect for regular use, as well as for covering other stickers or paint. The high-quality vinyl ensures there are no bubbles when applying the stickers. • High opacity film that’s impossible to see through • Fast and easy bubble-free application • Durable vinyl • 95µ density Don't forget to clean the surface before applying the sticker.",
+      "description_html": "<p>These stickers are printed on durable, high opacity adhesive vinyl which makes them perfect for regular use, as well as for covering other stickers or paint. The high-quality vinyl ensures there are no bubbles when applying the stickers. • High opacity film that’s impossible to see through • Fast and easy bubble-free application • Durable vinyl • 95µ density Don&#039;t forget to clean the surface before applying the sticker.</p>",
+      "seo_title": "",
+      "seo_description": "",
+      "tags": [
+        "stickers"
+      ],
+      "variants": [
+        {
+          "size": "3″×3″",
+          "color": "",
+          "sku": "6937FCDDD76D7_10163",
+          "price": 5,
+          "variation_id": "I5VT3PJ5Z5LSBRHCZUGZHVCT"
+        },
+        {
+          "size": "5.5″×5.5″",
+          "color": "",
+          "sku": "6937FCDDD76D7_10165",
+          "price": 6.5,
+          "variation_id": "3FLQHCRPLXV2NUDFPHXS6OCG"
+        }
+      ]
+    },
+    {
+      "id": "circuit-bloom-nexus-techworks-pullover-hoodie",
+      "name": "Circuit Bloom — NeXuS TechWorks — Pullover Hoodie",
       "color": "",
       "category": "hoodies",
-      "collection": "NeXuS Glitch",
-      "visibility": "visible",
-      "price": 60,
+      "collection": "",
+      "visibility": "hidden",
+      "price": 59.99,
       "image": "nexus_hoodie.png",
       "description_text": "The Circuit Bloom hoodie is tech-core done right: a central NeXuS mark surrounded by a clean network pattern that reads like infrastructure, connectivity, and momentum. It’s a statement piece without being loud—perfect for dev days, hack nights, and anyone who likes their style intelligently designed. Apparel: Unisex premium mid-weight pullover hoodie",
       "description_html": "<p>The Circuit Bloom hoodie is tech-core done right: a central NeXuS mark surrounded by a clean network pattern that reads like infrastructure, connectivity, and momentum. It’s a statement piece without being loud—perfect for dev days, hack nights, and anyone who likes their style intelligently designed. Apparel: Unisex premium mid-weight pullover hoodie</p>",
@@ -1275,54 +1830,54 @@
           "size": "S",
           "color": "",
           "sku": "694BD85E3C49A_22132",
-          "price": 60,
+          "price": 59.99,
           "variation_id": "OTUHM4IMGTN3ZQIT4SYFQMJC"
         },
         {
           "size": "M",
           "color": "",
           "sku": "694BD85E3C49A_22133",
-          "price": 60,
+          "price": 59.99,
           "variation_id": "KOKZVFV7X5VJKCNMH5AICSHY"
         },
         {
           "size": "L",
           "color": "",
           "sku": "694BD85E3C49A_22134",
-          "price": 60,
+          "price": 59.99,
           "variation_id": "LNU4WONFIMALDQZRY2D22RY2"
         },
         {
           "size": "XL",
           "color": "",
           "sku": "694BD85E3C49A_22135",
-          "price": 60,
+          "price": 59.99,
           "variation_id": "MZ42TMOO5LGLNQAE336VKPW3"
         },
         {
           "size": "2XL",
           "color": "",
           "sku": "694BD85E3C49A_22136",
-          "price": 62,
+          "price": 59.99,
           "variation_id": "LELKK4URMJKDBYIMI2WJSX7C"
         },
         {
           "size": "3XL",
           "color": "",
           "sku": "694BD85E3C49A_22137",
-          "price": 64,
+          "price": 59.99,
           "variation_id": "UWMYKEZNCH37JDNYQEODOFBJ"
         }
       ]
     },
     {
-      "id": "aerovista-drafted-a-premium-sweatshirt",
-      "name": "AeroVista Drafted A Premium Sweatshirt",
+      "id": "drafted-a-premium-sweatshirt",
+      "name": "Drafted A  • Premium Sweatshirt",
       "color": "",
       "category": "crewnecks",
       "collection": "Draft Series",
       "visibility": "visible",
-      "price": 61.5,
+      "price": 49.99,
       "image": "Drafted A Premium Sweatshirt.png",
       "description_text": "Rock a classic sweatshirt silhouette with ribbed crew neck, long sleeve cuffs, and a flat hem. Layer it up or wear it on its own for a contemporary streetwear look. With the soft fleece inside and comfortable fit, it’s sure to become your favorite everyday sweater right away! • 100% cotton face • 65% cotton, 35% polyester • Charcoal Heather is 55% cotton, 45% polyester • Fabric weight: 8.5 oz/y² (288.2 g/m²) • Tightly knit 3-end fleece • Side-seamed construction • Self-fabric patch on the back • Double-needle stitched rib collar, cuffs, and hem • Blank product sourced from Pakistan Disclaimer: This sweatshirt runs small. For the perfect fit, we recommend ordering one size larger than your usual size. This product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!",
       "description_html": "<p>Rock a classic sweatshirt silhouette with ribbed crew neck, long sleeve cuffs, and a flat hem. Layer it up or wear it on its own for a contemporary streetwear look. With the soft fleece inside and comfortable fit, it’s sure to become your favorite everyday sweater right away! • 100% cotton face • 65% cotton, 35% polyester • Charcoal Heather is 55% cotton, 45% polyester • Fabric weight: 8.5 oz/y² (288.2 g/m²) • Tightly knit 3-end fleece • Side-seamed construction • Self-fabric patch on the back • Double-needle stitched rib collar, cuffs, and hem • Blank product sourced from Pakistan Disclaimer: This sweatshirt runs small. For the perfect fit, we recommend ordering one size larger than your usual size. This product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!</p>",
@@ -1330,50 +1885,49 @@
       "seo_description": "",
       "tags": [
         "crewnecks",
-        "draft-series",
-        "aerovista"
+        "draft-series"
       ],
       "variants": [
         {
           "size": "S",
           "color": "",
           "sku": "694BCC3DE8928_11254",
-          "price": 61.5,
+          "price": 49.99,
           "variation_id": "3O5XP7AUBCR4PQQUP3DSQQDJ"
         },
         {
           "size": "M",
           "color": "",
           "sku": "694BCC3DE8928_11255",
-          "price": 61.5,
+          "price": 49.99,
           "variation_id": "22Z6IT4VQ67KB7Y52VGDVBDT"
         },
         {
           "size": "L",
           "color": "",
           "sku": "694BCC3DE8928_11256",
-          "price": 61.5,
+          "price": 49.99,
           "variation_id": "YOTGKI7NHIDYYJSJ653Y4Z5K"
         },
         {
           "size": "XL",
           "color": "",
           "sku": "694BCC3DE8928_11257",
-          "price": 61.5,
+          "price": 49.99,
           "variation_id": "NHRNUSZ676YGUBFQ5PBAF4VX"
         },
         {
           "size": "2XL",
           "color": "",
           "sku": "694BCC3DE8928_11258",
-          "price": 63.5,
+          "price": 49.99,
           "variation_id": "67W3YKKPWXWXBYSXJPTUS5NA"
         },
         {
           "size": "3XL",
           "color": "",
           "sku": "694BCC3DE8928_13258",
-          "price": 65.5,
+          "price": 49.99,
           "variation_id": "L25FBA6NQPI6R3TIE2UGE2SC"
         }
       ]
@@ -1383,16 +1937,17 @@
       "name": "EchoVerse “Frost Circuit” Pullover Hoodie",
       "color": "",
       "category": "hoodies",
-      "collection": "EchoVerse Frost",
+      "collection": "echoverse",
       "visibility": "visible",
       "price": 59.99,
       "image": "frost_circuit_black_hoodie.png",
       "description_text": "The Frost Circuit hoodie blends cold-season energy with tech-art detail: a snowflake crest wired with circuit-like lines and EchoVerse lettering. It’s a standout piece—icy, clean, and weird in the best way. Perfect for winter drops, night walks, and people who like their merch to feel like a symbol. Apparel: Unisex premium mid-weight pullover hoodie",
       "description_html": "<p>The Frost Circuit hoodie blends cold-season energy with tech-art detail: a snowflake crest wired with circuit-like lines and EchoVerse lettering. It’s a standout piece—icy, clean, and weird in the best way. Perfect for winter drops, night walks, and people who like their merch to feel like a symbol. Apparel: Unisex premium mid-weight pullover hoodie</p>",
-      "seo_title": "",
-      "seo_description": "",
+      "seo_title": "EchoVerse “Frost Circuit” Pullover Hoodie",
+      "seo_description": "The Frost Circuit hoodie blends cold-season energy with tech-art detail: a snowflake crest wired with circuit-like lines and EchoVerse lettering. It’s a st",
       "tags": [
-        "hoodies"
+        "hoodies",
+        "echoverse"
       ],
       "variants": [
         {
@@ -1444,58 +1999,59 @@
       "name": "EchoVerse “Frost Circuit” Tee",
       "color": "",
       "category": "tees",
-      "collection": "EchoVerse",
+      "collection": "echoverse",
       "visibility": "visible",
-      "price": 34.99,
+      "price": 39.99,
       "image": "EchoVerse Frost Circuit Tee.png",
       "description_text": "The Frost Circuit blends cold-season energy with tech-art detail: a snowflake crest wired with circuit-like lines and EchoVerse lettering. It’s a standout piece—icy, clean, and weird in the best way.",
       "description_html": "<p>The Frost Circuit blends cold-season energy with tech-art detail: a snowflake crest wired with circuit-like lines and EchoVerse lettering. It’s a standout piece—icy, clean, and weird in the best way.</p>",
-      "seo_title": "",
-      "seo_description": "",
+      "seo_title": "EchoVerse “Frost Circuit” Tee",
+      "seo_description": "The Frost Circuit blends cold-season energy with tech-art detail: a snowflake crest wired with circuit-like lines and EchoVerse lettering. It’s a standout ",
       "tags": [
-        "tees"
+        "tees",
+        "echoverse"
       ],
       "variants": [
         {
           "size": "S",
           "color": "",
           "sku": "6944AD10B3D8C_44067",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "BDPUDFRTWTONEQPCW3NFXN7J"
         },
         {
           "size": "M",
           "color": "",
           "sku": "6944AD10B3D8C_44077",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "TP2SO2K3L4W3G37YLGSGEF72"
         },
         {
           "size": "L",
           "color": "",
           "sku": "6944AD10B3D8C_44087",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "OMPUESGOPUQDROGMFGNRZ5XE"
         },
         {
           "size": "XL",
           "color": "",
           "sku": "6944AD10B3D8C_44097",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "QAE25DX2UZDZGTEHJ2O3XIN6"
         },
         {
           "size": "2XL",
           "color": "",
           "sku": "6944AD10B3D8C_44107",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "VPOW52GMP5MIFVK5APHWQO3H"
         },
         {
           "size": "3XL",
           "color": "",
           "sku": "6944AD10B3D8C_44117",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "3PWX32SNAS33SPWWGC5OPWAK"
         }
       ]
@@ -1505,16 +2061,17 @@
       "name": "EchoVerse “Signal Dial” Chest Emblem Hoodie",
       "color": "",
       "category": "hoodies",
-      "collection": "EchoVerse",
+      "collection": "echoverse",
       "visibility": "visible",
       "price": 59.99,
       "image": "echoverse_hoodie.png",
       "description_text": "Subtle, sharp, and wearable everywhere. The EchoVerse Signal Dial hoodie features a sleek chest emblem that feels like a piece of audio hardware—balanced, modern, and low-key. The kind of hoodie that looks “official” without trying too hard. Apparel: Unisex premium mid-weight pullover hoodie",
       "description_html": "<p>Subtle, sharp, and wearable everywhere. The EchoVerse Signal Dial hoodie features a sleek chest emblem that feels like a piece of audio hardware—balanced, modern, and low-key. The kind of hoodie that looks “official” without trying too hard. Apparel: Unisex premium mid-weight pullover hoodie</p>",
-      "seo_title": "",
-      "seo_description": "",
+      "seo_title": "EchoVerse “Signal Dial” Chest Emblem Hoodie",
+      "seo_description": "Subtle, sharp, and wearable everywhere. The EchoVerse Signal Dial hoodie features a sleek chest emblem that feels like a piece of audio hardware—balanced, ",
       "tags": [
-        "hoodies"
+        "hoodies",
+        "echoverse"
       ],
       "variants": [
         {
@@ -1562,84 +2119,82 @@
       ]
     },
     {
-      "id": "aerovista-founders-mark-full-zip-hoodie",
-      "name": "AeroVista Founders Mark Full-Zip Hoodie",
+      "id": "founders-mark-full-zip-hoodie",
+      "name": "Founders Mark full zip hoodie",
       "color": "",
       "category": "hoodies",
-      "collection": "Founder's",
+      "collection": "Founder's Mark",
       "visibility": "visible",
-      "price": 64.99,
+      "price": 59.99,
       "image": "founders_zip_hoodie.png",
       "description_text": "This zip hoodie is soft, warm, and versatile enough for year-round layering. With its relaxed fit and clean design details, it’s the kind of hoodie you’ll reach for daily—whether you’re on the go or lounging at home. • 80% cotton, 20% recycled polyester • Heather Grey is 70% cotton, 30% recycled polyester • Other heather colors are 60% cotton, 40% recycled polyester • Fabric weight: 8.3 oz./yd.² (280 g/m²) • Relaxed fit • Three-panel hood with matching round drawcord • Zipper with auto-lock slider • Front kangaroo pockets • Ribbed cuffs and waistband • Blank product sourced from Pakistan",
       "description_html": "<p>This zip hoodie is soft, warm, and versatile enough for year-round layering. With its relaxed fit and clean design details, it’s the kind of hoodie you’ll reach for daily—whether you’re on the go or lounging at home. • 80% cotton, 20% recycled polyester • Heather Grey is 70% cotton, 30% recycled polyester • Other heather colors are 60% cotton, 40% recycled polyester • Fabric weight: 8.3 oz./yd.² (280 g/m²) • Relaxed fit • Three-panel hood with matching round drawcord • Zipper with auto-lock slider • Front kangaroo pockets • Ribbed cuffs and waistband • Blank product sourced from Pakistan</p>",
-      "seo_title": "",
-      "seo_description": "",
+      "seo_title": "Founders Mark full zip hoodie",
+      "seo_description": "This zip hoodie is soft, warm, and versatile enough for year-round layering. With its relaxed fit and clean design details, it’s the kind of hoodie you’ll",
       "tags": [
-        "hoodies",
-        "aerovista"
+        "hoodies"
       ],
       "variants": [
         {
           "size": "S",
           "color": "",
           "sku": "6950D77B5AF8A_24251",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "WBA5JKMM3QBAT3OZ2HHAUXGR"
         },
         {
           "size": "M",
           "color": "",
           "sku": "6950D77B5AF8A_24257",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "I3O7PJPVUVPNUI4DHLMZDGVL"
         },
         {
           "size": "L",
           "color": "",
           "sku": "6950D77B5AF8A_24263",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "VQ4NAXYKNGZIJBXUWQTWR6FV"
         },
         {
           "size": "XL",
           "color": "",
           "sku": "6950D77B5AF8A_24269",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "2WHQM4RFRKKKGMEE4JVY7DAS"
         },
         {
           "size": "2XL",
           "color": "",
           "sku": "6950D77B5AF8A_24275",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "CPQT6IA7DHJ4P2MFPSGQ6CKD"
         },
         {
           "size": "3XL",
           "color": "",
           "sku": "6950D77B5AF8A_25689",
-          "price": 64.99,
+          "price": 59.99,
           "variation_id": "UOEQBPESNTRR2R75NNZJBTIF"
         }
       ]
     },
     {
-      "id": "aerovista-glitch-orbit-logo-trucker-cap-black",
-      "name": "AeroVista Glitch Orbit Logo Trucker Cap — Black",
+      "id": "glitch-orbit-logo-black",
+      "name": "Glitch Orbit Logo - Black",
       "color": "Black",
       "category": "hats",
       "collection": "Glitch Line",
       "visibility": "visible",
       "price": 32,
       "image": "glitch A.png",
-      "description_text": "AeroVista Glitch Orbit Logo Trucker Cap — Black is a structured AeroVista headwear piece built for daily use, clean branding, and low-noise presence. Designed as part of the AeroVista Glitch line, it gives the outfit a sharp finishing mark without overpowering the rest of the fit.",
-      "description_html": "<p>AeroVista Glitch Orbit Logo Trucker Cap — Black is a structured AeroVista headwear piece built for daily use, clean branding, and low-noise presence. Designed as part of the AeroVista Glitch line, it gives the outfit a sharp finishing mark without overpowering the rest of the fit.</p>",
+      "description_text": "This six-panel trucker cap with a mesh back will be a comfy and classic choice for a perfect day in the sun. • 26% cotton, 74% polyester • Mid-profile cap with a low-profile embroidery area • Structured, six-panel cap • 3.5″ crown (8.9 cm) • Hard buckram front panels • Mesh back • Permacurv® visor, matching undervisor • Plastic adjustable closure • Head circumference: 21⅝″–23⅝″ (54.9 cm–60 cm) • Blank product sourced from Vietnam or Bangladesh",
+      "description_html": "<p>This six-panel trucker cap with a mesh back will be a comfy and classic choice for a perfect day in the sun. • 26% cotton, 74% polyester • Mid-profile cap with a low-profile embroidery area • Structured, six-panel cap • 3.5″ crown (8.9 cm) • Hard buckram front panels • Mesh back • Permacurv® visor, matching undervisor • Plastic adjustable closure • Head circumference: 21⅝″–23⅝″ (54.9 cm–60 cm) • Blank product sourced from Vietnam or Bangladesh</p>",
       "seo_title": "",
       "seo_description": "",
       "tags": [
         "hats",
-        "glitch-line",
-        "aerovista"
+        "glitch-line"
       ],
       "variants": [
         {
@@ -1652,16 +2207,195 @@
       ]
     },
     {
+      "id": "holographic-stickers",
+      "name": "Holographic stickers",
+      "color": "",
+      "category": "stickers",
+      "collection": "goat",
+      "visibility": "visible",
+      "price": 6.5,
+      "image": "holographic_goat_sticker.png",
+      "description_text": "Add some sparkle to your life with these holographic stickers. Made from high-quality vinyl, they’re easy to peel and stick, and their adhesive backing ensures long-lasting durability. The unique holographic effect catches the light in a mesmerizing way, making them the ultimate eye-catcher. • Hot-embossed, which creates a deep 3D pattern • Durable vinyl, perfect for indoor use • Fast and easy bubble-free application Disclaimer: Please note that this product is suitable for indoor use only.",
+      "description_html": "<p>Add some sparkle to your life with these holographic stickers. Made from high-quality vinyl, they’re easy to peel and stick, and their adhesive backing ensures long-lasting durability. The unique holographic effect catches the light in a mesmerizing way, making them the ultimate eye-catcher. • Hot-embossed, which creates a deep 3D pattern • Durable vinyl, perfect for indoor use • Fast and easy bubble-free application Disclaimer: Please note that this product is suitable for indoor use only.</p>",
+      "seo_title": "Holographic stickers",
+      "seo_description": "Add some sparkle to your life with these holographic stickers. Made from high-quality vinyl, they’re easy to peel and stick, and their adhesive backing ens",
+      "tags": [
+        "stickers",
+        "goat"
+      ],
+      "variants": [
+        {
+          "size": "3″×3″",
+          "color": "",
+          "sku": "6937FD7E16D6C_16705",
+          "price": 6.5,
+          "variation_id": "JNKYIIZUAVYSCU4YUVRDF26H"
+        },
+        {
+          "size": "5.5″×5.5″",
+          "color": "",
+          "sku": "6937FD7E16D6C_16707",
+          "price": 8.5,
+          "variation_id": "77GCE4OHHIUKOYBC67UQPR2X"
+        }
+      ]
+    },
+    {
+      "id": "lumina-premium-mid-weight-hoodie",
+      "name": "Lumina — premium mid-weight hoodie",
+      "color": "",
+      "category": "hoodies",
+      "collection": "Lumina",
+      "visibility": "visible",
+      "price": 34,
+      "image": "Lumina — premium mid-weight hoodie.png",
+      "description_text": "Modern and built for the streets—this hoodie’s got that clean everyday look with serious comfort. True-to-size cut, smooth cotton face, and ideal for layering or lounging. Your new go-to, no matter the forecast. • 80% cotton, 20% recycled polyester • Heather Gray is 70% cotton, 30% recycled polyester • Charcoal and Oatmeal Heather are 60% cotton, 40% recycled polyester • Fabric weight: 8.25 oz./yd.² (280 g/m²) • 100% cotton face • Regular fit • Side-seamed construction • Double-needle topstitch on all seams • Kangaroo pocket, ribbed cuffs and waistband • Dyed-to-match drawcords with tipped ends and metal eyelets • Under 5% shrinkage • Blank product sourced from Pakistan Disclaimer: Size up for a looser fit.",
+      "description_html": "<p>Modern and built for the streets—this hoodie’s got that clean everyday look with serious comfort. True-to-size cut, smooth cotton face, and ideal for layering or lounging. Your new go-to, no matter the forecast. • 80% cotton, 20% recycled polyester • Heather Gray is 70% cotton, 30% recycled polyester • Charcoal and Oatmeal Heather are 60% cotton, 40% recycled polyester • Fabric weight: 8.25 oz./yd.² (280 g/m²) • 100% cotton face • Regular fit • Side-seamed construction • Double-needle topstitch on all seams • Kangaroo pocket, ribbed cuffs and waistband • Dyed-to-match drawcords with tipped ends and metal eyelets • Under 5% shrinkage • Blank product sourced from Pakistan Disclaimer: Size up for a looser fit.</p>",
+      "seo_title": "Lumina — premium mid-weight hoodie",
+      "seo_description": "Modern and built for the streets—this hoodie’s got that clean everyday look with serious comfort. True-to-size cut, smooth cotton face, and ideal for layer",
+      "tags": [
+        "hoodies",
+        "lumina"
+      ],
+      "variants": [
+        {
+          "size": "S",
+          "color": "",
+          "sku": "6A0E26A16EA00_22132",
+          "price": 34,
+          "variation_id": "NRHJY7BOIMC5SHJFNOY6NJ6Q"
+        },
+        {
+          "size": "M",
+          "color": "",
+          "sku": "6A0E26A16EA00_22133",
+          "price": 34,
+          "variation_id": "R47UZIEDL7VGAFZWZ6FRD3U3"
+        },
+        {
+          "size": "L",
+          "color": "",
+          "sku": "6A0E26A16EA00_22134",
+          "price": 34,
+          "variation_id": "UMQYJAOCKRCF2CGBJ4ZCWPB5"
+        },
+        {
+          "size": "XL",
+          "color": "",
+          "sku": "6A0E26A16EA00_22135",
+          "price": 34,
+          "variation_id": "CHZSNSP2AO4WQUNDXX3WB2FJ"
+        },
+        {
+          "size": "2XL",
+          "color": "",
+          "sku": "6A0E26A16EA00_22136",
+          "price": 37,
+          "variation_id": "7ABRA4BRBNPHBVYCAC6ONBYC"
+        },
+        {
+          "size": "3XL",
+          "color": "",
+          "sku": "6A0E26A16EA00_22137",
+          "price": 40,
+          "variation_id": "JDX3RVXU55U6JPOU3FF2VOUW"
+        }
+      ]
+    },
+    {
+      "id": "men-s-ghost-shorts",
+      "name": "Men's Ghost Shorts",
+      "color": "",
+      "category": "apparel",
+      "collection": "shadowwear",
+      "visibility": "visible",
+      "price": 69.99,
+      "image": "shadowwear.boardshorts.png",
+      "description_text": "Ghost Ridge was built around the idea of hidden structure — the shapes that stay standing after the noise fades. Layered with the custom Shadow Wear Ghost pattern, this piece blends fractured geometry, stealth texture, and the Apex mark into a low-visibility statement built for everyday wear.",
+      "description_html": "<p>Ghost Ridge was built around the idea of hidden structure — the shapes that stay standing after the noise fades. Layered with the custom Shadow Wear Ghost pattern, this piece blends fractured geometry, stealth texture, and the Apex mark into a low-visibility statement built for everyday wear.</p>",
+      "seo_title": "Men's Ghost Shorts",
+      "seo_description": "Ghost Ridge was built around the idea of hidden structure — the shapes that stay standing after the noise fades. Layered with the custom Shadow Wear Ghost ",
+      "tags": [
+        "apparel",
+        "shadowwear"
+      ],
+      "variants": [
+        {
+          "size": "2XS",
+          "color": "",
+          "sku": "6A0BA3B4AE426_46353",
+          "price": 69.99,
+          "variation_id": "F52PEEITJDVUXXHGB3CMPQRI"
+        },
+        {
+          "size": "XS",
+          "color": "",
+          "sku": "6A0BA3B4AE426_46355",
+          "price": 69.99,
+          "variation_id": "ONZK4LIXFRSNISGBDHR7JEG3"
+        },
+        {
+          "size": "S",
+          "color": "",
+          "sku": "6A0BA3B4AE426_46357",
+          "price": 69.99,
+          "variation_id": "74ERDR3LRU6ZN3DTTBHUJYN2"
+        },
+        {
+          "size": "M",
+          "color": "",
+          "sku": "6A0BA3B4AE426_46359",
+          "price": 69.99,
+          "variation_id": "ACBTP7B44ED7KFPFEETJSMBK"
+        },
+        {
+          "size": "L",
+          "color": "",
+          "sku": "6A0BA3B4AE426_46361",
+          "price": 69.99,
+          "variation_id": "OWCE3ZCAZEXL4TSFGDF5KWWX"
+        },
+        {
+          "size": "XL",
+          "color": "",
+          "sku": "6A0BA3B4AE426_46363",
+          "price": 69.99,
+          "variation_id": "QZ45G2TXIXSFXPTKW2ND7CPR"
+        },
+        {
+          "size": "2XL",
+          "color": "",
+          "sku": "6A0BA3B4AE426_46365",
+          "price": 69.99,
+          "variation_id": "NRBD5KS3CMNCAIVG7NARZUF5"
+        },
+        {
+          "size": "3XL",
+          "color": "",
+          "sku": "6A0BA3B4AE426_46367",
+          "price": 69.99,
+          "variation_id": "A5Z37WJ7WC7ERBMMP3GDPZW7"
+        },
+        {
+          "size": "4XL",
+          "color": "",
+          "sku": "6A0BA3B4AE426_46369",
+          "price": 69.99,
+          "variation_id": "RKGB757T3NXTO5I4L6ZTJ3GT"
+        }
+      ]
+    },
+    {
       "id": "neck-gaiter-crypt-tech-gray",
-      "name": "Neck Gaiter — Crypt tech — Gray",
+      "name": "Neck Gaiter - Crypt tech - Gray",
       "color": "Gray",
       "category": "accessories",
-      "collection": "Shadow Wear",
+      "collection": "APEX",
       "visibility": "visible",
-      "price": 25,
+      "price": 24.99,
       "image": "Neck Gaiter black.png",
-      "description_text": "Neck Gaiter — Crypt tech — Gray is a lightweight field accessory built for utility, comfort, and AeroVista visual identity. Wear it as a neck gaiter, face cover, or flexible outdoor layer.",
-      "description_html": "<p>Neck Gaiter — Crypt tech — Gray is a lightweight field accessory built for utility, comfort, and AeroVista visual identity. Wear it as a neck gaiter, face cover, or flexible outdoor layer.</p>",
+      "description_text": "This neck gaiter is a versatile accessory that can be used as a face covering, headband, bandana, wristband, and neck warmer. Upgrade your accessory game and find a matching face shield for each of your outfits. - Fabric composition in the EU: 96% polyester, 4% spandex - Fabric composition in the US: 93% polyester, 7% spandex - Fabric weight in the EU: 6.34 oz./yd.² (215 g/m²) - Fabric weight in the US: 7.08 oz./yd.² (240 g/m²) - Breathable fabric - Smooth, comfortable 2-way stretch fabric that stretches and recovers on the cross and lengthwise grains - Washable and reusable - One size - Printed on one side, the reverse side is left blank - Blank product components in the EU sourced from Lithuania - Blank product components in the US sourced from Mexico",
+      "description_html": "<p>This neck gaiter is a versatile accessory that can be used as a face covering, headband, bandana, wristband, and neck warmer. Upgrade your accessory game and find a matching face shield for each of your outfits. - Fabric composition in the EU: 96% polyester, 4% spandex - Fabric composition in the US: 93% polyester, 7% spandex - Fabric weight in the EU: 6.34 oz./yd.² (215 g/m²) - Fabric weight in the US: 7.08 oz./yd.² (240 g/m²) - Breathable fabric - Smooth, comfortable 2-way stretch fabric that stretches and recovers on the cross and lengthwise grains - Washable and reusable - One size - Printed on one side, the reverse side is left blank - Blank product components in the EU sourced from Lithuania - Blank product components in the US sourced from Mexico</p>",
       "seo_title": "",
       "seo_description": "",
       "tags": [
@@ -1672,22 +2406,22 @@
           "size": "One Size",
           "color": "Gray",
           "sku": "698B94E36E40D_11414",
-          "price": 25,
+          "price": 24.99,
           "variation_id": "5GYSYOTMMT3BXN7MVADBL3Q5"
         }
       ]
     },
     {
       "id": "neck-gaiter-crypt-tech-orange",
-      "name": "Neck Gaiter — Crypt tech — Orange",
+      "name": "Neck Gaiter - Crypt tech - Orange",
       "color": "Orange",
       "category": "accessories",
-      "collection": "Shadow Wear",
+      "collection": "APEX",
       "visibility": "visible",
-      "price": 26,
+      "price": 24.99,
       "image": "Neck Gaiter orange.png",
-      "description_text": "Neck Gaiter — Crypt tech — Orange is a lightweight field accessory built for utility, comfort, and AeroVista visual identity. Wear it as a neck gaiter, face cover, or flexible outdoor layer.",
-      "description_html": "<p>Neck Gaiter — Crypt tech — Orange is a lightweight field accessory built for utility, comfort, and AeroVista visual identity. Wear it as a neck gaiter, face cover, or flexible outdoor layer.</p>",
+      "description_text": "This neck gaiter is a versatile accessory that can be used as a face covering, headband, bandana, wristband, and neck warmer. Upgrade your accessory game and find a matching face shield for each of your outfits. - Fabric composition in the EU: 96% polyester, 4% spandex - Fabric composition in the US: 93% polyester, 7% spandex - Fabric weight in the EU: 6.34 oz./yd.² (215 g/m²) - Fabric weight in the US: 7.08 oz./yd.² (240 g/m²) - Breathable fabric - Smooth, comfortable 2-way stretch fabric that stretches and recovers on the cross and lengthwise grains - Washable and reusable - One size - Printed on one side, the reverse side is left blank - Blank product components in the EU sourced from Lithuania - Blank product components in the US sourced from Mexico",
+      "description_html": "<p>This neck gaiter is a versatile accessory that can be used as a face covering, headband, bandana, wristband, and neck warmer. Upgrade your accessory game and find a matching face shield for each of your outfits. - Fabric composition in the EU: 96% polyester, 4% spandex - Fabric composition in the US: 93% polyester, 7% spandex - Fabric weight in the EU: 6.34 oz./yd.² (215 g/m²) - Fabric weight in the US: 7.08 oz./yd.² (240 g/m²) - Breathable fabric - Smooth, comfortable 2-way stretch fabric that stretches and recovers on the cross and lengthwise grains - Washable and reusable - One size - Printed on one side, the reverse side is left blank - Blank product components in the EU sourced from Lithuania - Blank product components in the US sourced from Mexico</p>",
       "seo_title": "",
       "seo_description": "",
       "tags": [
@@ -1698,22 +2432,22 @@
           "size": "One Size",
           "color": "Orange",
           "sku": "698B8E66A0D04_11414",
-          "price": 26,
+          "price": 24.99,
           "variation_id": "U2LQIEKWGFESGXLDFIJO6EEP"
         }
       ]
     },
     {
       "id": "neck-gaiter-crypt-tech-red",
-      "name": "Neck Gaiter — Crypt tech — Red",
+      "name": "Neck Gaiter - Crypt tech - Red",
       "color": "Red",
       "category": "accessories",
-      "collection": "Shadow Wear",
+      "collection": "APEX",
       "visibility": "visible",
-      "price": 26,
+      "price": 24.99,
       "image": "Neck Gaiter red.png",
-      "description_text": "Neck Gaiter — Crypt tech — Red is a lightweight field accessory built for utility, comfort, and AeroVista visual identity. Wear it as a neck gaiter, face cover, or flexible outdoor layer.",
-      "description_html": "<p>Neck Gaiter — Crypt tech — Red is a lightweight field accessory built for utility, comfort, and AeroVista visual identity. Wear it as a neck gaiter, face cover, or flexible outdoor layer.</p>",
+      "description_text": "This neck gaiter is a versatile accessory that can be used as a face covering, headband, bandana, wristband, and neck warmer. Upgrade your accessory game and find a matching face shield for each of your outfits. - Fabric composition in the EU: 96% polyester, 4% spandex - Fabric composition in the US: 93% polyester, 7% spandex - Fabric weight in the EU: 6.34 oz./yd.² (215 g/m²) - Fabric weight in the US: 7.08 oz./yd.² (240 g/m²) - Breathable fabric - Smooth, comfortable 2-way stretch fabric that stretches and recovers on the cross and lengthwise grains - Washable and reusable - One size",
+      "description_html": "<p>This neck gaiter is a versatile accessory that can be used as a face covering, headband, bandana, wristband, and neck warmer. Upgrade your accessory game and find a matching face shield for each of your outfits. - Fabric composition in the EU: 96% polyester, 4% spandex - Fabric composition in the US: 93% polyester, 7% spandex - Fabric weight in the EU: 6.34 oz./yd.² (215 g/m²) - Fabric weight in the US: 7.08 oz./yd.² (240 g/m²) - Breathable fabric - Smooth, comfortable 2-way stretch fabric that stretches and recovers on the cross and lengthwise grains - Washable and reusable - One size</p>",
       "seo_title": "",
       "seo_description": "",
       "tags": [
@@ -1724,22 +2458,22 @@
           "size": "One Size",
           "color": "Red",
           "sku": "698B91177AE22_11414",
-          "price": 26,
+          "price": 24.99,
           "variation_id": "Y7M3ICJY5CYNOFGSZHE6EYPS"
         }
       ]
     },
     {
-      "id": "billygoat-neon-pullover-hoodie",
-      "name": "BillyGoat Neon Pullover Hoodie",
+      "id": "neon-billygoat-pullover-hoodie",
+      "name": "Neon 'BillyGoat' Pullover Hoodie",
       "color": "",
       "category": "hoodies",
-      "collection": "BillyGoat",
+      "collection": "",
       "visibility": "visible",
       "price": 59.99,
       "image": "sound_goat_a_blk_hoodie.png",
-      "description_text": "BillyGoat Neon Pullover Hoodie is a premium AeroVista hoodie built for daily rotation, late-night build sessions, and clean operator style. The piece ties into the BillyGoat line with a wearable balance of comfort, signal, and visual identity. Soft structure, repeat-wear comfort, and a sharp front-facing concept make it easy to pair with jeans, joggers, shop gear, or travel layers.",
-      "description_html": "<p>BillyGoat Neon Pullover Hoodie is a premium AeroVista hoodie built for daily rotation, late-night build sessions, and clean operator style. The piece ties into the BillyGoat line with a wearable balance of comfort, signal, and visual identity. Soft structure, repeat-wear comfort, and a sharp front-facing concept make it easy to pair with jeans, joggers, shop gear, or travel layers.</p>",
+      "description_text": "Chaos mascot energy—electric horns, neon glow, and a nasty grin. Full description: Turn the volume up. The Neon BillyGoat hoodie is pure mischief: a snarling goat skull-face with glowing green horns, a purple sigil crest, and a jagged soundwave crackling above it. It’s dark streetwear with a cyber-metal edge—built for late nights, loud music, and people who don’t do “quiet.” Key features: • Bold neon graphic with high contrast on black • Statement piece that still wears easy with jeans or joggers • Mid-weight warmth for year-round layering • Front kangaroo pocket + hood for everyday comfort Fit note: Unisex fit. Size up for an oversized/relaxed look.",
+      "description_html": "<p>Chaos mascot energy—electric horns, neon glow, and a nasty grin. Full description: Turn the volume up. The Neon BillyGoat hoodie is pure mischief: a snarling goat skull-face with glowing green horns, a purple sigil crest, and a jagged soundwave crackling above it. It’s dark streetwear with a cyber-metal edge—built for late nights, loud music, and people who don’t do “quiet.” Key features: • Bold neon graphic with high contrast on black • Statement piece that still wears easy with jeans or joggers • Mid-weight warmth for year-round layering • Front kangaroo pocket + hood for everyday comfort Fit note: Unisex fit. Size up for an oversized/relaxed look.</p>",
       "seo_title": "",
       "seo_description": "",
       "tags": [
@@ -1787,13 +2521,6 @@
           "sku": "6A0127977FDE5_13416",
           "price": 59.99,
           "variation_id": "2V3SKHB7IEDUMNUQEJXSOBVV"
-        },
-        {
-          "size": "One Size",
-          "color": "",
-          "sku": "6937980D5A5AD_22137",
-          "price": 59.99,
-          "variation_id": "D2YJC4HDAYPCPPLEWOYRIVK3"
         }
       ]
     },
@@ -1802,7 +2529,7 @@
       "name": "Night Ranger Bear Pullover Hoodie",
       "color": "",
       "category": "hoodies",
-      "collection": "drop bear",
+      "collection": "",
       "visibility": "visible",
       "price": 59.99,
       "image": "nit_bear.png",
@@ -1859,9 +2586,242 @@
       ]
     },
     {
+      "id": "observer-eye-sigel-pullover-hoodie-black-w-blue-print",
+      "name": "Observer • eye sigel • Pullover Hoodie • Black w/blue print",
+      "color": "",
+      "category": "hoodies",
+      "collection": "",
+      "visibility": "visible",
+      "price": 59.99,
+      "image": "blueye_hoodie.png",
+      "description_text": "Who knew that the softest hoodie you'll ever own comes with such a cool design. You won't regret buying this classic streetwear piece of apparel with a convenient pouch pocket and warm hood for chilly evenings. • 100% cotton face • 65% ring-spun cotton, 35% polyester • Front pouch pocket • Self-fabric patch on the back • Matching flat drawstrings • 3-panel hood • Blank product sourced from Pakistan Disclaimer: This hoodie runs small. For the perfect fit, we recommend ordering one size larger than your usual size.",
+      "description_html": "<p>Who knew that the softest hoodie you&#039;ll ever own comes with such a cool design. You won&#039;t regret buying this classic streetwear piece of apparel with a convenient pouch pocket and warm hood for chilly evenings. • 100% cotton face • 65% ring-spun cotton, 35% polyester • Front pouch pocket • Self-fabric patch on the back • Matching flat drawstrings • 3-panel hood • Blank product sourced from Pakistan Disclaimer: This hoodie runs small. For the perfect fit, we recommend ordering one size larger than your usual size.</p>",
+      "seo_title": "",
+      "seo_description": "",
+      "tags": [
+        "hoodies"
+      ],
+      "variants": [
+        {
+          "size": "S",
+          "color": "",
+          "sku": "698C124D32609_10779",
+          "price": 59.99,
+          "variation_id": "65GNBOKQWGUVMJGQWLTY2LRY"
+        },
+        {
+          "size": "M",
+          "color": "",
+          "sku": "698C124D32609_10780",
+          "price": 59.99,
+          "variation_id": "AQVVV4DKZK3IMMFFINC7UJUU"
+        },
+        {
+          "size": "L",
+          "color": "",
+          "sku": "698C124D32609_10781",
+          "price": 59.99,
+          "variation_id": "36B6QNRX6JJ73NLGCC5TUZPM"
+        },
+        {
+          "size": "XL",
+          "color": "",
+          "sku": "698C124D32609_10782",
+          "price": 59.99,
+          "variation_id": "L22YEZKRTC4SDVCFRM5U5QY2"
+        },
+        {
+          "size": "2XL",
+          "color": "",
+          "sku": "698C124D32609_10783",
+          "price": 59.99,
+          "variation_id": "TRHX7LXB7GBPNZHDCQNMR7CW"
+        },
+        {
+          "size": "3XL",
+          "color": "",
+          "sku": "698C124D32609_13416",
+          "price": 59.99,
+          "variation_id": "7YIEDJALH3YG3S54GG5U4DEI"
+        }
+      ]
+    },
+    {
+      "id": "powder-peaks-8-ball-hoodie-black-white-ink",
+      "name": "Powder Peaks 8-Ball Hoodie — Black / White Ink",
+      "color": "",
+      "category": "hoodies",
+      "collection": "Powder Peaks",
+      "visibility": "hidden",
+      "price": 59.99,
+      "image": "",
+      "description_text": "Black fleece hoodie with the 8-ball moon over powder peaks—crisp white linework, cozy weight. Description The Powder Peaks 8-Ball Hoodie pairs a clean, monochrome print with a soft fleece blank. The eight-ball “moon” hangs over stacked powder mounds and a pine horizon, rendered in high-contrast white for that chalk-on-black look. Built for late nights, road trips, and winter sessions. Details Unisex fleece hoodie (soft ringspun face) Front-center white ink print (DTG for soft feel) Jersey-lined hood, matching drawcords, rib cuffs/hem Care Machine wash cold, inside out Gentle cycle; mild detergent Tumble low or hang dry Avoid ironing on the graphic Fit notes Relaxed unisex fit. Size up for a roomier, layered silhouette. Tags: hoodie, black & white, mountains, eight ball, winter, minimal This product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!",
+      "description_html": "<p>Black fleece hoodie with the 8-ball moon over powder peaks—crisp white linework, cozy weight. Description The Powder Peaks 8-Ball Hoodie pairs a clean, monochrome print with a soft fleece blank. The eight-ball “moon” hangs over stacked powder mounds and a pine horizon, rendered in high-contrast white for that chalk-on-black look. Built for late nights, road trips, and winter sessions. Details Unisex fleece hoodie (soft ringspun face) Front-center white ink print (DTG for soft feel) Jersey-lined hood, matching drawcords, rib cuffs/hem Care Machine wash cold, inside out Gentle cycle; mild detergent Tumble low or hang dry Avoid ironing on the graphic Fit notes Relaxed unisex fit. Size up for a roomier, layered silhouette. Tags: hoodie, black &amp; white, mountains, eight ball, winter, minimal This product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!</p>",
+      "seo_title": "",
+      "seo_description": "",
+      "tags": [
+        "hoodies",
+        "powder-peaks"
+      ],
+      "variants": [
+        {
+          "size": "S",
+          "color": "",
+          "sku": "6916FB0D0D0BC_10779",
+          "price": 59.99,
+          "variation_id": "7OH4G3MJW23EXYHJ4ECTNUJZ"
+        },
+        {
+          "size": "M",
+          "color": "",
+          "sku": "6916FB0D0D0BC_10780",
+          "price": 59.99,
+          "variation_id": "XFNSYPDLSDZOT7AKRRTCJCA7"
+        },
+        {
+          "size": "L",
+          "color": "",
+          "sku": "6916FB0D0D0BC_10781",
+          "price": 59.99,
+          "variation_id": "P2QXSNZIR4E6OGE6CYS5Q5A3"
+        },
+        {
+          "size": "XL",
+          "color": "",
+          "sku": "6916FB0D0D0BC_10782",
+          "price": 59.99,
+          "variation_id": "L5TDOG5ENQ2S5BBV6VSFGWYL"
+        },
+        {
+          "size": "2XL",
+          "color": "",
+          "sku": "6916FB0D0D0BC_10783",
+          "price": 59.99,
+          "variation_id": "TTRPHU7A4KQGPXR7GQKHQ3SY"
+        },
+        {
+          "size": "3XL",
+          "color": "",
+          "sku": "6916FB0D0D0BC_13416",
+          "price": 59.99,
+          "variation_id": "N4F6NB6AY7HOVUECEUEYGMPF"
+        }
+      ]
+    },
+    {
+      "id": "powder-peaks-8-ball-sticker-black-white-ink",
+      "name": "Powder Peaks 8-Ball Sticker — Black / White Ink",
+      "color": "",
+      "category": "stickers",
+      "collection": "Powder Peaks",
+      "visibility": "visible",
+      "price": 5,
+      "image": "POWDER_PEAKS.png",
+      "description_text": "Minimal mountain stack with an eight-ball moon. Vintage-white on deep black for that chalk-dust, night-ride vibe—perfect for laptops, cases, water bottles, boards. Description A durable, die-cut sticker featuring the Powder Peaks 8-Ball graphic: two snow-pile peaks, pine line, and the iconic “8” rising like a moon. Printed in crisp white against deep black for maximum contrast. Details Thick, weather-resistant vinyl with matte finish Strong adhesive; clean removal with minimal residue Indoor/outdoor rated (UV & scratch-resistant) Available in multiple sizes (choose in dropdown) Apply / Care Clean surface, dry fully, apply slowly from one edge Hand-wash bottles; avoid dishwashers for longest life Tags: mountains, billiards, night snow, minimal, vinyl sticker",
+      "description_html": "<p>Minimal mountain stack with an eight-ball moon. Vintage-white on deep black for that chalk-dust, night-ride vibe—perfect for laptops, cases, water bottles, boards. Description A durable, die-cut sticker featuring the Powder Peaks 8-Ball graphic: two snow-pile peaks, pine line, and the iconic “8” rising like a moon. Printed in crisp white against deep black for maximum contrast. Details Thick, weather-resistant vinyl with matte finish Strong adhesive; clean removal with minimal residue Indoor/outdoor rated (UV &amp; scratch-resistant) Available in multiple sizes (choose in dropdown) Apply / Care Clean surface, dry fully, apply slowly from one edge Hand-wash bottles; avoid dishwashers for longest life Tags: mountains, billiards, night snow, minimal, vinyl sticker</p>",
+      "seo_title": "",
+      "seo_description": "",
+      "tags": [
+        "stickers",
+        "powder-peaks"
+      ],
+      "variants": [
+        {
+          "size": "3″×3″",
+          "color": "",
+          "sku": "6916F9EC50A68_10163",
+          "price": 5,
+          "variation_id": "VUJPRWZKT7XONG2CKZTXNTXF"
+        },
+        {
+          "size": "5.5″×5.5″",
+          "color": "",
+          "sku": "6916F9EC50A68_10165",
+          "price": 7,
+          "variation_id": "EK6DHXBXTFFDGJI5HQSHK3LV"
+        }
+      ]
+    },
+    {
+      "id": "powder-peaks-8-ball-tee-black-white-ink",
+      "name": "Powder Peaks 8-Ball Tee — Black / White Ink",
+      "color": "",
+      "category": "tees",
+      "collection": "Powder Peaks",
+      "visibility": "hidden",
+      "price": 39.99,
+      "image": "",
+      "description_text": "A black unisex tee with our 8-ball moon over snow-stack peaks—high-contrast white ink for a bold, minimal look. Description Powder Peaks 8-Ball brings pool-hall energy to the mountain night. The design stacks two powder-pile peaks beneath a pine line, crowned by an eight-ball moon. Printed front-center in vintage white on a premium black tee for a clean, graphic silhouette. Details Soft unisex staple tee (premium ringspun cotton) Front-center white ink print (DTG or screen, depending on batch) Modern fit; smooth hand feel; tear-away label Care Machine wash cold, inside out Mild detergent; no bleach Tumble low or hang dry Do not iron directly on the print Fit notes True-to-size unisex. Size up for relaxed/oversized look. Tags: mountains, eight ball, minimal, black tee, night snow This product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!",
+      "description_html": "<p>A black unisex tee with our 8-ball moon over snow-stack peaks—high-contrast white ink for a bold, minimal look. Description Powder Peaks 8-Ball brings pool-hall energy to the mountain night. The design stacks two powder-pile peaks beneath a pine line, crowned by an eight-ball moon. Printed front-center in vintage white on a premium black tee for a clean, graphic silhouette. Details Soft unisex staple tee (premium ringspun cotton) Front-center white ink print (DTG or screen, depending on batch) Modern fit; smooth hand feel; tear-away label Care Machine wash cold, inside out Mild detergent; no bleach Tumble low or hang dry Do not iron directly on the print Fit notes True-to-size unisex. Size up for relaxed/oversized look. Tags: mountains, eight ball, minimal, black tee, night snow This product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!</p>",
+      "seo_title": "",
+      "seo_description": "",
+      "tags": [
+        "tees",
+        "powder-peaks"
+      ],
+      "variants": [
+        {
+          "size": "S",
+          "color": "",
+          "sku": "6916FC17A78CD_11869",
+          "price": 39.99,
+          "variation_id": "BZDOA5LBD5CDUQ53DOTCNGCC"
+        },
+        {
+          "size": "M",
+          "color": "",
+          "sku": "6916FC17A78CD_11870",
+          "price": 39.99,
+          "variation_id": "KFHBP33O6BZRTPEUPAZSCZJH"
+        },
+        {
+          "size": "L",
+          "color": "",
+          "sku": "6916FC17A78CD_11871",
+          "price": 39.99,
+          "variation_id": "MJP43RO47WELDLPTKNMUIMUJ"
+        },
+        {
+          "size": "XL",
+          "color": "",
+          "sku": "6916FC17A78CD_11872",
+          "price": 39.99,
+          "variation_id": "CRBZYID2QIIRT6NZXAVMEFJ6"
+        },
+        {
+          "size": "2XL",
+          "color": "",
+          "sku": "6916FC17A78CD_11873",
+          "price": 39.99,
+          "variation_id": "SOR6AOSJ7B3I4HK7RY3XCJQF"
+        },
+        {
+          "size": "3XL",
+          "color": "",
+          "sku": "6916FC17A78CD_17229",
+          "price": 39.99,
+          "variation_id": "2MCFO7AXWE4W5MKGSPRGF27H"
+        },
+        {
+          "size": "4XL",
+          "color": "",
+          "sku": "6916FC17A78CD_17233",
+          "price": 39.99,
+          "variation_id": "ZHO7KF3U6L345XI5KFMP2KQ7"
+        },
+        {
+          "size": "5XL",
+          "color": "",
+          "sku": "6916FC17A78CD_17236",
+          "price": 39.99,
+          "variation_id": "NHH2CY6U3IX5EFCIDRIOAR5H"
+        }
+      ]
+    },
+    {
       "id": "powder-peaks-v2-premium-pullover-hoodie-black",
-      "name": "Powder Peaks v2 Premium Pullover Hoodie — Black",
-      "color": "Black",
+      "name": "Powder Peaks v2 Premium Pullover Hoodie | Black",
+      "color": "",
       "category": "hoodies",
       "collection": "Powder Peaks",
       "visibility": "visible",
@@ -1878,42 +2838,42 @@
       "variants": [
         {
           "size": "S",
-          "color": "Black",
+          "color": "",
           "sku": "699E1E2A5E265_22132",
           "price": 59.99,
           "variation_id": "2TXZHKJQTD3DLZFAWEWQXGXV"
         },
         {
           "size": "M",
-          "color": "Black",
+          "color": "",
           "sku": "699E1E2A5E265_22133",
           "price": 59.99,
           "variation_id": "ENG6PX55SN5EZ6ER65BUB2EI"
         },
         {
           "size": "L",
-          "color": "Black",
+          "color": "",
           "sku": "699E1E2A5E265_22134",
           "price": 59.99,
           "variation_id": "LMFYTYGVHP5IYITAXI7EGR6K"
         },
         {
           "size": "XL",
-          "color": "Black",
+          "color": "",
           "sku": "699E1E2A5E265_22135",
           "price": 59.99,
           "variation_id": "X53RXJU7ONINSTQ3TQ7K6MQN"
         },
         {
           "size": "2XL",
-          "color": "Black",
+          "color": "",
           "sku": "699E1E2A5E265_22136",
           "price": 59.99,
           "variation_id": "5ADIPFUUTWE2NUWUZFJ3XRGJ"
         },
         {
           "size": "3XL",
-          "color": "Black",
+          "color": "",
           "sku": "699E1E2A5E265_22137",
           "price": 59.99,
           "variation_id": "OVZF5JSALKJWR2P2VCRKCUUW"
@@ -1921,20 +2881,103 @@
       ]
     },
     {
-      "id": "vespera-moonscript-hoodie",
-      "name": "Vespera Moonscript Hoodie",
+      "id": "shadow-wear-ghost-ridge",
+      "name": "Shadow Wear // Ghost Ridge",
       "color": "",
       "category": "hoodies",
+      "collection": "Shadow Wear",
+      "visibility": "visible",
+      "price": 89.99,
+      "image": "Shadow Wear  Ghost Ridge.png",
+      "description_text": "Ghost Ridge was built around the idea of hidden structure — the shapes that stay standing after the noise fades. Layered with the custom Shadow Wear Ghost pattern, this piece blends fractured geometry, stealth texture, and the Apex mark into a low-visibility statement built for everyday wear.",
+      "description_html": "<p>Ghost Ridge was built around the idea of hidden structure — the shapes that stay standing after the noise fades. Layered with the custom Shadow Wear Ghost pattern, this piece blends fractured geometry, stealth texture, and the Apex mark into a low-visibility statement built for everyday wear.</p>",
+      "seo_title": "Shadow Wear // Ghost Ridge",
+      "seo_description": "Ghost Ridge was built around the idea of hidden structure — the shapes that stay standing after the noise fades. Layered with the custom Shadow Wear Ghost ",
+      "tags": [
+        "hoodies",
+        "shadow-wear"
+      ],
+      "variants": [
+        {
+          "size": "2XS",
+          "color": "",
+          "sku": "6A0BA2231A325_18730",
+          "price": 89.99,
+          "variation_id": "MNWDFJEAL25FIYGTLEKEJTS2"
+        },
+        {
+          "size": "XS",
+          "color": "",
+          "sku": "6A0BA2231A325_10869",
+          "price": 89.99,
+          "variation_id": "N7PGRDSJXQEKKWWE7HJHHWTK"
+        },
+        {
+          "size": "S",
+          "color": "",
+          "sku": "6A0BA2231A325_10870",
+          "price": 89.99,
+          "variation_id": "ZVTSEPGXLAFT4XJXO6PZXPLY"
+        },
+        {
+          "size": "M",
+          "color": "",
+          "sku": "6A0BA2231A325_10871",
+          "price": 89.99,
+          "variation_id": "WXDBA7PI2NK2N4GAI5SLCEHZ"
+        },
+        {
+          "size": "L",
+          "color": "",
+          "sku": "6A0BA2231A325_10872",
+          "price": 89.99,
+          "variation_id": "BBN645WTJG2TFFI3OOCNWVMO"
+        },
+        {
+          "size": "XL",
+          "color": "",
+          "sku": "6A0BA2231A325_10873",
+          "price": 89.99,
+          "variation_id": "AYYLAFNFGKAWWI4F7CY57NFV"
+        },
+        {
+          "size": "2XL",
+          "color": "",
+          "sku": "6A0BA2231A325_10874",
+          "price": 89.99,
+          "variation_id": "4CJQHON2D7VSPFKGZMEO5OBS"
+        },
+        {
+          "size": "3XL",
+          "color": "",
+          "sku": "6A0BA2231A325_10875",
+          "price": 89.99,
+          "variation_id": "OILZP2JDR5Z3LN7JAJB6WTDH"
+        },
+        {
+          "size": "4XL",
+          "color": "",
+          "sku": "6A0BA2231A325_18731",
+          "price": 89.99,
+          "variation_id": "O77INYF42MH5PQHZ2QCC6HF5"
+        }
+      ]
+    },
+    {
+      "id": "vespra-moonscript-hoodie",
+      "name": "Vespera Moonscript Hoodie",
+      "color": "",
+      "category": "apparel",
       "collection": "Vespera",
       "visibility": "hidden",
-      "price": 62,
+      "price": 59.99,
       "image": "",
       "description_text": "The Vespera Moonscript Hoodie blends comfort with a quietly expressive graphic inspired by moonlight, ink, and imagination. Featuring a luminous quill-and-book design, it captures a reflective, night-driven aesthetic that feels both poetic and modern. Easy to wear and easy to layer, it’s a statement piece without being loud.",
       "description_html": "<p>The Vespera Moonscript Hoodie blends comfort with a quietly expressive graphic inspired by moonlight, ink, and imagination. Featuring a luminous quill-and-book design, it captures a reflective, night-driven aesthetic that feels both poetic and modern. Easy to wear and easy to layer, it’s a statement piece without being loud.</p>",
       "seo_title": "",
       "seo_description": "",
       "tags": [
-        "hoodies",
+        "apparel",
         "vespera"
       ],
       "variants": [
@@ -1942,57 +2985,57 @@
           "size": "S",
           "color": "",
           "sku": "69E85F3473634_10779",
-          "price": 62,
+          "price": 59.99,
           "variation_id": "3VQEBVZRSR3OTEK3FIP44JYA"
         },
         {
           "size": "M",
           "color": "",
           "sku": "69E85F3473634_10780",
-          "price": 62,
+          "price": 59.99,
           "variation_id": "OAES3ZXJ2CWS3CXAIZTWX4B7"
         },
         {
           "size": "L",
           "color": "",
           "sku": "69E85F3473634_10781",
-          "price": 62,
+          "price": 59.99,
           "variation_id": "Z6PFBXT7IK7QVYDLHT6ZHUAO"
         },
         {
           "size": "XL",
           "color": "",
           "sku": "69E85F3473634_10782",
-          "price": 62,
+          "price": 59.99,
           "variation_id": "O3CKDCPLCZJ45DJUYZMVFNDI"
         },
         {
           "size": "2XL",
           "color": "",
           "sku": "69E85F3473634_10783",
-          "price": 62,
+          "price": 59.99,
           "variation_id": "3HAMHWWWJNLGG5ZJGNKNMELD"
         },
         {
           "size": "3XL",
           "color": "",
           "sku": "69E85F3473634_13416",
-          "price": 62,
+          "price": 59.99,
           "variation_id": "SCS5PBD4DEG3HFX3IFI7YBBT"
         }
       ]
     },
     {
-      "id": "aerovista-glitch-logo-tee-black",
-      "name": "AeroVista Glitch Logo Tee — Black",
+      "id": "glitch-logo-aerovista-tee-black",
+      "name": "glitch logo — AeroVista — Tee - black",
       "color": "Black",
       "category": "tees",
       "collection": "Glitch Line",
-      "visibility": "visible",
-      "price": 34.99,
+      "visibility": "hidden",
+      "price": 39.99,
       "image": "glitch.aerovista.png",
-      "description_text": "AeroVista Glitch Logo Tee — Black is a clean AeroVista tee made for everyday wear with a stronger story than a standard logo shirt. It carries the AeroVista Glitch signal in a simple, wearable format that works for shop days, road miles, events, and casual rotation. Soft feel, easy fit, and enough edge to stay connected to the larger AeroVista gear system.",
-      "description_html": "<p>AeroVista Glitch Logo Tee — Black is a clean AeroVista tee made for everyday wear with a stronger story than a standard logo shirt. It carries the AeroVista Glitch signal in a simple, wearable format that works for shop days, road miles, events, and casual rotation. Soft feel, easy fit, and enough edge to stay connected to the larger AeroVista gear system.</p>",
+      "description_text": "collar peeker",
+      "description_html": "<p>collar peeker</p>",
       "seo_title": "",
       "seo_description": "",
       "tags": [
@@ -2005,50 +3048,50 @@
           "size": "S",
           "color": "Black",
           "sku": "698D739A50AB6_21000",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "QE7L36NT36AZSSEV5IAQVBEN"
         },
         {
           "size": "M",
           "color": "Black",
           "sku": "698D739A50AB6_21006",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "GP3VWJSTJYNNUTKRRPT5TSU4"
         },
         {
           "size": "L",
           "color": "Black",
           "sku": "698D739A50AB6_21012",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "GYYEXSH6GXYAA7FHFHVSRHT4"
         },
         {
           "size": "XL",
           "color": "Black",
           "sku": "698D739A50AB6_21018",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "ITLXGQTTLGCFM45733HPQ6LD"
         },
         {
           "size": "2XL",
           "color": "Black",
           "sku": "698D739A50AB6_21024",
-          "price": 34.99,
+          "price": 39.99,
           "variation_id": "ODR7GFYYYDWW6SCFYLRT4QO4"
         }
       ]
     },
     {
-      "id": "aerovista-glitch-drone-tee-black",
-      "name": "AeroVista Glitch Drone Tee — Black",
+      "id": "glitch-drone-aerovista-tee-black",
+      "name": "glitch_drone  • AeroVista • Tee - black",
       "color": "Black",
       "category": "tees",
       "collection": "Glitch Line",
       "visibility": "visible",
-      "price": 52,
+      "price": 39.99,
       "image": "glitch_drone.png",
-      "description_text": "AeroVista Glitch Drone Tee — Black is a clean AeroVista tee made for everyday wear with a stronger story than a standard logo shirt. It carries the AeroVista Glitch signal in a simple, wearable format that works for shop days, road miles, events, and casual rotation. Soft feel, easy fit, and enough edge to stay connected to the larger AeroVista gear system.",
-      "description_html": "<p>AeroVista Glitch Drone Tee — Black is a clean AeroVista tee made for everyday wear with a stronger story than a standard logo shirt. It carries the AeroVista Glitch signal in a simple, wearable format that works for shop days, road miles, events, and casual rotation. Soft feel, easy fit, and enough edge to stay connected to the larger AeroVista gear system.</p>",
+      "description_text": "Who knew that the softest hoodie you'll ever own comes with such a cool design. You won't regret buying this classic streetwear piece of apparel with a convenient pouch pocket and warm hood for chilly evenings. • 100% cotton face • 65% ring-spun cotton, 35% polyester • Front pouch pocket • Self-fabric patch on the back • Matching flat drawstrings • 3-panel hood • Blank product sourced from Pakistan Disclaimer: This hoodie runs small. For the perfect fit, we recommend ordering one size larger than your usual size.",
+      "description_html": "<p>Who knew that the softest hoodie you&#039;ll ever own comes with such a cool design. You won&#039;t regret buying this classic streetwear piece of apparel with a convenient pouch pocket and warm hood for chilly evenings. • 100% cotton face • 65% ring-spun cotton, 35% polyester • Front pouch pocket • Self-fabric patch on the back • Matching flat drawstrings • 3-panel hood • Blank product sourced from Pakistan Disclaimer: This hoodie runs small. For the perfect fit, we recommend ordering one size larger than your usual size.</p>",
       "seo_title": "",
       "seo_description": "",
       "tags": [
@@ -2061,126 +3104,243 @@
           "size": "S",
           "color": "Black",
           "sku": "698C1BA0B2CE9_10779",
-          "price": 52,
+          "price": 39.99,
           "variation_id": "3VMCB74R3ENBS6HG7JKX3TBM"
         },
         {
           "size": "M",
           "color": "Black",
           "sku": "698C1BA0B2CE9_10780",
-          "price": 52,
+          "price": 39.99,
           "variation_id": "WIXJH3KCAR45P6R5P3NH3ZEY"
         },
         {
           "size": "L",
           "color": "Black",
           "sku": "698C1BA0B2CE9_10781",
-          "price": 52,
+          "price": 39.99,
           "variation_id": "RRJVGZPOQACHB2FZBFB2QREZ"
         },
         {
           "size": "XL",
           "color": "Black",
           "sku": "698C1BA0B2CE9_10782",
-          "price": 52,
+          "price": 39.99,
           "variation_id": "NGBPRK6CGBTRPQYO5EUELBOR"
         },
         {
           "size": "2XL",
           "color": "Black",
           "sku": "698C1BA0B2CE9_10783",
-          "price": 52,
+          "price": 39.99,
           "variation_id": "OTIXN7QS7S5CCENDFBM5UKWS"
         },
         {
           "size": "3XL",
           "color": "Black",
           "sku": "698C1BA0B2CE9_13416",
-          "price": 52,
+          "price": 39.99,
           "variation_id": "4PGH4T2774G6DBQ4Q2ZRG553"
         }
       ]
     },
     {
-      "id": "shadow-wear-ghost-ridge",
-      "name": "Shadow Wear //\\ Ghost Ridge",
-      "color": "",
-      "category": "hoodies",
-      "collection": "Shadow Wear",
-      "visibility": "visible",
-      "price": 98,
-      "image": "ghost.ridge.hoodie.png",
-      "description_text": "Ghost Ridge was built around the idea of hidden structure — the shapes that stay standing after the noise fades. Layered with the custom Shadow Wear Ghost pattern, this piece blends fractured geometry, stealth texture, and the Apex mark into a low-visibility statement built for everyday wear.",
-      "description_html": "<p>Ghost Ridge was built around the idea of hidden structure — the shapes that stay standing after the noise fades. Layered with the custom Shadow Wear Ghost pattern, this piece blends fractured geometry, stealth texture, and the Apex mark into a low-visibility statement built for everyday wear.</p>",
+      "id": "hy-go",
+      "name": "hy.go",
+      "color": "Black",
+      "category": "services",
+      "collection": "",
+      "visibility": "hidden",
+      "price": 59.99,
+      "image": "",
+      "description_text": "Who knew that the softest hoodie you'll ever own comes with such a cool design. You won't regret buying this classic streetwear piece of apparel with a convenient pouch pocket and warm hood for chilly evenings. • 100% cotton face • 65% ring-spun cotton, 35% polyester • Front pouch pocket • Self-fabric patch on the back • Matching flat drawstrings • 3-panel hood • Blank product sourced from Pakistan Disclaimer: This hoodie runs small. For the perfect fit, we recommend ordering one size larger than your usual size.",
+      "description_html": "<p>Who knew that the softest hoodie you&#039;ll ever own comes with such a cool design. You won&#039;t regret buying this classic streetwear piece of apparel with a convenient pouch pocket and warm hood for chilly evenings. • 100% cotton face • 65% ring-spun cotton, 35% polyester • Front pouch pocket • Self-fabric patch on the back • Matching flat drawstrings • 3-panel hood • Blank product sourced from Pakistan Disclaimer: This hoodie runs small. For the perfect fit, we recommend ordering one size larger than your usual size.</p>",
       "seo_title": "",
       "seo_description": "",
       "tags": [
-        "hoodies",
+        "services"
+      ],
+      "variants": [
+        {
+          "size": "S",
+          "color": "Black",
+          "sku": "69B3985D45936_10779",
+          "price": 59.99,
+          "variation_id": "5VE2XWDXE55PF7RI6N4CJOG7"
+        },
+        {
+          "size": "M",
+          "color": "Black",
+          "sku": "69B3985D45936_10780",
+          "price": 59.99,
+          "variation_id": "SWMOWES5POURZRXLC36JHZKI"
+        },
+        {
+          "size": "L",
+          "color": "Black",
+          "sku": "69B3985D45936_10781",
+          "price": 59.99,
+          "variation_id": "JRWKV2RG5PQEN3MRFBF2LC4R"
+        },
+        {
+          "size": "XL",
+          "color": "Black",
+          "sku": "69B3985D45936_10782",
+          "price": 59.99,
+          "variation_id": "BUKOJWL4RYLEXKSAP7WUKKAR"
+        },
+        {
+          "size": "2XL",
+          "color": "Black",
+          "sku": "69B3985D45936_10783",
+          "price": 59.99,
+          "variation_id": "OTI45IW7PXGCMVKDF5AB2D44"
+        },
+        {
+          "size": "3XL",
+          "color": "Black",
+          "sku": "69B3985D45936_13416",
+          "price": 59.99,
+          "variation_id": "D33RZHMNYSN2KBH7RF6V23GN"
+        },
+        {
+          "size": "S",
+          "color": "White",
+          "sku": "69B3985D45936_10774",
+          "price": 59.99,
+          "variation_id": "X7KEXDRVKVOMZG4XRBAFNX7D"
+        },
+        {
+          "size": "M",
+          "color": "White",
+          "sku": "69B3985D45936_10775",
+          "price": 59.99,
+          "variation_id": "5VH66A4SHFSGYBMUOSFRBEJR"
+        },
+        {
+          "size": "L",
+          "color": "White",
+          "sku": "69B3985D45936_10776",
+          "price": 59.99,
+          "variation_id": "B3BRCD767IXSWEVFPTER536M"
+        },
+        {
+          "size": "XL",
+          "color": "White",
+          "sku": "69B3985D45936_10777",
+          "price": 59.99,
+          "variation_id": "3NLQI275EB56SBHGFSNKLOQG"
+        },
+        {
+          "size": "2XL",
+          "color": "White",
+          "sku": "69B3985D45936_10778",
+          "price": 59.99,
+          "variation_id": "QO47DIE66JDJZ6FY4ZH2GD7Q"
+        },
+        {
+          "size": "3XL",
+          "color": "White",
+          "sku": "69B3985D45936_13421",
+          "price": 59.99,
+          "variation_id": "XMTLPJNV5VITRZN75DCII5DY"
+        }
+      ]
+    },
+    {
+      "id": "shadow-pants",
+      "name": "shadow pants",
+      "color": "",
+      "category": "apparel",
+      "collection": "shadow wear",
+      "visibility": "visible",
+      "price": 46,
+      "image": "shadow pants.png",
+      "description_text": "Get the comfort of pajamas in this stylish pair of wide-leg pants. With the adjustable waist and a smooth, comfortable stretchy fabric, it’s like your favorite sweatpants but better. - Fabric composition in the EU: 96% polyester, 4% spandex - Fabric composition in the US: 93% polyester, 7% spandex - Fabric weight in the EU: 6.34 oz./yd.² (215 g/m²) - Fabric weight in the US: 7.08 oz./yd.² (240 g/m²) - Relaxed unisex fit - Practical side pockets - Elastic waistband with a white drawstring - Can be worn on the waist or on the hips - Premium knit mid-weight jersey fabric Disclaimer: In areas where the fabric is double-layered (like pockets), details from the inner fabric layer may subtly show through, especially with lighter designs.",
+      "description_html": "<p>Get the comfort of pajamas in this stylish pair of wide-leg pants. With the adjustable waist and a smooth, comfortable stretchy fabric, it’s like your favorite sweatpants but better. - Fabric composition in the EU: 96% polyester, 4% spandex - Fabric composition in the US: 93% polyester, 7% spandex - Fabric weight in the EU: 6.34 oz./yd.² (215 g/m²) - Fabric weight in the US: 7.08 oz./yd.² (240 g/m²) - Relaxed unisex fit - Practical side pockets - Elastic waistband with a white drawstring - Can be worn on the waist or on the hips - Premium knit mid-weight jersey fabric Disclaimer: In areas where the fabric is double-layered (like pockets), details from the inner fabric layer may subtly show through, especially with lighter designs.</p>",
+      "seo_title": "shadow pants",
+      "seo_description": "Get the comfort of pajamas in this stylish pair of wide-leg pants. With the adjustable waist and a smooth, comfortable stretchy fabric, it’s like your favo",
+      "tags": [
+        "apparel",
         "shadow-wear"
       ],
       "variants": [
         {
           "size": "2XS",
           "color": "",
-          "sku": "6A0926E227621_18730",
-          "price": 98,
-          "variation_id": "SHLJ2CLTD32G4JOCZGVVXB3T"
+          "sku": "6A0E283D90341_15513",
+          "price": 46,
+          "variation_id": "N5EXCPN5GWVME3PQZIFDYNUJ"
         },
         {
           "size": "XS",
           "color": "",
-          "sku": "6A0926E227621_10869",
-          "price": 98,
-          "variation_id": "TGEDTQDD6ZM5Q36ITYO5XN3U"
+          "sku": "6A0E283D90341_15514",
+          "price": 46,
+          "variation_id": "ZQEDD7FLGDCIG7YS7ITUIAY5"
         },
         {
           "size": "S",
           "color": "",
-          "sku": "6A0926E227621_10870",
-          "price": 98,
-          "variation_id": "DPXNXV4MXBCKIYNRYO2EIU5A"
+          "sku": "6A0E283D90341_15515",
+          "price": 46,
+          "variation_id": "PUXSQI64MVTC6OTTJRHJ5XUA"
         },
         {
           "size": "M",
           "color": "",
-          "sku": "6A0926E227621_10871",
-          "price": 98,
-          "variation_id": "E2GHUPWIAXZHY3XUG2GB7V4P"
+          "sku": "6A0E283D90341_15516",
+          "price": 46,
+          "variation_id": "AADW36VFWTN37URWPN6EHEXT"
         },
         {
           "size": "L",
           "color": "",
-          "sku": "6A0926E227621_10872",
-          "price": 98,
-          "variation_id": "JVC34CFP6HYS4N6HW5RDCN6J"
+          "sku": "6A0E283D90341_15517",
+          "price": 46,
+          "variation_id": "D5LNRKU4JLH32X4KPH2OA2FE"
         },
         {
           "size": "XL",
           "color": "",
-          "sku": "6A0926E227621_10873",
-          "price": 98,
-          "variation_id": "5AH3FNUXHSCKNYT5LLKQIG5U"
+          "sku": "6A0E283D90341_15518",
+          "price": 46,
+          "variation_id": "6ADRYKNCNSXRGNIKFQMJVLEN"
         },
         {
           "size": "2XL",
           "color": "",
-          "sku": "6A0926E227621_10874",
-          "price": 98,
-          "variation_id": "U4RO35ZDKW25SD5MOWKC5RON"
+          "sku": "6A0E283D90341_15519",
+          "price": 48.5,
+          "variation_id": "X7YG4ZG5UC5WUGBCTQTSRXBQ"
         },
         {
           "size": "3XL",
           "color": "",
-          "sku": "6A0926E227621_10875",
-          "price": 98,
-          "variation_id": "KRZE6ZTUNJ7EVATLILYU4CDP"
+          "sku": "6A0E283D90341_15520",
+          "price": 51.5,
+          "variation_id": "V2DUEG3ZMLQN2KK33ZKNXMWA"
         },
         {
           "size": "4XL",
           "color": "",
-          "sku": "6A0926E227621_18731",
-          "price": 98,
-          "variation_id": "PGJXIMKPHC6ZN3FGT4A3L7XL"
+          "sku": "6A0E283D90341_15521",
+          "price": 54.5,
+          "variation_id": "HH6VMGGMO3JWLU3J5YQHAODJ"
+        },
+        {
+          "size": "5XL",
+          "color": "",
+          "sku": "6A0E283D90341_15522",
+          "price": 57,
+          "variation_id": "VL6KXAOGQAYW7Y2CDM2D3TIW"
+        },
+        {
+          "size": "6XL",
+          "color": "",
+          "sku": "6A0E283D90341_15523",
+          "price": 60,
+          "variation_id": "BJ5752GLBNMNNANQCQUMH3BM"
         }
       ]
     }
