@@ -41,12 +41,12 @@ for (const vid of Object.keys(itemsByVariationId)) {
   }
 }
 
-// --- Fix glitch_drone overlay titles (tee, not hoodie) ---
+// --- Fix glitch_drone overlay titles (hoodie in catalog) ---
 for (const [vid, entry] of Object.entries(itemsByVariationId)) {
   const p = byVar.get(vid);
   if (!p || !/glitch.*drone|drone.*glitch/i.test(p.name || p.id)) continue;
-  if (/hoodie/i.test(entry.title || "") && /tee/i.test(p.name)) {
-    entry.title = "AeroVista • Drone Glitch • Classic Tee";
+  if (/tee/i.test(entry.title || "") && /hoodie/i.test(p.name || p.id || p.category)) {
+    entry.title = "AeroVista • Drone Glitch • Pullover Hoodie";
   }
 }
 
