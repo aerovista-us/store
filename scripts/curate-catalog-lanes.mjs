@@ -32,7 +32,13 @@ const HIDE_IDS = new Set([
   'aerovista-wave-mark-zip-hoodie-white',
   'aerovista-retro-trucker-hat-orbit-a-gray',
   'aerovista-apex-mark-draft-series-s01-sticker',
+  'aerovista-apex-pattern-hoodie',
 ]);
+
+/** Correct catalog image filenames (Square export sometimes shares wrong assets). */
+const IMAGE_BY_ID = {
+  'architect-built-different-hoodie-black': 'Architect Built Different Hoodie.png',
+};
 
 /** Per-product collection overrides (canonical lane labels). */
 const COLLECTION_BY_ID = {
@@ -85,6 +91,10 @@ let relabeled = 0;
 
 for (const p of catalog.products) {
   const id = (p.id || '').trim();
+  if (IMAGE_BY_ID[id]) {
+    p.image = IMAGE_BY_ID[id];
+  }
+
   if (HIDE_IDS.has(id)) {
     if (p.visibility !== 'hidden') {
       p.visibility = 'hidden';
