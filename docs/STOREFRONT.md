@@ -41,15 +41,17 @@ Canonical source lives in **`store/`**; run **`npm run sync:store`** before dev/
 
 ### Collection lanes (`COLLECTION_LANES`)
 
-Landing doors and collection pages filter products by the export **`collection`** field (regex per lane). Overlay **`overrides.collection`** is not the primary lane key.
+Landing doors and collection pages filter products by the export **`collection`** field (regex per lane, with **`COLLECTION_ALIASES`** for messy Square labels like `APEX` → `apex`, `shadowwear` → `shadow wear`). Overlay **`overrides.collection`** is not the primary lane key.
+
+**Curation:** Run **`npm run curate:catalog`** after a raw Square deploy to normalize lane labels and hide off-story SKUs (EchoVerse, Powder Peaks, one-off experiments). Script: `scripts/curate-catalog-lanes.mjs`. Target ~30–35 visible pieces across five live lanes.
 
 | Lane ID | Label | Export `collection` match |
 |---------|--------|---------------------------|
-| `core` | Core | `^core$` |
+| `core` | Core | `^core$`, `^division$` |
 | `shadow` | Shadow Wear | `^shadow wear$`, `^apex pattern$` |
 | `apex` | Apex | `^apex$` |
 | `glitch` | Glitch | `^glitch$`, `^glitch line$` |
-| `architect` | Architect | `^architect$`, `^draft series$`, `^division$` |
+| `architect` | Architect | `^architect$`, `^draft series$` |
 
 Lane metadata (eyebrow, lead copy, glow colors) is defined in **`COLLECTION_LANES`** inside `index.html`. Optional PNG references: `store/img/collection-cards/*.png` (design refs; live UI uses SVG).
 

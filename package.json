@@ -19,6 +19,7 @@
     "audit:overlay": "node scripts/audit-storefront-overlay.cjs",
     "clean:overlay": "node scripts/clean-storefront-overlay.mjs",
     "deploy:catalog": "node scripts/deploy-store-catalog.mjs",
+    "curate:catalog": "node scripts/curate-catalog-lanes.mjs",
     "deploy:server": "node scripts/catalog-deploy-server.mjs",
     "audit:repo": "node scripts/audit-orphans.mjs"
   },

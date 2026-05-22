@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://web.squarecdn.com https://sandbox.web.squarecdn.com https://stats.aerocoreos.com; style-src 'self' 'unsafe-inline' https://web.squarecdn.com https://sandbox.web.squarecdn.com; img-src 'self' data:; connect-src 'self' https://connect.squareup.com https://connect.squareupsandbox.com https://web.squarecdn.com https://sandbox.web.squarecdn.com https://pci-connect.squareup.com https://pci-connect.squareupsandbox.com https://api.aerovista.us https://stats.aerocoreos.com http://127.0.0.1:* http://localhost:*; frame-src https://web.squarecdn.com https://sandbox.web.squarecdn.com https://connect.squareup.com https://connect.squareupsandbox.com https://pci-connect.squareup.com https://pci-connect.squareupsandbox.com; font-src 'self' data: https://square-fonts-production-f.squarecdn.com https://d1g145x70srn7h.cloudfront.net;">
   <title>AeroVista Apparel — Store</title>
-  <meta name="description" content="Curated comfort essentials: hoodies, crewnecks, hats." />
-  <meta property="og:title" content="AeroVista Apparel — Store" />
-  <meta property="og:description" content="Curated comfort essentials: hoodies, crewnecks, hats." />
-  <meta property="og:site_name" content="AeroVista Apparel" />
+  <meta name="description" content="AeroVista gear — Core, Shadow Wear, Apex, Glitch, and Architect collections. Premium streetwear and made-to-order apparel." />
+  <meta property="og:title" content="AeroVista Gear — Official Store" />
+  <meta property="og:description" content="Shop Core, Shadow Wear, Apex, Glitch, and Architect — curated AeroVista apparel with secure Square checkout." />
+  <meta property="og:site_name" content="AeroVista Gear" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://aerovista.us/" />
-  <meta property="og:image" content="https://aerovista.us/img/original.png" />
-  <meta property="og:image:alt" content="AeroVista Apparel" />
+  <meta property="og:url" content="https://gear.aerovista.us/" />
+  <meta property="og:image" content="https://gear.aerovista.us/shop/img/ghost.ridge.drk.png" />
+  <meta property="og:image:alt" content="AeroVista Shadow Wear collection" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AeroVista Apparel — Store" />
-  <meta name="twitter:description" content="Curated comfort essentials: hoodies, crewnecks, hats." />
-  <meta name="twitter:image" content="https://aerovista.us/img/original.png" />
-  <link rel="canonical" href="https://aerovista.us/" />
+  <meta name="twitter:title" content="AeroVista Gear — Official Store" />
+  <meta name="twitter:description" content="Shop Core, Shadow Wear, Apex, Glitch, and Architect collections." />
+  <meta name="twitter:image" content="https://gear.aerovista.us/shop/img/ghost.ridge.drk.png" />
+  <link rel="canonical" href="https://gear.aerovista.us/" />
   <link rel="preconnect" href="https://web.squarecdn.com" crossorigin />
   <link rel="dns-prefetch" href="https://web.squarecdn.com" />
   <link rel="preconnect" href="https://connect.squareup.com" crossorigin />
@@ -1895,7 +1895,24 @@
     .overlay.modal--policy .optRow,
     .overlay.modal--policy .detailGrid,
     .overlay.modal--policy .qtyRow,
-    .overlay.modal--policy .modalPodNote{ display: none !important; }
+    .overlay.modal--policy .modalPodNote,
+    .overlay.modal--policy .modalTrustStrip{ display: none !important; }
+    .modalTrustStrip{
+      margin:12px 0 0;
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.45;
+    }
+    .modalTrustStrip .linkish{
+      background:none;
+      border:none;
+      color:rgba(110,231,255,.88);
+      cursor:pointer;
+      padding:0;
+      font:inherit;
+      text-decoration:underline;
+    }
+    .modalTrustStrip .linkish:hover{ color:rgba(167,139,250,.95); }
     .overlay.modal--policy #addToCartBtn{ display: none !important; }
     .overlay.modal--policy #providerBtn{ display: none !important; }
     .mTop{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
@@ -2920,6 +2937,11 @@
           <button class="btn" id="providerBtn" title="Open provider link">Provider</button>
         </div>
 
+        <p class="modalTrustStrip" id="mTrustStrip">
+          Secure Square checkout · Made to order · Typical ship 5–12 days ·
+          <button type="button" class="linkish" id="mPolicyShipping">Shipping</button> ·
+          <button type="button" class="linkish" id="mPolicyReturns">Returns</button>
+        </p>
         <div class="modalPodNote" style="color:var(--muted); font-size:12px; line-height:1.35;">
           Notes are written for POD reality: we curate available blanks and focus on placement, palette, and finish.
         </div>
@@ -2951,7 +2973,7 @@
       </div>
 
       <div style="color:var(--muted); font-size:12px;">
-        Checkout opens secure Square payment. Requires API connectivity.
+        Secure Square checkout. Promo codes shown here must also be entered at Square if supported.
       </div>
       <div style="color:var(--muted); font-size:11px; margin-top:8px;">
         Cart saved locally.
@@ -3517,7 +3539,7 @@
               ? String(firstRaw.collection).trim()
               : "";
             return {
-              id: baseKey,
+              id: rawId || slug(baseKey),
               productKey,
               squareItemIdRaw: rawId || null,
               name: baseName,
@@ -3798,8 +3820,25 @@
     function catalogCollectionKey(p){
       return (p.collection || "").trim().toLowerCase();
     }
+    const COLLECTION_ALIASES = {
+      "apex": "apex",
+      "apex pattern": "apex pattern",
+      "shadow wear": "shadow wear",
+      "shadowwear": "shadow wear",
+      "glitch line": "glitch line",
+      "glitch": "glitch line",
+      "draft series": "draft series",
+      "drafted": "draft series",
+      "core": "core",
+      "division": "division"
+    };
+    function normalizedCatalogCollection(p){
+      const raw = catalogCollectionKey(p);
+      if(!raw) return "";
+      return COLLECTION_ALIASES[raw] || raw;
+    }
     function laneMatchesCollection(p, patterns){
-      const c = catalogCollectionKey(p);
+      const c = normalizedCatalogCollection(p);
       if(!c) return false;
       return patterns.some(re => re.test(c));
     }
@@ -3811,7 +3850,7 @@
         lead: "The clean AeroVista line: everyday essentials for operators, founders, and signal carriers.",
         pageGlow: "rgba(110,231,255,.12)",
         cardImg: "./img/collection-cards/core.png",
-        match(p) { return laneMatchesCollection(p, [/^core$/]); }
+        match(p) { return laneMatchesCollection(p, [/^core$/, /^division$/]); }
       },
       {
         id: "shadow",
@@ -3847,7 +3886,7 @@
         lead: "Drafts, diagrams, system maps, and limited pieces that document the making of AeroVista.",
         pageGlow: "rgba(251,191,36,.12)",
         cardImg: "./img/adrafted.png",
-        match(p) { return laneMatchesCollection(p, [/^architect$/, /^draft series$/, /^division$/]); }
+        match(p) { return laneMatchesCollection(p, [/^architect$/, /^draft series$/]); }
       }
     ];
 
@@ -4618,8 +4657,19 @@
       document.addEventListener("keydown", focusTrapHandler);
     }
 
+    function resolveProduct(id){
+      if(!id) return null;
+      const key = String(id).trim();
+      let p = PRODUCTS.find(x => x.id === key);
+      if(p) return p;
+      p = PRODUCTS.find(x => x.squareItemIdRaw === key);
+      if(p) return p;
+      const norm = key.toLowerCase().replace(/-/g, " ").replace(/\s+/g, " ").trim();
+      return PRODUCTS.find(x => x.id === norm || x.name.toLowerCase().replace(/\s+/g, " ").trim() === norm) || null;
+    }
+
     function openModal(id){
-      const p = PRODUCTS.find(x=>x.id===id);
+      const p = resolveProduct(id);
       if(!p) return;
       state.modalProduct = p;
       modalTrigger = document.activeElement; // Store trigger
@@ -4679,6 +4729,11 @@
           toast("No provider link set yet.");
         }
       };
+
+      const shipBtn = $("#mPolicyShipping");
+      const retBtn = $("#mPolicyReturns");
+      if(shipBtn) shipBtn.onclick = () => { closeModal(); openPolicyModal("shipping"); };
+      if(retBtn) retBtn.onclick = () => { closeModal(); openPolicyModal("returns"); };
 
       $("#addToCartBtn").onclick = () => {
         const size = ($("#mSize").value || "").trim();
@@ -4762,18 +4817,20 @@
 
     // ===== Cart =====
     function addToCart(productId, size, color, qty){
-      const p = PRODUCTS.find(x=>x.id===productId);
+      const p = resolveProduct(productId);
       if(!p || p._overlayHidden) return;
+      const pid = p.id;
       const cart = loadCart();
-      const key = `${productId}__${size}__${color}`;
+      const key = `${pid}__${size}__${color}`;
       const existing = cart.find(it => it.key === key);
       const cartSku = `${color}__${size}`;
       if(existing) {
         existing.qty = Math.min(99, (existing.qty||0) + qty);
         existing.cartSku = existing.cartSku || cartSku;
+        existing.productId = pid;
       } else {
         const price = getPriceForProduct(p, size);
-        cart.push({ key, cartSku, productId, name:p.name, price, size, color, qty });
+        cart.push({ key, cartSku, productId: pid, name:p.name, price, size, color, qty });
       }
       saveCart(cart);
       toast("Added to cart");
@@ -4809,8 +4866,10 @@
       if(cart.length === 0){
         box.innerHTML = `<div style="color:var(--muted); padding: 20px 10px; text-align:center;">
           <p style="margin:0 0 12px;">Your cart is empty.</p>
-          <button class="btn primary" onclick="closeDrawer(); document.getElementById('grid').scrollIntoView({behavior:'smooth'})">Browse Products</button>
+          <button class="btn primary" type="button" id="emptyCartBrowse">Shop Shadow Wear</button>
         </div>`;
+        const browseBtn = $("#emptyCartBrowse");
+        if(browseBtn) browseBtn.onclick = () => { closeDrawer(); goToCollection("shadow"); };
       } else {
         box.innerHTML = cart.map(it => `
           <div class="item">
@@ -5085,7 +5144,7 @@
 
     function cartToSquareLines(cart){
       return cart.map(it => {
-        const p = PRODUCTS.find(x=>x.id===it.productId);
+        const p = resolveProduct(it.productId);
         const key = `${it.color}__${it.size}`;
         const variation_id = (p && p.squareVariationMap && p.squareVariationMap[key]) ? p.squareVariationMap[key] : "";
         return { ...it, variation_id };
@@ -6003,7 +6062,9 @@
     }
 
     function injectStructuredData(){
-      const storeUrl = "https://aerovista.us/";
+      const storeUrl = (location.hostname === "gear.aerovista.us" || location.hostname.endsWith(".github.io"))
+        ? `${location.origin}${location.pathname.replace(/\/[^/]*$/, "/")}`
+        : "https://gear.aerovista.us/shop/";
       const visible = PRODUCTS.filter(p => !p._overlayHidden && p.visibility !== "hidden");
       const items = visible.slice(0, 100).map(p => ({
         "@type": "Product",
