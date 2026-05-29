@@ -89,6 +89,7 @@ Presentation is token-driven (`:root` colors, radii, `--ease`). Recent polish in
 
 - Lane SVGs from **`collection-lane-svg.js`** mount via **`mountCollectionDoorSvgs()`** with **`preserveAspectRatio="xMidYMid slice"`** so art **fills the card** edge-to-edge behind text.
 - Top/bottom text bands use **blur-backed scrims**, stronger gradients, and **text-shadow** for readability over the art.
+- Home doors use **`{ door: true }`**: no HUD corner brackets, no horizontal scan band, larger **`/\`** mark scaled behind copy; text blocks have no solid bar backgrounds — only edge vignette + text-shadow.
 - Card-level **`::before`** vignette sits above the SVG (`z-index: 1`) but below copy (`z-index: 3`).
 
 **Collection page header (`#cvArtSvg`):**

@@ -221,7 +221,8 @@
   }
 
   /** Shared card atmosphere + corner brackets (intentional HUD frame). */
-  function laneAtmosphere(id, lane) {
+  function laneAtmosphere(id, lane, opts = {}) {
+    const forDoor = !!opts.door;
     const i = (n) => `${id}_${n}`;
     const pal = {
       core: [110, 231, 255],
@@ -231,22 +232,31 @@
       architect: [251, 191, 36],
     }[lane] || [110, 231, 255];
     const label = LANE_INTENT_LABEL[lane] || "AEROVISTA";
-    return `
-      <g class="laneAtmosphere" ${bgClip(id)} pointer-events="none">
-        <linearGradient id="${i("cardBase")}" x1="50%" y1="0%" x2="50%" y2="100%">
+    const baseFill = forDoor
+      ? ""
+      : `<linearGradient id="${i("cardBase")}" x1="50%" y1="0%" x2="50%" y2="100%">
           <stop offset="0%" stop-color="#080b12"/>
           <stop offset="55%" stop-color="#0a0e16"/>
           <stop offset="100%" stop-color="#05070c"/>
         </linearGradient>
-        <rect width="400" height="300" fill="url(#${i("cardBase")})"/>
-        <ellipse cx="200" cy="248" rx="168" ry="52" fill="${rgba(pal, 0.06)}"/>
-        <g class="laneIntentFrame" opacity="0.62" stroke="${rgba(pal, 0.42)}" fill="none" stroke-width="0.65" stroke-linecap="square">
+        <rect width="400" height="300" fill="url(#${i("cardBase")})"/>`;
+    const frame = forDoor
+      ? ""
+      : `<g class="laneIntentFrame" opacity="0.62" stroke="${rgba(pal, 0.42)}" fill="none" stroke-width="0.65" stroke-linecap="square">
           <path d="M 20 20 L 20 44 M 20 20 L 44 20"/>
           <path d="M 380 20 L 380 44 M 356 20 L 380 20"/>
           <path d="M 20 280 L 20 256 M 20 280 L 44 280"/>
           <path d="M 380 280 L 380 256 M 356 280 L 380 280"/>
-        </g>
-        <text x="200" y="292" text-anchor="middle" font-family="ui-monospace,Consolas,monospace" font-size="7.5" fill="${rgba(pal, 0.48)}" letter-spacing="0.22em">${label}</text>
+        </g>`;
+    const footer = forDoor
+      ? ""
+      : `<text x="200" y="292" text-anchor="middle" font-family="ui-monospace,Consolas,monospace" font-size="7.5" fill="${rgba(pal, 0.48)}" letter-spacing="0.22em">${label}</text>`;
+    return `
+      <g class="laneAtmosphere" ${bgClip(id)} pointer-events="none">
+        ${baseFill}
+        <ellipse cx="200" cy="248" rx="168" ry="52" fill="${rgba(pal, forDoor ? 0.1 : 0.06)}"/>
+        ${frame}
+        ${footer}
       </g>`;
   }
 
@@ -281,8 +291,18 @@
       </g>`;
   }
 
-  function bgShadow(id) {
+  function bgShadow(id, opts = {}) {
+    const forDoor = !!opts.door;
     const i = (n) => `${id}_${n}`;
+    const scanBand = forDoor
+      ? ""
+      : `<g opacity="0.35" stroke="${rgba([148, 163, 184], 0.5)}" fill="none" stroke-width="0.5">
+          <path d="M 28 128 L 108 126 L 188 130 L 268 127 L 368 129"/>
+          <circle cx="58" cy="128" r="2.5" fill="${rgba([110, 231, 255], 0.55)}" stroke="none"/>
+          <circle cx="118" cy="127" r="2" fill="${rgba([148, 163, 184], 0.5)}" stroke="none"/>
+          <circle cx="178" cy="128" r="2" fill="${rgba([148, 163, 184], 0.45)}" stroke="none"/>
+          <circle cx="238" cy="127" r="2" fill="${rgba([148, 163, 184], 0.4)}" stroke="none"/>
+        </g>`;
     return `
       <g class="laneBg laneBg--shadow" ${bgClip(id)}>
         <g opacity="0.22" stroke="${rgba([148, 163, 184], 0.45)}" fill="none" stroke-width="0.45">
@@ -295,13 +315,7 @@
           <path d="M 320 20 Q 380 60 360 120 Q 340 80 300 40 Z"/>
           <path d="M 0 220 Q 40 200 80 230 Q 50 250 20 270 Z"/>
         </g>
-        <g opacity="0.35" stroke="${rgba([148, 163, 184], 0.5)}" fill="none" stroke-width="0.5">
-          <path d="M 28 128 L 108 126 L 188 130 L 268 127 L 368 129"/>
-          <circle cx="58" cy="128" r="2.5" fill="${rgba([110, 231, 255], 0.55)}" stroke="none"/>
-          <circle cx="118" cy="127" r="2" fill="${rgba([148, 163, 184], 0.5)}" stroke="none"/>
-          <circle cx="178" cy="128" r="2" fill="${rgba([148, 163, 184], 0.45)}" stroke="none"/>
-          <circle cx="238" cy="127" r="2" fill="${rgba([148, 163, 184], 0.4)}" stroke="none"/>
-        </g>
+        ${scanBand}
         <path d="M -20 210 Q 120 185 200 200 T 420 215" fill="none" stroke="${rgba([71, 85, 105], 0.3)}" stroke-width="1"/>
         <g opacity="0.2" fill="${rgba([110, 231, 255], 0.25)}">
           <circle cx="48" cy="72" r="1.2"/><circle cx="92" cy="48" r="0.8"/><circle cx="340" cy="220" r="1"/>
@@ -739,26 +753,31 @@
   }
 
   const LANES = {
-    core: { bg: bgCore, mark: markCore },
-    shadow: { bg: bgShadow, mark: markShadow },
-    apex: { bg: bgApex, mark: markApex },
-    glitch: { bg: bgGlitch, mark: markGlitch },
-    architect: { bg: bgArchitect, mark: markArchitect },
+    core: { bg: (p, o) => bgCore(p), mark: markCore },
+    shadow: { bg: (p, o) => bgShadow(p, o), mark: markShadow },
+    apex: { bg: (p, o) => bgApex(p), mark: markApex },
+    glitch: { bg: (p, o) => bgGlitch(p), mark: markGlitch },
+    architect: { bg: (p, o) => bgArchitect(p), mark: markArchitect },
   };
 
-  function collectionLaneSvg(laneId, uid) {
+  function collectionLaneSvg(laneId, uid, opts = {}) {
     const lane = String(laneId || "core").toLowerCase();
     const spec = LANES[lane] || LANES.core;
     const p = uid || `cl_${lane}`;
+    const door = !!opts.door;
+    const markWrap = door
+      ? `<g class="laneMarkParallax laneMarkParallax--door" transform="translate(200,148) scale(1.18) translate(-200,-148)">${spec.mark(p)}</g>`
+      : `<g class="laneMarkParallax">${spec.mark(p)}</g>`;
+    const doorClass = door ? " laneMarkSvg--door" : "";
 
-    return `<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" class="laneMarkSvg laneMarkSvg--${lane}" preserveAspectRatio="xMidYMid meet" clip-path="url(#${p}_cardClip)" aria-hidden="true">
+    return `<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" class="laneMarkSvg laneMarkSvg--${lane}${doorClass}" preserveAspectRatio="xMidYMid meet" clip-path="url(#${p}_cardClip)" aria-hidden="true">
       <defs>
         ${defsBlock(p, lane)}
         ${markGradients(p, lane)}
       </defs>
-      ${laneAtmosphere(p, lane)}
-      ${spec.bg(p)}
-      <g class="laneMarkParallax">${spec.mark(p)}</g>
+      ${laneAtmosphere(p, lane, opts)}
+      ${spec.bg(p, opts)}
+      ${markWrap}
     </svg>`;
   }
 
@@ -771,7 +790,7 @@
     scope.querySelectorAll(".doorArtSvg[data-door-svg-lane]").forEach((el) => {
       const lane = el.getAttribute("data-door-svg-lane");
       if (!lane) return;
-      el.innerHTML = wrapLaneVisual(collectionLaneSvg(lane, `door_${lane}`));
+      el.innerHTML = wrapLaneVisual(collectionLaneSvg(lane, `door_${lane}`, { door: true }));
       const svg = el.querySelector(".laneMarkSvg");
       if (svg) svg.setAttribute("preserveAspectRatio", "xMidYMid slice");
     });
