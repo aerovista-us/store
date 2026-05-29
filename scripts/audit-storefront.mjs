@@ -51,8 +51,8 @@ function laneFor(p) {
 
 const featuredIds = [
   "shadow-wear-ghost-ridge",
-  "men-s-ghost-shorts",
   "shadow-pants",
+  "men-s-ghost-shorts",
   "aerovista-apex-pattern-print-swimsuit-one-piece",
 ];
 

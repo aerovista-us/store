@@ -75,7 +75,19 @@ node scripts/audit-storefront-overlay.cjs
 
 This prunes stale variation IDs and flags placeholder copy.
 
-## Featured order (launch)
+## Featured order (Shadow Wear lane)
+
+Overlay `itemsByVariationId` sets featured sort for the Shadow Wear stack (M-size representative variants):
+
+| Order | Catalog id | Product |
+|------:|------------|---------|
+| 1 | `shadow-wear-ghost-ridge` | Shadow Wear // Ghost Ridge |
+| 2 | `shadow-pants` | shadow pants |
+| 3 | `men-s-ghost-shorts` | Men's Ghost Shorts |
+
+Each row uses `tags: ["featured", "shadow-wear", …]` and `order` (lower = first in **Featured** sort on the Shadow Wear collection page and home Featured Drop band).
+
+## Featured order (launch — legacy reference)
 
 | Order | Product (representative variant) |
 |------:|----------------------------------|
