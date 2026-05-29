@@ -259,7 +259,11 @@
       user-select: none;
       transform-style: preserve-3d;
       will-change: transform;
-      transition: transform 0.15s ease-out;
+    }
+    .heroVisual.is-pointer-active .heroSvg #letterA,
+    .heroVisual.is-pointer-active .heroSvg #letterARight,
+    .heroVisual.is-pointer-active .heroSvg #orbitalRing{
+      filter: url(#glowStrong);
     }
     .heroSvg{
       width: 100%;
@@ -296,7 +300,7 @@
       width: 100%;
       height: 100%;
       opacity: 0;
-      transition: opacity .4s cubic-bezier(.4,0,.2,1), filter .4s ease;
+      transition: opacity .55s cubic-bezier(.4,0,.2,1);
       filter: contrast(1.05) saturate(1.08);
       will-change: opacity;
     }
@@ -305,8 +309,7 @@
       filter: contrast(1.08) saturate(1.12);
     }
     .heroMorphImg.morphing{
-      mix-blend-mode: screen;
-      filter: contrast(1.1) saturate(1.15) hue-rotate(5deg);
+      filter: contrast(1.06) saturate(1.1);
     }
     .heroMorphImg.heroMorphSvg svg{
       width: 100%;
@@ -746,7 +749,7 @@
     .collectionDoor:hover{ transform:translateY(-3px); border-color:rgba(110,231,255,.28); }
     /* PNG door cards — full-bleed art + beveled fabric-over-cutout lip */
     .collectionDoor.hasArt{
-      min-height:280px;
+      min-height:300px;
       padding:0;
       border:1px solid rgba(255,255,255,.11);
       background:#050608;
@@ -770,48 +773,58 @@
         0 10px 22px rgba(0,0,0,.42);
     }
     .collectionDoor.hasArt:before{
-      z-index:2;
+      z-index:1;
       opacity:1;
       background:
-        radial-gradient(ellipse 120% 80% at 12% 0%, var(--doorGlow, rgba(110,231,255,.14)), transparent 55%),
-        linear-gradient(145deg, rgba(255,255,255,.11) 0%, transparent 42%),
-        linear-gradient(325deg, rgba(0,0,0,.42) 0%, transparent 48%),
-        linear-gradient(180deg, rgba(0,0,0,.55) 0%, transparent 38%, rgba(0,0,0,.65) 100%);
+        radial-gradient(ellipse 110% 85% at 50% 100%, var(--doorGlow, rgba(110,231,255,.12)), transparent 52%),
+        linear-gradient(180deg, rgba(5,7,11,.72) 0%, rgba(5,7,11,.08) 32%, rgba(5,7,11,.06) 58%, rgba(5,7,11,.78) 100%);
       box-shadow:
-        inset 0 0 0 1px rgba(255,255,255,.09),
-        inset 0 2px 5px rgba(255,255,255,.07),
-        inset 0 -5px 14px rgba(0,0,0,.55),
-        inset 4px 0 10px rgba(0,0,0,.22),
-        inset -4px 0 10px rgba(0,0,0,.22);
+        inset 0 0 0 1px rgba(255,255,255,.08),
+        inset 0 2px 4px rgba(255,255,255,.05),
+        inset 0 -4px 12px rgba(0,0,0,.45);
     }
     .collectionDoor.hasArt:after{
-      z-index:2;
+      z-index:1;
       right:12px; bottom:-12px;
-      opacity:.55;
+      opacity:.45;
       mix-blend-mode:soft-light;
     }
     .collectionDoor.hasArt .doorTop{
-      padding:16px 18px 8px;
-      background:linear-gradient(180deg, rgba(5,6,8,.9) 0%, rgba(5,6,8,.45) 65%, transparent 100%);
+      padding:18px 20px 14px;
+      background:linear-gradient(180deg, rgba(4,7,12,.94) 0%, rgba(4,7,12,.82) 42%, rgba(4,7,12,.45) 78%, transparent 100%);
+      -webkit-backdrop-filter:blur(10px) saturate(1.1);
+      backdrop-filter:blur(10px) saturate(1.1);
     }
     .collectionDoor.hasArt .doorBottom{
-      padding:8px 18px 16px;
-      background:linear-gradient(0deg, rgba(5,6,8,.94) 0%, rgba(5,6,8,.5) 58%, transparent 100%);
+      padding:12px 20px 18px;
+      background:linear-gradient(0deg, rgba(4,7,12,.96) 0%, rgba(4,7,12,.84) 48%, rgba(4,7,12,.42) 82%, transparent 100%);
+      -webkit-backdrop-filter:blur(8px) saturate(1.05);
+      backdrop-filter:blur(8px) saturate(1.05);
     }
     .collectionDoor.hasArt .doorTop,
     .collectionDoor.hasArt .doorBottom{ position:relative; z-index:3; }
+    .collectionDoor.hasArt .doorLabel{
+      color:rgba(231,237,246,.92);
+      text-shadow:0 1px 3px rgba(0,0,0,.85);
+    }
+    .collectionDoor.hasArt h3{
+      color:rgba(248,250,252,.98);
+      text-shadow:0 2px 14px rgba(0,0,0,.9), 0 1px 3px rgba(0,0,0,.95);
+    }
+    .collectionDoor.hasArt p{
+      color:rgba(203,213,225,.94);
+      text-shadow:0 1px 10px rgba(0,0,0,.88), 0 1px 2px rgba(0,0,0,.75);
+    }
+    .collectionDoor.hasArt .doorCTA{
+      text-shadow:0 1px 8px rgba(0,0,0,.85);
+    }
     .collectionDoor.hasArt[data-collection-lane="architect"]:before{
       background:
-        linear-gradient(180deg, rgba(6,7,10,.82) 0%, rgba(6,7,10,.5) 38%, rgba(6,7,10,.88) 100%),
-        linear-gradient(145deg, rgba(255,255,255,.09) 0%, transparent 40%),
-        linear-gradient(325deg, rgba(0,0,0,.48) 0%, transparent 46%),
-        radial-gradient(ellipse 100% 80% at 50% 45%, rgba(251,191,36,.07), transparent 68%);
+        radial-gradient(ellipse 100% 75% at 50% 55%, rgba(251,191,36,.08), transparent 62%),
+        linear-gradient(180deg, rgba(6,7,10,.76) 0%, rgba(6,7,10,.1) 35%, rgba(6,7,10,.08) 58%, rgba(6,7,10,.8) 100%);
       box-shadow:
-        inset 0 0 0 1px rgba(255,255,255,.09),
-        inset 0 2px 5px rgba(255,255,255,.06),
-        inset 0 -5px 14px rgba(0,0,0,.55),
-        inset 4px 0 10px rgba(0,0,0,.22),
-        inset -4px 0 10px rgba(0,0,0,.22);
+        inset 0 0 0 1px rgba(255,255,255,.08),
+        inset 0 -4px 12px rgba(0,0,0,.5);
     }
     .collectionDoor.hasArt[data-collection-lane="apex"] .doorArt{
       object-position:center 64%;
@@ -822,16 +835,16 @@
       transform:scale(1.07) translateY(7%);
     }
     .collectionDoor.hasArt[data-collection-lane="apex"] .doorTop{
-      background:linear-gradient(180deg, rgba(5,6,8,.94) 0%, rgba(5,6,8,.6) 48%, transparent 100%);
+      background:linear-gradient(180deg, rgba(4,7,12,.96) 0%, rgba(4,7,12,.88) 45%, rgba(4,7,12,.4) 80%, transparent 100%);
     }
     .collectionViewHero[data-lane="apex"] .pageDoorArt{
       object-position:center 64%;
     }
     .collectionDoor.hasArt[data-collection-lane="architect"] .doorTop{
-      background:linear-gradient(180deg, rgba(5,6,8,.96) 0%, rgba(5,6,8,.72) 55%, rgba(5,6,8,.25) 100%);
+      background:linear-gradient(180deg, rgba(4,7,12,.97) 0%, rgba(4,7,12,.9) 50%, rgba(4,7,12,.5) 85%, transparent 100%);
     }
     .collectionDoor.hasArt[data-collection-lane="architect"] .doorBottom{
-      background:linear-gradient(0deg, rgba(5,6,8,.98) 0%, rgba(5,6,8,.78) 52%, rgba(5,6,8,.3) 100%);
+      background:linear-gradient(0deg, rgba(4,7,12,.98) 0%, rgba(4,7,12,.9) 55%, rgba(4,7,12,.45) 88%, transparent 100%);
     }
     .collectionViewHero[data-lane="architect"] .pageArtPanel{
       position:relative;
@@ -879,31 +892,41 @@
         inset 0 1px 0 rgba(255,255,255,.12),
         inset 0 -3px 10px rgba(0,0,0,.45);
     }
-    /* SVG lane art — bottom-weighted; do NOT use .doorArt (full-card inset wash) */
-    .productPlaceholderSvg,
-    .img svg.productPlaceholderSvg{
-      width:100%; height:100%; display:block;
-    }
-    @media (prefers-reduced-motion: reduce){
-      .laneHoloAnim animate,
-      .collectionGlitchHdrAnim,
-      .collectionGlitchHdrAnim *,
-      .collectionGlitchHdrAnim animate,
-      .heroSvg animate,
-      .heroSvg animateTransform{ animation:none !important; visibility:visible !important; }
-    }
+    /* SVG lane art — full-bleed fill behind text scrims */
     .doorArtSvg{
       position:absolute;
-      left:0; right:0; bottom:0; top:18%;
-      display:flex; align-items:flex-end; justify-content:center;
+      inset:0;
+      display:flex;
+      align-items:stretch;
+      justify-content:stretch;
       opacity:1;
       filter:none;
       mix-blend-mode:normal;
       overflow:hidden;
       pointer-events:none;
       z-index:0;
-      background:transparent;
-      border-radius:0 0 var(--radius2) var(--radius2);
+      background:#050608;
+      border-radius:inherit;
+    }
+    .collectionDoor.hasArt .doorArtSvg .doorScene{
+      width:100%;
+      height:100%;
+      align-items:stretch;
+      justify-content:stretch;
+    }
+    .collectionDoor.hasArt .doorArtSvg .doorVisual{
+      width:100%;
+      height:100%;
+      align-items:stretch;
+      justify-content:stretch;
+    }
+    .collectionDoor.hasArt .doorArtSvg .laneMarkSvg{
+      width:100%;
+      height:100%;
+      max-width:none;
+      max-height:none;
+      transform:none;
+      display:block;
     }
     .collectionDoor:hover .doorArtSvg{ opacity:1; }
     .doorArtSvg .laneMarkSvg{
@@ -951,6 +974,19 @@
       filter:drop-shadow(0 10px 28px rgba(0,0,0,.5));
       transition:filter .25s ease;
       overflow:hidden;
+    }
+    /* Product placeholders + motion (collection page hero keeps contain sizing above) */
+    .productPlaceholderSvg,
+    .img svg.productPlaceholderSvg{
+      width:100%; height:100%; display:block;
+    }
+    @media (prefers-reduced-motion: reduce){
+      .laneHoloAnim animate,
+      .collectionGlitchHdrAnim,
+      .collectionGlitchHdrAnim *,
+      .collectionGlitchHdrAnim animate,
+      .heroSvg animate,
+      .heroSvg animateTransform{ animation:none !important; visibility:visible !important; }
     }
     .collectionDoor[data-collection-lane="apex"] .doorVisual .laneMarkSvg{
       filter:none;
@@ -2642,9 +2678,7 @@
                 
                 <!-- Horizontal noise pattern for glitch -->
                 <pattern id="noisePattern" x="0" y="0" width="4" height="1" patternUnits="userSpaceOnUse">
-                  <rect width="4" height="0.3" fill="rgba(110,231,255,0.15)" opacity="0">
-                    <animate attributeName="opacity" values="0;0.3;0;0.2;0" dur="0.05s" repeatCount="indefinite"/>
-                  </rect>
+                  <rect width="4" height="0.3" fill="rgba(110,231,255,0.12)" opacity="0.15"/>
                 </pattern>
                 
                 <!-- Pattern for technical texture -->
@@ -2849,22 +2883,22 @@
           </div>
         </div>
         <div class="dropPieces" aria-label="Featured Shadow Wear pieces">
-          <button type="button" class="dropPiece" data-quick="aerovista-apex-pattern-bomber-jacket" aria-label="Shop: Apex Pattern Bomber Jacket">
-            <span class="dropPiece__label">Outerwear</span>
-            <span class="dropPiece__thumb"><img src="./img/AeroVista%20Apex%20Pattern%20Bomber%20Jacket.png" alt="" loading="lazy" decoding="async" /></span>
-            <span class="dropPiece__title">Apex Pattern Bomber Jacket</span>
-            <span class="dropPiece__price is-loading" aria-hidden="true">…</span>
-          </button>
-          <button type="button" class="dropPiece" data-quick="shadow-wear-ghost-ridge" aria-label="Shop: Shadow Wear Ghost Ridge Hoodie">
+          <button type="button" class="dropPiece" data-quick="shadow-wear-ghost-ridge" aria-label="Shop: Shadow Wear Ghost Ridge">
             <span class="dropPiece__label">Core Layer</span>
             <span class="dropPiece__thumb"><img src="./img/Shadow%20Wear%20%20Ghost%20Ridge.png" alt="" loading="lazy" decoding="async" /></span>
             <span class="dropPiece__title">Shadow Wear // Ghost Ridge</span>
             <span class="dropPiece__price is-loading" aria-hidden="true">…</span>
           </button>
-          <button type="button" class="dropPiece" data-quick="aerovista-shadow-pattern-long-sleeve-tee" aria-label="Shop: Apex Pattern Long Sleeve Tee">
-            <span class="dropPiece__label">Long Sleeve</span>
-            <span class="dropPiece__thumb"><img src="./img/AeroVistaApexShadowLongSleeveTee.png" alt="" loading="lazy" decoding="async" /></span>
-            <span class="dropPiece__title">Apex Pattern Long Sleeve Tee</span>
+          <button type="button" class="dropPiece" data-quick="men-s-ghost-shorts" aria-label="Shop: Men's Ghost Shorts">
+            <span class="dropPiece__label">Shorts</span>
+            <span class="dropPiece__thumb"><img src="./img/shadowwear.boardshorts.png" alt="" loading="lazy" decoding="async" /></span>
+            <span class="dropPiece__title">Men's Ghost Shorts</span>
+            <span class="dropPiece__price is-loading" aria-hidden="true">…</span>
+          </button>
+          <button type="button" class="dropPiece" data-quick="shadow-pants" aria-label="Shop: shadow pants">
+            <span class="dropPiece__label">Bottoms</span>
+            <span class="dropPiece__thumb"><img src="./img/shadow%20pants.png" alt="" loading="lazy" decoding="async" /></span>
+            <span class="dropPiece__title">shadow pants</span>
             <span class="dropPiece__price is-loading" aria-hidden="true">…</span>
           </button>
           <button type="button" class="dropPiece" data-quick="aerovista-apex-pattern-print-swimsuit-one-piece" aria-label="Shop: Shadow Wear One-Piece Swimsuit">
@@ -5851,22 +5885,26 @@
       const orbits = svg?.querySelectorAll("#orbit1, #orbit2, #orbit3");
       const heroHolo = heroVisual.querySelector(".heroHolo");
       const morphImgs = heroVisual.querySelectorAll(".heroMorphImg");
-      
-      const originalTransform = mainShape?.getAttribute("transform") || "translate(200,150)";
-      let animationFrame = null;
+
       let pointerActive = false;
       let useGyro = false;
       let gyroTiltX = 0, gyroTiltY = 0;
+      let rafLoop = null;
       const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
       const maxTilt = 12;
-      
+      const LERP_IN = 0.16;
+      const LERP_OUT = 0.1;
+      const target = { rx: 0, ry: 0, hx: 0, hy: 0, phase: 0.5 };
+      const current = { rx: 0, ry: 0, hx: 0, hy: 0, phase: 0.5 };
+      let morphClasses = [];
+
       function applyTilt(rotateX, rotateY, holoX, holoY, nx) {
-        heroVisual.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        if (heroHolo) heroHolo.style.transform = `translate(${holoX}px, ${holoY}px)`;
+        heroVisual.style.transform = `rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`;
+        if (heroHolo) heroHolo.style.transform = `translate3d(${holoX.toFixed(1)}px, ${holoY.toFixed(1)}px, 0)`;
         if (typeof nx === "number") setMorphState(nx);
         if (typeof nx === "number") setPhaseState(nx);
       }
-      
+
       function setMorphState(nx) {
         if (!morphImgs || !morphImgs.length) return;
         const n = morphImgs.length;
@@ -5879,42 +5917,83 @@
               clamp(nx * 4 - 3, 0, 1)
             ]
           : n >= 3
-            ? [ clamp(1 - nx * 2, 0, 1), 1 - Math.abs(nx - 0.5) * 2, clamp(nx * 2 - 1, 0, 1) ]
+            ? [ clamp(1 - nx * 2, 0, 1), clamp(1 - Math.abs(nx - 0.5) * 2, 0, 1), clamp(nx * 2 - 1, 0, 1) ]
             : [];
         morphImgs.forEach((img, i) => {
           const w = weights[i] != null ? weights[i] : 0;
           img.style.opacity = String(w);
-          img.classList.remove("active", "morphing");
-          if (w >= 0.95) img.classList.add("active");
-          else if (w > 0.05) img.classList.add("morphing");
+          const nextClass = w >= 0.92 ? "active" : w > 0.08 ? "morphing" : "";
+          const prevClass = morphClasses[i] || "";
+          if (nextClass !== prevClass) {
+            img.classList.remove("active", "morphing");
+            if (nextClass) img.classList.add(nextClass);
+            morphClasses[i] = nextClass;
+          }
         });
       }
-      
+
       function setPhaseState(nx) {
         heroVisual.style.setProperty("--logo-phase", String(nx));
       }
-      
+
+      function tick() {
+        const t = pointerActive ? LERP_IN : LERP_OUT;
+        current.rx += (target.rx - current.rx) * t;
+        current.ry += (target.ry - current.ry) * t;
+        current.hx += (target.hx - current.hx) * t;
+        current.hy += (target.hy - current.hy) * t;
+        current.phase += (target.phase - current.phase) * t;
+        applyTilt(current.rx, current.ry, current.hx, current.hy, current.phase);
+        const delta = Math.abs(target.rx - current.rx) + Math.abs(target.ry - current.ry)
+          + Math.abs(target.hx - current.hx) + Math.abs(target.hy - current.hy)
+          + Math.abs(target.phase - current.phase);
+        if (pointerActive || delta > 0.02) {
+          rafLoop = requestAnimationFrame(tick);
+        } else {
+          rafLoop = null;
+        }
+      }
+
+      function startTick() {
+        if (!rafLoop) rafLoop = requestAnimationFrame(tick);
+      }
+
+      function setTargetFromNorm(nx, ny) {
+        target.ry = (nx - 0.5) * maxTilt;
+        target.rx = (ny - 0.5) * -10;
+        target.hx = (0.5 - nx) * 48;
+        target.hy = (0.5 - ny) * 48;
+        target.phase = nx;
+        startTick();
+      }
+
       function updateFromPointer(clientX, clientY) {
         const rect = heroVisual.getBoundingClientRect();
         const nx = rect.width ? clamp((clientX - rect.left) / rect.width, 0, 1) : 0.5;
         const ny = rect.height ? clamp((clientY - rect.top) / rect.height, 0, 1) : 0.5;
-        const tiltX = (ny - 0.5) * -10;
-        const tiltY = (nx - 0.5) * 12;
-        const holoX = (0.5 - nx) * 60;
-        const holoY = (0.5 - ny) * 60;
-        applyTilt(tiltX, tiltY, holoX, holoY, nx);
+        setTargetFromNorm(nx, ny);
       }
-      
+
       function onPointerLeave() {
         pointerActive = false;
+        heroVisual.classList.remove("is-pointer-active");
         if (!useGyro) {
-          applyTilt(0, 0, 0, 0, 0.5);
+          target.rx = 0;
+          target.ry = 0;
+          target.hx = 0;
+          target.hy = 0;
+          target.phase = 0.5;
         } else {
           const nx = clamp(0.5 + gyroTiltY / 18, 0, 1);
-          applyTilt(gyroTiltX, gyroTiltY, -gyroTiltY * 6, -gyroTiltX * 6, nx);
+          target.rx = gyroTiltX;
+          target.ry = gyroTiltY;
+          target.hx = -gyroTiltY * 6;
+          target.hy = -gyroTiltX * 6;
+          target.phase = nx;
         }
+        startTick();
       }
-      
+
       function onDeviceOrientation(e) {
         if (e.beta == null || e.gamma == null) return;
         const scale = 0.5;
@@ -5922,24 +6001,33 @@
         gyroTiltY = clamp(e.gamma * scale, -maxTilt, maxTilt);
         if (pointerActive) return;
         const nx = clamp(0.5 + e.gamma / 90, 0, 1);
-        applyTilt(gyroTiltX, gyroTiltY, -gyroTiltY * 6, -gyroTiltX * 6, nx);
+        target.rx = gyroTiltX;
+        target.ry = gyroTiltY;
+        target.hx = -gyroTiltY * 6;
+        target.hy = -gyroTiltX * 6;
+        target.phase = nx;
+        startTick();
       }
-      
+
       function startGyro() {
         useGyro = true;
         window.addEventListener("deviceorientation", onDeviceOrientation, { passive: true });
         onDeviceOrientation({ beta: 45, gamma: 0 });
       }
-      
-      heroVisual.addEventListener("mouseenter", () => { pointerActive = true; });
+
+      heroVisual.addEventListener("mouseenter", () => {
+        pointerActive = true;
+        heroVisual.classList.add("is-pointer-active");
+      });
       heroVisual.addEventListener("mouseleave", onPointerLeave);
       heroVisual.addEventListener("mousemove", (e) => {
-        if (animationFrame) cancelAnimationFrame(animationFrame);
-        animationFrame = requestAnimationFrame(() => { if (pointerActive) updateFromPointer(e.clientX, e.clientY); });
+        if (!pointerActive) return;
+        updateFromPointer(e.clientX, e.clientY);
       });
       heroVisual.addEventListener("touchstart", (e) => {
         e.preventDefault();
         pointerActive = true;
+        heroVisual.classList.add("is-pointer-active");
         if (e.touches.length) updateFromPointer(e.touches[0].clientX, e.touches[0].clientY);
       }, { passive: false });
       heroVisual.addEventListener("touchmove", (e) => {

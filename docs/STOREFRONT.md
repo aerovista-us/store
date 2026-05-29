@@ -79,14 +79,18 @@ Presentation is token-driven (`:root` colors, radii, `--ease`). Recent polish in
 - Optional device orientation on supported mobile
 - Animated SVG A-mark, morph panels, flip on double-click
 - Glow driven by CSS variable **`--logo-phase`**
+- Pointer tilt uses a **lerp loop** (no CSS transform transition) so hover motion stays smooth; chromatic glitch filter swaps to glow while the pointer is over the mark
 
 ### Collection doors + collection page art
 
+**Home collection doors (`.doorArtSvg`):**
+
+- Lane SVGs from **`collection-lane-svg.js`** mount via **`mountCollectionDoorSvgs()`** with **`preserveAspectRatio="xMidYMid slice"`** so art **fills the card** edge-to-edge behind text.
+- Top/bottom text bands use **blur-backed scrims**, stronger gradients, and **text-shadow** for readability over the art.
+- Card-level **`::before`** vignette sits above the SVG (`z-index: 1`) but below copy (`z-index: 3`).
+
 **Collection page header (`#cvArtSvg`):**
-
-- **Core / Shadow / Glitch / Architect / Apex:** wide panoramic SVG from **`store/js/collection-header-svg.js`** (`collectionHeaderBannerSvg(...)`) — fills the hero band instead of cropping **`cardImg`**. **`collection-lane-svg.js`** is optional / unused on home doors.
-
-Previously rendered by **`collection-lane-svg.js`** (disabled):
+- **Core / Shadow / Glitch / Architect / Apex:** wide panoramic SVG from **`store/js/collection-header-svg.js`** (`collectionHeaderBannerSvg(...)`) — fills the hero band instead of cropping **`cardImg`**.
 
 | Lane | Background (idle) | Mark (`/\`) |
 |------|-------------------|-------------|

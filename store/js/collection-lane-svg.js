@@ -772,6 +772,8 @@
       const lane = el.getAttribute("data-door-svg-lane");
       if (!lane) return;
       el.innerHTML = wrapLaneVisual(collectionLaneSvg(lane, `door_${lane}`));
+      const svg = el.querySelector(".laneMarkSvg");
+      if (svg) svg.setAttribute("preserveAspectRatio", "xMidYMid slice");
     });
     initCollectionDoorHolo(scope);
   }

@@ -50,9 +50,9 @@ function laneFor(p) {
 }
 
 const featuredIds = [
-  "aerovista-apex-pattern-bomber-jacket",
   "shadow-wear-ghost-ridge",
-  "aerovista-shadow-pattern-long-sleeve-tee",
+  "men-s-ghost-shorts",
+  "shadow-pants",
   "aerovista-apex-pattern-print-swimsuit-one-piece",
 ];
 
