@@ -269,10 +269,9 @@
       height: 100%;
       transform-style: preserve-3d;
       will-change: transform;
-      border-radius: inherit;
-      overflow: hidden;
-      clip-path: inset(0 round var(--hero-r));
-      -webkit-clip-path: inset(0 round var(--hero-r));
+    }
+    .heroVisual.is-flipped .heroTilt{
+      transform: none !important;
     }
     .heroSvg{
       position: absolute;
@@ -281,6 +280,10 @@
       width: 100%;
       height: 100%;
       filter: drop-shadow(0 8px 24px rgba(0,0,0,0.4));
+    }
+    .heroFaceFront .heroSvg{
+      transform: scale(1.03);
+      transform-origin: center center;
     }
     .heroVisual:hover .heroSvg{
       filter: drop-shadow(0 12px 32px rgba(110,231,255,0.3)) drop-shadow(0 8px 24px rgba(0,0,0,0.4));
@@ -336,8 +339,6 @@
       height: 100%;
       transform-style: preserve-3d;
       transition: transform 0.5s cubic-bezier(.2,.8,.2,1);
-      border-radius: inherit;
-      overflow: hidden;
     }
     .heroVisual.is-flipped .heroInner{
       transform: rotateY(180deg);
@@ -349,13 +350,19 @@
       border-radius: inherit;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
+      transform-style: preserve-3d;
+    }
+    .heroFaceFront{
+      overflow: hidden;
+      border-radius: inherit;
+      transform: rotateY(0deg) translateZ(1px);
     }
     .heroFaceBack{
-      transform: rotateY(180deg);
+      transform: rotateY(180deg) translateZ(1px);
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(180deg, rgba(7,10,15,.95), rgba(11,15,20,.98));
+      background: linear-gradient(180deg, rgba(7,10,15,.97), rgba(11,15,20,.99));
       border: 1px solid rgba(255,255,255,.1);
       padding: 24px;
       text-align: center;
@@ -373,11 +380,32 @@
       color: rgba(231,237,246,.85);
       max-width: 260px;
     }
-    /* Parallax holo overlay (Option B) - contained to logo boundary */
-    .heroFaceFront{
-      overflow: hidden;
-      border-radius: inherit;
+    .heroFaceBack .backFacts{
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      font-size: 12px;
+      line-height: 1.55;
+      color: rgba(148,163,184,.92);
+      text-align: left;
+      max-width: 260px;
     }
+    .heroFaceBack .backFacts li{
+      margin: 5px 0;
+      padding-left: 14px;
+      position: relative;
+    }
+    .heroFaceBack .backFacts li::before{
+      content:"";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(110,231,255,.65);
+    }
+    /* Parallax holo overlay (Option B) - contained to logo boundary */
     .heroHolo{
       position: absolute;
       inset: 0;
@@ -2849,8 +2877,13 @@
             </div>
             <div class="heroFaceBack" aria-hidden="true">
               <div>
-                <div class="backTitle">AeroVista</div>
-                <div class="backCopy">Engineered minimal. Curated essentials—hoodies, crewnecks, hats. Built on curation, not clutter.</div>
+                <div class="backTitle">AeroVista Apparel</div>
+                <div class="backCopy">Curated blanks, disciplined palette, made to order. The gear line behind the AeroVista signal.</div>
+                <ul class="backFacts">
+                  <li>Five live collection lanes — Core, Shadow, Apex, Glitch, Architect</li>
+                  <li>Secure Square checkout · Typical ship 5–12 days</li>
+                  <li>Double-click to flip back</li>
+                </ul>
               </div>
             </div>
             </div>
@@ -5922,10 +5955,25 @@
       const maxTilt = 12;
 
       function applyTilt(rotateX, rotateY, holoX, holoY, nx) {
+        if (heroVisual.classList.contains("is-flipped")) return;
         heroTilt.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         if (heroHolo) heroHolo.style.transform = `translate(${holoX}px, ${holoY}px)`;
         if (typeof nx === "number") setMorphState(nx);
         if (typeof nx === "number") setPhaseState(nx);
+      }
+
+      function setFlipState(flipped) {
+        const front = heroVisual.querySelector(".heroFaceFront");
+        const back = heroVisual.querySelector(".heroFaceBack");
+        if (front) front.setAttribute("aria-hidden", flipped ? "true" : "false");
+        if (back) back.setAttribute("aria-hidden", flipped ? "false" : "true");
+        if (flipped) {
+          pointerActive = false;
+          heroTilt.style.transform = "";
+          if (heroHolo) heroHolo.style.transform = "";
+          setMorphState(0.5);
+          setPhaseState(0.5);
+        }
       }
 
       function setMorphState(nx) {
@@ -6008,10 +6056,13 @@
         onDeviceOrientation({ beta: 45, gamma: 0 });
       }
 
-      heroVisual.addEventListener("mouseenter", () => { pointerActive = true; });
+      heroVisual.addEventListener("mouseenter", () => {
+        if (heroVisual.classList.contains("is-flipped")) return;
+        pointerActive = true;
+      });
       heroVisual.addEventListener("mouseleave", onPointerLeave);
       heroVisual.addEventListener("mousemove", (e) => {
-        if (!pointerActive) return;
+        if (!pointerActive || heroVisual.classList.contains("is-flipped")) return;
         updateFromPointer(e.clientX, e.clientY);
       });
       heroVisual.addEventListener("touchstart", (e) => {
@@ -6086,7 +6137,9 @@
           clearTimeout(singleClickTimer);
           singleClickTimer = null;
         }
-        heroVisual.classList.toggle("is-flipped");
+        const flipped = !heroVisual.classList.contains("is-flipped");
+        heroVisual.classList.toggle("is-flipped", flipped);
+        setFlipState(flipped);
       });
       heroVisual.addEventListener("click", () => {
         if (singleClickTimer) clearTimeout(singleClickTimer);

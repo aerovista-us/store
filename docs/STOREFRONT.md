@@ -81,7 +81,7 @@ Presentation is token-driven (`:root` colors, radii, `--ease`). Recent polish in
 - Glow driven by CSS variable **`--logo-phase`**
 - Pointer tilt uses a dedicated **`#heroTilt`** layer (separate from **`#heroInner`** flip) with RAF-coalesced updates — no CSS transform transition, so hover parallax stays smooth without fighting the flip animation
 - **`preserveAspectRatio="xMidYMid slice"`** + rounded **`overflow: hidden`** / **`clip-path: inset(0 round var(--radius2))`** on **`#heroVisual`** and **`#heroTilt`**; SVG backgrounds use **`rx="24"`** clip so tilt parallax does not expose square corners
-- Double-click **`dblclick`** toggles the card flip; single click pulses the mark
+- Double-click **`dblclick`** toggles the card flip; single click pulses the mark. Back face shows brand copy + lane/shipping facts; tilt is disabled while flipped
 
 ### Collection doors + collection page art
 
