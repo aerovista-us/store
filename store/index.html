@@ -243,29 +243,35 @@
       justify-content: center;
       width: 100%;
       max-width: 400px;
-      height: 300px;
+      aspect-ratio: 4 / 3;
     }
     .heroVisual{
       --logo-phase: 0.5;
       width: 100%;
-      max-width: 400px;
-      height: 300px;
+      height: 100%;
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: block;
       cursor: pointer;
       -webkit-user-select: none;
       user-select: none;
       transform-style: preserve-3d;
+      border-radius: var(--radius2);
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(7,10,15,.98), rgba(11,15,20,.96));
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.08),
+        0 16px 40px rgba(0,0,0,.45);
+    }
+    .heroTilt{
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
       will-change: transform;
     }
-    .heroVisual.is-pointer-active .heroSvg #letterA,
-    .heroVisual.is-pointer-active .heroSvg #letterARight,
-    .heroVisual.is-pointer-active .heroSvg #orbitalRing{
-      filter: url(#glowStrong);
-    }
     .heroSvg{
+      position: absolute;
+      inset: 0;
+      display: block;
       width: 100%;
       height: 100%;
       filter: drop-shadow(0 8px 24px rgba(0,0,0,0.4));
@@ -300,7 +306,7 @@
       width: 100%;
       height: 100%;
       opacity: 0;
-      transition: opacity .55s cubic-bezier(.4,0,.2,1);
+      transition: opacity .4s cubic-bezier(.4,0,.2,1), filter .4s ease;
       filter: contrast(1.05) saturate(1.08);
       will-change: opacity;
     }
@@ -309,7 +315,8 @@
       filter: contrast(1.08) saturate(1.12);
     }
     .heroMorphImg.morphing{
-      filter: contrast(1.06) saturate(1.1);
+      mix-blend-mode: screen;
+      filter: contrast(1.1) saturate(1.15) hue-rotate(5deg);
     }
     .heroMorphImg.heroMorphSvg svg{
       width: 100%;
@@ -2477,7 +2484,8 @@
     @media (max-width: 720px){
       .heroCard{ grid-template-columns: 1fr; }
       .heroRight{ justify-content:flex-start; }
-      .heroVisual{ max-width: 100%; height: 240px; }
+      .heroScene{ max-width: 100%; }
+      .heroVisual{ max-width: 100%; }
       .glowStamp{ width: 100%; height: auto; }
     }
 
@@ -2586,6 +2594,7 @@
         <div class="heroRight">
           <div class="heroScene" id="heroScene">
             <div class="heroVisual" id="heroVisual" aria-label="AeroVista brand animation">
+            <div class="heroTilt" id="heroTilt">
             <div class="heroInner" id="heroInner">
             <div class="heroFaceFront">
             <div class="heroMorphPanels" aria-hidden="true">
@@ -2625,7 +2634,7 @@
                 </svg>
               </div>
             </div>
-            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" class="heroSvg">
+            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" class="heroSvg" preserveAspectRatio="xMidYMid slice">
               <defs>
                 <!-- Gradients -->
                 <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -2692,7 +2701,8 @@
                 </radialGradient>
               </defs>
               
-              <!-- Background grid + vignette -->
+              <!-- Background fill + grid + vignette -->
+              <rect width="400" height="300" fill="#060a10"/>
               <rect width="400" height="300" fill="url(#gridPattern)" opacity="0.22"/>
               <rect width="400" height="300" fill="url(#heroVig)" pointer-events="none"/>
               
@@ -2827,6 +2837,7 @@
                 <div class="backTitle">AeroVista</div>
                 <div class="backCopy">Engineered minimal. Curated essentials—hoodies, crewnecks, hats. Built on curation, not clutter.</div>
               </div>
+            </div>
             </div>
             </div>
             </div>
@@ -5878,9 +5889,9 @@
     // Interactive hero visual - 3D tilt, holo, morph, phase, click (Options A/B/F/D)
     const heroScene = $("#heroScene");
     const heroVisual = $("#heroVisual");
-    if (heroVisual && heroScene) {
+    const heroTilt = $("#heroTilt");
+    if (heroVisual && heroScene && heroTilt) {
       const svg = heroVisual.querySelector(".heroSvg");
-      const mainShape = svg?.querySelector("#mainShape");
       const letterA = svg?.querySelector("#letterA");
       const orbits = svg?.querySelectorAll("#orbit1, #orbit2, #orbit3");
       const heroHolo = heroVisual.querySelector(".heroHolo");
@@ -5889,18 +5900,15 @@
       let pointerActive = false;
       let useGyro = false;
       let gyroTiltX = 0, gyroTiltY = 0;
-      let rafLoop = null;
+      let rafId = null;
+      let lastClientX = 0;
+      let lastClientY = 0;
       const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
       const maxTilt = 12;
-      const LERP_IN = 0.16;
-      const LERP_OUT = 0.1;
-      const target = { rx: 0, ry: 0, hx: 0, hy: 0, phase: 0.5 };
-      const current = { rx: 0, ry: 0, hx: 0, hy: 0, phase: 0.5 };
-      let morphClasses = [];
 
       function applyTilt(rotateX, rotateY, holoX, holoY, nx) {
-        heroVisual.style.transform = `rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`;
-        if (heroHolo) heroHolo.style.transform = `translate3d(${holoX.toFixed(1)}px, ${holoY.toFixed(1)}px, 0)`;
+        heroTilt.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        if (heroHolo) heroHolo.style.transform = `translate(${holoX}px, ${holoY}px)`;
         if (typeof nx === "number") setMorphState(nx);
         if (typeof nx === "number") setPhaseState(nx);
       }
@@ -5917,18 +5925,14 @@
               clamp(nx * 4 - 3, 0, 1)
             ]
           : n >= 3
-            ? [ clamp(1 - nx * 2, 0, 1), clamp(1 - Math.abs(nx - 0.5) * 2, 0, 1), clamp(nx * 2 - 1, 0, 1) ]
+            ? [ clamp(1 - nx * 2, 0, 1), 1 - Math.abs(nx - 0.5) * 2, clamp(nx * 2 - 1, 0, 1) ]
             : [];
         morphImgs.forEach((img, i) => {
           const w = weights[i] != null ? weights[i] : 0;
           img.style.opacity = String(w);
-          const nextClass = w >= 0.92 ? "active" : w > 0.08 ? "morphing" : "";
-          const prevClass = morphClasses[i] || "";
-          if (nextClass !== prevClass) {
-            img.classList.remove("active", "morphing");
-            if (nextClass) img.classList.add(nextClass);
-            morphClasses[i] = nextClass;
-          }
+          img.classList.remove("active", "morphing");
+          if (w >= 0.95) img.classList.add("active");
+          else if (w > 0.05) img.classList.add("morphing");
         });
       }
 
@@ -5936,62 +5940,41 @@
         heroVisual.style.setProperty("--logo-phase", String(nx));
       }
 
-      function tick() {
-        const t = pointerActive ? LERP_IN : LERP_OUT;
-        current.rx += (target.rx - current.rx) * t;
-        current.ry += (target.ry - current.ry) * t;
-        current.hx += (target.hx - current.hx) * t;
-        current.hy += (target.hy - current.hy) * t;
-        current.phase += (target.phase - current.phase) * t;
-        applyTilt(current.rx, current.ry, current.hx, current.hy, current.phase);
-        const delta = Math.abs(target.rx - current.rx) + Math.abs(target.ry - current.ry)
-          + Math.abs(target.hx - current.hx) + Math.abs(target.hy - current.hy)
-          + Math.abs(target.phase - current.phase);
-        if (pointerActive || delta > 0.02) {
-          rafLoop = requestAnimationFrame(tick);
-        } else {
-          rafLoop = null;
-        }
+      function applyFromNorm(nx, ny) {
+        const tiltX = (ny - 0.5) * -10;
+        const tiltY = (nx - 0.5) * maxTilt;
+        const holoX = (0.5 - nx) * 60;
+        const holoY = (0.5 - ny) * 60;
+        applyTilt(tiltX, tiltY, holoX, holoY, nx);
       }
 
-      function startTick() {
-        if (!rafLoop) rafLoop = requestAnimationFrame(tick);
+      function runPointerFrame() {
+        rafId = null;
+        if (!pointerActive && !useGyro) return;
+        const rect = heroVisual.getBoundingClientRect();
+        const nx = rect.width ? clamp((lastClientX - rect.left) / rect.width, 0, 1) : 0.5;
+        const ny = rect.height ? clamp((lastClientY - rect.top) / rect.height, 0, 1) : 0.5;
+        applyFromNorm(nx, ny);
       }
 
-      function setTargetFromNorm(nx, ny) {
-        target.ry = (nx - 0.5) * maxTilt;
-        target.rx = (ny - 0.5) * -10;
-        target.hx = (0.5 - nx) * 48;
-        target.hy = (0.5 - ny) * 48;
-        target.phase = nx;
-        startTick();
+      function schedulePointerFrame() {
+        if (!rafId) rafId = requestAnimationFrame(runPointerFrame);
       }
 
       function updateFromPointer(clientX, clientY) {
-        const rect = heroVisual.getBoundingClientRect();
-        const nx = rect.width ? clamp((clientX - rect.left) / rect.width, 0, 1) : 0.5;
-        const ny = rect.height ? clamp((clientY - rect.top) / rect.height, 0, 1) : 0.5;
-        setTargetFromNorm(nx, ny);
+        lastClientX = clientX;
+        lastClientY = clientY;
+        schedulePointerFrame();
       }
 
       function onPointerLeave() {
         pointerActive = false;
-        heroVisual.classList.remove("is-pointer-active");
         if (!useGyro) {
-          target.rx = 0;
-          target.ry = 0;
-          target.hx = 0;
-          target.hy = 0;
-          target.phase = 0.5;
+          applyTilt(0, 0, 0, 0, 0.5);
         } else {
           const nx = clamp(0.5 + gyroTiltY / 18, 0, 1);
-          target.rx = gyroTiltX;
-          target.ry = gyroTiltY;
-          target.hx = -gyroTiltY * 6;
-          target.hy = -gyroTiltX * 6;
-          target.phase = nx;
+          applyTilt(gyroTiltX, gyroTiltY, -gyroTiltY * 6, -gyroTiltX * 6, nx);
         }
-        startTick();
       }
 
       function onDeviceOrientation(e) {
@@ -6001,12 +5984,7 @@
         gyroTiltY = clamp(e.gamma * scale, -maxTilt, maxTilt);
         if (pointerActive) return;
         const nx = clamp(0.5 + e.gamma / 90, 0, 1);
-        target.rx = gyroTiltX;
-        target.ry = gyroTiltY;
-        target.hx = -gyroTiltY * 6;
-        target.hy = -gyroTiltX * 6;
-        target.phase = nx;
-        startTick();
+        applyTilt(gyroTiltX, gyroTiltY, -gyroTiltY * 6, -gyroTiltX * 6, nx);
       }
 
       function startGyro() {
@@ -6015,27 +5993,22 @@
         onDeviceOrientation({ beta: 45, gamma: 0 });
       }
 
-      heroVisual.addEventListener("mouseenter", () => {
-        pointerActive = true;
-        heroVisual.classList.add("is-pointer-active");
-      });
+      heroVisual.addEventListener("mouseenter", () => { pointerActive = true; });
       heroVisual.addEventListener("mouseleave", onPointerLeave);
       heroVisual.addEventListener("mousemove", (e) => {
         if (!pointerActive) return;
         updateFromPointer(e.clientX, e.clientY);
       });
       heroVisual.addEventListener("touchstart", (e) => {
-        e.preventDefault();
         pointerActive = true;
-        heroVisual.classList.add("is-pointer-active");
         if (e.touches.length) updateFromPointer(e.touches[0].clientX, e.touches[0].clientY);
-      }, { passive: false });
+      }, { passive: true });
       heroVisual.addEventListener("touchmove", (e) => {
         if (e.touches.length) updateFromPointer(e.touches[0].clientX, e.touches[0].clientY);
       }, { passive: true });
       heroVisual.addEventListener("touchend", onPointerLeave);
       heroVisual.addEventListener("touchcancel", onPointerLeave);
-      
+
       setMorphState(0.5);
       setPhaseState(0.5);
       if (typeof DeviceOrientationEvent !== "undefined" && !DeviceOrientationEvent.requestPermission) {
@@ -6045,29 +6018,17 @@
           }, { once: true });
         } catch (_) {}
       }
-      
-      // Click: double-tap = flip (Option E), single = pulse
-      let lastClickTime = 0;
-      heroVisual.addEventListener("click", (e) => {
-        const now = Date.now();
-        const isDoubleTap = (now - lastClickTime) < 400;
-        lastClickTime = now;
-        if (isDoubleTap) {
-          heroVisual.classList.toggle("is-flipped");
-          return;
-        }
+
+      function pulseHeroMark() {
         if (letterA) {
           const originalScale = letterA.getAttribute("transform") || "";
           letterA.setAttribute("transform", `${originalScale} scale(1.15)`);
           letterA.style.transition = "transform 0.2s ease-out";
-          
           setTimeout(() => {
             letterA.setAttribute("transform", originalScale);
             letterA.style.transition = "transform 0.3s ease-out";
           }, 200);
         }
-        
-        // Brief intensity increase on orbital ring (first ellipse is the main visible ring)
         const orbitalRing = svg?.querySelector("#orbitalRing > ellipse:first-of-type");
         if (orbitalRing) {
           const originalOpacity = orbitalRing.getAttribute("opacity") || "0.9";
@@ -6078,38 +6039,46 @@
             orbitalRing.setAttribute("stroke-width", "4");
           }, 400);
         }
-        
-        // Brief intensity increase on all orbiting elements
         if (orbits && orbits.length > 0) {
           orbits.forEach(orbit => {
             const originalOpacity = orbit.getAttribute("opacity") || "1";
             orbit.setAttribute("opacity", "1");
             orbit.style.transition = "opacity 0.2s ease-out";
-            
             setTimeout(() => {
               orbit.setAttribute("opacity", originalOpacity);
               orbit.style.transition = "opacity 0.5s ease-out";
             }, 300);
           });
         }
-        
-        // Add a ripple effect by briefly increasing glow
         const outerRing = svg?.querySelector("#outerRing");
         const middleRing = svg?.querySelector("#middleRing");
         if (outerRing) {
           const originalOpacity = outerRing.getAttribute("opacity") || "0.6";
           outerRing.setAttribute("opacity", "0.9");
-          setTimeout(() => {
-            outerRing.setAttribute("opacity", originalOpacity);
-          }, 400);
+          setTimeout(() => outerRing.setAttribute("opacity", originalOpacity), 400);
         }
         if (middleRing) {
           const originalOpacity = middleRing.getAttribute("opacity") || "0.5";
           middleRing.setAttribute("opacity", "0.8");
-          setTimeout(() => {
-            middleRing.setAttribute("opacity", originalOpacity);
-          }, 400);
+          setTimeout(() => middleRing.setAttribute("opacity", originalOpacity), 400);
         }
+      }
+
+      let singleClickTimer = null;
+      heroVisual.addEventListener("dblclick", (e) => {
+        e.preventDefault();
+        if (singleClickTimer) {
+          clearTimeout(singleClickTimer);
+          singleClickTimer = null;
+        }
+        heroVisual.classList.toggle("is-flipped");
+      });
+      heroVisual.addEventListener("click", () => {
+        if (singleClickTimer) clearTimeout(singleClickTimer);
+        singleClickTimer = setTimeout(() => {
+          singleClickTimer = null;
+          pulseHeroMark();
+        }, 280);
       });
     }
     

@@ -79,7 +79,9 @@ Presentation is token-driven (`:root` colors, radii, `--ease`). Recent polish in
 - Optional device orientation on supported mobile
 - Animated SVG A-mark, morph panels, flip on double-click
 - Glow driven by CSS variable **`--logo-phase`**
-- Pointer tilt uses a **lerp loop** (no CSS transform transition) so hover motion stays smooth; chromatic glitch filter swaps to glow while the pointer is over the mark
+- Pointer tilt uses a dedicated **`#heroTilt`** layer (separate from **`#heroInner`** flip) with RAF-coalesced updates — no CSS transform transition, so hover parallax stays smooth without fighting the flip animation
+- **`preserveAspectRatio="xMidYMid slice"`** + rounded **`overflow: hidden`** on **`#heroVisual`** removes letterbox bars
+- Double-click **`dblclick`** toggles the card flip; single click pulses the mark
 
 ### Collection doors + collection page art
 
