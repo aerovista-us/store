@@ -21,7 +21,9 @@ Canonical source lives in **`store/`**; run **`npm run sync:store`** before dev/
 | Storefront UI + logic | `store/index.html` (no bundler for shop) |
 | Catalog | `store/square_products_latest.json` |
 | Presentation overlay | `store/storefront_overlay.json` (optional; see **`STOREFRONT_OVERLAY.md`**) |
-| Collection lane SVGs | `store/js/collection-lane-svg.js` |
+| Collection lane SVGs | `store/js/collection-lane-svg.js` (home doors via `mountCollectionDoorSvgs`) |
+| Collection header banners | `store/js/collection-header-svg.js` (v2 unified panoramic headers — all five lanes) |
+| Product image placeholders | `store/js/product-placeholder-svg.js` |
 | Policies (injected) | `store/policy-content.js` |
 | Product images | `store/img/` |
 | Helper routes | `store/collection.html`, `store/catalog.html` (redirect to query routes) |
@@ -37,7 +39,7 @@ Canonical source lives in **`store/`**; run **`npm run sync:store`** before dev/
 |------|----------------|------------------------|
 | **home** | `/shop/index.html` | Hero, collection entry doors, featured drop, signal lab — **no product grid** |
 | **collection** | `?collection=core` or `collection.html?collection=shadow` | Themed collection hero, filters, grid for that lane only |
-| **catalog** | `?view=catalog` or `catalog.html` | Full apparel grid; collection dropdown hidden |
+| **catalog** | `?view=catalog` or `catalog.html` | Full apparel grid (`All pieces`); collection dropdown hidden |
 
 ### Collection lanes (`COLLECTION_LANES`)
 
@@ -152,6 +154,30 @@ Products need top-level **`{ "products": [ ... ] }`**. Collection labels on card
 
 ---
 
+## Luxury fast-buy UX (Phase A)
+
+Header and home CTAs prioritize shopping over browsing:
+
+| Element | Behavior |
+|---------|----------|
+| **Shop** (header) | Opens full catalog (`goToCatalog`) |
+| **Shop Shadow Wear** (hero) | Opens `?collection=shadow` |
+| **Featured Drop** tiles | Show live price from catalog after `loadProducts()`; open product modal |
+| **Product cards** | Primary CTA label **Shop** (not Quick View) |
+
+**Product modal (express lane):**
+
+- Collection line + category tag + large price
+- **Size pills** (remembers last size in `localStorage` key `av_store_last_size_v1`; defaults to M when available)
+- **Color pills** hidden when only one color / `Default`
+- **Add to bag** → closes modal, opens cart drawer, toast confirms
+- Fit + ship summary in `#modalBrief`; full detail grid hidden on product modal (still used for policy/info modals)
+- Provider / external checkout button removed from modal
+
+Promo codes (`SEED10`, `CREW15`) remain client-side estimates only — Square checkout may not apply the same discount.
+
+---
+
 ## Product cards
 
 - Prefer **`imagePath`** from catalog when file exists under `store/img/` (built via **`resolveCatalogImagePath`** — spaces in filenames are URL-encoded)
@@ -165,8 +191,9 @@ Products need top-level **`{ "products": [ ... ] }`**. Collection labels on card
 1. Update **`store/square_products_latest.json`** (+ images)
 2. **`npm run clean:overlay`** / **`audit:overlay`** if overlay changed
 3. **`npm run sync:store`**
-4. Spot-check: home (no grid), each collection lane, catalog, one checkout on staging
-5. **`npm run build:pages`** → push for GitHub Pages
+4. **`npm run audit:storefront`** — lane coverage, catalog images, featured-drop IDs, Phase A UX markers
+5. Spot-check: home (no grid), each collection lane, catalog, one checkout on staging
+6. **`npm run build:pages`** → push for GitHub Pages
 
 ---
 

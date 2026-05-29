@@ -1,376 +1,404 @@
 /**
- * Wide panoramic SVG banners for collection page headers (`#cvArtSvg`).
- * Lanes: core, shadow, glitch, architect, apex — full-width panoramic band (replaces cropping `cardImg`).
+ * Panoramic collection page headers (`#cvArtSvg`) — v2 unified design system.
+ * Lanes: core, shadow, apex, glitch, architect.
  */
 (function (global) {
+  const HDR_BUILD = "v2-unified-pro-audit";
+  if (typeof console !== "undefined" && console.info) {
+    console.info("[collection-header-svg] build:", HDR_BUILD);
+  }
+
+  const W = 1600;
+  const H = 380;
+  const CX = 800;
+  const CY = 198;
+
   function uid() {
     return "hdr_" + Math.random().toString(36).slice(2, 10);
   }
 
-  function glitchBanner() {
-    const p = uid();
-    const def = (n) => `${p}_${n}`;
-    const cyan = "rgba(34,211,238,";
-    const mag = "rgba(236,72,153,";
-
-    return `
-<svg class="collectionHeaderBanner collectionHeaderBanner--glitch" viewBox="0 0 1600 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true" role="img">
-  <defs>
-    <linearGradient id="${def("sky")}" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#020408"/>
-      <stop offset="38%" stop-color="#0c1522"/>
-      <stop offset="100%" stop-color="#05070c"/>
-    </linearGradient>
-    <radialGradient id="${def("pulse")}" cx="52%" cy="48%" r="58%">
-      <stop offset="0%" stop-color="${cyan}0.18)"/>
-      <stop offset="45%" stop-color="${mag}0.06)"/>
-      <stop offset="100%" stop-color="transparent"/>
-    </radialGradient>
-    <radialGradient id="${def("rim")}" cx="50%" cy="50%" r="72%">
-      <stop offset="65%" stop-color="transparent"/>
-      <stop offset="100%" stop-color="rgba(0,0,0,0.85)"/>
-    </radialGradient>
-    <pattern id="${def("scan")}" width="8" height="8" patternUnits="userSpaceOnUse">
-      <rect width="8" height="1.5" fill="rgba(255,255,255,0.025)"/>
-    </pattern>
-    <pattern id="${def("grid")}" width="48" height="48" patternUnits="userSpaceOnUse">
-      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(34,211,238,0.06)" stroke-width="0.6"/>
-    </pattern>
-    <linearGradient id="${def("beam")}" x1="0%" y1="50%" x2="100%" y2="50%">
-      <stop offset="0%" stop-color="${cyan}0)"/>
-      <stop offset="42%" stop-color="${cyan}0.35)"/>
-      <stop offset="58%" stop-color="${mag}0.28)"/>
-      <stop offset="100%" stop-color="${mag}0)"/>
-    </linearGradient>
-    <filter id="${def("soft")}" x="-5%" y="-5%" width="110%" height="110%">
-      <feGaussianBlur stdDeviation="18" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <linearGradient id="${def("wave")}" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="${cyan}0.65)"/>
-      <stop offset="50%" stop-color="rgba(167,139,250,0.55)"/>
-      <stop offset="100%" stop-color="${mag}0.55)"/>
-    </linearGradient>
-  </defs>
-  <rect width="1600" height="380" fill="url(#${def("sky")})"/>
-  <rect width="1600" height="380" fill="url(#${def("grid")})" opacity="0.55"/>
-  <rect width="1600" height="380" fill="url(#${def("scan")})" opacity="0.45"/>
-  <ellipse cx="820" cy="190" rx="720" ry="200" fill="url(#${def("pulse")})" filter="url(#${def("soft")})"/>
-  <!-- Horizon glitch bands -->
-  <g opacity="0.35">
-    <rect x="-40" y="112" width="1680" height="4" fill="${cyan}0.35)" transform="skewX(-12)"/>
-    <rect x="-40" y="198" width="1680" height="3" fill="${mag}0.28)" transform="skewX(8)"/>
-    <rect x="-40" y="268" width="1680" height="5" fill="${cyan}0.22)" transform="skewX(-6)"/>
-  </g>
-  <!-- Chromatic split silhouette hint -->
-  <g opacity="0.55" style="mix-blend-mode:screen">
-    <path d="M 520 285 L 620 118 L 980 118 L 1080 285 Z" fill="none" stroke="${cyan}0.45)" stroke-width="2.5" transform="translate(-6,0)"/>
-    <path d="M 520 285 L 620 118 L 980 118 L 1080 285 Z" fill="none" stroke="${mag}0.4)" stroke-width="2.5" transform="translate(6,2)"/>
-    <path d="M 520 285 L 620 118 L 980 118 L 1080 285 Z" fill="rgba(12,18,28,0.55)" stroke="rgba(230,240,255,0.15)" stroke-width="1"/>
-  </g>
-  <!-- Waveform spine -->
-  <path d="M 80 205 Q 240 155 420 205 T 760 185 T 1120 215 T 1520 175 L 1520 235 Q 1360 275 1180 235 T 760 265 T 380 245 T 80 285 Z"
-        fill="url(#${def("beam")})" opacity="0.22"/>
-  <path d="M 60 188 L 220 162 L 380 198 L 540 148 L 720 208 L 920 138 L 1120 218 L 1320 152 L 1540 198"
-        fill="none" stroke="url(#${def("wave")})" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.65"/>
-  <path d="M 60 218 L 280 238 L 460 192 L 680 248 L 860 208 L 1060 258 L 1260 188 L 1540 228"
-        fill="none" stroke="${cyan}0.35)" stroke-width="1.4" stroke-linecap="round" opacity="0.8"/>
-  <!-- Scan shards -->
-  <g opacity="0.22">
-    <rect x="140" y="40" width="120" height="10" fill="${cyan}0.6)"/>
-    <rect x="1180" y="72" width="90" height="8" fill="${mag}0.55)"/>
-    <rect x="980" y="310" width="140" height="6" fill="${cyan}0.45)"/>
-  </g>
-  <!-- Animated glitch ticks -->
-  <g class="collectionGlitchHdrAnim" opacity="0.55">
-    <rect x="200" y="96" width="220" height="2.5" fill="${cyan}0.5)">
-      <animate attributeName="x" values="190;210;190" dur="0.35s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="980" y="220" width="180" height="2" fill="${mag}0.45)">
-      <animate attributeName="x" values="975;995;975" dur="0.28s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="620" y="300" width="260" height="3" fill="${cyan}0.4)">
-      <animate attributeName="x" values="615;630;615" dur="0.42s" repeatCount="indefinite"/>
-    </rect>
-  </g>
-  <rect width="1600" height="380" fill="url(#${def("rim")})" pointer-events="none"/>
-</svg>`;
+  function rgba(rgb, a) {
+    return `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${a})`;
   }
 
-  function architectBanner() {
-    const p = uid();
-    const d = (n) => `${p}_${n}`;
-    const amber = "rgba(251,191,36,";
-    const dim = "rgba(220,220,220,";
+  /** Shared chevron geometry (banner scale) */
+  const MARK = {
+    L: "M -82 98 L -22 -128 L -2 -120 L -2 98 Z",
+    R: "M 82 98 L 22 -128 L 2 -120 L 2 98 Z",
+    peak: "M -14 -128 L 0 -118 L 14 -128 Z",
+    inner: "M -28 18 L 0 -18 L 28 18 Z",
+    orbit: "M 92 -38 C 52 -72 -14 -60 -46 -18 C -64 14 -56 56 -36 70",
+    split: "M -6 98 L 6 98 L 5 -118 L -5 -118 Z",
+  };
 
+  const META = {
+    core: {
+      kicker: "FOUNDATION ISSUE",
+      footer: "OPERATOR READY · CORE LINE",
+      sky: ["#050810", "#081018", "#060a12"],
+      accent: [110, 231, 255],
+      accent2: [79, 209, 197],
+    },
+    shadow: {
+      kicker: "STEALTH LANE",
+      footer: "LOW SIGNAL · PATTERN FORWARD",
+      sky: ["#050608", "#0c1016", "#060809"],
+      accent: [148, 163, 184],
+      accent2: [110, 231, 255],
+    },
+    apex: {
+      kicker: "APEX SUMMIT",
+      footer: "PRISM FOIL · ICON SYSTEM",
+      sky: ["#07060e", "#110d1a", "#05060c"],
+      accent: [167, 139, 250],
+      accent2: [110, 231, 255],
+      accent3: [236, 72, 153],
+    },
+    glitch: {
+      kicker: "SIGNAL INTERFERENCE",
+      footer: "SCAN CARD · BROKEN TRANSMISSION",
+      sky: ["#020408", "#0c1520", "#05070c"],
+      accent: [34, 211, 238],
+      accent2: [236, 72, 153],
+    },
+    architect: {
+      kicker: "BUILD ARCHIVE",
+      footer: "DRAFT SERIES · BUILT DIFFERENT",
+      sky: ["#060504", "#0e0c08", "#080604"],
+      accent: [251, 191, 36],
+      accent2: [245, 158, 11],
+    },
+  };
+
+  function defsCommon(p, m, extraDefs) {
+    const d = (n) => `${p}_${n}`;
+    const a = m.accent;
+    const a2 = m.accent2 || a;
     return `
-<svg class="collectionHeaderBanner collectionHeaderBanner--architect" viewBox="0 0 1600 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true" role="img">
-  <defs>
-    <linearGradient id="${d("bg")}" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#070504"/>
-      <stop offset="100%" stop-color="#0f0d08"/>
+    <linearGradient id="${d("sky")}" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="${m.sky[0]}"/>
+      <stop offset="48%" stop-color="${m.sky[1]}"/>
+      <stop offset="100%" stop-color="${m.sky[2]}"/>
     </linearGradient>
-    <radialGradient id="${d("spot")}" cx="50%" cy="42%" r="65%">
-      <stop offset="0%" stop-color="${amber}0.12)"/>
-      <stop offset="55%" stop-color="transparent"/>
+    <radialGradient id="${d("halo")}" cx="50%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="${rgba(a, 0.14)}"/>
+      <stop offset="45%" stop-color="${rgba(a2, 0.05)}"/>
+      <stop offset="100%" stop-color="transparent"/>
     </radialGradient>
-    <radialGradient id="${d("vig")}" cx="50%" cy="50%" r="72%">
-      <stop offset="55%" stop-color="transparent"/>
-      <stop offset="100%" stop-color="rgba(0,0,0,0.88)"/>
+    <radialGradient id="${d("floor")}" cx="50%" cy="100%" r="58%">
+      <stop offset="0%" stop-color="${rgba(a, 0.2)}"/>
+      <stop offset="55%" stop-color="rgba(0,0,0,0.15)"/>
+      <stop offset="100%" stop-color="transparent"/>
     </radialGradient>
-    <pattern id="${d("grid")}" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="${amber}0.11)" stroke-width="0.5"/>
+    <radialGradient id="${d("rim")}" cx="50%" cy="50%" r="74%">
+      <stop offset="58%" stop-color="transparent"/>
+      <stop offset="88%" stop-color="rgba(0,0,0,0.45)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.92)"/>
+    </radialGradient>
+    <linearGradient id="${d("foil")}" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="${rgba(a, 0)}"/>
+      <stop offset="22%" stop-color="${rgba(a, 0.16)}"/>
+      <stop offset="50%" stop-color="${rgba(a2, 0.08)}"/>
+      <stop offset="78%" stop-color="${rgba(a, 0.12)}"/>
+      <stop offset="100%" stop-color="${rgba(a, 0)}"/>
+    </linearGradient>
+    <linearGradient id="${d("edgeTop")}" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="20%" stop-color="${rgba(a, 0.45)}"/>
+      <stop offset="50%" stop-color="${rgba(a2, 0.55)}"/>
+      <stop offset="80%" stop-color="${rgba(a, 0.45)}"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+    <pattern id="${d("grain")}" width="4" height="4" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1.5" r="0.35" fill="rgba(255,255,255,0.035)"/>
     </pattern>
-  </defs>
-  <rect width="1600" height="380" fill="url(#${d("bg")})"/>
-  <rect width="1600" height="380" fill="url(#${d("grid")})" opacity="0.35"/>
-  <ellipse cx="800" cy="175" rx="620" ry="165" fill="url(#${d("spot")})"/>
-  <!-- Construction frame -->
-  <g fill="none" stroke="${dim}0.2)" stroke-width="0.45" opacity="0.85">
-    <line x1="800" y1="20" x2="800" y2="360"/>
-    <line x1="120" y1="190" x2="1480" y2="190"/>
-    <line x1="280" y1="72" x2="1320" y2="308"/>
-    <line x1="1320" y1="72" x2="280" y2="308"/>
-    <circle cx="800" cy="190" r="148" opacity="0.7"/>
-    <circle cx="800" cy="190" r="228" opacity="0.35"/>
-    <circle cx="800" cy="190" r="88" opacity="0.85"/>
-    <ellipse cx="800" cy="190" rx="280" ry="72" opacity="0.25"/>
-  </g>
-  <!-- Golden accent rulers -->
-  <g fill="none" stroke="${amber}0.45)" stroke-width="0.7" opacity="0.75">
-    <path d="M 88 298 L 88 284 M 82 284 L 94 284" stroke-linecap="round"/>
-    <path d="M 1512 98 L 1512 84 M 1506 84 L 1518 84" stroke-linecap="round"/>
-    <path d="M 240 332 L 360 332" stroke-dasharray="3 6"/>
-    <path d="M 1240 48 L 1360 48" stroke-dasharray="3 6"/>
-  </g>
-  <!-- Stylized drafted A + sweep -->
-  <g opacity="0.92" transform="translate(800 198) scale(1.06)">
-    <path d="M -118 92 L -24 -108 L -6 -104 L -6 92 Z"
-          fill="rgba(248,248,252,0.04)" stroke="${dim}0.35)" stroke-width="1"/>
-    <path d="M -20 -108 L -4 -148 L 12 -108 L -4 -72 Z"
-          fill="${amber}0.08)" stroke="${amber}0.55)" stroke-width="1"/>
-    <path d="M 118 92 L 24 -108 L 6 -104 L 6 92 Z"
-          fill="rgba(248,248,252,0.04)" stroke="${dim}0.35)" stroke-width="1"/>
-    <path d="M -6 -108 L 6 -108 L 42 72 L -42 72 Z"
-          fill="none" stroke="${dim}0.45)" stroke-width="0.8"/>
-    <path d="M -160 96 Q 80 -148 340 124"
-          fill="none" stroke="${amber}0.5)" stroke-width="2.2" stroke-linecap="round"/>
-    <!-- Base footing -->
-    <path d="M -28 88 L -8 116 L 8 116 L 28 88 Z" fill="none" stroke="${amber}0.4)" stroke-width="0.8"/>
-    <circle cx="-4" cy="-128" r="3" fill="${amber}0.85)"/>
-  </g>
-  <path d="M 80 52 L 120 52 L 132 76 L 80 76 Z"
-        fill="${amber}0.04)" stroke="${amber}0.25)" stroke-width="0.5" opacity="0.7"/>
-  <text x="88" y="68" fill="${dim}0.5)" font-family="ui-monospace,monospace" font-size="9" letter-spacing="0.08em">AV-DRAFT</text>
-  <text x="1340" y="328" fill="${dim}0.4)" font-family="ui-monospace,monospace" font-size="8" letter-spacing="0.06em">REV BUILD</text>
-  <rect width="1600" height="380" fill="url(#${d("vig")})"/>
-</svg>`;
+    <filter id="${d("soft")}" x="-8%" y="-8%" width="116%" height="116%">
+      <feGaussianBlur stdDeviation="14" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="${d("markGlow")}" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    ${extraDefs || ""}`;
+  }
+
+  function frameHud(p, m) {
+    const a = m.accent;
+    const dim = [148, 163, 184];
+    const d = (n) => `${p}_${n}`;
+    return `
+    <line x1="0" y1="0" x2="${W}" y2="0" stroke="url(#${d("edgeTop")})" stroke-width="1.2" opacity="0.85"/>
+    <g class="hdrFrame" opacity="0.7" stroke="${rgba(a, 0.42)}" fill="none" stroke-width="0.7" stroke-linecap="square">
+      <path d="M 36 28 L 36 52 M 36 28 L 60 28"/>
+      <path d="M ${W - 36} 28 L ${W - 36} 52 M ${W - 60} 28 L ${W - 36} 28"/>
+      <path d="M 36 ${H - 28} L 36 ${H - 52} M 36 ${H - 28} L 60 ${H - 28}"/>
+      <path d="M ${W - 36} ${H - 28} L ${W - 36} ${H - 52} M ${W - 60} ${H - 28} L ${W - 36} ${H - 28}"/>
+    </g>
+    <text x="52" y="48" fill="${rgba(a, 0.58)}" font-family="ui-monospace,Consolas,monospace" font-size="10" letter-spacing="0.22em">${m.kicker}</text>
+    <text x="${W - 52}" y="${H - 24}" text-anchor="end" fill="${rgba(dim, 0.45)}" font-family="ui-monospace,Consolas,monospace" font-size="9" letter-spacing="0.16em">${m.footer}</text>`;
+  }
+
+  function markChevron(p, m, opts) {
+    const d = (n) => `${p}_${n}`;
+    const a = m.accent;
+    const a2 = m.accent2 || a;
+    const sc = opts.scale || 1.08;
+    const split = opts.split !== false;
+    const orbit = opts.orbit !== false;
+    const y = opts.cy != null ? opts.cy : CY;
+    let g = `<g transform="translate(${CX} ${y}) scale(${sc})" filter="url(#${d("markGlow")})">`;
+    g += `<ellipse cx="0" cy="62" rx="58" ry="10" fill="rgba(0,0,0,0.5)" opacity="0.65"/>`;
+    g += `<ellipse cx="0" cy="56" rx="64" ry="12" fill="url(#${d("foil")})" opacity="0.35"/>`;
+    if (orbit) {
+      g += `<path d="${MARK.orbit}" fill="none" stroke="${rgba(a, 0.55)}" stroke-width="2.8" stroke-linecap="round" opacity="0.35"/>`;
+    }
+    g += `<path d="${MARK.L}" fill="rgba(18,24,34,0.55)" stroke="${rgba(a, 0.5)}" stroke-width="1.1" stroke-linejoin="round"/>`;
+    g += `<path d="${MARK.R}" fill="rgba(8,10,14,0.65)" stroke="${rgba(a2, 0.22)}" stroke-width="0.9" stroke-linejoin="round"/>`;
+    if (split) {
+      g += `<path d="${MARK.split}" fill="rgba(0,0,0,0.35)"/>`;
+    }
+    g += `<path d="${MARK.peak}" fill="${rgba(a, 0.12)}" stroke="${rgba(a, 0.72)}" stroke-width="1.1"/>`;
+    if (opts.inner !== false) {
+      g += `<path d="${MARK.inner}" fill="none" stroke="${rgba(a2, 0.35)}" stroke-width="0.8" opacity="0.7"/>`;
+    }
+    g += `<path d="M -38 108 L -6 132 L 6 132 L 38 108" fill="none" stroke="${rgba(a2, 0.4)}" stroke-width="1.6" stroke-linecap="round"/>`;
+    g += `</g>`;
+    return g;
+  }
+
+  function baseLayers(p, m, gridStroke) {
+    const d = (n) => `${p}_${n}`;
+    return `
+  <rect width="${W}" height="${H}" fill="url(#${d("sky")})"/>
+  <rect width="${W}" height="${H}" fill="url(#${d("grain")})" opacity="0.4"/>
+  <ellipse cx="${CX}" cy="${CY - 18}" rx="640" ry="180" fill="url(#${d("halo")})" filter="url(#${d("soft")})"/>
+  <ellipse cx="${CX}" cy="${H + 40}" rx="820" ry="200" fill="url(#${d("floor")})"/>
+  ${gridStroke || ""}`;
+  }
+
+  function finish(p) {
+    const d = (n) => `${p}_${n}`;
+    return `<rect width="${W}" height="${H}" fill="url(#${d("rim")})" pointer-events="none"/>`;
   }
 
   function coreBanner() {
     const p = uid();
-    const id = (n) => `${p}_${n}`;
-    const c = [110, 231, 255];
-    const t = [79, 209, 197];
-    const rx = (a, alpha) => `rgba(${a[0]},${a[1]},${a[2]},${alpha})`;
-
+    const m = META.core;
+    const d = (n) => `${p}_${n}`;
+    const a = m.accent;
+    const defs = defsCommon(p, m, `
+    <pattern id="${d("grid")}" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="${rgba(a, 0.08)}" stroke-width="0.5"/>
+    </pattern>`);
+    const grid = `<rect width="${W}" height="${H}" fill="url(#${d("grid")})" opacity="0.55"/>`;
+    const scene = `
+  ${baseLayers(p, m, grid)}
+  <g fill="none" stroke="${rgba(a, 0.24)}" stroke-width="0.55" opacity="0.9">
+    <circle cx="${CX}" cy="${CY}" r="132" stroke-dasharray="3 9 2 9"/>
+    <circle cx="${CX}" cy="${CY}" r="188" opacity="0.55"/>
+    <circle cx="${CX}" cy="${CY}" r="248" stroke-dasharray="16 24" opacity="0.35"/>
+    <line x1="${CX}" y1="48" x2="${CX}" y2="${H - 48}"/>
+    <line x1="120" y1="${CY}" x2="${W - 120}" y2="${CY}"/>
+    <path d="M 380 118 L 1220 278" opacity="0.3" stroke-width="0.4"/>
+    <path d="M 1220 118 L 380 278" opacity="0.3" stroke-width="0.4"/>
+  </g>
+  <g opacity="0.8">
+    <circle cx="620" cy="${CY}" r="3.2" fill="${rgba(a, 0.9)}"/>
+    <circle cx="980" cy="${CY}" r="2.4" fill="${rgba([148,163,184], 0.55)}"/>
+    <circle cx="${CX}" cy="318" r="2" fill="${rgba(m.accent2, 0.7)}"/>
+  </g>
+  <path d="M 120 318 Q ${CX} 288 ${W - 120} 318" fill="none" stroke="${rgba(m.accent2, 0.35)}" stroke-width="1.2" opacity="0.6"/>
+  ${markChevron(p, m, { scale: 1.1, cy: CY })}
+  ${frameHud(p, m)}
+  ${finish(p)}`;
     return `
-<svg class="collectionHeaderBanner collectionHeaderBanner--core" viewBox="0 0 1600 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true" role="img">
-  <defs>
-    <linearGradient id="${id("sky")}" x1="50%" y1="0%" x2="50%" y2="100%">
-      <stop offset="0%" stop-color="#060a11"/>
-      <stop offset="100%" stop-color="#080c14"/>
-    </linearGradient>
-    <radialGradient id="${id("deck")}" cx="50%" cy="88%" r="58%">
-      <stop offset="0%" stop-color="${rx(c, 0.32)}"/>
-      <stop offset="45%" stop-color="${rx(t, 0.12)}"/>
-      <stop offset="100%" stop-color="transparent"/>
-    </radialGradient>
-    <radialGradient id="${id("halo")}" cx="50%" cy="45%" r="52%">
-      <stop offset="0%" stop-color="${rx(c, 0.06)}"/>
-      <stop offset="100%" stop-color="transparent"/>
-    </radialGradient>
-    <radialGradient id="${id("rim")}" cx="50%" cy="50%" r="70%">
-      <stop offset="62%" stop-color="transparent"/>
-      <stop offset="100%" stop-color="rgba(0,0,0,0.86)"/>
-    </radialGradient>
-    <pattern id="${id("grid")}" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="${rx(c, 0.07)}" stroke-width="0.45"/>
-    </pattern>
-  </defs>
-  <rect width="1600" height="380" fill="url(#${id("sky")})"/>
-  <rect width="1600" height="380" fill="url(#${id("grid")})" opacity="0.5"/>
-  <ellipse cx="800" cy="312" rx="720" ry="160" fill="url(#${id("deck")})"/>
-  <ellipse cx="800" cy="172" rx="420" ry="130" fill="url(#${id("halo")})"/>
-  <!-- Reticle rings -->
-  <g fill="none" stroke="${rx(c, 0.22)}" stroke-width="0.55">
-    <circle cx="800" cy="178" r="148" stroke-dasharray="4 10 2 10"/>
-    <circle cx="800" cy="178" r="196" opacity="0.65"/>
-    <circle cx="800" cy="178" r="268" opacity="0.38" stroke-dasharray="14 22"/>
-    <line x1="800" y1="42" x2="800" y2="338"/>
-    <line x1="160" y1="178" x2="1440" y2="178"/>
-    <path d="M 420 108 L 1180 248" opacity="0.35" stroke-width="0.4"/>
-    <path d="M 1180 108 L 420 248" opacity="0.35" stroke-width="0.4"/>
-  </g>
-  <!-- Lock nodes -->
-  <g opacity="0.75">
-    <circle cx="648" cy="178" r="3" fill="${rx(c, 0.85)}" stroke="none"/>
-    <circle cx="952" cy="178" r="2.5" fill="${rx([148,163,184], 0.55)}" stroke="none"/>
-    <circle cx="800" cy="328" r="2" fill="${rx(t, 0.65)}" stroke="none"/>
-  </g>
-  <!-- Center chevron / issued mark -->
-  <g opacity="0.88" transform="translate(800 186) scale(1.05)">
-    <path d="M -72 94 L -20 -132 L -2 -126 L -2 94 Z"
-          fill="rgba(248,252,255,0.04)" stroke="${rx(c, 0.45)}" stroke-width="1"/>
-    <path d="M 72 94 L 20 -132 L 2 -126 L 2 94 Z"
-          fill="rgba(20,26,38,0.35)" stroke="${rx([148,163,184], 0.22)}" stroke-width="1"/>
-    <path d="M -12 -138 L 0 -128 L 12 -138 Z" fill="${rx(c, 0.15)}" stroke="${rx(c, 0.65)}" stroke-width="1"/>
-    <path d="M -36 108 L -4 134 L 4 134 L 36 108" fill="none" stroke="${rx(t, 0.45)}" stroke-width="2" stroke-linecap="round"/>
-  </g>
-  <!-- Frame copy -->
-  <text x="64" y="56" fill="${rx(c, 0.52)}" font-family="ui-monospace,monospace" font-size="9" letter-spacing="0.2em">FOUNDATION ISSUE · ISSUED</text>
-  <text x="1204" y="324" fill="${rx([148,163,184], 0.4)}" font-family="ui-monospace,monospace" font-size="8" letter-spacing="0.13em">OP READINESS GREEN</text>
-  <rect width="1600" height="380" fill="url(#${id("rim")})" pointer-events="none"/>
+<svg class="collectionHeaderBanner collectionHeaderBanner--core" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true" role="img">
+  <defs>${defs}</defs>${scene}
 </svg>`;
   }
 
   function shadowBanner() {
     const p = uid();
-    const s = (n) => `${p}_${n}`;
-    const slate = [148, 163, 184];
-    const ink = [71, 85, 105];
-    const edge = [110, 231, 255];
-    const r = (rgb, a) => `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${a})`;
-
+    const m = META.shadow;
+    const d = (n) => `${p}_${n}`;
+    const a = m.accent;
+    const edge = m.accent2;
+    const defs = defsCommon(p, m, "");
+    const scene = `
+  ${baseLayers(p, m, "")}
+  <g fill="none" stroke="${rgba(a, 0.2)}" stroke-width="0.6" stroke-linecap="round" opacity="0.95">
+    <path d="M -30 252 Q 200 202 480 232 T ${CX} 212 T 1180 246 T 1630 220"/>
+    <path d="M 60 272 Q 300 218 560 258 T 980 230 T 1400 262 T 1580 238" opacity="0.55"/>
+    <path d="M 100 178 Q 360 128 640 168 T 1120 142 T 1540 182" opacity="0.38"/>
+    <path d="M 280 88 Q 420 140 520 96 T 720 120" opacity="0.28"/>
+  </g>
+  <g fill="none" stroke="${rgba(a, 0.32)}" stroke-width="0.5">
+    <line x1="100" y1="218" x2="${W - 100}" y2="218"/>
+    <circle cx="248" cy="218" r="2.4" fill="${rgba(edge, 0.5)}" stroke="none"/>
+    <circle cx="520" cy="218" r="1.8" fill="${rgba(a, 0.45)}" stroke="none"/>
+    <circle cx="${CX}" cy="218" r="2" fill="${rgba(a, 0.4)}" stroke="none"/>
+    <circle cx="1080" cy="218" r="1.7" fill="${rgba(a, 0.42)}" stroke="none"/>
+    <circle cx="1352" cy="218" r="2.2" fill="${rgba(edge, 0.32)}" stroke="none"/>
+  </g>
+  <g opacity="0.35" stroke="${rgba(edge, 0.2)}" fill="none">
+    <path d="M 180 68 L 340 68"/><path d="M ${W - 340} 312 L ${W - 180} 312"/>
+  </g>
+  ${markChevron(p, m, { scale: 1.08, cy: CY + 6, split: true, orbit: false })}
+  ${frameHud(p, m)}
+  ${finish(p)}`;
     return `
-<svg class="collectionHeaderBanner collectionHeaderBanner--shadow" viewBox="0 0 1600 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true" role="img">
-  <defs>
-    <linearGradient id="${s("bg")}" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#070809"/>
-      <stop offset="55%" stop-color="#0d1116"/>
-      <stop offset="100%" stop-color="#050608"/>
-    </linearGradient>
-    <radialGradient id="${s("mist")}" cx="50%" cy="95%" r="65%">
-      <stop offset="0%" stop-color="${r(ink, 0.35)}"/>
-      <stop offset="60%" stop-color="transparent"/>
-    </radialGradient>
-    <radialGradient id="${s("veil")}" cx="48%" cy="38%" r="55%">
-      <stop offset="0%" stop-color="${r(slate, 0.07)}"/>
-      <stop offset="100%" stop-color="transparent"/>
-    </radialGradient>
-    <radialGradient id="${s("rim")}" cx="50%" cy="50%" r="72%">
-      <stop offset="58%" stop-color="transparent"/>
-      <stop offset="100%" stop-color="rgba(0,0,0,0.9)"/>
-    </radialGradient>
-    <pattern id="${s("grain")}" width="5" height="5" patternUnits="userSpaceOnUse">
-      <circle cx="1.2" cy="2" r="0.35" fill="rgba(255,255,255,0.04)"/>
-      <circle cx="3.8" cy="3.4" r="0.25" fill="rgba(148,163,184,0.06)"/>
-    </pattern>
-  </defs>
-  <rect width="1600" height="380" fill="url(#${s("bg")})"/>
-  <rect width="1600" height="380" fill="url(#${s("grain")})" opacity="0.35"/>
-  <ellipse cx="800" cy="360" rx="780" ry="220" fill="url(#${s("mist")})"/>
-  <ellipse cx="760" cy="160" rx="520" ry="140" fill="url(#${s("veil")})"/>
-  <!-- Topo / ridge lines -->
-  <g fill="none" stroke="${r(slate, 0.22)}" stroke-width="0.55" stroke-linecap="round" opacity="0.9">
-    <path d="M -20 248 Q 180 198 420 228 T 820 208 T 1220 242 T 1620 216"/>
-    <path d="M 40 268 Q 280 212 520 252 T 960 224 T 1380 258 T 1580 232" opacity="0.55"/>
-    <path d="M 80 188 Q 340 128 600 168 T 1100 138 T 1520 178" opacity="0.4"/>
-  </g>
-  <!-- HUD trace -->
-  <g fill="none" stroke="${r(slate, 0.35)}" stroke-width="0.45">
-    <line x1="140" y1="210" x2="1460" y2="210"/>
-    <circle cx="268" cy="210" r="2.2" fill="${r(edge, 0.45)}" stroke="none"/>
-    <circle cx="612" cy="210" r="1.5" fill="${r(slate, 0.5)}" stroke="none"/>
-    <circle cx="988" cy="210" r="1.6" fill="${r(slate, 0.45)}" stroke="none"/>
-    <circle cx="1332" cy="210" r="2" fill="${r(edge, 0.28)}" stroke="none"/>
-  </g>
-  <!-- Black-on-black mark hint -->
-  <g opacity="0.55" transform="translate(800 200)">
-    <path d="M -88 86 L -22 -118 L 0 -108 L 22 -118 L 88 86 L 58 86 L 36 -28 L -36 -28 L -58 86 Z"
-          fill="rgba(8,10,14,0.75)" stroke="${r(slate, 0.18)}" stroke-width="0.8"/>
-    <path d="M -22 -118 L 0 -132 L 22 -118" fill="none" stroke="${r(edge, 0.22)}" stroke-width="0.9"/>
-  </g>
-  <!-- Edge catch -->
-  <path d="M 100 72 L 240 72" stroke="${r(edge, 0.16)}" stroke-width="0.6" fill="none" opacity="0.8"/>
-  <path d="M 1360 308 L 1500 308" stroke="${r(edge, 0.12)}" stroke-width="0.6" fill="none" opacity="0.7"/>
-  <text x="58" y="54" fill="${r(slate, 0.48)}" font-family="ui-monospace,monospace" font-size="9" letter-spacing="0.18em">STEALTH LANE · LOW SIGNAL</text>
-  <text x="1156" y="332" fill="${r(ink, 0.55)}" font-family="ui-monospace,monospace" font-size="8" letter-spacing="0.12em">WASHED BLACK · PATTERN HEAVY</text>
-  <rect width="1600" height="380" fill="url(#${s("rim")})" pointer-events="none"/>
+<svg class="collectionHeaderBanner collectionHeaderBanner--shadow" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true" role="img">
+  <defs>${defs}</defs>${scene}
 </svg>`;
   }
 
   function apexBanner() {
     const p = uid();
-    const a = (n) => `${p}_${n}`;
-    const violet = [167, 139, 250];
-    const cyan = [110, 231, 255];
-    const rose = [236, 72, 153];
-    const blue = [59, 130, 246];
-    const rx = (rgb, alpha) => `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${alpha})`;
-
+    const m = META.apex;
+    const d = (n) => `${p}_${n}`;
+    const v = m.accent;
+    const c = m.accent2;
+    const r = m.accent3;
+    const defs = defsCommon(p, m, `
+    <linearGradient id="${d("prism")}" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="${rgba(v, 0.38)}"/>
+      <stop offset="45%" stop-color="${rgba(c, 0.22)}"/>
+      <stop offset="100%" stop-color="${rgba(r, 0.14)}"/>
+    </linearGradient>`);
+    const scene = `
+  ${baseLayers(p, m, "")}
+  <g class="hdrApexStripes" opacity="0.2" style="mix-blend-mode:screen">
+    <path d="M -80 ${H + 20} L 420 -60" stroke="url(#${d("prism")})" stroke-width="48" stroke-linecap="round"/>
+    <path d="M 180 ${H + 20} L 680 -60" stroke="${rgba(v, 0.35)}" stroke-width="36" stroke-linecap="round"/>
+    <path d="M 440 ${H + 20} L 940 -60" stroke="${rgba(c, 0.28)}" stroke-width="28" stroke-linecap="round"/>
+  </g>
+  <g fill="none" stroke="${rgba(v, 0.14)}" stroke-width="0.45" opacity="0.85">
+    <line x1="0" y1="228" x2="${W}" y2="228"/>
+    <line x1="0" y1="268" x2="${W}" y2="268" opacity="0.45"/>
+    <line x1="600" y1="36" x2="600" y2="${H - 36}"/>
+    <line x1="1000" y1="36" x2="1000" y2="${H - 36}" opacity="0.55"/>
+    <path d="M 480 ${H - 20} L ${CX} 108 L 1120 ${H - 20}" stroke="${rgba(c, 0.22)}" stroke-width="0.6"/>
+  </g>
+  <g fill="none" stroke="${rgba(c, 0.22)}" stroke-width="0.55" transform="translate(${CX} ${CY + 6})">
+    <circle r="112" stroke-dasharray="5 14 3 14"/>
+    <circle r="162" stroke="${rgba(v, 0.25)}"/>
+    <circle r="228" stroke-dasharray="20 28" opacity="0.4"/>
+    <line x1="-300" y1="0" x2="300" y2="0" opacity="0.35"/>
+  </g>
+  ${markChevron(p, m, { scale: 1.14, cy: CY + 12, split: true, orbit: true })}
+  <circle cx="580" cy="${CY}" r="3" fill="${rgba(c, 0.7)}" stroke="none"/>
+  <circle cx="1020" cy="${CY}" r="2.4" fill="${rgba(v, 0.6)}" stroke="none"/>
+  ${frameHud(p, m)}
+  ${finish(p)}`;
     return `
-<svg class="collectionHeaderBanner collectionHeaderBanner--apex" viewBox="0 0 1600 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true" role="img">
-  <defs>
-    <linearGradient id="${a("bg")}" x1="8%" y1="0%" x2="92%" y2="100%">
-      <stop offset="0%" stop-color="#0a0812"/>
-      <stop offset="45%" stop-color="#100c18"/>
-      <stop offset="100%" stop-color="#05060e"/>
+<svg class="collectionHeaderBanner collectionHeaderBanner--apex" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true" role="img">
+  <defs>${defs}</defs>${scene}
+</svg>`;
+  }
+
+  function glitchBanner() {
+    const p = uid();
+    const m = META.glitch;
+    const d = (n) => `${p}_${n}`;
+    const cyan = m.accent;
+    const mag = m.accent2;
+    const defs = defsCommon(p, m, `
+    <pattern id="${d("scan")}" width="6" height="6" patternUnits="userSpaceOnUse">
+      <rect width="6" height="1.2" fill="rgba(255,255,255,0.03)"/>
+    </pattern>
+    <pattern id="${d("grid")}" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M 56 0 L 0 0 0 56" fill="none" stroke="${rgba(cyan, 0.07)}" stroke-width="0.55"/>
+    </pattern>
+    <linearGradient id="${d("beam")}" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="${rgba(cyan, 0)}"/>
+      <stop offset="45%" stop-color="${rgba(cyan, 0.28)}"/>
+      <stop offset="55%" stop-color="${rgba(mag, 0.22)}"/>
+      <stop offset="100%" stop-color="${rgba(mag, 0)}"/>
     </linearGradient>
-    <radialGradient id="${a("prism")}" cx="52%" cy="42%" r="58%">
-      <stop offset="0%" stop-color="${rx(violet, 0.16)}"/>
-      <stop offset="38%" stop-color="${rx(blue, 0.06)}"/>
-      <stop offset="100%" stop-color="transparent"/>
-    </radialGradient>
-    <radialGradient id="${a("floor")}" cx="50%" cy="102%" r="62%">
-      <stop offset="0%" stop-color="${rx(cyan, 0.22)}"/>
-      <stop offset="35%" stop-color="${rx(rose, 0.08)}"/>
-      <stop offset="100%" stop-color="transparent"/>
-    </radialGradient>
-    <radialGradient id="${a("rim")}" cx="50%" cy="50%" r="70%">
-      <stop offset="60%" stop-color="transparent"/>
-      <stop offset="100%" stop-color="rgba(0,0,0,0.88)"/>
-    </radialGradient>
-    <linearGradient id="${a("foil")}" x1="0%" y1="30%" x2="100%" y2="70%">
-      <stop offset="0%" stop-color="${rx(violet, 0)}"/>
-      <stop offset="48%" stop-color="${rx(cyan, 0.09)}"/>
-      <stop offset="100%" stop-color="${rx(rose, 0.05)}"/>
-    </linearGradient>
-  </defs>
-  <rect width="1600" height="380" fill="url(#${a("bg")})"/>
-  <rect width="1600" height="380" fill="url(#${a("foil")})" opacity="0.95"/>
-  <ellipse cx="820" cy="160" rx="540" ry="200" fill="url(#${a("prism")})"/>
-  <ellipse cx="800" cy="368" rx="760" ry="200" fill="url(#${a("floor")})"/>
-  <!-- Summit grid -->
-  <g fill="none" stroke="${rx(violet, 0.12)}" stroke-width="0.4" opacity="0.85">
-    <path d="M 0 220 L 1600 220"/>
-    <path d="M 0 260 L 1600 260" opacity="0.5"/>
-    <path d="M 620 40 L 620 340"/>
-    <path d="M 980 40 L 980 340" opacity="0.55"/>
-    <path d="M 500 340 L 800 118 L 1100 340" stroke="${rx(cyan, 0.18)}" stroke-width="0.55"/>
+    <linearGradient id="${d("wave")}" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="${rgba(cyan, 0.7)}"/>
+      <stop offset="50%" stop-color="rgba(167,139,250,0.5)"/>
+      <stop offset="100%" stop-color="${rgba(mag, 0.6)}"/>
+    </linearGradient>`);
+    const scene = `
+  ${baseLayers(p, m, `<rect width="${W}" height="${H}" fill="url(#${d("grid")})" opacity="0.5"/><rect width="${W}" height="${H}" fill="url(#${d("scan")})" opacity="0.55"/>`)}
+  <g opacity="0.32">
+    <rect x="-40" y="108" width="1680" height="2.5" fill="${rgba(cyan, 0.35)}" transform="skewX(-10)"/>
+    <rect x="-40" y="198" width="1680" height="2" fill="${rgba(mag, 0.28)}" transform="skewX(6)"/>
+    <rect x="-40" y="278" width="1680" height="3" fill="${rgba(cyan, 0.2)}" transform="skewX(-4)"/>
   </g>
-  <!-- Orbit rings -->
-  <g fill="none" stroke="${rx(cyan, 0.2)}" stroke-width="0.55" transform="translate(800 198)">
-    <circle r="118" stroke-dasharray="6 16 3 16"/>
-    <circle r="168" opacity="0.55" stroke="${rx(violet, 0.22)}"/>
-    <circle r="244" opacity="0.35" stroke-dasharray="22 26"/>
-    <line x1="-320" y1="0" x2="320" y2="0" opacity="0.4" stroke="${rx(blue, 0.35)}"/>
+  <path d="M 60 200 Q 280 160 520 200 T ${CX} 180 T 1120 210 T 1540 170 L 1540 240 Q 1320 280 1080 240 T ${CX} 260 T 400 238 T 60 278 Z"
+        fill="url(#${d("beam")})" opacity="0.2"/>
+  <path d="M 48 182 L 240 158 L 420 198 L 600 148 L 780 208 L 980 136 L 1180 216 L 1380 148 L 1552 192"
+        fill="none" stroke="url(#${d("wave")})" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.62"/>
+  <g opacity="0.5" style="mix-blend-mode:screen" transform="translate(${CX} ${CY})">
+    <path d="M -120 88 L -40 -72 L 40 -72 L 120 88 Z" fill="rgba(10,16,24,0.6)" stroke="${rgba(cyan, 0.35)}" stroke-width="1" transform="translate(-5,0)"/>
+    <path d="M -120 88 L -40 -72 L 40 -72 L 120 88 Z" fill="none" stroke="${rgba(mag, 0.32)}" stroke-width="1.2" transform="translate(5,2)"/>
+    <path d="M -120 88 L -40 -72 L 40 -72 L 120 88 Z" fill="rgba(12,18,28,0.55)" stroke="rgba(230,240,255,0.18)" stroke-width="0.9"/>
   </g>
-  <!-- Apex mark — lowered like door art -->
-  <g transform="translate(800 224) scale(1.12)">
-    <path d="M -102 98 L -28 -112 L 0 -98 L 28 -112 L 102 98 L 70 98 L 44 -12 L -44 -12 L -70 98 Z"
-          fill="rgba(12,10,22,0.72)" stroke="${rx(violet, 0.35)}" stroke-width="1"/>
-    <path d="M -28 -112 L 0 -132 L 28 -112 L 14 -72 L -14 -72 Z"
-          fill="${rx(cyan, 0.08)}" stroke="${rx(cyan, 0.45)}" stroke-width="0.9"/>
-    <path d="M -44 -12 L 0 22 L 44 -12" fill="none" stroke="${rx(rose, 0.28)}" stroke-width="0.8" stroke-linejoin="round"/>
+  ${markChevron(p, m, { scale: 1.02, cy: CY + 6, inner: false })}
+  <g class="collectionGlitchHdrAnim" opacity="0.36">
+    <rect x="180" y="92" width="240" height="1.5" fill="${rgba(cyan, 0.45)}">
+      <animate attributeName="x" values="176;184;176" dur="4.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="1020" y="228" width="200" height="1.2" fill="${rgba(mag, 0.38)}">
+      <animate attributeName="x" values="1016;1024;1016" dur="3.8s" repeatCount="indefinite"/>
+    </rect>
   </g>
-  <circle cx="612" cy="198" r="2.8" fill="${rx(cyan, 0.65)}" stroke="none"/>
-  <circle cx="988" cy="198" r="2.2" fill="${rx(violet, 0.55)}" stroke="none"/>
-  <path d="M 96 74 L 226 74" stroke="${rx(cyan, 0.35)}" stroke-width="0.55" fill="none"/>
-  <path d="M 1374 306 L 1504 306" stroke="${rx(rose, 0.22)}" stroke-width="0.55" fill="none"/>
-  <text x="56" y="52" fill="${rx(cyan, 0.52)}" font-family="ui-monospace,monospace" font-size="9" letter-spacing="0.2em">APEX PATTERN · SUMMIT WINDOW</text>
-  <text x="1044" y="330" fill="${rx(violet, 0.42)}" font-family="ui-monospace,monospace" font-size="8" letter-spacing="0.14em">PRISM FOIL · HIGH CONTRAST MARKS</text>
-  <rect width="1600" height="380" fill="url(#${a("rim")})" pointer-events="none"/>
+  ${frameHud(p, m)}
+  ${finish(p)}`;
+    return `
+<svg class="collectionHeaderBanner collectionHeaderBanner--glitch" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true" role="img">
+  <defs>${defs}</defs>${scene}
+</svg>`;
+  }
+
+  function architectBanner() {
+    const p = uid();
+    const m = META.architect;
+    const d = (n) => `${p}_${n}`;
+    const amber = m.accent;
+    const dim = [200, 198, 190];
+    const defs = defsCommon(p, m, `
+    <pattern id="${d("bp")}" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="${rgba(amber, 0.1)}" stroke-width="0.5"/>
+      <circle cx="18" cy="18" r="0.7" fill="${rgba(amber, 0.14)}"/>
+    </pattern>`);
+    const scene = `
+  ${baseLayers(p, m, `<rect width="${W}" height="${H}" fill="url(#${d("bp")})" opacity="0.4"/>`)}
+  <g fill="none" stroke="${rgba(dim, 0.18)}" stroke-width="0.45" opacity="0.88">
+    <line x1="${CX}" y1="24" x2="${CX}" y2="${H - 24}"/>
+    <line x1="100" y1="${CY}" x2="${W - 100}" y2="${CY}"/>
+    <line x1="260" y1="68" x2="${W - 260}" y2="${H - 68}"/>
+    <line x1="${W - 260}" y1="68" x2="260" y2="${H - 68}"/>
+    <circle cx="${CX}" cy="${CY}" r="142"/>
+    <circle cx="${CX}" cy="${CY}" r="220" opacity="0.38"/>
+    <circle cx="${CX}" cy="${CY}" r="82" opacity="0.75"/>
+    <ellipse cx="${CX}" cy="${CY}" rx="300" ry="78" opacity="0.22"/>
+  </g>
+  <g fill="none" stroke="${rgba(amber, 0.48)}" stroke-width="0.65" opacity="0.8">
+    <path d="M 72 302 L 72 286 M 66 286 L 78 286" stroke-linecap="round"/>
+    <path d="M ${W - 72} 88 L ${W - 72} 72 M ${W - 78} 72 L ${W - 66} 72" stroke-linecap="round"/>
+    <path d="M 220 336 L 380 336" stroke-dasharray="4 7"/>
+    <path d="M ${W - 380} 44 L ${W - 220} 44" stroke-dasharray="4 7"/>
+  </g>
+  <g transform="translate(${CX} ${CY + 4}) scale(1.12)" filter="url(#${d("markGlow")})">
+    <path d="M -128 96 Q 60 -152 320 118" fill="none" stroke="${rgba(amber, 0.55)}" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="${MARK.L}" fill="rgba(248,246,240,0.05)" stroke="${rgba(dim, 0.38)}" stroke-width="1"/>
+    <path d="${MARK.R}" fill="rgba(20,18,14,0.5)" stroke="${rgba(dim, 0.28)}" stroke-width="0.9"/>
+    <path d="M -18 -128 L 0 -148 L 18 -128 Z" fill="${rgba(amber, 0.1)}" stroke="${rgba(amber, 0.62)}" stroke-width="1"/>
+    <path d="M -6 -120 L 6 -120 L 44 76 L -44 76 Z" fill="none" stroke="${rgba(dim, 0.4)}" stroke-width="0.75"/>
+    <circle cx="0" cy="-138" r="3.5" fill="${rgba(amber, 0.9)}"/>
+    <path d="M -32 92 L -10 118 L 10 118 L 32 92" fill="none" stroke="${rgba(amber, 0.42)}" stroke-width="0.85"/>
+  </g>
+  <rect x="72" y="44" width="88" height="28" rx="2" fill="${rgba(amber, 0.05)}" stroke="${rgba(amber, 0.22)}" stroke-width="0.5"/>
+  <text x="82" y="62" fill="${rgba(dim, 0.55)}" font-family="ui-monospace,Consolas,monospace" font-size="9" letter-spacing="0.12em">AV-DRAFT · S01</text>
+  ${frameHud(p, m)}
+  ${finish(p)}`;
+    return `
+<svg class="collectionHeaderBanner collectionHeaderBanner--architect" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true" role="img">
+  <defs>${defs}</defs>${scene}
 </svg>`;
   }
 
@@ -381,8 +409,9 @@
     if (lane === "core") return coreBanner();
     if (lane === "shadow") return shadowBanner();
     if (lane === "apex") return apexBanner();
-    return "";
+    return coreBanner();
   }
 
   global.collectionHeaderBannerSvg = collectionHeaderBannerSvg;
+  global.COLLECTION_HEADER_SVG_BUILD = HDR_BUILD;
 })(typeof window !== "undefined" ? window : globalThis);

@@ -115,7 +115,16 @@
     .brand h1{ margin:0; font-size: 14px; letter-spacing:.12em; text-transform:uppercase; }
     .brand .sub{ margin:2px 0 0; font-size:12px; color:var(--muted); }
 
-    .actions{ display:flex; gap:10px; align-items:center; }
+    .actions{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; justify-content:flex-end; }
+    .pill--shop{
+      font-weight:600;
+      border-color:rgba(110,231,255,.28);
+      background:rgba(110,231,255,.08);
+    }
+    .pill--shop:hover{
+      border-color:rgba(110,231,255,.45);
+      background:rgba(110,231,255,.14);
+    }
     .pill{
       display:flex; align-items:center; gap:8px;
       background: rgba(255,255,255,.04);
@@ -124,8 +133,11 @@
       padding:10px 14px;
       min-height:44px;
       color: var(--text);
+      font:inherit;
+      cursor:pointer;
       transition: border-color .2s var(--ease), background .2s var(--ease), transform .2s var(--ease);
     }
+    button.pill{ appearance:none; -webkit-appearance:none; }
     .pill:hover{ border-color: rgba(110,231,255,.35); background:rgba(255,255,255,.06); }
     .pill:active{ transform:scale(.98); }
     .pill .k{ font-family: var(--mono); font-size: 11px; opacity:.7; border:1px solid var(--line); padding:2px 6px; border-radius: 8px; }
@@ -868,6 +880,18 @@
         inset 0 -3px 10px rgba(0,0,0,.45);
     }
     /* SVG lane art — bottom-weighted; do NOT use .doorArt (full-card inset wash) */
+    .productPlaceholderSvg,
+    .img svg.productPlaceholderSvg{
+      width:100%; height:100%; display:block;
+    }
+    @media (prefers-reduced-motion: reduce){
+      .laneHoloAnim animate,
+      .collectionGlitchHdrAnim,
+      .collectionGlitchHdrAnim *,
+      .collectionGlitchHdrAnim animate,
+      .heroSvg animate,
+      .heroSvg animateTransform{ animation:none !important; visibility:visible !important; }
+    }
     .doorArtSvg{
       position:absolute;
       left:0; right:0; bottom:0; top:18%;
@@ -1306,6 +1330,117 @@
       line-height:1.28;
       letter-spacing:-.02em;
     }
+    .dropPiece__price{
+      display:block;
+      margin-top:6px;
+      min-height:1.2em;
+      font-size:13px;
+      font-weight:600;
+      color:rgba(231,237,246,.88);
+      letter-spacing:.02em;
+    }
+    .dropPiece__price.is-loading{
+      color:var(--muted);
+      font-weight:500;
+      font-size:12px;
+    }
+    /* Product modal — express lane */
+    .mHeadMain{ min-width:0; flex:1; }
+    .mCollectionLine{
+      margin:0 0 4px;
+      font-family:var(--mono);
+      font-size:10px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:rgba(110,231,255,.75);
+    }
+    .mPriceRow{
+      margin:8px 0 0;
+      font-size:26px;
+      font-weight:700;
+      letter-spacing:-.03em;
+      line-height:1;
+    }
+    @media (max-width:520px){
+      .mPriceRow{ font-size:22px; }
+    }
+    .modalPickRow{ margin-top:4px; }
+    .modalPickLabel{
+      display:block;
+      margin:0 0 8px;
+      font-size:11px;
+      font-weight:600;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+    .pillGroup{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .sizePill, .colorPill{
+      appearance:none;
+      -webkit-appearance:none;
+      min-width:44px;
+      min-height:40px;
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.28);
+      color:var(--text);
+      font-size:13px;
+      font-weight:600;
+      cursor:pointer;
+      transition:border-color .2s var(--ease), background .2s var(--ease), transform .15s var(--ease);
+    }
+    .sizePill:hover, .colorPill:hover{
+      border-color:rgba(110,231,255,.35);
+      background:rgba(255,255,255,.06);
+    }
+    .sizePill:focus-visible, .colorPill:focus-visible{
+      outline:2px solid var(--accent);
+      outline-offset:2px;
+    }
+    .sizePill.is-active, .colorPill.is-active{
+      border-color:rgba(110,231,255,.55);
+      background:linear-gradient(135deg, rgba(110,231,255,.22), rgba(167,139,250,.12));
+      color:#061018;
+      box-shadow:0 0 20px rgba(110,231,255,.12);
+    }
+    .modalPickRow.is-hidden{ display:none; }
+    .modalActions{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:4px;
+    }
+    .modalActions .qty{
+      align-self:flex-start;
+    }
+    .modalActions .btn.primary{
+      width:100%;
+      justify-content:center;
+      min-height:48px;
+      font-size:15px;
+      font-weight:700;
+      letter-spacing:.02em;
+    }
+    .modalBrief{
+      margin:0;
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.45;
+    }
+    #mSize.sr-only, #mColor.sr-only{
+      position:absolute;
+      width:1px; height:1px;
+      padding:0; margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      white-space:nowrap;
+      border:0;
+    }
     .pageStack{ display:grid; gap:16px; }
     .collectionPage{
       border:1px solid rgba(255,255,255,.09);
@@ -1331,143 +1466,57 @@
       display:flex; align-items:center; justify-content:center; overflow:hidden;
     }
     .pageArtPanel img{ max-width:88%; max-height:200px; object-fit:contain; filter:drop-shadow(0 16px 32px rgba(0,0,0,.65)); }
-    /* Glitch: full-width panoramic SVG header (collection page) */
-    .collectionViewHero[data-lane="glitch"] .pageArtPanel{
-      min-height:min(300px, 42vw);
-      padding:0;
-      background:#030508;
-      border-color:rgba(34,211,238,.14);
-      box-shadow:inset 0 0 0 1px rgba(34,211,238,.06), inset 0 -24px 48px rgba(0,0,0,.5);
-    }
-    .collectionViewHero[data-lane="glitch"] .pageLaneSvgWrap{
-      max-width:none;
-      width:100%;
-      margin:0;
-      border-radius:inherit;
-      min-height:min(280px, 40vw);
-      align-items:stretch;
-    }
-    .collectionViewHero[data-lane="glitch"] .collectionHeaderBanner{
-      width:100%;
-      height:100%;
-      min-height:260px;
-      display:block;
-    }
-    @media (prefers-reduced-motion: reduce){
-      .collectionGlitchHdrAnim,
-      .collectionGlitchHdrAnim *{
-        visibility:hidden !important;
-      }
-    }
-    /* Architect: full-width blueprint banner */
-    .collectionViewHero[data-lane="architect"] .pageArtPanel{
-      min-height:min(300px, 42vw);
-      padding:0;
-      background:#070504;
-      border-color:rgba(251,191,36,.16);
-      box-shadow:inset 0 0 0 1px rgba(251,191,36,.08), inset 0 -20px 40px rgba(0,0,0,.52);
-    }
-    .collectionViewHero[data-lane="architect"] .pageLaneSvgWrap{
-      max-width:none;
-      width:100%;
-      margin:0;
-      border-radius:inherit;
-      min-height:min(280px, 40vw);
-      align-items:stretch;
-    }
-    .collectionViewHero[data-lane="architect"] .collectionHeaderBanner{
-      width:100%;
-      height:100%;
-      min-height:260px;
-      display:block;
-    }
-    /* Core: cyan blueprint / ops reticle banner */
-    .collectionViewHero[data-lane="core"] .pageArtPanel{
+    /* Collection page — full-width panoramic SVG headers (all lanes) */
+    .collectionViewHero .pageArtPanel{
       position:relative;
       min-height:min(300px, 42vw);
       padding:0;
+      overflow:hidden;
+    }
+    .collectionViewHero .pageLaneSvgWrap{
+      max-width:none;
+      width:100%;
+      margin:0;
+      border-radius:inherit;
+      min-height:min(280px, 40vw);
+      align-items:stretch;
+    }
+    .collectionViewHero .collectionHeaderBanner{
+      width:100%;
+      height:100%;
+      min-height:260px;
+      display:block;
+    }
+    .collectionViewHero[data-lane="core"] .pageArtPanel{
       background:#05090f;
       border-color:rgba(110,231,255,.16);
       box-shadow:inset 0 0 0 1px rgba(110,231,255,.06), inset 0 -22px 44px rgba(0,0,0,.52);
     }
-    .collectionViewHero[data-lane="core"] .pageLaneSvgWrap{
-      max-width:none;
-      width:100%;
-      margin:0;
-      border-radius:inherit;
-      min-height:min(280px, 40vw);
-      align-items:stretch;
-    }
-    .collectionViewHero[data-lane="core"] .collectionHeaderBanner{
-      width:100%;
-      height:100%;
-      min-height:260px;
-      display:block;
-    }
-    /* Core collection: optional PNG tint only when fallback img loads */
-    .collectionViewHero[data-lane="core"] .pageArtPanel:has(.pageDoorArt):after{
-      content:"";
-      position:absolute; inset:0; z-index:1; pointer-events:none;
-      border-radius:var(--radius2);
-      background:linear-gradient(180deg, rgba(5,10,18,.58) 0%, rgba(5,10,18,.28) 50%, rgba(5,10,18,.72) 100%);
-    }
-    /* Shadow Wear: stealth topo / HUD banner */
     .collectionViewHero[data-lane="shadow"] .pageArtPanel{
-      position:relative;
-      min-height:min(300px, 42vw);
-      padding:0;
       background:#060708;
       border-color:rgba(148,163,184,.14);
       box-shadow:inset 0 0 0 1px rgba(255,255,255,.05), inset 0 -22px 48px rgba(0,0,0,.58);
     }
-    .collectionViewHero[data-lane="shadow"] .pageLaneSvgWrap{
-      max-width:none;
-      width:100%;
-      margin:0;
-      border-radius:inherit;
-      min-height:min(280px, 40vw);
-      align-items:stretch;
-    }
-    .collectionViewHero[data-lane="shadow"] .collectionHeaderBanner{
-      width:100%;
-      height:100%;
-      min-height:260px;
-      display:block;
-    }
-    .collectionViewHero[data-lane="shadow"] .pageArtPanel:has(.pageDoorArt):after{
-      content:"";
-      position:absolute; inset:0; z-index:1; pointer-events:none;
-      border-radius:var(--radius2);
-      background:linear-gradient(180deg, rgba(5,7,10,.62) 0%, rgba(5,7,10,.26) 45%, rgba(5,7,10,.78) 100%);
-    }
-    /* Apex: prism / summit banner */
     .collectionViewHero[data-lane="apex"] .pageArtPanel{
-      position:relative;
-      min-height:min(300px, 42vw);
-      padding:0;
       background:#08060e;
       border-color:rgba(167,139,250,.22);
       box-shadow:inset 0 0 0 1px rgba(110,231,255,.07), inset 0 -26px 52px rgba(0,0,0,.52);
     }
-    .collectionViewHero[data-lane="apex"] .pageLaneSvgWrap{
-      max-width:none;
-      width:100%;
-      margin:0;
-      border-radius:inherit;
-      min-height:min(280px, 40vw);
-      align-items:stretch;
+    .collectionViewHero[data-lane="glitch"] .pageArtPanel{
+      background:#030508;
+      border-color:rgba(34,211,238,.14);
+      box-shadow:inset 0 0 0 1px rgba(34,211,238,.06), inset 0 -24px 48px rgba(0,0,0,.5);
     }
-    .collectionViewHero[data-lane="apex"] .collectionHeaderBanner{
-      width:100%;
-      height:100%;
-      min-height:260px;
-      display:block;
+    .collectionViewHero[data-lane="architect"] .pageArtPanel{
+      background:#070504;
+      border-color:rgba(251,191,36,.16);
+      box-shadow:inset 0 0 0 1px rgba(251,191,36,.08), inset 0 -20px 40px rgba(0,0,0,.52);
     }
-    .collectionViewHero[data-lane="apex"] .pageArtPanel:has(.pageDoorArt):after{
+    .collectionViewHero .pageArtPanel:has(.pageDoorArt):after{
       content:"";
       position:absolute; inset:0; z-index:1; pointer-events:none;
       border-radius:var(--radius2);
-      background:linear-gradient(180deg, rgba(8,6,14,.62) 0%, rgba(8,6,14,.22) 48%, rgba(8,6,14,.74) 100%);
+      background:linear-gradient(180deg, rgba(5,8,12,.6) 0%, rgba(5,8,12,.24) 48%, rgba(5,8,12,.76) 100%);
     }
     .pageProductGrid{
       margin-top:18px; display:grid; grid-template-columns:repeat(12,1fr); gap:10px;
@@ -1790,6 +1839,7 @@
       background:linear-gradient(135deg, rgba(110,231,255,.20), rgba(167,139,250,.16));
       border-color:rgba(110,231,255,.25);
       box-shadow:0 2px 12px rgba(110,231,255,.15);
+      font-weight:600;
     }
     .card .btn.primary:hover:not(:disabled){
       background:linear-gradient(135deg, rgba(110,231,255,.28), rgba(167,139,250,.22));
@@ -1883,6 +1933,25 @@
       .mImg{ border-bottom:none; border-right: 1px solid rgba(255,255,255,.10); }
     }
     .mBody{ padding: 14px; display:flex; flex-direction:column; gap: 12px; }
+    @media (max-width:819px){
+      .overlay{ align-items:flex-end; padding:0; }
+      .modal{
+        width:100%;
+        max-height:92dvh;
+        border-radius:22px 22px 0 0;
+        animation:modalSlideUp .28s var(--ease-out);
+      }
+      .mBody{
+        max-height:min(52dvh, 480px);
+        overflow-y:auto;
+        -webkit-overflow-scrolling:touch;
+      }
+      .mImg{ min-height:240px; max-height:38dvh; }
+    }
+    @keyframes modalSlideUp{
+      from{ opacity:0; transform:translateY(100%); }
+      to{ opacity:1; transform:translateY(0); }
+    }
     .policyBody{ color: var(--muted); font-size: 14px; line-height: 1.55; max-height: min(62vh, 520px); overflow-y: auto; padding-right: 4px; }
     .policyBody h4{ margin: 16px 0 6px; font-size: 13px; font-weight: 800; color: var(--text); letter-spacing: .02em; }
     .policyBody h4:first-child{ margin-top: 0; }
@@ -1891,12 +1960,15 @@
     .policyBody li{ margin-bottom: 6px; }
     .policyBody a{ color: var(--accent); text-decoration: none; }
     .policyBody a:hover{ text-decoration: underline; }
-    .overlay.modal--policy .price,
-    .overlay.modal--policy .optRow,
+    .overlay.modal--policy .mPriceRow,
+    .overlay.modal--policy .mCollectionLine,
+    .overlay.modal--policy #mMeta,
+    .overlay.modal--policy .modalPickRow,
+    .overlay.modal--policy .modalBrief,
+    .overlay.modal--policy .modalActions,
     .overlay.modal--policy .detailGrid,
-    .overlay.modal--policy .qtyRow,
-    .overlay.modal--policy .modalPodNote,
     .overlay.modal--policy .modalTrustStrip{ display: none !important; }
+    .overlay:not(.modal--policy) .detailGrid{ display:none; }
     .modalTrustStrip{
       margin:12px 0 0;
       font-size:12px;
@@ -1914,7 +1986,6 @@
     }
     .modalTrustStrip .linkish:hover{ color:rgba(167,139,250,.95); }
     .overlay.modal--policy #addToCartBtn{ display: none !important; }
-    .overlay.modal--policy #providerBtn{ display: none !important; }
     .mTop{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
     .close{
       cursor:pointer;
@@ -2384,9 +2455,12 @@
       body[data-shop-view="catalog"] #productsSection{
         animation:none !important;
       }
+      .modal{ animation:none !important; }
     }
     @media (max-width: 400px){
       .pill[aria-label="Search shortcut"] > span:first-child{ display:none; }
+      .actions{ gap:6px; }
+      .pill{ padding:10px 12px; }
     }
 
     :focus-visible{
@@ -2412,11 +2486,12 @@
         <div class="logo" aria-hidden="true"></div>
         <div>
           <h1>AeroVista Apparel</h1>
-          <div class="sub">Curated Comfort · Minimal Signal</div>
+          <div class="sub">Quiet essentials · Secure checkout</div>
         </div>
       </a>
 
       <div class="actions">
+        <button type="button" class="pill pill--shop" id="headerShopBtn">Shop</button>
         <div class="pill" title="Search shortcut (press / to focus search)" role="button" tabindex="0" aria-label="Search shortcut">
           <span style="opacity:.85">Search</span>
           <span class="k">/</span>
@@ -2434,19 +2509,19 @@
     <section class="hero">
       <div class="topCap landingHeroCopy" aria-label="Store intro">
         <div class="heroKicker">AV-APPAREL / CURATED / 2026</div>
-        <h2 class="landingHeadline">Engineered minimal, built on curation.</h2>
+        <h2 class="landingHeadline">Quiet essentials. Confident marks.</h2>
         <p class="landingTagline">
-          We choose proven blanks, keep the palette disciplined, and design marks that stay quiet until you are close enough to notice.
-          Start with a collection — the full catalog opens when you are ready.
+          Curated blanks, disciplined palette, made to order. Start with Shadow Wear or browse every piece when you are ready.
         </p>
       </div>
 
       <div class="heroCard">
         <div class="heroLeft">
           <div class="heroRow">
-            <button class="cta" id="exploreCollectionsBtn">Explore Collections →</button>
-            <button class="btn" id="scrollToProducts">Browse All Apparel</button>
-            <div class="note">Curated drops, not a warehouse grid.</div>
+            <button class="cta" type="button" id="heroShopShadowBtn">Shop Shadow Wear</button>
+            <button class="btn" type="button" id="scrollToProducts">All pieces</button>
+            <button class="btn" type="button" id="exploreCollectionsBtn">Collections</button>
+            <div class="note">Secure Square checkout · Typical ship 5–12 days</div>
           </div>
 
           <div class="heroStats" aria-label="Collection lanes">
@@ -2482,10 +2557,36 @@
               <div class="heroMorphImg" id="heroMorph2" style="background:linear-gradient(180deg, rgba(167,139,250,.12), rgba(110,231,255,.08));"></div>
               <div class="heroMorphImg" id="heroMorph3" style="background:linear-gradient(225deg, rgba(110,231,255,.1), rgba(167,139,250,.15));"></div>
               <div class="heroMorphImg heroMorphSvg" id="heroMorph4" aria-hidden="true">
-                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="m4grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(110,231,255,0.25)"/><stop offset="100%" stop-color="rgba(167,139,250,0.2)"/></linearGradient></defs><g transform="translate(200,150)"><circle cx="0" cy="0" r="75" fill="none" stroke="url(#m4grad)" stroke-width="2" opacity="0.7"/><circle cx="0" cy="0" r="55" fill="none" stroke="url(#m4grad)" stroke-width="1.5" opacity="0.5"/><path d="M -35,42 L 0,-28 L 35,42 Z" fill="none" stroke="url(#m4grad)" stroke-width="2" opacity="0.6"/></g></svg>
+                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" class="heroMorphMark" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="m4grad" x1="18%" y1="0%" x2="82%" y2="100%">
+                      <stop offset="0%" stop-color="rgba(110,231,255,0.55)"/>
+                      <stop offset="50%" stop-color="rgba(167,139,250,0.35)"/>
+                      <stop offset="100%" stop-color="rgba(59,130,246,0.25)"/>
+                    </linearGradient>
+                    <filter id="m4glow"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                  </defs>
+                  <rect width="400" height="300" fill="rgba(6,10,16,0.35)"/>
+                  <g transform="translate(200,158)" filter="url(#m4glow)">
+                    <ellipse cx="0" cy="52" rx="52" ry="8" fill="rgba(110,231,255,0.1)"/>
+                    <path d="M -48,48 L -8,-42 L 0,-36 L 8,-42 L 48,48 Z" fill="rgba(12,18,28,0.55)" stroke="url(#m4grad)" stroke-width="1.4" stroke-linejoin="round"/>
+                    <path d="M -10,-42 L 0,-52 L 10,-42 Z" fill="rgba(110,231,255,0.12)" stroke="url(#m4grad)" stroke-width="1"/>
+                  </g>
+                </svg>
               </div>
               <div class="heroMorphImg heroMorphSvg" id="heroMorph5" aria-hidden="true">
-                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="m5grad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="rgba(167,139,250,0.22)"/><stop offset="100%" stop-color="rgba(110,231,255,0.18)"/></linearGradient></defs><g transform="translate(200,150)"><ellipse cx="0" cy="0" rx="70" ry="6" fill="none" stroke="url(#m5grad)" stroke-width="2.5" opacity="0.75"/><path d="M -38,48 L -8,-36 L 0,-32 L 8,-36 L 38,48" fill="none" stroke="url(#m5grad)" stroke-width="1.8" opacity="0.6"/></g></svg>
+                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" class="heroMorphMark" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="m5grad" x1="0%" y1="50%" x2="100%" y2="50%">
+                      <stop offset="0%" stop-color="rgba(167,139,250,0.45)"/>
+                      <stop offset="100%" stop-color="rgba(110,231,255,0.35)"/>
+                    </linearGradient>
+                  </defs>
+                  <g transform="translate(200,158)" opacity="0.92">
+                    <path d="M 72,-28 C 38,-58 -22,-48 -50,-12 C -68,12 -60,48 -38,62" fill="none" stroke="url(#m5grad)" stroke-width="2.2" stroke-linecap="round" opacity="0.5"/>
+                    <path d="M -44,50 L -6,-40 L 0,-34 L 6,-40 L 44,50 Z" fill="none" stroke="url(#m5grad)" stroke-width="1.6" stroke-linejoin="round"/>
+                  </g>
+                </svg>
               </div>
             </div>
             <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" class="heroSvg">
@@ -2548,12 +2649,18 @@
                 
                 <!-- Pattern for technical texture -->
                 <pattern id="gridPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(110,231,255,0.08)" stroke-width="0.5"/>
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(110,231,255,0.06)" stroke-width="0.45"/>
                 </pattern>
+                <radialGradient id="heroVig" cx="50%" cy="48%" r="68%">
+                  <stop offset="0%" stop-color="transparent"/>
+                  <stop offset="72%" stop-color="rgba(0,0,0,0.35)"/>
+                  <stop offset="100%" stop-color="rgba(0,0,0,0.55)"/>
+                </radialGradient>
               </defs>
               
-              <!-- Background grid pattern -->
-              <rect width="400" height="300" fill="url(#gridPattern)" opacity="0.3"/>
+              <!-- Background grid + vignette -->
+              <rect width="400" height="300" fill="url(#gridPattern)" opacity="0.22"/>
+              <rect width="400" height="300" fill="url(#heroVig)" pointer-events="none"/>
               
               <!-- Central geometric "A" shape - stylized aerospace design -->
               <g id="mainShape" transform="translate(200,150)">
@@ -2703,27 +2810,27 @@
       </div>
       <div class="collectionGrid" aria-label="AeroVista gear collections">
         <article class="collectionDoor hasArt" data-mark="AV" data-collection-lane="core" style="--doorGlow:rgba(110,231,255,.15)" title="Open Core collection">
-          <img class="doorArt" src="./img/collection-cards/core.png" alt="" loading="lazy" decoding="async" />
+          <div class="doorArtSvg" data-door-svg-lane="core" aria-hidden="true"></div>
           <div class="doorTop"><div class="doorLabel">Foundation / Operator Essentials</div><h3>Core</h3><p>Clean, disciplined AeroVista gear. The daily uniform: sharp marks, wearable colors, and pieces that feel issued instead of decorated.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open Core Page →</span></div>
         </article>
         <article class="collectionDoor hasArt" data-mark="SW" data-collection-lane="shadow" style="--doorGlow:rgba(148,163,184,.16)">
-          <img class="doorArt" src="./img/ghost.ridge.drk.png" alt="" loading="lazy" decoding="async" />
+          <div class="doorArtSvg" data-door-svg-lane="shadow" aria-hidden="true"></div>
           <div class="doorTop"><div class="doorLabel">Stealth / Pattern / Tactical Streetwear</div><h3>Shadow Wear</h3><p>Black-on-black, low-contrast, shadow camo, and pattern-heavy pieces. This is where the darker all-over system lives.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open Shadow Wear Page →</span></div>
         </article>
         <article class="collectionDoor hasArt" data-mark="AX" data-collection-lane="apex" style="--doorGlow:rgba(59,130,246,.16)">
-          <img class="doorArt" src="./img/Apex%20mark.png" alt="" loading="lazy" decoding="async" />
+          <div class="doorArtSvg" data-door-svg-lane="apex" aria-hidden="true"></div>
           <div class="doorTop"><div class="doorLabel">Icon / Emblem / Signature Mark</div><h3>Apex</h3><p>The AeroVista A-mark as the hero. Symbol-led pieces, geometric marks, badges, and visual identity that can stand alone.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open Apex Page →</span></div>
         </article>
         <article class="collectionDoor hasArt" data-mark="GL" data-collection-lane="glitch" style="--doorGlow:rgba(34,211,238,.14)">
-          <img class="doorArt" src="./img/collection-cards/glitch.png" alt="" loading="lazy" decoding="async" />
+          <div class="doorArtSvg" data-door-svg-lane="glitch" aria-hidden="true"></div>
           <div class="doorTop"><div class="doorLabel">Digital Disruption / Signal Drift</div><h3>Glitch</h3><p>Broken transmission, cyan static, scan-card graphics, waveform artifacts, and tech-forward distortion from inside the AV system.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open Glitch Page →</span></div>
         </article>
         <article class="collectionDoor hasArt" data-mark="AR" data-collection-lane="architect" style="--doorGlow:rgba(251,191,36,.13)">
-          <img class="doorArt" src="./img/adrafted.png" alt="" loading="lazy" decoding="async" />
+          <div class="doorArtSvg" data-door-svg-lane="architect" aria-hidden="true"></div>
           <div class="doorTop"><div class="doorLabel">Limited-ish / Making-of / Build Archive</div><h3>Architect</h3><p>Artifacts from the making of AeroVista: drafts, diagrams, system maps, founder notes, prototype labels, and build-floor gear.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open Architect Page →</span></div>
         </article>
@@ -2737,30 +2844,34 @@
           <h2 class="dropTitle" id="featuredDropTitle">Shadow Wear</h2>
           <p class="dropCopy">The quietest gear in the room usually has the heaviest presence. Shadow Wear brings black-on-black camo, tactical geometry, and low-signal streetwear into the AeroVista gear system.</p>
           <div class="dropActions">
-            <button type="button" class="cta dropCtaPrimary" data-collection-lane="shadow">View the Shadow Wear Drop →</button>
+            <button type="button" class="cta dropCtaPrimary" data-collection-lane="shadow">Shop Shadow Wear →</button>
             <button type="button" class="btn dropCtaSecondary" data-collection-lane="apex">Browse Apex</button>
           </div>
         </div>
         <div class="dropPieces" aria-label="Featured Shadow Wear pieces">
-          <button type="button" class="dropPiece" data-quick="aerovista-apex-pattern-bomber-jacket" aria-label="Quick view: Apex Pattern Bomber Jacket">
+          <button type="button" class="dropPiece" data-quick="aerovista-apex-pattern-bomber-jacket" aria-label="Shop: Apex Pattern Bomber Jacket">
             <span class="dropPiece__label">Outerwear</span>
             <span class="dropPiece__thumb"><img src="./img/AeroVista%20Apex%20Pattern%20Bomber%20Jacket.png" alt="" loading="lazy" decoding="async" /></span>
             <span class="dropPiece__title">Apex Pattern Bomber Jacket</span>
+            <span class="dropPiece__price is-loading" aria-hidden="true">…</span>
           </button>
-          <button type="button" class="dropPiece" data-quick="shadow-wear-ghost-ridge" aria-label="Quick view: Shadow Wear Ghost Ridge Hoodie">
+          <button type="button" class="dropPiece" data-quick="shadow-wear-ghost-ridge" aria-label="Shop: Shadow Wear Ghost Ridge Hoodie">
             <span class="dropPiece__label">Core Layer</span>
             <span class="dropPiece__thumb"><img src="./img/Shadow%20Wear%20%20Ghost%20Ridge.png" alt="" loading="lazy" decoding="async" /></span>
             <span class="dropPiece__title">Shadow Wear // Ghost Ridge</span>
+            <span class="dropPiece__price is-loading" aria-hidden="true">…</span>
           </button>
-          <button type="button" class="dropPiece" data-quick="aerovista-shadow-pattern-long-sleeve-tee" aria-label="Quick view: Apex Pattern Long Sleeve Tee">
+          <button type="button" class="dropPiece" data-quick="aerovista-shadow-pattern-long-sleeve-tee" aria-label="Shop: Apex Pattern Long Sleeve Tee">
             <span class="dropPiece__label">Long Sleeve</span>
             <span class="dropPiece__thumb"><img src="./img/AeroVistaApexShadowLongSleeveTee.png" alt="" loading="lazy" decoding="async" /></span>
             <span class="dropPiece__title">Apex Pattern Long Sleeve Tee</span>
+            <span class="dropPiece__price is-loading" aria-hidden="true">…</span>
           </button>
-          <button type="button" class="dropPiece" data-quick="aerovista-apex-pattern-print-swimsuit-one-piece" aria-label="Quick view: Shadow Wear One-Piece Swimsuit">
+          <button type="button" class="dropPiece" data-quick="aerovista-apex-pattern-print-swimsuit-one-piece" aria-label="Shop: Shadow Wear One-Piece Swimsuit">
             <span class="dropPiece__label">Statement</span>
             <span class="dropPiece__thumb"><img src="./img/AeroVistaApex%20ShadowOnePieceSwimsuit.png" alt="" loading="lazy" decoding="async" /></span>
             <span class="dropPiece__title">Shadow Wear One-Piece Swimsuit</span>
+            <span class="dropPiece__price is-loading" aria-hidden="true">…</span>
           </button>
         </div>
       </div>
@@ -2783,7 +2894,7 @@
         <div class="guideCard"><b>Go bold.</b><span>Apex: A-mark led emblem and identity pieces.</span></div>
         <div class="guideCard"><b>Go experimental.</b><span>Glitch: waveform, scan-card, node, and broken-transmission graphics.</span></div>
         <div class="guideCard"><b>Capture the build.</b><span>Architect: drafts, diagrams, build artifacts, and limited-ish making-of gear.</span></div>
-        <div class="guideCard"><b>Open the full catalog.</b><span>Browse All Apparel when you already know what you are hunting for.</span></div>
+        <div class="guideCard"><b>Open the full catalog.</b><span>All pieces — search and filter when you already know what you want.</span></div>
       </div>
     </section>
     </div><!-- /homeLanding -->
@@ -2823,7 +2934,7 @@
       <div id="collectionGridStatus" class="sr-only" aria-live="polite" aria-atomic="true"></div>
       <div class="grid" id="collectionGrid" aria-label="Collection products"></div>
       <div class="pageGridFoot" style="margin-top:14px">
-        <button class="btn" type="button" id="collectionBrowseAllBtn">Browse all apparel →</button>
+        <button class="btn" type="button" id="collectionBrowseAllBtn">All pieces →</button>
       </div>
     </section>
 
@@ -2832,8 +2943,8 @@
     <section id="productsSection" class="catalogArea shop-view is-hidden">
       <div class="catalogIntro">
         <div>
-          <h2>Browse All Apparel</h2>
-          <p>Search and filter by category. Every piece in one flat grid — no collection grouping.</p>
+          <h2>All pieces</h2>
+          <p>Search and filter by category. Every visible piece in one flat grid.</p>
         </div>
         <button class="btn" id="hideCatalogBtn">Hide Catalog</button>
       </div>
@@ -2874,7 +2985,7 @@
 
     <section class="footerSignal">
       <div><h2>Wear the system.</h2><p>Join the signal for new drops, field notes, limited pieces, and behind-the-scenes build updates.</p></div>
-      <button class="cta" id="footerBrowseBtn">Browse All Apparel →</button>
+      <button class="cta" id="footerBrowseBtn">All pieces →</button>
     </section>
 
     
@@ -2899,26 +3010,29 @@
       <div class="mImg" id="mImg" aria-hidden="true"></div>
       <div class="mBody">
         <div class="mTop">
-          <div>
+          <div class="mHeadMain">
+            <p class="mCollectionLine" id="mCollectionLine"></p>
             <h3 id="mTitle" style="margin:0; font-size: 18px;"></h3>
             <div class="meta" id="mMeta"></div>
+            <div class="mPriceRow" id="mPrice"></div>
           </div>
           <button class="close" id="mClose" aria-label="Close">✕</button>
         </div>
 
         <p id="mDesc" class="desc" style="font-size:14px;"></p>
-        <div class="price" id="mPrice"></div>
 
-        <div class="optRow">
-          <div class="opt">
-            <label for="mSize">Size</label>
-            <select id="mSize"></select>
-          </div>
-          <div class="opt">
-            <label for="mColor">Color</label>
-            <select id="mColor"></select>
-          </div>
+        <div class="modalPickRow" id="mSizeRow">
+          <span class="modalPickLabel" id="mSizeLabel">Size</span>
+          <div class="pillGroup sizePills" id="mSizePills" role="group" aria-labelledby="mSizeLabel"></div>
+          <select id="mSize" class="sr-only" tabindex="-1" aria-hidden="true"></select>
         </div>
+        <div class="modalPickRow" id="mColorRow">
+          <span class="modalPickLabel" id="mColorLabel">Color</span>
+          <div class="pillGroup colorPills" id="mColorPills" role="group" aria-labelledby="mColorLabel"></div>
+          <select id="mColor" class="sr-only" tabindex="-1" aria-hidden="true"></select>
+        </div>
+
+        <p class="modalBrief" id="modalBrief"></p>
 
         <div class="detailGrid" aria-label="Product details blocks">
           <div class="detail" id="mFit"><b>Fit:</b> —</div>
@@ -2927,14 +3041,13 @@
           <div class="detail" id="mShip"><b>Shipping:</b> —</div>
         </div>
 
-        <div class="qtyRow">
+        <div class="modalActions">
           <div class="qty" aria-label="Quantity selector">
-            <button id="qMinus" aria-label="Decrease quantity">−</button>
+            <button type="button" id="qMinus" aria-label="Decrease quantity">−</button>
             <input id="mQty" value="1" inputmode="numeric" aria-label="Quantity" />
-            <button id="qPlus" aria-label="Increase quantity">+</button>
+            <button type="button" id="qPlus" aria-label="Increase quantity">+</button>
           </div>
-          <button class="btn primary" id="addToCartBtn">Add to Cart</button>
-          <button class="btn" id="providerBtn" title="Open provider link">Provider</button>
+          <button type="button" class="btn primary" id="addToCartBtn">Add to bag</button>
         </div>
 
         <p class="modalTrustStrip" id="mTrustStrip">
@@ -2942,9 +3055,6 @@
           <button type="button" class="linkish" id="mPolicyShipping">Shipping</button> ·
           <button type="button" class="linkish" id="mPolicyReturns">Returns</button>
         </p>
-        <div class="modalPodNote" style="color:var(--muted); font-size:12px; line-height:1.35;">
-          Notes are written for POD reality: we curate available blanks and focus on placement, palette, and finish.
-        </div>
       </div>
     </div>
   </div>
@@ -2987,7 +3097,9 @@
   </div>
 
   <script src="./policy-content.js"></script>
+  <script src="./js/collection-lane-svg.js"></script>
   <script src="./js/collection-header-svg.js"></script>
+  <script src="./js/product-placeholder-svg.js"></script>
   <script>
     // =========================
     // STORE SETTINGS
@@ -3899,6 +4011,7 @@
 
     const LS_KEY = "av_store_cart_v3";
     const LS_PROMO = "av_store_promo_v3";
+    const LS_SIZE = "av_store_last_size_v1";
 
     function loadCart(){ try{ return JSON.parse(localStorage.getItem(LS_KEY) || "[]"); }catch(e){ return []; } }
     function saveCart(cart){ localStorage.setItem(LS_KEY, JSON.stringify(cart)); updateCartUI(); }
@@ -4180,7 +4293,7 @@
             <div class="swatches">${swatches(p.colors)}</div>
             <div class="row">
               <div class="price">${fmt(p.price)}</div>
-              <button class="btn primary" data-quick="${p.id}">Quick View</button>
+              <button class="btn primary" data-quick="${p.id}" aria-label="Shop ${escapeHtml(p.name)}, ${fmt(p.price)}">Shop</button>
             </div>
           </div>
         </article>
@@ -4190,7 +4303,11 @@
     function bindQuickViewButtons(root){
       const scope = root || document;
       $$("[data-quick]", scope).forEach(btn => {
-        btn.onclick = () => openModal(btn.getAttribute("data-quick"));
+        btn.onclick = () => {
+          const id = btn.getAttribute("data-quick");
+          if(!id) return;
+          openModal(id);
+        };
       });
     }
 
@@ -4324,8 +4441,11 @@
       return cat;
     }
 
-    // Placeholder SVG "product mock"
+    // Placeholder SVG — lane-aware professional card (product-placeholder-svg.js)
     function productSvg(p){
+      if (typeof productPlaceholderSvg === "function") {
+        return productPlaceholderSvg(p, escapeHtml);
+      }
       const a = p.collection === "EchoVerse" ? "rgba(110,231,255,.55)" :
                 p.collection === "NXCore" ? "rgba(167,139,250,.55)" :
                 p.collection === "BONSAID" ? "rgba(34,197,94,.5)" :
@@ -4543,7 +4663,7 @@
             <div class="swatches">${swatches(p.colors)}</div>
             <div class="row">
               <div class="price">${fmt(p.price)}</div>
-              <button class="btn primary" data-quick="${p.id}">Quick View</button>
+              <button class="btn primary" data-quick="${p.id}" aria-label="Shop ${escapeHtml(p.name)}, ${fmt(p.price)}">Shop</button>
             </div>
           </div>
         </article>
@@ -4668,22 +4788,147 @@
       return PRODUCTS.find(x => x.id === norm || x.name.toLowerCase().replace(/\s+/g, " ").trim() === norm) || null;
     }
 
+    function getActiveModalPick(containerId, pillClass){
+      const root = document.getElementById(containerId);
+      if(!root) return "";
+      const active = root.querySelector(`.${pillClass}.is-active`);
+      return active ? String(active.getAttribute("data-value") || active.textContent || "").trim() : "";
+    }
+
+    function syncModalSelectFromPill(selectId, value){
+      const sel = document.getElementById(selectId);
+      if(!sel) return;
+      sel.value = value || "";
+    }
+
+    function pickDefaultSize(sizes){
+      if(!sizes.length) return "";
+      if(sizes.length === 1) return sizes[0];
+      let last = "";
+      try{ last = localStorage.getItem(LS_SIZE) || ""; }catch(e){}
+      if(last && sizes.includes(last)) return last;
+      if(sizes.includes("M")) return "M";
+      if(sizes.includes("L")) return "L";
+      return sizes[0];
+    }
+
+    function renderModalSizePills(p, sizes, onPick){
+      const box = $("#mSizePills");
+      const row = $("#mSizeRow");
+      if(!box || !row) return "";
+      const oneSize = sizes.length === 1 && /^(one size|os|standard)$/i.test(String(sizes[0]).trim());
+      if(oneSize){
+        row.classList.add("is-hidden");
+        box.innerHTML = "";
+        syncModalSelectFromPill("mSize", sizes[0]);
+        return sizes[0];
+      }
+      row.classList.remove("is-hidden");
+      const defaultSize = pickDefaultSize(sizes);
+      box.innerHTML = sizes.map(sz => {
+        const active = sz === defaultSize ? " is-active" : "";
+        return `<button type="button" class="sizePill${active}" data-value="${escapeHtml(sz)}" aria-pressed="${sz === defaultSize ? "true" : "false"}">${escapeHtml(sz)}</button>`;
+      }).join("");
+      syncModalSelectFromPill("mSize", defaultSize);
+      box.querySelectorAll(".sizePill").forEach(btn => {
+        btn.onclick = () => {
+          box.querySelectorAll(".sizePill").forEach(b => {
+            b.classList.remove("is-active");
+            b.setAttribute("aria-pressed", "false");
+          });
+          btn.classList.add("is-active");
+          btn.setAttribute("aria-pressed", "true");
+          const val = btn.getAttribute("data-value") || "";
+          syncModalSelectFromPill("mSize", val);
+          try{ localStorage.setItem(LS_SIZE, val); }catch(e){}
+          if(typeof onPick === "function") onPick(val);
+        };
+      });
+      return defaultSize;
+    }
+
+    function renderModalColorPills(colors, onPick){
+      const box = $("#mColorPills");
+      const row = $("#mColorRow");
+      const showColors = colors.length > 1 && !(colors.length === 1 && colors[0] === "Default");
+      if(row) row.classList.toggle("is-hidden", !showColors);
+      if(!box) return colors[0] || "Default";
+      if(!showColors){
+        box.innerHTML = "";
+        syncModalSelectFromPill("mColor", colors[0] || "Default");
+        return colors[0] || "Default";
+      }
+      const defaultColor = colors[0];
+      box.innerHTML = colors.map(c => {
+        const active = c === defaultColor ? " is-active" : "";
+        return `<button type="button" class="colorPill${active}" data-value="${escapeHtml(c)}" aria-pressed="${c === defaultColor ? "true" : "false"}">${escapeHtml(c)}</button>`;
+      }).join("");
+      syncModalSelectFromPill("mColor", defaultColor);
+      box.querySelectorAll(".colorPill").forEach(btn => {
+        btn.onclick = () => {
+          box.querySelectorAll(".colorPill").forEach(b => {
+            b.classList.remove("is-active");
+            b.setAttribute("aria-pressed", "false");
+          });
+          btn.classList.add("is-active");
+          btn.setAttribute("aria-pressed", "true");
+          const val = btn.getAttribute("data-value") || "";
+          syncModalSelectFromPill("mColor", val);
+          if(typeof onPick === "function") onPick(val);
+        };
+      });
+      return defaultColor;
+    }
+
+    function hydrateFeaturedDropPrices(){
+      const root = document.getElementById("featuredDrop");
+      if(!root) return;
+      root.querySelectorAll(".dropPiece[data-quick]").forEach(btn => {
+        const id = btn.getAttribute("data-quick");
+        const p = resolveProduct(id);
+        const priceEl = btn.querySelector(".dropPiece__price");
+        const titleEl = btn.querySelector(".dropPiece__title");
+        const title = titleEl ? titleEl.textContent.trim() : "Product";
+        if(!priceEl) return;
+        if(!p){
+          priceEl.textContent = "";
+          priceEl.classList.remove("is-loading");
+          priceEl.setAttribute("aria-hidden", "true");
+          btn.setAttribute("aria-label", `Shop: ${title}`);
+          return;
+        }
+        const priceText = fmt(getPriceForProduct(p, ""));
+        priceEl.textContent = priceText;
+        priceEl.classList.remove("is-loading");
+        priceEl.removeAttribute("aria-hidden");
+        btn.setAttribute("aria-label", `Shop: ${title}, ${priceText}`);
+      });
+    }
+
     function openModal(id){
       const p = resolveProduct(id);
-      if(!p) return;
+      if(!p){
+        toast("Product unavailable — refresh or browse the catalog.");
+        return;
+      }
       state.modalProduct = p;
       modalTrigger = document.activeElement; // Store trigger
 
+      $("#overlay").classList.remove("modal--policy");
+
+      const mColl = $("#mCollectionLine");
+      if(mColl) mColl.textContent = p.collection || "";
       $("#mTitle").textContent = p.name;
       $("#mDesc").textContent = (p.description != null ? p.description : p.blurb) || "";
-      $("#mPrice").textContent = fmt(p.price);
 
-      $("#mMeta").innerHTML = `
-        <span class="tag">${escapeHtml(p.collection)}</span>
-        <span class="tag">${categoryLabel(p.category)}</span>
-        <span class="tag">${p.featured ? "Featured" : "Standard"}</span>
-        <span class="tag">${p.isNew ? "New Drop" : "In Rotation"}</span>
-      `;
+      $("#mMeta").innerHTML = `<span class="tag">${escapeHtml(categoryLabel(p.category))}</span>`;
+
+      const brief = $("#modalBrief");
+      if(brief){
+        const bits = [p.fitNote, p.shipNote].filter(Boolean);
+        brief.textContent = bits.length ? bits.join(" · ") : "";
+        brief.style.display = bits.length ? "" : "none";
+      }
 
       // Use actual image if available, then imageCss, then SVG fallback
       if (p.imagePath) {
@@ -4696,16 +4941,17 @@
 
       const sizes = p.sizes && p.sizes.length ? p.sizes : ["One Size"];
       const colors = p.colors && p.colors.length ? p.colors : ["Default"];
-      $("#mSize").innerHTML = `<option value="">Select size…</option>` + sizes.map(x=>`<option value="${escapeHtml(x)}">${escapeHtml(x)}</option>`).join("");
-      $("#mColor").innerHTML = `<option value="">Select color…</option>` + colors.map(x=>`<option value="${escapeHtml(x)}">${escapeHtml(x)}</option>`).join("");
+      $("#mSize").innerHTML = sizes.map(x=>`<option value="${escapeHtml(x)}">${escapeHtml(x)}</option>`).join("");
+      $("#mColor").innerHTML = colors.map(x=>`<option value="${escapeHtml(x)}">${escapeHtml(x)}</option>`).join("");
       $("#mQty").value = "1";
 
       function updateModalPrice(){
-        const sz = ($("#mSize").value || "").trim();
-        const price = getPriceForProduct(p, sz);
-        $("#mPrice").textContent = fmt(price);
+        const sz = ($("#mSize").value || getActiveModalPick("mSizePills", "sizePill") || "").trim();
+        $("#mPrice").textContent = fmt(getPriceForProduct(p, sz));
       }
-      $("#mSize").onchange = updateModalPrice;
+      renderModalSizePills(p, sizes, updateModalPrice);
+      renderModalColorPills(colors, updateModalPrice);
+      updateModalPrice();
 
       $("#mImg").onclick = () => {
         if(!p.imagePath) return;
@@ -4722,24 +4968,22 @@
       $("#mCare").innerHTML  = `<b>Care:</b> ${escapeHtml(p.careNote || "—")}`;
       $("#mShip").innerHTML  = `<b>Shipping:</b> ${escapeHtml(p.shipNote || "—")}`;
 
-      $("#providerBtn").onclick = () => {
-        if(p.checkoutUrl){
-          window.open(p.checkoutUrl, "_blank");
-        } else {
-          toast("No provider link set yet.");
-        }
-      };
-
       const shipBtn = $("#mPolicyShipping");
       const retBtn = $("#mPolicyReturns");
       if(shipBtn) shipBtn.onclick = () => { closeModal(); openPolicyModal("shipping"); };
       if(retBtn) retBtn.onclick = () => { closeModal(); openPolicyModal("returns"); };
 
       $("#addToCartBtn").onclick = () => {
-        const size = ($("#mSize").value || "").trim();
-        const color = ($("#mColor").value || "").trim();
-        if (!size || !color) {
-          toast("Please select size and color.");
+        const size = ($("#mSize").value || getActiveModalPick("mSizePills", "sizePill") || "").trim();
+        const color = ($("#mColor").value || getActiveModalPick("mColorPills", "colorPill") || colors[0] || "Default").trim();
+        if(!size){
+          toast("Choose a size to continue.");
+          return;
+        }
+        const colorRow = $("#mColorRow");
+        const needsColor = colorRow && !colorRow.classList.contains("is-hidden");
+        if(needsColor && !color){
+          toast("Choose a color to continue.");
           return;
         }
         const qty = clampInt($("#mQty").value, 1, 99);
@@ -4762,8 +5006,10 @@
       
       // Focus management
       setTimeout(() => {
-        const closeBtn = $("#mClose");
-        if(closeBtn) closeBtn.focus();
+        const addBtn = $("#addToCartBtn");
+        const firstSize = $("#mSizePills")?.querySelector(".sizePill");
+        const focusTarget = addBtn || firstSize || $("#mClose");
+        if(focusTarget) focusTarget.focus();
         // Trap focus within modal
         const modal = $(".modal");
         const focusable = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
@@ -4833,7 +5079,7 @@
         cart.push({ key, cartSku, productId: pid, name:p.name, price, size, color, qty });
       }
       saveCart(cart);
-      toast("Added to cart");
+      toast("Added to bag — review your cart");
     }
 
     function removeItem(key){
@@ -5899,7 +6145,7 @@
         setActiveCollection("all");
         setActiveChip("all");
         setActiveTagChip("all");
-        document.title = "Browse All Apparel — AeroVista";
+        document.title = "All pieces — AeroVista";
         renderGrid();
         window.scrollTo(0, 0);
         return;
@@ -5918,6 +6164,10 @@
     }
 
     $("#scrollToProducts").onclick = ()=> goToCatalog();
+    const headerShopBtn = $("#headerShopBtn");
+    if(headerShopBtn) headerShopBtn.onclick = () => goToCatalog();
+    const heroShopShadowBtn = $("#heroShopShadowBtn");
+    if(heroShopShadowBtn) heroShopShadowBtn.onclick = () => goToCollection("shadow");
     const footerBrowseBtn = $("#footerBrowseBtn"); if(footerBrowseBtn) footerBrowseBtn.onclick = ()=> goToCatalog();
     const exploreCollectionsBtn = $("#exploreCollectionsBtn");
     if(exploreCollectionsBtn) exploreCollectionsBtn.onclick = ()=> $("#collectionsLanding")?.scrollIntoView({ behavior:"smooth", block:"start" });
@@ -5974,17 +6224,22 @@
       } else {
         $("#mDesc").textContent = text;
       }
+      const mColl = $("#mCollectionLine");
+      if(mColl) mColl.textContent = "";
       $("#mPrice").textContent = "";
       $("#mMeta").innerHTML = `<span class="tag">Info</span>`;
       $("#mImg").innerHTML = "";
+      $("#mSizePills").innerHTML = "";
+      $("#mColorPills").innerHTML = "";
       $("#mSize").innerHTML = `<option>—</option>`;
       $("#mColor").innerHTML = `<option>—</option>`;
+      const brief = $("#modalBrief");
+      if(brief){ brief.textContent = ""; brief.style.display = "none"; }
       $("#mFit").innerHTML = `<b>Fit:</b> —`;
       $("#mFabric").innerHTML = `<b>Blank:</b> —`;
       $("#mCare").innerHTML = `<b>Care:</b> —`;
       $("#mShip").innerHTML = `<b>Shipping:</b> —`;
       $("#mQty").value = "1";
-      $("#providerBtn").onclick = ()=>{};
       $("#addToCartBtn").onclick = ()=> closeModal();
       overlay.classList.add("show");
       overlay.setAttribute("aria-hidden","false");
@@ -6059,6 +6314,10 @@
       injectStructuredData();
       applyShopRoute(parseShopRoute());
       bindQuickViewButtons(document.getElementById("featuredDrop"));
+      hydrateFeaturedDropPrices();
+      if (typeof mountCollectionDoorSvgs === "function") {
+        mountCollectionDoorSvgs(document);
+      }
     }
 
     function injectStructuredData(){

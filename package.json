@@ -21,7 +21,8 @@
     "deploy:catalog": "node scripts/deploy-store-catalog.mjs",
     "curate:catalog": "node scripts/curate-catalog-lanes.mjs",
     "deploy:server": "node scripts/catalog-deploy-server.mjs",
-    "audit:repo": "node scripts/audit-orphans.mjs"
+    "audit:repo": "node scripts/audit-orphans.mjs",
+    "audit:storefront": "node scripts/audit-storefront.mjs"
   },
   "dependencies": {
     "react": "^19.0.0",

@@ -4,7 +4,14 @@
  * Glitch scan/static, Architect draft grid + warm foil.
  */
 (function (global) {
-  const LANE_SVG_BUILD = "apex-v2-stripes-narrow";
+  const LANE_SVG_BUILD = "pro-v3-intent-frame";
+  const LANE_INTENT_LABEL = {
+    core: "FOUNDATION",
+    shadow: "STEALTH LANE",
+    apex: "SUMMIT MARK",
+    glitch: "SIGNAL NOISE",
+    architect: "BUILD ARCHIVE",
+  };
   if (typeof console !== "undefined" && console.info) {
     console.info("[collection-lane-svg] build:", LANE_SVG_BUILD);
   }
@@ -213,6 +220,36 @@
     return holoStackIdle(id) + holoStackActive(id);
   }
 
+  /** Shared card atmosphere + corner brackets (intentional HUD frame). */
+  function laneAtmosphere(id, lane) {
+    const i = (n) => `${id}_${n}`;
+    const pal = {
+      core: [110, 231, 255],
+      shadow: [148, 163, 184],
+      apex: [167, 139, 250],
+      glitch: [34, 211, 238],
+      architect: [251, 191, 36],
+    }[lane] || [110, 231, 255];
+    const label = LANE_INTENT_LABEL[lane] || "AEROVISTA";
+    return `
+      <g class="laneAtmosphere" ${bgClip(id)} pointer-events="none">
+        <linearGradient id="${i("cardBase")}" x1="50%" y1="0%" x2="50%" y2="100%">
+          <stop offset="0%" stop-color="#080b12"/>
+          <stop offset="55%" stop-color="#0a0e16"/>
+          <stop offset="100%" stop-color="#05070c"/>
+        </linearGradient>
+        <rect width="400" height="300" fill="url(#${i("cardBase")})"/>
+        <ellipse cx="200" cy="248" rx="168" ry="52" fill="${rgba(pal, 0.06)}"/>
+        <g class="laneIntentFrame" opacity="0.62" stroke="${rgba(pal, 0.42)}" fill="none" stroke-width="0.65" stroke-linecap="square">
+          <path d="M 20 20 L 20 44 M 20 20 L 44 20"/>
+          <path d="M 380 20 L 380 44 M 356 20 L 380 20"/>
+          <path d="M 20 280 L 20 256 M 20 280 L 44 280"/>
+          <path d="M 380 280 L 380 256 M 356 280 L 380 280"/>
+        </g>
+        <text x="200" y="292" text-anchor="middle" font-family="ui-monospace,Consolas,monospace" font-size="7.5" fill="${rgba(pal, 0.48)}" letter-spacing="0.22em">${label}</text>
+      </g>`;
+  }
+
   function bgCore(id) {
     const i = (n) => `${id}_${n}`;
     return `
@@ -330,15 +367,15 @@
           <line x1="0" y1="148" x2="400" y2="148"/><line x1="0" y1="198" x2="400" y2="198"/>
           <line x1="0" y1="248" x2="400" y2="248"/>
         </g>
-        <g class="laneHoloAnim" opacity="0.4" style="mix-blend-mode:screen">
-          <rect x="-8" y="72" width="416" height="3" fill="${rgba([34, 211, 238], 0.25)}">
-            <animate attributeName="x" values="-12;8;-12" dur="0.15s" repeatCount="indefinite"/>
+        <g class="laneHoloAnim" opacity="0.28" style="mix-blend-mode:screen">
+          <rect x="-8" y="72" width="416" height="2" fill="${rgba([34, 211, 238], 0.2)}">
+            <animate attributeName="x" values="-10;6;-10" dur="3.2s" repeatCount="indefinite"/>
           </rect>
-          <rect x="4" y="156" width="416" height="2" fill="${rgba([236, 72, 153], 0.2)}">
-            <animate attributeName="x" values="8;-6;8" dur="0.12s" repeatCount="indefinite"/>
+          <rect x="4" y="156" width="416" height="1.5" fill="${rgba([236, 72, 153], 0.16)}">
+            <animate attributeName="x" values="6;-4;6" dur="2.8s" repeatCount="indefinite"/>
           </rect>
-          <rect x="-4" y="212" width="416" height="4" fill="${rgba([34, 211, 238], 0.18)}">
-            <animate attributeName="x" values="-8;4;-8" dur="0.18s" repeatCount="indefinite"/>
+          <rect x="-4" y="212" width="416" height="2" fill="${rgba([34, 211, 238], 0.14)}">
+            <animate attributeName="x" values="-6;3;-6" dur="3.6s" repeatCount="indefinite"/>
           </rect>
         </g>
         <g opacity="0.2">
@@ -719,6 +756,7 @@
         ${defsBlock(p, lane)}
         ${markGradients(p, lane)}
       </defs>
+      ${laneAtmosphere(p, lane)}
       ${spec.bg(p)}
       <g class="laneMarkParallax">${spec.mark(p)}</g>
     </svg>`;
