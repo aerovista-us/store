@@ -1359,14 +1359,14 @@
     .dropPiece{
       appearance:none;
       -webkit-appearance:none;
-      min-height:132px;
+      min-height:0;
       border:1px solid rgba(255,255,255,.1);
       background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.35));
       border-radius:16px;
-      padding:14px 14px 12px;
+      padding:14px;
       display:flex;
       flex-direction:column;
-      justify-content:space-between;
+      gap:10px;
       align-items:flex-start;
       text-align:left;
       cursor:pointer;
@@ -1392,8 +1392,7 @@
     }
     .dropPiece__thumb{
       width:100%;
-      height:56px;
-      margin:10px 0 8px;
+      height:88px;
       border-radius:10px;
       overflow:hidden;
       background:rgba(0,0,0,.35);
@@ -1406,26 +1405,6 @@
       object-position:center top;
       display:block;
       opacity:.92;
-    }
-    .dropPiece__title{
-      font-size:14px;
-      font-weight:700;
-      line-height:1.28;
-      letter-spacing:-.02em;
-    }
-    .dropPiece__price{
-      display:block;
-      margin-top:6px;
-      min-height:1.2em;
-      font-size:13px;
-      font-weight:600;
-      color:rgba(231,237,246,.88);
-      letter-spacing:.02em;
-    }
-    .dropPiece__price.is-loading{
-      color:var(--muted);
-      font-weight:500;
-      font-size:12px;
     }
     /* Product modal — express lane */
     .mHeadMain{ min-width:0; flex:1; }
@@ -2947,26 +2926,18 @@
           <button type="button" class="dropPiece" data-quick="shadow-wear-ghost-ridge" aria-label="Shop: Shadow Wear Ghost Ridge">
             <span class="dropPiece__label">Featured</span>
             <span class="dropPiece__thumb"><img src="./img/Shadow%20Wear%20%20Ghost%20Ridge.png" alt="" loading="lazy" decoding="async" /></span>
-            <span class="dropPiece__title">Shadow Wear // Ghost Ridge</span>
-            <span class="dropPiece__price is-loading" aria-hidden="true">…</span>
           </button>
           <button type="button" class="dropPiece" data-quick="shadow-pants" aria-label="Shop: shadow pants">
             <span class="dropPiece__label">Bottoms</span>
             <span class="dropPiece__thumb"><img src="./img/shadow%20pants.png" alt="" loading="lazy" decoding="async" /></span>
-            <span class="dropPiece__title">shadow pants</span>
-            <span class="dropPiece__price is-loading" aria-hidden="true">…</span>
           </button>
           <button type="button" class="dropPiece" data-quick="men-s-ghost-shorts" aria-label="Shop: Men's Ghost Shorts">
             <span class="dropPiece__label">Shorts</span>
             <span class="dropPiece__thumb"><img src="./img/shadowwear.boardshorts.png" alt="" loading="lazy" decoding="async" /></span>
-            <span class="dropPiece__title">Men's Ghost Shorts</span>
-            <span class="dropPiece__price is-loading" aria-hidden="true">…</span>
           </button>
           <button type="button" class="dropPiece" data-quick="aerovista-apex-pattern-print-swimsuit-one-piece" aria-label="Shop: Shadow Wear One-Piece Swimsuit">
             <span class="dropPiece__label">Statement</span>
             <span class="dropPiece__thumb"><img src="./img/AeroVistaApex%20ShadowOnePieceSwimsuit.png" alt="" loading="lazy" decoding="async" /></span>
-            <span class="dropPiece__title">Shadow Wear One-Piece Swimsuit</span>
-            <span class="dropPiece__price is-loading" aria-hidden="true">…</span>
           </button>
         </div>
       </div>
@@ -3491,11 +3462,6 @@
 
     async function loadProducts(){
       // Single runtime source of truth: one catalog JSON, with an optional override path.
-      function withBuildVersion(path){
-        if(!path) return path;
-        const sep = path.includes("?") ? "&" : "?";
-        return `${path}${sep}v=${encodeURIComponent(STORE_BUILD_ID)}`;
-      }
       let items = null;
       let pathUsed = null;
       // Default catalog: square_products_latest.json, unless STORE_CATALOG_PATH overrides it.
@@ -3637,6 +3603,9 @@
               if (idForCheckout) {
                 skuBySize[sz] = sku;
                 squareVariationMap[`${vColor}__${sz}`] = idForCheckout;
+                if (vColor === "Default" || !(v.color || "").trim()) {
+                  squareVariationMap[`__${sz}`] = idForCheckout;
+                }
                 if (variationId) variationIds.push(variationId);
               }
             }
@@ -3731,7 +3700,13 @@
             }
 
             const colors = allColors.length ? allColors : ["Default"];
-            const sizes = allSizes.length ? allSizes : ["One Size"];
+            let sizes = allSizes.length ? allSizes : ["One Size"];
+            if (CHECKOUT_READY_KEYS && CHECKOUT_READY_KEYS.size) {
+              const checkoutSizes = sizes.filter(sz =>
+                colors.some(c => CHECKOUT_READY_KEYS.has(buildCartSku(c, sz)))
+              );
+              if (checkoutSizes.length) sizes = checkoutSizes;
+            }
             const notes = generateProductNotes(first.cat, baseName, first.description_text);
             const imgBase = (typeof window.STORE_IMG_BASE === "string" && window.STORE_IMG_BASE.trim()) ? (window.STORE_IMG_BASE.trim().endsWith("/") ? window.STORE_IMG_BASE.trim() : window.STORE_IMG_BASE.trim() + "/") : "./img/";
             const cacheBuster = "?v=" + STORE_BUILD_ID;
@@ -4107,9 +4082,104 @@
     const LS_KEY = "av_store_cart_v3";
     const LS_PROMO = "av_store_promo_v3";
     const LS_SIZE = "av_store_last_size_v1";
+    let CHECKOUT_READY_KEYS = null;
 
-    function loadCart(){ try{ return JSON.parse(localStorage.getItem(LS_KEY) || "[]"); }catch(e){ return []; } }
-    function saveCart(cart){ localStorage.setItem(LS_KEY, JSON.stringify(cart)); updateCartUI(); }
+    function withBuildVersion(path){
+      if(!path) return path;
+      const sep = path.includes("?") ? "&" : "?";
+      return `${path}${sep}v=${encodeURIComponent(STORE_BUILD_ID)}`;
+    }
+
+    function canonicalCartColor(color){
+      const c = String(color ?? "").trim();
+      return c || "Default";
+    }
+
+    function buildCartSku(color, size){
+      const sz = String(size ?? "").trim() || "One Size";
+      return `${canonicalCartColor(color)}__${sz}`;
+    }
+
+    function lookupSquareVariationId(map, color, size){
+      if(!map || typeof map !== "object") return "";
+      const sz = String(size ?? "").trim() || "One Size";
+      const cc = canonicalCartColor(color);
+      const raw = String(color ?? "").trim();
+      const tries = [`${cc}__${sz}`, raw ? `${raw}__${sz}` : "", `__${sz}`, `Default__${sz}`];
+      for(const k of tries){
+        if(k && map[k]) return map[k];
+      }
+      const target = `${cc}__${sz}`.toLowerCase();
+      for(const [k, v] of Object.entries(map)){
+        if(String(k).toLowerCase() === target) return v;
+      }
+      return "";
+    }
+
+    function normalizeCartItem(it){
+      if(!it || typeof it !== "object") return null;
+      const p = resolveProduct(it.productId);
+      const size = String(it.size ?? "").trim() || "One Size";
+      const color = canonicalCartColor(it.color);
+      const productId = p ? p.id : String(it.productId || "").trim();
+      if(!productId) return null;
+      return {
+        ...it,
+        productId,
+        size,
+        color,
+        cartSku: buildCartSku(color, size),
+        key: `${productId}__${size}__${color}`,
+        name: p ? p.name : (it.name || "Product"),
+        price: typeof it.price === "number" ? it.price : (p ? getPriceForProduct(p, size) : 0),
+      };
+    }
+
+    function loadCartRaw(){
+      try{ return JSON.parse(localStorage.getItem(LS_KEY) || "[]"); }catch(e){ return []; }
+    }
+
+    function saveCartRaw(cart){
+      localStorage.setItem(LS_KEY, JSON.stringify(cart));
+    }
+
+    function repairCartInStorage(){
+      const raw = loadCartRaw();
+      if(!raw.length || !PRODUCTS.length) return;
+      const normalized = [];
+      const seen = new Set();
+      for(const it of raw){
+        const next = normalizeCartItem(it);
+        if(!next) continue;
+        if(seen.has(next.key)){
+          const existing = normalized.find(x => x.key === next.key);
+          if(existing) existing.qty = Math.min(99, (existing.qty||0) + (next.qty||0));
+          continue;
+        }
+        seen.add(next.key);
+        normalized.push(next);
+      }
+      const before = JSON.stringify(raw);
+      const after = JSON.stringify(normalized);
+      if(before !== after) saveCartRaw(normalized);
+    }
+
+    function loadCart(){ return loadCartRaw(); }
+    function saveCart(cart){ saveCartRaw(cart); updateCartUI(); }
+
+    async function loadCheckoutReadyKeys(){
+      try{
+        const r = await fetch(withBuildVersion("./checkout_ready_keys.json"), { cache: "no-store" });
+        if(!r.ok) throw new Error(String(r.status));
+        const data = await r.json();
+        const keys = Array.isArray(data.keys) ? data.keys : [];
+        CHECKOUT_READY_KEYS = new Set(keys);
+        console.log("Checkout-ready SKU keys:", keys.length);
+      }catch(err){
+        CHECKOUT_READY_KEYS = null;
+        console.warn("Checkout key allowlist unavailable; all catalog sizes shown.", err?.message || err);
+      }
+    }
 
     function getCartCount(cart){ return cart.reduce((a,it)=>a + (it.qty||0), 0); }
 
@@ -4975,28 +5045,16 @@
       return defaultColor;
     }
 
-    function hydrateFeaturedDropPrices(){
+    function hydrateFeaturedDropTiles(){
       const root = document.getElementById("featuredDrop");
       if(!root) return;
       root.querySelectorAll(".dropPiece[data-quick]").forEach(btn => {
         const id = btn.getAttribute("data-quick");
         const p = resolveProduct(id);
-        const priceEl = btn.querySelector(".dropPiece__price");
-        const titleEl = btn.querySelector(".dropPiece__title");
-        const title = titleEl ? titleEl.textContent.trim() : "Product";
-        if(!priceEl) return;
-        if(!p){
-          priceEl.textContent = "";
-          priceEl.classList.remove("is-loading");
-          priceEl.setAttribute("aria-hidden", "true");
-          btn.setAttribute("aria-label", `Shop: ${title}`);
-          return;
-        }
-        const priceText = fmt(getPriceForProduct(p, ""));
-        priceEl.textContent = priceText;
-        priceEl.classList.remove("is-loading");
-        priceEl.removeAttribute("aria-hidden");
-        btn.setAttribute("aria-label", `Shop: ${title}, ${priceText}`);
+        const title = p ? (p.name || "Product") : "Product";
+        btn.setAttribute("aria-label", `Shop: ${title}`);
+        const img = btn.querySelector(".dropPiece__thumb img");
+        if(img) img.alt = title;
       });
     }
 
@@ -5161,17 +5219,29 @@
       const p = resolveProduct(productId);
       if(!p || p._overlayHidden) return;
       const pid = p.id;
+      const sz = String(size ?? "").trim();
+      if(!sz){
+        toast("Choose a size to continue.");
+        return;
+      }
+      const cc = canonicalCartColor(color);
+      if(!lookupSquareVariationId(p.squareVariationMap, cc, sz)){
+        toast("This size isn't available for checkout yet. Try another size.");
+        return;
+      }
       const cart = loadCart();
-      const key = `${pid}__${size}__${color}`;
+      const key = `${pid}__${sz}__${cc}`;
       const existing = cart.find(it => it.key === key);
-      const cartSku = `${color}__${size}`;
+      const cartSku = buildCartSku(cc, sz);
       if(existing) {
         existing.qty = Math.min(99, (existing.qty||0) + qty);
-        existing.cartSku = existing.cartSku || cartSku;
+        existing.cartSku = cartSku;
         existing.productId = pid;
+        existing.color = cc;
+        existing.size = sz;
       } else {
-        const price = getPriceForProduct(p, size);
-        cart.push({ key, cartSku, productId: pid, name:p.name, price, size, color, qty });
+        const price = getPriceForProduct(p, sz);
+        cart.push({ key, cartSku, productId: pid, name:p.name, price, size: sz, color: cc, qty });
       }
       saveCart(cart);
       toast("Added to bag — review your cart");
@@ -5486,10 +5556,25 @@
     function cartToSquareLines(cart){
       return cart.map(it => {
         const p = resolveProduct(it.productId);
-        const key = `${it.color}__${it.size}`;
-        const variation_id = (p && p.squareVariationMap && p.squareVariationMap[key]) ? p.squareVariationMap[key] : "";
-        return { ...it, variation_id };
+        const color = canonicalCartColor(it.color);
+        const size = String(it.size ?? "").trim() || "One Size";
+        const variation_id = p ? lookupSquareVariationId(p.squareVariationMap, color, size) : "";
+        const cartSku = buildCartSku(color, size);
+        return { ...it, color, size, cartSku, variation_id };
       });
+    }
+
+    function buildCheckoutCartPayload(cart){
+      const lines = cartToSquareLines(cart);
+      const unmapped = lines.filter(x => !x.variation_id);
+      const payload = lines.map(it => ({
+        sku: String(it.cartSku || buildCartSku(it.color, it.size)),
+        variationId: String(it.variation_id || ""),
+        qty: Number(it.qty || it.quantity || 1),
+        size: it.size,
+        color: it.color,
+      })).filter(x => x.sku && Number.isFinite(x.qty) && x.qty > 0);
+      return { lines, unmapped, payload };
     }
 
     async function openPayOverlay(cart){
@@ -5701,25 +5786,17 @@
 
     $("#checkout").onclick = async () => {
       // Option A: create hosted checkout URL and redirect.
+      repairCartInStorage();
       const cart = loadCart();
       if(!cart.length){ toast("Cart is empty"); return; }
 
-      const lines = cartToSquareLines(cart);
-      const cartPayload = lines.map(it => ({
-        // Backend sku_map and overlay use cartKey = color__size (e.g. Black__M). Must send that as sku.
-        sku: String(
-          it.cartSku ||
-          ((it.color != null && it.size != null) ? `${it.color}__${it.size}` : "") ||
-          it.key ||
-          (it.productId && it.size && it.color ? `${it.productId}__${it.size}__${it.color}` : "") ||
-          it.sku ||
-          it.id ||
-          ""
-        ),
-        // Merchandising/canonical identity (bridge for strict mode later)
-        variationId: String(it.variation_id || ""),
-        qty: Number(it.qty || it.quantity || 1)
-      })).filter(x => x.sku && Number.isFinite(x.qty) && x.qty > 0);
+      const { lines, unmapped, payload: cartPayload } = buildCheckoutCartPayload(cart);
+      if(unmapped.length){
+        const names = unmapped.map(x => `${x.name} (${x.size})`).join(", ");
+        toast("Some items need a different size before checkout.");
+        console.warn("Checkout blocked — missing Square variation:", names, unmapped);
+        return;
+      }
       if(!cartPayload.length){
         toast("Cart payload is empty. Please refresh and try again.");
         return;
@@ -5766,8 +5843,11 @@
           window.location = out.checkoutUrl;
           return;
         }
-        const errMsg = out.error || out.message || (res.status === 400 ? "Bad request: check cart SKUs match server SQUARE_SKU_MAP_JSON" : "Checkout failed");
-        if (res.status === 400) console.warn("Checkout 400 — server says:", errMsg, "Payload cart keys:", cartPayload.map(x => x.sku));
+        let errMsg = out.error || out.message || (res.status === 400 ? "Checkout unavailable for this size. Try another size or clear your cart and re-add." : "Checkout failed");
+        if (typeof errMsg === "string" && /Unknown SKU/i.test(errMsg)) {
+          errMsg = "This size isn't set up for checkout yet. Choose another size, or clear the item and add it again.";
+        }
+        if (res.status === 400) console.warn("Checkout 400 — server says:", out.error || errMsg, "Payload cart keys:", cartPayload.map(x => x.sku));
         toast(errMsg);
       } catch(err) {
         toast("Network error. Please try again.");
@@ -6386,6 +6466,7 @@
     async function init(){
       loadPromo();
       await loadOverlay();
+      await loadCheckoutReadyKeys();
       try {
         await loadProducts();
         if (PRODUCTS.length === 0) {
@@ -6395,6 +6476,7 @@
         PRODUCTS = applyOverlayToProducts(PRODUCTS);
         buildCollectionDropdown();
         injectOverlayCollections();
+        repairCartInStorage();
         buildTagChips();
         updateCartUI();
       } catch(err) {
@@ -6405,6 +6487,7 @@
           PRODUCTS = applyOverlayToProducts(PRODUCTS);
           buildCollectionDropdown();
           injectOverlayCollections();
+          repairCartInStorage();
           buildTagChips();
           updateCartUI();
           toast("Using cached products. Some items may be outdated.");
@@ -6441,7 +6524,7 @@
       injectStructuredData();
       applyShopRoute(parseShopRoute());
       bindQuickViewButtons(document.getElementById("featuredDrop"));
-      hydrateFeaturedDropPrices();
+      hydrateFeaturedDropTiles();
       if (typeof mountCollectionDoorSvgs === "function") {
         mountCollectionDoorSvgs(document);
       }

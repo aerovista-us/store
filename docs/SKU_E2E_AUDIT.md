@@ -132,13 +132,15 @@ localStorage key: av_store_cart_v3
 
 ```json
 {
-  "cart": [{ "sku": "black__M", "variationId": "T2MH2Z6XNCZC4LPVSXZ7WX4B", "qty": 1 }],
+  "cart": [{ "sku": "Default__M", "variationId": "AADW36VFWTN37URWPN6EHEXT", "qty": 1 }],
   "currency": "USD"
 }
 ```
 
-- `sku` = cart key (`color__size`).
-- `variationId` = value from `squareVariationMap` (usually Square Token).
+- `sku` = cart key (`{color}__{size}`). Products with no color use **`Default__{size}`** — not `__{size}` (backend rejects bare `__M` even with a valid `variationId`).
+- `variationId` = value from `squareVariationMap` (Square Token).
+- Storefront loads **`store/checkout_ready_keys.json`** (from `npm run audit:checkout-keys`) to hide sizes that are not yet in server **`SQUARE_SKU_MAP_JSON`**.
+- **shadow pants** (2026-06): `Default__M` through `Default__5XL` checkout OK; **`Default__2XS`** and **`Default__6XL`** need backend map entries before those sizes can be sold.
 - On **400**, message references server **`SQUARE_SKU_MAP_JSON`** — must stay aligned with cart keys (ops on NXCore, not in this repo).
 
 **Gap:** In-page **Pay now** (`openPayOverlay`) sends the same shape but is **not wired** from the cart drawer; only **Checkout** (hosted redirect) is used.

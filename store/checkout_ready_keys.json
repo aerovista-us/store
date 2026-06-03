@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "updatedAt": "2026-06-03T20:14:56.728Z",
+    "apiBase": "https://api.aerovista.us",
+    "readyCount": 150,
+    "failureCount": 21
+  },
+  "keys": [
+    "Black__2XL",
+    "Black__3XL",
+    "Black__L",
+    "Black__L/XL",
+    "Black__M",
+    "Black__One Size",
+    "Black__S",
+    "Black__S/M",
+    "Black__XL",
+    "Default__2XL",
+    "Default__3XL",
+    "Default__4XL",
+    "Default__5XL",
+    "Default__L",
+    "Default__L/XL",
+    "Default__M",
+    "Default__One Size",
+    "Default__S",
+    "Default__S/M",
+    "Default__XL",
+    "Default__XS",
+    "Gray__One Size",
+    "Orange__One Size",
+    "Red__One Size"
+  ]
+}

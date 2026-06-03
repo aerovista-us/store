@@ -113,6 +113,32 @@ for (const id of featuredIds) {
   else log("ok", `Featured drop: ${id}`);
 }
 
+const readyKeysPath = path.join(storeDir, "checkout_ready_keys.json");
+if (fs.existsSync(readyKeysPath)) {
+  const ready = new Set(JSON.parse(fs.readFileSync(readyKeysPath, "utf8")).keys || []);
+  const pants = products.find((x) => x.id === "shadow-pants");
+  if (pants) {
+    const productColor = (pants.color || "").trim() || "Default";
+    const missing = (pants.variants || [])
+      .map((v) => {
+        const vColor = (v.color || "").trim() || productColor;
+        const sz = (v.size || "").trim();
+        return `${vColor}__${sz}`;
+      })
+      .filter((sku) => !ready.has(sku));
+    if (missing.length) {
+      log("warn", `shadow-pants sizes not checkout-ready (hidden in shop): ${missing.join(", ")}`);
+    }
+    if (ready.has("Default__M")) {
+      log("ok", "shadow-pants Default__M is checkout-ready");
+    } else {
+      log("error", "shadow-pants Default__M missing from checkout_ready_keys.json");
+    }
+  }
+} else {
+  log("warn", "checkout_ready_keys.json missing — run npm run audit:checkout-keys");
+}
+
 // Hidden apex pattern hoodie should stay hidden
 const apexHoodie = products.find((x) => x.id === "aerovista-apex-pattern-hoodie");
 if (apexHoodie && (apexHoodie.visibility || "visible") !== "hidden") {
@@ -127,7 +153,7 @@ const indexHtml = fs.readFileSync(path.join(storeDir, "index.html"), "utf8");
 const uxChecks = [
   ["headerShopBtn", /id="headerShopBtn"/],
   ["size pills", /id="mSizePills"/],
-  ["featured drop prices", /dropPiece__price/],
+  ["featured drop tiles", /dropPiece__thumb/],
   ["Shop card CTA", /<button class="btn primary" data-quick="[^"]+"[^>]*>Shop<\/button>/],
   ["Add to bag", /id="addToCartBtn">Add to bag/],
 ];

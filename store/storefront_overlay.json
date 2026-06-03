@@ -39,21 +39,21 @@
   },
   "itemsByVariationId": {
     "WXDBA7PI2NK2N4GAI5SLCEHZ": {
-      "cartKey": "__M",
+      "cartKey": "Default__M",
       "title": "Shadow Wear // Ghost Ridge",
       "tags": ["featured", "shadow-wear", "hoodie"],
       "order": 1,
       "visible": true
     },
     "AADW36VFWTN37URWPN6EHEXT": {
-      "cartKey": "__M",
+      "cartKey": "Default__M",
       "title": "shadow pants",
       "tags": ["featured", "shadow-wear", "apparel"],
       "order": 2,
       "visible": true
     },
     "ACBTP7B44ED7KFPFEETJSMBK": {
-      "cartKey": "__M",
+      "cartKey": "Default__M",
       "title": "Men's Ghost Shorts",
       "tags": ["featured", "shadow-wear", "apparel"],
       "order": 3,
