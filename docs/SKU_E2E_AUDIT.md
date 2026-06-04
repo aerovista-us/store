@@ -18,6 +18,8 @@ The word **SKU is overloaded** in three ways — the main source of confusion an
 
 Checkout uses **cart key** + **variationId**; it does **not** send merchant SKU in the hosted-checkout path.
 
+**Storefront rule:** If a variant has no Square **`variation_id`** (Token), it is **not shown** and **not selectable**. The shop loads **`sellableCartKeys`** from the payment API bootstrap so sizes not in `SQUARE_SKU_MAP_JSON` are hidden before customers can add them.
+
 ---
 
 ## Flow diagram

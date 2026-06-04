@@ -16,6 +16,12 @@ const catalog = JSON.parse(
 const products = catalog.products || [];
 const visible = products.filter((p) => (p.visibility || "visible") !== "hidden");
 
+let issues = 0;
+const log = (level, msg) => {
+  if (level === "error") issues++;
+  console.log(`[${level}] ${msg}`);
+};
+
 const COLLECTION_ALIASES = {
   apex: "apex",
   "apex pattern": "apex pattern",
@@ -56,14 +62,23 @@ const featuredIds = [
   "aerovista-apex-pattern-print-swimsuit-one-piece",
 ];
 
-let issues = 0;
-const log = (level, msg) => {
-  if (level === "error") issues++;
-  console.log(`[${level}] ${msg}`);
-};
-
 console.log("=== Storefront audit ===\n");
 console.log(`Catalog: ${products.length} total, ${visible.length} visible\n`);
+
+const missingVariationId = [];
+for (const p of visible) {
+  for (const v of p.variants || []) {
+    if (!(v.variation_id || "").trim()) {
+      missingVariationId.push(`${p.id} (${v.size || "?"}/${v.color || "Default"})`);
+    }
+  }
+}
+if (missingVariationId.length) {
+  log("error", `${missingVariationId.length} visible variant(s) missing Square variation_id (not sellable):`);
+  missingVariationId.slice(0, 15).forEach((line) => log("error", `  - ${line}`));
+} else {
+  log("ok", "All visible variants have Square variation_id");
+}
 
 // Lane coverage
 for (const [id, patterns] of Object.entries(LANES)) {

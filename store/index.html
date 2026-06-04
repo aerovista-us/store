@@ -3603,20 +3603,13 @@
               const sz = (v.size||"").trim() || "One Size";
               const sku = (v.sku||"").trim();
               const variationId = (v.variation_id || "").trim();
-              const idForCheckout = variationId || sku;
-              if (idForCheckout) {
-                skuBySize[sz] = sku;
-                squareVariationMap[`${vColor}__${sz}`] = idForCheckout;
-                if (vColor === "Default" || !(v.color || "").trim()) {
-                  squareVariationMap[`__${sz}`] = idForCheckout;
-                }
-                if (variationId) variationIds.push(variationId);
-              }
-            }
-            if (variants.length > 0 && sizes.length === 0) {
-              const v0 = variants[0];
-              const id0 = (v0.variation_id || "").trim() || (v0.sku||"").trim();
-              if (id0) squareVariationMap[`${productColor}__One Size`] = id0;
+              // Square SOT: only Square catalog variation ids (Token) are sellable — not merchant SKU alone.
+              if (!variationId) continue;
+              const cartKey = `${vColor}__${sz}`;
+              if (SQUARE_SELLABLE_KEYS && SQUARE_SELLABLE_KEYS.size && !SQUARE_SELLABLE_KEYS.has(cartKey)) continue;
+              skuBySize[sz] = sku;
+              squareVariationMap[cartKey] = variationId;
+              variationIds.push(variationId);
             }
             return {
               _baseKey: productBaseKey(p),
@@ -3633,7 +3626,7 @@
               id: p.id,
               p
             };
-          });
+          }).filter(r => Object.keys(r.squareVariationMap || {}).length > 0);
 
           // Group by base key so one card per product with all variants
           const byKey = {};
@@ -3691,26 +3684,18 @@
             const firstRaw = first.p || {};
 
             // Merge colors and sizes from all rows, plus variant-level colors from catalog
-            const rowColors = group.flatMap(r => r.colors || []).filter(Boolean);
-            const variantColors = (firstRaw.variants || []).map(v => (v.color || "").trim()).filter(Boolean);
-            const fromName = colorFromName(baseName);
-            const allColors = [...new Set([...rowColors, ...variantColors, ...(fromName ? [fromName] : [])])];
-            const allSizes = [...new Set(group.flatMap(r => r.sizes).filter(Boolean))];
             const mergedMap = {};
             const mergedVariationIds = [];
             for (const r of group) {
-              for (const [key, sku] of Object.entries(r.squareVariationMap || {})) mergedMap[key] = sku;
+              for (const [key, vid] of Object.entries(r.squareVariationMap || {})) mergedMap[key] = vid;
               mergedVariationIds.push(...(r._variationIds || []));
             }
+            const sellableMap = filterVariationMapToSellable(mergedMap);
+            if (!Object.keys(sellableMap).length) return null;
 
-            const colors = allColors.length ? allColors : ["Default"];
-            let sizes = allSizes.length ? allSizes : ["One Size"];
-            if (CHECKOUT_READY_KEYS && CHECKOUT_READY_KEYS.size) {
-              const checkoutSizes = sizes.filter(sz =>
-                colors.some(c => CHECKOUT_READY_KEYS.has(buildCartSku(c, sz)))
-              );
-              if (checkoutSizes.length) sizes = checkoutSizes;
-            }
+            const fromMap = sizesAndColorsFromVariationMap(sellableMap, ["Default"]);
+            const colors = fromMap.colors.length ? fromMap.colors : ["Default"];
+            const sizes = fromMap.sizes.length ? fromMap.sizes : ["One Size"];
             const notes = generateProductNotes(first.cat, baseName, first.description_text);
             const imgBase = (typeof window.STORE_IMG_BASE === "string" && window.STORE_IMG_BASE.trim()) ? (window.STORE_IMG_BASE.trim().endsWith("/") ? window.STORE_IMG_BASE.trim() : window.STORE_IMG_BASE.trim() + "/") : "./img/";
             const cacheBuster = "?v=" + STORE_BUILD_ID;
@@ -3745,15 +3730,15 @@
               checkoutUrl: "",
               imagePath,
               imageCss: imageCssFor(first.p),
-              squareVariationMap: mergedMap,
-              _overlayCartKeys: Object.keys(mergedMap),
+              squareVariationMap: sellableMap,
+              _overlayCartKeys: Object.keys(sellableMap),
               _overlayVariationIds: [...new Set(mergedVariationIds)],
               tags: normalizeTags(firstRaw.tags || []),
               _skuBySize: group[0]._skuBySize,
               _square: first.p
             };
-          });
-          console.log(`Successfully loaded ${PRODUCTS.length} products (one per item, variants merged) from: ${pathUsed}`);
+          }).filter(Boolean);
+          console.log(`Successfully loaded ${PRODUCTS.length} products (Square sellable variants only) from: ${pathUsed}`);
       }
     }
 
@@ -4086,7 +4071,8 @@
     const LS_KEY = "av_store_cart_v3";
     const LS_PROMO = "av_store_promo_v3";
     const LS_SIZE = "av_store_last_size_v1";
-    let CHECKOUT_READY_KEYS = null;
+    /** Cart keys the payment API can sell (Square SOT). Loaded from bootstrap sellableCartKeys or checkout_ready_keys.json. */
+    let SQUARE_SELLABLE_KEYS = null;
 
     function withBuildVersion(path){
       if(!path) return path;
@@ -4171,17 +4157,58 @@
     function loadCart(){ return loadCartRaw(); }
     function saveCart(cart){ saveCartRaw(cart); updateCartUI(); }
 
-    async function loadCheckoutReadyKeys(){
+    function filterVariationMapToSellable(map){
+      if(!map || typeof map !== "object") return {};
+      if(!SQUARE_SELLABLE_KEYS || !SQUARE_SELLABLE_KEYS.size) return map;
+      const out = {};
+      for(const [k, v] of Object.entries(map)){
+        if(SQUARE_SELLABLE_KEYS.has(k)) out[k] = v;
+      }
+      return out;
+    }
+
+    function sizesAndColorsFromVariationMap(map, fallbackColors){
+      const colors = new Set();
+      const sizes = new Set();
+      for(const key of Object.keys(map || {})){
+        const sep = key.lastIndexOf("__");
+        if(sep < 1) continue;
+        colors.add(key.slice(0, sep));
+        sizes.add(key.slice(sep + 2));
+      }
+      const colorList = colors.size ? [...colors] : (fallbackColors || ["Default"]);
+      const sizeList = sizes.size ? [...sizes] : [];
+      return { colors: colorList, sizes: sizeList };
+    }
+
+    async function loadSquareSellableKeys(){
+      for(const base of CHECKOUT_API_CANDIDATES){
+        try{
+          const res = await fetch(apiBaseWithPath(base, "/api/square/bootstrap"), {
+            method: "GET",
+            cache: "no-store",
+            headers: { "Accept": "application/json" }
+          });
+          if(!res.ok) continue;
+          const data = await res.json();
+          const keys = Array.isArray(data.sellableCartKeys) ? data.sellableCartKeys : [];
+          if(keys.length){
+            SQUARE_SELLABLE_KEYS = new Set(keys);
+            console.log("Square sellable cart keys (API):", keys.length);
+            return;
+          }
+        }catch(e){ /* try next candidate */ }
+      }
       try{
         const r = await fetch(withBuildVersion("./checkout_ready_keys.json"), { cache: "no-store" });
         if(!r.ok) throw new Error(String(r.status));
         const data = await r.json();
         const keys = Array.isArray(data.keys) ? data.keys : [];
-        CHECKOUT_READY_KEYS = new Set(keys);
-        console.log("Checkout-ready SKU keys:", keys.length);
+        SQUARE_SELLABLE_KEYS = new Set(keys);
+        console.log("Square sellable cart keys (static fallback):", keys.length);
       }catch(err){
-        CHECKOUT_READY_KEYS = null;
-        console.warn("Checkout key allowlist unavailable; all catalog sizes shown.", err?.message || err);
+        SQUARE_SELLABLE_KEYS = null;
+        console.warn("Square sellable keys unavailable; only variants with Square variation_id are shown.", err?.message || err);
       }
     }
 
@@ -4380,6 +4407,7 @@
 
         if(tags.includes("featured")) merged.featured = true;
         if(merged._overlayHidden) continue;
+        if(!merged.isAd && !Object.keys(merged.squareVariationMap || {}).length) continue;
         out.push(merged);
       }
 
@@ -5230,15 +5258,15 @@
       }
       const cc = canonicalCartColor(color);
       if(!lookupSquareVariationId(p.squareVariationMap, cc, sz)){
-        toast("This size isn't available for checkout yet. Try another size.");
+        toast("This size is not in Square. Choose another size.");
         return;
       }
       const cart = loadCart();
       const key = `${pid}__${sz}__${cc}`;
       const existing = cart.find(it => it.key === key);
       const cartSku = buildCartSku(cc, sz);
-      if (CHECKOUT_READY_KEYS && CHECKOUT_READY_KEYS.size && !CHECKOUT_READY_KEYS.has(cartSku)) {
-        toast(`Size ${sz} isn't available for checkout yet. Try another size.`);
+      if (SQUARE_SELLABLE_KEYS && SQUARE_SELLABLE_KEYS.size && !SQUARE_SELLABLE_KEYS.has(cartSku)) {
+        toast(`Size ${sz} is not available in Square. Choose another size.`);
         return;
       }
       if(existing) {
@@ -5811,8 +5839,8 @@
         console.warn("Checkout blocked — missing Square variation:", names, unmapped);
         return;
       }
-      if (CHECKOUT_READY_KEYS && CHECKOUT_READY_KEYS.size) {
-        const notReady = lines.filter(x => !CHECKOUT_READY_KEYS.has(x.cartSku));
+      if (SQUARE_SELLABLE_KEYS && SQUARE_SELLABLE_KEYS.size) {
+        const notReady = lines.filter(x => !SQUARE_SELLABLE_KEYS.has(x.cartSku));
         if (notReady.length) {
           const detail = notReady.map(x => `${x.name} — size ${x.size}`).join("; ");
           toast(`This size isn't available for checkout yet: ${detail}`);
@@ -6494,7 +6522,7 @@
     async function init(){
       loadPromo();
       await loadOverlay();
-      await loadCheckoutReadyKeys();
+      await loadSquareSellableKeys();
       try {
         await loadProducts();
         if (PRODUCTS.length === 0) {

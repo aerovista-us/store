@@ -177,8 +177,9 @@ Header and home CTAs prioritize shopping over browsing:
 - Collection line + category tag + large price
 - **Size pills** (remembers last size in `localStorage` key `av_store_last_size_v1`; defaults to M when available)
 - **Color pills** hidden when only one color / `Default`
-- **Add to bag** → closes modal, opens cart drawer, toast confirms. Cart keys use `Default__{size}` when the product has no color variant. Sizes missing from `store/checkout_ready_keys.json` are hidden in the modal.
-- **Checkout** → validates Square variation mapping, repairs legacy cart keys (`__M` → `Default__M`), then redirects to Square hosted checkout. Run `npm run audit:checkout-keys` to refresh the allowlist from `api.aerovista.us`.
+- **Square SOT** — Only variants with a Square catalog **`variation_id`** (Token) appear in the shop. Sizes/colors come from the sellable map only. Products with zero sellable variants are hidden. At load, the shop reads **`sellableCartKeys`** from `GET /api/square/bootstrap` (fallback: `store/checkout_ready_keys.json`).
+- **Add to bag** → requires a sellable size in Square; cart keys use `Default__{size}` when the product has no color variant.
+- **Checkout** → validates sellable keys before redirect. Run `npm run audit:checkout-keys` to refresh the static fallback list.
 - Fit + ship summary in `#modalBrief`; full detail grid hidden on product modal (still used for policy/info modals)
 - Provider / external checkout button removed from modal
 
