@@ -5237,6 +5237,10 @@
       const key = `${pid}__${sz}__${cc}`;
       const existing = cart.find(it => it.key === key);
       const cartSku = buildCartSku(cc, sz);
+      if (CHECKOUT_READY_KEYS && CHECKOUT_READY_KEYS.size && !CHECKOUT_READY_KEYS.has(cartSku)) {
+        toast(`Size ${sz} isn't available for checkout yet. Try another size.`);
+        return;
+      }
       if(existing) {
         existing.qty = Math.min(99, (existing.qty||0) + qty);
         existing.cartSku = cartSku;
@@ -5807,6 +5811,15 @@
         console.warn("Checkout blocked — missing Square variation:", names, unmapped);
         return;
       }
+      if (CHECKOUT_READY_KEYS && CHECKOUT_READY_KEYS.size) {
+        const notReady = lines.filter(x => !CHECKOUT_READY_KEYS.has(x.cartSku));
+        if (notReady.length) {
+          const detail = notReady.map(x => `${x.name} — size ${x.size}`).join("; ");
+          toast(`This size isn't available for checkout yet: ${detail}`);
+          console.warn("Checkout blocked — SKU not on server map:", notReady.map(x => x.cartSku));
+          return;
+        }
+      }
       if(!cartPayload.length){
         toast("Cart payload is empty. Please refresh and try again.");
         return;
@@ -5855,7 +5868,12 @@
         }
         let errMsg = out.error || out.message || (res.status === 400 ? "Checkout unavailable for this size. Try another size or clear your cart and re-add." : "Checkout failed");
         if (typeof errMsg === "string" && /Unknown SKU/i.test(errMsg)) {
-          errMsg = "This size isn't set up for checkout yet. Choose another size, or clear the item and add it again.";
+          const skuMatch = errMsg.match(/Unknown SKU '([^']+)'/i);
+          const badSku = skuMatch ? skuMatch[1] : "";
+          const sizeHint = badSku.includes("__") ? badSku.split("__").pop() : "";
+          errMsg = sizeHint
+            ? `Size ${sizeHint} isn't set up for checkout yet. Choose another size (e.g. M or L), or clear the cart and re-add.`
+            : "This size isn't set up for checkout yet. Choose another size, or clear the item and add it again.";
         }
         if (res.status === 400) console.warn("Checkout 400 — server says:", out.error || errMsg, "Payload cart keys:", cartPayload.map(x => x.sku));
         toast(errMsg);
