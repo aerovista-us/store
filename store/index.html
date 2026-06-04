@@ -3200,13 +3200,16 @@
     }
 
     const isLocalHost = /^(localhost|127\.0\.0\.1|::1)$/i.test(window.location.hostname || "");
-    // Local Vite dev proxies /api → api.aerovista.us (see vite.config.ts). Use "" = same-origin.
-    const defaultApiBase = isLocalHost ? "" : PROD_API_BASE;
+    const isGearProductionHost = /^gear\.aerovista\.us$/i.test(window.location.hostname || "");
+    // Same-origin /api: Vite dev proxy (localhost) or Cloudflare worker on gear.aerovista.us (see cloudflare/gear-api-proxy).
+    const useSameOriginApi = isLocalHost || isGearProductionHost;
+    const defaultApiBase = useSameOriginApi ? "" : PROD_API_BASE;
     const CHECKOUT_API_BASE = ("STORE_API_BASE" in window) ? window.STORE_API_BASE : (toggleApiBase || defaultApiBase);
     const CHECKOUT_API_CANDIDATES = (() => {
       const raw = [CHECKOUT_API_BASE];
-      if (isLocalHost) {
-        raw.push("", PROD_API_BASE, LOCAL_DEV_API_BASE, LOCAL_ALT_API_BASE);
+      if (useSameOriginApi) {
+        raw.push("", PROD_API_BASE);
+        if (isLocalHost) raw.push(LOCAL_DEV_API_BASE, LOCAL_ALT_API_BASE);
       } else {
         raw.push(PROD_API_BASE);
       }
@@ -5500,6 +5503,9 @@
       if (networkFailure) {
         if (isLocalHost) {
           throw new Error("Unable to connect to payment service. Run npm run dev:shop (Vite proxies /api), start the API on 127.0.0.1:8088, or test checkout at https://gear.aerovista.us/");
+        }
+        if (isGearProductionHost) {
+          throw new Error("Payment API unreachable on gear.aerovista.us. Deploy the Cloudflare /api proxy (npm run deploy:gear-api-proxy) or allow CORS on api.aerovista.us.");
         }
         throw new Error("Unable to connect to payment service. Please try again shortly or contact support.");
       }

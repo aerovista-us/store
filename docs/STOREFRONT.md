@@ -154,7 +154,7 @@ Products need top-level **`{ "products": [ ... ] }`**. Collection labels on card
 | Symptom | Likely cause |
 |---------|----------------|
 | “Unable to connect to payment service” on **localhost** | Use **`npm run dev:shop`** (Vite proxies `/api` → `api.aerovista.us`), or start backend on **8088** / **18088**, or test on **https://gear.aerovista.us/** |
-| Checkout fails on **gear.aerovista.us** | API down, CORS, or Square bootstrap config on server |
+| Checkout fails on **gear.aerovista.us** | Deploy **`npm run deploy:gear-api-proxy`** (same-origin `/api`), or enable CORS on **api.aerovista.us** — see **`docs/DEPLOY_GITHUB_PAGES.md`** § API proxy |
 | **400** unknown SKU | Regenerate backend map; cart keys must be **`Color__Size`** |
 
 **CORS:** `ALLOWED_ORIGINS` on the API must include the exact shop origin (e.g. `https://gear.aerovista.us`, `http://localhost:5174`). See **`DEPLOY_GITHUB_PAGES.md`**.

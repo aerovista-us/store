@@ -1,0 +1,8 @@
+name = "gear-api-proxy"
+main = "src/index.js"
+compatibility_date = "2024-06-01"
+
+# Route must be deployed to the Cloudflare zone that owns gear.aerovista.us
+[[routes]]
+pattern = "gear.aerovista.us/api/*"
+zone_name = "aerovista.us"

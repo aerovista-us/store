@@ -79,18 +79,38 @@ Verify these **404**:
 
 ---
 
-## API CORS
+## API proxy (required for checkout on gear.aerovista.us)
 
-Allow checkout from the public shop origin on **`api.aerovista.us`**, e.g.:
+The static shop on GitHub Pages cannot call **`api.aerovista.us`** from the browser unless CORS is enabled on the API **or** requests go through same-origin **`/api`** on **`gear.aerovista.us`**.
 
-```text
-ALLOWED_ORIGINS=https://gear.aerovista.us,https://aerovista-us.github.io,http://localhost:5174
+**Recommended:** deploy the Cloudflare Worker in **`cloudflare/gear-api-proxy/`** (proxies `/api/*` → `api.aerovista.us`):
+
+```bash
+# One-time: npx wrangler login
+npm run deploy:gear-api-proxy
 ```
 
-- **`http://localhost:5174`** — Vite dev (`npm run dev` → `/shop/`)
-- Add **`http://127.0.0.1:5174`** if you open the shop by IP
+After deploy, verify:
 
-No wildcard CORS for checkout. Local checkout without CORS: run the payment API on **8088** / **18088** (see **`docs/STOREFRONT.md`** § Checkout).
+```bash
+curl -s -H "Origin: https://gear.aerovista.us" https://gear.aerovista.us/api/square/bootstrap
+```
+
+You should get JSON (not HTML 404) and an `Access-Control-Allow-Origin` header.
+
+Optional CI: add repo secret **`CLOUDFLARE_API_TOKEN`** and run workflow **Deploy gear API proxy**.
+
+---
+
+## API CORS (alternative to the worker)
+
+If you prefer direct browser → **`api.aerovista.us`** without the worker, set on the API host:
+
+```text
+ALLOWED_ORIGINS=https://gear.aerovista.us,https://aerovista-us.github.io,http://localhost:5174,http://127.0.0.1:5174
+```
+
+No wildcard CORS for checkout. Local dev without CORS: **`npm run dev:shop`** (Vite proxies `/api`) or run the payment API on **8088** / **18088**.
 
 ---
 
