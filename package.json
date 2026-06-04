@@ -24,7 +24,7 @@
     "audit:repo": "node scripts/audit-orphans.mjs",
     "audit:storefront": "node scripts/audit-storefront.mjs",
     "audit:checkout-keys": "node scripts/audit-checkout-keys.mjs",
-    "deploy:gear-api-proxy": "wrangler deploy --config cloudflare/gear-api-proxy/wrangler.toml"
+    "deploy:gear-api-proxy": "npx wrangler deploy --config cloudflare/gear-api-proxy/wrangler.toml"
   },
   "dependencies": {
     "react": "^19.0.0",
