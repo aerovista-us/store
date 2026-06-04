@@ -92,6 +92,14 @@ export default defineConfig({
     port: 5174,
     strictPort: false,
     open: '/app.html',
+    // Local dev: same-origin /api → production payment API (avoids CORS + no local backend required).
+    proxy: {
+      '/api': {
+        target: 'https://api.aerovista.us',
+        changeOrigin: true,
+        secure: true,
+      },
+    },
   },
   build: {
     outDir: 'dist',

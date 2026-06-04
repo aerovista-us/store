@@ -3200,12 +3200,13 @@
     }
 
     const isLocalHost = /^(localhost|127\.0\.0\.1|::1)$/i.test(window.location.hostname || "");
-    const defaultApiBase = isLocalHost ? LOCAL_DEV_API_BASE : PROD_API_BASE;
+    // Local Vite dev proxies /api → api.aerovista.us (see vite.config.ts). Use "" = same-origin.
+    const defaultApiBase = isLocalHost ? "" : PROD_API_BASE;
     const CHECKOUT_API_BASE = ("STORE_API_BASE" in window) ? window.STORE_API_BASE : (toggleApiBase || defaultApiBase);
     const CHECKOUT_API_CANDIDATES = (() => {
       const raw = [CHECKOUT_API_BASE];
       if (isLocalHost) {
-        raw.push(LOCAL_DEV_API_BASE, LOCAL_ALT_API_BASE, PROD_API_BASE);
+        raw.push("", PROD_API_BASE, LOCAL_DEV_API_BASE, LOCAL_ALT_API_BASE);
       } else {
         raw.push(PROD_API_BASE);
       }
@@ -5497,7 +5498,10 @@
         m.includes("ERR_CONNECTION_REFUSED")
       );
       if (networkFailure) {
-        throw new Error("Unable to connect to payment service. Start backend on 127.0.0.1:18088 (or 8088), or set window.STORE_API_BASE.");
+        if (isLocalHost) {
+          throw new Error("Unable to connect to payment service. Run npm run dev:shop (Vite proxies /api), start the API on 127.0.0.1:8088, or test checkout at https://gear.aerovista.us/");
+        }
+        throw new Error("Unable to connect to payment service. Please try again shortly or contact support.");
       }
       const notFound = errors.some(m => m.includes("404") || m.includes("Not Found"));
       if (notFound) {
