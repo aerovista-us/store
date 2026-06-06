@@ -137,6 +137,8 @@ To change door art, replace PNGs under **`store/img/collection-cards/`**, then *
 
 Products need top-level **`{ "products": [ ... ] }`**. Collection labels on cards come from export **`collection`** when present.
 
+**Product identity:** Cards/modals resolve by catalog **`id`** (not display name). Color-variant rows merge only when they share the same id base (e.g. `hoodie-black` + `hoodie-charcoal` → one card). Overlay presentation rows match **`itemsByVariationId`** only — generic cart keys like `Default__M` must not be used in **`itemsByCartKey`** or they would bleed across unrelated products.
+
 ---
 
 ## Checkout
@@ -179,7 +181,7 @@ Header and home CTAs prioritize shopping over browsing:
 - **Color pills** hidden when only one color / `Default`
 - **Square SOT** — Only variants with a Square catalog **`variation_id`** (Token) appear in the shop. Sizes/colors come from the sellable map only. Products with zero sellable variants are hidden. At load, the shop reads **`sellableCartKeys`** from `GET /api/square/bootstrap` (fallback: `store/checkout_ready_keys.json`).
 - **Add to bag** → requires a sellable size in Square; cart keys use `Default__{size}` when the product has no color variant.
-- **Checkout** → validates sellable keys before redirect. Run `npm run audit:checkout-keys` to refresh the static fallback list.
+- **Checkout** → validates sellable keys before redirect. Cart lines store Square **`variationId`** at add-to-bag so hosted checkout receives the correct item even when cart keys overlap (`Default__M`, etc.). Run `npm run audit:checkout-keys` to refresh the static fallback list.
 - Fit + ship summary in `#modalBrief`; full detail grid hidden on product modal (still used for policy/info modals)
 - Provider / external checkout button removed from modal
 

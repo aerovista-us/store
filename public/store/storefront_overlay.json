@@ -1,10 +1,10 @@
 {
   "meta": {
-    "updatedAt": "2026-05-19T12:00:00.000Z",
+    "updatedAt": "2026-05-27T00:00:00.000Z",
     "schemaVersion": 2,
-    "notes": "Overlay cleared — storefront uses square_products_latest.json only (collection, tags, visibility, copy). Re-add itemsByVariationId / overrides / ads from Catalog Console when needed.",
-    "editedBy": "reset for catalog-export-only display",
-    "visibilityPolicy": "No variation overlay rows — only catalog visibility field applies.",
+    "notes": "Shadow Wear featured stack: Ghost Ridge (1), shadow pants (2), Men's Ghost Shorts (3). Presentation only — Square catalog is checkout truth.",
+    "editedBy": "storefront curation",
+    "visibilityPolicy": "Only listed variation rows carry featured order; all other catalog visibility unchanged.",
     "checkoutTruth": "Checkout uses variationId from square_products_latest.json."
   },
   "rules": {
@@ -23,8 +23,43 @@
       "crewneck": { "base": 48.99, "2XL": 51.99, "3XL": 53.99 }
     }
   },
-  "overrides": {},
-  "itemsByVariationId": {},
+  "overrides": {
+    "sq_shadow-wear-ghost-ridge": {
+      "collection": "Shadow Wear",
+      "descriptionShort": "Ghost Ridge — hidden structure, Shadow Wear pattern, Apex mark. The lead piece in the lane."
+    },
+    "sq_shadow-pants": {
+      "collection": "Shadow Wear",
+      "descriptionShort": "Wide-leg shadow pants — relaxed fit, side pockets, stealth all-over print."
+    },
+    "sq_men-s-ghost-shorts": {
+      "collection": "Shadow Wear",
+      "descriptionShort": "Men's Ghost Shorts — board-short cut with the Shadow Wear Ghost pattern."
+    }
+  },
+  "itemsByVariationId": {
+    "WXDBA7PI2NK2N4GAI5SLCEHZ": {
+      "cartKey": "Default__M",
+      "title": "Shadow Wear // Ghost Ridge",
+      "tags": ["featured", "shadow-wear", "hoodie"],
+      "order": 1,
+      "visible": true
+    },
+    "AADW36VFWTN37URWPN6EHEXT": {
+      "cartKey": "Default__M",
+      "title": "shadow pants",
+      "tags": ["featured", "shadow-wear", "apparel"],
+      "order": 2,
+      "visible": true
+    },
+    "ACBTP7B44ED7KFPFEETJSMBK": {
+      "cartKey": "Default__M",
+      "title": "Men's Ghost Shorts",
+      "tags": ["featured", "shadow-wear", "apparel"],
+      "order": 3,
+      "visible": true
+    }
+  },
   "itemsByCartKey": {},
   "collections": [],
   "ads": []

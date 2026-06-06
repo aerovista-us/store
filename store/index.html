@@ -3559,32 +3559,20 @@
 
           console.log(`Filtered ${items.length - filteredItems.length} utility products, ${filteredItems.length} remaining`);
 
-          // Build one product key per catalog item - group by normalized product name
-          // This ensures products with same name (even different IDs) merge into one card
+          // Group color-variant catalog rows (e.g. hoodie-black + hoodie-charcoal) by stable id base — never by display name.
           function productBaseKey(p) {
-            const name = (p.name || "").trim();
-            // Normalize product name: lowercase, normalize quotes, collapse spaces
-            const normalizedName = name.toLowerCase()
-              .replace(/["""]/g, '"')  // Normalize smart quotes to regular quotes
-              .replace(/[""]/g, '"')
-              .replace(/\s+/g, " ")    // Collapse multiple spaces
-              .trim();
-            
-            // If name is empty or too generic, fall back to ID-based grouping
-            if (!normalizedName || normalizedName.length < 3) {
-              const id = (p.id || "").trim();
-              const color = (p.color || "").trim();
-              if (!color) return id;
-              // Strip trailing "-color" so "hoodie-black" and "hoodie-charcoal" share base "hoodie"
-              const lowered = id.toLowerCase();
-              const colorSuffix = "-" + color.toLowerCase().replace(/\s+/g, "-");
-              if (lowered.endsWith(colorSuffix)) return id.slice(0, -colorSuffix.length);
-              if (/-[a-z0-9]+$/i.test(id)) return id.replace(/-[^-]+$/, "");
-              return id;
+            const id = (p.id || "").trim();
+            if (!id) {
+              const name = (p.name || "").trim().toLowerCase().replace(/\s+/g, " ").trim();
+              return name || "unknown";
             }
-            
-            // Use normalized name as grouping key so same-named products merge
-            return normalizedName;
+            const color = (p.color || "").trim();
+            if (!color) return id;
+            const lowered = id.toLowerCase();
+            const colorSuffix = "-" + color.toLowerCase().replace(/\s+/g, "-");
+            if (lowered.endsWith(colorSuffix)) return id.slice(0, -colorSuffix.length);
+            if (/-[a-z0-9]+$/i.test(id)) return id.replace(/-[^-]+$/, "");
+            return id;
           }
 
           // Map each raw item to a "row" with variant info, then group by base key
@@ -3698,11 +3686,11 @@
             const sizes = fromMap.sizes.length ? fromMap.sizes : ["One Size"];
             const notes = generateProductNotes(first.cat, baseName, first.description_text);
             const imgBase = (typeof window.STORE_IMG_BASE === "string" && window.STORE_IMG_BASE.trim()) ? (window.STORE_IMG_BASE.trim().endsWith("/") ? window.STORE_IMG_BASE.trim() : window.STORE_IMG_BASE.trim() + "/") : "./img/";
-            const cacheBuster = "?v=" + STORE_BUILD_ID;
-            const catalogImage = (first.p && first.p.image) ? String(first.p.image).trim() : "";
+            const imageRow = group.find(r => colors.some(c => c === (r.color || "").trim() || (r.colors || []).includes(c))) || first;
+            const catalogImage = (imageRow.p && imageRow.p.image) ? String(imageRow.p.image).trim() : "";
             const imagePath = catalogImage
               ? resolveCatalogImagePath(imgBase, catalogImage)
-              : findProductImage(first.id, baseName);
+              : findProductImage(imageRow.id, baseName);
 
             const rawId = (first.p && first.p.id) ? String(first.p.id).trim() : "";
             const productKey = rawId ? ("sq_" + rawId) : slug(baseKey);
@@ -4095,7 +4083,9 @@
       const sz = String(size ?? "").trim() || "One Size";
       const cc = canonicalCartColor(color);
       const raw = String(color ?? "").trim();
-      const tries = [`${cc}__${sz}`, raw ? `${raw}__${sz}` : "", `__${sz}`, `Default__${sz}`];
+      const tries = [`${cc}__${sz}`];
+      if(raw && raw !== cc) tries.push(`${raw}__${sz}`);
+      if(cc === "Default") tries.push(`Default__${sz}`);
       for(const k of tries){
         if(k && map[k]) return map[k];
       }
@@ -4106,6 +4096,11 @@
       return "";
     }
 
+    function variationIdForCartLine(p, color, size){
+      if(!p) return "";
+      return lookupSquareVariationId(p.squareVariationMap, color, size);
+    }
+
     function normalizeCartItem(it){
       if(!it || typeof it !== "object") return null;
       const p = resolveProduct(it.productId);
@@ -4113,6 +4108,9 @@
       const color = canonicalCartColor(it.color);
       const productId = p ? p.id : String(it.productId || "").trim();
       if(!productId) return null;
+      const storedVid = String(it.variationId || it.variation_id || "").trim();
+      const mappedVid = p ? variationIdForCartLine(p, color, size) : "";
+      const variationId = mappedVid || storedVid;
       return {
         ...it,
         productId,
@@ -4122,6 +4120,7 @@
         key: `${productId}__${size}__${color}`,
         name: p ? p.name : (it.name || "Product"),
         price: typeof it.price === "number" ? it.price : (p ? getPriceForProduct(p, size) : 0),
+        variationId,
       };
     }
 
@@ -4272,16 +4271,12 @@
 
     function resolveOverlayForProduct(p, overlay){
       const variationIds = Array.isArray(p._overlayVariationIds) ? p._overlayVariationIds : [];
-      const cartKeys = Array.isArray(p._overlayCartKeys) ? p._overlayCartKeys : Object.keys(p.squareVariationMap || {});
       const hits = [];
       for(const variationId of variationIds){
         const hit = resolveOverlay(variationId, null, overlay);
         if(hit) hits.push(hit);
       }
-      for(const cartKey of cartKeys){
-        const hit = resolveOverlay(null, cartKey, overlay);
-        if(hit) hits.push(hit);
-      }
+      // Cart-key overlay rows are global (e.g. Default__M) and must not bleed across products.
       if(!hits.length) return null;
 
       const visibleHits = hits.filter(h => h.visible === true);
@@ -4981,8 +4976,9 @@
       if(p) return p;
       p = PRODUCTS.find(x => x.squareItemIdRaw === key);
       if(p) return p;
-      const norm = key.toLowerCase().replace(/-/g, " ").replace(/\s+/g, " ").trim();
-      return PRODUCTS.find(x => x.id === norm || x.name.toLowerCase().replace(/\s+/g, " ").trim() === norm) || null;
+      p = PRODUCTS.find(x => x.productKey === key || x.productKey === ("sq_" + key));
+      if(p) return p;
+      return null;
     }
 
     function getActiveModalPick(containerId, pillClass){
@@ -5116,12 +5112,14 @@
       }
 
       // Use actual image if available, then imageCss, then SVG fallback
+      const mImg = $("#mImg");
+      if (mImg) mImg.innerHTML = "";
       if (p.imagePath) {
-        $("#mImg").innerHTML = `<img src="${escapeHtml(p.imagePath)}" alt="${escapeHtml(p.name)}" class="product-image modal-image" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center; border-radius:var(--radius); image-rendering:-webkit-optimize-contrast;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />` + `<div style="display:none;">${productSvg(p)}</div>`;
+        mImg.innerHTML = `<img src="${escapeHtml(p.imagePath)}" alt="${escapeHtml(p.name)}" class="product-image modal-image" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center; border-radius:var(--radius); image-rendering:-webkit-optimize-contrast;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />` + `<div style="display:none;">${productSvg(p)}</div>`;
       } else if (p.imageCss) {
-        $("#mImg").innerHTML = `<div style="${p.imageCss} position:absolute; inset:0; width:100%; height:100%;"></div>`;
+        mImg.innerHTML = `<div style="${p.imageCss} position:absolute; inset:0; width:100%; height:100%;"></div>`;
       } else {
-        $("#mImg").innerHTML = productSvg(p);
+        mImg.innerHTML = productSvg(p);
       }
 
       const sizes = p.sizes && p.sizes.length ? p.sizes : ["One Size"];
@@ -5257,7 +5255,8 @@
         return;
       }
       const cc = canonicalCartColor(color);
-      if(!lookupSquareVariationId(p.squareVariationMap, cc, sz)){
+      const variationId = variationIdForCartLine(p, cc, sz);
+      if(!variationId){
         toast("This size is not in Square. Choose another size.");
         return;
       }
@@ -5275,9 +5274,11 @@
         existing.productId = pid;
         existing.color = cc;
         existing.size = sz;
+        existing.variationId = variationId;
+        existing.name = p.name;
       } else {
         const price = getPriceForProduct(p, sz);
-        cart.push({ key, cartSku, productId: pid, name:p.name, price, size: sz, color: cc, qty });
+        cart.push({ key, cartSku, productId: pid, variationId, name:p.name, price, size: sz, color: cc, qty });
       }
       saveCart(cart);
       toast("Added to bag — review your cart");
@@ -5600,8 +5601,13 @@
         const p = resolveProduct(it.productId);
         const color = canonicalCartColor(it.color);
         const size = String(it.size ?? "").trim() || "One Size";
-        const variation_id = p ? lookupSquareVariationId(p.squareVariationMap, color, size) : "";
+        const storedVid = String(it.variationId || it.variation_id || "").trim();
+        const mappedVid = p ? variationIdForCartLine(p, color, size) : "";
+        const variation_id = mappedVid || storedVid;
         const cartSku = buildCartSku(color, size);
+        if(p && mappedVid && storedVid && mappedVid !== storedVid){
+          console.warn("Cart variationId corrected at checkout:", it.name, storedVid, "→", mappedVid);
+        }
         return { ...it, color, size, cartSku, variation_id };
       });
     }

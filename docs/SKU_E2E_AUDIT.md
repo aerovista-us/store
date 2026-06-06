@@ -141,6 +141,7 @@ localStorage key: av_store_cart_v3
 
 - `sku` = cart key (`{color}__{size}`). Products with no color use **`Default__{size}`** — not `__{size}` (backend rejects bare `__M` even with a valid `variationId`).
 - `variationId` = value from `squareVariationMap` (Square Token).
+- Storefront **persists `variationId` on each cart line at add-to-bag** and sends it on checkout so unrelated products that share a cart key (e.g. many pieces use `Default__M`) do not collapse to one Square item.
 - Storefront loads **`store/checkout_ready_keys.json`** (from `npm run audit:checkout-keys`) to hide sizes that are not yet in server **`SQUARE_SKU_MAP_JSON`**.
 - **shadow pants** (2026-06): `Default__M` through `Default__5XL` checkout OK; **`Default__2XS`** and **`Default__6XL`** need backend map entries before those sizes can be sold.
 - On **400**, message references server **`SQUARE_SKU_MAP_JSON`** — must stay aligned with cart keys (ops on NXCore, not in this repo).
