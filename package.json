@@ -25,6 +25,7 @@
     "audit:storefront": "node scripts/audit-storefront.mjs",
     "audit:checkout-keys": "node scripts/audit-checkout-keys.mjs",
     "build:cart-sku-map": "node scripts/build-cart-sku-map.mjs",
+    "verify:checkout-fix": "node scripts/verify-live-checkout-fix.mjs",
     "deploy:gear-api-proxy": "npx wrangler deploy --config cloudflare/gear-api-proxy/wrangler.toml"
   },
   "dependencies": {
