@@ -3309,7 +3309,7 @@
       }
     };
     // Cache-busting token for static deploys (bump on release).
-    const STORE_BUILD_ID = "2026-04-01-docs";
+    const STORE_BUILD_ID = "2026-06-06-checkout";
 
     // Placeholder color swatches
     const SW = {
@@ -5617,7 +5617,7 @@
       const unmapped = lines.filter(x => !x.variation_id);
       const payload = lines.map(it => ({
         sku: String(it.cartSku || buildCartSku(it.color, it.size)),
-        variationId: String(it.variation_id || ""),
+        variationId: String(it.variation_id || it.variationId || ""),
         qty: Number(it.qty || it.quantity || 1),
         size: it.size,
         color: it.color,

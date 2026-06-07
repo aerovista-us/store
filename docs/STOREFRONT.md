@@ -187,6 +187,15 @@ Header and home CTAs prioritize shopping over browsing:
 
 Promo codes (`SEED10`, `CREW15`) remain client-side estimates only — Square checkout may not apply the same discount.
 
+**After a checkout fix deploy — retest:**
+
+1. Hard refresh (`Ctrl+Shift+R`) on **https://gear.aerovista.us/**
+2. **Clear cart** (old lines may lack `variationId`)
+3. Add 2–3 different items (e.g. shadow pants + ghost shorts + a glitch hoodie)
+4. Open DevTools → Console → click **Checkout** — confirm `CHECKOUT payload:` shows a **different `variationId` per line**
+5. On the Square hosted page, each line should match the items you added (not all the same hoodie)
+6. Optional: `npm run verify:checkout-fix` confirms the live HTML includes the cart `variationId` fix
+
 ---
 
 ## Product cards
