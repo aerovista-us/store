@@ -95,6 +95,9 @@ If a future Gear release changes product identity, cart identity, checkout behav
   draft-only.
 - Complete: the console uses a catalog-only production credential instead of
   the broad operations secret.
+- Complete: the private backend dependency gate passes with 58 tests and no
+  known `pip-audit` vulnerabilities; the updated runtime is deployed only to
+  the isolated sandbox.
 - Remaining for production `/v1` only: approve/deploy the prepared
   Cloudflare-to-Traefik router and trusted-source boundary, then take fresh
   immutable image and database rollback artifacts immediately before the

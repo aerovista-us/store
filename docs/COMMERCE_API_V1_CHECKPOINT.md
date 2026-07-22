@@ -2,7 +2,8 @@
 
 **Contract:** `1.0.0-alpha.1`
 
-**Status:** Isolated checkout, webhook, rate-limit, and rollback gates verified
+**Status:** Isolated checkout, webhook, rate-limit, rollback, dependency, and
+console-isolation gates verified
 
 **Production effect:** None
 
@@ -20,6 +21,12 @@ provider call and passed same-key replay. Independently signed synthetic
 `payment.updated` events passed invalid-signature rejection, one-row duplicate
 handling, store-specific checkout routing, and zero-order/zero-fulfillment
 assertions. Production Compose services remain unchanged.
+
+The sandbox was refreshed from private backend checkpoint `285fb10` with Flask
+`3.1.3`, Requests `2.33.0`, and python-dotenv `1.2.2`. All 58 backend tests,
+dependency compatibility, repository/migration checks, and `pip-audit` pass;
+the audit reports no known vulnerabilities. The refresh used only the
+provider-free catalog/quote smoke and did not call Square checkout.
 
 Persistent PostgreSQL rate limits now protect quote, checkout, and webhook
 routes with HMAC-only source identifiers. The checkout limit returned `429`
@@ -142,6 +149,8 @@ The private, versioned backend now includes:
     workspace; Horizon is draft-only and cannot invoke Gear publication.
 12. A dedicated catalog publication credential. The operator console no longer
     requires the broad production operations secret.
+13. Audited runtime dependency pins verified locally and in the unpublished
+    NXCore sandbox, with a tagged pre-update sandbox rollback image.
 
 ## Next implementation checkpoint
 
