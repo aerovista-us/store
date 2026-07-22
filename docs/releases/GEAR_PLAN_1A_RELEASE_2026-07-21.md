@@ -27,7 +27,7 @@ Differences in raw JSON byte counts are line-ending formatting only; parsed cata
 
 | Artifact | SHA-256 |
 |---|---|
-| `dist/index.html` | `41889cbd9567be05e9fe8a2dd0905dad3ccac0286633f8279e16ad39adb15fb3` |
+| `dist/index.html` | `320889cfe138f91851a9429d1aba6254c20aff51954abe2c44e410c354c9cf41` |
 | `dist/about.html` | `e0e5e9c5c8b5eba93546cff06d08cc11509d67604e726897d1ec54027faf9f83` |
 | `dist/policies.html` | `9d6596f88980e7a55c91952c5ca2bf7330619f080b31429c2c2d981bf25ad0d1` |
 
@@ -47,6 +47,7 @@ Differences in raw JSON byte counts are line-ending formatting only; parsed cata
 - Two products sharing `Default__M` retained distinct Square variation IDs in local cart data
 - Catalog, collection routes, collapsed secondary filters, About/Story, FAQ, Shipping, Returns, and Contact verified
 - Browser console: 0 errors and 0 warnings on the final production-style artifact
+- Production CSP explicitly allows the Cloudflare Insights script and beacon endpoint injected at the Pages edge
 
 `audit:checkout-keys` was intentionally not executed because it creates a production Square checkout session for every visible variant and rewrites the fallback file. Sellability was verified through bootstrap data, current storefront audits, focused cart tests, and the existing live checkout-fix verifier.
 
