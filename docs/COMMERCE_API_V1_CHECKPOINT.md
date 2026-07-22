@@ -2,7 +2,7 @@
 
 **Contract:** `1.0.0-alpha.1`
 
-**Status:** Approved for isolated sandbox implementation
+**Status:** Isolated Square sandbox checkout verified for Gear and Horizon
 
 **Production effect:** None
 
@@ -11,11 +11,13 @@ sandbox checkout, and PII-free checkout status are implemented in the separate
 private backend repository. Checkout requires two feature flags and refuses to
 run unless `SQUARE_ENV=sandbox`.
 
-**NXCore sandbox status:** Private backend commit `4818b3e` is running in the
-isolated `aerovista-commerce-sandbox` Compose project with internal networking,
-separate PostgreSQL at migration `0004_checkout_sessions`, no fulfillment
-workers, and checkout disabled. Catalog and persistent quote smoke tests pass;
-production Compose services remain unchanged.
+**NXCore sandbox status:** Private backend commit `2e675e5` is running in the
+isolated `aerovista-commerce-sandbox` Compose project on an unpublished private
+bridge, with separate PostgreSQL at migration `0004_checkout_sessions` and no
+fulfillment workers. Catalog, persistent quote, and real Square sandbox
+payment-link tests pass for both Gear and Horizon. Each store made exactly one
+provider call and passed same-key replay; production Compose services remain
+unchanged.
 **Legacy Gear routes:** Protected and unchanged
 
 This checkpoint converts the Plan 1 API requirements into executable request/response contracts before backend code is changed.
@@ -112,15 +114,22 @@ npm run audit:commerce-v1-contract
 
 The audit validates all fixtures and checks quote arithmetic, currency consistency, provider-data exclusion, store/quote binding, redirect policy, route separation, and all four idempotency scenarios.
 
-## Next implementation checkpoint
+## Completed implementation checkpoint
 
-Implement these contracts in a private, versioned backend repository using:
+The private, versioned backend now includes:
 
-1. Read-only Gear catalog adapter first.
+1. Read-only Gear and synthetic Horizon catalog adapters.
 2. Persistent quote storage with catalog/store version references.
 3. Persistent idempotency records with a uniqueness constraint.
-4. Square sandbox payment-link adapter.
-5. Non-fulfilling signed webhook test path.
+4. Guarded Square sandbox payment-link adapter.
+5. PII-free checkout status.
 6. Legacy route regression tests executed unchanged beside `/v1` tests.
+
+## Next implementation checkpoint
+
+Add the non-fulfilling signed Square sandbox webhook path. Its gate must cover
+valid and invalid signatures, duplicate delivery, store routing, persistence,
+and an explicit assertion that no fulfillment worker or production route is
+involved. After that, add rate limiting and a documented rollback rehearsal.
 
 Do not deploy `/v1` to the production API until the sandbox and backend rollback artifacts exist.
