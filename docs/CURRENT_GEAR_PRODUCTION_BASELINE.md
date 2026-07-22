@@ -82,12 +82,23 @@ If a future Gear release changes product identity, cart identity, checkout behav
 5. Recheck a homepage product, two colliding cart keys with distinct variation IDs, cart persistence, and checkout handoff.
 6. Do not roll back Square, orders, webhooks, fulfillment, or catalog data for a static-only failure.
 
-## Remaining prerequisites before backend mutation
+## Prerequisite status
 
-- Establish a canonical private, versioned home for the currently ignored backend source.
-- Rotate and remove plaintext operational credentials and environment backups from shared storage.
-- Create an isolated Square sandbox API deployment and a non-fulfilling provider test path.
-- Confirm the preview hostname and exact preview/production CORS origins.
-- Approve the normalized store/catalog schemas and the `/v1` contract before implementation.
+- Complete: private, versioned repositories now hold the sanitized backend and
+  operator-console source.
+- Complete: the isolated NXCore/Square sandbox has no public route or
+  fulfillment workers and has passed checkout, webhook, rate-limit, migration,
+  rollback, and legacy regression gates.
+- Complete: normalized store/catalog schemas and the additive `/v1` contract
+  are approved in executable fixtures.
+- Complete: Gear and Horizon are isolated console workspaces; Horizon remains
+  draft-only.
+- Complete: the console uses a catalog-only production credential instead of
+  the broad operations secret.
+- Remaining for production `/v1` only: approve/deploy the prepared
+  Cloudflare-to-Traefik router and trusted-source boundary, then take fresh
+  immutable image and database rollback artifacts immediately before the
+  production migration.
 
-The current-contract documentation and regression fixtures may proceed before those items because they are sanitized, additive, and do not change production behavior.
+These additions have not changed Gear's public catalog files, checkout path,
+DNS, GitHub Pages origin, workers, or production database revision.

@@ -11,9 +11,9 @@ sandbox checkout, and PII-free checkout status are implemented in the separate
 private backend repository. Checkout requires two feature flags and refuses to
 run unless `SQUARE_ENV=sandbox`.
 
-**NXCore sandbox status:** Private backend commit `0aa9f72` is running in the
-isolated `aerovista-commerce-sandbox` Compose project on an unpublished private
-bridge, with separate PostgreSQL at migration `0006_commerce_rate_limits` and no
+**NXCore sandbox status:** The private backend is running in the isolated
+`aerovista-commerce-sandbox` Compose project on an unpublished private bridge,
+with separate PostgreSQL at migration `0006_commerce_rate_limits` and no
 fulfillment workers. Catalog, persistent quote, and real Square sandbox
 payment-link tests pass for both Gear and Horizon. Each store made exactly one
 provider call and passed same-key replay. Independently signed synthetic
@@ -136,12 +136,20 @@ The private, versioned backend now includes:
    separate kill switch and signature key.
 8. Cross-worker rate-limit counters with no raw source-address persistence.
 9. A successful isolated database downgrade/restoration rehearsal.
+10. Explicit trusted-proxy source attribution with spoofed-header rejection and
+    a prepared, not-yet-deployed Cloudflare-to-Traefik `/v1` router.
+11. An isolated multi-store operator console: Gear is the protected live
+    workspace; Horizon is draft-only and cannot invoke Gear publication.
+12. A dedicated catalog publication credential. The operator console no longer
+    requires the broad production operations secret.
 
 ## Next implementation checkpoint
 
-Validate trusted client-source attribution through the production Traefik path
-before enabling these rate limits publicly. Then integrate the store-aware
-catalog contracts into the private operator console without changing the
-existing Gear publication path.
+Approve and deploy the prepared Cloudflare-to-Traefik source boundary in a
+controlled release window, then expose `/v1` with production feature flags still
+off and run origin/client-source probes. The current public `/v1/stores` path
+returns a same-URL `301` loop, confirming that the new router is not active;
+legacy `/api/*`, checkout, and the Gear storefront remain healthy.
 
-Do not deploy `/v1` to the production API until the sandbox and backend rollback artifacts exist.
+Do not deploy or enable the production `/v1` application routes until that
+ingress release and a fresh rollback image/database backup are approved.
