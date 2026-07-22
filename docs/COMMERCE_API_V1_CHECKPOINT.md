@@ -5,6 +5,11 @@
 **Status:** Approved for isolated sandbox implementation
 
 **Production effect:** None
+
+**Local implementation status:** Catalog, persistent quote, idempotent Square
+sandbox checkout, and PII-free checkout status are implemented in the separate
+private backend repository. Checkout requires two feature flags and refuses to
+run unless `SQUARE_ENV=sandbox`.
 **Legacy Gear routes:** Protected and unchanged
 
 This checkpoint converts the Plan 1 API requirements into executable request/response contracts before backend code is changed.
