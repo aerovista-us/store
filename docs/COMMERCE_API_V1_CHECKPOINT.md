@@ -10,6 +10,12 @@
 sandbox checkout, and PII-free checkout status are implemented in the separate
 private backend repository. Checkout requires two feature flags and refuses to
 run unless `SQUARE_ENV=sandbox`.
+
+**NXCore sandbox status:** Private backend commit `4818b3e` is running in the
+isolated `aerovista-commerce-sandbox` Compose project with internal networking,
+separate PostgreSQL at migration `0004_checkout_sessions`, no fulfillment
+workers, and checkout disabled. Catalog and persistent quote smoke tests pass;
+production Compose services remain unchanged.
 **Legacy Gear routes:** Protected and unchanged
 
 This checkpoint converts the Plan 1 API requirements into executable request/response contracts before backend code is changed.
