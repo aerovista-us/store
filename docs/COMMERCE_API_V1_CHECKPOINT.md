@@ -2,7 +2,7 @@
 
 **Contract:** `1.0.0-alpha.1`
 
-**Status:** Isolated Square sandbox checkout verified for Gear and Horizon
+**Status:** Isolated checkout and signed webhook routing verified for Gear and Horizon
 
 **Production effect:** None
 
@@ -11,13 +11,15 @@ sandbox checkout, and PII-free checkout status are implemented in the separate
 private backend repository. Checkout requires two feature flags and refuses to
 run unless `SQUARE_ENV=sandbox`.
 
-**NXCore sandbox status:** Private backend commit `2e675e5` is running in the
+**NXCore sandbox status:** Private backend commit `2fe7089` is running in the
 isolated `aerovista-commerce-sandbox` Compose project on an unpublished private
-bridge, with separate PostgreSQL at migration `0004_checkout_sessions` and no
+bridge, with separate PostgreSQL at migration `0005_commerce_webhooks` and no
 fulfillment workers. Catalog, persistent quote, and real Square sandbox
 payment-link tests pass for both Gear and Horizon. Each store made exactly one
-provider call and passed same-key replay; production Compose services remain
-unchanged.
+provider call and passed same-key replay. Independently signed synthetic
+`payment.updated` events passed invalid-signature rejection, one-row duplicate
+handling, store-specific checkout routing, and zero-order/zero-fulfillment
+assertions. Production Compose services remain unchanged.
 **Legacy Gear routes:** Protected and unchanged
 
 This checkpoint converts the Plan 1 API requirements into executable request/response contracts before backend code is changed.
@@ -124,12 +126,14 @@ The private, versioned backend now includes:
 4. Guarded Square sandbox payment-link adapter.
 5. PII-free checkout status.
 6. Legacy route regression tests executed unchanged beside `/v1` tests.
+7. PII-minimized, duplicate-safe Square sandbox webhook receipts with a
+   separate kill switch and signature key.
 
 ## Next implementation checkpoint
 
-Add the non-fulfilling signed Square sandbox webhook path. Its gate must cover
-valid and invalid signatures, duplicate delivery, store routing, persistence,
-and an explicit assertion that no fulfillment worker or production route is
-involved. After that, add rate limiting and a documented rollback rehearsal.
+Add rate limiting to quote, checkout, and webhook routes, then execute and
+document an isolated rollback rehearsal for migration `0005`. The rehearsal
+must preserve the sandbox database volume, restore `0005`, and leave production
+untouched.
 
 Do not deploy `/v1` to the production API until the sandbox and backend rollback artifacts exist.
