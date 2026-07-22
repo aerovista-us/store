@@ -4110,7 +4110,7 @@
       if(!productId) return null;
       const storedVid = String(it.variationId || it.variation_id || "").trim();
       const mappedVid = p ? variationIdForCartLine(p, color, size) : "";
-      const variationId = mappedVid || storedVid;
+      const variationId = storedVid || mappedVid;
       return {
         ...it,
         productId,
@@ -5603,10 +5603,10 @@
         const size = String(it.size ?? "").trim() || "One Size";
         const storedVid = String(it.variationId || it.variation_id || "").trim();
         const mappedVid = p ? variationIdForCartLine(p, color, size) : "";
-        const variation_id = mappedVid || storedVid;
+        const variation_id = storedVid || mappedVid;
         const cartSku = buildCartSku(color, size);
         if(p && mappedVid && storedVid && mappedVid !== storedVid){
-          console.warn("Cart variationId corrected at checkout:", it.name, storedVid, "→", mappedVid);
+          console.warn("Cart variationId mismatch (using stored):", it.name, storedVid, "map:", mappedVid);
         }
         return { ...it, color, size, cartSku, variation_id };
       });
