@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Help, Shipping & Returns — AeroVista Apparel</title>
+  <meta name="description" content="AeroVista Apparel FAQ, shipping, returns, exchanges, and contact information." />
+  <link rel="canonical" href="https://gear.aerovista.us/policies.html" />
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./content-pages.css" />
+  <script src="./policy-content.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#faq">Skip to help information</a>
+  <header class="topbar">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span><span>AeroVista Apparel</span></a>
+      <div class="navlinks"><a href="catalog.html">Shop</a><a href="index.html#collectionsLanding">Collections</a><a href="about.html">About</a></div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">CUSTOMER CARE</p>
+      <h1>Helpful details,<br />without the hunt.</h1>
+      <p class="lead">Sizing, production timing, shipping, returns, and contact information for AeroVista Apparel.</p>
+      <div class="actions"><a class="button primary" href="catalog.html">Continue shopping →</a></div>
+    </section>
+
+    <nav class="policyNav" aria-label="Customer care sections"><a href="#faq">FAQ</a><a href="#shipping">Shipping</a><a href="#returns">Returns</a><a href="#contact">Contact</a></nav>
+    <noscript><p class="policySection">JavaScript is required to display the shared policy text. Contact <a href="mailto:orders@aerovista.us">orders@aerovista.us</a> for help.</p></noscript>
+    <section class="policySection" id="faq"><h2>FAQ</h2><div data-policy="faq"></div></section>
+    <section class="policySection" id="shipping"><h2>Shipping</h2><div data-policy="shipping"></div></section>
+    <section class="policySection" id="returns"><h2>Returns &amp; exchanges</h2><div data-policy="returns"></div></section>
+    <section class="policySection" id="contact"><h2>Contact</h2><div data-policy="contact"></div></section>
+  </main>
+
+  <footer class="footer"><span>© 2026 AeroVista LLC</span><div class="footerLinks"><a href="about.html">Our story</a><a href="catalog.html">Shop</a></div></footer>
+  <script>
+    (function () {
+      var pack = window.AV_STORE_POLICY_PACK || {};
+      var policies = pack.policies || {};
+      document.querySelectorAll("[data-policy]").forEach(function (node) {
+        var key = node.getAttribute("data-policy");
+        node.innerHTML = policies[key] || "<p>Contact orders@aerovista.us for assistance.</p>";
+      });
+    })();
+  </script>
+</body>
+</html>

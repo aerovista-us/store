@@ -168,7 +168,7 @@ const indexHtml = fs.readFileSync(path.join(storeDir, "index.html"), "utf8");
 const uxChecks = [
   ["headerShopBtn", /id="headerShopBtn"/],
   ["size pills", /id="mSizePills"/],
-  ["featured drop tiles", /dropPiece__thumb/],
+  ["commerce-first home product grid", /id="homeProductGrid"/],
   ["Shop card CTA", /<button class="btn primary" data-quick="[^"]+"[^>]*>Shop<\/button>/],
   ["Add to bag", /id="addToCartBtn">Add to bag/],
 ];

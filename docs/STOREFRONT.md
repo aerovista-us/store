@@ -25,6 +25,8 @@ Canonical source lives in **`store/`**; run **`npm run sync:store`** before dev/
 | Collection header banners | `store/js/collection-header-svg.js` (v2 unified panoramic headers — all five lanes) |
 | Product image placeholders | `store/js/product-placeholder-svg.js` |
 | Policies (injected) | `store/policy-content.js` |
+| About / Story | `store/about.html` with shared `store/content-pages.css` |
+| Customer-care page | `store/policies.html` (renders the shared policy pack) |
 | Product images | `store/img/` |
 | Helper routes | `store/collection.html`, `store/catalog.html` (redirect to query routes) |
 | Payment backend | **Not in this repo** — Flask service on NXCore; ports **8088** / **18088** locally |
@@ -37,7 +39,7 @@ Canonical source lives in **`store/`**; run **`npm run sync:store`** before dev/
 
 | View | URL examples | What the customer sees |
 |------|----------------|------------------------|
-| **home** | `/shop/index.html` | Hero, collection entry doors, featured drop, signal lab — **no product grid** |
+| **home** | `/shop/index.html` | Compact hero, eight catalog-driven featured products, collection shortcuts, trust content, and story teaser |
 | **collection** | `?collection=core` or `collection.html?collection=shadow` | Themed collection hero, filters, grid for that lane only |
 | **catalog** | `?view=catalog` or `catalog.html` | Full apparel grid (`All pieces`); collection dropdown hidden |
 
@@ -163,15 +165,17 @@ Products need top-level **`{ "products": [ ... ] }`**. Collection labels on card
 
 ---
 
-## Luxury fast-buy UX (Phase A)
+## Commerce-first fast-buy UX (Plan 1A)
 
 Header and home CTAs prioritize shopping over browsing:
 
 | Element | Behavior |
 |---------|----------|
 | **Shop** (header) | Opens full catalog (`goToCatalog`) |
-| **Shop Shadow Wear** (hero) | Opens `?collection=shadow` |
-| **Featured Drop** tiles | Category label + product image only; `hydrateFeaturedDropTiles()` sets img alt and button aria-label from catalog; open product modal |
+| **Shop products** (hero) | Scrolls directly to the homepage product grid |
+| **Homepage products** | `renderHomeProducts()` selects eight sellable, imaged products; overlay-featured order wins, then the reviewed fallback IDs fill the mix |
+| **About / Our story** | Opens the dedicated `about.html` narrative page without placing long-form story content before products |
+| **More filters** | Keeps secondary tag chips behind a disclosure while category filters remain visible |
 | **Product cards** | Primary CTA label **Shop** (not Quick View) |
 
 **Product modal (express lane):**
@@ -181,7 +185,7 @@ Header and home CTAs prioritize shopping over browsing:
 - **Color pills** hidden when only one color / `Default`
 - **Square SOT** — Only variants with a Square catalog **`variation_id`** (Token) appear in the shop. Sizes/colors come from the sellable map only. Products with zero sellable variants are hidden. At load, the shop reads **`sellableCartKeys`** from `GET /api/square/bootstrap` (fallback: `store/checkout_ready_keys.json`).
 - **Add to bag** → requires a sellable size in Square; cart keys use `Default__{size}` when the product has no color variant.
-- **Checkout** → validates sellable keys before redirect. Cart lines store Square **`variationId`** at add-to-bag so hosted checkout receives the correct item even when cart keys overlap (`Default__M`, etc.). Run `npm run audit:checkout-keys` to refresh the static fallback list.
+- **Checkout** → validates sellable keys before redirect. Cart lines store Square **`variationId`** at add-to-bag so hosted checkout receives the correct item even when cart keys overlap (`Default__M`, etc.). The `audit:checkout-keys` command creates production checkout sessions for every visible variant and rewrites the fallback file; do not run it as a routine read-only audit.
 - Fit + ship summary in `#modalBrief`; full detail grid hidden on product modal (still used for policy/info modals)
 - Provider / external checkout button removed from modal
 
@@ -211,9 +215,10 @@ Promo codes (`SEED10`, `CREW15`) remain client-side estimates only — Square ch
 1. Update **`store/square_products_latest.json`** (+ images)
 2. **`npm run clean:overlay`** / **`audit:overlay`** if overlay changed
 3. **`npm run sync:store`**
-4. **`npm run audit:storefront`** — lane coverage, catalog images, featured-drop IDs, Phase A UX markers
-5. Spot-check: home (no grid), each collection lane, catalog, one checkout on staging
-6. **`npm run build:pages`** → push for GitHub Pages
+4. **`npm run audit:storefront`** — lane coverage, catalog images, featured IDs, and purchase-path markers
+5. **`npm run audit:storefront-conversion`** — commerce-first structure, About/policy routes, and checkout-ID guardrails
+6. Spot-check: eight homepage products, one homepage product modal/cart path, About, policies, each collection lane, catalog filters, and one authorized checkout initiation
+7. **`npm run build:pages`** → push for GitHub Pages
 
 ---
 

@@ -45,6 +45,10 @@ robocopy-log.txt
 .vscode/*
 !.vscode/extensions.json
 
+# Browser QA artifacts
+.playwright-cli/
+output/playwright/
+
 # --- Raw Square exports & bulky data (NAS intake; not for git) ---
 *.xlsx
 *.xls

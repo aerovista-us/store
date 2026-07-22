@@ -141,6 +141,7 @@
     .pill:hover{ border-color: rgba(110,231,255,.35); background:rgba(255,255,255,.06); }
     .pill:active{ transform:scale(.98); }
     .pill .k{ font-family: var(--mono); font-size: 11px; opacity:.7; border:1px solid var(--line); padding:2px 6px; border-radius: 8px; }
+    a.pill{ text-decoration:none; }
     .cartBtn{ position:relative; cursor:pointer; -webkit-user-select:none; user-select:none; }
     .badge{
       position:absolute; right:-6px; top:-6px;
@@ -677,6 +678,27 @@
       .chips::-webkit-scrollbar{ display:none; }
       .chips .chip{ flex-shrink:0; }
     }
+    .moreFilters{
+      margin-top:10px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:14px;
+      background:rgba(255,255,255,.02);
+    }
+    .moreFilters summary{
+      min-height:44px;
+      display:flex;
+      align-items:center;
+      cursor:pointer;
+      padding:8px 12px;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:600;
+      list-style:none;
+    }
+    .moreFilters summary::-webkit-details-marker{ display:none; }
+    .moreFilters summary::after{ content:"+"; margin-left:auto; color:var(--accent); font-family:var(--mono); }
+    .moreFilters[open] summary::after{ content:"−"; }
+    .moreFilters #tagChips{ margin:0; padding:0 10px 12px; }
     .chip{
       cursor:pointer;
       -webkit-user-select:none;
@@ -757,6 +779,9 @@
     }
     .landingHeadline{ font-size: clamp(28px, 5vw, 52px); line-height:1.05; letter-spacing:-.03em; margin:0; }
     .landingTagline{ margin:14px 0 0; color:var(--muted); font-size:15px; line-height:1.55; max-width:68ch; }
+    .heroCard--commerce{ grid-template-columns:minmax(0,1.25fr) minmax(220px,.55fr); align-items:center; padding:16px 18px; }
+    .heroCard--commerce .heroRow{ margin-top:0; }
+    .heroCard--commerce .heroScene{ max-width:280px; margin-left:auto; }
     .heroStats{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px; margin-top:18px; max-width:680px; }
     .heroStat{ border:1px solid rgba(255,255,255,.09); background:rgba(255,255,255,.025); border-radius:16px; padding:12px; }
     .heroStat b{ display:block; font-size:17px; letter-spacing:.02em; }
@@ -766,6 +791,67 @@
     .sectionHead{ display:flex; align-items:flex-end; justify-content:space-between; gap:14px; margin:0 0 16px; }
     .sectionHead h2{ margin:0; font-size:clamp(20px, 3vw, 26px); letter-spacing:-.03em; font-weight:700; }
     .sectionHead p{ margin:8px 0 0; color:var(--muted); max-width:72ch; font-size:14px; line-height:1.5; }
+    .sectionKicker{
+      margin:0 0 8px !important;
+      color:rgba(110,231,255,.82) !important;
+      font-family:var(--mono);
+      font-size:10px !important;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    .commerceSectionHead{ align-items:center; }
+    .homeProducts{
+      scroll-margin-top:90px;
+      padding:22px;
+      border:1px solid rgba(110,231,255,.14);
+      border-radius:var(--radius2);
+      background:
+        radial-gradient(620px 260px at 5% 0%, rgba(110,231,255,.09), transparent 58%),
+        linear-gradient(180deg, rgba(255,255,255,.028), rgba(255,255,255,.012));
+      box-shadow:var(--shadow);
+    }
+    .homeProductGrid{ margin-top:4px; }
+    .homeProductGrid .card .desc{
+      display:-webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+    }
+    .trustStrip{
+      margin-top:18px;
+      padding-top:16px;
+      border-top:1px solid rgba(255,255,255,.08);
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:10px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.45;
+    }
+    .trustStrip span,
+    .trustStrip a{
+      display:block;
+      color:inherit;
+      padding:10px 12px;
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:14px;
+      background:rgba(0,0,0,.16);
+    }
+    .trustStrip a:hover{ color:var(--text); border-color:rgba(110,231,255,.25); }
+    .trustStrip b{ color:var(--text); font-weight:650; }
+    .storyTeaser{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:22px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:var(--radius2);
+      background:linear-gradient(140deg, rgba(255,255,255,.035), rgba(110,231,255,.035));
+    }
+    .storyTeaser h2{ margin:0; font-size:clamp(20px,3vw,28px); letter-spacing:-.03em; }
+    .storyTeaser p:not(.sectionKicker){ margin:10px 0 0; color:var(--muted); max-width:76ch; line-height:1.55; }
+    .storyTeaser .btn{ flex:0 0 auto; }
     .collectionGrid{
       display:grid; grid-template-columns:repeat(12,1fr); gap:12px;
       perspective:1100px;
@@ -794,7 +880,7 @@
     .collectionDoor:hover{ transform:translateY(-3px); border-color:rgba(110,231,255,.28); }
     /* PNG door cards — full-bleed art + beveled fabric-over-cutout lip */
     .collectionDoor.hasArt{
-      min-height:300px;
+      min-height:250px;
       padding:0;
       border:1px solid rgba(255,255,255,.08);
       background:#050608;
@@ -2506,6 +2592,11 @@
       .heroScene{ max-width: 100%; }
       .heroVisual{ max-width: 100%; }
       .glowStamp{ width: 100%; height: auto; }
+      .heroCard--commerce{ grid-template-columns:1fr; padding:16px; }
+      .heroCard--commerce .heroRight{ display:none; }
+      .topNavLink{ display:none; }
+      .trustStrip{ grid-template-columns:1fr 1fr; }
+      .storyTeaser{ align-items:flex-start; flex-direction:column; }
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -2524,6 +2615,16 @@
       .pill[aria-label="Search shortcut"] > span:first-child{ display:none; }
       .actions{ gap:6px; }
       .pill{ padding:10px 12px; }
+      .brand .sub{ display:none; }
+      .hero{ padding:18px 0 4px; }
+      .topCap{ margin-bottom:12px; }
+      .heroCard--commerce .note,
+      .heroCard--commerce #exploreCollectionsBtn{ display:none; }
+      .homeProducts{ padding:17px 14px; }
+      .commerceSectionHead{ align-items:flex-start; flex-direction:column; }
+      .commerceSectionHead p:not(.sectionKicker),
+      #homeShopAllBtn{ display:none; }
+      .trustStrip{ grid-template-columns:1fr; }
     }
 
     :focus-visible{
@@ -2542,10 +2643,10 @@
 </head>
 <body>
 
-  <a href="#collectionsLanding" class="skip-link">Skip to collections</a>
+  <a href="#featuredProducts" class="skip-link" id="skipLink">Skip to products</a>
   <header class="topbar">
     <div class="wrap">
-      <a class="brand" href="#" id="homeLink" aria-label="Home">
+      <a class="brand" href="index.html" id="homeLink" aria-label="Home">
         <div class="logo" aria-hidden="true"></div>
         <div>
           <h1>AeroVista Apparel</h1>
@@ -2555,6 +2656,8 @@
 
       <div class="actions">
         <button type="button" class="pill pill--shop" id="headerShopBtn">Shop</button>
+        <a class="pill topNavLink" href="index.html#collectionsLanding">Collections</a>
+        <a class="pill topNavLink" href="about.html">About</a>
         <div class="pill" title="Search shortcut (press / to focus search)" role="button" tabindex="0" aria-label="Search shortcut">
           <span style="opacity:.85">Search</span>
           <span class="k">/</span>
@@ -2574,40 +2677,18 @@
         <div class="heroKicker">AV-APPAREL / CURATED / 2026</div>
         <h2 class="landingHeadline">Quiet essentials. Confident marks.</h2>
         <p class="landingTagline">
-          Curated blanks, disciplined palette, made to order. Start with Shadow Wear or browse every piece when you are ready.
+          Apparel built around clean marks, wearable color, and made-to-order production. Shop the current collection below.
         </p>
       </div>
 
-      <div class="heroCard">
+      <div class="heroCard heroCard--commerce">
         <div class="heroLeft">
           <div class="heroRow">
-            <button class="cta" type="button" id="heroShopShadowBtn">Shop Shadow Wear</button>
-            <button class="btn" type="button" id="scrollToProducts">All pieces</button>
+            <button class="cta" type="button" id="scrollToProducts">Shop products</button>
+            <a class="btn" href="about.html">Our story</a>
             <button class="btn" type="button" id="exploreCollectionsBtn">Collections</button>
             <div class="note">Secure Square checkout · Typical ship 5–12 days</div>
           </div>
-
-          <div class="heroStats" aria-label="Collection lanes">
-            <div class="heroStat"><b>Core</b><span>Clean essentials and disciplined marks.</span></div>
-            <div class="heroStat"><b>Glitch</b><span>Signal interference and tech-forward art.</span></div>
-            <div class="heroStat"><b>Apex</b><span>Emblem-led identity pieces.</span></div>
-          </div>
-
-          <div class="system" aria-label="Curated system">
-            <div class="sysCard">
-              <div class="t">01 · Curation</div>
-              <div class="b">We select proven blanks and keep options tight. Less noise, better decisions.</div>
-            </div>
-            <div class="sysCard">
-              <div class="t">02 · Palette</div>
-              <div class="b">Neutral colorways that repeat across the line—so your pieces always match.</div>
-            </div>
-            <div class="sysCard">
-              <div class="t">03 · Signal</div>
-              <div class="b">Small marks, clean placement, and tonal execution—recognizable without shouting.</div>
-            </div>
-          </div>
-
         </div>
 
         <div class="heroRight">
@@ -2875,11 +2956,31 @@
       </div>
     </section>
 
+    <section class="landingSection homeProducts" id="featuredProducts" aria-labelledby="featuredProductsTitle" tabindex="-1">
+      <div class="sectionHead commerceSectionHead">
+        <div>
+          <p class="sectionKicker">Featured / Ready to shop</p>
+          <h2 id="featuredProductsTitle">Start with the gear.</h2>
+          <p>Current featured pieces, selected from the same live catalog and sellability rules used at checkout.</p>
+        </div>
+        <button class="btn" type="button" id="homeShopAllBtn">Shop all products →</button>
+      </div>
+      <div id="homeProductStatus" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+      <div class="grid homeProductGrid" id="homeProductGrid" aria-label="Featured AeroVista products"></div>
+      <div class="trustStrip" aria-label="Store assurances">
+        <span><b>Secure checkout</b> through Square</span>
+        <span><b>Made to order</b> in 2–5 business days</span>
+        <a href="policies.html#shipping"><b>Shipping</b> typically 5–12 business days total</a>
+        <a href="policies.html#returns"><b>Returns</b> and fulfillment support</a>
+      </div>
+    </section>
+
     <section class="landingSection" id="collectionsLanding">
       <div class="sectionHead">
         <div>
-          <h2>Choose your entry point.</h2>
-          <p>The homepage is the curated storefront. Product browsing starts after a visitor understands the world they are stepping into.</p>
+          <p class="sectionKicker">Browse by collection</p>
+          <h2>Find your lane.</h2>
+          <p>Use collections when you want a specific visual direction, or stay in the full catalog to search every piece.</p>
         </div>
       </div>
       <div class="collectionGrid" aria-label="AeroVista gear collections">
@@ -2911,61 +3012,17 @@
       </div>
     </section>
 
-    <section class="landingSection" id="featuredDrop" aria-labelledby="featuredDropTitle">
-      <div class="featuredDrop">
-        <div class="featuredDrop__copy">
-          <p class="dropKicker">Featured Drop</p>
-          <h2 class="dropTitle" id="featuredDropTitle">Shadow Wear</h2>
-          <p class="dropCopy">The quietest gear in the room usually has the heaviest presence. Shadow Wear brings black-on-black camo, tactical geometry, and low-signal streetwear into the AeroVista gear system.</p>
-          <div class="dropActions">
-            <button type="button" class="cta dropCtaPrimary" data-collection-lane="shadow">Shop Shadow Wear →</button>
-            <button type="button" class="btn dropCtaSecondary" data-collection-lane="apex">Browse Apex</button>
-          </div>
-        </div>
-        <div class="dropPieces" aria-label="Featured Shadow Wear pieces">
-          <button type="button" class="dropPiece" data-quick="shadow-wear-ghost-ridge" aria-label="Shop: Shadow Wear Ghost Ridge">
-            <span class="dropPiece__label">Featured</span>
-            <span class="dropPiece__thumb"><img src="./img/Shadow%20Wear%20%20Ghost%20Ridge.png" alt="" loading="lazy" decoding="async" /></span>
-          </button>
-          <button type="button" class="dropPiece" data-quick="shadow-pants" aria-label="Shop: shadow pants">
-            <span class="dropPiece__label">Bottoms</span>
-            <span class="dropPiece__thumb"><img src="./img/shadow%20pants.png" alt="" loading="lazy" decoding="async" /></span>
-          </button>
-          <button type="button" class="dropPiece" data-quick="men-s-ghost-shorts" aria-label="Shop: Men's Ghost Shorts">
-            <span class="dropPiece__label">Shorts</span>
-            <span class="dropPiece__thumb"><img src="./img/shadowwear.boardshorts.png" alt="" loading="lazy" decoding="async" /></span>
-          </button>
-          <button type="button" class="dropPiece" data-quick="aerovista-apex-pattern-print-swimsuit-one-piece" aria-label="Shop: Shadow Wear One-Piece Swimsuit">
-            <span class="dropPiece__label">Statement</span>
-            <span class="dropPiece__thumb"><img src="./img/AeroVistaApex%20ShadowOnePieceSwimsuit.png" alt="" loading="lazy" decoding="async" /></span>
-          </button>
-        </div>
+    <section class="landingSection storyTeaser" aria-labelledby="storyTeaserTitle">
+      <div>
+        <p class="sectionKicker">About AeroVista Apparel</p>
+        <h2 id="storyTeaserTitle">The story is still here—after the products.</h2>
+        <p>Each collection is part of one visual system: clean foundations, stealth patterns, emblem-led pieces, signal distortion, and artifacts from the build.</p>
       </div>
-    </section>
-<section class="landingSection" id="signalLab">
-      <div class="sectionHead"><div><h2>Signal Lab / Coming Online.</h2><p>These worlds are real, but they should not pretend to be full top-level collections until they have enough depth. Tease them, gather interest, then promote them when the product line catches up.</p></div></div>
-      <div class="signalLabGrid">
-        <article class="signalCard"><span class="status">Coming Online</span><h3>EchoVerse</h3><p>Music-linked apparel, album drops, sound-world visuals, and story-driven signal pieces.</p></article>
-        <article class="signalCard"><span class="status">Coming Online</span><h3>Lumina Creative</h3><p>Brand, light, launch, and revenue-campaign capsules for the creative/business side of AV.</p></article>
-        <article class="signalCard"><span class="status">Coming Online</span><h3>NX Series</h3><p>Private-system, server, node, and build infrastructure graphics. Some pieces may graduate into Architect or Glitch.</p></article>
-        <article class="signalCard"><span class="status">Coming Online</span><h3>CDA Signals</h3><p>Regional signal pieces tied to ccore da a lane, coordinates, local identity, and field/sticker drops.</p></article>
-      </div>
-    </section>
-
-    <section class="landingSection">
-      <div class="sectionHead"><div><h2>Where should I start?</h2><p>A quick visitor map keeps the universe from feeling chaotic.</p></div></div>
-      <div class="guideGrid">
-        <div class="guideCard"><b>Start clean.</b><span>Core: founder/operator essentials with disciplined marks.</span></div>
-        <div class="guideCard"><b>Go dark.</b><span>Shadow Wear: stealth streetwear and black-on-black pattern language.</span></div>
-        <div class="guideCard"><b>Go bold.</b><span>Apex: A-mark led emblem and identity pieces.</span></div>
-        <div class="guideCard"><b>Go experimental.</b><span>Glitch: waveform, scan-card, node, and broken-transmission graphics.</span></div>
-        <div class="guideCard"><b>Capture the build.</b><span>Architect: drafts, diagrams, build artifacts, and limited-ish making-of gear.</span></div>
-        <div class="guideCard"><b>Open the full catalog.</b><span>All pieces — search and filter when you already know what you want.</span></div>
-      </div>
+      <a class="btn primary" href="about.html">Read our story →</a>
     </section>
     </div><!-- /homeLanding -->
 
-    <section id="collectionView" class="catalogArea shop-view is-hidden" aria-label="Collection shop">
+    <section id="collectionView" class="catalogArea shop-view is-hidden" aria-label="Collection shop" tabindex="-1">
       <article class="collectionViewHero" id="collectionViewHero" style="--pageGlow:rgba(110,231,255,.12)">
         <div class="backRow"><a href="index.html" class="btn" id="collectionBackHome">← All collections</a></div>
         <div class="pageEyebrow" id="cvEyebrow">Live Collection</div>
@@ -3006,7 +3063,7 @@
 
 
 
-    <section id="productsSection" class="catalogArea shop-view is-hidden">
+    <section id="productsSection" class="catalogArea shop-view is-hidden" tabindex="-1">
       <div class="catalogIntro">
         <div>
           <h2>All pieces</h2>
@@ -3043,7 +3100,10 @@
         <div class="chip" data-cat="hats">Hats</div>
         <div class="chip" data-cat="stickers">Stickers</div>
       </div>
-      <div id="tagChips" class="chips mt-2" aria-label="Tag filters" style="margin-top:8px"></div>
+      <details class="moreFilters" id="moreFilters">
+        <summary>More filters</summary>
+        <div id="tagChips" class="chips mt-2" aria-label="Tag filters"></div>
+      </details>
       <p class="resultsMeta" id="catalogResultsMeta" aria-live="polite"></p>
       <div id="gridStatus" class="sr-only" aria-live="polite" aria-atomic="true"></div>
       <div class="grid" id="grid" aria-label="Product grid"></div>
@@ -3058,13 +3118,13 @@
 <footer class="foot">
       <div>© <span id="yr"></span> AeroVista LLC</div>
       <div class="links">
-        <a href="#" id="faqLink">FAQ</a>
+        <a href="policies.html#faq" id="faqLink">FAQ</a>
         <span class="dotSep">•</span>
-        <a href="#" id="shippingLink">Shipping</a>
+        <a href="policies.html#shipping" id="shippingLink">Shipping</a>
         <span class="dotSep">•</span>
-        <a href="#" id="returnsLink">Returns</a>
+        <a href="policies.html#returns" id="returnsLink">Returns</a>
         <span class="dotSep">•</span>
-        <a href="#" id="contactLink">Contact</a>
+        <a href="policies.html#contact" id="contactLink">Contact</a>
       </div>
     </footer>
   </main>
@@ -3309,7 +3369,7 @@
       }
     };
     // Cache-busting token for static deploys (bump on release).
-    const STORE_BUILD_ID = "2026-06-06-checkout";
+    const STORE_BUILD_ID = "2026-07-21-commerce-first-1a";
 
     // Placeholder color swatches
     const SW = {
@@ -4459,10 +4519,12 @@
       return typeof limit === "number" ? sortProducts(list).slice(0, limit) : sortProducts(list);
     }
 
-    function productCardHtml(p){
+    function productCardHtml(p, opts = {}){
+      const imageLoading = opts.eager ? "eager" : "lazy";
+      const imagePriority = opts.eager ? ' fetchpriority="high"' : "";
       let imgContent;
       if (p.imagePath) {
-        imgContent = `<img src="${escapeHtml(p.imagePath)}" alt="${escapeHtml(p.name)}" class="product-image" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center; border-radius:var(--radius); image-rendering:-webkit-optimize-contrast;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" loading="lazy" />`;
+        imgContent = `<img src="${escapeHtml(p.imagePath)}" alt="${escapeHtml(p.name)}" class="product-image" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center; border-radius:var(--radius); image-rendering:-webkit-optimize-contrast;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" loading="${imageLoading}" decoding="async"${imagePriority} />`;
         imgContent += `<div style="display:none;">${productSvg(p)}</div>`;
       } else {
         imgContent = productSvg(p);
@@ -4471,8 +4533,8 @@
       const hasGlitch = productHasGlitch(p);
       const imgClasses = ['img'].concat(hasHolo ? ['has-holo'] : [], hasGlitch ? ['has-glitch'] : []).join(' ');
       return `
-        <article class="card" ${hasHolo ? 'data-holo="1"' : ''}${hasGlitch ? ' data-glitch="1"' : ''}>
-          <div class="${imgClasses}" role="img" aria-label="${escapeHtml(p.name)} image">
+        <article class="card" data-product-id="${escapeHtml(p.id)}" ${hasHolo ? 'data-holo="1"' : ''}${hasGlitch ? ' data-glitch="1"' : ''}>
+          <div class="${imgClasses}" role="button" tabindex="0" data-quick="${escapeHtml(p.id)}" aria-label="Shop ${escapeHtml(p.name)}, ${fmt(p.price)}">
             ${imgContent}
             <div class="label"><span class="dot"></span>${escapeHtml(p.collection)} · ${categoryLabel(p.category)}</div>
             ${flagsHtml(p) || `<div></div>`}
@@ -4495,12 +4557,72 @@
     function bindQuickViewButtons(root){
       const scope = root || document;
       $$("[data-quick]", scope).forEach(btn => {
-        btn.onclick = () => {
+        const open = () => {
           const id = btn.getAttribute("data-quick");
           if(!id) return;
           openModal(id);
         };
+        btn.onclick = open;
+        if(btn.getAttribute("role") === "button"){
+          btn.onkeydown = (e) => {
+            if(e.key === "Enter" || e.key === " "){
+              e.preventDefault();
+              open();
+            }
+          };
+        }
       });
+    }
+
+    const HOME_FEATURED_FALLBACK_IDS = [
+      "shadow-wear-ghost-ridge",
+      "shadow-pants",
+      "men-s-ghost-shorts",
+      "aerovista-core-hoodie",
+      "aerovista-core-tee",
+      "aerovista-apex-signal-sweatshirt",
+      "aerovista-apex-glitch-premium-pullover-hoodie-black",
+      "architect-built-different-hoodie-black"
+    ];
+
+    function selectHomeProducts(limit = 8){
+      const eligible = sortProducts(PRODUCTS.filter(p =>
+        !p.isAd &&
+        !p._overlayHidden &&
+        p.visibility !== "hidden" &&
+        p.imagePath &&
+        Object.keys(p.squareVariationMap || {}).length > 0
+      ));
+      const byId = new Map(eligible.map(p => [p.id, p]));
+      const selected = [];
+      const seen = new Set();
+      const add = (p) => {
+        if(!p || seen.has(p.id) || selected.length >= limit) return;
+        seen.add(p.id);
+        selected.push(p);
+      };
+
+      eligible
+        .filter(p => p.featured === true || Number.isFinite(p._overlayOrder))
+        .forEach(add);
+      HOME_FEATURED_FALLBACK_IDS.map(id => byId.get(id)).forEach(add);
+      eligible.forEach(add);
+      return selected.slice(0, limit);
+    }
+
+    function renderHomeProducts(){
+      const grid = $("#homeProductGrid");
+      const status = $("#homeProductStatus");
+      if(!grid) return;
+      const list = selectHomeProducts(8);
+      if(!list.length){
+        grid.innerHTML = `<div class="card gridEmpty" style="grid-column:span 12"><div class="body"><h3 class="title">Products are temporarily unavailable.</h3><p class="desc">Please refresh or open the full catalog.</p></div></div>`;
+        if(status) status.textContent = "Featured products are temporarily unavailable.";
+        return;
+      }
+      grid.innerHTML = list.map((p, index) => productCardHtml(p, { eager: index < 3 })).join("");
+      bindQuickViewButtons(grid);
+      if(status) status.textContent = `${list.length} featured products available`;
     }
 
     function refreshProductViews(){
@@ -6394,17 +6516,20 @@
       const home = $("#homeLanding");
       const coll = $("#collectionView");
       const cat = $("#productsSection");
+      const skip = $("#skipLink");
       document.body.dataset.shopView = route.view;
       if(home) home.classList.toggle("is-hidden", route.view !== "home");
       if(coll) coll.classList.toggle("is-hidden", route.view !== "collection");
       if(cat) cat.classList.toggle("is-hidden", route.view !== "catalog");
       if(route.view === "home"){
+        if(skip){ skip.href = "#featuredProducts"; skip.textContent = "Skip to products"; }
         state.collection = "all";
         document.title = "AeroVista Apparel — Store";
         window.scrollTo(0, 0);
         return;
       }
       if(route.view === "catalog"){
+        if(skip){ skip.href = "#productsSection"; skip.textContent = "Skip to catalog"; }
         state.collection = "all";
         state.search = "";
         state.cat = "all";
@@ -6420,6 +6545,7 @@
         return;
       }
       if(route.view === "collection"){
+        if(skip){ skip.href = "#collectionView"; skip.textContent = "Skip to collection products"; }
         showCollectionView(route.lane);
         window.scrollTo(0, 0);
       }
@@ -6432,11 +6558,11 @@
       applyShopRoute({ view: "catalog" });
     }
 
-    $("#scrollToProducts").onclick = ()=> goToCatalog();
+    $("#scrollToProducts").onclick = ()=> $("#featuredProducts")?.scrollIntoView({ behavior:"smooth", block:"start" });
     const headerShopBtn = $("#headerShopBtn");
     if(headerShopBtn) headerShopBtn.onclick = () => goToCatalog();
-    const heroShopShadowBtn = $("#heroShopShadowBtn");
-    if(heroShopShadowBtn) heroShopShadowBtn.onclick = () => goToCollection("shadow");
+    const homeShopAllBtn = $("#homeShopAllBtn");
+    if(homeShopAllBtn) homeShopAllBtn.onclick = () => goToCatalog();
     const footerBrowseBtn = $("#footerBrowseBtn"); if(footerBrowseBtn) footerBrowseBtn.onclick = ()=> goToCatalog();
     const exploreCollectionsBtn = $("#exploreCollectionsBtn");
     if(exploreCollectionsBtn) exploreCollectionsBtn.onclick = ()=> $("#collectionsLanding")?.scrollIntoView({ behavior:"smooth", block:"start" });
@@ -6519,11 +6645,6 @@
       const titles = { faq: "FAQ", shipping: "Shipping", returns: "Returns & exchanges", contact: "Contact" };
       infoModal(titles[key] || key, html, { html: true });
     }
-    $("#faqLink").onclick = (e)=>{ e.preventDefault(); openPolicyModal("faq"); };
-    $("#shippingLink").onclick = (e)=>{ e.preventDefault(); openPolicyModal("shipping"); };
-    $("#returnsLink").onclick = (e)=>{ e.preventDefault(); openPolicyModal("returns"); };
-    $("#contactLink").onclick = (e)=>{ e.preventDefault(); openPolicyModal("contact"); };
-
     // Init
     async function init(){
       loadPromo();
@@ -6584,9 +6705,8 @@
       buildTagChips();
       updateCartUI();
       injectStructuredData();
+      renderHomeProducts();
       applyShopRoute(parseShopRoute());
-      bindQuickViewButtons(document.getElementById("featuredDrop"));
-      hydrateFeaturedDropTiles();
       if (typeof mountCollectionDoorSvgs === "function") {
         mountCollectionDoorSvgs(document);
       }

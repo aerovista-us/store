@@ -23,6 +23,7 @@
     "deploy:server": "node scripts/catalog-deploy-server.mjs",
     "audit:repo": "node scripts/audit-orphans.mjs",
     "audit:storefront": "node scripts/audit-storefront.mjs",
+    "audit:storefront-conversion": "node scripts/audit-storefront-conversion.mjs",
     "audit:checkout-keys": "node scripts/audit-checkout-keys.mjs",
     "build:cart-sku-map": "node scripts/build-cart-sku-map.mjs",
     "verify:checkout-fix": "node scripts/verify-live-checkout-fix.mjs",
