@@ -2,7 +2,7 @@
 
 **Contract:** `1.0.0-alpha.1`
 
-**Status:** Isolated checkout and signed webhook routing verified for Gear and Horizon
+**Status:** Isolated checkout, webhook, rate-limit, and rollback gates verified
 
 **Production effect:** None
 
@@ -11,15 +11,21 @@ sandbox checkout, and PII-free checkout status are implemented in the separate
 private backend repository. Checkout requires two feature flags and refuses to
 run unless `SQUARE_ENV=sandbox`.
 
-**NXCore sandbox status:** Private backend commit `2fe7089` is running in the
+**NXCore sandbox status:** Private backend commit `0aa9f72` is running in the
 isolated `aerovista-commerce-sandbox` Compose project on an unpublished private
-bridge, with separate PostgreSQL at migration `0005_commerce_webhooks` and no
+bridge, with separate PostgreSQL at migration `0006_commerce_rate_limits` and no
 fulfillment workers. Catalog, persistent quote, and real Square sandbox
 payment-link tests pass for both Gear and Horizon. Each store made exactly one
 provider call and passed same-key replay. Independently signed synthetic
 `payment.updated` events passed invalid-signature rejection, one-row duplicate
 handling, store-specific checkout routing, and zero-order/zero-fulfillment
 assertions. Production Compose services remain unchanged.
+
+Persistent PostgreSQL rate limits now protect quote, checkout, and webhook
+routes with HMAC-only source identifiers. The checkout limit returned `429`
+with `Retry-After` and made no provider call. An isolated `0006` → `0005` →
+`0006` rehearsal preserved all quote, checkout, webhook, order, and fulfillment
+evidence and returned the sandbox API to healthy.
 **Legacy Gear routes:** Protected and unchanged
 
 This checkpoint converts the Plan 1 API requirements into executable request/response contracts before backend code is changed.
@@ -128,12 +134,14 @@ The private, versioned backend now includes:
 6. Legacy route regression tests executed unchanged beside `/v1` tests.
 7. PII-minimized, duplicate-safe Square sandbox webhook receipts with a
    separate kill switch and signature key.
+8. Cross-worker rate-limit counters with no raw source-address persistence.
+9. A successful isolated database downgrade/restoration rehearsal.
 
 ## Next implementation checkpoint
 
-Add rate limiting to quote, checkout, and webhook routes, then execute and
-document an isolated rollback rehearsal for migration `0005`. The rehearsal
-must preserve the sandbox database volume, restore `0005`, and leave production
-untouched.
+Validate trusted client-source attribution through the production Traefik path
+before enabling these rate limits publicly. Then integrate the store-aware
+catalog contracts into the private operator console without changing the
+existing Gear publication path.
 
 Do not deploy `/v1` to the production API until the sandbox and backend rollback artifacts exist.
