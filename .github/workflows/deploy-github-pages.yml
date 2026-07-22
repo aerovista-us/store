@@ -35,6 +35,15 @@ jobs:
       - name: Install
         run: npm ci
 
+      - name: Validate protected Gear contracts
+        run: |
+          npm run audit:overlay
+          npm run audit:storefront
+          npm run audit:storefront-conversion
+          npm run audit:commerce-contract
+          npm run audit:commerce-schemas
+          npm run audit:commerce-v1-contract
+
       - name: Build public shop
         env:
           BASE_PATH: /

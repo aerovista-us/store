@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.aerovista.us/commerce/provider-mappings.schema.json",
+  "title": "AeroVista Private Provider Mappings",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "mappingVersion", "storeId", "provider", "items"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0-alpha.1" },
+    "mappingVersion": { "type": "string", "minLength": 1 },
+    "storeId": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "provider": { "enum": ["square", "printful"] },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["productId", "variantId", "providerVariationId", "compatibilityCartKey"],
+        "properties": {
+          "productId": { "type": "string", "minLength": 1 },
+          "variantId": { "type": "string", "minLength": 1 },
+          "providerVariationId": { "type": "string", "minLength": 1 },
+          "compatibilityCartKey": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

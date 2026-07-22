@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.aerovista.us/commerce/store-config.schema.json",
+  "title": "AeroVista Store Configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "storeVersion", "environment", "store", "catalog", "home", "api", "policies"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0-alpha.1" },
+    "storeVersion": { "type": "string", "minLength": 1 },
+    "environment": { "enum": ["fixture", "preview", "production"] },
+    "store": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "hostname", "theme", "currency", "locale", "cartNamespace"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "name": { "type": "string", "minLength": 1 },
+        "hostname": { "type": "string", "minLength": 1 },
+        "theme": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+        "locale": { "type": "string", "pattern": "^[a-z]{2}(?:-[A-Z]{2})?$" },
+        "cartNamespace": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" }
+      }
+    },
+    "catalog": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["channel", "defaultSort"],
+      "properties": {
+        "channel": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "defaultSort": { "enum": ["featured", "newest", "price-asc", "price-desc", "name"] }
+      }
+    },
+    "home": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hero", "featuredProductIds", "featuredLimit", "collectionOrder", "sectionOrder"],
+      "properties": {
+        "hero": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["headline", "summary"],
+          "properties": {
+            "headline": { "type": "string", "minLength": 1 },
+            "summary": { "type": "string", "minLength": 1 }
+          }
+        },
+        "featuredProductIds": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "featuredLimit": { "type": "integer", "minimum": 1, "maximum": 24 },
+        "collectionOrder": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "sectionOrder": {
+          "type": "array",
+          "items": { "enum": ["hero", "featured", "collections", "trust", "story", "signup"] },
+          "uniqueItems": true,
+          "minItems": 3
+        }
+      }
+    },
+    "api": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["catalogPath", "quotePath", "checkoutPath"],
+      "properties": {
+        "catalogPath": { "type": "string", "pattern": "^/v1/storefront/" },
+        "quotePath": { "const": "/v1/cart/quote" },
+        "checkoutPath": { "const": "/v1/checkout/session" }
+      }
+    },
+    "policies": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["faq", "shipping", "returns", "contact"],
+      "properties": {
+        "faq": { "type": "string", "minLength": 1 },
+        "shipping": { "type": "string", "minLength": 1 },
+        "returns": { "type": "string", "minLength": 1 },
+        "contact": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

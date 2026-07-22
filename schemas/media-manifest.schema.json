@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.aerovista.us/commerce/media-manifest.schema.json",
+  "title": "AeroVista Shared Media Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "mediaVersion", "assets"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0-alpha.1" },
+    "mediaVersion": { "type": "string", "minLength": 1 },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "sourceChecksum", "mimeType", "width", "height", "alt", "focalPoint", "assignments"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "sourceChecksum": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+          "mimeType": { "enum": ["image/jpeg", "image/png", "image/webp", "image/avif", "image/svg+xml"] },
+          "width": { "type": "integer", "minimum": 1 },
+          "height": { "type": "integer", "minimum": 1 },
+          "alt": { "type": "string" },
+          "focalPoint": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["x", "y"],
+            "properties": {
+              "x": { "type": "number", "minimum": 0, "maximum": 1 },
+              "y": { "type": "number", "minimum": 0, "maximum": 1 }
+            }
+          },
+          "assignments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["storeId", "role"],
+              "properties": {
+                "storeId": { "type": "string", "minLength": 1 },
+                "productId": { "type": "string", "minLength": 1 },
+                "role": { "enum": ["product", "thumbnail", "hero", "collection", "social", "logo"] }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

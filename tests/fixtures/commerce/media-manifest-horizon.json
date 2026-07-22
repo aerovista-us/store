@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0-alpha.1",
+  "mediaVersion": "horizon-fixture-v1",
+  "assets": [
+    {
+      "id": "fixture-horizon-coastal-ridge",
+      "sourceChecksum": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "mimeType": "image/jpeg",
+      "width": 2400,
+      "height": 1600,
+      "alt": "Aerial view of a coastal ridge",
+      "focalPoint": { "x": 0.5, "y": 0.45 },
+      "assignments": [
+        {
+          "storeId": "horizon",
+          "productId": "fixture-coastal-ridge-study",
+          "role": "product"
+        }
+      ]
+    }
+  ]
+}

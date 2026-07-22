@@ -1,0 +1,10 @@
+{
+  "sessionId": "session-fixture-0001",
+  "requestId": "request-fixture-0002",
+  "storeId": "aerovista-apparel",
+  "quoteId": "quote-fixture-0001",
+  "checkoutUrl": "https://square.link/u/fixture-session",
+  "status": "created",
+  "createdAt": "2026-07-22T18:01:00Z",
+  "expiresAt": "2026-07-22T18:16:00Z"
+}

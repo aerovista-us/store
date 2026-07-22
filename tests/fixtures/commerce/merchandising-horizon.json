@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0-alpha.1",
+  "merchandisingVersion": "horizon-fixture-v1",
+  "storeId": "horizon",
+  "home": {
+    "featuredProductIds": ["fixture-coastal-ridge-study"],
+    "featuredLimit": 8,
+    "sectionOrder": ["hero", "featured", "collections", "trust", "story", "signup"]
+  },
+  "collections": [
+    { "id": "aerial-studies", "label": "Aerial Studies", "order": 1, "visible": true },
+    { "id": "limited-editions", "label": "Limited Editions", "order": 2, "visible": true }
+  ],
+  "overridesByProductId": {
+    "fixture-coastal-ridge-study": {
+      "featured": true,
+      "order": 1,
+      "badge": "Featured"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.aerovista.us/commerce/checkout-session-status.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["sessionId", "requestId", "storeId", "quoteId", "status", "updatedAt"],
+  "properties": {
+    "sessionId": { "$ref": "https://schemas.aerovista.us/commerce/common.schema.json#/$defs/publicId" },
+    "requestId": { "$ref": "https://schemas.aerovista.us/commerce/common.schema.json#/$defs/requestId" },
+    "storeId": { "$ref": "https://schemas.aerovista.us/commerce/common.schema.json#/$defs/storeId" },
+    "quoteId": { "$ref": "https://schemas.aerovista.us/commerce/common.schema.json#/$defs/publicId" },
+    "status": { "enum": ["created", "pending", "completed", "canceled", "expired", "failed"] },
+    "updatedAt": { "$ref": "https://schemas.aerovista.us/commerce/common.schema.json#/$defs/timestamp" }
+  }
+}

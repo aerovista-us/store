@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.aerovista.us/commerce/error-response.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ok", "code", "message", "requestId"],
+  "properties": {
+    "ok": { "const": false },
+    "code": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]{2,63}$" },
+    "message": { "type": "string", "minLength": 1, "maxLength": 500 },
+    "requestId": { "$ref": "https://schemas.aerovista.us/commerce/common.schema.json#/$defs/requestId" },
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "code", "message"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1 },
+          "code": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]{2,63}$" },
+          "message": { "type": "string", "minLength": 1, "maxLength": 300 }
+        }
+      }
+    }
+  }
+}
