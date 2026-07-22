@@ -65,7 +65,11 @@ const expectedRoutes = {
   bootstrap: ["GET", "/api/square/bootstrap"],
   checkout: ["POST", "/api/square/checkout"],
   "square-webhook": ["POST", "/api/webhooks/square"],
-  "operations-database": ["GET", "/api/ops/db"]
+  "operations-database": ["GET", "/api/ops/db"],
+  "catalog-live": ["GET", "/api/catalog/live"],
+  "catalog-meta": ["GET", "/api/catalog/meta"],
+  "catalog-publish": ["POST", "/api/catalog/publish"],
+  "catalog-sync-from-disk": ["POST", "/api/catalog/sync-from-disk"]
 };
 
 check("contract version is pinned", contract.contractVersion === "legacy-gear-v0");
@@ -78,6 +82,10 @@ check("checkout is marked mutating", routeById.get("checkout")?.mutates === true
 check("checkout is excluded from routine live audit", routeById.get("checkout")?.routineLiveAudit === false);
 check("webhook is excluded from routine live audit", routeById.get("square-webhook")?.routineLiveAudit === false);
 check("ops endpoint is excluded from routine live audit", routeById.get("operations-database")?.routineLiveAudit === false);
+check("catalog live initialization is treated as mutating", routeById.get("catalog-live")?.mutates === true);
+check("catalog publish requires operations authentication", routeById.get("catalog-publish")?.authentication === "X-Ops-Token");
+check("catalog sync requires operations authentication", routeById.get("catalog-sync-from-disk")?.authentication === "X-Ops-Token");
+check("catalog mutation routes are excluded from routine live audit", ["catalog-live", "catalog-publish", "catalog-sync-from-disk"].every((id) => routeById.get(id)?.routineLiveAudit === false));
 
 const bootstrapFixture = readJson("tests/fixtures/commerce/legacy-bootstrap-success.json");
 const healthFixture = readJson("tests/fixtures/commerce/legacy-health-success.json");

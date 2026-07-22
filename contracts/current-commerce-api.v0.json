@@ -50,6 +50,44 @@
       "routineLiveAudit": false,
       "successStatus": 200,
       "authentication": "X-Ops-Token"
+    },
+    {
+      "id": "catalog-live",
+      "method": "GET",
+      "path": "/api/catalog/live",
+      "mutates": true,
+      "routineLiveAudit": false,
+      "successStatus": 200,
+      "responseRequired": ["ok", "storeId", "products", "imageManifest"],
+      "note": "May initialize Postgres from the mounted catalog when no row exists."
+    },
+    {
+      "id": "catalog-meta",
+      "method": "GET",
+      "path": "/api/catalog/meta",
+      "mutates": false,
+      "routineLiveAudit": false,
+      "successStatus": 200,
+      "responseRequired": ["ok", "inDatabase"]
+    },
+    {
+      "id": "catalog-publish",
+      "method": "POST",
+      "path": "/api/catalog/publish",
+      "mutates": true,
+      "routineLiveAudit": false,
+      "successStatus": 200,
+      "authentication": "X-Ops-Token",
+      "requestRequired": ["catalog"]
+    },
+    {
+      "id": "catalog-sync-from-disk",
+      "method": "POST",
+      "path": "/api/catalog/sync-from-disk",
+      "mutates": true,
+      "routineLiveAudit": false,
+      "successStatus": 200,
+      "authentication": "X-Ops-Token"
     }
   ],
   "identity": {
@@ -70,6 +108,8 @@
     "A selected cart variationId wins over a colliding Color__Size map entry.",
     "Client-sent price and cents fields are ignored by checkout.",
     "Routine live audits never call checkout or webhook routes.",
+    "Existing /api/catalog routes remain available to the private operator console.",
+    "Catalog publish and sync routes remain protected by X-Ops-Token and excluded from routine audits.",
     "Gear and future stores must use separate cart namespaces."
   ]
 }

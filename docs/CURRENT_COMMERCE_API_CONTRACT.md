@@ -21,6 +21,10 @@ The machine-readable manifest is [../contracts/current-commerce-api.v0.json](../
 | `GET`, `HEAD`, `OPTIONS` | `/api/square/bootstrap` | Public | None | Yes |
 | `POST`, `OPTIONS` | `/api/square/checkout` | Public | Creates a Square payment link | No |
 | `POST` | `/api/webhooks/square` | Square HMAC signature | Stores webhook/order data and may enqueue fulfillment | No |
+| `GET`, `OPTIONS` | `/api/catalog/live` | Public | Reads Postgres; may initialize it from the mounted catalog | No |
+| `GET`, `OPTIONS` | `/api/catalog/meta` | Public | None | No |
+| `POST` | `/api/catalog/publish` | `X-Ops-Token` | Replaces the live catalog snapshot | No |
+| `POST` | `/api/catalog/sync-from-disk` | `X-Ops-Token` | Replaces the live snapshot from mounted files | No |
 | `GET` | `/api/ops/db` | `X-Ops-Token` | None; returns private operational data | No |
 | `GET` | `/ops/printful` | `X-Ops-Token` | None; private operator UI | No |
 
@@ -150,6 +154,13 @@ A mapping result must never replace a different stored selected variation ID. Th
 
 ## Webhook and operations behavior
 
+- The private operator console also depends on the deployed `catalog_live`
+  table and `/api/catalog/*` routes discovered during the NXCore parity check.
+- `GET /api/catalog/live` is not strictly read-only: if the table is empty, it
+  initializes the row from the mounted catalog. Routine production audits must
+  therefore not call it.
+- Catalog publish and disk-sync routes require `X-Ops-Token` and must remain
+  unavailable to customer storefront code.
 - Square webhook verification uses HMAC-SHA256 over the configured notification URL plus the exact raw request body.
 - Invalid or missing signatures return `400` before event processing.
 - Completed/approved payment events retrieve the corresponding Square order before normalization.
