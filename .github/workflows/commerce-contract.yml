@@ -1,0 +1,43 @@
+name: Commerce contract gate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: commerce-contract-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Validate protected Gear and commerce contracts
+        run: |
+          npm run audit:overlay
+          npm run audit:storefront
+          npm run audit:storefront-conversion
+          npm run audit:commerce-contract
+          npm run audit:commerce-schemas
+          npm run audit:commerce-v1-contract
+
+      - name: Build protected public storefront
+        env:
+          BASE_PATH: /
+          PUBLIC_SITE_MODE: shop
+          PAGES_CNAME: gear.aerovista.us
+        run: npm run build:pages
