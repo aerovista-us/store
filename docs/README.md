@@ -12,6 +12,7 @@
 | **[CURRENT_COMMERCE_API_CONTRACT.md](CURRENT_COMMERCE_API_CONTRACT.md)** | Legacy Gear API behavior and compatibility invariants for Plan 1 |
 | **[STORE_AWARE_SCHEMA_ALPHA.md](STORE_AWARE_SCHEMA_ALPHA.md)** | Alpha multi-store schemas and read-only Gear compatibility adapter |
 | **[COMMERCE_API_V1_CHECKPOINT.md](COMMERCE_API_V1_CHECKPOINT.md)** | Versioned quote, checkout, errors, and idempotency contract |
+| **[HORIZON_STORE_DEFINITION.md](HORIZON_STORE_DEFINITION.md)** | Horizon Phase 0 decisions, fixture boundary, catalog intake, and preview gate |
 | **[REPO_LAYOUT.md](REPO_LAYOUT.md)** | What is committed vs generated |
 | **[FILE_AUDIT.md](FILE_AUDIT.md)** | Orphans, duplicates, active paths |
 | **[SKU_E2E_AUDIT.md](SKU_E2E_AUDIT.md)** | Cart keys, variation IDs, checkout flow |
