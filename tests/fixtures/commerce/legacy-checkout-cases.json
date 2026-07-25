@@ -1,0 +1,73 @@
+{
+  "cases": [
+    {
+      "id": "two-products-with-colliding-cart-keys",
+      "request": {
+        "currency": "USD",
+        "cart": [
+          {
+            "productId": "fixture-shadow-top",
+            "sku": "Default__M",
+            "variationId": "fixture-square-variation-shadow-m",
+            "qty": 1,
+            "price": 89.99
+          },
+          {
+            "productId": "fixture-shadow-bottom",
+            "sku": "Default__M",
+            "variationId": "fixture-square-variation-pants-m",
+            "qty": 1,
+            "price": 64.99
+          }
+        ]
+      },
+      "expect": {
+        "valid": true,
+        "serverIgnoresClientPrice": true,
+        "distinctVariationIds": true
+      }
+    },
+    {
+      "id": "empty-cart",
+      "request": {
+        "currency": "USD",
+        "cart": []
+      },
+      "expect": {
+        "valid": false,
+        "status": 400,
+        "error": "cart must be a non-empty list"
+      }
+    },
+    {
+      "id": "missing-cart",
+      "request": {
+        "currency": "USD"
+      },
+      "expect": {
+        "valid": false,
+        "status": 400,
+        "error": "cart must be a non-empty list"
+      }
+    },
+    {
+      "id": "invalid-quantity",
+      "request": {
+        "currency": "USD",
+        "cart": [
+          {
+            "productId": "fixture-shadow-top",
+            "sku": "Default__M",
+            "variationId": "fixture-square-variation-shadow-m",
+            "qty": 0
+          }
+        ]
+      },
+      "expect": {
+        "valid": false,
+        "status": 400,
+        "errorContains": "qty must be > 0"
+      }
+    }
+  ]
+}

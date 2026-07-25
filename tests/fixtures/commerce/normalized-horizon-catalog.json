@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0-alpha.1",
+  "catalogVersion": "horizon-fixture-v1",
+  "storeId": "horizon",
+  "currency": "USD",
+  "products": [
+    {
+      "id": "fixture-coastal-ridge-study",
+      "slug": "coastal-ridge-study",
+      "title": "Coastal Ridge Study",
+      "description": "Synthetic Horizon fixture for validating non-apparel options.",
+      "visibility": "visible",
+      "availability": "available",
+      "collections": ["aerial-studies"],
+      "channels": ["horizon"],
+      "media": [
+        {
+          "assetId": "fixture-horizon-coastal-ridge",
+          "alt": "Aerial view of a coastal ridge"
+        }
+      ],
+      "optionGroups": [
+        {
+          "id": "dimensions",
+          "label": "Dimensions",
+          "values": [
+            { "id": "18x24", "label": "18 × 24 in" },
+            { "id": "24x36", "label": "24 × 36 in" }
+          ]
+        },
+        {
+          "id": "material",
+          "label": "Material",
+          "values": [
+            { "id": "archival-paper", "label": "Archival paper" },
+            { "id": "canvas", "label": "Canvas" }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "fixture-coastal-ridge-study--18x24-paper",
+          "sku": "HZN-CRS-1824-PAPER",
+          "options": {
+            "dimensions": "18x24",
+            "material": "archival-paper"
+          },
+          "price": { "amount": 12900, "currency": "USD" },
+          "availability": "available"
+        },
+        {
+          "id": "fixture-coastal-ridge-study--24x36-canvas",
+          "sku": "HZN-CRS-2436-CANVAS",
+          "options": {
+            "dimensions": "24x36",
+            "material": "canvas"
+          },
+          "price": { "amount": 24900, "currency": "USD" },
+          "availability": "available"
+        }
+      ]
+    }
+  ]
+}

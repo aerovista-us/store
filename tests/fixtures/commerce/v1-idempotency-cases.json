@@ -1,0 +1,39 @@
+{
+  "retentionSeconds": 86400,
+  "cases": [
+    {
+      "id": "same-key-same-request",
+      "key": "fixture-key-000000000001",
+      "canonicalRequestHashes": ["sha256:request-a", "sha256:request-a"],
+      "expectedStatuses": [201, 200],
+      "expectedProviderCalls": 1,
+      "expectedSessionIds": ["session-a", "session-a"]
+    },
+    {
+      "id": "same-key-different-request",
+      "key": "fixture-key-000000000002",
+      "canonicalRequestHashes": ["sha256:request-a", "sha256:request-b"],
+      "expectedStatuses": [201, 409],
+      "expectedProviderCalls": 1,
+      "expectedErrorCode": "IDEMPOTENCY_CONFLICT"
+    },
+    {
+      "id": "concurrent-same-key",
+      "key": "fixture-key-000000000003",
+      "canonicalRequestHashes": ["sha256:request-c", "sha256:request-c"],
+      "concurrent": true,
+      "expectedStatuses": [201, 200],
+      "expectedProviderCalls": 1,
+      "expectedSessionIds": ["session-c", "session-c"]
+    },
+    {
+      "id": "expired-key",
+      "key": "fixture-key-000000000004",
+      "canonicalRequestHashes": ["sha256:request-d", "sha256:request-d"],
+      "elapsedSeconds": 86401,
+      "expectedStatuses": [201, 201],
+      "expectedProviderCalls": 2,
+      "expectedSessionIds": ["session-d1", "session-d2"]
+    }
+  ]
+}

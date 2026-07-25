@@ -1,0 +1,81 @@
+{
+  "fixtureVersion": 1,
+  "note": "Synthetic, sanitized products that preserve Gear's important catalog edge cases without provider credentials or production identifiers.",
+  "products": [
+    {
+      "id": "fixture-shadow-top",
+      "name": "Fixture Shadow Top",
+      "visibility": "visible",
+      "collection": "shadow wear",
+      "image": "fixture-shadow-top.png",
+      "variants": [
+        {
+          "size": "M",
+          "color": "",
+          "price": 89.99,
+          "variation_id": "fixture-square-variation-shadow-m"
+        }
+      ]
+    },
+    {
+      "id": "fixture-shadow-bottom",
+      "name": "Fixture Shadow Bottom",
+      "visibility": "visible",
+      "collection": "shadow wear",
+      "image": "fixture-shadow-bottom.png",
+      "variants": [
+        {
+          "size": "M",
+          "color": "",
+          "price": 64.99,
+          "variation_id": "fixture-square-variation-pants-m"
+        }
+      ]
+    },
+    {
+      "id": "fixture-hidden-product",
+      "name": "Fixture Hidden Product",
+      "visibility": "hidden",
+      "collection": "core",
+      "image": "fixture-hidden.png",
+      "variants": [
+        {
+          "size": "M",
+          "color": "",
+          "price": 50,
+          "variation_id": "fixture-square-variation-hidden-m"
+        }
+      ]
+    },
+    {
+      "id": "fixture-missing-image",
+      "name": "Fixture Missing Image",
+      "visibility": "visible",
+      "collection": "core",
+      "image": "",
+      "variants": [
+        {
+          "size": "M",
+          "color": "",
+          "price": 50,
+          "variation_id": "fixture-square-variation-no-image-m"
+        }
+      ]
+    },
+    {
+      "id": "fixture-invalid-variant",
+      "name": "Fixture Invalid Variant",
+      "visibility": "visible",
+      "collection": "core",
+      "image": "fixture-invalid.png",
+      "variants": [
+        {
+          "size": "M",
+          "color": "",
+          "price": 50,
+          "variation_id": ""
+        }
+      ]
+    }
+  ]
+}

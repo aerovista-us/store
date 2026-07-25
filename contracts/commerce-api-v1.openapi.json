@@ -1,0 +1,191 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AeroVista Commerce API",
+    "version": "1.0.0-alpha.1",
+    "description": "Additive store-aware API. Legacy /api routes remain outside this contract and unchanged during migration."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Deployment-relative origin; same-origin proxy or approved central API"
+    }
+  ],
+  "paths": {
+    "/v1/storefront/{storeId}/catalog": {
+      "get": {
+        "operationId": "getStorefrontCatalog",
+        "parameters": [
+          { "$ref": "#/components/parameters/StoreId" }
+        ],
+        "responses": {
+          "200": {
+            "description": "Normalized store catalog",
+            "headers": {
+              "X-Request-Id": { "$ref": "#/components/headers/RequestId" },
+              "ETag": { "schema": { "type": "string" } }
+            },
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "../schemas/catalog.schema.json" }
+              }
+            }
+          },
+          "404": { "$ref": "#/components/responses/Error" },
+          "429": { "$ref": "#/components/responses/Error" },
+          "500": { "$ref": "#/components/responses/Error" },
+          "503": { "$ref": "#/components/responses/Error" }
+        }
+      }
+    },
+    "/v1/cart/quote": {
+      "post": {
+        "operationId": "quoteCart",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "../schemas/cart-quote-request.schema.json" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Authoritative cart quote",
+            "headers": {
+              "X-Request-Id": { "$ref": "#/components/headers/RequestId" }
+            },
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "../schemas/cart-quote-response.schema.json" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/Error" },
+          "404": { "$ref": "#/components/responses/Error" },
+          "422": { "$ref": "#/components/responses/Error" },
+          "429": { "$ref": "#/components/responses/Error" },
+          "500": { "$ref": "#/components/responses/Error" },
+          "503": { "$ref": "#/components/responses/Error" }
+        }
+      }
+    },
+    "/v1/checkout/session": {
+      "post": {
+        "operationId": "createCheckoutSession",
+        "parameters": [
+          { "$ref": "#/components/parameters/IdempotencyKey" }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "../schemas/checkout-session-request.schema.json" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Original session replay for the same idempotency key and canonical request",
+            "headers": {
+              "X-Request-Id": { "$ref": "#/components/headers/RequestId" },
+              "Idempotent-Replayed": { "schema": { "type": "boolean" } }
+            },
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "../schemas/checkout-session-response.schema.json" }
+              }
+            }
+          },
+          "201": {
+            "description": "Checkout session created",
+            "headers": {
+              "X-Request-Id": { "$ref": "#/components/headers/RequestId" },
+              "Idempotent-Replayed": { "schema": { "type": "boolean" } }
+            },
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "../schemas/checkout-session-response.schema.json" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/Error" },
+          "404": { "$ref": "#/components/responses/Error" },
+          "409": { "$ref": "#/components/responses/Error" },
+          "422": { "$ref": "#/components/responses/Error" },
+          "429": { "$ref": "#/components/responses/Error" },
+          "500": { "$ref": "#/components/responses/Error" },
+          "502": { "$ref": "#/components/responses/Error" },
+          "503": { "$ref": "#/components/responses/Error" }
+        },
+        "x-aerovista-idempotency-retention-seconds": 86400,
+        "x-aerovista-redirect-policy": "successUrl and cancelUrl must match the selected store's exact allowed origins"
+      }
+    },
+    "/v1/checkout/{sessionId}": {
+      "get": {
+        "operationId": "getCheckoutSession",
+        "parameters": [
+          { "$ref": "#/components/parameters/SessionId" }
+        ],
+        "responses": {
+          "200": {
+            "description": "Customer-safe checkout status",
+            "headers": {
+              "X-Request-Id": { "$ref": "#/components/headers/RequestId" }
+            },
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "../schemas/checkout-session-status.schema.json" }
+              }
+            }
+          },
+          "404": { "$ref": "#/components/responses/Error" },
+          "429": { "$ref": "#/components/responses/Error" },
+          "500": { "$ref": "#/components/responses/Error" }
+        }
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "StoreId": {
+        "name": "storeId",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" }
+      },
+      "SessionId": {
+        "name": "sessionId",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string", "minLength": 3, "maxLength": 128 }
+      },
+      "IdempotencyKey": {
+        "name": "Idempotency-Key",
+        "in": "header",
+        "required": true,
+        "schema": { "type": "string", "minLength": 16, "maxLength": 128, "pattern": "^[A-Za-z0-9._:-]+$" }
+      }
+    },
+    "headers": {
+      "RequestId": {
+        "required": true,
+        "schema": { "type": "string", "minLength": 8, "maxLength": 128 }
+      }
+    },
+    "responses": {
+      "Error": {
+        "description": "Structured customer-safe error",
+        "headers": {
+          "X-Request-Id": { "$ref": "#/components/headers/RequestId" }
+        },
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "../schemas/error-response.schema.json" }
+          }
+        }
+      }
+    }
+  }
+}

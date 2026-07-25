@@ -28,8 +28,6 @@ function writeOverlayBaselineFromStore() {
   console.log('[sync:console] wrote console/overlay_baseline.js from store/storefront_overlay.json');
 }
 
-writeOverlayBaselineFromStore();
-
 const INCLUDE = new Set([
   'aerovista_catalog_console_v2.html',
   'catalog_baseline.js',
@@ -41,6 +39,8 @@ if (!fs.existsSync(path.join(src, 'aerovista_catalog_console_v2.html'))) {
   console.warn('[sync:console] Missing console/aerovista_catalog_console_v2.html — skipping.');
   process.exit(0);
 }
+
+writeOverlayBaselineFromStore();
 
 fs.mkdirSync(dest, { recursive: true });
 for (const name of INCLUDE) {

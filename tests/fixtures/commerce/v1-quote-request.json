@@ -1,0 +1,19 @@
+{
+  "storeId": "aerovista-apparel",
+  "currency": "USD",
+  "catalogVersion": "gear-fixture-v1",
+  "items": [
+    {
+      "lineId": "line-shadow-top-m",
+      "productId": "fixture-shadow-top",
+      "variantId": "fixture-shadow-top--size-m",
+      "quantity": 1
+    },
+    {
+      "lineId": "line-shadow-bottom-m",
+      "productId": "fixture-shadow-bottom",
+      "variantId": "fixture-shadow-bottom--size-m",
+      "quantity": 1
+    }
+  ]
+}

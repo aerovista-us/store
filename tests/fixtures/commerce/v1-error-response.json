@@ -1,0 +1,13 @@
+{
+  "ok": false,
+  "code": "IDEMPOTENCY_CONFLICT",
+  "message": "That idempotency key was already used with a different request.",
+  "requestId": "request-fixture-0004",
+  "fields": [
+    {
+      "path": "Idempotency-Key",
+      "code": "KEY_REUSED",
+      "message": "Use the original request or generate a new key."
+    }
+  ]
+}

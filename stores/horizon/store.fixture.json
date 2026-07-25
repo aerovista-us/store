@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0.0-alpha.1",
+  "storeVersion": "horizon-preview-fixture-v1",
+  "environment": "fixture",
+  "store": {
+    "id": "horizon",
+    "name": "AeroVista Horizon",
+    "hostname": "horizon-preview.aerovista.us",
+    "theme": "horizon",
+    "currency": "USD",
+    "locale": "en-US",
+    "cartNamespace": "horizon"
+  },
+  "catalog": {
+    "channel": "horizon",
+    "defaultSort": "featured"
+  },
+  "home": {
+    "hero": {
+      "headline": "Aerial perspective, made tangible.",
+      "summary": "Photographic works presented as prints and display pieces."
+    },
+    "featuredProductIds": ["fixture-coastal-ridge-study"],
+    "featuredLimit": 8,
+    "collectionOrder": ["aerial-studies", "limited-editions"],
+    "sectionOrder": ["hero", "featured", "collections", "trust", "story", "signup"]
+  },
+  "api": {
+    "catalogPath": "/v1/storefront/horizon/catalog",
+    "quotePath": "/v1/cart/quote",
+    "checkoutPath": "/v1/checkout/session"
+  },
+  "policies": {
+    "faq": "/policies#faq",
+    "shipping": "/policies#shipping",
+    "returns": "/policies#returns",
+    "contact": "/policies#contact"
+  }
+}

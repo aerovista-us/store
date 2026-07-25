@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "time": "2026-07-22T00:00:00Z",
+  "square_env": "production",
+  "have": {
+    "SQUARE_APP_ID": true,
+    "SQUARE_LOCATION_ID": true,
+    "SQUARE_ACCESS_TOKEN": true
+  },
+  "allowed_origins": [
+    "https://gear.aerovista.us"
+  ]
+}

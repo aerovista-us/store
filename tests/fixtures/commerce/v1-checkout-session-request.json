@@ -1,0 +1,6 @@
+{
+  "storeId": "aerovista-apparel",
+  "quoteId": "quote-fixture-0001",
+  "successUrl": "https://gear.aerovista.us/checkout/success",
+  "cancelUrl": "https://gear.aerovista.us/?view=cart"
+}

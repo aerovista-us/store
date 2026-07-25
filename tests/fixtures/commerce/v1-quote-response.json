@@ -1,0 +1,50 @@
+{
+  "quoteId": "quote-fixture-0001",
+  "requestId": "request-fixture-0001",
+  "storeId": "aerovista-apparel",
+  "catalogVersion": "gear-fixture-v2",
+  "createdAt": "2026-07-22T18:00:00Z",
+  "expiresAt": "2026-07-22T18:15:00Z",
+  "currency": "USD",
+  "checkoutEligible": true,
+  "items": [
+    {
+      "lineId": "line-shadow-top-m",
+      "productId": "fixture-shadow-top",
+      "variantId": "fixture-shadow-top--size-m",
+      "title": "Fixture Shadow Top",
+      "options": { "size": "m" },
+      "quantity": 1,
+      "unitPrice": { "amount": 8999, "currency": "USD" },
+      "lineSubtotal": { "amount": 8999, "currency": "USD" },
+      "availability": "available"
+    },
+    {
+      "lineId": "line-shadow-bottom-m",
+      "productId": "fixture-shadow-bottom",
+      "variantId": "fixture-shadow-bottom--size-m",
+      "title": "Fixture Shadow Bottom",
+      "options": { "size": "m" },
+      "quantity": 1,
+      "unitPrice": { "amount": 6499, "currency": "USD" },
+      "lineSubtotal": { "amount": 6499, "currency": "USD" },
+      "availability": "available"
+    }
+  ],
+  "discounts": [],
+  "changes": [
+    {
+      "code": "catalog_changed",
+      "message": "The catalog was refreshed before this quote was created."
+    }
+  ],
+  "totals": {
+    "subtotal": { "amount": 15498, "currency": "USD" },
+    "discount": { "amount": 0, "currency": "USD" },
+    "shipping": { "amount": 0, "currency": "USD" },
+    "tax": { "amount": 0, "currency": "USD" },
+    "total": { "amount": 15498, "currency": "USD" }
+  },
+  "shippingStatus": "not-calculated",
+  "taxStatus": "not-calculated"
+}

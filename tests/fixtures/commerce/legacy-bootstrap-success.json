@@ -1,0 +1,18 @@
+{
+  "env": "production",
+  "appId": "sanitized-square-app-id",
+  "locationId": "sanitized-square-location-id",
+  "currency": "USD",
+  "flatShippingCents": 0,
+  "promoCodes": {
+    "EXAMPLE10": {
+      "type": "percent",
+      "rate": 0.1,
+      "label": "10% off"
+    }
+  },
+  "sellableCartKeys": [
+    "Default__M",
+    "Default__L"
+  ]
+}

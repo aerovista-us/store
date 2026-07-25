@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.0.0-alpha.1",
+  "storeVersion": "gear-plan-1a-reference",
+  "environment": "production",
+  "store": {
+    "id": "aerovista-apparel",
+    "name": "AeroVista Apparel",
+    "hostname": "gear.aerovista.us",
+    "theme": "aerovista-apparel",
+    "currency": "USD",
+    "locale": "en-US",
+    "cartNamespace": "aerovista-apparel"
+  },
+  "catalog": {
+    "channel": "aerovista-apparel",
+    "defaultSort": "featured"
+  },
+  "home": {
+    "hero": {
+      "headline": "Quiet essentials. Confident marks.",
+      "summary": "AeroVista layers built for daily movement."
+    },
+    "featuredProductIds": [
+      "shadow-wear-ghost-ridge",
+      "shadow-pants",
+      "men-s-ghost-shorts"
+    ],
+    "featuredLimit": 8,
+    "collectionOrder": ["core", "shadow", "apex", "glitch", "architect"],
+    "sectionOrder": ["hero", "featured", "collections", "trust", "story", "signup"]
+  },
+  "api": {
+    "catalogPath": "/v1/storefront/aerovista-apparel/catalog",
+    "quotePath": "/v1/cart/quote",
+    "checkoutPath": "/v1/checkout/session"
+  },
+  "policies": {
+    "faq": "/policies.html#faq",
+    "shipping": "/policies.html#shipping",
+    "returns": "/policies.html#returns",
+    "contact": "/policies.html#contact"
+  }
+}

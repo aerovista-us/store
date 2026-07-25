@@ -1,0 +1,46 @@
+{
+  "contractVersion": "1.0.0-alpha.1",
+  "status": "approved-for-sandbox-implementation",
+  "legacyRoutesUntouched": true,
+  "quote": {
+    "ttlSeconds": 900,
+    "maximumLines": 50,
+    "maximumQuantityPerLine": 25,
+    "authoritativeFields": ["variant availability", "unit price", "discounts", "shipping", "tax", "total"],
+    "clientPriceAccepted": false
+  },
+  "checkout": {
+    "idempotencyHeader": "Idempotency-Key",
+    "idempotencyKeyMinimumLength": 16,
+    "idempotencyKeyMaximumLength": 128,
+    "idempotencyRetentionSeconds": 86400,
+    "idempotencyScope": "unique storeId plus Idempotency-Key",
+    "canonicalRequestFields": ["storeId", "quoteId", "successUrl", "cancelUrl"],
+    "canonicalization": "RFC 8785 JSON Canonicalization Scheme followed by SHA-256",
+    "providerIdempotencyKey": "deterministic opaque digest of contract version, storeId, and Idempotency-Key",
+    "persistenceSequence": [
+      "insert pending record under a database uniqueness constraint",
+      "commit the canonical request hash and deterministic provider key",
+      "call the provider with that same deterministic provider key",
+      "persist the customer-safe session response",
+      "retry interrupted pending records with the same provider key"
+    ],
+    "sameKeySameCanonicalRequest": "return the original session response without another provider call",
+    "sameKeyDifferentCanonicalRequest": "return 409 IDEMPOTENCY_CONFLICT without another provider call",
+    "concurrentSameKey": "serialize creation so exactly one provider call can win",
+    "expiredKey": "a new session may be created after the retention window",
+    "requiresUnexpiredEligibleQuote": true,
+    "sessionIdMinimumEntropyBits": 128,
+    "statusResponseContainsPii": false
+  },
+  "errors": {
+    "includeRequestId": true,
+    "includeRawProviderResponse": false,
+    "includeInternalException": false
+  },
+  "routing": {
+    "contractUsesRelativePaths": true,
+    "deploymentMayUseSameOriginWorkerOrApprovedCentralApi": true,
+    "redirectTargetsMustMatchTheSelectedStoreAllowlist": true
+  }
+}
