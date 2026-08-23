@@ -1,6 +1,6 @@
 # AeroVista Store — repo layout
 
-**Last updated:** 2026-05-18
+**Last updated:** 2026-07-26
 
 ## What gets committed (public repo)
 
@@ -11,6 +11,7 @@
 | **`store/square_products_latest.json`**, **`storefront_overlay.json`** | Live catalog + overlay |
 | **`store/img/`** | Product images + optional collection-card reference PNGs |
 | **`store/collection.html`**, **`store/catalog.html`** | Route helper redirects |
+| **`horizon/`** | Horizon customer storefront — local real-product preview, provider evidence, source masters, and operator docs. Never publish the directory wholesale; use `horizon/DEPLOYMENT_SOP.md`. |
 | **`src/`**, **`scripts/`**, **`docs/`** | React dev bridge, build tools, documentation |
 | **Root** `package.json`, `vite.config.ts`, `index.html`, `nginx/`, `.github/` | Tooling & Pages CI |
 
@@ -29,13 +30,26 @@
 2. **`npm run sync:store`** → recreates **`public/shop/`** locally
 3. **`npm run build:pages`** → sanitized **`dist/`** → GitHub Pages (**gear.aerovista.us**)
 4. Catalog console → **store-console.aerocoreos.com** (**`docs/NXCORE_CONSOLE.md`**)
+5. Payment API → **api.aerovista.us** (**`docs/BACKEND_DEPLOY.md`**)
+
+Horizon is an independent deployment. Its sanitized static artifact and
+`horizon.aerovista.us` procedure are defined in
+**`horizon/DEPLOYMENT_SOP.md`**; its completion gates are in
+**`horizon/COMPLETION_PLAN.md`**.
 
 ## Documentation map
 
 | Doc | Audience |
 |-----|----------|
+| **`docs/USER_MANUAL/`** | **Primary** — end-to-end operator manual |
 | **`docs/STOREFRONT.md`** | Shop UX, lanes, SVG, checkout |
 | **`docs/WORKFLOWS.md`** | Daily operator commands |
 | **`docs/STOREFRONT_OVERLAY.md`** | Overlay schema |
 | **`docs/DEPLOY_GITHUB_PAGES.md`** | Public Pages deploy + CORS |
+| **`docs/BACKEND_DEPLOY.md`** | Payment API on NXCore (manual SSH deploy) |
+| **`docs/archive/`** | Historical audits (pre-launch, checkout collision, etc.) |
 | **`store/handoffnotes.md`** | Short dev cheat sheet |
+| **`../horizon/README.md`** | Horizon shell status and exclusions |
+| **`../horizon/DEPLOYMENT_SOP.md`** | Horizon deploy, verification, and rollback |
+| **`../horizon/COMPLETION_PLAN.md`** | Horizon next steps through completion |
+| **`../planning/README.md`** | Commerce plans + demo provenance |

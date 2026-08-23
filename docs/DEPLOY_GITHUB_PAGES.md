@@ -1,11 +1,15 @@
-# Deploy public shop to GitHub Pages
+# Deploy public storefronts
 
-GitHub Pages publishes the **AV Gear Shop storefront only**. It does **not** publish the catalog console, backend, margin tools, or operator routes.
+The existing GitHub Pages workflow publishes the **AV Gear Shop storefront
+only**. It does **not** publish Horizon, the catalog console, backend, margin
+tools, or operator routes.
 
 | Surface | URL | Hosting |
 |---------|-----|---------|
 | **Public shop** | https://gear.aerovista.us/ | GitHub Pages (`aerovista-us/store`) |
+| **Horizon preview** | https://horizon.aerovista.us/ | Dedicated `aerovista-us/horizon-storefront` GitHub Pages artifact behind the shared Cloudflare Worker |
 | **Private console** | https://store-console.aerocoreos.com/ | NXCore / Traefik / Cloudflare Access — see **`docs/NXCORE_CONSOLE.md`** |
+| **Payment API** | https://api.aerovista.us/ | NXCore Docker — see **`docs/BACKEND_DEPLOY.md`** |
 
 Pages sites are **public on the internet** even when the source repo is private. Do not rely on hidden paths for the console.
 
@@ -23,6 +27,26 @@ Pages sites are **public on the internet** even when the source repo is private.
 After a successful Actions deploy, **https://gear.aerovista.us/** should serve the full storefront HTML (~200KB+), not a tiny ~400-byte React shell.
 
 Workflow: `.github/workflows/deploy-github-pages.yml`
+
+## Horizon is a separate deployment
+
+Do not add Horizon files to Gear’s `dist/` or change Gear’s `CNAME`. The
+current Pages workflow owns the Gear root artifact and `gear.aerovista.us`.
+Horizon requires an isolated artifact, preview, hostname, and rollback target.
+
+Horizon now uses a dedicated GitHub Pages repository containing only the
+sanitized prebuilt artifact. Cloudflare’s Worker Custom Domain creates the DNS
+record and certificate, proxies static requests to GitHub Pages, and sends
+`/api/*` to NXCore. The canonical steps, exclusions, approval gates,
+production-map sequence, and rollback procedure are:
+
+- **`horizon/DEPLOYMENT_SOP.md`**
+- **`horizon/COMPLETION_PLAN.md`**
+- **`horizon/COMMERCE_READINESS.md`**
+
+The host and custom domain are live as a `noindex`, commerce-gated preview.
+This does not authorize checkout-ready flags, production product mappings, or
+a paid order.
 
 ---
 
@@ -96,6 +120,16 @@ After deploy, verify:
 curl -s -H "Origin: https://gear.aerovista.us" https://gear.aerovista.us/api/square/bootstrap
 ```
 
+The same Worker also prepares the Horizon storefront route:
+
+```bash
+curl -s -H "Origin: https://horizon.aerovista.us" https://horizon.aerovista.us/api/square/bootstrap
+```
+
+Do not treat a successful Horizon bootstrap as launch approval. Its catalog
+variants remain fail-closed until their Square and Printful mappings are
+verified in `horizon/COMMERCE_READINESS.md`.
+
 You should get JSON (not HTML 404) and an `Access-Control-Allow-Origin` header.
 
 Optional CI: add repo secret **`CLOUDFLARE_API_TOKEN`** and run workflow **Deploy gear API proxy**.
@@ -107,7 +141,7 @@ Optional CI: add repo secret **`CLOUDFLARE_API_TOKEN`** and run workflow **Deplo
 If you prefer direct browser → **`api.aerovista.us`** without the worker, set on the API host:
 
 ```text
-ALLOWED_ORIGINS=https://gear.aerovista.us,https://aerovista-us.github.io,http://localhost:5174,http://127.0.0.1:5174
+ALLOWED_ORIGINS=https://gear.aerovista.us,https://horizon.aerovista.us,https://aerovista-us.github.io,http://localhost:5174,http://127.0.0.1:5174
 ```
 
 No wildcard CORS for checkout. Local dev without CORS: **`npm run dev:shop`** (Vite proxies `/api`) or run the payment API on **8088** / **18088**.

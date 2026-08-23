@@ -4,6 +4,16 @@ Chronological record of security checks, deploys, and go-live gates.
 
 ---
 
+## 2026-08-23 — Deploy Catalog Console export to local store/
+
+**Source:** `Downloads/square_products_cleaned_v2 (6).json` (Console v2, 85 products / 36 visible).
+
+**Checks:** No missing images, variation IDs, or collections on visible SKUs. Fixed DockLife image path `\\docklife\\docklife-drip_hat.png` → `docklife/docklife-drip_hat.png` (file present under `store/img/docklife/`).
+
+**Deploy:** Wrote `store/square_products_latest.json` + `sync:store` / `sync:console` / build manifest. Live Pages still needs `git push` when ready.
+
+---
+
 ## 2026-06-30 — `/api/ops/db` authentication gate (pre–live sales)
 
 **Context:** Checkout blocker cleared; ops DB endpoint must not expose customer PII without operator auth before live sales activity.
@@ -443,3 +453,28 @@ No formal EOS reports existed; canonical handoffs remained `docs/STATUS.md`,
 | Console public health | Cloudflare Access sign-in HTML (protected) |
 
 NXCore `docker compose ps` was not re-run over SSH this session.
+
+---
+
+## 2026-08-23 — DockLife collection lane
+
+- Added **DockLife** as a sixth Gear collection door + `?collection=docklife` page.
+- Collection page includes a **hero image ad** band (`#collectionHeroAd`) for the
+  Osprey Rope Cap opening drop; overlay `ads` with `"lane": "docklife"` can override
+  copy/image. Place art at `store/img/docklife/hero.jpg`.
+- Lane SVG door/header palettes (harbor teal), curation aliases, and docs updated.
+- Product grid stays empty until Square export `collection=DockLife` (hat first);
+  more DockLife SKUs attach to the same page as they land.
+
+---
+
+## 2026-08-23 — Square SOT refresh through Catalog Console
+
+- Confirmed Square Catalog API as inventory SOT; Printful remains fulfillment evidence.
+- Added `scripts/pull-square-catalog.py`, `scripts/merge-square-catalog-to-storefront.mjs`,
+  and `npm run catalog:refresh` (pull → merge → curate → sync:all).
+- Merged live Square catalog into `store/square_products_latest.json` (85 products;
+  DockLife Osprey Rope Cap visible with variation `GGYNCQMLXX6R4QCEEXLRVJHR`).
+- Catalog Console: DockLife lane in `catalog-console-config.js`, auto-detect in
+  console HTML; `sync:console` regenerates `catalog_baseline.js` + overlay baseline
+  from store JSON so admins adjust/deploy on the fly.

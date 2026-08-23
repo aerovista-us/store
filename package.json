@@ -39,7 +39,11 @@
     "verify:ops-fulfillment": "node scripts/verify-ops-fulfillment-display.mjs",
     "build:cart-sku-map": "node scripts/build-cart-sku-map.mjs",
     "verify:checkout-fix": "node scripts/verify-live-checkout-fix.mjs",
-    "deploy:gear-api-proxy": "npx wrangler deploy --config cloudflare/gear-api-proxy/wrangler.toml"
+    "deploy:gear-api-proxy": "npx wrangler deploy --config cloudflare/gear-api-proxy/wrangler.toml",
+    "pull:square-catalog": "python scripts/pull-square-catalog.py",
+    "pull:printful-horizon": "python horizon/scripts/pull-printful-products.py",
+    "merge:square-catalog": "node scripts/merge-square-catalog-to-storefront.mjs",
+    "catalog:refresh": "npm run pull:square-catalog && npm run merge:square-catalog && npm run curate:catalog && npm run sync:all"
   },
   "dependencies": {
     "react": "^19.0.0",

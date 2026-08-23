@@ -1,5 +1,5 @@
 /**
- * Normalize catalog `collection` labels for the five live lanes and hide
+ * Normalize catalog `collection` labels for the live lanes and hide
  * off-story / Signal-Lab-future SKUs from the shop grid.
  *
  * Run: node scripts/curate-catalog-lanes.mjs
@@ -61,6 +61,8 @@ const COLLECTION_BY_ID = {
   'architect-field-issue-tee-black': 'Draft Series',
   'architect-built-different-hoodie-black': 'Draft Series',
   'aerovista-apex-mesh-trucker-cap': 'Draft Series',
+  'docklife-drip-osprey-rope-cap': 'DockLife',
+  'osprey-rope-cap': 'DockLife',
 };
 
 /** Default mapping from messy export labels → lane label. */
@@ -75,6 +77,9 @@ const COLLECTION_ALIASES = {
   drafted: 'Draft Series',
   core: 'core',
   division: 'division',
+  docklife: 'DockLife',
+  'dock life': 'DockLife',
+  'dock-life': 'DockLife',
 };
 
 function normalizeCollection(product) {
@@ -108,11 +113,17 @@ for (const p of catalog.products) {
     p.collection = next;
     relabeled++;
   }
+
+  // Visible shop products must have a lane/collection — leave untagged drops hidden until Console tags them.
+  if ((p.visibility || 'visible') !== 'hidden' && !(p.collection || '').trim()) {
+    p.visibility = 'hidden';
+    hidden++;
+  }
 }
 
 catalog.meta = catalog.meta || {};
 catalog.meta.curationNote =
-  '2026-05-22: Lanes normalized (apex/Apex Pattern/Shadow Wear/Glitch Line/Draft Series). Future worlds (EchoVerse, Powder Peaks, etc.) hidden.';
+  'Lanes normalized (Core/Shadow/Apex/Glitch/Architect/DockLife). Untagged visible SKUs hidden until Catalog Console assigns a collection. Future worlds (EchoVerse, Powder Peaks, etc.) stay hidden.';
 
 fs.writeFileSync(catalogPath, `${JSON.stringify(catalog, null, 2)}\n`, 'utf8');
 

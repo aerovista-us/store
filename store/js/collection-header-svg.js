@@ -68,6 +68,13 @@
       accent: [251, 191, 36],
       accent2: [245, 158, 11],
     },
+    docklife: {
+      kicker: "HARBOR LINE",
+      footer: "DOCKLIFE · ROPE + WATER",
+      sky: ["#041018", "#0a1f2c", "#06141c"],
+      accent: [45, 212, 191],
+      accent2: [14, 165, 233],
+    },
   };
 
   function defsCommon(p, m, extraDefs) {
@@ -402,6 +409,48 @@
 </svg>`;
   }
 
+  function docklifeBanner() {
+    const p = uid();
+    const m = META.docklife;
+    const d = (n) => `${p}_${n}`;
+    const teal = m.accent;
+    const blue = m.accent2;
+    const defs = defsCommon(p, m, `
+    <linearGradient id="${d("water")}" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="${rgba(blue, 0)}"/>
+      <stop offset="55%" stop-color="${rgba(blue, 0.16)}"/>
+      <stop offset="100%" stop-color="${rgba(teal, 0.22)}"/>
+    </linearGradient>
+    <pattern id="${d("ripple")}" width="48" height="16" patternUnits="userSpaceOnUse">
+      <path d="M 0 8 Q 12 2 24 8 T 48 8" fill="none" stroke="${rgba(teal, 0.18)}" stroke-width="0.8"/>
+    </pattern>`);
+    const scene = `
+  ${baseLayers(p, m, `<rect y="180" width="${W}" height="${H - 180}" fill="url(#${d("water")})"/><rect y="190" width="${W}" height="${H - 190}" fill="url(#${d("ripple")})" opacity="0.55"/>`)}
+  <g fill="none" stroke="${rgba(teal, 0.35)}" stroke-width="1.1" opacity="0.85">
+    <path d="M 80 250 Q 320 220 560 255 T 1100 240 T 1520 255"/>
+    <path d="M 60 280 Q 360 300 720 270 T 1540 285" opacity="0.55"/>
+  </g>
+  <g stroke="${rgba([251, 191, 36], 0.42)}" stroke-width="2" fill="none" stroke-linecap="round">
+    <path d="M 120 70 C 220 140, 180 230, 280 300"/>
+    <path d="M 136 62 C 236 138, 196 228, 296 296" opacity="0.5"/>
+  </g>
+  <g transform="translate(${CX} ${CY + 4}) scale(1.08)" filter="url(#${d("markGlow")})">
+    <path d="${MARK.L}" fill="rgba(224,242,254,0.08)" stroke="${rgba(teal, 0.45)}" stroke-width="1"/>
+    <path d="${MARK.R}" fill="rgba(8,30,48,0.55)" stroke="${rgba(blue, 0.35)}" stroke-width="0.9"/>
+    <path d="${MARK.peak}" fill="${rgba(teal, 0.16)}" stroke="${rgba(teal, 0.7)}" stroke-width="1"/>
+    <path d="${MARK.inner}" fill="none" stroke="${rgba(blue, 0.5)}" stroke-width="1"/>
+    <circle cx="0" cy="-132" r="3.2" fill="${rgba(teal, 0.95)}"/>
+  </g>
+  <rect x="72" y="44" width="120" height="28" rx="2" fill="${rgba(teal, 0.06)}" stroke="${rgba(teal, 0.28)}" stroke-width="0.5"/>
+  <text x="82" y="62" fill="${rgba(teal, 0.72)}" font-family="ui-monospace,Consolas,monospace" font-size="9" letter-spacing="0.14em">DOCKLIFE · 01</text>
+  ${frameHud(p, m)}
+  ${finish(p)}`;
+    return `
+<svg class="collectionHeaderBanner collectionHeaderBanner--docklife" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true" role="img">
+  <defs>${defs}</defs>${scene}
+</svg>`;
+  }
+
   function collectionHeaderBannerSvg(laneId) {
     const lane = String(laneId || "").toLowerCase();
     if (lane === "glitch") return glitchBanner();
@@ -409,6 +458,7 @@
     if (lane === "core") return coreBanner();
     if (lane === "shadow") return shadowBanner();
     if (lane === "apex") return apexBanner();
+    if (lane === "docklife") return docklifeBanner();
     return coreBanner();
   }
 

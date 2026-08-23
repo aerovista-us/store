@@ -1,8 +1,8 @@
 {
   "meta": {
-    "updatedAt": "2026-05-27T00:00:00.000Z",
+    "updatedAt": "2026-08-23T00:00:00.000Z",
     "schemaVersion": 2,
-    "notes": "Shadow Wear featured stack: Ghost Ridge (1), shadow pants (2), Men's Ghost Shorts (3). Presentation only — Square catalog is checkout truth.",
+    "notes": "Shadow Wear featured stack retained. DockLife lane hero ad for Osprey Rope Cap (first drop). Presentation only — Square catalog is checkout truth.",
     "editedBy": "storefront curation",
     "visibilityPolicy": "Only listed variation rows carry featured order; all other catalog visibility unchanged.",
     "checkoutTruth": "Checkout uses variationId from square_products_latest.json."
@@ -62,5 +62,25 @@
   },
   "itemsByCartKey": {},
   "collections": [],
-  "ads": []
+  "ads": [
+    {
+      "id": "docklife-osprey-hero",
+      "visible": true,
+      "lane": "docklife",
+      "order": 1,
+      "kicker": "DockLife · Featured drop",
+      "title": "Osprey Rope Cap",
+      "subtitle": "First piece in the DockLife line",
+      "body": "The opening drop for DockLife — rope-trim cap energy for harbor days and lake evenings. More DockLife apparel and accessories will land on this page.",
+      "image": "docklife/hero.jpg",
+      "productId": "docklife-drip-osprey-rope-cap",
+      "squareItemId": "4WV7KWHQSC6BQJU2LDEVAUAQ",
+      "squareVariationId": "GGYNCQMLXX6R4QCEEXLRVJHR",
+      "cta": {
+        "label": "Browse DockLife",
+        "href": "?collection=docklife"
+      },
+      "tags": ["docklife", "featured", "hats", "lane:docklife"]
+    }
+  ]
 }

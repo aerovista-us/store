@@ -1,7 +1,10 @@
 # AeroVista Store — working workflows
 
+**Last updated:** 2026-07-26
+
 Operator and deploy flows for the **`av-store`** monorepo: **`store/`** (public shop), **`console/`** (catalog v2), root Vite/React bridge. Product **images** under `store/img/` are curated separately.
 
+**Start here:** **`docs/USER_MANUAL/README.md`** (full manual).
 **Customer shop detail:** **`docs/STOREFRONT.md`**.
 
 ## Repo map
@@ -9,6 +12,7 @@ Operator and deploy flows for the **`av-store`** monorepo: **`store/`** (public 
 | Path | Role |
 |------|------|
 | `store/` | Canonical static shop + `square_products_latest.json` + `storefront_overlay.json` + `js/collection-lane-svg.js` |
+| `horizon/` | Canonical Horizon static storefront, catalog, evidence, deployment SOP, and completion plan; do not publish the directory wholesale |
 | `console/` | Catalog console v2 (`aerovista_catalog_console_v2.html`, `server.js`) |
 | `public/shop/` | Synced copy of `store/` for Vite / `dist` (minus `store/docs/`) |
 | `public/console/` | Synced console HTML + baselines for Vite / `dist` |
@@ -34,6 +38,9 @@ npm run build         # sync:all + tsc + vite → dist/
 | CLI deploy export JSON | `npm run deploy:catalog -- ./export.json` |
 | Overlay hygiene | `npm run audit:overlay`, `npm run clean:overlay` |
 | Repo hygiene report | `npm run audit:repo` |
+| Horizon public build | `npm run build:horizon-pages` |
+| Horizon artifact audit | `npm run audit:horizon-pages` |
+| Horizon GitHub publish | `pwsh -File horizon/scripts/publish-github-pages.ps1` |
 
 ## Catalog → shop pipeline
 
@@ -93,14 +100,31 @@ After editing: **`npm run sync:store`**. Details: **`docs/STOREFRONT.md`**.
 
 Local checkout needs the payment API running or `?api=prod` (if CORS allows). See **`docs/STOREFRONT.md`** § Checkout and **`docs/DEPLOY_GITHUB_PAGES.md`** § CORS.
 
+## Payment API deploy (NXCore)
+
+The Flask checkout service in **`store/backend/`** is gitignored and **not** deployed by GitHub Pages or `npm run deploy:server`.
+
+| Task | Command / doc |
+|------|-----------------|
+| Production deploy (console + backend) | `npm run deploy:nxcore` — **`scripts/deploy-nxcore.ps1`** |
+| Production deploy (API only) | SSH → **`docs/BACKEND_DEPLOY.md`** or `npm run deploy:nxcore -- -BackendOnly` |
+| Local API | `cd store/backend && docker compose up -d --build` |
+| Env reference | `store/backend/.env.example` |
+| Fulfillment audits | NXCore: `docker compose exec api python scripts/audit-product-variant-map.py` — see **`docs/USER_MANUAL/08-audits-and-runbooks.md`** |
+
 ## Public vs private hosting
 
 | Role | URL | Deploy |
 |------|-----|--------|
 | **Shop** | https://gear.aerovista.us/ | GitHub Pages — `npm run build:pages` in CI |
+| **Horizon** | https://horizon.aerovista.us/ | Dedicated GitHub Pages repository behind Cloudflare Worker Custom Domain; `horizon/DEPLOYMENT_SOP.md` |
 | **Console** | https://store-console.aerocoreos.com/ | NXCore — **`docs/NXCORE_CONSOLE.md`** |
 
 GitHub Pages is **public**. The console must never appear in the Pages artifact (`audit-public-pages-build.mjs` enforces this).
+
+Horizon also contains private/operator evidence and full-resolution files. Its
+public build is allowlisted and sanitized. Follow
+`horizon/DEPLOYMENT_SOP.md` and `horizon/COMPLETION_PLAN.md`.
 
 ## Docker
 

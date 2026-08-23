@@ -37,8 +37,8 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  if (req.method === 'GET' && (req.url === '/' || req.url === '/health')) {
-    send(res, 200, { ok: true, service: 'av-store-catalog-deploy', port: PORT });
+  if (req.method === 'GET' && (req.url === '/' || req.url === '/health' || req.url === '/status')) {
+    send(res, 200, { ok: true, service: 'av-store-catalog-deploy', port: PORT, host: HOST });
     return;
   }
 

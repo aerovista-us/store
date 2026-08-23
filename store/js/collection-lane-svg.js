@@ -11,6 +11,7 @@
     apex: "SUMMIT MARK",
     glitch: "SIGNAL NOISE",
     architect: "BUILD ARCHIVE",
+    docklife: "HARBOR LINE",
   };
   if (typeof console !== "undefined" && console.info) {
     console.info("[collection-lane-svg] build:", LANE_SVG_BUILD);
@@ -59,6 +60,10 @@
       architect: {
         holo: [[251, 191, 36], [245, 158, 11], [234, 179, 8]],
         sheen: [251, 191, 36],
+      },
+      docklife: {
+        holo: [[45, 212, 191], [14, 165, 233], [56, 189, 248]],
+        sheen: [45, 212, 191],
       },
     };
     const pal = palettes[lane] || palettes.core;
@@ -230,6 +235,7 @@
       apex: [167, 139, 250],
       glitch: [34, 211, 238],
       architect: [251, 191, 36],
+      docklife: [45, 212, 191],
     }[lane] || [110, 231, 255];
     const label = LANE_INTENT_LABEL[lane] || "AEROVISTA";
     const baseFill = forDoor
@@ -475,6 +481,14 @@
         Pk: ["#e7e5e4", "#57534e"],
         ac: [251, 191, 36],
         ac2: [245, 158, 11],
+      },
+      docklife: {
+        L: ["#e0f2fe", "#7dd3fc", "#0ea5e9"],
+        Li: ["#f0fdfa", "#99f6e4", "#2dd4bf"],
+        R: ["#0c4a6e", "#082f49", "#041625"],
+        Pk: ["#ccfbf1", "#14b8a6"],
+        ac: [45, 212, 191],
+        ac2: [14, 165, 233],
       },
     };
     const m = P[lane] || P.core;
@@ -751,6 +765,53 @@
       scale: 1.12,
     });
   }
+  function markDocklife(id) {
+    return detailedMark(id, "docklife", {
+      ...BASE_MARK,
+      ...INNER_SUBTLE,
+      orbit: true,
+      prismMark: false,
+      metalBrush: true,
+      scale: 1.12,
+    });
+  }
+
+  function bgDocklife(id) {
+    const i = (n) => `${id}_${n}`;
+    return `
+      <g class="laneBg laneBg--docklife" ${bgClip(id)}>
+        <defs>
+          <linearGradient id="${i("dockSky")}" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#07131c"/>
+            <stop offset="45%" stop-color="#0a1f2c"/>
+            <stop offset="100%" stop-color="#061018"/>
+          </linearGradient>
+          <linearGradient id="${i("dockWater")}" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" stop-color="rgba(14,165,233,0)"/>
+            <stop offset="40%" stop-color="rgba(14,165,233,0.12)"/>
+            <stop offset="100%" stop-color="rgba(45,212,191,0.18)"/>
+          </linearGradient>
+          <radialGradient id="${i("dockHalo")}" cx="30%" cy="28%" r="70%">
+            <stop offset="0%" stop-color="rgba(45,212,191,0.28)"/>
+            <stop offset="55%" stop-color="rgba(14,165,233,0.08)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </radialGradient>
+        </defs>
+        <rect width="400" height="300" fill="url(#${i("dockSky")})"/>
+        <rect width="400" height="300" fill="url(#${i("dockHalo")})"/>
+        <rect y="150" width="400" height="150" fill="url(#${i("dockWater")})"/>
+        <g fill="none" stroke="rgba(45,212,191,0.22)" stroke-width="1">
+          <path d="M 20 210 Q 120 190 200 215 T 380 205"/>
+          <path d="M 10 235 Q 140 250 220 228 T 390 240" opacity="0.7"/>
+          <path d="M 30 258 Q 160 245 260 262 T 385 255" opacity="0.45"/>
+        </g>
+        <g stroke="rgba(251,191,36,0.28)" stroke-width="1.4" fill="none" stroke-linecap="round">
+          <path d="M 48 78 C 90 120, 70 170, 110 198"/>
+          <path d="M 56 72 C 98 118, 78 168, 118 196" opacity="0.55"/>
+        </g>
+        ${holoStack(id)}
+      </g>`;
+  }
 
   const LANES = {
     core: { bg: (p, o) => bgCore(p), mark: markCore },
@@ -758,6 +819,7 @@
     apex: { bg: (p, o) => bgApex(p), mark: markApex },
     glitch: { bg: (p, o) => bgGlitch(p), mark: markGlitch },
     architect: { bg: (p, o) => bgArchitect(p), mark: markArchitect },
+    docklife: { bg: (p, o) => bgDocklife(p), mark: markDocklife },
   };
 
   function collectionLaneSvg(laneId, uid, opts = {}) {

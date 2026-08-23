@@ -7,6 +7,7 @@
 # --- Build & dependencies ---
 node_modules/
 dist/
+horizon/.publish-work/
 .vite/
 **/.vite/
 **/__pycache__/
@@ -36,6 +37,11 @@ archive/
 *token*
 sku_map.generated.*
 
+# --- Local agent / tooling (never publish) ---
+.dev/
+.playwright-cli/
+output/
+
 # --- OS & editor ---
 .DS_Store
 Thumbs.db
@@ -44,10 +50,6 @@ robocopy-log.txt
 .idea/
 .vscode/*
 !.vscode/extensions.json
-
-# Browser QA artifacts
-.playwright-cli/
-output/playwright/
 
 # --- Raw Square exports & bulky data (NAS intake; not for git) ---
 *.xlsx

@@ -30,7 +30,7 @@ Product-level merge walks all variation IDs on a card; see visibility rules belo
 | `title` | Display name override |
 | `overrides[sq_<catalogId>]` | Collection label, short blurb, product type metadata |
 | `collections` | Extra dropdown filters (e.g. Featured, Nexus) |
-| `ads` | Sponsored tiles (gift card, drops) |
+| `ads` | Sponsored tiles (gift card, drops). Entries with `"lane": "docklife"` (or tag `lane:docklife`) drive the **collection page hero ad** band on that lane. |
 
 ## What Square controls (checkout truth)
 
@@ -163,5 +163,6 @@ Then `npm run sync:store` before deploy.
 
 - **`docs/STOREFRONT.md`** — shop views, collection SVG, hero/door holo, checkout
 - **`docs/CATALOG_PIPELINE.md`** — export and deploy flow
-- **`docs/SKU_E2E_AUDIT.md`** — checkout cart keys and variation IDs
+- **`docs/USER_MANUAL/README.md`** — operator manual
+- **`docs/USER_MANUAL/05-checkout-and-payments.md`** — checkout cart keys and variation IDs
 - **`docs/WORKFLOWS.md`** — sync and deploy commands

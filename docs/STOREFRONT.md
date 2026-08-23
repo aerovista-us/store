@@ -1,4 +1,4 @@
-# AeroVista storefront (`store/index.html`)
+# AeroVista Gear storefront (`store/index.html`)
 
 Customer-facing gear shop: single static HTML file, Square JSON catalog, optional presentation overlay, checkout via **`https://api.aerovista.us`**.
 
@@ -12,6 +12,12 @@ Customer-facing gear shop: single static HTML file, Square JSON catalog, optiona
 
 Canonical source lives in **`store/`**; run **`npm run sync:store`** before dev/build so **`public/shop/`** matches.
 
+Horizon is a separate static storefront under `horizon/`; it does not use the
+Gear Pages artifact or Gear cart namespace. See
+[`horizon/README.md`](../horizon/README.md),
+[`horizon/DEPLOYMENT_SOP.md`](../horizon/DEPLOYMENT_SOP.md), and
+[`horizon/COMPLETION_PLAN.md`](../horizon/COMPLETION_PLAN.md).
+
 ---
 
 ## Architecture
@@ -22,11 +28,9 @@ Canonical source lives in **`store/`**; run **`npm run sync:store`** before dev/
 | Catalog | `store/square_products_latest.json` |
 | Presentation overlay | `store/storefront_overlay.json` (optional; see **`STOREFRONT_OVERLAY.md`**) |
 | Collection lane SVGs | `store/js/collection-lane-svg.js` (home doors via `mountCollectionDoorSvgs`) |
-| Collection header banners | `store/js/collection-header-svg.js` (v2 unified panoramic headers — all five lanes) |
+| Collection header banners | `store/js/collection-header-svg.js` (v2 unified panoramic headers — all live lanes) |
 | Product image placeholders | `store/js/product-placeholder-svg.js` |
 | Policies (injected) | `store/policy-content.js` |
-| About / Story | `store/about.html` with shared `store/content-pages.css` |
-| Customer-care page | `store/policies.html` (renders the shared policy pack) |
 | Product images | `store/img/` |
 | Helper routes | `store/collection.html`, `store/catalog.html` (redirect to query routes) |
 | Payment backend | **Not in this repo** — Flask service on NXCore; ports **8088** / **18088** locally |
@@ -39,7 +43,7 @@ Canonical source lives in **`store/`**; run **`npm run sync:store`** before dev/
 
 | View | URL examples | What the customer sees |
 |------|----------------|------------------------|
-| **home** | `/shop/index.html` | Compact hero, eight catalog-driven featured products, collection shortcuts, trust content, and story teaser |
+| **home** | `/shop/index.html` | Hero, collection entry doors, featured drop, signal lab — **no product grid** |
 | **collection** | `?collection=core` or `collection.html?collection=shadow` | Themed collection hero, filters, grid for that lane only |
 | **catalog** | `?view=catalog` or `catalog.html` | Full apparel grid (`All pieces`); collection dropdown hidden |
 
@@ -47,7 +51,7 @@ Canonical source lives in **`store/`**; run **`npm run sync:store`** before dev/
 
 Landing doors and collection pages filter products by the export **`collection`** field (regex per lane, with **`COLLECTION_ALIASES`** for messy Square labels like `APEX` → `apex`, `shadowwear` → `shadow wear`). Overlay **`overrides.collection`** is not the primary lane key.
 
-**Curation:** Run **`npm run curate:catalog`** after a raw Square deploy to normalize lane labels and hide off-story SKUs (EchoVerse, Powder Peaks, one-off experiments). Script: `scripts/curate-catalog-lanes.mjs`. Target ~30–35 visible pieces across five live lanes.
+**Curation:** Run **`npm run curate:catalog`** after a raw Square deploy to normalize lane labels and hide off-story SKUs (EchoVerse, Powder Peaks, one-offs). Script: `scripts/curate-catalog-lanes.mjs`. Target a tight spine across live lanes; DockLife starts with the Osprey Rope Cap and grows on its own page.
 
 | Lane ID | Label | Export `collection` match |
 |---------|--------|---------------------------|
@@ -56,8 +60,11 @@ Landing doors and collection pages filter products by the export **`collection`*
 | `apex` | Apex | `^apex$` |
 | `glitch` | Glitch | `^glitch$`, `^glitch line$` |
 | `architect` | Architect | `^architect$`, `^draft series$` |
+| `docklife` | DockLife | `^docklife$`, `^dock life$` |
 
-Lane metadata (eyebrow, lead copy, glow colors) is defined in **`COLLECTION_LANES`** inside `index.html`. Optional PNG references: `store/img/collection-cards/*.png` (design refs; live UI uses SVG).
+**DockLife page:** `?collection=docklife` opens its own collection view with a **hero image ad** band (`#collectionHeroAd`) for the featured drop (Osprey Rope Cap first). Overlay `ads[]` entries with `"lane": "docklife"` override the lane default hero copy/image. Drop art at `store/img/docklife/hero.jpg`. Set Square export `collection` to **DockLife** (or run curation with the DockLife id override) as each new SKU lands — the grid under the hero grows automatically.
+
+Lane metadata (eyebrow, lead copy, glow colors, optional `heroAd`) is defined in **`COLLECTION_LANES`** inside `index.html`. Optional PNG references: `store/img/collection-cards/*.png` (design refs; live UI uses SVG).
 
 ### UI / UX (inline CSS in `index.html`)
 
@@ -165,17 +172,15 @@ Products need top-level **`{ "products": [ ... ] }`**. Collection labels on card
 
 ---
 
-## Commerce-first fast-buy UX (Plan 1A)
+## Luxury fast-buy UX (Phase A)
 
 Header and home CTAs prioritize shopping over browsing:
 
 | Element | Behavior |
 |---------|----------|
 | **Shop** (header) | Opens full catalog (`goToCatalog`) |
-| **Shop products** (hero) | Scrolls directly to the homepage product grid |
-| **Homepage products** | `renderHomeProducts()` selects eight sellable, imaged products; overlay-featured order wins, then the reviewed fallback IDs fill the mix |
-| **About / Our story** | Opens the dedicated `about.html` narrative page without placing long-form story content before products |
-| **More filters** | Keeps secondary tag chips behind a disclosure while category filters remain visible |
+| **Shop Shadow Wear** (hero) | Opens `?collection=shadow` |
+| **Featured Drop** tiles | Category label + product image only; `hydrateFeaturedDropTiles()` sets img alt and button aria-label from catalog; open product modal |
 | **Product cards** | Primary CTA label **Shop** (not Quick View) |
 
 **Product modal (express lane):**
@@ -185,7 +190,7 @@ Header and home CTAs prioritize shopping over browsing:
 - **Color pills** hidden when only one color / `Default`
 - **Square SOT** — Only variants with a Square catalog **`variation_id`** (Token) appear in the shop. Sizes/colors come from the sellable map only. Products with zero sellable variants are hidden. At load, the shop reads **`sellableCartKeys`** from `GET /api/square/bootstrap` (fallback: `store/checkout_ready_keys.json`).
 - **Add to bag** → requires a sellable size in Square; cart keys use `Default__{size}` when the product has no color variant.
-- **Checkout** → validates sellable keys before redirect. Cart lines store Square **`variationId`** at add-to-bag so hosted checkout receives the correct item even when cart keys overlap (`Default__M`, etc.). The `audit:checkout-keys` command creates production checkout sessions for every visible variant and rewrites the fallback file; do not run it as a routine read-only audit.
+- **Checkout** → validates sellable keys before redirect. Cart lines store Square **`variationId`** at add-to-bag so hosted checkout receives the correct item even when cart keys overlap (`Default__M`, etc.). Run `npm run audit:checkout-keys` to refresh the static fallback list.
 - Fit + ship summary in `#modalBrief`; full detail grid hidden on product modal (still used for policy/info modals)
 - Provider / external checkout button removed from modal
 
@@ -215,10 +220,9 @@ Promo codes (`SEED10`, `CREW15`) remain client-side estimates only — Square ch
 1. Update **`store/square_products_latest.json`** (+ images)
 2. **`npm run clean:overlay`** / **`audit:overlay`** if overlay changed
 3. **`npm run sync:store`**
-4. **`npm run audit:storefront`** — lane coverage, catalog images, featured IDs, and purchase-path markers
-5. **`npm run audit:storefront-conversion`** — commerce-first structure, About/policy routes, and checkout-ID guardrails
-6. Spot-check: eight homepage products, one homepage product modal/cart path, About, policies, each collection lane, catalog filters, and one authorized checkout initiation
-7. **`npm run build:pages`** → push for GitHub Pages
+4. **`npm run audit:storefront`** — lane coverage, catalog images, featured-drop IDs, Phase A UX markers
+5. Spot-check: home (no grid), each collection lane, catalog, one checkout on staging
+6. **`npm run build:pages`** → push for GitHub Pages
 
 ---
 
@@ -229,6 +233,8 @@ Promo codes (`SEED10`, `CREW15`) remain client-side estimates only — Square ch
 | **`WORKFLOWS.md`** | Monorepo sync, console, deploy |
 | **`STOREFRONT_OVERLAY.md`** | Overlay schema and launch policy |
 | **`DEPLOY_GITHUB_PAGES.md`** | Public shop hosting |
+| **`BACKEND_DEPLOY.md`** | Payment API on NXCore |
 | **`CATALOG_PIPELINE.md`** | Square → JSON |
-| **`SKU_E2E_AUDIT.md`** | Cart keys and checkout |
+| **`USER_MANUAL/README.md`** | Operator manual (start here) |
+| **`USER_MANUAL/05-checkout-and-payments.md`** | Cart keys and checkout |
 | **`store/handoffnotes.md`** | Quick dev map (paths, API, troubleshooting) |

@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://web.squarecdn.com https://sandbox.web.squarecdn.com https://stats.aerocoreos.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://web.squarecdn.com https://sandbox.web.squarecdn.com; img-src 'self' data:; connect-src 'self' https://connect.squareup.com https://connect.squareupsandbox.com https://web.squarecdn.com https://sandbox.web.squarecdn.com https://pci-connect.squareup.com https://pci-connect.squareupsandbox.com https://api.aerovista.us https://stats.aerocoreos.com https://cloudflareinsights.com http://127.0.0.1:* http://localhost:*; frame-src https://web.squarecdn.com https://sandbox.web.squarecdn.com https://connect.squareup.com https://connect.squareupsandbox.com https://pci-connect.squareup.com https://pci-connect.squareupsandbox.com; font-src 'self' data: https://square-fonts-production-f.squarecdn.com https://d1g145x70srn7h.cloudfront.net;">
   <title>AeroVista Apparel — Store</title>
-  <meta name="description" content="AeroVista gear — Core, Shadow Wear, Apex, Glitch, and Architect collections. Premium streetwear and made-to-order apparel." />
+  <meta name="description" content="AeroVista gear — Core, Shadow Wear, Apex, Glitch, Architect, and DockLife collections. Premium streetwear and made-to-order apparel." />
   <meta property="og:title" content="AeroVista Gear — Official Store" />
-  <meta property="og:description" content="Shop Core, Shadow Wear, Apex, Glitch, and Architect — curated AeroVista apparel with secure Square checkout." />
+  <meta property="og:description" content="Shop Core, Shadow Wear, Apex, Glitch, Architect, and DockLife — curated AeroVista apparel with secure Square checkout." />
   <meta property="og:site_name" content="AeroVista Gear" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://gear.aerovista.us/" />
@@ -1211,6 +1211,12 @@
         rgba(0,255,255,0), rgba(251,191,36,.26), rgba(245,158,11,.18),
         rgba(234,179,8,.12), rgba(251,191,36,.22), rgba(0,255,255,0));
     }
+    .collectionDoor[data-collection-lane="docklife"] .doorHolo,
+    #collectionViewHero[data-lane="docklife"] .doorHolo{
+      background:conic-gradient(from 210deg,
+        rgba(0,255,255,0), rgba(45,212,191,.28), rgba(14,165,233,.18),
+        rgba(56,189,248,.12), rgba(45,212,191,.22), rgba(0,255,255,0));
+    }
     .doorNoise{
       position:absolute; inset:0;
       pointer-events:none; opacity:0;
@@ -1729,6 +1735,82 @@
     .collectionViewHero .pageArtPanel{
       margin-top:14px;
       min-height:160px;
+    }
+    .collectionHeroAd{
+      display:grid;
+      grid-template-columns:minmax(0, 1.15fr) minmax(0, 1fr);
+      gap:18px;
+      align-items:stretch;
+      margin:0 0 18px;
+      padding:0;
+      border:1px solid rgba(45,212,191,.22);
+      border-radius:var(--radius);
+      overflow:hidden;
+      background:
+        radial-gradient(520px 220px at 12% 0%, rgba(45,212,191,.16), transparent 55%),
+        linear-gradient(135deg, rgba(8,18,28,.96), rgba(7,12,18,.98));
+      box-shadow:var(--shadow);
+    }
+    .collectionHeroAd.is-hidden,
+    .collectionHeroAd[hidden]{ display:none !important; }
+    .collectionHeroAd__media{
+      min-height:220px;
+      background:
+        linear-gradient(160deg, rgba(14,165,233,.18), transparent 45%),
+        linear-gradient(20deg, rgba(45,212,191,.12), transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(251,191,36,.1), transparent 50%),
+        #0a1620;
+      background-size:cover;
+      background-position:center;
+      position:relative;
+    }
+    .collectionHeroAd__media.has-image{
+      background-color:#0a1620;
+    }
+    .collectionHeroAd__media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      min-height:220px;
+    }
+    .collectionHeroAd__copy{
+      padding:22px 22px 20px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      justify-content:center;
+    }
+    .collectionHeroAd__kicker{
+      margin:0;
+      font-size:11px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:rgba(45,212,191,.9);
+    }
+    .collectionHeroAd__title{
+      margin:0;
+      font-size:clamp(22px, 3vw, 30px);
+      letter-spacing:-.03em;
+      line-height:1.1;
+    }
+    .collectionHeroAd__subtitle{
+      margin:0;
+      opacity:.78;
+      font-size:14px;
+    }
+    .collectionHeroAd__body{
+      margin:4px 0 8px;
+      opacity:.72;
+      font-size:14px;
+      line-height:1.45;
+      max-width:38ch;
+    }
+    .collectionHeroAd__actions{ margin-top:4px; }
+    @media (max-width: 820px){
+      .collectionHeroAd{ grid-template-columns:1fr; }
+      .collectionHeroAd__media,
+      .collectionHeroAd__media img{ min-height:180px; }
     }
     .catalogIntro{ display:flex; justify-content:space-between; gap:16px; align-items:flex-end; flex-wrap:wrap; margin-bottom:16px; }
     .catalogIntro h2{ margin:0; font-size:clamp(22px, 3vw, 28px); letter-spacing:-.03em; font-weight:700; }
@@ -3009,6 +3091,11 @@
           <div class="doorTop"><div class="doorLabel">Limited-ish / Making-of / Build Archive</div><h3>Architect</h3><p>Artifacts from the making of AeroVista: drafts, diagrams, system maps, founder notes, prototype labels, and build-floor gear.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open Architect Page →</span></div>
         </article>
+        <article class="collectionDoor hasArt" data-mark="DL" data-collection-lane="docklife" style="--doorGlow:rgba(45,212,191,.16)" title="Open DockLife collection">
+          <div class="doorArtSvg" data-door-svg-lane="docklife" aria-hidden="true"></div>
+          <div class="doorTop"><div class="doorLabel">Harbor / Lake / Rope + Canvas</div><h3>DockLife</h3><p>Waterfront leisure line — rope-trim caps, marina days, and lake-evening gear. Opening drop: Osprey Rope Cap, with more DockLife pieces to follow.</p></div>
+          <div class="doorBottom"><span class="doorCTA">Open DockLife Page →</span></div>
+        </article>
       </div>
     </section>
 
@@ -3016,7 +3103,7 @@
       <div>
         <p class="sectionKicker">About AeroVista Apparel</p>
         <h2 id="storyTeaserTitle">The story is still here—after the products.</h2>
-        <p>Each collection is part of one visual system: clean foundations, stealth patterns, emblem-led pieces, signal distortion, and artifacts from the build.</p>
+        <p>Each collection is part of one visual system: clean foundations, stealth patterns, emblem-led pieces, signal distortion, build artifacts, and DockLife on the water.</p>
       </div>
       <a class="btn primary" href="about.html">Read our story →</a>
     </section>
@@ -3030,6 +3117,18 @@
         <p class="pageLead" id="cvLead"></p>
         <div class="pageArtPanel" id="cvArtPanel"><div class="pageLaneSvgWrap" id="cvArtSvg" aria-hidden="true"></div></div>
       </article>
+      <aside class="collectionHeroAd is-hidden" id="collectionHeroAd" aria-label="Collection featured drop" hidden>
+        <div class="collectionHeroAd__media" id="collectionHeroAdMedia" aria-hidden="true"></div>
+        <div class="collectionHeroAd__copy">
+          <p class="collectionHeroAd__kicker" id="collectionHeroAdKicker">Featured drop</p>
+          <h3 class="collectionHeroAd__title" id="collectionHeroAdTitle"></h3>
+          <p class="collectionHeroAd__subtitle" id="collectionHeroAdSubtitle"></p>
+          <p class="collectionHeroAd__body" id="collectionHeroAdBody"></p>
+          <div class="collectionHeroAd__actions">
+            <a class="btn primary" id="collectionHeroAdCta" href="#">Shop drop</a>
+          </div>
+        </div>
+      </aside>
       <div class="controls" aria-label="Collection filters">
         <div class="field" role="search">
           <span style="opacity:.75">🔎</span>
@@ -3369,7 +3468,7 @@
       }
     };
     // Cache-busting token for static deploys (bump on release).
-    const STORE_BUILD_ID = "2026-07-21-commerce-first-1a";
+    const STORE_BUILD_ID = "2026-08-23-docklife-lane-1";
 
     // Placeholder color swatches
     const SW = {
@@ -3689,6 +3788,7 @@
             const n = (name || "").toLowerCase();
             const idStr = (id || "").toLowerCase();
             const hay = n + " " + idStr.replace(/-/g, " ");
+            if (n.includes("docklife") || n.includes("dock life") || n.includes("osprey rope")) return "DockLife";
             if (n.includes("bonsaid") || hay.includes("bubble-free sticker")) return "BONSAID";
             if (n.includes("glitch")) return "Glitch";
             if (n.includes("orbit")) return "Orbit";
@@ -4049,7 +4149,10 @@
       "draft series": "draft series",
       "drafted": "draft series",
       "core": "core",
-      "division": "division"
+      "division": "division",
+      "docklife": "docklife",
+      "dock life": "docklife",
+      "dock-life": "docklife"
     };
     function normalizedCatalogCollection(p){
       const raw = catalogCollectionKey(p);
@@ -4106,6 +4209,25 @@
         pageGlow: "rgba(251,191,36,.12)",
         cardImg: "./img/adrafted.png",
         match(p) { return laneMatchesCollection(p, [/^architect$/, /^draft series$/]); }
+      },
+      {
+        id: "docklife",
+        label: "DockLife",
+        eyebrow: "Live Collection / Harbor + Lake",
+        lead: "Waterfront leisure for marina mornings and lake evenings. Rope, canvas, and easy harbor energy — opening with the Osprey Rope Cap, with more DockLife pieces ahead.",
+        pageGlow: "rgba(45,212,191,.14)",
+        cardImg: "",
+        heroAd: {
+          kicker: "DockLife · Featured drop",
+          title: "Osprey Rope Cap",
+          subtitle: "First piece in the DockLife line",
+          body: "The opening drop for DockLife — a rope-trim cap built for docks, decks, and long light on the water. More DockLife apparel and accessories will land on this page.",
+          image: "docklife/hero.jpg",
+          ctaLabel: "Shop DockLife",
+          ctaHref: "?collection=docklife",
+          productId: ""
+        },
+        match(p) { return laneMatchesCollection(p, [/^docklife$/, /^dock life$/]); }
       }
     ];
 
@@ -6472,6 +6594,101 @@
       return { view: "home" };
     }
 
+    function resolveCollectionHeroAd(laneId){
+      const lane = collectionLaneById(laneId);
+      if(!lane) return null;
+      const overlayAds = (OVERLAY_DATA && Array.isArray(OVERLAY_DATA.ads)) ? OVERLAY_DATA.ads : [];
+      const fromOverlay = overlayAds.find(a => {
+        if(!a || a.visible === false) return false;
+        const adLane = String(a.lane || a.collectionLane || "").toLowerCase();
+        if(adLane && adLane === String(laneId).toLowerCase()) return true;
+        const tags = normalizeTags(a.tags || []);
+        return tags.includes(`lane:${laneId}`) || tags.includes(String(laneId).toLowerCase());
+      });
+      if(fromOverlay){
+        return {
+          kicker: String(fromOverlay.kicker || fromOverlay.subtitle || `${lane.label} · Featured drop`),
+          title: String(fromOverlay.title || ""),
+          subtitle: String(fromOverlay.subtitle || ""),
+          body: String(fromOverlay.body || ""),
+          image: String(fromOverlay.image || ""),
+          ctaLabel: String((fromOverlay.cta && fromOverlay.cta.label) || "Shop drop"),
+          ctaHref: String((fromOverlay.cta && fromOverlay.cta.href) || `?collection=${encodeURIComponent(laneId)}`),
+          productId: String(fromOverlay.productId || "")
+        };
+      }
+      return lane.heroAd ? { ...lane.heroAd } : null;
+    }
+
+    function hydrateCollectionHeroAd(laneId){
+      const root = $("#collectionHeroAd");
+      if(!root) return;
+      const ad = resolveCollectionHeroAd(laneId);
+      if(!ad || !ad.title){
+        root.classList.add("is-hidden");
+        root.hidden = true;
+        root.setAttribute("aria-hidden", "true");
+        return;
+      }
+      root.classList.remove("is-hidden");
+      root.hidden = false;
+      root.setAttribute("aria-hidden", "false");
+      const kicker = $("#collectionHeroAdKicker");
+      const title = $("#collectionHeroAdTitle");
+      const subtitle = $("#collectionHeroAdSubtitle");
+      const body = $("#collectionHeroAdBody");
+      const cta = $("#collectionHeroAdCta");
+      const media = $("#collectionHeroAdMedia");
+      if(kicker) kicker.textContent = ad.kicker || "Featured drop";
+      if(title) title.textContent = ad.title;
+      if(subtitle){
+        subtitle.textContent = ad.subtitle || "";
+        subtitle.style.display = ad.subtitle ? "" : "none";
+      }
+      if(body){
+        body.textContent = ad.body || "";
+        body.style.display = ad.body ? "" : "none";
+      }
+      if(cta){
+        cta.textContent = ad.ctaLabel || "Shop drop";
+        const href = ad.ctaHref || `?collection=${encodeURIComponent(laneId)}`;
+        cta.setAttribute("href", href);
+        if(ad.productId){
+          cta.onclick = (e) => {
+            e.preventDefault();
+            openModal(ad.productId);
+          };
+        } else {
+          cta.onclick = null;
+        }
+      }
+      if(media){
+        media.innerHTML = "";
+        media.classList.remove("has-image");
+        media.style.backgroundImage = "";
+        const raw = (ad.image || "").trim();
+        if(raw){
+          const imgBaseRaw = (typeof window.STORE_IMG_BASE === "string") ? window.STORE_IMG_BASE.trim() : "";
+          const imgBase = imgBaseRaw ? (imgBaseRaw.endsWith("/") ? imgBaseRaw : (imgBaseRaw + "/")) : "./img/";
+          const src = (raw.startsWith("http://") || raw.startsWith("https://") || raw.startsWith("./") || raw.startsWith("/"))
+            ? raw
+            : resolveCatalogImagePath(imgBase, raw);
+          const img = document.createElement("img");
+          img.src = withBuildVersion(src);
+          img.alt = ad.title || "";
+          img.loading = "eager";
+          img.decoding = "async";
+          img.fetchPriority = "high";
+          img.onerror = () => {
+            img.remove();
+            media.classList.remove("has-image");
+          };
+          media.appendChild(img);
+          media.classList.add("has-image");
+        }
+      }
+    }
+
     function showCollectionView(laneId){
       const lane = collectionLaneById(laneId);
       if(!lane) return;
@@ -6501,6 +6718,7 @@
       } else if (artSvg) {
         artSvg.innerHTML = "";
       }
+      hydrateCollectionHeroAd(laneId);
       const cSearch = $("#collectionSearch"); if(cSearch) cSearch.value = "";
       const cSort = $("#collectionSort"); if(cSort) cSort.value = state.sort;
       $$(".collectionCatChips .chip[data-cat]").forEach(x => {
@@ -6521,6 +6739,13 @@
       if(home) home.classList.toggle("is-hidden", route.view !== "home");
       if(coll) coll.classList.toggle("is-hidden", route.view !== "collection");
       if(cat) cat.classList.toggle("is-hidden", route.view !== "catalog");
+      if(route.view !== "collection"){
+        const heroAd = $("#collectionHeroAd");
+        if(heroAd){
+          heroAd.classList.add("is-hidden");
+          heroAd.hidden = true;
+        }
+      }
       if(route.view === "home"){
         if(skip){ skip.href = "#featuredProducts"; skip.textContent = "Skip to products"; }
         state.collection = "all";

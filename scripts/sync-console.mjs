@@ -9,8 +9,39 @@ import { fileURLToPath } from 'node:url';
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const overlaySrcPath = path.join(root, 'store', 'storefront_overlay.json');
 const overlayBaselinePath = path.join(root, 'console', 'overlay_baseline.js');
+const catalogSrcPath = path.join(root, 'store', 'square_products_latest.json');
+const catalogBaselinePath = path.join(root, 'console', 'catalog_baseline.js');
 const src = path.join(root, 'console');
 const dest = path.join(root, 'public', 'console');
+
+/** Keep offline catalog baseline aligned with published storefront JSON (Square projection). */
+function writeCatalogBaselineFromStore() {
+  if (!fs.existsSync(catalogSrcPath)) {
+    console.warn('[sync:console] store/square_products_latest.json missing — skip catalog baseline regen.');
+    return;
+  }
+  const data = JSON.parse(fs.readFileSync(catalogSrcPath, 'utf8'));
+  const baseline = {
+    generated_from: data?.meta?.source || 'store/square_products_latest.json',
+    generated_at: new Date().toISOString(),
+    tool: 'npm run sync:console',
+    note: 'Regenerated from store/square_products_latest.json so Catalog Console boots with the same Square-projected catalog admins deploy.',
+    meta: data.meta || {},
+    products: data.products || [],
+  };
+  const banner = `/**
+ * Offline catalog default for Catalog Console v2 (\`loadCatalogBaseline\`).
+ * Generated from ../../store/square_products_latest.json — run npm run sync:console after Square merge / console deploy.
+ */\n`;
+  fs.writeFileSync(
+    catalogBaselinePath,
+    `${banner}window.AV_CATALOG_BASELINE = ${JSON.stringify(baseline, null, 2)};\n`,
+    'utf8'
+  );
+  console.log(
+    `[sync:console] wrote console/catalog_baseline.js (${baseline.products.length} products) from store/square_products_latest.json`
+  );
+}
 
 /** Keep console offline overlay in sync with the shop — avoids bogus "Unmatched" rows vs catalog baseline. */
 function writeOverlayBaselineFromStore() {
@@ -28,8 +59,12 @@ function writeOverlayBaselineFromStore() {
   console.log('[sync:console] wrote console/overlay_baseline.js from store/storefront_overlay.json');
 }
 
+writeCatalogBaselineFromStore();
+writeOverlayBaselineFromStore();
+
 const INCLUDE = new Set([
   'aerovista_catalog_console_v2.html',
+  'catalog-console-config.js',
   'catalog_baseline.js',
   'overlay_baseline.js',
   'SOT.json',
@@ -39,8 +74,6 @@ if (!fs.existsSync(path.join(src, 'aerovista_catalog_console_v2.html'))) {
   console.warn('[sync:console] Missing console/aerovista_catalog_console_v2.html — skipping.');
   process.exit(0);
 }
-
-writeOverlayBaselineFromStore();
 
 fs.mkdirSync(dest, { recursive: true });
 for (const name of INCLUDE) {

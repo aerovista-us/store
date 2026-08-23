@@ -158,6 +158,7 @@ Runbook: [USER_MANUAL/06-orders-and-fulfillment.md](USER_MANUAL/06-orders-and-fu
 | Store mount | NXCore `AeroVista_Catalog_Console/store-data` → container `/app/stores` |
 | Horizon workspace | NXCore console directory remains empty; canonical local source and evidence are under repo `horizon/` |
 | Production publish boundary | Gear-only compatibility publisher remains protected; Horizon must not invoke it |
+| Local catalog (2026-08-23) | Deployed Console export `square_products_cleaned_v2 (6).json` → `store/square_products_latest.json` (85 products, 36 visible). Normalized DockLife image to `docklife/docklife-drip_hat.png`. Synced `public/shop/` + console baselines. **Not yet pushed to GitHub Pages.** |
 
 The unpublished `aerovista-commerce-sandbox` API and PostgreSQL containers are
 also running and healthy. They have no public Traefik route or host-published

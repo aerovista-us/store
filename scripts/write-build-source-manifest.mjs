@@ -1,6 +1,6 @@
 /**
- * Write `public/build-source-manifest.json` after sync so AVCC can show
- * what got published (store + console).
+ * Write `public/build-source-manifest.json` after sync so AeroVista Command Center (AVCC)
+ * can show gear-store deploy surfaces and deep links.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -41,6 +41,33 @@ const manifest = {
   name: 'AV Store Static Bridge',
   version: 2,
   mode: shopOnly ? 'public-shop-pages' : 'full',
+  commandCenter: {
+    name: 'AeroVista Command Center',
+    abbrev: 'AVCC',
+    url: 'https://avcc.aerocoreos.com',
+    repo: 'aerovista-command-center',
+  },
+  services: {
+    shop: {
+      url: 'https://gear.aerovista.us',
+      repo: 'aerovista-store',
+      path: 'store/',
+      deploy: 'GitHub Pages',
+    },
+    catalogConsole: {
+      url: 'https://store-console.aerocoreos.com',
+      repo: 'aerovista-store',
+      path: 'console/',
+      deploy: 'NXCore Docker',
+      note: 'Not AVCC — specialized catalog tool; AVCC links here',
+    },
+    paymentApi: {
+      url: 'https://api.aerovista.us',
+      repo: 'aerovista-store',
+      path: 'store/backend/',
+      deploy: 'NXCore SSH (not in git)',
+    },
+  },
   store: {
     enabled: exists(storeDestIndex),
     source: storeSource,
