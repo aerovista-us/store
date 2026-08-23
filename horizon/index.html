@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!-- SOT: horizon/ is the canonical Horizon storefront source; artwork data inline in js/gallery.js until /v1 catalog connects. See horizon/SOT.json. -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Horizon | Aerial Art from the Inland Northwest</title>
+  <meta name="description" content="A private preview of Horizon aerial canvas works from Coeur d’Alene and the Inland Northwest." />
+  <meta property="og:title" content="Horizon | Aerial Art from the Inland Northwest" />
+  <meta property="og:description" content="An original aerial portrait of the Coeur d’Alene Resort, marina, boardwalk, and lakefront." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="gallery/03-dji-20230923161411-0006-d-copy.webp" />
+  <meta name="robots" content="noindex" /><!-- Gated public preview: remove only after commerce launch approval -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css?v=20260728-continuous-canvas-wrap" />
+</head>
+<body>
+  <main>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Horizon home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span><strong>HORIZON</strong><small>AERIAL &amp; VISUAL</small></span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#collection">Collection</a>
+        <a href="#featured">Featured piece</a>
+        <a href="#business">Business</a>
+      </nav>
+      <button class="bag-button" id="bagButton" type="button" aria-controls="cartDrawer" aria-expanded="false">
+        Bag <span id="bagCount">0</span>
+      </button>
+    </header>
+
+    <section class="hero" id="top">
+      <img src="gallery/display/CDA-CAN-010-mahogany-wake.jpg" alt="" class="hero-image" />
+      <div class="hero-scrim"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">ORIGINAL AERIAL PHOTOGRAPHY · LAKE COEUR D’ALENE</p>
+        <h1>Mahogany<br />Wake.</h1>
+        <p class="hero-statement">A classic runabout crossing Lake Coeur d’Alene, photographed from above and presented as gallery-wrapped canvas.</p>
+        <p class="hero-offer">20″ × 28″ gallery-wrapped canvas <strong>— $275</strong></p>
+        <div class="hero-actions">
+          <button class="hero-primary" type="button" data-open-product="CDA-CAN-010">View the Piece</button>
+          <a class="hero-secondary" href="#collection">Explore the Collection <span>↓</span></a>
+        </div>
+      </div>
+      <div class="hero-caption">
+        <span>01 / 04</span>
+        <span>Mahogany Wake</span>
+        <span>Made to order · $275</span>
+      </div>
+    </section>
+
+    <section class="gallery-section" id="collection">
+      <div class="section-intro">
+        <div>
+          <p class="eyebrow dark">THE COEUR D’ALENE COLLECTION · OPEN EDITION</p>
+          <h2>The lake,<br />from above.</h2>
+        </div>
+        <p>Original aerial photographs captured around Lake Coeur d’Alene, each made to order as a gallery-wrapped canvas. Every piece is prepared for its chosen format, hand-stretched, and delivered ready to hang.</p>
+      </div>
+
+      <div class="benefit-strip" aria-label="Canvas production details">
+        <div><span>01</span><strong>Made to order</strong><small>Prepared for the selected format</small></div>
+        <div><span>02</span><strong>Ready to hang</strong><small>Mounting hardware included</small></div>
+        <div><span>03</span><strong>Fade resistant</strong><small>Poly-cotton gallery canvas</small></div>
+        <div><span>04</span><strong>Solid wood</strong><small>Hand-stretched bars</small></div>
+      </div>
+
+      <div class="wall-toolbar" id="wallToolbar">
+        <div>
+          <span>PROPORTIONAL GALLERY WALL</span>
+          <strong>Canvas dimensions are shown at the same relative scale.</strong>
+        </div>
+        <div class="wall-mobile-controls" aria-label="Navigate the gallery wall">
+          <button id="wallPrev" type="button" aria-label="Previous piece">←</button>
+          <span id="wallPosition" aria-live="polite">01 / 04</span>
+          <button id="wallNext" type="button" aria-label="Next piece">→</button>
+        </div>
+      </div>
+
+      <div class="gallery-wall" id="artGrid" aria-label="Coeur d’Alene canvas gallery wall"></div>
+    </section>
+
+    <section class="featured-piece" id="featured">
+      <div class="featured-media">
+        <div class="featured-full">
+          <img src="gallery/display/CDA-CAN-010-mahogany-wake.jpg" alt="Mahogany Wake, an aerial photograph of a classic runabout on Lake Coeur d’Alene" />
+        </div>
+        <div class="featured-crop">
+          <div class="featured-crop-image">
+            <img src="gallery/display/CDA-CAN-010-mahogany-wake.jpg" alt="Detail crop of the mahogany runabout’s deck and helm" />
+          </div>
+          <span>Detail · deck and helm</span>
+        </div>
+      </div>
+      <div class="featured-copy">
+        <p class="eyebrow dark">FEATURED PIECE · CDA-CAN-010</p>
+        <h2>Mahogany Wake</h2>
+        <p class="featured-subtitle">A Classic Runabout on Lake Coeur d’Alene</p>
+        <p class="featured-story">Warm mahogany, bright deckwork, and a precise wake give this classic runabout a sculptural presence against the lake’s dark, glass-like surface. The elevated viewpoint turns a familiar North Idaho scene into a quiet study of craft, movement, and water.</p>
+        <dl class="featured-specs">
+          <div><dt>Canvas size</dt><dd>20″ × 28″</dd></div>
+          <div><dt>Depth</dt><dd>1.25″ gallery wrap</dd></div>
+          <div><dt>Finish</dt><dd>Fade-resistant canvas</dd></div>
+          <div><dt>Installation</dt><dd>Ready to hang</dd></div>
+        </dl>
+        <div class="featured-purchase">
+          <div><span>Made to order</span><strong>$275</strong></div>
+          <button type="button" data-open-product="CDA-CAN-010">View &amp; Purchase</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="business-placement" id="business">
+      <div class="business-image">
+        <img src="gallery/03-dji-20230923161411-0006-d-copy.webp" alt="Harbor at the Heart, an aerial view of the Coeur d’Alene Resort and marina" />
+        <span>Harbor at the Heart · 0006</span>
+      </div>
+      <div class="business-copy">
+        <p class="eyebrow">BUSINESS &amp; CUSTOM PLACEMENT</p>
+        <h2>Art for places<br />with a point of view.</h2>
+        <p>Looking for artwork for a local office, hospitality space, lake property, or client gift? We can help select scale, format, and a piece that belongs in the room.</p>
+        <p class="business-offer">Harbor at the Heart · 30″ × 40″ canvas · $495</p>
+        <div class="business-actions">
+          <button type="button" data-open-product="CDA-CAN-003">View Harbor at the Heart</button>
+          <a href="mailto:studio@aerovista.us?subject=Horizon%20Business%20%26%20Custom%20Artwork%20Options">View Business &amp; Custom Options <span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto" id="process">
+      <p class="eyebrow">PRINTED WITH INTENTION</p>
+      <blockquote>“The photograph is only finished when it has weight, edge, and a place in the room.”</blockquote>
+      <div class="process-grid">
+        <div><span>01</span><h3>Captured</h3><p>Purposeful flights, patient light, and locations close enough to know.</p></div>
+        <div><span>02</span><h3>Composed</h3><p>Each work is finished for print—not compressed into a screen-first crop.</p></div>
+        <div><span>03</span><h3>Made</h3><p>Archival materials, hand-finished edges, and formats selected for the image.</p></div>
+      </div>
+    </section>
+
+    <section class="journal" id="details">
+      <div><p class="eyebrow dark">STUDIO SUPPORT</p><h2>Choose with confidence.</h2></div>
+      <p>Need help with scale, placement, or selecting the right piece? The studio can confirm current production timing and recommend a format for your wall.</p>
+      <a href="mailto:studio@aerovista.us?subject=Horizon%20canvas%20selection%20help">Ask the studio <span>→</span></a>
+    </section>
+
+    <footer>
+      <div class="footer-brand">HORIZON</div>
+      <div><p>Aerial art from the Inland Northwest.</p><p>Part of AeroVista.</p></div>
+      <div><a href="#collection">Collection</a><a href="#featured">Featured</a><a href="#business">Business</a></div>
+      <div><p>Collection preview · 2026</p><a href="mailto:studio@aerovista.us">studio@aerovista.us</a></div>
+    </footer>
+
+    <div class="artwork-modal" id="artworkModal" role="dialog" aria-modal="true" hidden>
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close artwork details">×</button>
+      <div class="artwork-stage" id="artworkStage">
+        <div class="room-context" id="roomContext" aria-hidden="true" hidden>
+          <span class="room-scale" id="roomScale"></span>
+        </div>
+        <div class="preview-canvas" id="previewCanvas">
+          <img id="previewImage" src="" alt="" />
+          <img id="previewImageSecondary" src="" alt="" hidden />
+          <span></span>
+        </div>
+        <div class="room-controls" id="roomControls" role="group" aria-label="Choose room lighting" hidden>
+          <span>Room light</span>
+          <button type="button" data-room-tone="gallery" aria-pressed="true"><i></i>Natural</button>
+          <button type="button" data-room-tone="limestone" aria-pressed="false"><i></i>Soft ivory</button>
+          <button type="button" data-room-tone="charcoal" aria-pressed="false"><i></i>Evening</button>
+        </div>
+        <button class="view-toggle" id="viewToggle" type="button">View in room</button>
+      </div>
+      <aside class="artwork-panel">
+        <p class="eyebrow dark" id="panelEyebrow"></p>
+        <h2 id="panelTitle"></h2>
+        <p class="product-subtitle" id="panelSubtitle"></p>
+        <p class="location" id="panelLocation"></p>
+        <p class="product-price" id="panelPrice"></p>
+        <p class="story" id="panelStory"></p>
+        <div class="option-group"><label id="sizeLabel">Catalog format</label><div id="sizeOptions" role="group" aria-labelledby="sizeLabel"></div></div>
+        <div class="option-group"><label id="finishLabel">Finish</label><div id="finishOptions" role="group" aria-labelledby="finishLabel"></div></div>
+        <ul class="product-specs" id="productSpecs"></ul>
+        <div class="edition-line"><span>Open edition</span><span id="panelSku"></span></div>
+        <button class="reserve-button" id="addToBagButton" type="button">Add to bag <span id="purchaseState">Readiness check</span></button>
+        <a class="inquiry-link" id="inquiryLink" href="mailto:studio@aerovista.us">Ask the studio about this work <span>→</span></a>
+        <p class="fine-print" id="productReadiness">You’ll be connected to Square’s secure checkout to confirm shipping and complete payment.</p>
+      </aside>
+    </div>
+
+    <div class="cart-scrim" id="cartScrim" hidden></div>
+    <aside class="cart-drawer" id="cartDrawer" aria-labelledby="cartTitle" aria-hidden="true" hidden>
+      <div class="cart-header">
+        <div>
+          <p class="eyebrow dark">HORIZON · SECURE CHECKOUT</p>
+          <h2 id="cartTitle">Your bag</h2>
+        </div>
+        <button class="cart-close" id="cartClose" type="button" aria-label="Close bag">×</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-empty" id="cartEmpty">
+        <p>Your bag is empty.</p>
+        <button id="continueShopping" type="button">View the collection</button>
+      </div>
+      <div class="cart-summary" id="cartSummary" hidden>
+        <div><span>Subtotal</span><strong id="cartSubtotal">$0</strong></div>
+        <p>You’ll be connected to Square’s secure checkout to confirm shipping and complete payment.</p>
+        <button class="checkout-button" id="checkoutButton" type="button">Continue to secure checkout</button>
+        <p class="checkout-status" id="checkoutStatus" role="status" aria-live="polite"></p>
+        <a href="mailto:studio@aerovista.us?subject=Horizon%20order%20help">Need help with this order? <span>→</span></a>
+      </div>
+      <div class="commerce-health" aria-label="Commerce connection status">
+        <span><i class="health-dot pending" id="squareHealth"></i>Square checkout</span>
+      </div>
+    </aside>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  </main>
+
+  <script src="catalog.generated.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>

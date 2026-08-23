@@ -1,0 +1,125 @@
+{
+  "sot_version": "2.0-aerovista",
+  "repo_context": {
+    "parent_repository": "aerovista-store",
+    "parent_manifest": "../SOT.json",
+    "description": "Sub-manifest for horizon/ — Horizon customer storefront with scalable catalog, cart, and gated shared Square/Printful commerce."
+  },
+  "project": {
+    "name": "Horizon Storefront (horizon/)",
+    "slug": "horizon-storefront",
+    "brand": "Horizon by AeroVista",
+    "division": "AeroVista Horizon",
+    "owner": "AeroVista LLC",
+    "status": "active",
+    "lifecycle": "pre-launch",
+    "type": "static-site",
+    "category": "storefront",
+    "root": "./",
+    "primary_language": "javascript",
+    "repo_visibility": "private",
+    "created": "2026-07-25",
+    "updated": "2026-07-28",
+    "timezone": "America/Los_Angeles"
+  },
+  "purpose": {
+    "summary": "Public noindex storefront for Horizon aerial art. Four consumer works appear on one finite proportional gallery wall, Harbor appears in business placement, and archived, incomplete, and bundle records remain hidden but recoverable. The storefront includes a Horizon-namespaced cart and Square-hosted checkout for all five public works. Eight production checkout keys and eight production mapping rows are verified; unresolved physical-proof work remains transparent in private catalog waivers.",
+    "source_of_truth_policy": "SOT: horizon/ is the canonical Horizon frontend source. Product and commerce-readiness data is maintained in catalog.json; store-level routing is maintained in store.json. planning/canvas is design provenance only.",
+    "business_role": "Customer storefront for Horizon aerial fine-art prints (second AeroVista store)."
+  },
+  "technical_profile": {
+    "stack": {
+      "frontend": ["HTML", "CSS", "vanilla JS"],
+      "backend": ["Shared store/backend Flask Square and Printful bridge"],
+      "database": [],
+      "infra": ["GitHub Pages at horizon.aerovista.us behind Cloudflare", "shared Cloudflare /api proxy"],
+      "analytics": [],
+      "ai": []
+    },
+    "runtime": {
+      "local_ports": [8090],
+      "service_urls": ["https://api.aerovista.us", "https://horizon.aerovista.us", "https://aerovista-us.github.io/horizon-storefront/"],
+      "health_endpoint": "",
+      "entry_command": "python -m http.server 8090 (or serve-horizon-static.bat)",
+      "build_command": "npm run build:horizon-pages",
+      "start_command": "n/a — static GitHub Pages deployment"
+    },
+    "deployment": {
+      "primary_host": "GitHub Pages behind Cloudflare Worker Custom Domain",
+      "deploy_path": "aerovista-us/horizon-storefront site/",
+      "public_url": "https://horizon.aerovista.us",
+      "internal_url": "",
+      "containerized": false,
+      "compose_file": "",
+      "reverse_proxy": "Cloudflare Worker gear-api-proxy",
+      "networking_notes": "Cloudflare owns the horizon.aerovista.us Custom Domain, proxies static requests to GitHub Pages, and sends /api/* to the NXCore API. Backend CORS includes the Horizon origin. Eight Horizon checkout keys and eight production mappings are active. noindex is set in index.html."
+    }
+  },
+  "canon": {
+    "canon_root": "./",
+    "allowed_master_locations": ["./", "css/", "js/", "gallery/"],
+    "forbidden_master_locations": []
+  },
+  "entrypoints": [
+    {
+      "id": "horizon_index",
+      "label": "Horizon storefront shell",
+      "path": "index.html",
+      "required": true,
+      "notes": "Public noindex storefront with four proportional consumer-wall presentations, one Harbor business-placement presentation, no public placeholders, a hidden bundle, and Square-hosted checkout for all five public works."
+    }
+  ],
+  "canon_files": [
+    { "id": "sot_self", "path": "SOT.json", "type": "json", "role": "subtree source of truth manifest", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "readme", "path": "README.md", "type": "md", "role": "status, provenance, deliberate exclusions", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "index", "path": "index.html", "type": "html", "role": "storefront shell", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "styles", "path": "css/styles.css", "type": "css", "role": "1:1 port of canvas design", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "gallery_js", "path": "js/gallery.js", "type": "js", "role": "catalog rendering, artwork modal, cart, and gated checkout handoff", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "catalog", "path": "catalog.json", "type": "json", "role": "product catalog + per-variant commerce gates", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "catalog_fallback", "path": "catalog.generated.js", "type": "js", "role": "generated direct-file and static-host catalog fallback", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "gallery_inventory", "path": "gallery/GALLERY_INVENTORY.md", "type": "md", "role": "gallery asset-to-product audit and intake blockers", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "room_background", "path": "gallery/room/horizon-lakehouse-room-v1.webp", "type": "webp", "role": "generated photorealistic residential background for the dimension-scaled View in Room feature", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "store_config", "path": "store.json", "type": "json", "role": "store identity, target hostname, and shared API routes", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "commerce_readiness", "path": "COMMERCE_READINESS.md", "type": "md", "role": "Square, Printful, product, and deployment activation runbook", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "deployment_sop", "path": "DEPLOYMENT_SOP.md", "type": "md", "role": "canonical Horizon preview, production deploy, verification, and rollback SOP", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "completion_plan", "path": "COMPLETION_PLAN.md", "type": "md", "role": "gated execution plan from local preview through public launch and closeout", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "square_map", "path": "commerce/square-sku-map.horizon.json", "type": "json", "role": "validated Horizon-specific cart keys for the shared Square backend map", "required": true, "owner": "AeroVista", "status": "staged" },
+    { "id": "printful_map", "path": "commerce/printful-variant-map.horizon.json", "type": "json", "role": "verified Square variation to Printful sync-variant import map", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "printful_audit", "path": "commerce/printful-sync-audit-2026-07-27.json", "type": "json", "role": "read-only production-provider sync verification evidence for eight Horizon variants", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "printful_product_snapshot", "path": "commerce/printful-product-snapshot-2026-07-27.json", "type": "json", "role": "sanitized read-only production product, price, size, and attached-file evidence", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "printful_postgres_upsert", "path": "commerce/product-variant-map.horizon.sql", "type": "sql", "role": "reviewable production Postgres upsert for the eight verified Horizon mappings", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "catalog_validator", "path": "scripts/validate-catalog.mjs", "type": "js", "role": "fail-closed catalog and commerce-gate validator", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "catalog_fallback_builder", "path": "scripts/build-catalog-fallback.mjs", "type": "js", "role": "generates catalog.generated.js from authoritative catalog.json", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "public_artifact_builder", "path": "scripts/build-public-artifact.mjs", "type": "js", "role": "builds and audits the sanitized GitHub Pages artifact", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "github_pages_publisher", "path": "scripts/publish-github-pages.ps1", "type": "ps1", "role": "publishes the audited artifact to the dedicated Horizon GitHub Pages repository", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "github_pages_workflow", "path": "deploy/deploy-pages.yml", "type": "yml", "role": "workflow installed in the public Horizon artifact repository", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "gated_preview_release", "path": "release/RELEASE_2026-07-26_GITHUB_NXCORE_CLOUDFLARE.md", "type": "md", "role": "current GitHub Pages, NXCore, Cloudflare, verification, and rollback evidence", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "last_light_release", "path": "release/RELEASE_2026-07-27_LAST_LIGHT_COLLECTION_EDIT.md", "type": "md", "role": "Last Light intake, recoverable collection edit, wall ordering, proof gates, and deployment evidence", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "commerce_release", "path": "release/RELEASE_2026-07-27_CHECKOUT_FULFILLMENT_EDGE_POLISH.md", "type": "md", "role": "production checkout-map activation, provider-map verification, edge polish, backup, and rollback evidence", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "photographic_room_release", "path": "release/RELEASE_2026-07-28_PHOTOGRAPHIC_ROOM_PREVIEW.md", "type": "md", "role": "generated room asset, proportional room scaling, lighting treatments, and browser verification evidence", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "canvas_edge_ratio_release", "path": "release/RELEASE_2026-07-28_CANVAS_EDGE_RATIO_ALIGNMENT.md", "type": "md", "role": "reduced right-wrap depth, continuous single-image fold mapping, lower-right corner join, and cross-surface verification evidence", "required": true, "owner": "AeroVista", "status": "active" },
+    { "id": "printful_product_pull", "path": "scripts/pull-printful-products.py", "type": "py", "role": "read-only Printful sync-product pull with sanitized local output", "required": true, "owner": "AeroVista", "status": "active" }
+  ],
+  "systems": {
+    "linked_projects": [],
+    "depends_on": ["api.aerovista.us Square checkout", "shared Printful fulfillment worker", "Postgres product_variant_map"],
+    "feeds": [],
+    "consumes": [],
+    "shares_with": ["store/ (Gear) via future shared storefront core"],
+    "related_domains": ["horizon.aerovista.us", "api.aerovista.us", "gear.aerovista.us"]
+  },
+  "governance": {
+    "review_cycle": "when Plan 2 gates advance (hostname, catalog, hosting, preview)",
+    "update_rule": "Update this manifest and ../SOT.json in the same change set as any Horizon canon or deploy change.",
+    "promotion_rule": "Enable checkout only after exact catalog, Square, production mapping, policy, and launch checks pass. Any intentional proof exception must be recorded as an explicit catalog commerce approval and proof waiver; do not mark proofApproved without a received proof.",
+    "owner_roles": ["AeroVista Commerce", "glyph"]
+  },
+  "checks": {
+    "required_paths_exist": ["SOT.json", "README.md", "COMMERCE_READINESS.md", "DEPLOYMENT_SOP.md", "COMPLETION_PLAN.md", "index.html", "css/styles.css", "js/gallery.js", "catalog.json", "catalog.generated.js", "store.json", "commerce/square-sku-map.horizon.json", "commerce/printful-variant-map.horizon.json", "commerce/printful-sync-audit-2026-07-27.json", "commerce/printful-product-snapshot-2026-07-27.json", "commerce/product-variant-map.horizon.sql", "deploy/deploy-pages.yml", "deploy/PAGES_REPOSITORY_README.md", "release/RELEASE_2026-07-26_GITHUB_NXCORE_CLOUDFLARE.md", "release/RELEASE_2026-07-27_LAST_LIGHT_COLLECTION_EDIT.md", "release/RELEASE_2026-07-27_CHECKOUT_FULFILLMENT_EDGE_POLISH.md", "release/RELEASE_2026-07-28_PHOTOGRAPHIC_ROOM_PREVIEW.md", "release/RELEASE_2026-07-28_CANVAS_EDGE_RATIO_ALIGNMENT.md", "scripts/build-catalog-fallback.mjs", "scripts/build-public-artifact.mjs", "scripts/publish-github-pages.ps1", "scripts/validate-catalog.mjs", "scripts/pull-printful-products.py", "gallery/", "gallery/GALLERY_INVENTORY.md", "gallery/room/horizon-lakehouse-room-v1.webp"],
+    "marker": { "enabled": true, "marker_key": "SOT:", "accepted_ext": [".md", ".html", ".json", ".js"] }
+  },
+  "notes": [
+    "Design source: planning/canvas (Horizon Canvas Gallery demo). Images byte-verified on copy.",
+    "Five products are public in the noindex storefront: four consumer works on one proportional wall and Harbor in business placement. No placeholder is public. Autumn and the other archived records remain recoverable, the bundle remains hidden, and the five public variants are checkout-ready through Square. Eight checkout keys and eight production mapping rows are active. View in Room uses a generated photorealistic lake-house background and catalog-dimension scaling. Canvas wrap geometry uses one continuous image map across the front, reduced-depth right fold, retained thin bottom fold, and joined lower-right corner; physical-proof follow-up remains recorded privately."
+  ]
+}

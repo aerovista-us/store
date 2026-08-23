@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "hostname": "horizon.aerovista.us",
+  "catalogUpdated": "2026-07-27",
+  "products": 5,
+  "checkoutReadyVariants": 5,
+  "files": [
+    {
+      "path": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "catalog.generated.js",
+      "bytes": 8659,
+      "sha256": "ae140ffd0895d7bb8f9701e6c9b645633c4f15b32b821b80f2b3ae248361511e"
+    },
+    {
+      "path": "catalog.json",
+      "bytes": 8558,
+      "sha256": "1cb148590e2ced6500ee33d86ba32bc581238f3204a1ec4ef7fac0fd1b82dbd8"
+    },
+    {
+      "path": "css/styles.css",
+      "bytes": 36070,
+      "sha256": "2f0b63a07573777c680acf6ad08664f6e06886a65e15bb8c250e5445d04cb10e"
+    },
+    {
+      "path": "favicon.svg",
+      "bytes": 1027,
+      "sha256": "2ed22685b74e4fe0250d0aca17f9ad192ea278daf08158d3de25484c965800bd"
+    },
+    {
+      "path": "gallery/03-dji-20230923161411-0006-d-copy.webp",
+      "bytes": 961426,
+      "sha256": "d8c3633e7f184985acb64fbba1b66ccccee726be694f8659aea0183e3c9fbde6"
+    },
+    {
+      "path": "gallery/05-dji-20231014111331-0018-d.webp",
+      "bytes": 643064,
+      "sha256": "a54e914c893477e5e4e6470663e46316ba3bc0d824b0c14d030748abd335175d"
+    },
+    {
+      "path": "gallery/display/CDA-CAN-006-lake-links-floating-green.jpg",
+      "bytes": 892077,
+      "sha256": "da9302deeb4c0682f87e6d9a0b3fe3308c163e6bf3686f9a557ef27376b690bd"
+    },
+    {
+      "path": "gallery/display/CDA-CAN-010-mahogany-wake.jpg",
+      "bytes": 490580,
+      "sha256": "a4933d789d856be69d000336757bc8f9d6b9e37ee54ae4606992c52d025491bc"
+    },
+    {
+      "path": "gallery/display/CDA-CAN-014-last-light-over-resort.jpg",
+      "bytes": 695134,
+      "sha256": "016bec8b19769838aa112d5bf532c3b54550c05bdddd6c2401564ec4c86cf5a1"
+    },
+    {
+      "path": "gallery/room/horizon-lakehouse-room-v1.webp",
+      "bytes": 177614,
+      "sha256": "f6515e78c4bbdca55d7f5a0000efbbb673e878f43944301e639c9cd5407fd67c"
+    },
+    {
+      "path": "gallery/wall/CDA-CAN-002-road-wall.webp",
+      "bytes": 24456,
+      "sha256": "894c58cb4f49d4189f1d50f74d57e3e13eabd53f731a298950876918026db922"
+    },
+    {
+      "path": "gallery/wall/CDA-CAN-006-floating-green-wall.webp",
+      "bytes": 27810,
+      "sha256": "6877c488abbc186aad01748ba4f02871ba9660b1a81c6897508cd5a779b84330"
+    },
+    {
+      "path": "gallery/wall/CDA-CAN-010-mahogany-wake-wall.webp",
+      "bytes": 12652,
+      "sha256": "effdac8b8f811692b053b605d908197d18599ab005d87f816d56c33453aa418c"
+    },
+    {
+      "path": "gallery/wall/CDA-CAN-014-last-light-wall.webp",
+      "bytes": 28022,
+      "sha256": "130c0c46b6d56c235b18700e07ab51c06ad8acc211b95aca8953316b88d68907"
+    },
+    {
+      "path": "gallery/wall/gallery-interior.webp",
+      "bytes": 42234,
+      "sha256": "56ea8346618df22ac847e3e468297d987d700992fab29a191edb3bcc6ae99579"
+    },
+    {
+      "path": "index.html",
+      "bytes": 12766,
+      "sha256": "6d4f53b4b0116abdfc6de2f1e25186ab0b542790fa5d8dd9bb6b749d54cd2112"
+    },
+    {
+      "path": "js/gallery.js",
+      "bytes": 27641,
+      "sha256": "b1a04a23e6799651fccf427d1d88a33aa8089ad39c5e6b521ec8b95d9ec87a12"
+    }
+  ]
+}

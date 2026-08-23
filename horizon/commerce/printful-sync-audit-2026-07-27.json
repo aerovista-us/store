@@ -1,0 +1,89 @@
+{
+  "auditedAt": "2026-07-27",
+  "mode": "read-only Printful Sync API",
+  "storeProductsScanned": 84,
+  "result": "eight current Horizon Square-linked variations have enabled Printful sync variants",
+  "mappings": [
+    {
+      "productId": "CDA-CAN-001",
+      "product": "Autumn Over Coeur d’Alene",
+      "squareVariationId": "DZHQKOUSDEIQIAK4HISEGWMX",
+      "catalogSku": "6A654A4D9263E_19312",
+      "printfulSyncProductId": "451995624",
+      "printfulSyncVariantId": "5413416117",
+      "enabled": true
+    },
+    {
+      "productId": "CDA-CAN-002",
+      "product": "The Road to the Lake",
+      "squareVariationId": "75ED3TP2HPJ7AWUSU5O5ROXU",
+      "catalogSku": "6A65534A3A86E_19312",
+      "printfulSyncProductId": "452003629",
+      "printfulSyncVariantId": "5413449116",
+      "enabled": true
+    },
+    {
+      "productId": "CDA-CAN-003",
+      "product": "Harbor at the Heart",
+      "squareVariationId": "QNGEHC2XEGDTJC3GMEJREHR5",
+      "catalogSku": "6A65A829A4D4E_19323",
+      "printfulSyncProductId": "452054467",
+      "printfulSyncVariantId": "5413807138",
+      "enabled": true
+    },
+    {
+      "productId": "CDA-CAN-005",
+      "product": "Fairways Along the Lake",
+      "squareVariationId": "UE2R6GEZM73GJYVDEIK56XA7",
+      "catalogSku": "6A65B1DB8CB92_19317",
+      "printfulSyncProductId": "452056976",
+      "printfulSyncVariantId": "5413829524",
+      "enabled": true
+    },
+    {
+      "productId": "CDA-CAN-006",
+      "product": "Lake, Links, and the Floating Green",
+      "squareVariationId": "4YFQ5YTYAVKDFFZTL5J34VQR",
+      "catalogSku": "6A65B415A97A5_19317",
+      "printfulSyncProductId": "452057375",
+      "printfulSyncVariantId": "5413833942",
+      "enabled": true
+    },
+    {
+      "productId": "CDA-CAN-007",
+      "product": "The Clock at Resort Circle",
+      "squareVariationId": "TSVZMVYNXIABNBTROMOH2WZ3",
+      "catalogSku": "6A65B8ADCD01D_19317",
+      "printfulSyncProductId": "452058308",
+      "printfulSyncVariantId": "5413839257",
+      "enabled": true
+    },
+    {
+      "productId": "CDA-CAN-010",
+      "product": "Mahogany Wake",
+      "squareVariationId": "HM7W4RFQAJOTW4F7VCCPDQSK",
+      "catalogSku": "6A662E0C9B07F_19310",
+      "printfulSyncProductId": "452101416",
+      "printfulSyncVariantId": "5414120260",
+      "enabled": true
+    },
+    {
+      "productId": "CDA-CAN-014",
+      "product": "Last Light Over the Resort",
+      "squareVariationId": "7GHIQT64RIQ7FG75JXRY4WXM",
+      "catalogSku": "6A673A0192677_19300",
+      "printfulSyncProductId": "452227092",
+      "printfulSyncVariantId": "5415090955",
+      "enabled": true
+    }
+  ],
+  "excluded": [
+    {
+      "product": "Harbor at the Heart",
+      "squareVariationId": "ABPHBV3RGVPPQH6XZXNJQ3XV",
+      "printfulSyncVariantId": "5413470028",
+      "reason": "Printful sync variant is disabled and does not match the current Square catalog record"
+    }
+  ],
+  "remainingGate": "Verify or import each mapping in production Postgres product_variant_map before setting printfulMapped=true."
+}

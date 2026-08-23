@@ -10,6 +10,8 @@
     "prebuild": "npm run sync:all",
     "build": "tsc --noEmit && vite build",
     "build:pages": "node scripts/build-github-pages.mjs && node scripts/strip-private-pages-build.mjs && node scripts/audit-public-pages-build.mjs && node scripts/gh-pages-postbuild.mjs",
+    "build:horizon-pages": "node horizon/scripts/build-catalog-fallback.mjs && node horizon/scripts/validate-catalog.mjs && node horizon/scripts/build-public-artifact.mjs",
+    "audit:horizon-pages": "node horizon/scripts/build-public-artifact.mjs --audit-only",
     "preview": "vite preview",
     "preview:pages": "npm run build:pages && vite preview --host 0.0.0.0",
     "sync:store": "node scripts/sync-store.mjs",

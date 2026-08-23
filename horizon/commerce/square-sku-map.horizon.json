@@ -1,0 +1,42 @@
+{
+  "Horizon__CDA-CAN-001-20X40-OE": {
+    "name": "Autumn Over Coeur d’Alene (20 × 40 in)",
+    "cents": 39500,
+    "variationId": "DZHQKOUSDEIQIAK4HISEGWMX"
+  },
+  "Horizon__CDA-CAN-002-20X40-OE": {
+    "name": "The Road to the Lake (20 × 40 in)",
+    "cents": 39500,
+    "variationId": "75ED3TP2HPJ7AWUSU5O5ROXU"
+  },
+  "Horizon__CDA-CAN-003-CATALOG-LARGE": {
+    "name": "Harbor at the Heart (30 × 40 in)",
+    "cents": 49500,
+    "variationId": "QNGEHC2XEGDTJC3GMEJREHR5"
+  },
+  "Horizon__CDA-CAN-005-24X48-OE": {
+    "name": "Fairways Along the Lake (24 × 48 in)",
+    "cents": 52500,
+    "variationId": "UE2R6GEZM73GJYVDEIK56XA7"
+  },
+  "Horizon__CDA-CAN-006-24X48-OE": {
+    "name": "Lake, Links, and the Floating Green (24 × 48 in)",
+    "cents": 52500,
+    "variationId": "4YFQ5YTYAVKDFFZTL5J34VQR"
+  },
+  "Horizon__CDA-CAN-007-24X48-OE": {
+    "name": "The Clock at Resort Circle (24 × 48 in)",
+    "cents": 52500,
+    "variationId": "TSVZMVYNXIABNBTROMOH2WZ3"
+  },
+  "Horizon__CDA-CAN-010-20X28-OE": {
+    "name": "Mahogany Wake (20 × 28 in)",
+    "cents": 27500,
+    "variationId": "HM7W4RFQAJOTW4F7VCCPDQSK"
+  },
+  "Horizon__CDA-CAN-014-12X24-OE": {
+    "name": "Last Light Over the Resort (12 × 24 in)",
+    "cents": 19500,
+    "variationId": "7GHIQT64RIQ7FG75JXRY4WXM"
+  }
+}

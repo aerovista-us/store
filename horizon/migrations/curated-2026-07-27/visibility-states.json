@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "migrationId": "curated-2026-07-27",
+  "catalogPath": "horizon/catalog.json",
+  "preMigrationCatalogSha256": "05d803549fdb3e0c0a95457a0021ef7752e15551bd195eafceb3931458cd0a8f",
+  "preMigrationPublicCommit": "b97823d3951d4afa241ffd477ea3e55761f12bf1",
+  "recoveryRule": "Profiles change visibility and lifecycle fields only. Product objects, variants, media references, issues, descriptions, prices, and provider evidence remain in the master catalog.",
+  "preMigrationRawState": [
+    {"id":"CDA-CAN-003","published":true,"featured":true,"status":"preview","publicOrder":1},
+    {"id":"CDA-CAN-001","published":true,"featured":false,"status":"preview","publicOrder":2},
+    {"id":"CDA-CAN-002","published":true,"featured":false,"status":"preview","publicOrder":3},
+    {"id":"CDA-SET-001","published":false,"featured":false,"status":"preview","publicOrder":null},
+    {"id":"CDA-CAN-004","published":false,"featured":null,"status":"proofing","publicOrder":null},
+    {"id":"CDA-CAN-005","published":true,"featured":false,"status":"preview","publicOrder":4},
+    {"id":"CDA-CAN-006","published":true,"featured":false,"status":"preview","publicOrder":5},
+    {"id":"CDA-CAN-007","published":true,"featured":false,"status":"preview","publicOrder":6},
+    {"id":"CDA-CAN-010","published":true,"featured":false,"status":"preview","publicOrder":7},
+    {"id":"CDA-CAN-008","published":false,"featured":null,"status":"proofing","publicOrder":null}
+  ],
+  "profiles": {
+    "curated": {
+      "CDA-CAN-010":{"collectionStatus":"featured","publicVisible":true,"consumerVisible":true,"b2bVisible":true,"featured":true,"releasePriority":1},
+      "CDA-CAN-001":{"collectionStatus":"featured","publicVisible":true,"consumerVisible":true,"b2bVisible":true,"featured":true,"releasePriority":2},
+      "CDA-CAN-002":{"collectionStatus":"featured","publicVisible":true,"consumerVisible":true,"b2bVisible":true,"featured":true,"releasePriority":3},
+      "CDA-CAN-014":{"collectionStatus":"hidden_archive","publicVisible":false,"consumerVisible":false,"b2bVisible":false,"featured":false,"releasePriority":null},
+      "CDA-CAN-006":{"collectionStatus":"conditional","publicVisible":false,"consumerVisible":false,"b2bVisible":true,"featured":false,"releasePriority":4},
+      "CDA-CAN-003":{"collectionStatus":"b2b_only","publicVisible":false,"consumerVisible":false,"b2bVisible":true,"featured":false,"releasePriority":null},
+      "CDA-CAN-005":{"collectionStatus":"hidden_archive","publicVisible":false,"consumerVisible":false,"b2bVisible":false,"featured":false,"releasePriority":null},
+      "CDA-CAN-007":{"collectionStatus":"hidden_archive","publicVisible":false,"consumerVisible":false,"b2bVisible":false,"featured":false,"releasePriority":null},
+      "CDA-CAN-004":{"collectionStatus":"hidden_archive","publicVisible":false,"consumerVisible":false,"b2bVisible":false,"featured":false,"releasePriority":null},
+      "CDA-CAN-008":{"collectionStatus":"hidden_archive","publicVisible":false,"consumerVisible":false,"b2bVisible":false,"featured":false,"releasePriority":null},
+      "CDA-SET-001":{"collectionStatus":"seasonal_hold","publicVisible":false,"consumerVisible":false,"b2bVisible":false,"featured":false,"releasePriority":null}
+    },
+    "gallery-balanced": {
+      "CDA-CAN-014":{"collectionStatus":"featured","publicVisible":true,"consumerVisible":true,"b2bVisible":true,"featured":true,"releasePriority":1},
+      "CDA-CAN-010":{"collectionStatus":"featured","publicVisible":true,"consumerVisible":true,"b2bVisible":true,"featured":true,"releasePriority":2},
+      "CDA-CAN-003":{"collectionStatus":"featured","publicVisible":true,"consumerVisible":false,"b2bVisible":true,"featured":true,"releasePriority":3},
+      "CDA-CAN-002":{"collectionStatus":"featured","publicVisible":true,"consumerVisible":true,"b2bVisible":true,"featured":true,"releasePriority":4},
+      "CDA-CAN-006":{"collectionStatus":"featured","publicVisible":true,"consumerVisible":true,"b2bVisible":true,"featured":true,"releasePriority":5},
+      "CDA-CAN-001":{"collectionStatus":"hidden_archive","publicVisible":false,"consumerVisible":false,"b2bVisible":false,"featured":false,"releasePriority":null},
+      "CDA-CAN-005":{"collectionStatus":"hidden_archive","publicVisible":false,"consumerVisible":false,"b2bVisible":false,"featured":false,"releasePriority":null},
+      "CDA-CAN-007":{"collectionStatus":"hidden_archive","publicVisible":false,"consumerVisible":false,"b2bVisible":false,"featured":false,"releasePriority":null},
+      "CDA-CAN-004":{"collectionStatus":"hidden_archive","publicVisible":false,"consumerVisible":false,"b2bVisible":false,"featured":false,"releasePriority":null},
+      "CDA-CAN-008":{"collectionStatus":"hidden_archive","publicVisible":false,"consumerVisible":false,"b2bVisible":false,"featured":false,"releasePriority":null},
+      "CDA-SET-001":{"collectionStatus":"seasonal_hold","publicVisible":false,"consumerVisible":false,"b2bVisible":false,"featured":false,"releasePriority":null}
+    },
+    "broad-recovery": {
+      "CDA-CAN-003":{"collectionStatus":"featured","publicVisible":true,"consumerVisible":true,"b2bVisible":true,"featured":true,"releasePriority":1},
+      "CDA-CAN-001":{"collectionStatus":"featured","publicVisible":true,"consumerVisible":true,"b2bVisible":true,"featured":true,"releasePriority":2},
+      "CDA-CAN-002":{"collectionStatus":"featured","publicVisible":true,"consumerVisible":true,"b2bVisible":true,"featured":true,"releasePriority":3},
+      "CDA-CAN-005":{"collectionStatus":"featured","publicVisible":true,"consumerVisible":true,"b2bVisible":true,"featured":true,"releasePriority":4},
+      "CDA-CAN-006":{"collectionStatus":"featured","publicVisible":true,"consumerVisible":true,"b2bVisible":true,"featured":true,"releasePriority":5},
+      "CDA-CAN-007":{"collectionStatus":"featured","publicVisible":true,"consumerVisible":true,"b2bVisible":true,"featured":true,"releasePriority":6},
+      "CDA-CAN-010":{"collectionStatus":"featured","publicVisible":true,"consumerVisible":true,"b2bVisible":true,"featured":true,"releasePriority":7},
+      "CDA-CAN-014":{"collectionStatus":"featured","publicVisible":true,"consumerVisible":true,"b2bVisible":true,"featured":true,"releasePriority":8},
+      "CDA-CAN-004":{"collectionStatus":"hidden_archive","publicVisible":false,"consumerVisible":false,"b2bVisible":false,"featured":false,"releasePriority":null},
+      "CDA-CAN-008":{"collectionStatus":"hidden_archive","publicVisible":false,"consumerVisible":false,"b2bVisible":false,"featured":false,"releasePriority":null},
+      "CDA-SET-001":{"collectionStatus":"seasonal_hold","publicVisible":false,"consumerVisible":false,"b2bVisible":false,"featured":false,"releasePriority":null}
+    }
+  }
+}
