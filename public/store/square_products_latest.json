@@ -3,7 +3,7 @@
     "tool": "AeroVista Catalog Console v2",
     "source": "catalog_baseline.js",
     "exportedAt": "2026-08-23T13:03:58.161Z",
-    "count": 85
+    "count": 83
   },
   "products": [
     {
@@ -3414,27 +3414,7 @@
           "sku": "6937980D5A5AD_22137",
           "price": 59.99,
           "variation_id": "D2YJC4HDAYPCPPLEWOYRIVK3"
-        }
-      ]
-    },
-    {
-      "id": "neon-billygoat-pullover-hoodie",
-      "name": "Neon 'BillyGoat' Pullover Hoodie",
-      "color": "",
-      "category": "hoodies",
-      "collection": "",
-      "visibility": "hidden",
-      "price": 59.99,
-      "image": "sound_goat_a_blk_hoodie.png",
-      "description_text": "Chaos mascot energy—electric horns, neon glow, and a nasty grin. Full description: Turn the volume up. The Neon BillyGoat hoodie is pure mischief: a snarling goat skull-face with glowing green horns, a purple sigil crest, and a jagged soundwave crackling above it. It’s dark streetwear with a cyber-metal edge—built for late nights, loud music, and people who don’t do “quiet.” Key features: • Bold neon graphic with high contrast on black • Statement piece that still wears easy with jeans or joggers • Mid-weight warmth for year-round layering • Front kangaroo pocket + hood for everyday comfort Fit note: Unisex fit. Size up for an oversized/relaxed look.",
-      "description_html": "<p>Chaos mascot energy—electric horns, neon glow, and a nasty grin. Full description: Turn the volume up. The Neon BillyGoat hoodie is pure mischief: a snarling goat skull-face with glowing green horns, a purple sigil crest, and a jagged soundwave crackling above it. It’s dark streetwear with a cyber-metal edge—built for late nights, loud music, and people who don’t do “quiet.” Key features: • Bold neon graphic with high contrast on black • Statement piece that still wears easy with jeans or joggers • Mid-weight warmth for year-round layering • Front kangaroo pocket + hood for everyday comfort Fit note: Unisex fit. Size up for an oversized/relaxed look.</p>",
-      "seo_title": "Neon 'BillyGoat' Pullover Hoodie",
-      "seo_description": "Chaos mascot energy—electric horns, neon glow, and a nasty grin. Full description: Turn the volume up. The Neon BillyGoat hoodie is pure mischief: a snarling go",
-      "tags": [
-        "hoodies"
-      ],
-      "square_item_id": "5HAHTRMWUKN67IBJVN6RNHJH",
-      "variants": [
+        },
         {
           "size": "S",
           "color": "",
@@ -4080,28 +4060,7 @@
           "sku": "6A0926E227621_18730",
           "price": 89.99,
           "variation_id": "SHLJ2CLTD32G4JOCZGVVXB3T"
-        }
-      ]
-    },
-    {
-      "id": "shadow-wear-ghost-ridge",
-      "name": "Shadow Wear // Ghost Ridge",
-      "color": "",
-      "category": "hoodies",
-      "collection": "Shadow Wear",
-      "visibility": "visible",
-      "price": 89.99,
-      "image": "Shadow Wear  Ghost Ridge.png",
-      "description_text": "Ghost Ridge was built around the idea of hidden structure — the shapes that stay standing after the noise fades. Layered with the custom Shadow Wear Ghost pattern, this piece blends fractured geometry, stealth texture, and the Apex mark into a low-visibility statement built for everyday wear.",
-      "description_html": "<p>Ghost Ridge was built around the idea of hidden structure — the shapes that stay standing after the noise fades. Layered with the custom Shadow Wear Ghost pattern, this piece blends fractured geometry, stealth texture, and the Apex mark into a low-visibility statement built for everyday wear.</p>",
-      "seo_title": "Shadow Wear // Ghost Ridge",
-      "seo_description": "Ghost Ridge was built around the idea of hidden structure — the shapes that stay standing after the noise fades. Layered with the custom Shadow Wear Ghost ",
-      "tags": [
-        "hoodies",
-        "shadow-wear"
-      ],
-      "square_item_id": "Y26ZXV5NT42KTQFOTQCL4DVP",
-      "variants": [
+        },
         {
           "size": "S",
           "color": "",

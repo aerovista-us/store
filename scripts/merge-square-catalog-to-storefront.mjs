@@ -204,12 +204,39 @@ for (const item of square.products || []) {
 
 products.sort((a, b) => a.name.localeCompare(b.name));
 
+// Square sometimes returns duplicate item rows that normalize to the same storefront id.
+const dedupedById = new Map();
+for (const product of products) {
+  const id = String(product.id || "").trim();
+  if (!id) continue;
+  if (!dedupedById.has(id)) {
+    dedupedById.set(id, { ...product, variants: [...(product.variants || [])] });
+    continue;
+  }
+  const current = dedupedById.get(id);
+  const seen = new Set(
+    (current.variants || [])
+      .map((v) => String(v.variation_id || v.sku || "").trim())
+      .filter(Boolean),
+  );
+  for (const variant of product.variants || []) {
+    const key = String(variant.variation_id || variant.sku || "").trim();
+    if (key && seen.has(key)) continue;
+    if (key) seen.add(key);
+    current.variants.push(variant);
+  }
+  if (!current.square_item_id && product.square_item_id) {
+    current.square_item_id = product.square_item_id;
+  }
+}
+const finalProducts = [...dedupedById.values()].sort((a, b) => a.name.localeCompare(b.name));
+
 const out = {
   meta: {
     tool: 'AeroVista Catalog Console v2',
     source: path.basename(squarePath),
     exportedAt: new Date().toISOString(),
-    count: products.length,
+    count: finalProducts.length,
     squarePulledAt: square.pulledAt || null,
     squareEnv: square.squareEnv || null,
     curationNote:
@@ -217,16 +244,16 @@ const out = {
     priorMatched: matched,
     newlyAdded: added,
   },
-  products,
+  products: finalProducts,
 };
 
 fs.mkdirSync(path.dirname(outPath), { recursive: true });
 fs.writeFileSync(outPath, `${JSON.stringify(out, null, 2)}\n`, 'utf8');
 
-const dock = products.filter((p) => /docklife|osprey/i.test(p.name) || p.collection === 'DockLife');
-const visible = products.filter((p) => p.visibility === 'visible');
+const dock = finalProducts.filter((p) => /docklife|osprey/i.test(p.name) || p.collection === 'DockLife');
+const visible = finalProducts.filter((p) => p.visibility === 'visible');
 console.log(`[merge-square] wrote ${outPath}`);
-console.log(`[merge-square] products=${products.length} matched=${matched} added=${added} visible=${visible.length}`);
+console.log(`[merge-square] products=${finalProducts.length} matched=${matched} added=${added} visible=${visible.length}`);
 console.log(`[merge-square] DockLife rows=${dock.length}`);
 for (const p of dock) {
   console.log(`  - ${p.id} | ${p.name} | coll=${p.collection} | vis=${p.visibility} | vars=${p.variants.length}`);
