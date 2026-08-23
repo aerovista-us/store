@@ -33,6 +33,8 @@ const COLLECTION_ALIASES = {
   drafted: "draft series",
   core: "core",
   division: "division",
+  docklife: "docklife",
+  "dock life": "docklife",
 };
 const LANES = {
   core: [/^core$/, /^division$/],
@@ -40,6 +42,7 @@ const LANES = {
   apex: [/^apex$/],
   glitch: [/^glitch line$/],
   architect: [/^draft series$/, /^architect$/],
+  docklife: [/^docklife$/, /^dock life$/],
 };
 
 function normCollection(c) {
