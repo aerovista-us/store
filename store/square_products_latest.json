@@ -2,8 +2,8 @@
   "meta": {
     "tool": "AeroVista Catalog Console v2",
     "source": "catalog_baseline.js",
-    "exportedAt": "2026-08-25T15:09:33.082Z",
-    "count": 83
+    "exportedAt": "2026-08-25T20:17:22.942Z",
+    "count": 85
   },
   "products": [
     {
@@ -932,6 +932,31 @@
       ]
     },
     {
+      "id": "aerovista-apex-relic-playing-cards",
+      "name": "AeroVista Apex Relic Playing Cards",
+      "color": "",
+      "category": "accessories",
+      "collection": "Accessories",
+      "visibility": "visible",
+      "price": 22,
+      "image": "poker-playing-cards.png",
+      "description_text": "AeroVista Apex Relic Playing Cards — Seven Divisions, One Vision A premium playing-card deck built around AeroVista’s Apex brand system. The Apex Relic edition uses a deep matte-black foundation, engraved cyber-silver geometry, restrained signal-blue accents, and a perfectly mirrored two-way card back designed for seamless play. At the center, the Apex mark anchors a layered system of seven symbolic nodes representing AeroVista’s seven divisions working as one connected whole. Detailed enough to reward a closer look, but restrained enough to feel like a true luxury deck, the design blends artifact-like engraving, technical precision, and understated AeroVista branding without turning the cards into promotional merchandise. Designed as both a functional deck and a collectible brand piece. Design Details • Two-way rotationally symmetrical card back • Matte black and graphite foundation • Cyber-silver engraved detailing • Restrained AeroVista signal-blue accents • Central Apex emblem • Seven division-inspired geometric nodes • Integrated AEROVISTA branding • Hidden SEVEN DIVISIONS · ONE VISION detailing • Premium artifact / relic-inspired finish",
+      "description_html": "<p>AeroVista Apex Relic Playing Cards — Seven Divisions, One Vision A premium playing-card deck built around AeroVista’s Apex brand system. The Apex Relic edition uses a deep matte-black foundation, engraved cyber-silver geometry, restrained signal-blue accents, and a perfectly mirrored two-way card back designed for seamless play. At the center, the Apex mark anchors a layered system of seven symbolic nodes representing AeroVista’s seven divisions working as one connected whole. Detailed enough to reward a closer look, but restrained enough to feel like a true luxury deck, the design blends artifact-like engraving, technical precision, and understated AeroVista branding without turning the cards into promotional merchandise. Designed as both a functional deck and a collectible brand piece. Design Details • Two-way rotationally symmetrical card back • Matte black and graphite foundation • Cyber-silver engraved detailing • Restrained AeroVista signal-blue accents • Central Apex emblem • Seven division-inspired geometric nodes • Integrated AEROVISTA branding • Hidden SEVEN DIVISIONS · ONE VISION detailing • Premium artifact / relic-inspired finish</p>",
+      "seo_title": "AeroVista Apex Relic Playing Cards",
+      "seo_description": "AeroVista Apex Relic Playing Cards — Seven Divisions, One VisionA premium playing-card deck built around AeroVista’s Apex brand system.The Apex Relic editi",
+      "tags": [],
+      "square_item_id": "3VSKREFGBR2FOXFGED537XFD",
+      "variants": [
+        {
+          "size": "One Size",
+          "color": "",
+          "sku": "6A8DF5ADB9E01_44154",
+          "price": 22,
+          "variation_id": "PN6KNID3C2RZTVYPCT3CZADP"
+        }
+      ]
+    },
+    {
       "id": "aerovista-apex-signal-sweatshirt",
       "name": "AeroVista Apex Signal Sweatshirt",
       "color": "",
@@ -1055,6 +1080,59 @@
           "sku": "6A0D817E807E0_46080",
           "price": 39.99,
           "variation_id": "F7PUBBX5QRYL4EEHZGCKBX6O"
+        }
+      ]
+    },
+    {
+      "id": "aerovista-av-07-grid-pocket-tee-slate-gray",
+      "name": "AeroVista AV-07 Grid Pocket Tee — Slate Gray",
+      "color": "",
+      "category": "tees",
+      "collection": "core",
+      "visibility": "visible",
+      "price": 32,
+      "image": "pocket-t-shirt.png",
+      "description_text": "Clean, understated, and unmistakably AeroVista. The AV-07 Grid Pocket Tee pairs a muted slate-gray pocket shirt with a compact AeroVista field-style graphic featuring the signature A mark, mountain profile, Coeur d’Alene ID designation, technical gridwork, and orange flight-path accents. The small pocket placement keeps the design subtle from a distance while packing in plenty of detail up close. It has the feel of an aviation field badge crossed with North Idaho outdoor gear—built for everyday wear without looking like corporate merch. Slate-gray pocket tee AeroVista AV-07 technical badge graphic Coeur d’Alene, Idaho branding Black, white, silver, and AeroVista orange artwork Low-profile left-chest placement Aviation + North Idaho inspired design Designed as part of the AeroVista field collection Built local. Designed for wherever you're headed next.",
+      "description_html": "<p>Clean, understated, and unmistakably AeroVista. The AV-07 Grid Pocket Tee pairs a muted slate-gray pocket shirt with a compact AeroVista field-style graphic featuring the signature A mark, mountain profile, Coeur d’Alene ID designation, technical gridwork, and orange flight-path accents. The small pocket placement keeps the design subtle from a distance while packing in plenty of detail up close. It has the feel of an aviation field badge crossed with North Idaho outdoor gear—built for everyday wear without looking like corporate merch. Slate-gray pocket tee AeroVista AV-07 technical badge graphic Coeur d’Alene, Idaho branding Black, white, silver, and AeroVista orange artwork Low-profile left-chest placement Aviation + North Idaho inspired design Designed as part of the AeroVista field collection Built local. Designed for wherever you&#039;re headed next.</p>",
+      "seo_title": "AeroVista AV-07 Grid Pocket Tee — Slate Gray",
+      "seo_description": "Clean, understated, and unmistakably AeroVista. The AV-07 Grid Pocket Tee pairs a muted slate-gray pocket shirt with a compact AeroVista field-style graphic fea",
+      "tags": [],
+      "square_item_id": "6SLBORLQWA3EK4IZYSZCUH24",
+      "variants": [
+        {
+          "size": "S",
+          "color": "",
+          "sku": "6A8DE8DE3AA01_15216",
+          "price": 32,
+          "variation_id": "7ELCS23KZCO263MEJBTHWSBA"
+        },
+        {
+          "size": "M",
+          "color": "",
+          "sku": "6A8DE8DE3AA01_15217",
+          "price": 32,
+          "variation_id": "BA3H3S3SZKUZEPWEE63ILBBW"
+        },
+        {
+          "size": "L",
+          "color": "",
+          "sku": "6A8DE8DE3AA01_15218",
+          "price": 32,
+          "variation_id": "QT74VCEQQNJXG2QX2OERG3HT"
+        },
+        {
+          "size": "XL",
+          "color": "",
+          "sku": "6A8DE8DE3AA01_15219",
+          "price": 32,
+          "variation_id": "2QNUQLM37VDLFRYJOLNIXT5C"
+        },
+        {
+          "size": "2XL",
+          "color": "",
+          "sku": "6A8DE8DE3AA01_15220",
+          "price": 32,
+          "variation_id": "CN4OOSLVU5DELJEWEJICWJUH"
         }
       ]
     },
@@ -3921,7 +3999,7 @@
     },
     {
       "id": "shadow-wear",
-      "name": "Shadow Wear Tee",
+      "name": "Shadow Wear",
       "color": "",
       "category": "tees",
       "collection": "Shadow Wear",
@@ -4132,9 +4210,9 @@
       "color": "",
       "category": "accessories",
       "collection": "Accessories",
-      "visibility": "hidden",
+      "visibility": "visible",
       "price": 26,
-      "image": "",
+      "image": "clear-case-for-samsung-samsung-galaxy-s24-ultra-case-on-phone.png",
       "description_text": "This sleek Samsung® case protects your phone from scratches, dust, oil, and dirt. It has a solid back and flexible sides that make it easy to take on and off, with precisely aligned cuts and holes. • Solid polycarbonate back • 0.02″ (0.5 mm) raised bezel • See-through sides • Wireless charging compatible • Easy to take on and off Important: This product can’t be shipped to South Korea, Hong Kong, Taiwan, Japan, or Singapore. If your shipping address is in these regions, please choose a different product.",
       "description_html": "<p>This sleek Samsung® case protects your phone from scratches, dust, oil, and dirt. It has a solid back and flexible sides that make it easy to take on and off, with precisely aligned cuts and holes. • Solid polycarbonate back • 0.02″ (0.5 mm) raised bezel • See-through sides • Wireless charging compatible • Easy to take on and off Important: This product can’t be shipped to South Korea, Hong Kong, Taiwan, Japan, or Singapore. If your shipping address is in these regions, please choose a different product.</p>",
       "seo_title": "Shadow wear Case for Samsung®",

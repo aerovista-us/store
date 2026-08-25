@@ -26,8 +26,8 @@ Horizon through the Gear catalog console or replace
 | Printful sync (fulfillment) | `python horizon/scripts/pull-printful-products.py` (+ full store dump as needed) | `horizon/commerce/printful-*.json` |
 
 Compare Square vs the published shop JSON after each merch drop. If Square has
-items missing from `square_products_latest.json`, re-export through the catalog
-console (below) — do not hand-edit variation IDs.
+items missing from `square_products_latest.json`, run **`npm run catalog:refresh`**
+(pull → merge latest dated inventory → curate → sync). Do not hand-edit variation IDs.
 
 ## Where files go
 

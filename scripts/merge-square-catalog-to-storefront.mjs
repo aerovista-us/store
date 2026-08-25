@@ -45,10 +45,18 @@ function categoryFromSquare(categories, name) {
   const blob = `${(categories || []).join(' ')} ${name || ''}`.toLowerCase();
   if (blob.includes('hoodie')) return 'hoodies';
   if (blob.includes('sweatshirt') || blob.includes('crewneck')) return 'crewnecks';
-  if (blob.includes('tee') || blob.includes('t-shirt')) return 'tees';
+  if (blob.includes('tee') || blob.includes('t-shirt') || blob.includes('pocket tee')) return 'tees';
   if (blob.includes('hat') || blob.includes('cap')) return 'hats';
   if (blob.includes('sticker')) return 'stickers';
-  if (blob.includes('neck gaiter') || blob.includes('desk mat') || blob.includes('case') || blob.includes('cooler')) {
+  if (
+    blob.includes('neck gaiter') ||
+    blob.includes('desk mat') ||
+    blob.includes('case') ||
+    blob.includes('cooler') ||
+    blob.includes('playing card') ||
+    blob.includes('laptop sleeve') ||
+    (/\bsleeve\b/.test(blob) && !/long.?sleeve/.test(blob))
+  ) {
     return 'accessories';
   }
   if (blob.includes('bomber') || blob.includes('jacket')) return 'apparel';
@@ -61,13 +69,16 @@ function categoryFromSquare(categories, name) {
 function detectCollection(name, categories) {
   const hay = `${name || ''} ${(categories || []).join(' ')}`.toLowerCase();
   if (hay.includes('docklife') || hay.includes('dock life') || hay.includes('osprey rope')) return 'DockLife';
+  if (hay.includes('playing card') || hay.includes('desk mat') || hay.includes('can cooler') || hay.includes('laptop sleeve') || hay.includes('phone case')) {
+    return 'Accessories';
+  }
   if (hay.includes('glitch')) return 'Glitch Line';
   if (hay.includes('draft')) return 'Draft Series';
   if (hay.includes('apex pattern')) return 'Apex Pattern';
   if (hay.includes('shadow')) return 'Shadow Wear';
   if (hay.includes('architect')) return 'Draft Series';
   if (/\bapex\b/.test(hay)) return 'apex';
-  if (hay.includes('core') || hay.includes('division')) return 'core';
+  if (hay.includes('core') || hay.includes('division') || /av-0\d/.test(hay)) return 'core';
   if (hay.includes('wave mark')) return 'Wave Mark';
   if (hay.includes('orbit')) return 'Orbit Mark';
   if (hay.includes('powder peaks')) return 'Powder Peaks';
@@ -99,9 +110,20 @@ function normalizeSize(name) {
   return s || 'One Size';
 }
 
+function latestSquareInventory() {
+  const dir = path.join(root, 'store', 'commerce');
+  if (!fs.existsSync(dir)) return '';
+  const files = fs
+    .readdirSync(dir)
+    .filter((f) => /^square-catalog-inventory-\d{4}-\d{2}-\d{2}\.json$/.test(f))
+    .sort();
+  return files.length ? path.join(dir, files[files.length - 1]) : '';
+}
+
 const squarePath =
   argValue('--square') ||
-  path.join(root, 'store', 'commerce', 'square-catalog-inventory-2026-08-23.json');
+  latestSquareInventory() ||
+  path.join(root, 'store', 'commerce', 'square-catalog-inventory.json');
 const storePath = path.join(root, 'store', 'square_products_latest.json');
 const outPath = argValue('--out', storePath);
 

@@ -4,6 +4,18 @@ Chronological record of security checks, deploys, and go-live gates.
 
 ---
 
+## 2026-08-25 — Deploy console export (playing cards + pocket tee + case)
+
+Deployed `square_products_cleaned_v2 (7).json` → `store/square_products_latest.json` (85 / 40 visible). Live adds: Apex Relic Playing Cards + AV-07 Grid Pocket Tee (with images), Shadow Wear Samsung case unhid (shared clear-case art). Accessories lane now 5 hard goods.
+
+---
+
+## 2026-08-25 — Pull Square inventory (new merch)
+
+`npm run catalog:refresh` → `store/commerce/square-catalog-inventory-2026-08-25.json` (87 active / 401 vars). Merge now auto-picks latest dated inventory. Added visible: **Apex Relic Playing Cards** (Accessories), **AV-07 Grid Pocket Tee — Slate Gray** (core). Services/temp rows stay hidden. Needs console image pull before Pages ship.
+
+---
+
 ## 2026-08-25 — Accessories = hard goods only
 
 Hats/gaiters stay with apparel story lanes. Accessories lane matches desk mats, can coolers, phone cases, sleeves (not long-sleeve tees). Live hard goods: desk mat, can cooler (`accessories/can-cooler-12oz.png`), clear Samsung case. Desk mat tagged `collection: Accessories`. Shadow Wear Samsung case stays hidden until product art is attached.
