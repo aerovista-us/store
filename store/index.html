@@ -1217,6 +1217,12 @@
         rgba(0,255,255,0), rgba(45,212,191,.28), rgba(14,165,233,.18),
         rgba(56,189,248,.12), rgba(45,212,191,.22), rgba(0,255,255,0));
     }
+    .collectionDoor[data-collection-lane="accessories"] .doorHolo,
+    #collectionViewHero[data-lane="accessories"] .doorHolo{
+      background:conic-gradient(from 200deg,
+        rgba(0,255,255,0), rgba(253,186,116,.28), rgba(251,113,133,.16),
+        rgba(148,163,184,.12), rgba(253,186,116,.22), rgba(0,255,255,0));
+    }
     .doorNoise{
       position:absolute; inset:0;
       pointer-events:none; opacity:0;
@@ -1797,6 +1803,13 @@
       --heroAdGlow: rgba(45,212,191,.16);
       --heroAdMediaA: rgba(14,165,233,.18);
       --heroAdMediaB: rgba(45,212,191,.12);
+    }
+    .collectionHeroAd[data-lane="accessories"]{
+      --heroAdAccent: rgba(253,186,116,.95);
+      --heroAdBorder: rgba(253,186,116,.28);
+      --heroAdGlow: rgba(253,186,116,.16);
+      --heroAdMediaA: rgba(253,186,116,.2);
+      --heroAdMediaB: rgba(251,113,133,.12);
     }
     .collectionHeroAd.is-hidden,
     .collectionHeroAd[hidden]{ display:none !important; }
@@ -3143,6 +3156,11 @@
           <div class="doorTop"><div class="doorLabel">Harbor / Lake / Rope + Canvas</div><h3>DockLife</h3><p>Waterfront leisure line — rope-trim caps, marina days, and lake-evening gear. Opening drop: Osprey Rope Cap, with more DockLife pieces to follow.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open DockLife Page →</span></div>
         </article>
+        <article class="collectionDoor hasArt" data-mark="AXS" data-collection-lane="accessories" style="--doorGlow:rgba(253,186,116,.16)" title="Open Accessories collection">
+          <div class="doorArtSvg" data-door-svg-lane="accessories" aria-hidden="true"></div>
+          <div class="doorTop"><div class="doorLabel">Hats / Stickers / Hard Goods</div><h3>Accessories</h3><p>Caps, gaiters, desk mats, stickers, and cases — the extras that finish the kit outside the apparel story lanes.</p></div>
+          <div class="doorBottom"><span class="doorCTA">Open Accessories Page →</span></div>
+        </article>
       </div>
     </section>
 
@@ -3150,7 +3168,7 @@
       <div>
         <p class="sectionKicker">About AeroVista Apparel</p>
         <h2 id="storyTeaserTitle">The story is still here—after the products.</h2>
-        <p>Each collection is part of one visual system: clean foundations, stealth patterns, emblem-led pieces, signal distortion, build artifacts, and DockLife on the water.</p>
+        <p>Each collection is part of one visual system: clean foundations, stealth patterns, emblem-led pieces, signal distortion, build artifacts, DockLife on the water, and Accessories for the extras.</p>
       </div>
       <a class="btn primary" href="about.html">Read our story →</a>
     </section>
@@ -3515,7 +3533,7 @@
       }
     };
     // Cache-busting token for static deploys (bump on release).
-    const STORE_BUILD_ID = "2026-08-25-collection-hero-pass";
+    const STORE_BUILD_ID = "2026-08-25-accessories-lane-1";
 
     // Placeholder color swatches
     const SW = {
@@ -4199,7 +4217,13 @@
       "division": "division",
       "docklife": "docklife",
       "dock life": "docklife",
-      "dock-life": "docklife"
+      "dock-life": "docklife",
+      "accessories": "accessories",
+      "accessory": "accessories",
+      "gear": "accessories",
+      "utility": "accessories",
+      "extras": "accessories",
+      "other": "accessories"
     };
     function normalizedCatalogCollection(p){
       const raw = catalogCollectionKey(p);
@@ -4325,6 +4349,29 @@
           productId: "docklife-drip-osprey-rope-cap"
         },
         match(p) { return laneMatchesCollection(p, [/^docklife$/, /^dock life$/]); }
+      },
+      {
+        id: "accessories",
+        label: "Accessories",
+        eyebrow: "Live Collection / Gear Extras",
+        lead: "Hats, gaiters, desk mats, stickers, and cases — hard goods and extras that finish the kit outside the apparel story lanes.",
+        pageGlow: "rgba(253,186,116,.14)",
+        cardImg: "",
+        heroAd: {
+          kicker: "Accessories · Featured drop",
+          title: "ShadowWear Desk Mat",
+          subtitle: "Hard goods for the desk",
+          body: "A wide Shadow Wear desk mat for the setup — the featured hard-good in Accessories, alongside caps, gaiters, and stickers.",
+          image: "accessories/accessories-hero.png",
+          ctaLabel: "Shop Desk Mat",
+          ctaHref: "?collection=accessories",
+          productId: "aerovista-shadowwear-desk-mat"
+        },
+        match(p) {
+          const cat = String(p.category || "").toLowerCase();
+          if (["accessories", "stickers", "hats"].includes(cat)) return true;
+          return laneMatchesCollection(p, [/^accessories$/, /^gear$/, /^utility$/, /^other$/, /^extras$/]);
+        }
       }
     ];
 

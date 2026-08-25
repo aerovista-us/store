@@ -2,7 +2,7 @@
   "meta": {
     "updatedAt": "2026-08-25T10:00:00.000Z",
     "schemaVersion": 2,
-    "notes": "Shadow Wear featured stack retained. Each collection lane has a featured hero ad (Core, Shadow, Apex, Glitch, Architect, DockLife). Presentation only — Square catalog is checkout truth.",
+    "notes": "Shadow Wear featured stack retained. Lane hero ads for Core, Shadow, Apex, Glitch, Architect, DockLife, and Accessories. Presentation only — Square catalog is checkout truth.",
     "editedBy": "storefront curation",
     "visibilityPolicy": "Only listed variation rows carry featured order; all other catalog visibility unchanged.",
     "checkoutTruth": "Checkout uses variationId from square_products_latest.json."
@@ -148,6 +148,20 @@
       "squareVariationId": "GGYNCQMLXX6R4QCEEXLRVJHR",
       "cta": { "label": "Browse DockLife", "href": "?collection=docklife" },
       "tags": ["docklife", "featured", "hats", "lane:docklife"]
+    },
+    {
+      "id": "accessories-desk-mat-hero",
+      "visible": true,
+      "lane": "accessories",
+      "order": 1,
+      "kicker": "Accessories · Featured drop",
+      "title": "ShadowWear Desk Mat",
+      "subtitle": "Hard goods for the desk",
+      "body": "A wide Shadow Wear desk mat for the setup — the featured hard-good in Accessories, alongside caps, gaiters, and stickers.",
+      "image": "accessories/accessories-hero.png",
+      "productId": "aerovista-shadowwear-desk-mat",
+      "cta": { "label": "Shop Desk Mat", "href": "?collection=accessories" },
+      "tags": ["accessories", "featured", "hard-goods", "lane:accessories"]
     }
   ]
 }

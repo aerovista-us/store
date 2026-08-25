@@ -4,6 +4,12 @@ Chronological record of security checks, deploys, and go-live gates.
 
 ---
 
+## 2026-08-25 — Accessories collection lane
+
+Added home door + `?collection=accessories` page for hats / stickers / hard goods (category cross-list). Copper-tinted hero features ShadowWear Desk Mat. SVG door/header themes + overlay ad shipped with story lanes.
+
+---
+
 ## 2026-08-25 — Collection page upgrade pass (DockLife parity)
 
 **Audit:** All six lanes have visible products; themes realigned to catalog membership.

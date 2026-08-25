@@ -75,6 +75,13 @@
       accent: [45, 212, 191],
       accent2: [14, 165, 233],
     },
+    accessories: {
+      kicker: "GEAR EXTRAS",
+      footer: "HATS · STICKERS · HARD GOODS",
+      sky: ["#120c0a", "#1a1210", "#0c0908"],
+      accent: [253, 186, 116],
+      accent2: [251, 113, 133],
+    },
   };
 
   function defsCommon(p, m, extraDefs) {
@@ -451,6 +458,45 @@
 </svg>`;
   }
 
+  function accessoriesBanner() {
+    const p = uid();
+    const m = META.accessories;
+    const d = (n) => `${p}_${n}`;
+    const copper = m.accent;
+    const rose = m.accent2;
+    const defs = defsCommon(p, m, `
+    <pattern id="${d("accGrid")}" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="${rgba(copper, 0.1)}" stroke-width="0.8"/>
+    </pattern>
+    <radialGradient id="${d("accGlow")}" cx="78%" cy="28%" r="55%">
+      <stop offset="0%" stop-color="${rgba(copper, 0.28)}"/>
+      <stop offset="55%" stop-color="${rgba(rose, 0.08)}"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>`);
+    const scene = `
+  ${baseLayers(p, m, `<rect width="${W}" height="${H}" fill="url(#${d("accGrid")})" opacity="0.7"/><rect width="${W}" height="${H}" fill="url(#${d("accGlow")})"/>`)}
+  <g fill="none" stroke="${rgba(copper, 0.32)}" stroke-width="1.2">
+    <rect x="110" y="88" width="140" height="90" rx="14" opacity="0.75"/>
+    <circle cx="1380" cy="120" r="52" opacity="0.55"/>
+    <path d="M 180 280 H 420 M 180 298 H 360" stroke-linecap="round" opacity="0.45"/>
+  </g>
+  <g transform="translate(${CX} ${CY + 4}) scale(1.06)" filter="url(#${d("markGlow")})">
+    <path d="${MARK.L}" fill="rgba(255,237,213,0.08)" stroke="${rgba(copper, 0.5)}" stroke-width="1"/>
+    <path d="${MARK.R}" fill="rgba(40,20,16,0.55)" stroke="${rgba(rose, 0.35)}" stroke-width="0.9"/>
+    <path d="${MARK.peak}" fill="${rgba(copper, 0.16)}" stroke="${rgba(copper, 0.75)}" stroke-width="1"/>
+    <path d="${MARK.inner}" fill="none" stroke="${rgba(rose, 0.5)}" stroke-width="1"/>
+    <circle cx="0" cy="-132" r="3.2" fill="${rgba(copper, 0.95)}"/>
+  </g>
+  <rect x="72" y="44" width="150" height="28" rx="2" fill="${rgba(copper, 0.06)}" stroke="${rgba(copper, 0.28)}" stroke-width="0.5"/>
+  <text x="82" y="62" fill="${rgba(copper, 0.78)}" font-family="ui-monospace,Consolas,monospace" font-size="9" letter-spacing="0.14em">ACCESSORIES · 01</text>
+  ${frameHud(p, m)}
+  ${finish(p)}`;
+    return `
+<svg class="collectionHeaderBanner collectionHeaderBanner--accessories" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true" role="img">
+  <defs>${defs}</defs>${scene}
+</svg>`;
+  }
+
   function collectionHeaderBannerSvg(laneId) {
     const lane = String(laneId || "").toLowerCase();
     if (lane === "glitch") return glitchBanner();
@@ -459,6 +505,7 @@
     if (lane === "shadow") return shadowBanner();
     if (lane === "apex") return apexBanner();
     if (lane === "docklife") return docklifeBanner();
+    if (lane === "accessories") return accessoriesBanner();
     return coreBanner();
   }
 

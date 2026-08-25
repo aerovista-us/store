@@ -12,6 +12,7 @@
     glitch: "SIGNAL NOISE",
     architect: "BUILD ARCHIVE",
     docklife: "HARBOR LINE",
+    accessories: "GEAR EXTRAS",
   };
   if (typeof console !== "undefined" && console.info) {
     console.info("[collection-lane-svg] build:", LANE_SVG_BUILD);
@@ -64,6 +65,10 @@
       docklife: {
         holo: [[45, 212, 191], [14, 165, 233], [56, 189, 248]],
         sheen: [45, 212, 191],
+      },
+      accessories: {
+        holo: [[253, 186, 116], [251, 113, 133], [148, 163, 184]],
+        sheen: [253, 186, 116],
       },
     };
     const pal = palettes[lane] || palettes.core;
@@ -236,6 +241,7 @@
       glitch: [34, 211, 238],
       architect: [251, 191, 36],
       docklife: [45, 212, 191],
+      accessories: [253, 186, 116],
     }[lane] || [110, 231, 255];
     const label = LANE_INTENT_LABEL[lane] || "AEROVISTA";
     const baseFill = forDoor
@@ -775,6 +781,16 @@
       scale: 1.12,
     });
   }
+  function markAccessories(id) {
+    return detailedMark(id, "accessories", {
+      ...BASE_MARK,
+      ...INNER_SUBTLE,
+      orbit: true,
+      prismMark: false,
+      metalBrush: true,
+      scale: 1.1,
+    });
+  }
 
   function bgDocklife(id) {
     const i = (n) => `${id}_${n}`;
@@ -813,6 +829,37 @@
       </g>`;
   }
 
+  function bgAccessories(id) {
+    const i = (n) => `${id}_${n}`;
+    return `
+      <g class="laneBg laneBg--accessories" ${bgClip(id)}>
+        <defs>
+          <linearGradient id="${i("accSky")}" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#120c0a"/>
+            <stop offset="48%" stop-color="#1a1210"/>
+            <stop offset="100%" stop-color="#0c0908"/>
+          </linearGradient>
+          <radialGradient id="${i("accHalo")}" cx="72%" cy="30%" r="65%">
+            <stop offset="0%" stop-color="rgba(253,186,116,0.3)"/>
+            <stop offset="50%" stop-color="rgba(251,113,133,0.1)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </radialGradient>
+          <pattern id="${i("accGrid")}" width="28" height="28" patternUnits="userSpaceOnUse">
+            <path d="M 28 0 L 0 0 0 28" fill="none" stroke="rgba(253,186,116,0.08)" stroke-width="0.7"/>
+          </pattern>
+        </defs>
+        <rect width="400" height="300" fill="url(#${i("accSky")})"/>
+        <rect width="400" height="300" fill="url(#${i("accHalo")})"/>
+        <rect width="400" height="300" fill="url(#${i("accGrid")})"/>
+        <g fill="none" stroke="rgba(253,186,116,0.28)" stroke-width="1.2">
+          <rect x="48" y="62" width="88" height="58" rx="10" opacity="0.7"/>
+          <circle cx="310" cy="96" r="34" opacity="0.55"/>
+          <path d="M 70 210 H 170 M 70 222 H 150" stroke-linecap="round" opacity="0.5"/>
+        </g>
+        ${holoStack(id)}
+      </g>`;
+  }
+
   const LANES = {
     core: { bg: (p, o) => bgCore(p), mark: markCore },
     shadow: { bg: (p, o) => bgShadow(p, o), mark: markShadow },
@@ -820,6 +867,7 @@
     glitch: { bg: (p, o) => bgGlitch(p), mark: markGlitch },
     architect: { bg: (p, o) => bgArchitect(p), mark: markArchitect },
     docklife: { bg: (p, o) => bgDocklife(p), mark: markDocklife },
+    accessories: { bg: (p, o) => bgAccessories(p), mark: markAccessories },
   };
 
   function collectionLaneSvg(laneId, uid, opts = {}) {

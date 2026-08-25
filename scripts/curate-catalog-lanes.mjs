@@ -80,6 +80,12 @@ const COLLECTION_ALIASES = {
   docklife: 'DockLife',
   'dock life': 'DockLife',
   'dock-life': 'DockLife',
+  accessories: 'Accessories',
+  accessory: 'Accessories',
+  gear: 'Accessories',
+  utility: 'Accessories',
+  extras: 'Accessories',
+  other: 'Accessories',
 };
 
 function normalizeCollection(product) {
