@@ -62,9 +62,20 @@ Landing doors and collection pages filter products by the export **`collection`*
 | `architect` | Architect | `^architect$`, `^draft series$` |
 | `docklife` | DockLife | `^docklife$`, `^dock life$` |
 
-**DockLife page:** `?collection=docklife` opens its own collection view with a **hero image ad** band (`#collectionHeroAd`) for the featured drop (Osprey Rope Cap first). Overlay `ads[]` entries with `"lane": "docklife"` override the lane default hero copy/image. Featured art: `store/img/docklife/docklife_hat_lifestyle-hero.png`. Set Square export `collection` to **DockLife** (or run curation with the DockLife id override) as each new SKU lands — the grid under the hero grows automatically.
+**Collection page hero ads:** every live lane has a **featured drop** band (`#collectionHeroAd`). Lane defaults live on `COLLECTION_LANES[].heroAd`; overlay `ads[]` with `"lane": "<id>"` (or tag `lane:<id>`) override copy/image. Hero art lives under `store/img/<lane>/` (DockLife lifestyle PNG; other lanes use curated collection/product heroes). CSS tokens on `.collectionHeroAd[data-lane]` tint the band per lane.
 
-Lane metadata (eyebrow, lead copy, glow colors, optional `heroAd`) is defined in **`COLLECTION_LANES`** inside `index.html`. Optional PNG references: `store/img/collection-cards/*.png` (design refs; live UI uses SVG).
+| Lane | Featured product | Hero image |
+|------|------------------|------------|
+| `core` | Core Hoodie | `core/core-hero.png` |
+| `shadow` | Ghost Ridge | `shadow/ghost-ridge-hero.png` |
+| `apex` | Signature Apex Mark Cap | `apex/apex-mark-hero.png` |
+| `glitch` | Apex Glitch Hoodie | `glitch/glitch-hero.png` |
+| `architect` | Built Different Hoodie | `architect/architect-hero.png` |
+| `docklife` | Osprey Rope Cap | `docklife/docklife_hat_lifestyle-hero.png` |
+
+**Theme ↔ product fit (2026-08-25 audit):** door + page leads describe what is actually in each lane (Core essentials; Shadow Wear + Apex Pattern prints; Apex emblem headwear/accessories; Glitch signal pieces; Architect Draft Series; DockLife harbor opener). Apex Pattern SKUs remain under the Shadow door by design (all-over pattern system).
+
+Lane metadata (eyebrow, lead copy, glow colors, `heroAd`) is defined in **`COLLECTION_LANES`** inside `index.html`. Optional PNG refs: `store/img/collection-cards/*.png` (design refs; live doors/headers use SVG).
 
 ### UI / UX (inline CSS in `index.html`)
 
@@ -102,7 +113,7 @@ Presentation is token-driven (`:root` colors, radii, `--ease`). Recent polish in
 - Card-level **`::before`** vignette sits above the SVG (`z-index: 1`) but below copy (`z-index: 3`).
 
 **Collection page header (`#cvArtSvg`):**
-- **Core / Shadow / Glitch / Architect / Apex:** wide panoramic SVG from **`store/js/collection-header-svg.js`** (`collectionHeaderBannerSvg(...)`) — fills the hero band instead of cropping **`cardImg`**.
+- **Core / Shadow / Glitch / Architect / Apex / DockLife:** wide panoramic SVG from **`store/js/collection-header-svg.js`** (`collectionHeaderBannerSvg(...)`) — fills the hero band; featured product photography sits in `#collectionHeroAd` below.
 
 | Lane | Background (idle) | Mark (`/\`) |
 |------|-------------------|-------------|

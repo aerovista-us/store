@@ -1743,22 +1743,69 @@
       align-items:stretch;
       margin:0 0 18px;
       padding:0;
-      border:1px solid rgba(45,212,191,.22);
+      border:1px solid var(--heroAdBorder, rgba(45,212,191,.22));
       border-radius:var(--radius);
       overflow:hidden;
       background:
-        radial-gradient(520px 220px at 12% 0%, rgba(45,212,191,.16), transparent 55%),
+        radial-gradient(520px 220px at 12% 0%, var(--heroAdGlow, rgba(45,212,191,.16)), transparent 55%),
         linear-gradient(135deg, rgba(8,18,28,.96), rgba(7,12,18,.98));
       box-shadow:var(--shadow);
+      --heroAdAccent: rgba(45,212,191,.9);
+      --heroAdBorder: rgba(45,212,191,.22);
+      --heroAdGlow: rgba(45,212,191,.16);
+      --heroAdMediaA: rgba(14,165,233,.18);
+      --heroAdMediaB: rgba(45,212,191,.12);
+    }
+    .collectionHeroAd[data-lane="core"]{
+      --heroAdAccent: rgba(110,231,255,.92);
+      --heroAdBorder: rgba(110,231,255,.24);
+      --heroAdGlow: rgba(110,231,255,.16);
+      --heroAdMediaA: rgba(56,189,248,.2);
+      --heroAdMediaB: rgba(110,231,255,.12);
+    }
+    .collectionHeroAd[data-lane="shadow"]{
+      --heroAdAccent: rgba(203,213,225,.9);
+      --heroAdBorder: rgba(148,163,184,.28);
+      --heroAdGlow: rgba(148,163,184,.14);
+      --heroAdMediaA: rgba(100,116,139,.22);
+      --heroAdMediaB: rgba(15,23,42,.35);
+    }
+    .collectionHeroAd[data-lane="apex"]{
+      --heroAdAccent: rgba(96,165,250,.95);
+      --heroAdBorder: rgba(59,130,246,.28);
+      --heroAdGlow: rgba(59,130,246,.16);
+      --heroAdMediaA: rgba(59,130,246,.22);
+      --heroAdMediaB: rgba(167,139,250,.12);
+    }
+    .collectionHeroAd[data-lane="glitch"]{
+      --heroAdAccent: rgba(34,211,238,.95);
+      --heroAdBorder: rgba(34,211,238,.28);
+      --heroAdGlow: rgba(34,211,238,.16);
+      --heroAdMediaA: rgba(34,211,238,.2);
+      --heroAdMediaB: rgba(244,114,182,.12);
+    }
+    .collectionHeroAd[data-lane="architect"]{
+      --heroAdAccent: rgba(251,191,36,.95);
+      --heroAdBorder: rgba(251,191,36,.26);
+      --heroAdGlow: rgba(251,191,36,.14);
+      --heroAdMediaA: rgba(251,191,36,.18);
+      --heroAdMediaB: rgba(245,158,11,.1);
+    }
+    .collectionHeroAd[data-lane="docklife"]{
+      --heroAdAccent: rgba(45,212,191,.9);
+      --heroAdBorder: rgba(45,212,191,.22);
+      --heroAdGlow: rgba(45,212,191,.16);
+      --heroAdMediaA: rgba(14,165,233,.18);
+      --heroAdMediaB: rgba(45,212,191,.12);
     }
     .collectionHeroAd.is-hidden,
     .collectionHeroAd[hidden]{ display:none !important; }
     .collectionHeroAd__media{
       min-height:220px;
       background:
-        linear-gradient(160deg, rgba(14,165,233,.18), transparent 45%),
-        linear-gradient(20deg, rgba(45,212,191,.12), transparent 40%),
-        radial-gradient(circle at 70% 60%, rgba(251,191,36,.1), transparent 50%),
+        linear-gradient(160deg, var(--heroAdMediaA, rgba(14,165,233,.18)), transparent 45%),
+        linear-gradient(20deg, var(--heroAdMediaB, rgba(45,212,191,.12)), transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(251,191,36,.08), transparent 50%),
         #0a1620;
       background-size:cover;
       background-position:center;
@@ -1786,7 +1833,7 @@
       font-size:11px;
       letter-spacing:.14em;
       text-transform:uppercase;
-      color:rgba(45,212,191,.9);
+      color:var(--heroAdAccent, rgba(45,212,191,.9));
     }
     .collectionHeroAd__title{
       margin:0;
@@ -3068,27 +3115,27 @@
       <div class="collectionGrid" aria-label="AeroVista gear collections">
         <article class="collectionDoor hasArt" data-mark="AV" data-collection-lane="core" style="--doorGlow:rgba(110,231,255,.15)" title="Open Core collection">
           <div class="doorArtSvg" data-door-svg-lane="core" aria-hidden="true"></div>
-          <div class="doorTop"><div class="doorLabel">Foundation / Operator Essentials</div><h3>Core</h3><p>Clean, disciplined AeroVista gear. The daily uniform: sharp marks, wearable colors, and pieces that feel issued instead of decorated.</p></div>
+          <div class="doorTop"><div class="doorLabel">Foundation / Operator Essentials</div><h3>Core</h3><p>Daily-issue AeroVista: Core hoodie and tee, Division marks, and clean signal pieces built for everyday wear.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open Core Page →</span></div>
         </article>
         <article class="collectionDoor hasArt" data-mark="SW" data-collection-lane="shadow" style="--doorGlow:rgba(148,163,184,.16)">
           <div class="doorArtSvg" data-door-svg-lane="shadow" aria-hidden="true"></div>
-          <div class="doorTop"><div class="doorLabel">Stealth / Pattern / Tactical Streetwear</div><h3>Shadow Wear</h3><p>Black-on-black, low-contrast, shadow camo, and pattern-heavy pieces. This is where the darker all-over system lives.</p></div>
+          <div class="doorTop"><div class="doorLabel">Stealth / Pattern / Tactical Streetwear</div><h3>Shadow Wear</h3><p>Ghost Ridge leads the lane — stealth texture, Shadow Wear prints, and Apex Pattern all-overs in black-on-black systems.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open Shadow Wear Page →</span></div>
         </article>
         <article class="collectionDoor hasArt" data-mark="AX" data-collection-lane="apex" style="--doorGlow:rgba(59,130,246,.16)">
           <div class="doorArtSvg" data-door-svg-lane="apex" aria-hidden="true"></div>
-          <div class="doorTop"><div class="doorLabel">Icon / Emblem / Signature Mark</div><h3>Apex</h3><p>The AeroVista A-mark as the hero. Symbol-led pieces, geometric marks, badges, and visual identity that can stand alone.</p></div>
+          <div class="doorTop"><div class="doorLabel">Icon / Emblem / Signature Mark</div><h3>Apex</h3><p>The A-mark up close: embroidered caps, signal sweatshirts, and Crypt Tech gaiters that wear the emblem as the product.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open Apex Page →</span></div>
         </article>
         <article class="collectionDoor hasArt" data-mark="GL" data-collection-lane="glitch" style="--doorGlow:rgba(34,211,238,.14)">
           <div class="doorArtSvg" data-door-svg-lane="glitch" aria-hidden="true"></div>
-          <div class="doorTop"><div class="doorLabel">Digital Disruption / Signal Drift</div><h3>Glitch</h3><p>Broken transmission, cyan static, scan-card graphics, waveform artifacts, and tech-forward distortion from inside the AV system.</p></div>
+          <div class="doorTop"><div class="doorLabel">Digital Disruption / Signal Drift</div><h3>Glitch</h3><p>Broken transmission gear — Apex Glitch hoodie and tee, Orbit marks, and drone-static graphics from inside the log.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open Glitch Page →</span></div>
         </article>
         <article class="collectionDoor hasArt" data-mark="AR" data-collection-lane="architect" style="--doorGlow:rgba(251,191,36,.13)">
           <div class="doorArtSvg" data-door-svg-lane="architect" aria-hidden="true"></div>
-          <div class="doorTop"><div class="doorLabel">Limited-ish / Making-of / Build Archive</div><h3>Architect</h3><p>Artifacts from the making of AeroVista: drafts, diagrams, system maps, founder notes, prototype labels, and build-floor gear.</p></div>
+          <div class="doorTop"><div class="doorLabel">Build Archive / Draft Series</div><h3>Architect</h3><p>Draft Series field issue: Built Different hoodies, Field Issue tees, Drafted A marks, and build-floor trucker gear.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open Architect Page →</span></div>
         </article>
         <article class="collectionDoor hasArt" data-mark="DL" data-collection-lane="docklife" style="--doorGlow:rgba(45,212,191,.16)" title="Open DockLife collection">
@@ -3468,7 +3515,7 @@
       }
     };
     // Cache-busting token for static deploys (bump on release).
-    const STORE_BUILD_ID = "2026-08-23-docklife-lane-1";
+    const STORE_BUILD_ID = "2026-08-25-collection-hero-pass";
 
     // Placeholder color swatches
     const SW = {
@@ -4169,45 +4216,95 @@
         id: "core",
         label: "Core",
         eyebrow: "Live Collection / Foundation",
-        lead: "The clean AeroVista line: everyday essentials for operators, founders, and signal carriers.",
+        lead: "Daily-issue AeroVista: Core hoodie and tee, Division marks, and clean signal pieces for operators and founders.",
         pageGlow: "rgba(110,231,255,.12)",
         cardImg: "./img/collection-cards/core.png",
+        heroAd: {
+          kicker: "Core · Featured drop",
+          title: "AeroVista Core Hoodie",
+          subtitle: "Foundation layer for the line",
+          body: "The clean mid-weight hoodie that sets the Core standard — sharp mark, everyday fit, issued instead of decorated.",
+          image: "core/core-hero.png",
+          ctaLabel: "Shop Core Hoodie",
+          ctaHref: "?collection=core",
+          productId: "aerovista-core-hoodie"
+        },
         match(p) { return laneMatchesCollection(p, [/^core$/, /^division$/]); }
       },
       {
         id: "shadow",
         label: "Shadow Wear",
         eyebrow: "Live Collection / Stealth + Pattern",
-        lead: "Black-on-black camo, stealth texture, and tactical streetwear — quiet until the details catch light.",
+        lead: "Ghost Ridge leads the stealth stack — Shadow Wear texture plus Apex Pattern all-overs for black-on-black street systems.",
         pageGlow: "rgba(148,163,184,.13)",
         cardImg: "./img/ghost.ridge.drk.png",
+        heroAd: {
+          kicker: "Shadow Wear · Featured drop",
+          title: "Ghost Ridge",
+          subtitle: "Lead piece in the stealth lane",
+          body: "Hidden structure, Shadow Wear Ghost pattern, and the Apex mark — the featured hoodie that opens this collection.",
+          image: "shadow/ghost-ridge-hero.png",
+          ctaLabel: "Shop Ghost Ridge",
+          ctaHref: "?collection=shadow",
+          productId: "shadow-wear-ghost-ridge"
+        },
         match(p) { return laneMatchesCollection(p, [/^shadow wear$/, /^apex pattern$/]); }
       },
       {
         id: "apex",
         label: "Apex",
         eyebrow: "Live Collection / Icon System",
-        lead: "The A-mark as center of gravity: badges, emblems, and symbol-led identity pieces.",
+        lead: "The A-mark as product: embroidered caps, signal sweatshirts, and Crypt Tech gaiters built around the emblem.",
         pageGlow: "rgba(59,130,246,.14)",
         cardImg: "./img/Apex%20mark.png",
+        heroAd: {
+          kicker: "Apex · Featured drop",
+          title: "Signature Apex Mark Cap",
+          subtitle: "Emblem-first headwear",
+          body: "Premium embroidered black cap with the signature Apex mark — the clearest wear of the icon system.",
+          image: "apex/apex-mark-hero.png",
+          ctaLabel: "Shop Apex Cap",
+          ctaHref: "?collection=apex",
+          productId: "aerovista-premium-embroidered-hat-black-cap-with-signature-apex-mark"
+        },
         match(p) { return laneMatchesCollection(p, [/^apex$/]); }
       },
       {
         id: "glitch",
         label: "Glitch",
         eyebrow: "Live Collection / Signal Interference",
-        lead: "Broken transmission, cyan static, scan-card graphics, and designs from inside the system log.",
+        lead: "Broken transmission gear — Apex Glitch hoodie and tee, Orbit marks, and drone-static graphics from inside the system log.",
         pageGlow: "rgba(34,211,238,.13)",
         cardImg: "./img/collection-cards/glitch.png",
+        heroAd: {
+          kicker: "Glitch · Featured drop",
+          title: "Apex Glitch Hoodie",
+          subtitle: "Signal interference, pullover cut",
+          body: "Cyan-static Apex Glitch graphics on a premium pullover — the lead distortion piece in this lane.",
+          image: "glitch/glitch-hero.png",
+          ctaLabel: "Shop Glitch Hoodie",
+          ctaHref: "?collection=glitch",
+          productId: "aerovista-apex-glitch-premium-pullover-hoodie-black"
+        },
         match(p) { return laneMatchesCollection(p, [/^glitch$/, /^glitch line$/]); }
       },
       {
         id: "architect",
         label: "Architect",
-        eyebrow: "Live Collection / Build Archive",
-        lead: "Drafts, diagrams, system maps, and limited pieces that document the making of AeroVista.",
+        eyebrow: "Live Collection / Draft Series",
+        lead: "Draft Series field issue: Built Different hoodies, Field Issue tees, Drafted A marks, and build-floor trucker gear.",
         pageGlow: "rgba(251,191,36,.12)",
         cardImg: "./img/adrafted.png",
+        heroAd: {
+          kicker: "Architect · Featured drop",
+          title: "Built Different Hoodie",
+          subtitle: "Draft Series lead piece",
+          body: "Architect field issue for the build archive — the hoodie that carries the Draft Series attitude first.",
+          image: "architect/architect-hero.png",
+          ctaLabel: "Shop Built Different",
+          ctaHref: "?collection=architect",
+          productId: "architect-built-different-hoodie-black"
+        },
         match(p) { return laneMatchesCollection(p, [/^architect$/, /^draft series$/]); }
       },
       {
@@ -6624,6 +6721,7 @@
       const root = $("#collectionHeroAd");
       if(!root) return;
       const ad = resolveCollectionHeroAd(laneId);
+      root.setAttribute("data-lane", String(laneId || "").toLowerCase());
       if(!ad || !ad.title){
         root.classList.add("is-hidden");
         root.hidden = true;

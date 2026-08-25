@@ -4,6 +4,23 @@ Chronological record of security checks, deploys, and go-live gates.
 
 ---
 
+## 2026-08-25 — Collection page upgrade pass (DockLife parity)
+
+**Audit:** All six lanes have visible products; themes realigned to catalog membership.
+
+| Lane | Visible | Theme fit | Featured hero |
+|------|---------|-----------|---------------|
+| Core | 6 | Essentials + Division/signal — copy updated | Core Hoodie |
+| Shadow | 11 | Shadow Wear + Apex Pattern (by design) — copy names Ghost Ridge + pattern system | Ghost Ridge |
+| Apex | 6 | Emblem headwear/accessories — copy matches A-mark products | Signature Apex Cap |
+| Glitch | 4 | Coherent Glitch Line — thin but aligned | Apex Glitch Hoodie |
+| Architect | 7 | Draft Series field issue — copy matches | Built Different Hoodie |
+| DockLife | 1 | Harbor opener — already strong | Osprey lifestyle hero |
+
+**Ship:** Lane-tinted `#collectionHeroAd` CSS, `heroAd` on every `COLLECTION_LANES` entry, overlay `ads[]` for all six lanes, hero PNGs under `store/img/<lane>/`, synced door leads.
+
+---
+
 ## 2026-08-23 — Deploy Catalog Console export to local store/
 
 **Source:** `Downloads/square_products_cleaned_v2 (6).json` (Console v2, 85 products / 36 visible).

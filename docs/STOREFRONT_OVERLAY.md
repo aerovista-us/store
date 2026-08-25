@@ -30,7 +30,7 @@ Product-level merge walks all variation IDs on a card; see visibility rules belo
 | `title` | Display name override |
 | `overrides[sq_<catalogId>]` | Collection label, short blurb, product type metadata |
 | `collections` | Extra dropdown filters (e.g. Featured, Nexus) |
-| `ads` | Sponsored tiles (gift card, drops). Entries with `"lane": "docklife"` (or tag `lane:docklife`) drive the **collection page hero ad** band on that lane. |
+| `ads` | Sponsored tiles + **collection page hero ads**. Entries with `"lane": "<laneId>"` (or tag `lane:<laneId>`) drive `#collectionHeroAd` on that collection page. Live lanes: core, shadow, apex, glitch, architect, docklife. |
 
 ## What Square controls (checkout truth)
 
