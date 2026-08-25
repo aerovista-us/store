@@ -4,6 +4,12 @@ Chronological record of security checks, deploys, and go-live gates.
 
 ---
 
+## 2026-08-25 — Accessories = hard goods only
+
+Hats/gaiters stay with apparel story lanes. Accessories lane matches desk mats, can coolers, phone cases, sleeves (not long-sleeve tees). Live hard goods: desk mat, can cooler (`accessories/can-cooler-12oz.png`), clear Samsung case. Desk mat tagged `collection: Accessories`. Shadow Wear Samsung case stays hidden until product art is attached.
+
+---
+
 ## 2026-08-25 — Accessories collection lane
 
 Added home door + `?collection=accessories` page for hats / stickers / hard goods (category cross-list). Copper-tinted hero features ShadowWear Desk Mat. SVG door/header themes + overlay ad shipped with story lanes.

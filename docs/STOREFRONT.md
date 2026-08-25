@@ -61,7 +61,7 @@ Landing doors and collection pages filter products by the export **`collection`*
 | `glitch` | Glitch | `^glitch$`, `^glitch line$` |
 | `architect` | Architect | `^architect$`, `^draft series$` |
 | `docklife` | DockLife | `^docklife$`, `^dock life$` |
-| `accessories` | Accessories | Category `hats` / `accessories` / `stickers`, or collection `Accessories` / `Gear` / `Utility` / `Extras` |
+| `accessories` | Accessories | Hard goods only: category `accessories` / `stickers` (excluding hats & gaiters), or collection `Accessories` / `Gear` / `Utility` / `Extras`. Hats stay with apparel story lanes. |
 
 **Collection page hero ads:** every live lane has a **featured drop** band (`#collectionHeroAd`). Lane defaults live on `COLLECTION_LANES[].heroAd`; overlay `ads[]` with `"lane": "<id>"` (or tag `lane:<id>`) override copy/image. Hero art lives under `store/img/<lane>/` (DockLife lifestyle PNG; other lanes use curated collection/product heroes). CSS tokens on `.collectionHeroAd[data-lane]` tint the band per lane.
 
@@ -75,7 +75,7 @@ Landing doors and collection pages filter products by the export **`collection`*
 | `docklife` | Osprey Rope Cap | `docklife/docklife_hat_lifestyle-hero.png` |
 | `accessories` | ShadowWear Desk Mat | `accessories/accessories-hero.png` |
 
-**Accessories page:** `?collection=accessories` is a cross-list for hats, stickers, and hard goods (still keep their story-lane tags for Core/Shadow/Apex/etc.). Door + copper-tinted hero band match DockLife parity.
+**Accessories page:** `?collection=accessories` lists hard goods (desk mats, can coolers, phone cases, sleeves) and stickers. **Hats and gaiters stay with apparel / story lanes** (Apex, DockLife, etc.).
 
 **Theme ↔ product fit (2026-08-25 audit):** door + page leads describe what is actually in each lane (Core essentials; Shadow Wear + Apex Pattern prints; Apex emblem headwear/accessories; Glitch signal pieces; Architect Draft Series; DockLife harbor opener). Apex Pattern SKUs remain under the Shadow door by design (all-over pattern system).
 

@@ -3158,7 +3158,7 @@
         </article>
         <article class="collectionDoor hasArt" data-mark="AXS" data-collection-lane="accessories" style="--doorGlow:rgba(253,186,116,.16)" title="Open Accessories collection">
           <div class="doorArtSvg" data-door-svg-lane="accessories" aria-hidden="true"></div>
-          <div class="doorTop"><div class="doorLabel">Hats / Stickers / Hard Goods</div><h3>Accessories</h3><p>Caps, gaiters, desk mats, stickers, and cases — the extras that finish the kit outside the apparel story lanes.</p></div>
+          <div class="doorTop"><div class="doorLabel">Sleeves / Coolers / Cases</div><h3>Accessories</h3><p>Laptop sleeves, can coolers, desk mats, and phone cases — hard goods that finish the kit. Caps and apparel stay in their story lanes.</p></div>
           <div class="doorBottom"><span class="doorCTA">Open Accessories Page →</span></div>
         </article>
       </div>
@@ -3533,7 +3533,7 @@
       }
     };
     // Cache-busting token for static deploys (bump on release).
-    const STORE_BUILD_ID = "2026-08-25-accessories-lane-1";
+    const STORE_BUILD_ID = "2026-08-25-accessories-hardgoods-1";
 
     // Placeholder color swatches
     const SW = {
@@ -4353,15 +4353,15 @@
       {
         id: "accessories",
         label: "Accessories",
-        eyebrow: "Live Collection / Gear Extras",
-        lead: "Hats, gaiters, desk mats, stickers, and cases — hard goods and extras that finish the kit outside the apparel story lanes.",
+        eyebrow: "Live Collection / Hard Goods",
+        lead: "Laptop sleeves, can coolers, desk mats, and phone cases — hard goods that finish the kit. Hats and apparel stay with their story lanes.",
         pageGlow: "rgba(253,186,116,.14)",
         cardImg: "",
         heroAd: {
           kicker: "Accessories · Featured drop",
           title: "ShadowWear Desk Mat",
           subtitle: "Hard goods for the desk",
-          body: "A wide Shadow Wear desk mat for the setup — the featured hard-good in Accessories, alongside caps, gaiters, and stickers.",
+          body: "A wide Shadow Wear desk mat for the setup — lead hard-good in Accessories, with coolers, sleeves, and cases in the same lane.",
           image: "accessories/accessories-hero.png",
           ctaLabel: "Shop Desk Mat",
           ctaHref: "?collection=accessories",
@@ -4369,8 +4369,14 @@
         },
         match(p) {
           const cat = String(p.category || "").toLowerCase();
-          if (["accessories", "stickers", "hats"].includes(cat)) return true;
-          return laneMatchesCollection(p, [/^accessories$/, /^gear$/, /^utility$/, /^other$/, /^extras$/]);
+          const hay = `${p.name || ""} ${p.id || ""} ${p.category || ""}`.toLowerCase();
+          // Wearables stay with apparel / story lanes
+          if (cat === "hats" || /gaiter|beanie|\bcap\b|\bhat\b|trucker|snapback|rope cap/.test(hay)) return false;
+          if (laneMatchesCollection(p, [/^accessories$/, /^gear$/, /^utility$/, /^other$/, /^extras$/])) return true;
+          if (cat === "accessories" || cat === "stickers") return true;
+          if (/desk.?mat|can.?cooler|\bcooler\b|laptop.?sleeve|phone.?case|clear.?case|case for samsung/.test(hay)) return true;
+          if (/\bsleeve\b/.test(hay) && !/long.?sleeve/.test(hay)) return true;
+          return false;
         }
       }
     ];

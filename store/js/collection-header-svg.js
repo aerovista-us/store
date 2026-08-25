@@ -77,7 +77,7 @@
     },
     accessories: {
       kicker: "GEAR EXTRAS",
-      footer: "HATS · STICKERS · HARD GOODS",
+      footer: "SLEEVES · COOLERS · CASES",
       sky: ["#120c0a", "#1a1210", "#0c0908"],
       accent: [253, 186, 116],
       accent2: [251, 113, 133],
