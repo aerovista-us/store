@@ -1,8 +1,8 @@
 {
   "meta": {
-    "updatedAt": "2026-08-23T00:00:00.000Z",
+    "updatedAt": "2026-08-25T00:00:00.000Z",
     "schemaVersion": 2,
-    "notes": "Shadow Wear featured stack retained. DockLife lane hero ad for Osprey Rope Cap (first drop). Presentation only — Square catalog is checkout truth.",
+    "notes": "Shadow Wear featured stack retained. DockLife lane hero uses docklife_hat_lifestyle-hero.png for Osprey Rope Cap. Presentation only — Square catalog is checkout truth.",
     "editedBy": "storefront curation",
     "visibilityPolicy": "Only listed variation rows carry featured order; all other catalog visibility unchanged.",
     "checkoutTruth": "Checkout uses variationId from square_products_latest.json."
@@ -72,7 +72,7 @@
       "title": "Osprey Rope Cap",
       "subtitle": "First piece in the DockLife line",
       "body": "The opening drop for DockLife — rope-trim cap energy for harbor days and lake evenings. More DockLife apparel and accessories will land on this page.",
-      "image": "docklife/hero.jpg",
+      "image": "docklife/docklife_hat_lifestyle-hero.png",
       "productId": "docklife-drip-osprey-rope-cap",
       "squareItemId": "4WV7KWHQSC6BQJU2LDEVAUAQ",
       "squareVariationId": "GGYNCQMLXX6R4QCEEXLRVJHR",

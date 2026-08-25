@@ -1,6 +1,7 @@
 # DockLife media
 
-- `hero.jpg` — collection page hero ad for the featured drop (Osprey Rope Cap first).
-- Add additional drop / lookbook assets here as the line grows.
+- `docklife_hat_lifestyle-hero.png` — collection featured / hero ad for the Osprey Rope Cap drop.
+- `docklife-drip_hat.png` — product card primary image.
+- `docklife-drip_hat_back.png` / `docklife-drip_hat_ondock.png` — alternate angles.
 
-Until `hero.jpg` is present, the DockLife collection page still shows the hero-ad copy band with a marina gradient placeholder.
+Add additional drop / lookbook assets here as the line grows.

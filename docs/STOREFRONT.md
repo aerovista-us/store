@@ -62,7 +62,7 @@ Landing doors and collection pages filter products by the export **`collection`*
 | `architect` | Architect | `^architect$`, `^draft series$` |
 | `docklife` | DockLife | `^docklife$`, `^dock life$` |
 
-**DockLife page:** `?collection=docklife` opens its own collection view with a **hero image ad** band (`#collectionHeroAd`) for the featured drop (Osprey Rope Cap first). Overlay `ads[]` entries with `"lane": "docklife"` override the lane default hero copy/image. Drop art at `store/img/docklife/hero.jpg`. Set Square export `collection` to **DockLife** (or run curation with the DockLife id override) as each new SKU lands — the grid under the hero grows automatically.
+**DockLife page:** `?collection=docklife` opens its own collection view with a **hero image ad** band (`#collectionHeroAd`) for the featured drop (Osprey Rope Cap first). Overlay `ads[]` entries with `"lane": "docklife"` override the lane default hero copy/image. Featured art: `store/img/docklife/docklife_hat_lifestyle-hero.png`. Set Square export `collection` to **DockLife** (or run curation with the DockLife id override) as each new SKU lands — the grid under the hero grows automatically.
 
 Lane metadata (eyebrow, lead copy, glow colors, optional `heroAd`) is defined in **`COLLECTION_LANES`** inside `index.html`. Optional PNG references: `store/img/collection-cards/*.png` (design refs; live UI uses SVG).
 
