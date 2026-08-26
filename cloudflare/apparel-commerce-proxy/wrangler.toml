@@ -1,0 +1,15 @@
+name = "aerovista-apparel-commerce-proxy"
+main = "src/index.js"
+compatibility_date = "2024-06-01"
+
+[[routes]]
+pattern = "apparel.aerovista.us/api/*"
+zone_name = "aerovista.us"
+
+[[routes]]
+pattern = "apparel.aerovista.us/v1/*"
+zone_name = "aerovista.us"
+
+[[routes]]
+pattern = "apparel.aerovista.us/square_products_latest.json"
+zone_name = "aerovista.us"
