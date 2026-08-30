@@ -28,6 +28,7 @@
     "audit:repo": "node scripts/audit-orphans.mjs",
     "audit:storefront": "node scripts/audit-storefront.mjs",
     "audit:storefront-conversion": "node scripts/audit-storefront-conversion.mjs",
+    "audit:commerce-contract": "node scripts/audit-commerce-contract.mjs",
     "audit:folder-duplicates": "node scripts/audit-folder-duplicates.mjs",
     "tag:folder-roles": "node scripts/tag-folder-roles.mjs",
     "audit:commerce-contract:live": "node scripts/audit-commerce-contract.mjs --live",

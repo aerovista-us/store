@@ -110,7 +110,15 @@ const missingImg = [];
 const emptyImg = [];
 function catalogImagePath(image) {
   if (image.startsWith("/")) {
-    return path.join(publicDir, image.replace(/^\/+/, ""));
+    const publicPath = path.join(publicDir, image.replace(/^\/+/, ""));
+    if (fs.existsSync(publicPath)) return publicPath;
+
+    // The CI contract audit runs before sync:store creates public/store.
+    // Resolve canonical product galleries from their committed source too.
+    if (image.startsWith("/store/products/")) {
+      return path.join(storeDir, image.replace(/^\/store\//, ""));
+    }
+    return publicPath;
   }
   return path.join(imgDir, image.replace(/^\.\/img\//, "").replace(/^img\//, ""));
 }
