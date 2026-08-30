@@ -31,7 +31,7 @@ Gear Pages artifact or Gear cart namespace. See
 | Collection header banners | `store/js/collection-header-svg.js` (v2 unified panoramic headers — all live lanes) |
 | Product image placeholders | `store/js/product-placeholder-svg.js` |
 | Policies (injected) | `store/policy-content.js` |
-| Product images | `store/img/` |
+| Product images | `store/products/{product-id}/` for canonical galleries; `store/img/` for legacy heroes and collection art |
 | Helper routes | `store/collection.html`, `store/catalog.html` (redirect to query routes) |
 | Payment backend | **Not in this repo** — Flask service on NXCore; ports **8088** / **18088** locally |
 
@@ -224,19 +224,25 @@ Promo codes (`SEED10`, `CREW15`) remain client-side estimates only — Square ch
 
 ## Product cards
 
-- Prefer **`imagePath`** from catalog when file exists under `store/img/` (built via **`resolveCatalogImagePath`** — spaces in filenames are URL-encoded)
+- Prefer catalog **`image`** / ordered **`images`** from `/store/products/{product-id}/`; absolute gallery URLs pass through **`resolveCatalogImagePath`** unchanged.
+- Legacy filename-only heroes still resolve under `store/img/` with spaces URL-encoded.
 - Fallback: inline **`productSvg()`** placeholder in `index.html`
 - Optional **holographic** / **glitch** card overlays when name/tags match
+
+Canonical galleries are stored as WebP with a per-product `manifest.json` that
+records original provider filenames, source/output hashes, archive provenance,
+and gallery order. The Pages build copies only WebPs and manifests into
+`dist/store/products/`; `_incoming`, `_completed`, and ZIP files never publish.
 
 ---
 
 ## Operator checklist (shop-only deploy)
 
-1. Update **`store/square_products_latest.json`** (+ images)
+1. Update **`store/square_products_latest.json`** (+ `store/products/` galleries or legacy `store/img/` assets)
 2. **`npm run clean:overlay`** / **`audit:overlay`** if overlay changed
 3. **`npm run sync:store`**
 4. **`npm run audit:storefront`** — lane coverage, catalog images, featured-drop IDs, Phase A UX markers
-5. Spot-check: home (no grid), each collection lane, catalog, one checkout on staging
+5. Spot-check: home (no grid), each collection lane, catalog, gallery image switching, one checkout on staging
 6. **`npm run build:pages`** → push for GitHub Pages
 
 ---
@@ -252,4 +258,4 @@ Promo codes (`SEED10`, `CREW15`) remain client-side estimates only — Square ch
 | **`CATALOG_PIPELINE.md`** | Square → JSON |
 | **`USER_MANUAL/README.md`** | Operator manual (start here) |
 | **`USER_MANUAL/05-checkout-and-payments.md`** | Cart keys and checkout |
-| **`store/handoffnotes.md`** | Quick dev map (paths, API, troubleshooting) |
+| **`docs/store-internal/handoffnotes.md`** | Quick dev map (paths, API, troubleshooting) |

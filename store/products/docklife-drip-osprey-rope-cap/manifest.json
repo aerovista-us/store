@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "productId": "docklife-drip-osprey-rope-cap",
+  "productName": "Docklife Drip — Osprey Rope Cap",
+  "hero": "/store/products/docklife-drip-osprey-rope-cap/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "docklife/docklife-drip_hat.png",
+      "sourceSha256": "4006d2f2026af36a77286e24644233433c67cc6adec7d215dbcb0b5c7d4a1bb6",
+      "outputSha256": "05ac3c58158f224a9a85c4a889935b7c4c46c028e7f97ae030cbf73b018bcc77"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (11).zip",
+      "original": "classic-rope-cap-light-blue-white-front-6a909d37d9e93.png",
+      "sourceSha256": "a5a8a023973ca247a716695e94fbde4925d64494d4ddc85d6269d0de14315b7a",
+      "outputSha256": "28701c3c438ba275dd45291fbbd0bd7695597ec033ac74b66c0ae248a7c50b31"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (11).zip",
+      "original": "classic-rope-cap-light-blue-white-back-6a909d37da31f.png",
+      "sourceSha256": "7eaa25881b1b7be4e966bb62041ce0037a9bc041920b45cd090b664dca29ef79",
+      "outputSha256": "df7ae4b5ffc0c0316895230a7f175744cd1d27898c871d959ba9c7256c0e8511"
+    },
+    {
+      "file": "35-left-front-01.webp",
+      "view": "left-front",
+      "source": "archive (11).zip",
+      "original": "classic-rope-cap-light-blue-white-left-front-6a909d37da34f.png",
+      "sourceSha256": "ffe2a51b6a3ec77785815552e9729213478f4fcb7e2987aeccaeb13a123118ff",
+      "outputSha256": "dd840e5c16c8263afe510f76cd22b24643ec9689acc342a2d856e9e8518ae439"
+    },
+    {
+      "file": "45-right-front-01.webp",
+      "view": "right-front",
+      "source": "archive (11).zip",
+      "original": "classic-rope-cap-light-blue-white-right-front-6a909d37da384.png",
+      "sourceSha256": "e6fb425850a72cb1b3ec23e3587c53ee7ffec0a93fc5eb3e46edcf26e5595a6b",
+      "outputSha256": "225c532e81acfdf2f357386ae504764091f788549d86df509423ac534c6ee083"
+    },
+    {
+      "file": "50-detail-01.webp",
+      "view": "detail",
+      "source": "archive (11).zip",
+      "original": "classic-rope-cap-light-blue-white-product-details-2-6a909d37da3ff.png",
+      "sourceSha256": "c298151c1cf4032eb3d8a0efc2a444bde766a5bf9a16797c25b594ab08a988a6",
+      "outputSha256": "ca9e4ba8a324bc90a11d26fc6910ae1683348543c42648f300e52100e490ca7a"
+    },
+    {
+      "file": "50-detail-02.webp",
+      "view": "detail",
+      "source": "archive (11).zip",
+      "original": "classic-rope-cap-light-blue-white-product-details-6a909d37da3b3.png",
+      "sourceSha256": "c4f7eaebb17865fe445330f03ea600ec0cffc7e0b9ecf6531f00b30e4a7a1020",
+      "outputSha256": "a44237940ecc84213381fcbb2fd65458a8da335af9263980d6ad2225eeb1c076"
+    }
+  ],
+  "sourceArchives": [
+    "archive (11).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "productId": "aerovista-shadow-pattern-hoodie",
+  "productName": "AeroVista Shadow Pattern Hoodie",
+  "hero": "/store/products/aerovista-shadow-pattern-hoodie/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "AeroVista Apex Pattern Hoodie (3).png",
+      "sourceSha256": "b84ddbf3634b8ed96d2686edc2f601ce96c3f99dd491c071815ae67740807a52",
+      "outputSha256": "079e65d2ac19e8b78815dd4d5f910d7930900e8b628233fc0d522f5ed4c451c3"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (18).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-front-6a90a41506bda.png",
+      "sourceSha256": "2069cfde08243ed46e6f5aca425007f95c4e92878b72e8e9d954b31ba5668e76",
+      "outputSha256": "84339ea40ad30ec2f781f2424fb99c3aa0102ec265544fb063058f43ab3aad0e"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (18).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-front-6a90a415074c0.png",
+      "sourceSha256": "fccafb7036b2940d8d474849daf68be0f748464e458a689d70e1268f0bfba6c0",
+      "outputSha256": "d11acee08d171262ba6ec4abd3f9fe81f70c2b323cbd11e8a5da618215af2322"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (18).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-front-6a90a41507cfc.png",
+      "sourceSha256": "93b26e719593b881f8967652ed47249b11877ebb33a7137bf86766e77941b85d",
+      "outputSha256": "c28a6bf37b58a7100877f390ca7a29a33205d3eddcba97b4e5e84a6ba1a384a2"
+    },
+    {
+      "file": "10-front-04.webp",
+      "view": "front",
+      "source": "archive (18).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-front-6a90a41508600.png",
+      "sourceSha256": "eac1845fdd8f3bbe49ba0f44e7ccdb7c5fe4ea5c189614c81443807855f6f2d3",
+      "outputSha256": "e279ca17c20b3fa43ef30e95e07543ad0d7ce3feb4752f54878d2e35b1667095"
+    },
+    {
+      "file": "10-front-05.webp",
+      "view": "front",
+      "source": "archive (18).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-front-6a90a41508d91.png",
+      "sourceSha256": "aa140b4c5df64365abf51604c3e11abbbaffe194f46da1fc6e4aeaa4f134f2ee",
+      "outputSha256": "1d50123717ad9cf4e60c9f3d6f337a309276df44fe03b8f152b6b4c56e4c3364"
+    },
+    {
+      "file": "10-front-06.webp",
+      "view": "front",
+      "source": "archive (18).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-front-6a90a41509574.png",
+      "sourceSha256": "45049942d7b6fd253c33ce65a14078597f2edf47cc89a94856fb1044b84fb83d",
+      "outputSha256": "854641cff988c6b11ee84dd15362e11c4d1a9ebdccf3927c38f3d3fbba428dbf"
+    },
+    {
+      "file": "10-front-07.webp",
+      "view": "front",
+      "source": "archive (18).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-front-6a90a41509d74.png",
+      "sourceSha256": "4ed2610a12920feb9a22f59f8830d463f5a31a68a29251badb3577f7016cfb4b",
+      "outputSha256": "a5f3aa3698770d2a38fa5074eda19715cbe7b41b9eaee4a5e65782ab11ca6559"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (18).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-back-6a90a415070cf.png",
+      "sourceSha256": "80bd329016762af86c828484ea05d13de7987161142dcc61a3d4be3d4a501a00",
+      "outputSha256": "8ec6a689b037b7559d9053edd57b3873a81dd312c3a66c50c41d2268321a0981"
+    },
+    {
+      "file": "20-back-02.webp",
+      "view": "back",
+      "source": "archive (18).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-back-6a90a415078ef.png",
+      "sourceSha256": "376d29d9ddd6f7f922c4e669ee9b579aed48bf9a96c7b9af72012308051cea00",
+      "outputSha256": "a1cfff3dc0c83702000b3ac16c48bcd863ecf74e4776b1ae9cb2155fb52d4df5"
+    },
+    {
+      "file": "20-back-03.webp",
+      "view": "back",
+      "source": "archive (18).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-back-6a90a415081ad.png",
+      "sourceSha256": "8b5781c7b579ad25c9076f095231632878c81f0f85d695420975ac626a2acc0c",
+      "outputSha256": "150a8ab2761478a4a02c21e8f170b89fe90606e0c27beed47e789574fe026be3"
+    },
+    {
+      "file": "20-back-04.webp",
+      "view": "back",
+      "source": "archive (18).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-back-6a90a415089d9.png",
+      "sourceSha256": "72d954ad7c8beb3f2fbadb72ac3c3368b3ac643a38fcb256791104ac2ad426d6",
+      "outputSha256": "541dfdc14362d6d509dac79eabddba75c9c913fac2d72bac101842b9eb484406"
+    },
+    {
+      "file": "20-back-05.webp",
+      "view": "back",
+      "source": "archive (18).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-back-6a90a41509185.png",
+      "sourceSha256": "661ea9a659be7b3618b6ed38aa1b1a2221e8d111f1bf953dc30f6b6ecee27b38",
+      "outputSha256": "84f71b700000df5ec4c96ef81375c2fc529dd4ad139ee4d134602ac76df7ec64"
+    },
+    {
+      "file": "40-right-01.webp",
+      "view": "right",
+      "source": "archive (18).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-right-6a90a41509996.png",
+      "sourceSha256": "7101f92b5bf495d534495d4c7a6efd4892bb7937274e9022c74662a90282c86f",
+      "outputSha256": "a72557a973510016b49084330606a35d32acd8d7a172087c7f055a4152ba7688"
+    }
+  ],
+  "sourceArchives": [
+    "archive (18).zip"
+  ],
+  "duplicateArchives": [
+    "archive (19).zip"
+  ],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

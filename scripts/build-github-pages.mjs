@@ -12,6 +12,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 const shopPublic = path.join(root, 'public', 'shop');
+const productSource = path.join(root, 'store', 'products');
 
 const env = {
   ...process.env,
@@ -36,4 +37,22 @@ if (fs.existsSync(dist)) {
 fs.mkdirSync(dist, { recursive: true });
 fs.cpSync(shopPublic, dist, { recursive: true });
 
-console.log('[build:pages] Copied public/shop → dist/ (storefront at site root)');
+// Catalog gallery URLs use the stable absolute path /store/products/*.
+// Publish only tracked product images and manifests; provider ZIP staging and
+// completed archives live under public/store/products and are never copied.
+if (fs.existsSync(productSource)) {
+  const productDist = path.join(dist, 'store', 'products');
+  for (const entry of fs.readdirSync(productSource, { withFileTypes: true })) {
+    if (!entry.isDirectory() || entry.name.startsWith('_')) continue;
+    const from = path.join(productSource, entry.name);
+    const to = path.join(productDist, entry.name);
+    fs.mkdirSync(to, { recursive: true });
+    for (const file of fs.readdirSync(from, { withFileTypes: true })) {
+      if (!file.isFile()) continue;
+      if (file.name !== 'manifest.json' && path.extname(file.name).toLowerCase() !== '.webp') continue;
+      fs.copyFileSync(path.join(from, file.name), path.join(to, file.name));
+    }
+  }
+}
+
+console.log('[build:pages] Copied public/shop + canonical product galleries → dist/');

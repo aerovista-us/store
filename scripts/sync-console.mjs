@@ -5,6 +5,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeFolderRoleMarker } from './lib/folder-roles.mjs';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const overlaySrcPath = path.join(root, 'store', 'storefront_overlay.json');
@@ -88,5 +89,12 @@ const consoleIndex = path.join(dest, 'index.html');
 if (fs.existsSync(consoleHtml)) {
   fs.copyFileSync(consoleHtml, consoleIndex);
 }
+
+writeFolderRoleMarker(root, 'public/console', {
+  role: 'GENERATED_MIRROR',
+  winner: 'console/',
+  sync: 'npm run sync:console',
+  note: 'Vite-served console subset. Canonical edits in console/.',
+});
 
 console.log('[sync:console]', src, '->', dest, `(${INCLUDE.size} files + index.html)`);

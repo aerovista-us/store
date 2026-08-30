@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "productId": "aerovista-apex-camo-flexfit-hat",
+  "productName": "AeroVista Apex Camo Flexfit Hat",
+  "hero": "/store/products/aerovista-apex-camo-flexfit-hat/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "aerovista_apex_camo_flexfit_hat.png",
+      "sourceSha256": "de04ebb079f5c43fa07681120dc1678a26647759d321fc96ff1738bf3ff61d6e",
+      "outputSha256": "3e1704d97248012a23f8c717530c47634737bcbb3833b22a86ff64027110321a"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (35).zip",
+      "original": "closed-back-structured-cap-multicam-black-front-6a93537e6bcda.png",
+      "sourceSha256": "6283e9fed264629b17b9b7e2519b4032093e31f28c38ac55157e48ade8954a09",
+      "outputSha256": "daf6b2c88e6d7a48b4353b424371065540ef50867c6d37611db493599804c35e"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (35).zip",
+      "original": "closed-back-structured-cap-multicam-black-front-6a93537e6cb95.png",
+      "sourceSha256": "8bb590fd54caaec847b9149bf5daf8ffc47650f3667d12cb38ddef4b47d897d4",
+      "outputSha256": "cf1c987fab303be527fba427d4b5b7bd8c8d4a46ce145ad62a96a6873d52025e"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (35).zip",
+      "original": "closed-back-structured-cap-multicam-black-front-6a93537e6e24e.png",
+      "sourceSha256": "09b4be7a3349cb80e6a684b9d951af254f136799a4a8602d56626e0b5354d190",
+      "outputSha256": "254a150b7394672a72e0c0a78b1633ef963a479f8090d97462745a20c0ff12a7"
+    },
+    {
+      "file": "10-front-04.webp",
+      "view": "front",
+      "source": "archive (35).zip",
+      "original": "closed-back-structured-cap-multicam-black-front-6a93537e70100.png",
+      "sourceSha256": "e6ab0ee5639daa303043b8b513ea8d6d966ba784c17a84865ca1897d85a7ff89",
+      "outputSha256": "5afeb257f7903eee3a55dded8fb43fb9b39cabd05ef6868a55ad75a015971902"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (35).zip",
+      "original": "closed-back-structured-cap-multicam-black-back-6a93537e6c823.png",
+      "sourceSha256": "807e19b3e386c2b2f976a66fcdc335a68727baf01118f6900f803f1665438e9d",
+      "outputSha256": "168bbb1499cbcd0a5384bb3b3509cca04611c67fa04cd546731f3238a8c89f7d"
+    },
+    {
+      "file": "20-back-02.webp",
+      "view": "back",
+      "source": "archive (35).zip",
+      "original": "closed-back-structured-cap-multicam-black-back-6a93537e6cf5e.png",
+      "sourceSha256": "7f0de35e414d99f4aefa025e32aae43d0d903764e7bef264f6bd006fea9537d1",
+      "outputSha256": "7ee4ebc43867b990f103cd5e6b3c688de9dc78dc696eec91019273aa41228332"
+    },
+    {
+      "file": "20-back-03.webp",
+      "view": "back",
+      "source": "archive (35).zip",
+      "original": "closed-back-structured-cap-multicam-black-back-6a93537e6e671.png",
+      "sourceSha256": "978c309263e3b3e6c5f13aebd0d38db9ba3d304fe995348941a24431e2e29dfb",
+      "outputSha256": "19d51a7a4724e8df62039fac00a11cfea6aebfd1208aaa8d25bdc97b673757cd"
+    },
+    {
+      "file": "20-back-04.webp",
+      "view": "back",
+      "source": "archive (35).zip",
+      "original": "closed-back-structured-cap-multicam-black-back-6a93537e704be.png",
+      "sourceSha256": "4ec27e46226bef6aa2c66d0580fece2bd57fc81644e8cb4cfe2068cccac38c0c",
+      "outputSha256": "3dcf13a81488c05bad623a510ec6ff88386fc87c5eebeb7f357d6f913f44cc99"
+    },
+    {
+      "file": "20-back-05.webp",
+      "view": "back",
+      "source": "archive (35).zip",
+      "original": "closed-back-structured-cap-multicam-black-left-6a93537e6dac7.png",
+      "sourceSha256": "86a5e3b3cb3d149a9e8d121b1749456d290c3d7f79a67ef28e196e4c5bfe0107",
+      "outputSha256": "f69fac80e755c260d06176feca3e47da6617f068d4a2a5750e7bb8ab478856fa"
+    },
+    {
+      "file": "20-back-06.webp",
+      "view": "back",
+      "source": "archive (35).zip",
+      "original": "closed-back-structured-cap-multicam-black-left-6a93537e6f143.png",
+      "sourceSha256": "4419126d4a170aab06522b603438475acdf3434bde9697b5728d6b85cf63f648",
+      "outputSha256": "606c64a41a9610168eae9b1cc2a1e88fdf28accd74cf4906bdf97b4e3dae0e58"
+    },
+    {
+      "file": "20-back-07.webp",
+      "view": "back",
+      "source": "archive (35).zip",
+      "original": "closed-back-structured-cap-multicam-black-left-side-6a93537e6c154.png",
+      "sourceSha256": "87370c3432afa73d3f8e841151db756c11c8731dc842c5a58a9cade5e47fe50f",
+      "outputSha256": "3eaf361979d8234d1cb13b8e074733f65b3c4878949cfd6c5ac3431bcd0ec79c"
+    },
+    {
+      "file": "20-back-08.webp",
+      "view": "back",
+      "source": "archive (35).zip",
+      "original": "closed-back-structured-cap-multicam-black-right-6a93537e6de9f.png",
+      "sourceSha256": "8b966c274f12accfc042d983c12318a578e3f5c6e9c43e9e13329418fc3bd116",
+      "outputSha256": "6bc3b82dfea483079ad1e9b609f4d32fea1d40b2b65803fd7f80f1bd386475ac"
+    },
+    {
+      "file": "20-back-09.webp",
+      "view": "back",
+      "source": "archive (35).zip",
+      "original": "closed-back-structured-cap-multicam-black-right-6a93537e6f5b3.png",
+      "sourceSha256": "8e85e387fec771072e9f4408c4a081504f32e8456a552dcef6ad10c024aa7a1e",
+      "outputSha256": "6585e7febf92517ed8c81daa9bc043710e543a06aa68f1c08883b9e458542484"
+    },
+    {
+      "file": "20-back-10.webp",
+      "view": "back",
+      "source": "archive (35).zip",
+      "original": "closed-back-structured-cap-multicam-black-right-side-6a93537e6c4e6.png",
+      "sourceSha256": "4dc7a7872c47a165933208592e8ff003885940c69237c6c78d284b968012e495",
+      "outputSha256": "6af0ee4ca2637a694948fb74d27ce686f0bb0b085a007c70d5501291d308f2ad"
+    },
+    {
+      "file": "35-left-front-01.webp",
+      "view": "left-front",
+      "source": "archive (35).zip",
+      "original": "closed-back-structured-cap-multicam-black-left-front-6a93537e6d722.png",
+      "sourceSha256": "a1de86ca9d59cd983936855e23b40499adabe87cb4fcf8880733a692a96cdf9a",
+      "outputSha256": "910b24eefe6d57a92be82b093031ee1d75cb8b23f7f32154752523458d2559cf"
+    },
+    {
+      "file": "35-left-front-02.webp",
+      "view": "left-front",
+      "source": "archive (35).zip",
+      "original": "closed-back-structured-cap-multicam-black-left-front-6a93537e6ed3e.png",
+      "sourceSha256": "03e9c25a20c34a7add17108dfaa817f68e100d7db9d00f40bacfdb36826ee0f2",
+      "outputSha256": "984d2bfd72db998b14be6bcf425ff2c954e066d99030ef46431038a4a5f2ea4a"
+    },
+    {
+      "file": "45-right-front-01.webp",
+      "view": "right-front",
+      "source": "archive (35).zip",
+      "original": "closed-back-structured-cap-multicam-black-right-front-6a93537e6d358.png",
+      "sourceSha256": "da48da122a64acb24c6afbefb8c7545175dc39d526b9c364a514e21fd59273fd",
+      "outputSha256": "02366004def1261846f90125be63b8b3416f97daeea3a826c805040bf1a5644a"
+    },
+    {
+      "file": "45-right-front-02.webp",
+      "view": "right-front",
+      "source": "archive (35).zip",
+      "original": "closed-back-structured-cap-multicam-black-right-front-6a93537e6e9c1.png",
+      "sourceSha256": "2d0cd8a7e5bdcc995b7b6933641c5e0b371b865a92b4bc49a6836b6493c0d234",
+      "outputSha256": "4fada41379087f456717c35aeca1c2b0699d19b3d37546313d85852b53977a85"
+    },
+    {
+      "file": "50-detail-01.webp",
+      "view": "detail",
+      "source": "archive (35).zip",
+      "original": "closed-back-structured-cap-multicam-black-product-details-2-6a93537e6fd96.png",
+      "sourceSha256": "1e01575ffc192afdc6a3234900e14899af0325561da4f9e558605f13edef064a",
+      "outputSha256": "0672909459fac9c55dc50ff64953512286c859f115f183832b5284c20fcdd7dc"
+    },
+    {
+      "file": "50-detail-02.webp",
+      "view": "detail",
+      "source": "archive (35).zip",
+      "original": "closed-back-structured-cap-multicam-black-product-details-6a93537e6f982.png",
+      "sourceSha256": "e5dab59458eb4737888b177a536bcccf8a31f39a6b94245fc0468fd28e71ba70",
+      "outputSha256": "d599effbeb53912354815bde5cb04f39b8142b2c0700d48dc63170813a9dcfbf"
+    }
+  ],
+  "sourceArchives": [
+    "archive (35).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

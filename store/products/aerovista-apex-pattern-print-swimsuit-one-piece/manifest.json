@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "productId": "aerovista-apex-pattern-print-swimsuit-one-piece",
+  "productName": "AeroVista Apex Pattern Print Swimsuit - one-piece",
+  "hero": "/store/products/aerovista-apex-pattern-print-swimsuit-one-piece/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "AeroVistaApex ShadowOnePieceSwimsuit.png",
+      "sourceSha256": "9680948c9d4d34dcf921108d9a2c5263d1b57ede7a5ab4b4edf0540f55e0cc0c",
+      "outputSha256": "76194a668f246e77817ce051919bbe0e2e60ed3c5705fbf1f2e2e97594ae4903"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (29).zip",
+      "original": "all-over-print-one-piece-swimsuit-white-front-6a90e50e2d96b.png",
+      "sourceSha256": "3d5a2bb2818286d3f595c289d91bf2fcade42358093a9722d3141335667eb240",
+      "outputSha256": "fcc9635d2da8ecc6c9efa65d0bc43fbdcd18e4d5175939217ce2706488c4c3f4"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (29).zip",
+      "original": "all-over-print-one-piece-swimsuit-white-front-6a90e50e2e062.png",
+      "sourceSha256": "6228fbaa690bdac83ac30ba02572ec8d358069dae03e1a4089f25c7e838aaa44",
+      "outputSha256": "a1584782105bf0cdd49fe3a72b46b8943a88c17fb9ca13228d16ab00c1c739e4"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (29).zip",
+      "original": "all-over-print-one-piece-swimsuit-white-front-6a90e50e2e6c8.png",
+      "sourceSha256": "37bc61bb5e4fe6d1474453f012032d2547aa4cda66c96a00b4ea38e21e850b91",
+      "outputSha256": "3804a3ff9bf645a473fae0116cb2eccd2671917c4793295f32cec9f822003afd"
+    },
+    {
+      "file": "10-front-04.webp",
+      "view": "front",
+      "source": "archive (29).zip",
+      "original": "all-over-print-one-piece-swimsuit-white-front-6a90e50e2f9b0.png",
+      "sourceSha256": "679688dec138bcf68a98bc673fd576ed6774856f5386626007a0033fa4dacc68",
+      "outputSha256": "6336d2d312d5eb5441e0605459083345e32b3724b496cb673f99312f637e03db"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (29).zip",
+      "original": "all-over-print-one-piece-swimsuit-white-back-6a90e50e2dd2b.png",
+      "sourceSha256": "b98ddfac8e95d64f90f224a19156f3b6922a19beacdf7a947bc2744d55b625e7",
+      "outputSha256": "1b2686cebc3c72924a5d39a95966447bc5d1271b43de78bdc89c50e0ffc7db65"
+    },
+    {
+      "file": "20-back-02.webp",
+      "view": "back",
+      "source": "archive (29).zip",
+      "original": "all-over-print-one-piece-swimsuit-white-back-6a90e50e2e39b.png",
+      "sourceSha256": "a8f8c9667e9ba38f3fe4ebc328ade1f04a10a4ede3767752421bb04416c44636",
+      "outputSha256": "e20e91b6b25679fd24096803ab854615785f3f1d7df4beb292d73b5c901a2e34"
+    },
+    {
+      "file": "20-back-03.webp",
+      "view": "back",
+      "source": "archive (29).zip",
+      "original": "all-over-print-one-piece-swimsuit-white-back-6a90e50e2ea05.png",
+      "sourceSha256": "5405528ea5d329e05944a5e2bed0f5c8a002f8a40c3222b5c8b8ae2a7d36bf6b",
+      "outputSha256": "bc429706b47d8753e62a4e0aa7ee00ea6b6bb760c43dc11131b4a941afdbe8c0"
+    },
+    {
+      "file": "20-back-04.webp",
+      "view": "back",
+      "source": "archive (29).zip",
+      "original": "all-over-print-one-piece-swimsuit-white-back-6a90e50e30319.png",
+      "sourceSha256": "20c271672a4cf1f0f3a465db48c8cf41d15db42a85f3a51f1c54ae1e2a8ac647",
+      "outputSha256": "fcd0d24a8077ee5fcebc074c6a84b3dec63acad65674ea6846538af4d69a776a"
+    },
+    {
+      "file": "30-left-01.webp",
+      "view": "left",
+      "source": "archive (29).zip",
+      "original": "all-over-print-one-piece-swimsuit-white-left-6a90e50e2f060.png",
+      "sourceSha256": "0b17d12ae6ecae1b3a5c5826a10a61300d2dfa3373f6defd986c51e321d73d51",
+      "outputSha256": "c3bb46d4d8e8061c6660c90e9d1f0032f9a3b69983e669a7caf404c5a2064716"
+    },
+    {
+      "file": "30-left-02.webp",
+      "view": "left",
+      "source": "archive (29).zip",
+      "original": "all-over-print-one-piece-swimsuit-white-left-6a90e50e2fcd6.png",
+      "sourceSha256": "d3594605db02e49341dae097a78fb7c1e1bba8ac71de487df7769179a4e190d8",
+      "outputSha256": "7f99c53c930b66ec33b993e48dbbee936638b1357c17bdf5b958000a8b01746e"
+    },
+    {
+      "file": "40-right-01.webp",
+      "view": "right",
+      "source": "archive (29).zip",
+      "original": "all-over-print-one-piece-swimsuit-white-right-6a90e50e2ed35.png",
+      "sourceSha256": "dd0b13ab2f1ceddfb43ae15aa2240dc54db3c83157480a6d9c51f9ec25588e19",
+      "outputSha256": "373829e10f0a4b824a03d00d66379c2c84c533c70d5a025b3feeb57a63ef9f23"
+    },
+    {
+      "file": "40-right-02.webp",
+      "view": "right",
+      "source": "archive (29).zip",
+      "original": "all-over-print-one-piece-swimsuit-white-right-6a90e50e2ffed.png",
+      "sourceSha256": "054d63ab4007f748630b91d001cbbdb2749b66b72323e397b82da068dd63ae86",
+      "outputSha256": "4dc594353fe56d91e18305e2faf36b66de79f98b83fd687feea3ee9dbead5b41"
+    },
+    {
+      "file": "47-left-back-01.webp",
+      "view": "left-back",
+      "source": "archive (29).zip",
+      "original": "all-over-print-one-piece-swimsuit-white-left-back-6a90e50e2f37e.png",
+      "sourceSha256": "647ff4292eee0949779fbf9d5c6689a8c84ef9eeea95e99f690c6dc911759424",
+      "outputSha256": "fc6f3258e1b918b1a70a71325b3a2c1f7336c74ce00d9fd7479670e4a37c6011"
+    },
+    {
+      "file": "48-right-back-01.webp",
+      "view": "right-back",
+      "source": "archive (29).zip",
+      "original": "all-over-print-one-piece-swimsuit-white-right-back-6a90e50e2f697.png",
+      "sourceSha256": "47038e5543c8bd6869abb8928f95731bcf2dc1a5bc1e432004667c6015ae7d90",
+      "outputSha256": "31d58bd9d5a3fd88d486e04dff8edea5eacad9d6889c9ff0d82d6a8587666b0c"
+    }
+  ],
+  "sourceArchives": [
+    "archive (29).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

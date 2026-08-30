@@ -1,5 +1,7 @@
 # 8 — Audits & runbooks
 
+**Living status:** [../STATUS.md](../STATUS.md) — last audited production snapshot (shop, API, fulfillment, git drift).
+
 ## Pre-launch / periodic checklist
 
 Run before go-live or after major catalog changes.
@@ -8,8 +10,28 @@ Run before go-live or after major catalog changes.
 
 - [ ] `npm run sync:all && npm run build:pages` succeeds
 - [ ] Every sellable variant has `variation_id` in JSON
-- [ ] Images exist under `store/img/` for all listed products
+- [ ] Legacy images exist under `store/img/`; canonical `image`/`images` paths exist under `store/products/{product-id}/`
+- [ ] Every canonical/runtime gallery hash matches its `manifest.json`; every WebP decodes
+- [ ] `_incoming` contains no completed ZIPs; completed sources are under `_completed`
 - [ ] Push to `main` — Pages deploy green
+
+### Horizon public preview / release
+
+- [ ] `node horizon/scripts/build-catalog-fallback.mjs` completes
+- [ ] `node horizon/scripts/validate-catalog.mjs` passes
+- [ ] CDA-SET-001 remains hidden until bundle fulfillment is approved
+- [ ] CDA004 and CDA008 remain explicit, non-cartable placeholders until
+      approved media and provider records exist
+- [ ] The public artifact contains only the deployment allowlist; source
+      masters, SQL, provider evidence, planning records, and credentials are
+      absent
+- [ ] All six current Square and Printful routes are backed up, imported, and
+      audited before checkout flags change
+- [ ] A controlled paid order passes before DNS launch
+
+Canonical procedure:
+[Horizon deployment SOP](../../horizon/DEPLOYMENT_SOP.md). Remaining work:
+[Horizon completion plan](../../horizon/COMPLETION_PLAN.md).
 
 ### Backend (NXCore)
 
@@ -58,12 +80,13 @@ Run via: `docker compose exec api python scripts/<name>.py`
 
 1. Square catalog + xlsx export
 2. Console: load → clean → assign collection → **Deploy to store**
-3. Add images to `store/img/`, sync
-4. Printful: sync/link product (Published)
-5. NXCore: copy JSON if needed, restart API
-6. `import-all-printful-sync-maps.py` → `audit-product-variant-map.py`
-7. Git push (shop)
-8. Test add-to-cart + checkout on staging or low-cost SKU
+3. Add legacy hero art to `store/img/`, or import provider galleries into `store/products/{product-id}/` using the `_incoming/README.md` workflow
+4. Run image optimization, sync, storefront/overlay audits, and `npm run build:pages`
+5. Printful: sync/link product (Published)
+6. NXCore: copy JSON if needed, restart API
+7. `import-all-printful-sync-maps.py` → `audit-product-variant-map.py`
+8. Git push (shop)
+9. Test add-to-cart + checkout on staging or low-cost SKU
 
 ---
 
@@ -90,4 +113,6 @@ Run via: `docker compose exec api python scripts/<name>.py`
 
 Point-in-time audit (2026-06-14): [../archive/PRE_LAUNCH_AUDIT.md](../archive/PRE_LAUNCH_AUDIT.md)
 
-Current procedures supersede that doc; use this manual first.
+**Current status (rolling):** [../STATUS.md](../STATUS.md)
+
+Current procedures supersede archived audits; use this manual first.

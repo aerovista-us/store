@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "productId": "aerovista-glyph-field-long-sleeve-tee-archive-grid",
+  "productName": "AeroVista Glyph Field Long Sleeve Tee — Archive Grid",
+  "hero": "/store/products/aerovista-glyph-field-long-sleeve-tee-archive-grid/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "archive (15).zip",
+      "original": "unisex-long-sleeve-tee-heather-navy-front-6a90a1156e530.png",
+      "sourceSha256": "39f36f0274833b2ed52dd6d73cea153c4c627fbfa71153b078d308d106f5fcb5",
+      "outputSha256": "048f0e894aa776dae785f8f36e5e8b0ade56ebe728cbae80548d3e94f0ddc8c0"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (15).zip",
+      "original": "unisex-long-sleeve-tee-heather-navy-front-2-6a90a1156e166.png",
+      "sourceSha256": "4a7ddd33b071ce0aa9391e0f6fb45c0d4e80091cdd19de4a97e1d5ce037dc44b",
+      "outputSha256": "c3a50411135bf042cd63ec9266eefeca72d1cc455ebcd086aa9417449f790b05"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (15).zip",
+      "original": "unisex-long-sleeve-tee-heather-navy-front-6a90a1156c0d9.png",
+      "sourceSha256": "7c0246bc343e6e99bf5471571b0b350e74ac1c1a5a678530f491c29a408cb842",
+      "outputSha256": "0858cab51f5fe1082c454b8b63f8b9d3c5dd4c702adb3a9bb0d9923958150843"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (15).zip",
+      "original": "unisex-long-sleeve-tee-heather-navy-front-6a90a1156d76f.png",
+      "sourceSha256": "51ceef2212b63f682de6054db7da2cb8eac313bda1b3f4e277113ee5a1f6f09f",
+      "outputSha256": "287b1e980962a65491883cae2abdda2d1fa3d08f2c6bb14dfdf328b4a8c269af"
+    },
+    {
+      "file": "10-front-04.webp",
+      "view": "front",
+      "source": "archive (15).zip",
+      "original": "unisex-long-sleeve-tee-heather-navy-front-6a90a1156f137.png",
+      "sourceSha256": "a386b34f2978f9daa6fc41aff38cf79532ed1319df41c31e9670cd66fb08a942",
+      "outputSha256": "b041389814bfcb0bae1ee623387082d0cc1d8fda2acc3c321d0703109c0fb9f2"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (15).zip",
+      "original": "unisex-long-sleeve-tee-heather-navy-back-6a90a1156bc21.png",
+      "sourceSha256": "a14a010a37cafde155104e68a824f2fa9096ea3b5991d67bf4037e4b855b765f",
+      "outputSha256": "982a5e2b0ed09499cb3f2c327b8407558158a7331fe356d640c6d2bf12d901bf"
+    },
+    {
+      "file": "20-back-02.webp",
+      "view": "back",
+      "source": "archive (15).zip",
+      "original": "unisex-long-sleeve-tee-heather-navy-back-6a90a1156c460.png",
+      "sourceSha256": "97893b9b43f152de26680671bfc71b410c1b0858ce3d2a8b1df613afa38269bf",
+      "outputSha256": "f339ddc84d19ce63aacae6f4e724c76b8e2c22a07f5010b6e4167814543b730d"
+    },
+    {
+      "file": "20-back-03.webp",
+      "view": "back",
+      "source": "archive (15).zip",
+      "original": "unisex-long-sleeve-tee-heather-navy-back-6a90a1156f54c.png",
+      "sourceSha256": "7f0fcb512c5ee9d858c645a06299dafe6ea37c3246d4d4630012900dbf1b4292",
+      "outputSha256": "df406eb6f467f42a3d6c4c7706b0babe29985bdb1e385768d90590777de51e3b"
+    },
+    {
+      "file": "30-left-01.webp",
+      "view": "left",
+      "source": "archive (15).zip",
+      "original": "unisex-long-sleeve-tee-heather-navy-left-6a90a1156cc5e.png",
+      "sourceSha256": "c44c13fc4b09146248c01b337ce6d9da7b2f1239282ea25f178cd4e2e59a7894",
+      "outputSha256": "b2416fc55b6203847fdd5482e395ca42a688f1f8f4ca099b00bd276edbb9b53d"
+    },
+    {
+      "file": "30-left-02.webp",
+      "view": "left",
+      "source": "archive (15).zip",
+      "original": "unisex-long-sleeve-tee-heather-navy-left-6a90a1156f9a5.png",
+      "sourceSha256": "fb1f246df4dcecaefdad44c9fa3f9d0ef4859b36f1a8f8e119827e2ed06f1d16",
+      "outputSha256": "590cdc0fefaeda66a65c517fec4ff213febfec18ca840d73b53355cd67f14619"
+    },
+    {
+      "file": "35-left-front-01.webp",
+      "view": "left-front",
+      "source": "archive (15).zip",
+      "original": "unisex-long-sleeve-tee-heather-navy-left-front-2-6a90a1156ed2a.png",
+      "sourceSha256": "566f4f1f0f6bfb1534b47eccedb3fcb2d26636bde362cba17cad73bcd0b320da",
+      "outputSha256": "c6c07dd45754090827638478697d40299e59c9872307fd305b5ed42dc5f4d074"
+    },
+    {
+      "file": "35-left-front-02.webp",
+      "view": "left-front",
+      "source": "archive (15).zip",
+      "original": "unisex-long-sleeve-tee-heather-navy-left-front-6a90a1156c836.png",
+      "sourceSha256": "7928c370a7542b6482cf5b281239b6dd992ff39fa2eb4024dc4b48752cbef6f6",
+      "outputSha256": "4e54dbb601362bd5389f1c55d6592b541102e3e0a19d6d9948fec3b336590602"
+    },
+    {
+      "file": "35-left-front-03.webp",
+      "view": "left-front",
+      "source": "archive (15).zip",
+      "original": "unisex-long-sleeve-tee-heather-navy-left-front-6a90a1156e927.png",
+      "sourceSha256": "dabf28c0288a30631db43138839c6502e46042a6d6db1dd5a79eac1ae12dc43e",
+      "outputSha256": "04c58cd7b60067912fc00dc8b722c8831449bba32ee81dd204fde8deeb6afa73"
+    },
+    {
+      "file": "40-right-01.webp",
+      "view": "right",
+      "source": "archive (15).zip",
+      "original": "unisex-long-sleeve-tee-heather-navy-right-6a90a1156d40d.png",
+      "sourceSha256": "fe7237839b74fb029db347b38aee55f178393230f3cd9fa9029ae8d1e1bcc9f5",
+      "outputSha256": "3b9770bf7c306d926dae5c6c317a7b44e8c634589927b051a4a070462a176014"
+    },
+    {
+      "file": "40-right-02.webp",
+      "view": "right",
+      "source": "archive (15).zip",
+      "original": "unisex-long-sleeve-tee-heather-navy-right-6a90a1156fdfd.png",
+      "sourceSha256": "dcd391404150930be3c3b491155b9fa6253ad01c09c97ad1d741624350ac58dc",
+      "outputSha256": "b67df571380131db9a711b10f814ecd5967281ef0ac3746de91bedd3dccaf5b1"
+    },
+    {
+      "file": "45-right-front-01.webp",
+      "view": "right-front",
+      "source": "archive (15).zip",
+      "original": "unisex-long-sleeve-tee-heather-navy-right-front-6a90a1156d086.png",
+      "sourceSha256": "5aad5763cc551eed805d7b68b763d9d3f139d0f4644c09919a8e944444c9e66f",
+      "outputSha256": "0a7166d52f91c087f4f7b18f773012047ba18fb6ff6eea8b57fa742fe44b9a1c"
+    },
+    {
+      "file": "50-detail-01.webp",
+      "view": "detail",
+      "source": "archive (15).zip",
+      "original": "unisex-long-sleeve-tee-heather-navy-product-details-2-6a90a1156dae2.png",
+      "sourceSha256": "4ae9c42826345baf08daadb7bac4b94e14e6c9a73c76d022e6a405b08ffda257",
+      "outputSha256": "97e403943ae50b0a192b4d481b759e1b16b4df0cb8ad3f4f86d5c6630c6ce11e"
+    },
+    {
+      "file": "50-detail-02.webp",
+      "view": "detail",
+      "source": "archive (15).zip",
+      "original": "unisex-long-sleeve-tee-heather-navy-product-details-6a90a1156de28.png",
+      "sourceSha256": "59b6cef0bbe5e575d0c82e885a4304de0a7608209c2f69c1ae58b41c1aef81d2",
+      "outputSha256": "a03362656f22f9f9069236863dc49f96762af975ef8b5a32e44a43d0c8ac80e6"
+    }
+  ],
+  "sourceArchives": [
+    "archive (15).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

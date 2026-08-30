@@ -1,0 +1,5386 @@
+{
+  "schemaVersion": 1,
+  "pulledAt": "2026-08-23T09:30:51.776831+00:00",
+  "mode": "full store sync inventory (sanitized, no URLs/credentials)",
+  "storeId": "17064001",
+  "productCount": 91,
+  "variantCount": 406,
+  "products": [
+    {
+      "id": "456388441",
+      "externalId": "4WV7KWHQSC6BQJU2LDEVAUAQ",
+      "name": "Docklife Drip — Osprey Rope Cap",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5444161066",
+          "externalId": "GGYNCQMLXX6R4QCEEXLRVJHR",
+          "name": "Docklife Drip — Osprey Rope Cap",
+          "sku": "6A8335EED993F_22230",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "32.00",
+          "currency": "USD",
+          "catalogVariantId": 22230
+        }
+      ]
+    },
+    {
+      "id": "455067976",
+      "externalId": "2IUPWYVPH63FREKO5WTPH6MS",
+      "name": "Shadow wear Case for Samsung®",
+      "synced": 18,
+      "thumbnailPresent": false,
+      "variantCount": 18,
+      "variants": [
+        {
+          "id": "5434594130",
+          "externalId": "HXMTJXO3SGJ74FRCCV374TIP",
+          "name": "Shadow wear Case for Samsung® / Samsung Galaxy S20 Plus",
+          "sku": "6A79B8EEF3007_11348",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "26.00",
+          "currency": "USD",
+          "catalogVariantId": 11348
+        },
+        {
+          "id": "5434594131",
+          "externalId": "W6PYYZ35HICVZLB5HLA463ZL",
+          "name": "Shadow wear Case for Samsung® / Samsung Galaxy S20 Ultra",
+          "sku": "6A79B8EEF3007_11349",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "28.00",
+          "currency": "USD",
+          "catalogVariantId": 11349
+        },
+        {
+          "id": "5434594132",
+          "externalId": "D3NR6BV7TGX6GWC6QF6KBN5P",
+          "name": "Shadow wear Case for Samsung® / Samsung Galaxy S20",
+          "sku": "6A79B8EEF3007_11347",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "26.00",
+          "currency": "USD",
+          "catalogVariantId": 11347
+        },
+        {
+          "id": "5434594133",
+          "externalId": "FPWCKZNDIMKRIDBECSEJVEKV",
+          "name": "Shadow wear Case for Samsung® / Samsung Galaxy S21 Plus",
+          "sku": "6A79B8EEF3007_12027",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "26.00",
+          "currency": "USD",
+          "catalogVariantId": 12027
+        },
+        {
+          "id": "5434594134",
+          "externalId": "QG6ZMBCTQDQAGDIKRPZD4QFJ",
+          "name": "Shadow wear Case for Samsung® / Samsung Galaxy S21 Ultra",
+          "sku": "6A79B8EEF3007_12026",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "28.00",
+          "currency": "USD",
+          "catalogVariantId": 12026
+        },
+        {
+          "id": "5434594135",
+          "externalId": "E5MC6KFWRY3JD4R2A4GKLTR3",
+          "name": "Shadow wear Case for Samsung® / Samsung Galaxy S21",
+          "sku": "6A79B8EEF3007_12025",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "26.00",
+          "currency": "USD",
+          "catalogVariantId": 12025
+        },
+        {
+          "id": "5434594136",
+          "externalId": "JA253MUBQWTQGNJINIPRRLBA",
+          "name": "Shadow wear Case for Samsung® / Samsung Galaxy S22 Plus",
+          "sku": "6A79B8EEF3007_14634",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "26.00",
+          "currency": "USD",
+          "catalogVariantId": 14634
+        },
+        {
+          "id": "5434594137",
+          "externalId": "ITFCIZJDPWAU2QROHMS5LHFZ",
+          "name": "Shadow wear Case for Samsung® / Samsung Galaxy S22 Ultra",
+          "sku": "6A79B8EEF3007_14635",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "28.00",
+          "currency": "USD",
+          "catalogVariantId": 14635
+        },
+        {
+          "id": "5434594138",
+          "externalId": "YCTEUVNHC3BDPSL5SDATWJSD",
+          "name": "Shadow wear Case for Samsung® / Samsung Galaxy S22",
+          "sku": "6A79B8EEF3007_14633",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "26.00",
+          "currency": "USD",
+          "catalogVariantId": 14633
+        },
+        {
+          "id": "5434594139",
+          "externalId": "PIJ66AHTVZI3BWUYIC5BMGUM",
+          "name": "Shadow wear Case for Samsung® / Samsung Galaxy S25 Plus",
+          "sku": "6A79B8EEF3007_21482",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "26.00",
+          "currency": "USD",
+          "catalogVariantId": 21482
+        },
+        {
+          "id": "5434594140",
+          "externalId": "MCGOHODXH54IXV4EWSM3HWM2",
+          "name": "Shadow wear Case for Samsung® / Samsung Galaxy S25 Ultra",
+          "sku": "6A79B8EEF3007_21483",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "28.00",
+          "currency": "USD",
+          "catalogVariantId": 21483
+        },
+        {
+          "id": "5434594141",
+          "externalId": "EW6SGGL5T4ULV54YQ3LFV2Y2",
+          "name": "Shadow wear Case for Samsung® / Samsung Galaxy S25",
+          "sku": "6A79B8EEF3007_21481",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "26.00",
+          "currency": "USD",
+          "catalogVariantId": 21481
+        },
+        {
+          "id": "5434594142",
+          "externalId": "EQRGIFV5UJZWLRQZ5BSBWCRE",
+          "name": "Shadow wear Case for Samsung® / Samsung Galaxy S23 Plus",
+          "sku": "6A79B8EEF3007_18750",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "26.00",
+          "currency": "USD",
+          "catalogVariantId": 18750
+        },
+        {
+          "id": "5434594143",
+          "externalId": "2SSM2Y5EYX6CXKSOE3ZVNXPZ",
+          "name": "Shadow wear Case for Samsung® / Samsung Galaxy S23 Ultra",
+          "sku": "6A79B8EEF3007_18751",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "28.00",
+          "currency": "USD",
+          "catalogVariantId": 18751
+        },
+        {
+          "id": "5434594144",
+          "externalId": "GETB2QTILSZH3KBYSXXEPJCM",
+          "name": "Shadow wear Case for Samsung® / Samsung Galaxy S23",
+          "sku": "6A79B8EEF3007_18749",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "26.00",
+          "currency": "USD",
+          "catalogVariantId": 18749
+        },
+        {
+          "id": "5434594145",
+          "externalId": "I4N2ACXGGVZ6NFUHBA4X34DV",
+          "name": "Shadow wear Case for Samsung® / Samsung Galaxy S24 Plus",
+          "sku": "6A79B8EEF3007_18735",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "27.00",
+          "currency": "USD",
+          "catalogVariantId": 18735
+        },
+        {
+          "id": "5434594146",
+          "externalId": "GZC7JQTZBHK5BORFKEAWJDPH",
+          "name": "Shadow wear Case for Samsung® / Samsung Galaxy S24 Ultra",
+          "sku": "6A79B8EEF3007_18736",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "26.00",
+          "currency": "USD",
+          "catalogVariantId": 18736
+        },
+        {
+          "id": "5434594147",
+          "externalId": "K7W4LFCOPUMQXNL7YR42EBSW",
+          "name": "Shadow wear Case for Samsung® / Samsung Galaxy S24",
+          "sku": "6A79B8EEF3007_18734",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "26.00",
+          "currency": "USD",
+          "catalogVariantId": 18734
+        }
+      ]
+    },
+    {
+      "id": "455044617",
+      "externalId": "IG3FOPDH4KOT4BMBAWDOT3VQ",
+      "name": "AeroVista ShadowWear Desk mat",
+      "synced": 3,
+      "thumbnailPresent": false,
+      "variantCount": 3,
+      "variants": [
+        {
+          "id": "5434412458",
+          "externalId": "TCWT22ROFNU4YR5KV3VPRWFH",
+          "name": "AeroVista ShadowWear Desk mat / 12″×18″",
+          "sku": "6A797B533FF07_22325",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "28.00",
+          "currency": "USD",
+          "catalogVariantId": 22325
+        },
+        {
+          "id": "5434412459",
+          "externalId": "YGP3UIJQBGQPLHQ224GHKKFC",
+          "name": "AeroVista ShadowWear Desk mat / 12″×22″",
+          "sku": "6A797B533FF07_22326",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "32.00",
+          "currency": "USD",
+          "catalogVariantId": 22326
+        },
+        {
+          "id": "5434412460",
+          "externalId": "54IMLWTNVYS3PVQO3VZPWDE5",
+          "name": "AeroVista ShadowWear Desk mat / 16″×32″",
+          "sku": "6A797B533FF07_22327",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "44.00",
+          "currency": "USD",
+          "catalogVariantId": 22327
+        }
+      ]
+    },
+    {
+      "id": "455041844",
+      "externalId": "AMH7RJDD5MHUUMWCSQOZOKCH",
+      "name": "Clear Case for Samsung S24 ultra®",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5434395966",
+          "externalId": "7ASB6QRGIAR2LKK2UNLIYDKR",
+          "name": "Clear Case for Samsung S24 ultra®",
+          "sku": "6A7973CBB9CBA_18736",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "38.00",
+          "currency": "USD",
+          "catalogVariantId": 18736
+        }
+      ]
+    },
+    {
+      "id": "454991813",
+      "externalId": "C6DJDRR3CZXNQ4BF2OWM3K6F",
+      "name": "Shadow Wear Tactical Bomber Jacket — Summit Edition",
+      "synced": 7,
+      "thumbnailPresent": false,
+      "variantCount": 7,
+      "variants": [
+        {
+          "id": "5433881370",
+          "externalId": "XYHJEIO4VRIEK6UQ3RVM43SZ",
+          "name": "Shadow Wear Tactical Bomber Jacket — Summit Edition / XS",
+          "sku": "6A78F82909625_10877",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "120.00",
+          "currency": "USD",
+          "catalogVariantId": 10877
+        },
+        {
+          "id": "5433881371",
+          "externalId": "2DLNM7JND2I4BBGAUSAQZMVR",
+          "name": "Shadow Wear Tactical Bomber Jacket — Summit Edition / S",
+          "sku": "6A78F82909625_10878",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "120.00",
+          "currency": "USD",
+          "catalogVariantId": 10878
+        },
+        {
+          "id": "5433881372",
+          "externalId": "BDMDB474QPGVLV4SOHU6WIXP",
+          "name": "Shadow Wear Tactical Bomber Jacket — Summit Edition / M",
+          "sku": "6A78F82909625_10879",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "120.00",
+          "currency": "USD",
+          "catalogVariantId": 10879
+        },
+        {
+          "id": "5433881373",
+          "externalId": "4WPOX3FYXZXOEW4FWAJLSK5N",
+          "name": "Shadow Wear Tactical Bomber Jacket — Summit Edition / L",
+          "sku": "6A78F82909625_10880",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "120.00",
+          "currency": "USD",
+          "catalogVariantId": 10880
+        },
+        {
+          "id": "5433881374",
+          "externalId": "RAUOG7IF3BOEIVNK6D6LB6UA",
+          "name": "Shadow Wear Tactical Bomber Jacket — Summit Edition / XL",
+          "sku": "6A78F82909625_10881",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "120.00",
+          "currency": "USD",
+          "catalogVariantId": 10881
+        },
+        {
+          "id": "5433881375",
+          "externalId": "JYHP5GJUF45BOUIL43O2VFFM",
+          "name": "Shadow Wear Tactical Bomber Jacket — Summit Edition / 2XL",
+          "sku": "6A78F82909625_10882",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "120.00",
+          "currency": "USD",
+          "catalogVariantId": 10882
+        },
+        {
+          "id": "5433881376",
+          "externalId": "XI2V575PDNYSAQ2DK5LPNJCF",
+          "name": "Shadow Wear Tactical Bomber Jacket — Summit Edition / 3XL",
+          "sku": "6A78F82909625_10883",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "120.00",
+          "currency": "USD",
+          "catalogVariantId": 10883
+        }
+      ]
+    },
+    {
+      "id": "452653865",
+      "externalId": "PLHECVJF62O3AD7OETWNC5YI",
+      "name": "echoverse enter the goat",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5417830057",
+          "externalId": "5AYYCN7QGA3QD3WFH5HLJOIY",
+          "name": "echoverse enter the goat",
+          "sku": "6A695D86404F5_4020",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "35.00",
+          "currency": "USD",
+          "catalogVariantId": 4020
+        }
+      ]
+    },
+    {
+      "id": "452648163",
+      "externalId": "NB7R6WQVJ4RQPRT3BXVZMVCH",
+      "name": "EchoVerse Tee",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5417813908",
+          "externalId": "C7TMHFVO7QTERAFOSQ4VFMGD",
+          "name": "EchoVerse Tee",
+          "sku": "6A695A561C874_12644",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "35.00",
+          "currency": "USD",
+          "catalogVariantId": 12644
+        }
+      ]
+    },
+    {
+      "id": "452227092",
+      "externalId": "UYXEDWYIDAOUY4ME73GCC4WI",
+      "name": "Last Light Over the Resort -Downtown Coeur d’Alene at Sunset",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5415090955",
+          "externalId": "7GHIQT64RIQ7FG75JXRY4WXM",
+          "name": "Last Light Over the Resort -Downtown Coeur d’Alene at Sunset",
+          "sku": "6A673A0192677_19300",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "195.00",
+          "currency": "USD",
+          "catalogVariantId": 19300
+        }
+      ]
+    },
+    {
+      "id": "452101416",
+      "externalId": "UWJ3ZN5GFKDZFRAZX53XF27K",
+      "name": "Mahogany Wake -A Classic Runabout on Lake Coeur d’Alene",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5414120260",
+          "externalId": "HM7W4RFQAJOTW4F7VCCPDQSK",
+          "name": "Mahogany Wake -A Classic Runabout on Lake Coeur d’Alene",
+          "sku": "6A662E0C9B07F_19310",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "275.00",
+          "currency": "USD",
+          "catalogVariantId": 19310
+        }
+      ]
+    },
+    {
+      "id": "452058308",
+      "externalId": "N4BLSBU54NWPQHDUVXNYPKJB",
+      "name": "The Clock at Resort Circle -A 360° View of Downtown Coeur d’Alene",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5413839257",
+          "externalId": "TSVZMVYNXIABNBTROMOH2WZ3",
+          "name": "The Clock at Resort Circle -A 360° View of Downtown Coeur d’Alene",
+          "sku": "6A65B8ADCD01D_19317",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "525.00",
+          "currency": "USD",
+          "catalogVariantId": 19317
+        }
+      ]
+    },
+    {
+      "id": "452057375",
+      "externalId": "ZCK6RXI3M6OXGMUAXLPKST2U",
+      "name": "Lake, Links, and the Floating Green -The Coeur d’Alene Resort Golf Course in 360°",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5413833942",
+          "externalId": "4YFQ5YTYAVKDFFZTL5J34VQR",
+          "name": "Lake, Links, and the Floating Green -The Coeur d’Alene Resort Golf Course in 360°",
+          "sku": "6A65B415A97A5_19317",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "525.00",
+          "currency": "USD",
+          "catalogVariantId": 19317
+        }
+      ]
+    },
+    {
+      "id": "452056976",
+      "externalId": "ODVHMPJQDCYDIZ7EN6SCCQVO",
+      "name": "Fairways Along the Lake -The Coeur d’Alene Resort Golf Course in 360°",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5413829524",
+          "externalId": "UE2R6GEZM73GJYVDEIK56XA7",
+          "name": "Fairways Along the Lake -The Coeur d’Alene Resort Golf Course in 360°",
+          "sku": "6A65B1DB8CB92_19317",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "525.00",
+          "currency": "USD",
+          "catalogVariantId": 19317
+        }
+      ]
+    },
+    {
+      "id": "452054467",
+      "externalId": "XC2FWRGWQ3K7WQG3J4IYJX7P",
+      "name": "Harbor at the Heart -The Coeur d’Alene Resort and Marina",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5413807138",
+          "externalId": "QNGEHC2XEGDTJC3GMEJREHR5",
+          "name": "Harbor at the Heart -The Coeur d’Alene Resort and Marina",
+          "sku": "6A65A829A4D4E_19323",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "495.00",
+          "currency": "USD",
+          "catalogVariantId": 19323
+        }
+      ]
+    },
+    {
+      "id": "452010393",
+      "externalId": "YMFGGXOO4HQCFTDZGEXZT3HG",
+      "name": "Harbor at the Heart -The Coeur d’Alene Resort and Marina",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5413470028",
+          "externalId": "ABPHBV3RGVPPQH6XZXNJQ3XV",
+          "name": "Harbor at the Heart -The Coeur d’Alene Resort and Marina",
+          "sku": "6A65592D41985_19291",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "0.00",
+          "currency": "USD",
+          "catalogVariantId": 19291
+        }
+      ]
+    },
+    {
+      "id": "452003629",
+      "externalId": "P2COGBY37J3QOAJVU3ZIJQJ3",
+      "name": "The Road to the Lake -Autumn in Coeur d’Alene",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5413449116",
+          "externalId": "75ED3TP2HPJ7AWUSU5O5ROXU",
+          "name": "The Road to the Lake -Autumn in Coeur d’Alene",
+          "sku": "6A65534A3A86E_19312",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "395.00",
+          "currency": "USD",
+          "catalogVariantId": 19312
+        }
+      ]
+    },
+    {
+      "id": "451995624",
+      "externalId": "KWU6ZR32ING5CNK3X7ENH62B",
+      "name": "Autumn Over Coeur d’Alene -Lake City in Color",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5413416117",
+          "externalId": "DZHQKOUSDEIQIAK4HISEGWMX",
+          "name": "Autumn Over Coeur d’Alene -Lake City in Color",
+          "sku": "6A654A4D9263E_19312",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "395.00",
+          "currency": "USD",
+          "catalogVariantId": 19312
+        }
+      ]
+    },
+    {
+      "id": "451990150",
+      "externalId": "DIKN43RALNFC5ZZBI5C4WDM6",
+      "name": "Cornerbar",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5413391452",
+          "externalId": "KE2PZOLR4NT5WXTKMNJOFI7G",
+          "name": "Cornerbar",
+          "sku": "6A6544C781285_19312",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "225.00",
+          "currency": "USD",
+          "catalogVariantId": 19312
+        }
+      ]
+    },
+    {
+      "id": "451973506",
+      "externalId": "MTHKVBPRCAA3NUNL6IRBRW33",
+      "name": "Floating Green - Metal Print",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5413297982",
+          "externalId": "L3VS466PX6SNWQX3GMO5M6K3",
+          "name": "Floating Green - Metal Print",
+          "sku": "6A652C6023BB6_15137",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "175.00",
+          "currency": "USD",
+          "catalogVariantId": 15137
+        }
+      ]
+    },
+    {
+      "id": "451893189",
+      "externalId": "STWUSGUC3RMLNF7WPJWW6NKH",
+      "name": "Floating Green",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5412781536",
+          "externalId": "SEXEDBEEMEPQUCVSXUVBNTD3",
+          "name": "Floating Green",
+          "sku": "6A647991AB3E4_19330",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "250.00",
+          "currency": "USD",
+          "catalogVariantId": 19330
+        }
+      ]
+    },
+    {
+      "id": "451885169",
+      "externalId": "ILII2RQ6KCMIKA4MHL365KWU",
+      "name": "Canvas",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5412738078",
+          "externalId": "V2TFU6KOV4VKHU43KU3IZ32K",
+          "name": "Canvas",
+          "sku": "6A6464FE79D59_19324",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "250.00",
+          "currency": "USD",
+          "catalogVariantId": 19324
+        }
+      ]
+    },
+    {
+      "id": "451883154",
+      "externalId": "EN2PVIZMKBJ7FCMQ6EWC6NCM",
+      "name": "lake cove",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5412733305",
+          "externalId": "M35WFGWGDDNZSBHANYTSEZX6",
+          "name": "lake cove",
+          "sku": "6A6461CFB3E67_6",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "150.00",
+          "currency": "USD",
+          "catalogVariantId": 6
+        }
+      ]
+    },
+    {
+      "id": "451881696",
+      "externalId": "H3YVHQHZJF2VQ3VHV3CSULCA",
+      "name": "CDA Clock",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5412726597",
+          "externalId": "FQMBORDTVIE33YZMVQOT5QWF",
+          "name": "CDA Clock",
+          "sku": "6A645D0C575E6_19324",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "250.00",
+          "currency": "USD",
+          "catalogVariantId": 19324
+        }
+      ]
+    },
+    {
+      "id": "451337045",
+      "externalId": "KTZDCRK56T2PAVV3F4WGY5S3",
+      "name": "Center Clock",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5411103848",
+          "externalId": "3JYLZWT3XD5SDLXVKAQVL3WD",
+          "name": "Center Clock",
+          "sku": "6A630BD4D834A_19305",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "250.00",
+          "currency": "USD",
+          "catalogVariantId": 19305
+        }
+      ]
+    },
+    {
+      "id": "447285700",
+      "externalId": "YSCUAWBM5NOVYLOXQH6TAP2S",
+      "name": "CDA Clock",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5399957927",
+          "externalId": "R52RBDE2LAKD3JSMGFIOZNUQ",
+          "name": "CDA Clock",
+          "sku": "6A5BC8794E859_19330",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "0.00",
+          "currency": "USD",
+          "catalogVariantId": 19330
+        }
+      ]
+    },
+    {
+      "id": "435942386",
+      "externalId": "JKH4LV4L3X3HPL4ZDEGBPCAP",
+      "name": "Shadow Wear",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5332434250",
+          "externalId": "NYSJZSCRJ6WCY36DNYNHCUEE",
+          "name": "Shadow Wear / XS",
+          "sku": "6A1B672BDBCC3_8850",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "38.00",
+          "currency": "USD",
+          "catalogVariantId": 8850
+        },
+        {
+          "id": "5332434251",
+          "externalId": "IJYO6GLARVP7ESYY2SI7PD7B",
+          "name": "Shadow Wear / S",
+          "sku": "6A1B672BDBCC3_8851",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "38.00",
+          "currency": "USD",
+          "catalogVariantId": 8851
+        },
+        {
+          "id": "5332434252",
+          "externalId": "I3B34MJ6BICK5KWEFA2XQKO3",
+          "name": "Shadow Wear / M",
+          "sku": "6A1B672BDBCC3_8852",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "38.00",
+          "currency": "USD",
+          "catalogVariantId": 8852
+        },
+        {
+          "id": "5332434253",
+          "externalId": "RRTIZHSMAY5NHATDSTG7KRUV",
+          "name": "Shadow Wear / L",
+          "sku": "6A1B672BDBCC3_8853",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "38.00",
+          "currency": "USD",
+          "catalogVariantId": 8853
+        },
+        {
+          "id": "5332434254",
+          "externalId": "VS5YMJSG66JGFBHS6XRFAQ4Z",
+          "name": "Shadow Wear / XL",
+          "sku": "6A1B672BDBCC3_8854",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "38.00",
+          "currency": "USD",
+          "catalogVariantId": 8854
+        },
+        {
+          "id": "5332434255",
+          "externalId": "UL2Q3BPI4O5ZTGVYVN5YAFMX",
+          "name": "Shadow Wear / 2XL",
+          "sku": "6A1B672BDBCC3_8855",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "38.00",
+          "currency": "USD",
+          "catalogVariantId": 8855
+        }
+      ]
+    },
+    {
+      "id": "435940322",
+      "externalId": "XGSVPPMWIATOQ6E3E3EL7PTC",
+      "name": "AeroVista Glyph Field Long Sleeve Tee — Archive Grid",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5332417609",
+          "externalId": "DNJVN2VX7W3Y5EIBXTNR73JJ",
+          "name": "AeroVista Glyph Field Long Sleeve Tee — Archive Grid / XS",
+          "sku": "6A1B6369DE231_16132",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "32.49",
+          "currency": "USD",
+          "catalogVariantId": 16132
+        },
+        {
+          "id": "5332417610",
+          "externalId": "22NRE7NY6QH6CYBCQ3PJBGRP",
+          "name": "AeroVista Glyph Field Long Sleeve Tee — Archive Grid / S",
+          "sku": "6A1B6369DE231_16133",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "32.49",
+          "currency": "USD",
+          "catalogVariantId": 16133
+        },
+        {
+          "id": "5332417611",
+          "externalId": "QUYLJK63XTITS6VIXUWYDHWR",
+          "name": "AeroVista Glyph Field Long Sleeve Tee — Archive Grid / M",
+          "sku": "6A1B6369DE231_16134",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "32.49",
+          "currency": "USD",
+          "catalogVariantId": 16134
+        },
+        {
+          "id": "5332417612",
+          "externalId": "BKUGXLRPSNBTG5E3DCGCSQ7A",
+          "name": "AeroVista Glyph Field Long Sleeve Tee — Archive Grid / L",
+          "sku": "6A1B6369DE231_16135",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "32.49",
+          "currency": "USD",
+          "catalogVariantId": 16135
+        },
+        {
+          "id": "5332417613",
+          "externalId": "AFJOF2JLVIFDVYQQDPIYREUS",
+          "name": "AeroVista Glyph Field Long Sleeve Tee — Archive Grid / XL",
+          "sku": "6A1B6369DE231_16136",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "32.49",
+          "currency": "USD",
+          "catalogVariantId": 16136
+        },
+        {
+          "id": "5332417614",
+          "externalId": "DQQLPUTOHFKVU4VMFXCHCEGV",
+          "name": "AeroVista Glyph Field Long Sleeve Tee — Archive Grid / 2XL",
+          "sku": "6A1B6369DE231_16137",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "32.49",
+          "currency": "USD",
+          "catalogVariantId": 16137
+        }
+      ]
+    },
+    {
+      "id": "435289848",
+      "externalId": "3ENMS2EC47TNOE7RJH42VX4W",
+      "name": "Can cooler",
+      "synced": 2,
+      "thumbnailPresent": false,
+      "variantCount": 2,
+      "variants": [
+        {
+          "id": "5328872840",
+          "externalId": "DEZM4UGOPRYEUSUXO427WLSQ",
+          "name": "Can cooler / Regular 12 oz",
+          "sku": "6A17B3E5C244F_19461",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "8.50",
+          "currency": "USD",
+          "catalogVariantId": 19461
+        },
+        {
+          "id": "5328872841",
+          "externalId": "KDGFUSRV5OY2WVHFRAUD7T6E",
+          "name": "Can cooler / Slim 12 oz",
+          "sku": "6A17B3E5C244F_19462",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "8.50",
+          "currency": "USD",
+          "catalogVariantId": 19462
+        }
+      ]
+    },
+    {
+      "id": "434283097",
+      "externalId": "AEITXLBBQB7ATCVL5CD6N6XL",
+      "name": "shadow pants",
+      "synced": 11,
+      "thumbnailPresent": false,
+      "variantCount": 11,
+      "variants": [
+        {
+          "id": "5318529310",
+          "externalId": "N5EXCPN5GWVME3PQZIFDYNUJ",
+          "name": "shadow pants / 2XS",
+          "sku": "6A0E283D90341_15513",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "46.00",
+          "currency": "USD",
+          "catalogVariantId": 15513
+        },
+        {
+          "id": "5318529311",
+          "externalId": "ZQEDD7FLGDCIG7YS7ITUIAY5",
+          "name": "shadow pants / XS",
+          "sku": "6A0E283D90341_15514",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "46.00",
+          "currency": "USD",
+          "catalogVariantId": 15514
+        },
+        {
+          "id": "5318529312",
+          "externalId": "PUXSQI64MVTC6OTTJRHJ5XUA",
+          "name": "shadow pants / S",
+          "sku": "6A0E283D90341_15515",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "52.00",
+          "currency": "USD",
+          "catalogVariantId": 15515
+        },
+        {
+          "id": "5318529313",
+          "externalId": "AADW36VFWTN37URWPN6EHEXT",
+          "name": "shadow pants / M",
+          "sku": "6A0E283D90341_15516",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "52.00",
+          "currency": "USD",
+          "catalogVariantId": 15516
+        },
+        {
+          "id": "5318529315",
+          "externalId": "D5LNRKU4JLH32X4KPH2OA2FE",
+          "name": "shadow pants / L",
+          "sku": "6A0E283D90341_15517",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "54.00",
+          "currency": "USD",
+          "catalogVariantId": 15517
+        },
+        {
+          "id": "5318529316",
+          "externalId": "6ADRYKNCNSXRGNIKFQMJVLEN",
+          "name": "shadow pants / XL",
+          "sku": "6A0E283D90341_15518",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "54.00",
+          "currency": "USD",
+          "catalogVariantId": 15518
+        },
+        {
+          "id": "5318529317",
+          "externalId": "X7YG4ZG5UC5WUGBCTQTSRXBQ",
+          "name": "shadow pants / 2XL",
+          "sku": "6A0E283D90341_15519",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "56.00",
+          "currency": "USD",
+          "catalogVariantId": 15519
+        },
+        {
+          "id": "5318529318",
+          "externalId": "V2DUEG3ZMLQN2KK33ZKNXMWA",
+          "name": "shadow pants / 3XL",
+          "sku": "6A0E283D90341_15520",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "56.00",
+          "currency": "USD",
+          "catalogVariantId": 15520
+        },
+        {
+          "id": "5318529319",
+          "externalId": "HH6VMGGMO3JWLU3J5YQHAODJ",
+          "name": "shadow pants / 4XL",
+          "sku": "6A0E283D90341_15521",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "58.00",
+          "currency": "USD",
+          "catalogVariantId": 15521
+        },
+        {
+          "id": "5318529320",
+          "externalId": "VL6KXAOGQAYW7Y2CDM2D3TIW",
+          "name": "shadow pants / 5XL",
+          "sku": "6A0E283D90341_15522",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "58.00",
+          "currency": "USD",
+          "catalogVariantId": 15522
+        },
+        {
+          "id": "5318529321",
+          "externalId": "BJ5752GLBNMNNANQCQUMH3BM",
+          "name": "shadow pants / 6XL",
+          "sku": "6A0E283D90341_15523",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "60.00",
+          "currency": "USD",
+          "catalogVariantId": 15523
+        }
+      ]
+    },
+    {
+      "id": "434282906",
+      "externalId": "JABHKJPVXIQZUCJ62LD3TSSK",
+      "name": "AeroVista Shadow Pattern Hoodie",
+      "synced": 11,
+      "thumbnailPresent": false,
+      "variantCount": 11,
+      "variants": [
+        {
+          "id": "5318527112",
+          "externalId": "FMWZ6F55ROOMHWEICCDEQAC6",
+          "name": "AeroVista Shadow Pattern Hoodie / 2XS",
+          "sku": "6A0E278AE849D_18730",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "58.00",
+          "currency": "USD",
+          "catalogVariantId": 18730
+        },
+        {
+          "id": "5318527113",
+          "externalId": "YBUJQJYN7QAD5SUONXQOFGAP",
+          "name": "AeroVista Shadow Pattern Hoodie / XS",
+          "sku": "6A0E278AE849D_10869",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.50",
+          "currency": "USD",
+          "catalogVariantId": 10869
+        },
+        {
+          "id": "5318527114",
+          "externalId": "MP3KNDIENL6ODP5N7GQLJ6XL",
+          "name": "AeroVista Shadow Pattern Hoodie / S",
+          "sku": "6A0E278AE849D_10870",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.50",
+          "currency": "USD",
+          "catalogVariantId": 10870
+        },
+        {
+          "id": "5318527115",
+          "externalId": "L3RW2AWTHRL5YILXMOODFTFK",
+          "name": "AeroVista Shadow Pattern Hoodie / M",
+          "sku": "6A0E278AE849D_10871",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.50",
+          "currency": "USD",
+          "catalogVariantId": 10871
+        },
+        {
+          "id": "5318527116",
+          "externalId": "EIBNHLPIST22P2BLZFRGVTMV",
+          "name": "AeroVista Shadow Pattern Hoodie / L",
+          "sku": "6A0E278AE849D_10872",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.50",
+          "currency": "USD",
+          "catalogVariantId": 10872
+        },
+        {
+          "id": "5318527117",
+          "externalId": "H6YGDMOCSWPWONMEMF7P2DFK",
+          "name": "AeroVista Shadow Pattern Hoodie / XL",
+          "sku": "6A0E278AE849D_10873",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.50",
+          "currency": "USD",
+          "catalogVariantId": 10873
+        },
+        {
+          "id": "5318527118",
+          "externalId": "5PNXQY7PB5EOZK6Y4PQ3JAQC",
+          "name": "AeroVista Shadow Pattern Hoodie / 2XL",
+          "sku": "6A0E278AE849D_10874",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "62.00",
+          "currency": "USD",
+          "catalogVariantId": 10874
+        },
+        {
+          "id": "5318527119",
+          "externalId": "2BS54536IKXSQFXMTBTNKVYN",
+          "name": "AeroVista Shadow Pattern Hoodie / 3XL",
+          "sku": "6A0E278AE849D_10875",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "65.00",
+          "currency": "USD",
+          "catalogVariantId": 10875
+        },
+        {
+          "id": "5318527120",
+          "externalId": "UOMOMIEO3LZWTPINJ73SLTG2",
+          "name": "AeroVista Shadow Pattern Hoodie / 4XL",
+          "sku": "6A0E278AE849D_18731",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "68.00",
+          "currency": "USD",
+          "catalogVariantId": 18731
+        },
+        {
+          "id": "5318527121",
+          "externalId": "O34AEN3AU364RTEZSYHUPBAQ",
+          "name": "AeroVista Shadow Pattern Hoodie / 5XL",
+          "sku": "6A0E278AE849D_18732",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "71.00",
+          "currency": "USD",
+          "catalogVariantId": 18732
+        },
+        {
+          "id": "5318527122",
+          "externalId": "I4YGRMK3PLAMDE2LIFQXQGN4",
+          "name": "AeroVista Shadow Pattern Hoodie / 6XL",
+          "sku": "6A0E278AE849D_18733",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "74.00",
+          "currency": "USD",
+          "catalogVariantId": 18733
+        }
+      ]
+    },
+    {
+      "id": "434282900",
+      "externalId": "G75UUKPLOLVCCF6XG3L2ZNPN",
+      "name": "AeroVista shadow Pattern Long Sleeve Tee",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5318527006",
+          "externalId": "4YV42WUX7CZXUFPLG4DVU7LG",
+          "name": "AeroVista shadow Pattern Long Sleeve Tee / 2XL",
+          "sku": "6A0E2781C51E2_23678",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "46.00",
+          "currency": "USD",
+          "catalogVariantId": 23678
+        },
+        {
+          "id": "5318527007",
+          "externalId": "COLK7JAU5L2SXH6GWRKQELTT",
+          "name": "AeroVista shadow Pattern Long Sleeve Tee / L",
+          "sku": "6A0E2781C51E2_23676",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "41.50",
+          "currency": "USD",
+          "catalogVariantId": 23676
+        },
+        {
+          "id": "5318527008",
+          "externalId": "RL44YNQ7AMVSE5YLT45TW6LC",
+          "name": "AeroVista shadow Pattern Long Sleeve Tee / M",
+          "sku": "6A0E2781C51E2_23675",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "41.50",
+          "currency": "USD",
+          "catalogVariantId": 23675
+        },
+        {
+          "id": "5318527009",
+          "externalId": "BJ6JPBPUD266PDEW4PJ3BISB",
+          "name": "AeroVista shadow Pattern Long Sleeve Tee / S",
+          "sku": "6A0E2781C51E2_23674",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "41.50",
+          "currency": "USD",
+          "catalogVariantId": 23674
+        },
+        {
+          "id": "5318527010",
+          "externalId": "7E4VE7EFPACFPXEQXNJ2ZOEC",
+          "name": "AeroVista shadow Pattern Long Sleeve Tee / XL",
+          "sku": "6A0E2781C51E2_23677",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "41.50",
+          "currency": "USD",
+          "catalogVariantId": 23677
+        },
+        {
+          "id": "5318527011",
+          "externalId": "7PCFZBZLGRXJZPXF7OAW67J5",
+          "name": "AeroVista shadow Pattern Long Sleeve Tee / XS",
+          "sku": "6A0E2781C51E2_23673",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "41.50",
+          "currency": "USD",
+          "catalogVariantId": 23673
+        }
+      ]
+    },
+    {
+      "id": "434282623",
+      "externalId": "ZV5P42AMDXFPBEB7XYC3U6DW",
+      "name": "Lumina | premium mid-weight hoodie",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5318524251",
+          "externalId": "NRHJY7BOIMC5SHJFNOY6NJ6Q",
+          "name": "Lumina | premium mid-weight hoodie / S",
+          "sku": "6A0E26A16EA00_22132",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "34.00",
+          "currency": "USD",
+          "catalogVariantId": 22132
+        },
+        {
+          "id": "5318524252",
+          "externalId": "R47UZIEDL7VGAFZWZ6FRD3U3",
+          "name": "Lumina | premium mid-weight hoodie / M",
+          "sku": "6A0E26A16EA00_22133",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "34.00",
+          "currency": "USD",
+          "catalogVariantId": 22133
+        },
+        {
+          "id": "5318524253",
+          "externalId": "UMQYJAOCKRCF2CGBJ4ZCWPB5",
+          "name": "Lumina | premium mid-weight hoodie / L",
+          "sku": "6A0E26A16EA00_22134",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "34.00",
+          "currency": "USD",
+          "catalogVariantId": 22134
+        },
+        {
+          "id": "5318524254",
+          "externalId": "CHZSNSP2AO4WQUNDXX3WB2FJ",
+          "name": "Lumina | premium mid-weight hoodie / XL",
+          "sku": "6A0E26A16EA00_22135",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "34.00",
+          "currency": "USD",
+          "catalogVariantId": 22135
+        },
+        {
+          "id": "5318524255",
+          "externalId": "7ABRA4BRBNPHBVYCAC6ONBYC",
+          "name": "Lumina | premium mid-weight hoodie / 2XL",
+          "sku": "6A0E26A16EA00_22136",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "37.00",
+          "currency": "USD",
+          "catalogVariantId": 22136
+        },
+        {
+          "id": "5318524256",
+          "externalId": "JDX3RVXU55U6JPOU3FF2VOUW",
+          "name": "Lumina | premium mid-weight hoodie / 3XL",
+          "sku": "6A0E26A16EA00_22137",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "40.00",
+          "currency": "USD",
+          "catalogVariantId": 22137
+        }
+      ]
+    },
+    {
+      "id": "434207001",
+      "externalId": "QOIOGGXSPVVBVJSRHIPEWNFI",
+      "name": "AeroVista Apex Vintage Tee",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5317809141",
+          "externalId": "GAGYMOH4XQMFMV6W5IPJWPB5",
+          "name": "AeroVista Apex Vintage Tee / S",
+          "sku": "6A0D817E807E0_46045",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 46045
+        },
+        {
+          "id": "5317809142",
+          "externalId": "NBEHXYOQW472BTZMF6VRQSJP",
+          "name": "AeroVista Apex Vintage Tee / M",
+          "sku": "6A0D817E807E0_46052",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 46052
+        },
+        {
+          "id": "5317809143",
+          "externalId": "4ZFK3SBGOU4KC3QKX6PZIZ5V",
+          "name": "AeroVista Apex Vintage Tee / L",
+          "sku": "6A0D817E807E0_46059",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 46059
+        },
+        {
+          "id": "5317809144",
+          "externalId": "OPXNXLMKDBP3FYNC4WRGIXDF",
+          "name": "AeroVista Apex Vintage Tee / XL",
+          "sku": "6A0D817E807E0_46066",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 46066
+        },
+        {
+          "id": "5317809145",
+          "externalId": "7GXCEE56QNQSP3JQLC2XJPDC",
+          "name": "AeroVista Apex Vintage Tee / 2XL",
+          "sku": "6A0D817E807E0_46073",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 46073
+        },
+        {
+          "id": "5317809146",
+          "externalId": "F7PUBBX5QRYL4EEHZGCKBX6O",
+          "name": "AeroVista Apex Vintage Tee / 3XL",
+          "sku": "6A0D817E807E0_46080",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 46080
+        }
+      ]
+    },
+    {
+      "id": "434206514",
+      "externalId": "7DRPQLZBDEE7T6Y5EP3NUOY2",
+      "name": "AeroVista Apex Signal Sweatshirt",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5317797128",
+          "externalId": "ALUTCBAGSA2FJ2Z27Q5ETOHI",
+          "name": "AeroVista Apex Signal Sweatshirt / S",
+          "sku": "6A0D7EF282F07_11254",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "49.99",
+          "currency": "USD",
+          "catalogVariantId": 11254
+        },
+        {
+          "id": "5317797129",
+          "externalId": "NG4QBYILAPC7QXMIVO6J3EMD",
+          "name": "AeroVista Apex Signal Sweatshirt / M",
+          "sku": "6A0D7EF282F07_11255",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "49.99",
+          "currency": "USD",
+          "catalogVariantId": 11255
+        },
+        {
+          "id": "5317797130",
+          "externalId": "HGXVJSHXE6QWNYBXH5OK3YI2",
+          "name": "AeroVista Apex Signal Sweatshirt / L",
+          "sku": "6A0D7EF282F07_11256",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "49.99",
+          "currency": "USD",
+          "catalogVariantId": 11256
+        },
+        {
+          "id": "5317797131",
+          "externalId": "PQQ4ACUL36WYOL3VABQLUZ3E",
+          "name": "AeroVista Apex Signal Sweatshirt / XL",
+          "sku": "6A0D7EF282F07_11257",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "49.99",
+          "currency": "USD",
+          "catalogVariantId": 11257
+        },
+        {
+          "id": "5317797132",
+          "externalId": "QF7XLKC4NSU6K56XSEV6NVEX",
+          "name": "AeroVista Apex Signal Sweatshirt / 2XL",
+          "sku": "6A0D7EF282F07_11258",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "49.99",
+          "currency": "USD",
+          "catalogVariantId": 11258
+        },
+        {
+          "id": "5317797133",
+          "externalId": "5OZJRXRZKIYQVS5BIMUTTINH",
+          "name": "AeroVista Apex Signal Sweatshirt / 3XL",
+          "sku": "6A0D7EF282F07_13258",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "49.99",
+          "currency": "USD",
+          "catalogVariantId": 13258
+        }
+      ]
+    },
+    {
+      "id": "433832502",
+      "externalId": "AFI225VPIJ42JYVLK2PYYM2G",
+      "name": "Men's Ghost Shorts",
+      "synced": 9,
+      "thumbnailPresent": false,
+      "variantCount": 9,
+      "variants": [
+        {
+          "id": "5315776113",
+          "externalId": "F52PEEITJDVUXXHGB3CMPQRI",
+          "name": "Men's Ghost Shorts / 2XS",
+          "sku": "6A0BA3B4AE426_46353",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "69.99",
+          "currency": "USD",
+          "catalogVariantId": 46353
+        },
+        {
+          "id": "5315776114",
+          "externalId": "ONZK4LIXFRSNISGBDHR7JEG3",
+          "name": "Men's Ghost Shorts / XS",
+          "sku": "6A0BA3B4AE426_46355",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "69.99",
+          "currency": "USD",
+          "catalogVariantId": 46355
+        },
+        {
+          "id": "5315776115",
+          "externalId": "74ERDR3LRU6ZN3DTTBHUJYN2",
+          "name": "Men's Ghost Shorts / S",
+          "sku": "6A0BA3B4AE426_46357",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "69.99",
+          "currency": "USD",
+          "catalogVariantId": 46357
+        },
+        {
+          "id": "5315776116",
+          "externalId": "ACBTP7B44ED7KFPFEETJSMBK",
+          "name": "Men's Ghost Shorts / M",
+          "sku": "6A0BA3B4AE426_46359",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "69.99",
+          "currency": "USD",
+          "catalogVariantId": 46359
+        },
+        {
+          "id": "5315776117",
+          "externalId": "OWCE3ZCAZEXL4TSFGDF5KWWX",
+          "name": "Men's Ghost Shorts / L",
+          "sku": "6A0BA3B4AE426_46361",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "69.99",
+          "currency": "USD",
+          "catalogVariantId": 46361
+        },
+        {
+          "id": "5315776118",
+          "externalId": "QZ45G2TXIXSFXPTKW2ND7CPR",
+          "name": "Men's Ghost Shorts / XL",
+          "sku": "6A0BA3B4AE426_46363",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "69.99",
+          "currency": "USD",
+          "catalogVariantId": 46363
+        },
+        {
+          "id": "5315776119",
+          "externalId": "NRBD5KS3CMNCAIVG7NARZUF5",
+          "name": "Men's Ghost Shorts / 2XL",
+          "sku": "6A0BA3B4AE426_46365",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "69.99",
+          "currency": "USD",
+          "catalogVariantId": 46365
+        },
+        {
+          "id": "5315776120",
+          "externalId": "A5Z37WJ7WC7ERBMMP3GDPZW7",
+          "name": "Men's Ghost Shorts / 3XL",
+          "sku": "6A0BA3B4AE426_46367",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "69.99",
+          "currency": "USD",
+          "catalogVariantId": 46367
+        },
+        {
+          "id": "5315776121",
+          "externalId": "RKGB757T3NXTO5I4L6ZTJ3GT",
+          "name": "Men's Ghost Shorts / 4XL",
+          "sku": "6A0BA3B4AE426_46369",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "69.99",
+          "currency": "USD",
+          "catalogVariantId": 46369
+        }
+      ]
+    },
+    {
+      "id": "433831635",
+      "externalId": "Y26ZXV5NT42KTQFOTQCL4DVP",
+      "name": "Shadow Wear // Ghost Ridge",
+      "synced": 9,
+      "thumbnailPresent": false,
+      "variantCount": 9,
+      "variants": [
+        {
+          "id": "5315771644",
+          "externalId": "MNWDFJEAL25FIYGTLEKEJTS2",
+          "name": "Shadow Wear // Ghost Ridge / 2XS",
+          "sku": "6A0BA2231A325_18730",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 18730
+        },
+        {
+          "id": "5315771645",
+          "externalId": "N7PGRDSJXQEKKWWE7HJHHWTK",
+          "name": "Shadow Wear // Ghost Ridge / XS",
+          "sku": "6A0BA2231A325_10869",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 10869
+        },
+        {
+          "id": "5315771646",
+          "externalId": "ZVTSEPGXLAFT4XJXO6PZXPLY",
+          "name": "Shadow Wear // Ghost Ridge / S",
+          "sku": "6A0BA2231A325_10870",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 10870
+        },
+        {
+          "id": "5315771647",
+          "externalId": "WXDBA7PI2NK2N4GAI5SLCEHZ",
+          "name": "Shadow Wear // Ghost Ridge / M",
+          "sku": "6A0BA2231A325_10871",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 10871
+        },
+        {
+          "id": "5315771648",
+          "externalId": "BBN645WTJG2TFFI3OOCNWVMO",
+          "name": "Shadow Wear // Ghost Ridge / L",
+          "sku": "6A0BA2231A325_10872",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 10872
+        },
+        {
+          "id": "5315771650",
+          "externalId": "AYYLAFNFGKAWWI4F7CY57NFV",
+          "name": "Shadow Wear // Ghost Ridge / XL",
+          "sku": "6A0BA2231A325_10873",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 10873
+        },
+        {
+          "id": "5315771651",
+          "externalId": "4CJQHON2D7VSPFKGZMEO5OBS",
+          "name": "Shadow Wear // Ghost Ridge / 2XL",
+          "sku": "6A0BA2231A325_10874",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 10874
+        },
+        {
+          "id": "5315771652",
+          "externalId": "OILZP2JDR5Z3LN7JAJB6WTDH",
+          "name": "Shadow Wear // Ghost Ridge / 3XL",
+          "sku": "6A0BA2231A325_10875",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 10875
+        },
+        {
+          "id": "5315771653",
+          "externalId": "O77INYF42MH5PQHZ2QCC6HF5",
+          "name": "Shadow Wear // Ghost Ridge / 4XL",
+          "sku": "6A0BA2231A325_18731",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 18731
+        }
+      ]
+    },
+    {
+      "id": "433573724",
+      "externalId": "VETNTV3ZPJFAUUKNEFPMAMG4",
+      "name": "AeroVista Core Hoodie",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5313955275",
+          "externalId": "KA6G7Z65PJYPXANWWHQISKAE",
+          "name": "AeroVista Core Hoodie / S",
+          "sku": "6A0A5208DE10D_10779",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "49.99",
+          "currency": "USD",
+          "catalogVariantId": 10779
+        },
+        {
+          "id": "5313955276",
+          "externalId": "HLRJR5FAGLQFWEQ64SDYSV6H",
+          "name": "AeroVista Core Hoodie / M",
+          "sku": "6A0A5208DE10D_10780",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "49.99",
+          "currency": "USD",
+          "catalogVariantId": 10780
+        },
+        {
+          "id": "5313955277",
+          "externalId": "YQRQ62IKUJRYZ3W5LKXXBKRG",
+          "name": "AeroVista Core Hoodie / L",
+          "sku": "6A0A5208DE10D_10781",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "49.99",
+          "currency": "USD",
+          "catalogVariantId": 10781
+        },
+        {
+          "id": "5313955278",
+          "externalId": "24SGANMVVRMVBBMMQKXE6OLZ",
+          "name": "AeroVista Core Hoodie / XL",
+          "sku": "6A0A5208DE10D_10782",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "49.99",
+          "currency": "USD",
+          "catalogVariantId": 10782
+        },
+        {
+          "id": "5313955279",
+          "externalId": "FYCDVU5P7MTLCOXIDL2HL6IJ",
+          "name": "AeroVista Core Hoodie / 2XL",
+          "sku": "6A0A5208DE10D_10783",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "49.99",
+          "currency": "USD",
+          "catalogVariantId": 10783
+        },
+        {
+          "id": "5313955280",
+          "externalId": "3TTHKA7QSEYBXTVRDNHI2DOP",
+          "name": "AeroVista Core Hoodie / 3XL",
+          "sku": "6A0A5208DE10D_13416",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "49.99",
+          "currency": "USD",
+          "catalogVariantId": 13416
+        }
+      ]
+    },
+    {
+      "id": "433572287",
+      "externalId": "NAD3AK5WGPVIBKD4UETOAQHS",
+      "name": "AeroVista Core Tee",
+      "synced": 8,
+      "thumbnailPresent": false,
+      "variantCount": 8,
+      "variants": [
+        {
+          "id": "5313944702",
+          "externalId": "4LSN45TXPC76YPD3CHSPG6B7",
+          "name": "AeroVista Core Tee / XS",
+          "sku": "6A0A4D5624CF7_9527",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 9527
+        },
+        {
+          "id": "5313944703",
+          "externalId": "27VXXFGXU54V2TMHASPNXPFL",
+          "name": "AeroVista Core Tee / S",
+          "sku": "6A0A4D5624CF7_4016",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 4016
+        },
+        {
+          "id": "5313944704",
+          "externalId": "MJUOSQIBD23EXT4VAHM7ZMNO",
+          "name": "AeroVista Core Tee / M",
+          "sku": "6A0A4D5624CF7_4017",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 4017
+        },
+        {
+          "id": "5313944705",
+          "externalId": "R3BYERB4SBDWEPAOARA66RYE",
+          "name": "AeroVista Core Tee / L",
+          "sku": "6A0A4D5624CF7_4018",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 4018
+        },
+        {
+          "id": "5313944706",
+          "externalId": "3KUQEJU6MQHM6T5OFH4W3TPQ",
+          "name": "AeroVista Core Tee / XL",
+          "sku": "6A0A4D5624CF7_4019",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 4019
+        },
+        {
+          "id": "5313944707",
+          "externalId": "QHOAHZJEZX6YLKFJNMCZV5WT",
+          "name": "AeroVista Core Tee / 2XL",
+          "sku": "6A0A4D5624CF7_4020",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 4020
+        },
+        {
+          "id": "5313944708",
+          "externalId": "RZRRVMS7QC2HNRESMPRB5VCU",
+          "name": "AeroVista Core Tee / 3XL",
+          "sku": "6A0A4D5624CF7_5295",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 5295
+        },
+        {
+          "id": "5313944709",
+          "externalId": "SCVAHPSWF6P26LFFJOLHB2WR",
+          "name": "AeroVista Core Tee / 4XL",
+          "sku": "6A0A4D5624CF7_5310",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 5310
+        }
+      ]
+    },
+    {
+      "id": "433437265",
+      "externalId": "YJ72ISEY7IA33ZZFZA25RCXG",
+      "name": "Shadow Wear // Ghost Ridge",
+      "synced": 9,
+      "thumbnailPresent": false,
+      "variantCount": 9,
+      "variants": [
+        {
+          "id": "5313158241",
+          "externalId": "SHLJ2CLTD32G4JOCZGVVXB3T",
+          "name": "Shadow Wear // Ghost Ridge / 2XS",
+          "sku": "6A0926E227621_18730",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 18730
+        },
+        {
+          "id": "5313158242",
+          "externalId": "TGEDTQDD6ZM5Q36ITYO5XN3U",
+          "name": "Shadow Wear // Ghost Ridge / XS",
+          "sku": "6A0926E227621_10869",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 10869
+        },
+        {
+          "id": "5313158243",
+          "externalId": "DPXNXV4MXBCKIYNRYO2EIU5A",
+          "name": "Shadow Wear // Ghost Ridge / S",
+          "sku": "6A0926E227621_10870",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 10870
+        },
+        {
+          "id": "5313158244",
+          "externalId": "E2GHUPWIAXZHY3XUG2GB7V4P",
+          "name": "Shadow Wear // Ghost Ridge / M",
+          "sku": "6A0926E227621_10871",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 10871
+        },
+        {
+          "id": "5313158246",
+          "externalId": "JVC34CFP6HYS4N6HW5RDCN6J",
+          "name": "Shadow Wear // Ghost Ridge / L",
+          "sku": "6A0926E227621_10872",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 10872
+        },
+        {
+          "id": "5313158247",
+          "externalId": "5AH3FNUXHSCKNYT5LLKQIG5U",
+          "name": "Shadow Wear // Ghost Ridge / XL",
+          "sku": "6A0926E227621_10873",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 10873
+        },
+        {
+          "id": "5313158248",
+          "externalId": "U4RO35ZDKW25SD5MOWKC5RON",
+          "name": "Shadow Wear // Ghost Ridge / 2XL",
+          "sku": "6A0926E227621_10874",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 10874
+        },
+        {
+          "id": "5313158249",
+          "externalId": "KRZE6ZTUNJ7EVATLILYU4CDP",
+          "name": "Shadow Wear // Ghost Ridge / 3XL",
+          "sku": "6A0926E227621_10875",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 10875
+        },
+        {
+          "id": "5313158250",
+          "externalId": "PGJXIMKPHC6ZN3FGT4A3L7XL",
+          "name": "Shadow Wear // Ghost Ridge / 4XL",
+          "sku": "6A0926E227621_18731",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 18731
+        }
+      ]
+    },
+    {
+      "id": "432045836",
+      "externalId": "5HAHTRMWUKN67IBJVN6RNHJH",
+      "name": "Neon 'BillyGoat' Pullover Hoodie",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5302777461",
+          "externalId": "3AMJR44DD73IZMEWFUPPTD3K",
+          "name": "Neon 'BillyGoat' Pullover Hoodie / S",
+          "sku": "6A0127977FDE5_10779",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10779
+        },
+        {
+          "id": "5302777462",
+          "externalId": "QEGDVALIC3KATVRPI3IK6E5W",
+          "name": "Neon 'BillyGoat' Pullover Hoodie / M",
+          "sku": "6A0127977FDE5_10780",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10780
+        },
+        {
+          "id": "5302777463",
+          "externalId": "IDFW7BCDV252JKRQKT6NTFH5",
+          "name": "Neon 'BillyGoat' Pullover Hoodie / L",
+          "sku": "6A0127977FDE5_10781",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10781
+        },
+        {
+          "id": "5302777464",
+          "externalId": "PPDB4YTZ4ETCZTGOIM4BVYAF",
+          "name": "Neon 'BillyGoat' Pullover Hoodie / XL",
+          "sku": "6A0127977FDE5_10782",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10782
+        },
+        {
+          "id": "5302777465",
+          "externalId": "43EFWHWEU46PJBY6FVMIJS3X",
+          "name": "Neon 'BillyGoat' Pullover Hoodie / 2XL",
+          "sku": "6A0127977FDE5_10783",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10783
+        },
+        {
+          "id": "5302777466",
+          "externalId": "2V3SKHB7IEDUMNUQEJXSOBVV",
+          "name": "Neon 'BillyGoat' Pullover Hoodie / 3XL",
+          "sku": "6A0127977FDE5_13416",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 13416
+        }
+      ]
+    },
+    {
+      "id": "432044217",
+      "externalId": "MQBZLMUFEFWBDDK7OUYG5MVX",
+      "name": "AeroVista Apex Pattern Print Swimsuit - one-piece",
+      "synced": 4,
+      "thumbnailPresent": false,
+      "variantCount": 4,
+      "variants": [
+        {
+          "id": "5302764677",
+          "externalId": "PEEQKSW34MEHRNGMIQLS52P2",
+          "name": "AeroVista Apex Pattern Print Swimsuit - one-piece / XS",
+          "sku": "6A0120F1D2F81_9014",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "43.99",
+          "currency": "USD",
+          "catalogVariantId": 9014
+        },
+        {
+          "id": "5302764678",
+          "externalId": "2RIKAXZS7662KLWJZIDFSMEU",
+          "name": "AeroVista Apex Pattern Print Swimsuit - one-piece / S",
+          "sku": "6A0120F1D2F81_9015",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "43.99",
+          "currency": "USD",
+          "catalogVariantId": 9015
+        },
+        {
+          "id": "5302764679",
+          "externalId": "LFJHB7WBW6VIO2ZWSKP5AYPA",
+          "name": "AeroVista Apex Pattern Print Swimsuit - one-piece / M",
+          "sku": "6A0120F1D2F81_9016",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "43.99",
+          "currency": "USD",
+          "catalogVariantId": 9016
+        },
+        {
+          "id": "5302764680",
+          "externalId": "QPJV2QV5BJUHZOK3KDUXABIL",
+          "name": "AeroVista Apex Pattern Print Swimsuit - one-piece / L",
+          "sku": "6A0120F1D2F81_9017",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "43.99",
+          "currency": "USD",
+          "catalogVariantId": 9017
+        }
+      ]
+    },
+    {
+      "id": "432021903",
+      "externalId": "AAVX4SIO4B5UZMITFITWJCMF",
+      "name": "AeroVista Division Hoodie",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5302575083",
+          "externalId": "IQTQEHM4T7DXTTQVJVLRCJNQ",
+          "name": "AeroVista Division Hoodie / S",
+          "sku": "6A00E6C87BA2C_10779",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10779
+        },
+        {
+          "id": "5302575084",
+          "externalId": "MCJIFUE4TJCATFJJSGFRO77B",
+          "name": "AeroVista Division Hoodie / M",
+          "sku": "6A00E6C87BA2C_10780",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10780
+        },
+        {
+          "id": "5302575085",
+          "externalId": "6NUGZFSU5BV73JW547C3LA7O",
+          "name": "AeroVista Division Hoodie / L",
+          "sku": "6A00E6C87BA2C_10781",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10781
+        },
+        {
+          "id": "5302575086",
+          "externalId": "A6NCP6EYIFKQXKK32KYFS4I2",
+          "name": "AeroVista Division Hoodie / XL",
+          "sku": "6A00E6C87BA2C_10782",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10782
+        },
+        {
+          "id": "5302575087",
+          "externalId": "CLAF3JERYKNFTMP43JGIME6F",
+          "name": "AeroVista Division Hoodie / 2XL",
+          "sku": "6A00E6C87BA2C_10783",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10783
+        },
+        {
+          "id": "5302575088",
+          "externalId": "TTMWAL2AWJ2MWQM4OPEILZTN",
+          "name": "AeroVista Division Hoodie / 3XL",
+          "sku": "6A00E6C87BA2C_13416",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 13416
+        }
+      ]
+    },
+    {
+      "id": "432020767",
+      "externalId": "UDNPPQGWMEWP4VEZSQEVK32I",
+      "name": "Architect — Field Issue Tee - Black",
+      "synced": 9,
+      "thumbnailPresent": false,
+      "variantCount": 9,
+      "variants": [
+        {
+          "id": "5302560319",
+          "externalId": "M7GT45TPT6IQEL4D22DZW52Q",
+          "name": "Architect — Field Issue Tee - Black / XS",
+          "sku": "6A00E3BE52BEE_9527",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 9527
+        },
+        {
+          "id": "5302560320",
+          "externalId": "M5KBSGHUVWLR3NJF2A3VT2YS",
+          "name": "Architect — Field Issue Tee - Black / S",
+          "sku": "6A00E3BE52BEE_4016",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 4016
+        },
+        {
+          "id": "5302560321",
+          "externalId": "KUC56RH2M25UDQDHPKVAX5B6",
+          "name": "Architect — Field Issue Tee - Black / M",
+          "sku": "6A00E3BE52BEE_4017",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 4017
+        },
+        {
+          "id": "5302560322",
+          "externalId": "6M7EBYEV2Z7BGJFJ5N7BPCNG",
+          "name": "Architect — Field Issue Tee - Black / L",
+          "sku": "6A00E3BE52BEE_4018",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 4018
+        },
+        {
+          "id": "5302560323",
+          "externalId": "WTYNRPW75P6PSBJN4WWSK7OS",
+          "name": "Architect — Field Issue Tee - Black / XL",
+          "sku": "6A00E3BE52BEE_4019",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 4019
+        },
+        {
+          "id": "5302560324",
+          "externalId": "6KR2O5DHFGE6T56WI2SNAESL",
+          "name": "Architect — Field Issue Tee - Black / 2XL",
+          "sku": "6A00E3BE52BEE_4020",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 4020
+        },
+        {
+          "id": "5302560325",
+          "externalId": "L7HDRFTWB3RCX6JKUT6AB4NE",
+          "name": "Architect — Field Issue Tee - Black / 3XL",
+          "sku": "6A00E3BE52BEE_5295",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 5295
+        },
+        {
+          "id": "5302560326",
+          "externalId": "MU25CANMIJWWK2GPOTNCGNVX",
+          "name": "Architect — Field Issue Tee - Black / 4XL",
+          "sku": "6A00E3BE52BEE_5310",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 5310
+        },
+        {
+          "id": "5302560327",
+          "externalId": "OXSXSBL7M66SPLW543SE6ZRL",
+          "name": "Architect — Field Issue Tee - Black / 5XL",
+          "sku": "6A00E3BE52BEE_12871",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 12871
+        }
+      ]
+    },
+    {
+      "id": "432018699",
+      "externalId": "TLHLP7DEAUQCRLBLK7E5Y2AM",
+      "name": "AeroVista Apex Pattern Bomber Jacket",
+      "synced": 7,
+      "thumbnailPresent": false,
+      "variantCount": 7,
+      "variants": [
+        {
+          "id": "5302532931",
+          "externalId": "WQ227JE7NY2XWVD5AQ7QH33R",
+          "name": "AeroVista Apex Pattern Bomber Jacket / XS",
+          "sku": "6A00DDC5D47A6_10877",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 10877
+        },
+        {
+          "id": "5302532932",
+          "externalId": "ADGXZBFL6LERF73JKLHHMMNO",
+          "name": "AeroVista Apex Pattern Bomber Jacket / S",
+          "sku": "6A00DDC5D47A6_10878",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 10878
+        },
+        {
+          "id": "5302532933",
+          "externalId": "3CQBSCPSR3IBC2AAVOARP7KG",
+          "name": "AeroVista Apex Pattern Bomber Jacket / M",
+          "sku": "6A00DDC5D47A6_10879",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 10879
+        },
+        {
+          "id": "5302532934",
+          "externalId": "JPAFEKUNTN2ZPOCYQSAVTEEB",
+          "name": "AeroVista Apex Pattern Bomber Jacket / L",
+          "sku": "6A00DDC5D47A6_10880",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 10880
+        },
+        {
+          "id": "5302532935",
+          "externalId": "73OVF4OJKVTDJ2T443IUOOXR",
+          "name": "AeroVista Apex Pattern Bomber Jacket / XL",
+          "sku": "6A00DDC5D47A6_10881",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 10881
+        },
+        {
+          "id": "5302532936",
+          "externalId": "RKEU6BLKADJ2XIOOLW2RYZIZ",
+          "name": "AeroVista Apex Pattern Bomber Jacket / 2XL",
+          "sku": "6A00DDC5D47A6_10882",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 10882
+        },
+        {
+          "id": "5302532937",
+          "externalId": "YUIIM7RFJ7UENXDRRFVHO3IA",
+          "name": "AeroVista Apex Pattern Bomber Jacket / 3XL",
+          "sku": "6A00DDC5D47A6_10883",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 10883
+        }
+      ]
+    },
+    {
+      "id": "431452286",
+      "externalId": "OMHBLTOUADNAYWXAYGTSZARK",
+      "name": "Architect — Built Different Hoodie — Black",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5296308083",
+          "externalId": "ZCD5F6W33YYPM2GAEM5OMB6B",
+          "name": "Architect — Built Different Hoodie — Black / S",
+          "sku": "69FB8CDF430F8_10779",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10779
+        },
+        {
+          "id": "5296308107",
+          "externalId": "AX3ATRHIZPDM7PLJPEIVNZQG",
+          "name": "Architect — Built Different Hoodie — Black / M",
+          "sku": "69FB8CDF430F8_10780",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10780
+        },
+        {
+          "id": "5296308126",
+          "externalId": "TEORCEF7GIVF7DTJVQBFK4HY",
+          "name": "Architect — Built Different Hoodie — Black / L",
+          "sku": "69FB8CDF430F8_10781",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10781
+        },
+        {
+          "id": "5296308137",
+          "externalId": "MQ3TEDOI2NGMVOCXZ4SN5ZQK",
+          "name": "Architect — Built Different Hoodie — Black / XL",
+          "sku": "69FB8CDF430F8_10782",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10782
+        },
+        {
+          "id": "5296308138",
+          "externalId": "ERMOR7CQJI7ZR4ES2D5N232K",
+          "name": "Architect — Built Different Hoodie — Black / 2XL",
+          "sku": "69FB8CDF430F8_10783",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10783
+        },
+        {
+          "id": "5296308139",
+          "externalId": "4RSNNUADFTAVO3PB5L5PES3M",
+          "name": "Architect — Built Different Hoodie — Black / 3XL",
+          "sku": "69FB8CDF430F8_13416",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 13416
+        }
+      ]
+    },
+    {
+      "id": "431449824",
+      "externalId": "HDWFCTP6QWMS3RFXTFNC6Q6Q",
+      "name": "Architect — Field Issue Tee - Ash",
+      "synced": 7,
+      "thumbnailPresent": false,
+      "variantCount": 7,
+      "variants": [
+        {
+          "id": "5296289337",
+          "externalId": "35WM62NJATAP3QVVDNI2JBH2",
+          "name": "Architect — Field Issue Tee - Ash / S",
+          "sku": "69FB889176043_4026",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 4026
+        },
+        {
+          "id": "5296289338",
+          "externalId": "DNCBV3PUF5UDIFRE6V7KUTYM",
+          "name": "Architect — Field Issue Tee - Ash / M",
+          "sku": "69FB889176043_4027",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 4027
+        },
+        {
+          "id": "5296289339",
+          "externalId": "HSS36QNGIQKPD3A7FE5BWUP6",
+          "name": "Architect — Field Issue Tee - Ash / L",
+          "sku": "69FB889176043_4028",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 4028
+        },
+        {
+          "id": "5296289340",
+          "externalId": "57HZOIEQ5HABZULJ776IZVZ5",
+          "name": "Architect — Field Issue Tee - Ash / XL",
+          "sku": "69FB889176043_4029",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 4029
+        },
+        {
+          "id": "5296289341",
+          "externalId": "Z6PW3F6QWJWM3RY4I6AR5EEK",
+          "name": "Architect — Field Issue Tee - Ash / 2XL",
+          "sku": "69FB889176043_4030",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 4030
+        },
+        {
+          "id": "5296289342",
+          "externalId": "5BBFVWKVA4476ZD4HLBOPZHE",
+          "name": "Architect — Field Issue Tee - Ash / 3XL",
+          "sku": "69FB889176043_8447",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 8447
+        },
+        {
+          "id": "5296289344",
+          "externalId": "FCQWSABJMBYVZSIMARTTBBTS",
+          "name": "Architect — Field Issue Tee - Ash / 4XL",
+          "sku": "69FB889176043_8448",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 8448
+        }
+      ]
+    },
+    {
+      "id": "429478994",
+      "externalId": "IFE2CFZPGNEA4472EBNUPG6O",
+      "name": "AeroVista Apex Pattern Skater Dress",
+      "synced": 5,
+      "thumbnailPresent": false,
+      "variantCount": 5,
+      "variants": [
+        {
+          "id": "5279442683",
+          "externalId": "6VRKJ6PAXL7SK7FJ3NHI7Q75",
+          "name": "AeroVista Apex Pattern Skater Dress / XS",
+          "sku": "69EA4CD98B173_9613",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 9613
+        },
+        {
+          "id": "5279442684",
+          "externalId": "N2WOULQODMUNHZV5CGRQOXTV",
+          "name": "AeroVista Apex Pattern Skater Dress / S",
+          "sku": "69EA4CD98B173_9614",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 9614
+        },
+        {
+          "id": "5279442685",
+          "externalId": "ZRXJHUPI76FF3S6KEJDUD5M7",
+          "name": "AeroVista Apex Pattern Skater Dress / M",
+          "sku": "69EA4CD98B173_9615",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 9615
+        },
+        {
+          "id": "5279442686",
+          "externalId": "JB4RMQXAI6ASLCSC2DXBNYB5",
+          "name": "AeroVista Apex Pattern Skater Dress / L",
+          "sku": "69EA4CD98B173_9616",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 9616
+        },
+        {
+          "id": "5279442687",
+          "externalId": "54MOZSM3W7GOESGPPBFBTZZA",
+          "name": "AeroVista Apex Pattern Skater Dress / XL",
+          "sku": "69EA4CD98B173_9617",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 9617
+        }
+      ]
+    },
+    {
+      "id": "429257346",
+      "externalId": "YFRKXJER6Y7STH2MMWCOG5C3",
+      "name": "Vespra Moonscript Hoodie",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5277175170",
+          "externalId": "3VQEBVZRSR3OTEK3FIP44JYA",
+          "name": "Vespra Moonscript Hoodie / S",
+          "sku": "69E85F3473634_10779",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10779
+        },
+        {
+          "id": "5277175171",
+          "externalId": "OAES3ZXJ2CWS3CXAIZTWX4B7",
+          "name": "Vespra Moonscript Hoodie / M",
+          "sku": "69E85F3473634_10780",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10780
+        },
+        {
+          "id": "5277175172",
+          "externalId": "Z6PFBXT7IK7QVYDLHT6ZHUAO",
+          "name": "Vespra Moonscript Hoodie / L",
+          "sku": "69E85F3473634_10781",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10781
+        },
+        {
+          "id": "5277175173",
+          "externalId": "O3CKDCPLCZJ45DJUYZMVFNDI",
+          "name": "Vespra Moonscript Hoodie / XL",
+          "sku": "69E85F3473634_10782",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10782
+        },
+        {
+          "id": "5277175174",
+          "externalId": "3HAMHWWWJNLGG5ZJGNKNMELD",
+          "name": "Vespra Moonscript Hoodie / 2XL",
+          "sku": "69E85F3473634_10783",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10783
+        },
+        {
+          "id": "5277175175",
+          "externalId": "SCS5PBD4DEG3HFX3IFI7YBBT",
+          "name": "Vespra Moonscript Hoodie / 3XL",
+          "sku": "69E85F3473634_13416",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 13416
+        }
+      ]
+    },
+    {
+      "id": "429217407",
+      "externalId": "AZ3EBBAXRS7LYELJKYKUDMMS",
+      "name": "AeroVista Apex Pattern Hoodie",
+      "synced": 11,
+      "thumbnailPresent": false,
+      "variantCount": 11,
+      "variants": [
+        {
+          "id": "5276440652",
+          "externalId": "7BSJUOMZLLCKKNBC423VU6ME",
+          "name": "AeroVista Apex Pattern Hoodie / 2XS",
+          "sku": "69E806D4A562B_18730",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "79.99",
+          "currency": "USD",
+          "catalogVariantId": 18730
+        },
+        {
+          "id": "5276440653",
+          "externalId": "NVM2P6KTWCPKUZ4Z6D3VNWXR",
+          "name": "AeroVista Apex Pattern Hoodie / XS",
+          "sku": "69E806D4A562B_10869",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "79.99",
+          "currency": "USD",
+          "catalogVariantId": 10869
+        },
+        {
+          "id": "5276440654",
+          "externalId": "UWPBN3XX23SQ3PTNFEUOCJMP",
+          "name": "AeroVista Apex Pattern Hoodie / S",
+          "sku": "69E806D4A562B_10870",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "79.99",
+          "currency": "USD",
+          "catalogVariantId": 10870
+        },
+        {
+          "id": "5276440655",
+          "externalId": "QFOXB7BC64S7KI55F4NYW6RM",
+          "name": "AeroVista Apex Pattern Hoodie / M",
+          "sku": "69E806D4A562B_10871",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "79.99",
+          "currency": "USD",
+          "catalogVariantId": 10871
+        },
+        {
+          "id": "5276440656",
+          "externalId": "3AHFPCY2RWUJJKAYFF5VWBAU",
+          "name": "AeroVista Apex Pattern Hoodie / L",
+          "sku": "69E806D4A562B_10872",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "79.99",
+          "currency": "USD",
+          "catalogVariantId": 10872
+        },
+        {
+          "id": "5276440657",
+          "externalId": "AK2B7N7TYAE3BGOYGCK2D33M",
+          "name": "AeroVista Apex Pattern Hoodie / XL",
+          "sku": "69E806D4A562B_10873",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "79.99",
+          "currency": "USD",
+          "catalogVariantId": 10873
+        },
+        {
+          "id": "5276440658",
+          "externalId": "G64EYEUY4IIYPX75L65S6XUF",
+          "name": "AeroVista Apex Pattern Hoodie / 2XL",
+          "sku": "69E806D4A562B_10874",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "79.99",
+          "currency": "USD",
+          "catalogVariantId": 10874
+        },
+        {
+          "id": "5276440659",
+          "externalId": "RUF7AOFV54IUUXPYUBNVYTS4",
+          "name": "AeroVista Apex Pattern Hoodie / 3XL",
+          "sku": "69E806D4A562B_10875",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "79.99",
+          "currency": "USD",
+          "catalogVariantId": 10875
+        },
+        {
+          "id": "5276440660",
+          "externalId": "RLXWYV22NIGYFIFBPPXUOISE",
+          "name": "AeroVista Apex Pattern Hoodie / 4XL",
+          "sku": "69E806D4A562B_18731",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "79.99",
+          "currency": "USD",
+          "catalogVariantId": 18731
+        },
+        {
+          "id": "5276440661",
+          "externalId": "BPTGJKGNED2XV5VIOQ5IFK3I",
+          "name": "AeroVista Apex Pattern Hoodie / 5XL",
+          "sku": "69E806D4A562B_18732",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "79.99",
+          "currency": "USD",
+          "catalogVariantId": 18732
+        },
+        {
+          "id": "5276440662",
+          "externalId": "MP55FI63QP2GI3ZD5YVTKZ5B",
+          "name": "AeroVista Apex Pattern Hoodie / 6XL",
+          "sku": "69E806D4A562B_18733",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "79.99",
+          "currency": "USD",
+          "catalogVariantId": 18733
+        }
+      ]
+    },
+    {
+      "id": "429215282",
+      "externalId": "7QG7Y273PMH4IGGNJAJMCPTT",
+      "name": "AeroVista Apex Pattern Skater Dress Cotton",
+      "synced": 4,
+      "thumbnailPresent": false,
+      "variantCount": 4,
+      "variants": [
+        {
+          "id": "5276370846",
+          "externalId": "5IVL7D7NOA6KFBX64YZR4RYJ",
+          "name": "AeroVista Apex Pattern Skater Dress Cotton / XS",
+          "sku": "69E803BF9193C_46399",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 46399
+        },
+        {
+          "id": "5276370847",
+          "externalId": "7A2H4UG3VINPDSYXLKJG2PUP",
+          "name": "AeroVista Apex Pattern Skater Dress Cotton / S",
+          "sku": "69E803BF9193C_46400",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 46400
+        },
+        {
+          "id": "5276370849",
+          "externalId": "YLT3CGZNN4BTZEQ5O4HEOK7Q",
+          "name": "AeroVista Apex Pattern Skater Dress Cotton / M",
+          "sku": "69E803BF9193C_46401",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 46401
+        },
+        {
+          "id": "5276370851",
+          "externalId": "MZ3CAQCIIGNJDVW3ZYASZCZ5",
+          "name": "AeroVista Apex Pattern Skater Dress Cotton / L",
+          "sku": "69E803BF9193C_46402",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "89.99",
+          "currency": "USD",
+          "catalogVariantId": 46402
+        }
+      ]
+    },
+    {
+      "id": "426583098",
+      "externalId": "EKJAR6PPRZHKMNBUHZUXELMR",
+      "name": "AeroVista Apex Mark — Draft Series S01 Sticker",
+      "synced": 2,
+      "thumbnailPresent": false,
+      "variantCount": 2,
+      "variants": [
+        {
+          "id": "5255323927",
+          "externalId": "2WYP3AIVG3SHS6FXXP5JG7IE",
+          "name": "AeroVista Apex Mark — Draft Series S01 Sticker / 3″×3″",
+          "sku": "69CECE3B4432E_10163",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "5.50",
+          "currency": "USD",
+          "catalogVariantId": 10163
+        },
+        {
+          "id": "5255323928",
+          "externalId": "QWQ5TR6LE5OYVSTXGEFPVWBQ",
+          "name": "AeroVista Apex Mark — Draft Series S01 Sticker / 5.5″×5.5″",
+          "sku": "69CECE3B4432E_10165",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "6.00",
+          "currency": "USD",
+          "catalogVariantId": 10165
+        }
+      ]
+    },
+    {
+      "id": "423600727",
+      "externalId": "3PWOCLVOVE7MWZFXAHJJTGPA",
+      "name": "hy.go",
+      "synced": 12,
+      "thumbnailPresent": false,
+      "variantCount": 12,
+      "variants": [
+        {
+          "id": "5231542702",
+          "externalId": "5VE2XWDXE55PF7RI6N4CJOG7",
+          "name": "hy.go / Black / S",
+          "sku": "69B3985D45936_10779",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10779
+        },
+        {
+          "id": "5231542703",
+          "externalId": "SWMOWES5POURZRXLC36JHZKI",
+          "name": "hy.go / Black / M",
+          "sku": "69B3985D45936_10780",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10780
+        },
+        {
+          "id": "5231542704",
+          "externalId": "JRWKV2RG5PQEN3MRFBF2LC4R",
+          "name": "hy.go / Black / L",
+          "sku": "69B3985D45936_10781",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10781
+        },
+        {
+          "id": "5231542705",
+          "externalId": "BUKOJWL4RYLEXKSAP7WUKKAR",
+          "name": "hy.go / Black / XL",
+          "sku": "69B3985D45936_10782",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10782
+        },
+        {
+          "id": "5231542706",
+          "externalId": "OTI45IW7PXGCMVKDF5AB2D44",
+          "name": "hy.go / Black / 2XL",
+          "sku": "69B3985D45936_10783",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10783
+        },
+        {
+          "id": "5231542707",
+          "externalId": "D33RZHMNYSN2KBH7RF6V23GN",
+          "name": "hy.go / Black / 3XL",
+          "sku": "69B3985D45936_13416",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 13416
+        },
+        {
+          "id": "5231542708",
+          "externalId": "X7KEXDRVKVOMZG4XRBAFNX7D",
+          "name": "hy.go / White / S",
+          "sku": "69B3985D45936_10774",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10774
+        },
+        {
+          "id": "5231542709",
+          "externalId": "5VH66A4SHFSGYBMUOSFRBEJR",
+          "name": "hy.go / White / M",
+          "sku": "69B3985D45936_10775",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10775
+        },
+        {
+          "id": "5231542710",
+          "externalId": "B3BRCD767IXSWEVFPTER536M",
+          "name": "hy.go / White / L",
+          "sku": "69B3985D45936_10776",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10776
+        },
+        {
+          "id": "5231542711",
+          "externalId": "3NLQI275EB56SBHGFSNKLOQG",
+          "name": "hy.go / White / XL",
+          "sku": "69B3985D45936_10777",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10777
+        },
+        {
+          "id": "5231542712",
+          "externalId": "QO47DIE66JDJZ6FY4ZH2GD7Q",
+          "name": "hy.go / White / 2XL",
+          "sku": "69B3985D45936_10778",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10778
+        },
+        {
+          "id": "5231542713",
+          "externalId": "XMTLPJNV5VITRZN75DCII5DY",
+          "name": "hy.go / White / 3XL",
+          "sku": "69B3985D45936_13421",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 13421
+        }
+      ]
+    },
+    {
+      "id": "423392795",
+      "externalId": "W6PUJZT2DMTFNG7WPNJJ7UD4",
+      "name": "AeroVista Apex Camo Flexfit Hat",
+      "synced": 2,
+      "thumbnailPresent": false,
+      "variantCount": 2,
+      "variants": [
+        {
+          "id": "5229625677",
+          "externalId": "QTCUFJM25FYMBTXBWHLFDTF4",
+          "name": "AeroVista Apex Camo Flexfit Hat / S/M",
+          "sku": "69B1C9EB37723_15897",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "32.99",
+          "currency": "USD",
+          "catalogVariantId": 15897
+        },
+        {
+          "id": "5229625678",
+          "externalId": "XF6WLKIXGAMT4B4LXBOX7OLZ",
+          "name": "AeroVista Apex Camo Flexfit Hat / L/XL",
+          "sku": "69B1C9EB37723_15898",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "32.99",
+          "currency": "USD",
+          "catalogVariantId": 15898
+        }
+      ]
+    },
+    {
+      "id": "423324874",
+      "externalId": "N3AZR7MD33SCAGMFRO2LFQTD",
+      "name": "AeroVista Premium Embroidered Hat – Black Cap with Signature Apex Mark",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5228925376",
+          "externalId": "I5KWC4KY7KWNSF73WJPRSTDL",
+          "name": "AeroVista Premium Embroidered Hat – Black Cap with Signature Apex Mark",
+          "sku": "69B13517A9C97_5277",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "32.99",
+          "currency": "USD",
+          "catalogVariantId": 5277
+        }
+      ]
+    },
+    {
+      "id": "421988886",
+      "externalId": "33BY7QXD7FS5GE7FFPVLDBO4",
+      "name": "Rental",
+      "synced": 0,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5217861330",
+          "externalId": "FHLZ7LIORX6O5PJNY4HXMYYO",
+          "name": "Rental / Regular",
+          "sku": "",
+          "enabled": true,
+          "availabilityStatus": "discontinued",
+          "retailPrice": "1000.00",
+          "currency": "USD",
+          "catalogVariantId": null
+        }
+      ]
+    },
+    {
+      "id": "421880160",
+      "externalId": "L3W3WAXOVXRT7HRBONEGHXOV",
+      "name": "AeroVista “Skyline Drone Crest” Sticker",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5216710744",
+          "externalId": "3R4MZTGTSZKFOAOT3ZNXU6B3",
+          "name": "AeroVista “Skyline Drone Crest” Sticker",
+          "sku": "69A460780F0CA_10163",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "5.50",
+          "currency": "USD",
+          "catalogVariantId": 10163
+        }
+      ]
+    },
+    {
+      "id": "421191358",
+      "externalId": "XM65SRS6XAJBUKRWK3QULSFK",
+      "name": "AeroVista Apex Glitch Tee | Black",
+      "synced": 9,
+      "thumbnailPresent": false,
+      "variantCount": 9,
+      "variants": [
+        {
+          "id": "5210275459",
+          "externalId": "Q6PTEBBGLDJFINS2XMSFIWJP",
+          "name": "AeroVista Apex Glitch Tee | Black / XS",
+          "sku": "699E2BA559980_9527",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 9527
+        },
+        {
+          "id": "5210275460",
+          "externalId": "WAMOA7V7LQKN2224OXDKHHJB",
+          "name": "AeroVista Apex Glitch Tee | Black / S",
+          "sku": "699E2BA559980_4016",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 4016
+        },
+        {
+          "id": "5210275461",
+          "externalId": "AOIDOJ2WIS6Z4CU2PLBWURAX",
+          "name": "AeroVista Apex Glitch Tee | Black / M",
+          "sku": "699E2BA559980_4017",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 4017
+        },
+        {
+          "id": "5210275462",
+          "externalId": "VHWM2LTOHCQMF7I2WMZV6PS4",
+          "name": "AeroVista Apex Glitch Tee | Black / L",
+          "sku": "699E2BA559980_4018",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 4018
+        },
+        {
+          "id": "5210275463",
+          "externalId": "O4CSKY4VBTOLD5XOTIV472CO",
+          "name": "AeroVista Apex Glitch Tee | Black / XL",
+          "sku": "699E2BA559980_4019",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 4019
+        },
+        {
+          "id": "5210275464",
+          "externalId": "5WBPB4MWVLP4XLXEP55WJNAD",
+          "name": "AeroVista Apex Glitch Tee | Black / 2XL",
+          "sku": "699E2BA559980_4020",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 4020
+        },
+        {
+          "id": "5210275465",
+          "externalId": "35RNMAM7LNJ2JAGRSXBJ3KGD",
+          "name": "AeroVista Apex Glitch Tee | Black / 3XL",
+          "sku": "699E2BA559980_5295",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 5295
+        },
+        {
+          "id": "5210275466",
+          "externalId": "JD3EWRWGH2JHKH2NKCENL7DK",
+          "name": "AeroVista Apex Glitch Tee | Black / 4XL",
+          "sku": "699E2BA559980_5310",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 5310
+        },
+        {
+          "id": "5210275467",
+          "externalId": "QZQPOG3WXGBFFGW6KNQ4BQ5L",
+          "name": "AeroVista Apex Glitch Tee | Black / 5XL",
+          "sku": "699E2BA559980_12871",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 12871
+        }
+      ]
+    },
+    {
+      "id": "421185115",
+      "externalId": "D4JFN7GJHXLD6KKP5ZXJVHZ6",
+      "name": "Powder Peaks v2 Premium Pullover Hoodie | Black",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5210228916",
+          "externalId": "2TXZHKJQTD3DLZFAWEWQXGXV",
+          "name": "Powder Peaks v2 Premium Pullover Hoodie | Black / S",
+          "sku": "699E1E2A5E265_22132",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22132
+        },
+        {
+          "id": "5210228917",
+          "externalId": "ENG6PX55SN5EZ6ER65BUB2EI",
+          "name": "Powder Peaks v2 Premium Pullover Hoodie | Black / M",
+          "sku": "699E1E2A5E265_22133",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22133
+        },
+        {
+          "id": "5210228918",
+          "externalId": "LMFYTYGVHP5IYITAXI7EGR6K",
+          "name": "Powder Peaks v2 Premium Pullover Hoodie | Black / L",
+          "sku": "699E1E2A5E265_22134",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22134
+        },
+        {
+          "id": "5210228919",
+          "externalId": "X53RXJU7ONINSTQ3TQ7K6MQN",
+          "name": "Powder Peaks v2 Premium Pullover Hoodie | Black / XL",
+          "sku": "699E1E2A5E265_22135",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22135
+        },
+        {
+          "id": "5210228920",
+          "externalId": "5ADIPFUUTWE2NUWUZFJ3XRGJ",
+          "name": "Powder Peaks v2 Premium Pullover Hoodie | Black / 2XL",
+          "sku": "699E1E2A5E265_22136",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22136
+        },
+        {
+          "id": "5210228921",
+          "externalId": "OVZF5JSALKJWR2P2VCRKCUUW",
+          "name": "Powder Peaks v2 Premium Pullover Hoodie | Black / 3XL",
+          "sku": "699E1E2A5E265_22137",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22137
+        }
+      ]
+    },
+    {
+      "id": "421184172",
+      "externalId": "7JV5WHJHYPVZJOPYWQ32FNWZ",
+      "name": "AeroVista Apex Glitch Premium Pullover Hoodie | Black",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5210213611",
+          "externalId": "AU7X5PB6VLRDM77TIGRFGJZK",
+          "name": "AeroVista Apex Glitch Premium Pullover Hoodie | Black / S",
+          "sku": "699E1C41DC0B5_22132",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22132
+        },
+        {
+          "id": "5210213612",
+          "externalId": "T2MH2Z6XNCZC4LPVSXZ7WX4B",
+          "name": "AeroVista Apex Glitch Premium Pullover Hoodie | Black / M",
+          "sku": "699E1C41DC0B5_22133",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22133
+        },
+        {
+          "id": "5210213613",
+          "externalId": "U3PMCP7JNCEYJLPWPFRDHOIV",
+          "name": "AeroVista Apex Glitch Premium Pullover Hoodie | Black / L",
+          "sku": "699E1C41DC0B5_22134",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22134
+        },
+        {
+          "id": "5210213614",
+          "externalId": "67AMMNQO4EFZBCTJ2KVNKDVH",
+          "name": "AeroVista Apex Glitch Premium Pullover Hoodie | Black / XL",
+          "sku": "699E1C41DC0B5_22135",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22135
+        },
+        {
+          "id": "5210213615",
+          "externalId": "HVZO77PVR6EQSNYX2SSOXOXD",
+          "name": "AeroVista Apex Glitch Premium Pullover Hoodie | Black / 2XL",
+          "sku": "699E1C41DC0B5_22136",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22136
+        },
+        {
+          "id": "5210213619",
+          "externalId": "XM62UHG2IXDIZRRRCLQWXPR2",
+          "name": "AeroVista Apex Glitch Premium Pullover Hoodie | Black / 3XL",
+          "sku": "699E1C41DC0B5_22137",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22137
+        }
+      ]
+    },
+    {
+      "id": "421171970",
+      "externalId": "3HUXM574MGJKLS7CM7LDKRF7",
+      "name": "AeroVista Wave Mark Full-Zip Hoodie – White",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5210094095",
+          "externalId": "HHIKYAMXVORYTFSAG4HX6U3H",
+          "name": "AeroVista Wave Mark Full-Zip Hoodie – White / S",
+          "sku": "699E02B377FE0_25695",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 25695
+        },
+        {
+          "id": "5210094096",
+          "externalId": "SGDOHMZO4UDKVWBVDIMQC67F",
+          "name": "AeroVista Wave Mark Full-Zip Hoodie – White / M",
+          "sku": "699E02B377FE0_25696",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 25696
+        },
+        {
+          "id": "5210094097",
+          "externalId": "GAMWI6BKCLNNGLZZLZYLMSSJ",
+          "name": "AeroVista Wave Mark Full-Zip Hoodie – White / L",
+          "sku": "699E02B377FE0_25697",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 25697
+        },
+        {
+          "id": "5210094098",
+          "externalId": "MHK2PY2HZIURB2SPSTZFZRFQ",
+          "name": "AeroVista Wave Mark Full-Zip Hoodie – White / XL",
+          "sku": "699E02B377FE0_25698",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 25698
+        },
+        {
+          "id": "5210094099",
+          "externalId": "2EUJDYZDTDNM5RUDIS3ZTCDF",
+          "name": "AeroVista Wave Mark Full-Zip Hoodie – White / 2XL",
+          "sku": "699E02B377FE0_25699",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 25699
+        },
+        {
+          "id": "5210094100",
+          "externalId": "W64AEN7JN6XH3E2DKD4W6ZW5",
+          "name": "AeroVista Wave Mark Full-Zip Hoodie – White / 3XL",
+          "sku": "699E02B377FE0_25700",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 25700
+        }
+      ]
+    },
+    {
+      "id": "421170205",
+      "externalId": "PRN2TOQIVLPVMWVOEKVNG25Z",
+      "name": "AeroVista Apex Flexfit Structured Cap (Black)",
+      "synced": 2,
+      "thumbnailPresent": false,
+      "variantCount": 2,
+      "variants": [
+        {
+          "id": "5210080156",
+          "externalId": "UWUZNY7XU5IVXPH7XQHRE3OT",
+          "name": "AeroVista Apex Flexfit Structured Cap (Black) / S/M",
+          "sku": "699DFF2DB9C21_5276",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "32.99",
+          "currency": "USD",
+          "catalogVariantId": 5276
+        },
+        {
+          "id": "5210080157",
+          "externalId": "622ZSIORLPZS4PHLK4LLECIG",
+          "name": "AeroVista Apex Flexfit Structured Cap (Black) / L/XL",
+          "sku": "699DFF2DB9C21_5277",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 5277
+        }
+      ]
+    },
+    {
+      "id": "421099920",
+      "externalId": "S5USO3RV2BIPIBYDUH52X4CN",
+      "name": "Glitch Orbit Logo - Black",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5209428012",
+          "externalId": "3KHKSYBNLUQSSLCIQJD7URP6",
+          "name": "Glitch Orbit Logo - Black",
+          "sku": "699D43EEB70F9_8747",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "32.00",
+          "currency": "USD",
+          "catalogVariantId": 8747
+        }
+      ]
+    },
+    {
+      "id": "421059511",
+      "externalId": "52H4ZMNSXXBWES7Q35E6NPNX",
+      "name": "AeroVista • Retro Trucker Hat • Orbit “A” • Gray",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5208763958",
+          "externalId": "WMOSIHUNBUXQMBP2ETAMB7ZI",
+          "name": "AeroVista • Retro Trucker Hat • Orbit “A” • Gray",
+          "sku": "699CDDA7C0502_22454",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "32.99",
+          "currency": "USD",
+          "catalogVariantId": 22454
+        }
+      ]
+    },
+    {
+      "id": "419881664",
+      "externalId": "AE5E36HG2V762NL3PELMBRDO",
+      "name": "AeroVista • The Blue Witness • Urban Hoodie • Black",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5199252095",
+          "externalId": "4PPVG6XV4MCHAHX2ESOVWGGY",
+          "name": "AeroVista • The Blue Witness • Urban Hoodie • Black / S",
+          "sku": "69941C089CBBA_34378",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 34378
+        },
+        {
+          "id": "5199252096",
+          "externalId": "ZBOZRZLOWYYCWHZIGHILD4JX",
+          "name": "AeroVista • The Blue Witness • Urban Hoodie • Black / M",
+          "sku": "69941C089CBBA_34381",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 34381
+        },
+        {
+          "id": "5199252097",
+          "externalId": "OUOZV44NZ7YLPCVELV6WVNYH",
+          "name": "AeroVista • The Blue Witness • Urban Hoodie • Black / L",
+          "sku": "69941C089CBBA_34384",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 34384
+        },
+        {
+          "id": "5199252098",
+          "externalId": "HVIRKMWRSNFBPQJBEKNWTBRI",
+          "name": "AeroVista • The Blue Witness • Urban Hoodie • Black / XL",
+          "sku": "69941C089CBBA_34387",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 34387
+        },
+        {
+          "id": "5199252099",
+          "externalId": "2HMIV2RM5NEF64MDLBKE5WRA",
+          "name": "AeroVista • The Blue Witness • Urban Hoodie • Black / 2XL",
+          "sku": "69941C089CBBA_34390",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 34390
+        },
+        {
+          "id": "5199252100",
+          "externalId": "G2GUO6QXZJX5S47WVP7TE7UE",
+          "name": "AeroVista • The Blue Witness • Urban Hoodie • Black / 3XL",
+          "sku": "69941C089CBBA_34393",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 34393
+        }
+      ]
+    },
+    {
+      "id": "418939049",
+      "externalId": "SI45BEHI3JVWIKFNI77B2WYZ",
+      "name": "MuseFace",
+      "synced": 0,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5193128857",
+          "externalId": "ONCXQIU2T7NCGMGYME2PDIEL",
+          "name": "MuseFace / Regular",
+          "sku": "",
+          "enabled": false,
+          "availabilityStatus": "discontinued",
+          "retailPrice": "0.00",
+          "currency": "USD",
+          "catalogVariantId": null
+        }
+      ]
+    },
+    {
+      "id": "418939010",
+      "externalId": "PHLN2DF3HWJF6FVJLDSK3IGQ",
+      "name": "glitch logo • AeroVista • Tee - black",
+      "synced": 5,
+      "thumbnailPresent": false,
+      "variantCount": 5,
+      "variants": [
+        {
+          "id": "5193128664",
+          "externalId": "QE7L36NT36AZSSEV5IAQVBEN",
+          "name": "glitch logo • AeroVista • Tee - black / S",
+          "sku": "698D739A50AB6_21000",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 21000
+        },
+        {
+          "id": "5193128665",
+          "externalId": "GP3VWJSTJYNNUTKRRPT5TSU4",
+          "name": "glitch logo • AeroVista • Tee - black / M",
+          "sku": "698D739A50AB6_21006",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 21006
+        },
+        {
+          "id": "5193128666",
+          "externalId": "GYYEXSH6GXYAA7FHFHVSRHT4",
+          "name": "glitch logo • AeroVista • Tee - black / L",
+          "sku": "698D739A50AB6_21012",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 21012
+        },
+        {
+          "id": "5193128667",
+          "externalId": "ITLXGQTTLGCFM45733HPQ6LD",
+          "name": "glitch logo • AeroVista • Tee - black / XL",
+          "sku": "698D739A50AB6_21018",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 21018
+        },
+        {
+          "id": "5193128668",
+          "externalId": "ODR7GFYYYDWW6SCFYLRT4QO4",
+          "name": "glitch logo • AeroVista • Tee - black / 2XL",
+          "sku": "698D739A50AB6_21024",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 21024
+        }
+      ]
+    },
+    {
+      "id": "418772921",
+      "externalId": "DN7SBYHJIIXQTCWQWP3WMOHT",
+      "name": "glitch_drone  • AeroVista • Tee - black",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5191891644",
+          "externalId": "3VMCB74R3ENBS6HG7JKX3TBM",
+          "name": "glitch_drone  • AeroVista • Tee - black / S",
+          "sku": "698C1BA0B2CE9_10779",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 10779
+        },
+        {
+          "id": "5191891645",
+          "externalId": "WIXJH3KCAR45P6R5P3NH3ZEY",
+          "name": "glitch_drone  • AeroVista • Tee - black / M",
+          "sku": "698C1BA0B2CE9_10780",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 10780
+        },
+        {
+          "id": "5191891646",
+          "externalId": "RRJVGZPOQACHB2FZBFB2QREZ",
+          "name": "glitch_drone  • AeroVista • Tee - black / L",
+          "sku": "698C1BA0B2CE9_10781",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 10781
+        },
+        {
+          "id": "5191891647",
+          "externalId": "NGBPRK6CGBTRPQYO5EUELBOR",
+          "name": "glitch_drone  • AeroVista • Tee - black / XL",
+          "sku": "698C1BA0B2CE9_10782",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 10782
+        },
+        {
+          "id": "5191891648",
+          "externalId": "OTIXN7QS7S5CCENDFBM5UKWS",
+          "name": "glitch_drone  • AeroVista • Tee - black / 2XL",
+          "sku": "698C1BA0B2CE9_10783",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 10783
+        },
+        {
+          "id": "5191891649",
+          "externalId": "4PGH4T2774G6DBQ4Q2ZRG553",
+          "name": "glitch_drone  • AeroVista • Tee - black / 3XL",
+          "sku": "698C1BA0B2CE9_13416",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 13416
+        }
+      ]
+    },
+    {
+      "id": "418770967",
+      "externalId": "CUFTT64ZXB3XMB2ICPFPI5KN",
+      "name": "Observer • eye sigel • Pullover Hoodie • Black w/blue print",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5191870094",
+          "externalId": "65GNBOKQWGUVMJGQWLTY2LRY",
+          "name": "Observer • eye sigel • Pullover Hoodie • Black w/blue print / S",
+          "sku": "698C124D32609_10779",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10779
+        },
+        {
+          "id": "5191870095",
+          "externalId": "AQVVV4DKZK3IMMFFINC7UJUU",
+          "name": "Observer • eye sigel • Pullover Hoodie • Black w/blue print / M",
+          "sku": "698C124D32609_10780",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10780
+        },
+        {
+          "id": "5191870096",
+          "externalId": "36B6QNRX6JJ73NLGCC5TUZPM",
+          "name": "Observer • eye sigel • Pullover Hoodie • Black w/blue print / L",
+          "sku": "698C124D32609_10781",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10781
+        },
+        {
+          "id": "5191870097",
+          "externalId": "L22YEZKRTC4SDVCFRM5U5QY2",
+          "name": "Observer • eye sigel • Pullover Hoodie • Black w/blue print / XL",
+          "sku": "698C124D32609_10782",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10782
+        },
+        {
+          "id": "5191870098",
+          "externalId": "TRHX7LXB7GBPNZHDCQNMR7CW",
+          "name": "Observer • eye sigel • Pullover Hoodie • Black w/blue print / 2XL",
+          "sku": "698C124D32609_10783",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10783
+        },
+        {
+          "id": "5191870099",
+          "externalId": "7YIEDJALH3YG3S54GG5U4DEI",
+          "name": "Observer • eye sigel • Pullover Hoodie • Black w/blue print / 3XL",
+          "sku": "698C124D32609_13416",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 13416
+        }
+      ]
+    },
+    {
+      "id": "418682160",
+      "externalId": "AIUF5DHBSPCI67XQ65WTCPR4",
+      "name": "Neck Gaiter - Crypt tech - Gray",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5191345530",
+          "externalId": "5GYSYOTMMT3BXN7MVADBL3Q5",
+          "name": "Neck Gaiter - Crypt tech - Gray",
+          "sku": "698B94E36E40D_11414",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "24.99",
+          "currency": "USD",
+          "catalogVariantId": 11414
+        }
+      ]
+    },
+    {
+      "id": "418680525",
+      "externalId": "5DAAWNEXDGHMGTMMFXIT4RNY",
+      "name": "Neck Gaiter - Crypt tech - Red",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5191330512",
+          "externalId": "Y7M3ICJY5CYNOFGSZHE6EYPS",
+          "name": "Neck Gaiter - Crypt tech - Red",
+          "sku": "698B91177AE22_11414",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "24.99",
+          "currency": "USD",
+          "catalogVariantId": 11414
+        }
+      ]
+    },
+    {
+      "id": "418679255",
+      "externalId": "UILPFN2R3XOUSFEW5FPYVGZZ",
+      "name": "Neck Gaiter - Crypt tech - Orange",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5191319029",
+          "externalId": "U2LQIEKWGFESGXLDFIJO6EEP",
+          "name": "Neck Gaiter - Crypt tech - Orange",
+          "sku": "698B8E66A0D04_11414",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "24.99",
+          "currency": "USD",
+          "catalogVariantId": 11414
+        }
+      ]
+    },
+    {
+      "id": "418553652",
+      "externalId": "H5REJO5EBJNZUHQSJ46YKBSK",
+      "name": "AeroVista “Apex Mesh” Trucker Cap",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5190404685",
+          "externalId": "7CTKCADMVJBJRHQNT2IPUQKG",
+          "name": "AeroVista “Apex Mesh” Trucker Cap",
+          "sku": "698A6A96555FB_8747",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "32.99",
+          "currency": "USD",
+          "catalogVariantId": 8747
+        }
+      ]
+    },
+    {
+      "id": "409640461",
+      "externalId": "HFNY3MIAYHV6CMDSGSTWXL7T",
+      "name": "Founders Mark full zip hoodie",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5123729008",
+          "externalId": "WBA5JKMM3QBAT3OZ2HHAUXGR",
+          "name": "Founders Mark full zip hoodie / S",
+          "sku": "6950D77B5AF8A_24251",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 24251
+        },
+        {
+          "id": "5123729009",
+          "externalId": "I3O7PJPVUVPNUI4DHLMZDGVL",
+          "name": "Founders Mark full zip hoodie / M",
+          "sku": "6950D77B5AF8A_24257",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 24257
+        },
+        {
+          "id": "5123729010",
+          "externalId": "VQ4NAXYKNGZIJBXUWQTWR6FV",
+          "name": "Founders Mark full zip hoodie / L",
+          "sku": "6950D77B5AF8A_24263",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 24263
+        },
+        {
+          "id": "5123729011",
+          "externalId": "2WHQM4RFRKKKGMEE4JVY7DAS",
+          "name": "Founders Mark full zip hoodie / XL",
+          "sku": "6950D77B5AF8A_24269",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 24269
+        },
+        {
+          "id": "5123729012",
+          "externalId": "CPQT6IA7DHJ4P2MFPSGQ6CKD",
+          "name": "Founders Mark full zip hoodie / 2XL",
+          "sku": "6950D77B5AF8A_24275",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 24275
+        },
+        {
+          "id": "5123729013",
+          "externalId": "UOEQBPESNTRR2R75NNZJBTIF",
+          "name": "Founders Mark full zip hoodie / 3XL",
+          "sku": "6950D77B5AF8A_25689",
+          "enabled": true,
+          "availabilityStatus": "temporary_out_of_stock",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 25689
+        }
+      ]
+    },
+    {
+      "id": "409159928",
+      "externalId": "GEK33C62CPANLYKZG7FFF46I",
+      "name": "Night Ranger Bear Pullover Hoodie",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5121023270",
+          "externalId": "RLF3CDO3MSTTNBGVEM2Q7Z36",
+          "name": "Night Ranger Bear Pullover Hoodie / S",
+          "sku": "694C2BBC5FA02_22132",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22132
+        },
+        {
+          "id": "5121023271",
+          "externalId": "WX5BMFKPXI2GQQXC46ANIHIW",
+          "name": "Night Ranger Bear Pullover Hoodie / M",
+          "sku": "694C2BBC5FA02_22133",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22133
+        },
+        {
+          "id": "5121023272",
+          "externalId": "7BKCTSGJVYGBUVRVESAQGDG5",
+          "name": "Night Ranger Bear Pullover Hoodie / L",
+          "sku": "694C2BBC5FA02_22134",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22134
+        },
+        {
+          "id": "5121023273",
+          "externalId": "ZGDYGWQZ4WNEPXMTBC3NGWEL",
+          "name": "Night Ranger Bear Pullover Hoodie / XL",
+          "sku": "694C2BBC5FA02_22135",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22135
+        },
+        {
+          "id": "5121023274",
+          "externalId": "BTYQMSK7I2BGFTEW6DAYIKFL",
+          "name": "Night Ranger Bear Pullover Hoodie / 2XL",
+          "sku": "694C2BBC5FA02_22136",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22136
+        },
+        {
+          "id": "5121023275",
+          "externalId": "XNABXQPVERPGR4BUV5DJLHSD",
+          "name": "Night Ranger Bear Pullover Hoodie / 3XL",
+          "sku": "694C2BBC5FA02_22137",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22137
+        }
+      ]
+    },
+    {
+      "id": "409103925",
+      "externalId": "X3PXLBRCU4MMA7UZMRZUP4NI",
+      "name": "Burst Lens • Lumina • Pullover Hoodie",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5120828989",
+          "externalId": "SI5CHR4REBX7DJSYD7HWJNDR",
+          "name": "Burst Lens • Lumina • Pullover Hoodie / S",
+          "sku": "694BE57CDEF17_22132",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22132
+        },
+        {
+          "id": "5120828990",
+          "externalId": "LL27FERTTWSGF5ZZLOIPLLWP",
+          "name": "Burst Lens • Lumina • Pullover Hoodie / M",
+          "sku": "694BE57CDEF17_22133",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22133
+        },
+        {
+          "id": "5120828991",
+          "externalId": "RFKINSNVSJQEIA4D76PD3U2A",
+          "name": "Burst Lens • Lumina • Pullover Hoodie / L",
+          "sku": "694BE57CDEF17_22134",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22134
+        },
+        {
+          "id": "5120828992",
+          "externalId": "ESSLMXTEAB657TBLEHRMGZVY",
+          "name": "Burst Lens • Lumina • Pullover Hoodie / XL",
+          "sku": "694BE57CDEF17_22135",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22135
+        },
+        {
+          "id": "5120828993",
+          "externalId": "MW4EGFHQ2WVDUSKUAK6YKQQJ",
+          "name": "Burst Lens • Lumina • Pullover Hoodie / 2XL",
+          "sku": "694BE57CDEF17_22136",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22136
+        },
+        {
+          "id": "5120828994",
+          "externalId": "PM344CWTWLVCWGLQ5TE55CQS",
+          "name": "Burst Lens • Lumina • Pullover Hoodie / 3XL",
+          "sku": "694BE57CDEF17_22137",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22137
+        }
+      ]
+    },
+    {
+      "id": "409103660",
+      "externalId": "ZHZ4AYIZZEQ5SFZDHWTRPR22",
+      "name": "Burst Lens • Lumina • Pullover Hoodie",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5120828025",
+          "externalId": "AX72LIUSFXFG24GOI5O6GAHW",
+          "name": "Burst Lens • Lumina • Pullover Hoodie / S",
+          "sku": "694BE4D5DF5B7_22132",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22132
+        },
+        {
+          "id": "5120828026",
+          "externalId": "IDI3V3PNUEGST447CRL6ZYDU",
+          "name": "Burst Lens • Lumina • Pullover Hoodie / M",
+          "sku": "694BE4D5DF5B7_22133",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22133
+        },
+        {
+          "id": "5120828027",
+          "externalId": "XGKQODZDXXPTUBU7VQPFUX4N",
+          "name": "Burst Lens • Lumina • Pullover Hoodie / L",
+          "sku": "694BE4D5DF5B7_22134",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22134
+        },
+        {
+          "id": "5120828028",
+          "externalId": "GNDRXZE2ID66Z62NBNBUKWPU",
+          "name": "Burst Lens • Lumina • Pullover Hoodie / XL",
+          "sku": "694BE4D5DF5B7_22135",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22135
+        },
+        {
+          "id": "5120828029",
+          "externalId": "SAWQQGOW7HKKS5WHIW33YREM",
+          "name": "Burst Lens • Lumina • Pullover Hoodie / 2XL",
+          "sku": "694BE4D5DF5B7_22136",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22136
+        },
+        {
+          "id": "5120828030",
+          "externalId": "6RFNAKGUCRVLBXRSN3DUFS6Z",
+          "name": "Burst Lens • Lumina • Pullover Hoodie / 3XL",
+          "sku": "694BE4D5DF5B7_22137",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22137
+        }
+      ]
+    },
+    {
+      "id": "409101338",
+      "externalId": "TM43XWSYVIQ6AFCKOWISA4GY",
+      "name": "EchoVerse “Signal Dial” Chest Emblem Hoodie",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5120816760",
+          "externalId": "TO7DFKLWHHCOO2GPONN555MJ",
+          "name": "EchoVerse “Signal Dial” Chest Emblem Hoodie / S",
+          "sku": "694BDD42C8A43_22132",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22132
+        },
+        {
+          "id": "5120816761",
+          "externalId": "YPJ3AJRUCXLGICQKK6KW33KP",
+          "name": "EchoVerse “Signal Dial” Chest Emblem Hoodie / M",
+          "sku": "694BDD42C8A43_22133",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22133
+        },
+        {
+          "id": "5120816762",
+          "externalId": "RWVPBQJXZBDRXOYHJBJTEQM4",
+          "name": "EchoVerse “Signal Dial” Chest Emblem Hoodie / L",
+          "sku": "694BDD42C8A43_22134",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22134
+        },
+        {
+          "id": "5120816763",
+          "externalId": "FN3VABES5AKYEGF3OFAZ47KE",
+          "name": "EchoVerse “Signal Dial” Chest Emblem Hoodie / XL",
+          "sku": "694BDD42C8A43_22135",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22135
+        },
+        {
+          "id": "5120816764",
+          "externalId": "KCAIV3BV5DMKJXSDKMS4CWIK",
+          "name": "EchoVerse “Signal Dial” Chest Emblem Hoodie / 2XL",
+          "sku": "694BDD42C8A43_22136",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22136
+        },
+        {
+          "id": "5120816765",
+          "externalId": "VBIWCDKSKIB7RMO4A5YATYDZ",
+          "name": "EchoVerse “Signal Dial” Chest Emblem Hoodie / 3XL",
+          "sku": "694BDD42C8A43_22137",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22137
+        }
+      ]
+    },
+    {
+      "id": "409099591",
+      "externalId": "VBGN5ZL5R7ONZDHMBKQTQNMA",
+      "name": "Circuit Bloom • NeXuS TechWorks • Pullover Hoodie",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5120806208",
+          "externalId": "OTUHM4IMGTN3ZQIT4SYFQMJC",
+          "name": "Circuit Bloom • NeXuS TechWorks • Pullover Hoodie / S",
+          "sku": "694BD85E3C49A_22132",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22132
+        },
+        {
+          "id": "5120806209",
+          "externalId": "KOKZVFV7X5VJKCNMH5AICSHY",
+          "name": "Circuit Bloom • NeXuS TechWorks • Pullover Hoodie / M",
+          "sku": "694BD85E3C49A_22133",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22133
+        },
+        {
+          "id": "5120806210",
+          "externalId": "LNU4WONFIMALDQZRY2D22RY2",
+          "name": "Circuit Bloom • NeXuS TechWorks • Pullover Hoodie / L",
+          "sku": "694BD85E3C49A_22134",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22134
+        },
+        {
+          "id": "5120806211",
+          "externalId": "MZ42TMOO5LGLNQAE336VKPW3",
+          "name": "Circuit Bloom • NeXuS TechWorks • Pullover Hoodie / XL",
+          "sku": "694BD85E3C49A_22135",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22135
+        },
+        {
+          "id": "5120806212",
+          "externalId": "LELKK4URMJKDBYIMI2WJSX7C",
+          "name": "Circuit Bloom • NeXuS TechWorks • Pullover Hoodie / 2XL",
+          "sku": "694BD85E3C49A_22136",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22136
+        },
+        {
+          "id": "5120806213",
+          "externalId": "UWMYKEZNCH37JDNYQEODOFBJ",
+          "name": "Circuit Bloom • NeXuS TechWorks • Pullover Hoodie / 3XL",
+          "sku": "694BD85E3C49A_22137",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22137
+        }
+      ]
+    },
+    {
+      "id": "409095540",
+      "externalId": "DRNYHJROK3GW6IDZKVQUACEA",
+      "name": "Drafted A  • Premium Sweatshirt",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5120784744",
+          "externalId": "3O5XP7AUBCR4PQQUP3DSQQDJ",
+          "name": "Drafted A  • Premium Sweatshirt / S",
+          "sku": "694BCC3DE8928_11254",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "49.99",
+          "currency": "USD",
+          "catalogVariantId": 11254
+        },
+        {
+          "id": "5120784745",
+          "externalId": "22Z6IT4VQ67KB7Y52VGDVBDT",
+          "name": "Drafted A  • Premium Sweatshirt / M",
+          "sku": "694BCC3DE8928_11255",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "49.99",
+          "currency": "USD",
+          "catalogVariantId": 11255
+        },
+        {
+          "id": "5120784746",
+          "externalId": "YOTGKI7NHIDYYJSJ653Y4Z5K",
+          "name": "Drafted A  • Premium Sweatshirt / L",
+          "sku": "694BCC3DE8928_11256",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "49.99",
+          "currency": "USD",
+          "catalogVariantId": 11256
+        },
+        {
+          "id": "5120784747",
+          "externalId": "NHRNUSZ676YGUBFQ5PBAF4VX",
+          "name": "Drafted A  • Premium Sweatshirt / XL",
+          "sku": "694BCC3DE8928_11257",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "49.99",
+          "currency": "USD",
+          "catalogVariantId": 11257
+        },
+        {
+          "id": "5120784748",
+          "externalId": "67W3YKKPWXWXBYSXJPTUS5NA",
+          "name": "Drafted A  • Premium Sweatshirt / 2XL",
+          "sku": "694BCC3DE8928_11258",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "49.99",
+          "currency": "USD",
+          "catalogVariantId": 11258
+        },
+        {
+          "id": "5120784749",
+          "externalId": "L25FBA6NQPI6R3TIE2UGE2SC",
+          "name": "Drafted A  • Premium Sweatshirt / 3XL",
+          "sku": "694BCC3DE8928_13258",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "49.99",
+          "currency": "USD",
+          "catalogVariantId": 13258
+        }
+      ]
+    },
+    {
+      "id": "409089250",
+      "externalId": "UVIUHGIKMNZADRTMLCU7RO3L",
+      "name": "AeroVista • Apex Draft • Full-Zip Hoodie • Black",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5120725562",
+          "externalId": "626UEKN7DNZOSK47GPDNUBSX",
+          "name": "AeroVista • Apex Draft • Full-Zip Hoodie • Black / S",
+          "sku": "694BAE3D66E20_24251",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 24251
+        },
+        {
+          "id": "5120725563",
+          "externalId": "UIZWJP7GNQ4MYLTFHX5X42NQ",
+          "name": "AeroVista • Apex Draft • Full-Zip Hoodie • Black / M",
+          "sku": "694BAE3D66E20_24257",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 24257
+        },
+        {
+          "id": "5120725564",
+          "externalId": "YCD5LKVJLM5AAOPVN2RS4HCR",
+          "name": "AeroVista • Apex Draft • Full-Zip Hoodie • Black / L",
+          "sku": "694BAE3D66E20_24263",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 24263
+        },
+        {
+          "id": "5120725565",
+          "externalId": "AYTBHRR3SOXVQVZT4JZ7L2FO",
+          "name": "AeroVista • Apex Draft • Full-Zip Hoodie • Black / XL",
+          "sku": "694BAE3D66E20_24269",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 24269
+        },
+        {
+          "id": "5120725566",
+          "externalId": "SLQ3WM4MMLK7UYOJZZBSBK7P",
+          "name": "AeroVista • Apex Draft • Full-Zip Hoodie • Black / 2XL",
+          "sku": "694BAE3D66E20_24275",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 24275
+        },
+        {
+          "id": "5120725567",
+          "externalId": "R46VZTULGJQ2LGOAEVKYQXMJ",
+          "name": "AeroVista • Apex Draft • Full-Zip Hoodie • Black / 3XL",
+          "sku": "694BAE3D66E20_25689",
+          "enabled": true,
+          "availabilityStatus": "temporary_out_of_stock",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 25689
+        }
+      ]
+    },
+    {
+      "id": "409089054",
+      "externalId": "T6STQFMFVEG57VOVXB3BMH27",
+      "name": "AeroVista • Apex Draft • Pullover Hoodie • Black",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5120723164",
+          "externalId": "CPMLDAUFKCAE75V46BQXT2F5",
+          "name": "AeroVista • Apex Draft • Pullover Hoodie • Black / S",
+          "sku": "694BABA9CED4F_10779",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10779
+        },
+        {
+          "id": "5120723165",
+          "externalId": "EHDPCB4W5OHY4MFRVHVZERAD",
+          "name": "AeroVista • Apex Draft • Pullover Hoodie • Black / M",
+          "sku": "694BABA9CED4F_10780",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10780
+        },
+        {
+          "id": "5120723166",
+          "externalId": "XERBPU4IEU3ZE6JTTAMED5LX",
+          "name": "AeroVista • Apex Draft • Pullover Hoodie • Black / L",
+          "sku": "694BABA9CED4F_10781",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10781
+        },
+        {
+          "id": "5120723167",
+          "externalId": "CT4KQZPXATDVWJ5I6PPV5X4X",
+          "name": "AeroVista • Apex Draft • Pullover Hoodie • Black / XL",
+          "sku": "694BABA9CED4F_10782",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10782
+        },
+        {
+          "id": "5120723168",
+          "externalId": "VOEBSOGEPUBYLBVKCEZM3RVL",
+          "name": "AeroVista • Apex Draft • Pullover Hoodie • Black / 2XL",
+          "sku": "694BABA9CED4F_10783",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10783
+        },
+        {
+          "id": "5120723169",
+          "externalId": "2AUBLOMJLLNGFNLBB5PATCV5",
+          "name": "AeroVista • Apex Draft • Pullover Hoodie • Black / 3XL",
+          "sku": "694BABA9CED4F_13416",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 13416
+        }
+      ]
+    },
+    {
+      "id": "408463032",
+      "externalId": "24YYXJYC3QQTGBGWO6SYVMOM",
+      "name": "EchoVerse “Frost Circuit” Tee",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5115225594",
+          "externalId": "BDPUDFRTWTONEQPCW3NFXN7J",
+          "name": "EchoVerse “Frost Circuit” Tee / S",
+          "sku": "6944AD10B3D8C_44067",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 44067
+        },
+        {
+          "id": "5115225595",
+          "externalId": "TP2SO2K3L4W3G37YLGSGEF72",
+          "name": "EchoVerse “Frost Circuit” Tee / M",
+          "sku": "6944AD10B3D8C_44077",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 44077
+        },
+        {
+          "id": "5115225596",
+          "externalId": "OMPUESGOPUQDROGMFGNRZ5XE",
+          "name": "EchoVerse “Frost Circuit” Tee / L",
+          "sku": "6944AD10B3D8C_44087",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 44087
+        },
+        {
+          "id": "5115225597",
+          "externalId": "QAE25DX2UZDZGTEHJ2O3XIN6",
+          "name": "EchoVerse “Frost Circuit” Tee / XL",
+          "sku": "6944AD10B3D8C_44097",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 44097
+        },
+        {
+          "id": "5115225598",
+          "externalId": "VPOW52GMP5MIFVK5APHWQO3H",
+          "name": "EchoVerse “Frost Circuit” Tee / 2XL",
+          "sku": "6944AD10B3D8C_44107",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 44107
+        },
+        {
+          "id": "5115225599",
+          "externalId": "3PWX32SNAS33SPWWGC5OPWAK",
+          "name": "EchoVerse “Frost Circuit” Tee / 3XL",
+          "sku": "6944AD10B3D8C_44117",
+          "enabled": false,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 44117
+        }
+      ]
+    },
+    {
+      "id": "408461693",
+      "externalId": "PNTJRH5PSJ4HXBA4EHFOTYMM",
+      "name": "EchoVerse “Frost Circuit” Pullover Hoodie",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5115215863",
+          "externalId": "PIIZTBQEEH6CUPX4HJTZAT35",
+          "name": "EchoVerse “Frost Circuit” Pullover Hoodie / S",
+          "sku": "6944A9E7A9404_22132",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22132
+        },
+        {
+          "id": "5115215864",
+          "externalId": "E6QPEDHUT3XXXRXRUREATQGS",
+          "name": "EchoVerse “Frost Circuit” Pullover Hoodie / M",
+          "sku": "6944A9E7A9404_22133",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22133
+        },
+        {
+          "id": "5115215865",
+          "externalId": "USR6ZQY6TMXTDAC3E7EBI5FY",
+          "name": "EchoVerse “Frost Circuit” Pullover Hoodie / L",
+          "sku": "6944A9E7A9404_22134",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22134
+        },
+        {
+          "id": "5115215866",
+          "externalId": "Z45VFQP4H3THIHFEUVDEQGRY",
+          "name": "EchoVerse “Frost Circuit” Pullover Hoodie / XL",
+          "sku": "6944A9E7A9404_22135",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22135
+        },
+        {
+          "id": "5115215867",
+          "externalId": "JV2WFSLDAPFGK3UDYIMCRASH",
+          "name": "EchoVerse “Frost Circuit” Pullover Hoodie / 2XL",
+          "sku": "6944A9E7A9404_22136",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22136
+        },
+        {
+          "id": "5115215868",
+          "externalId": "UHODWV3AWZJZU2MR65B2SYFE",
+          "name": "EchoVerse “Frost Circuit” Pullover Hoodie / 3XL",
+          "sku": "6944A9E7A9404_22137",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22137
+        }
+      ]
+    },
+    {
+      "id": "406624861",
+      "externalId": "6XX3QBTJHILSZIUESCE7QCPC",
+      "name": "Holographic stickers",
+      "synced": 2,
+      "thumbnailPresent": false,
+      "variantCount": 2,
+      "variants": [
+        {
+          "id": "5096739324",
+          "externalId": "JNKYIIZUAVYSCU4YUVRDF26H",
+          "name": "Holographic stickers / 3″×3″",
+          "sku": "6937FD7E16D6C_16705",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "6.50",
+          "currency": "USD",
+          "catalogVariantId": 16705
+        },
+        {
+          "id": "5096739325",
+          "externalId": "77GCE4OHHIUKOYBC67UQPR2X",
+          "name": "Holographic stickers / 5.5″×5.5″",
+          "sku": "6937FD7E16D6C_16707",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "8.50",
+          "currency": "USD",
+          "catalogVariantId": 16707
+        }
+      ]
+    },
+    {
+      "id": "406624604",
+      "externalId": "Z72SMVBUGV3FFVUEEA6RCJ5N",
+      "name": "BillyGoat Sticker",
+      "synced": 2,
+      "thumbnailPresent": false,
+      "variantCount": 2,
+      "variants": [
+        {
+          "id": "5096735880",
+          "externalId": "I5VT3PJ5Z5LSBRHCZUGZHVCT",
+          "name": "BillyGoat Sticker / 3″×3″",
+          "sku": "6937FCDDD76D7_10163",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "5.00",
+          "currency": "USD",
+          "catalogVariantId": 10163
+        },
+        {
+          "id": "5096735881",
+          "externalId": "3FLQHCRPLXV2NUDFPHXS6OCG",
+          "name": "BillyGoat Sticker / 5.5″×5.5″",
+          "sku": "6937FCDDD76D7_10165",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "6.50",
+          "currency": "USD",
+          "catalogVariantId": 10165
+        }
+      ]
+    },
+    {
+      "id": "406582818",
+      "externalId": "LGAX2XYIDVS364MF7FHCXTSJ",
+      "name": "Neon 'BillyGoat' Pullover Hoodie",
+      "synced": 1,
+      "thumbnailPresent": false,
+      "variantCount": 1,
+      "variants": [
+        {
+          "id": "5096410352",
+          "externalId": "D2YJC4HDAYPCPPLEWOYRIVK3",
+          "name": "Neon 'BillyGoat' Pullover Hoodie",
+          "sku": "6937980D5A5AD_22137",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 22137
+        }
+      ]
+    },
+    {
+      "id": "406581438",
+      "externalId": "GSQYWOJXTBFHG3K4JAM6VLD5",
+      "name": "AeroVista “Wave Mark” Zip Hoodie (White)",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5096399946",
+          "externalId": "CPA6XTA4T5IQB537M5W4Q4VF",
+          "name": "AeroVista “Wave Mark” Zip Hoodie (White) / S",
+          "sku": "693794485BAA8_25695",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 25695
+        },
+        {
+          "id": "5096399947",
+          "externalId": "53QE2TLU4PEQON5R72AT7KTJ",
+          "name": "AeroVista “Wave Mark” Zip Hoodie (White) / M",
+          "sku": "693794485BAA8_25696",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 25696
+        },
+        {
+          "id": "5096399948",
+          "externalId": "PILOMOJABQBCPOJUR6U6S4IV",
+          "name": "AeroVista “Wave Mark” Zip Hoodie (White) / L",
+          "sku": "693794485BAA8_25697",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 25697
+        },
+        {
+          "id": "5096399949",
+          "externalId": "SHORMSQAFZKCHCUD2DRTRVRO",
+          "name": "AeroVista “Wave Mark” Zip Hoodie (White) / XL",
+          "sku": "693794485BAA8_25698",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 25698
+        },
+        {
+          "id": "5096399950",
+          "externalId": "57O6PTL6RREP6OFPD3SXYJPC",
+          "name": "AeroVista “Wave Mark” Zip Hoodie (White) / 2XL",
+          "sku": "693794485BAA8_25699",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 25699
+        },
+        {
+          "id": "5096399951",
+          "externalId": "USVD5S24F6WDO7ZMUGTDPFBS",
+          "name": "AeroVista “Wave Mark” Zip Hoodie (White) / 3XL",
+          "sku": "693794485BAA8_25700",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 25700
+        }
+      ]
+    },
+    {
+      "id": "402615706",
+      "externalId": "NPJVD4DJREI4I5HD5LSKUHI7",
+      "name": "CDA Pool League Circuit • Vintage Comic Tee • White",
+      "synced": 7,
+      "thumbnailPresent": false,
+      "variantCount": 7,
+      "variants": [
+        {
+          "id": "5059423068",
+          "externalId": "OST6UCX7FG2TNUH2DGJWWEC4",
+          "name": "CDA Pool League Circuit • Vintage Comic Tee • White / XS",
+          "sku": "69170197F0D73_24351",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 24351
+        },
+        {
+          "id": "5059423069",
+          "externalId": "5XVJQFZWKJHLP6YQ2MHV5SGZ",
+          "name": "CDA Pool League Circuit • Vintage Comic Tee • White / S",
+          "sku": "69170197F0D73_24352",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 24352
+        },
+        {
+          "id": "5059423070",
+          "externalId": "U2GHNOMJFWJWVEZNTVMSIHUZ",
+          "name": "CDA Pool League Circuit • Vintage Comic Tee • White / M",
+          "sku": "69170197F0D73_24353",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 24353
+        },
+        {
+          "id": "5059423071",
+          "externalId": "NKJJRZBDKHYW7UPUR6ZQRFCE",
+          "name": "CDA Pool League Circuit • Vintage Comic Tee • White / L",
+          "sku": "69170197F0D73_24354",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 24354
+        },
+        {
+          "id": "5059423072",
+          "externalId": "BMGIU23K36FFZWM7FPTLNEUX",
+          "name": "CDA Pool League Circuit • Vintage Comic Tee • White / XL",
+          "sku": "69170197F0D73_24355",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 24355
+        },
+        {
+          "id": "5059423073",
+          "externalId": "C3H6FVP7WB2CBSGSNCL4APWO",
+          "name": "CDA Pool League Circuit • Vintage Comic Tee • White / 2XL",
+          "sku": "69170197F0D73_24356",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 24356
+        },
+        {
+          "id": "5059423074",
+          "externalId": "H4HYEWUEO6UOR5ELZKUXUPEU",
+          "name": "CDA Pool League Circuit • Vintage Comic Tee • White / 3XL",
+          "sku": "69170197F0D73_24357",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 24357
+        }
+      ]
+    },
+    {
+      "id": "402613809",
+      "externalId": "DB6Z7HLMD4VQN32BEQASZRZ4",
+      "name": "Powder Peaks 8-Ball Tee — Black / White Ink",
+      "synced": 8,
+      "thumbnailPresent": false,
+      "variantCount": 8,
+      "variants": [
+        {
+          "id": "5059410078",
+          "externalId": "BZDOA5LBD5CDUQ53DOTCNGCC",
+          "name": "Powder Peaks 8-Ball Tee — Black / White Ink / S",
+          "sku": "6916FC17A78CD_11869",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 11869
+        },
+        {
+          "id": "5059410079",
+          "externalId": "KFHBP33O6BZRTPEUPAZSCZJH",
+          "name": "Powder Peaks 8-Ball Tee — Black / White Ink / M",
+          "sku": "6916FC17A78CD_11870",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 11870
+        },
+        {
+          "id": "5059410080",
+          "externalId": "MJP43RO47WELDLPTKNMUIMUJ",
+          "name": "Powder Peaks 8-Ball Tee — Black / White Ink / L",
+          "sku": "6916FC17A78CD_11871",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 11871
+        },
+        {
+          "id": "5059410081",
+          "externalId": "CRBZYID2QIIRT6NZXAVMEFJ6",
+          "name": "Powder Peaks 8-Ball Tee — Black / White Ink / XL",
+          "sku": "6916FC17A78CD_11872",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 11872
+        },
+        {
+          "id": "5059410082",
+          "externalId": "SOR6AOSJ7B3I4HK7RY3XCJQF",
+          "name": "Powder Peaks 8-Ball Tee — Black / White Ink / 2XL",
+          "sku": "6916FC17A78CD_11873",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 11873
+        },
+        {
+          "id": "5059410083",
+          "externalId": "2MCFO7AXWE4W5MKGSPRGF27H",
+          "name": "Powder Peaks 8-Ball Tee — Black / White Ink / 3XL",
+          "sku": "6916FC17A78CD_17229",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 17229
+        },
+        {
+          "id": "5059410084",
+          "externalId": "ZHO7KF3U6L345XI5KFMP2KQ7",
+          "name": "Powder Peaks 8-Ball Tee — Black / White Ink / 4XL",
+          "sku": "6916FC17A78CD_17233",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 17233
+        },
+        {
+          "id": "5059410085",
+          "externalId": "NHH2CY6U3IX5EFCIDRIOAR5H",
+          "name": "Powder Peaks 8-Ball Tee — Black / White Ink / 5XL",
+          "sku": "6916FC17A78CD_17236",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "39.99",
+          "currency": "USD",
+          "catalogVariantId": 17236
+        }
+      ]
+    },
+    {
+      "id": "402613358",
+      "externalId": "WTT4DMOVUXULJ5D6IF4PKRU6",
+      "name": "Powder Peaks 8-Ball Hoodie — Black / White Ink",
+      "synced": 6,
+      "thumbnailPresent": false,
+      "variantCount": 6,
+      "variants": [
+        {
+          "id": "5059407633",
+          "externalId": "7OH4G3MJW23EXYHJ4ECTNUJZ",
+          "name": "Powder Peaks 8-Ball Hoodie — Black / White Ink / S",
+          "sku": "6916FB0D0D0BC_10779",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10779
+        },
+        {
+          "id": "5059407634",
+          "externalId": "XFNSYPDLSDZOT7AKRRTCJCA7",
+          "name": "Powder Peaks 8-Ball Hoodie — Black / White Ink / M",
+          "sku": "6916FB0D0D0BC_10780",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10780
+        },
+        {
+          "id": "5059407635",
+          "externalId": "P2QXSNZIR4E6OGE6CYS5Q5A3",
+          "name": "Powder Peaks 8-Ball Hoodie — Black / White Ink / L",
+          "sku": "6916FB0D0D0BC_10781",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10781
+        },
+        {
+          "id": "5059407636",
+          "externalId": "L5TDOG5ENQ2S5BBV6VSFGWYL",
+          "name": "Powder Peaks 8-Ball Hoodie — Black / White Ink / XL",
+          "sku": "6916FB0D0D0BC_10782",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10782
+        },
+        {
+          "id": "5059407637",
+          "externalId": "TTRPHU7A4KQGPXR7GQKHQ3SY",
+          "name": "Powder Peaks 8-Ball Hoodie — Black / White Ink / 2XL",
+          "sku": "6916FB0D0D0BC_10783",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 10783
+        },
+        {
+          "id": "5059407638",
+          "externalId": "N4F6NB6AY7HOVUECEUEYGMPF",
+          "name": "Powder Peaks 8-Ball Hoodie — Black / White Ink / 3XL",
+          "sku": "6916FB0D0D0BC_13416",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "59.99",
+          "currency": "USD",
+          "catalogVariantId": 13416
+        }
+      ]
+    },
+    {
+      "id": "402612486",
+      "externalId": "JXBVVJZUKZ7LQQCH4SWJA5H2",
+      "name": "Powder Peaks 8-Ball Sticker — Black / White Ink",
+      "synced": 2,
+      "thumbnailPresent": false,
+      "variantCount": 2,
+      "variants": [
+        {
+          "id": "5059405030",
+          "externalId": "VUJPRWZKT7XONG2CKZTXNTXF",
+          "name": "Powder Peaks 8-Ball Sticker — Black / White Ink / 3″×3″",
+          "sku": "6916F9EC50A68_10163",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "5.00",
+          "currency": "USD",
+          "catalogVariantId": 10163
+        },
+        {
+          "id": "5059405031",
+          "externalId": "EK6DHXBXTFFDGJI5HQSHK3LV",
+          "name": "Powder Peaks 8-Ball Sticker — Black / White Ink / 5.5″×5.5″",
+          "sku": "6916F9EC50A68_10165",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "7.00",
+          "currency": "USD",
+          "catalogVariantId": 10165
+        }
+      ]
+    },
+    {
+      "id": "398079973",
+      "externalId": "XJPTD34YF4WMV2FNA73BLDCY",
+      "name": "BONSAID “Rooted Resilience” Trucker Cap — Richardson 112 Edition",
+      "synced": 7,
+      "thumbnailPresent": false,
+      "variantCount": 7,
+      "variants": [
+        {
+          "id": "5023300028",
+          "externalId": "QI34DZZLW2HF44ASZLED7MD7",
+          "name": "BONSAID “Rooted Resilience” Trucker Cap — Richardson 112 Edition / Black / Charcoal",
+          "sku": "68F8663806807_16711",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "34.99",
+          "currency": "USD",
+          "catalogVariantId": 16711
+        },
+        {
+          "id": "5023300029",
+          "externalId": "3322JBHD3A4V5ZT7KL5GDFWX",
+          "name": "BONSAID “Rooted Resilience” Trucker Cap — Richardson 112 Edition / Black",
+          "sku": "68F8663806807_11417",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "34.99",
+          "currency": "USD",
+          "catalogVariantId": 11417
+        },
+        {
+          "id": "5023300030",
+          "externalId": "TLYUAQBRLJQ4V3MZ4MGJTUJN",
+          "name": "BONSAID “Rooted Resilience” Trucker Cap — Richardson 112 Edition / Black / White",
+          "sku": "68F8663806807_11420",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "34.99",
+          "currency": "USD",
+          "catalogVariantId": 11420
+        },
+        {
+          "id": "5023300031",
+          "externalId": "76ZQZJN6AMZKBLEVG5M62QC2",
+          "name": "BONSAID “Rooted Resilience” Trucker Cap — Richardson 112 Edition / Charcoal/Black",
+          "sku": "68F8663806807_16713",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "34.99",
+          "currency": "USD",
+          "catalogVariantId": 16713
+        },
+        {
+          "id": "5023300032",
+          "externalId": "JT4BWUQATD5EWJZYJCMNSOKF",
+          "name": "BONSAID “Rooted Resilience” Trucker Cap — Richardson 112 Edition / Loden",
+          "sku": "68F8663806807_11418",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "34.99",
+          "currency": "USD",
+          "catalogVariantId": 11418
+        },
+        {
+          "id": "5023300033",
+          "externalId": "OVRQQFLQLV7UDTI2TR7XU5MA",
+          "name": "BONSAID “Rooted Resilience” Trucker Cap — Richardson 112 Edition / Heather Grey/White",
+          "sku": "68F8663806807_16712",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "34.99",
+          "currency": "USD",
+          "catalogVariantId": 16712
+        },
+        {
+          "id": "5023300034",
+          "externalId": "7EHSQZTLCAQFFMQYONLPYVXE",
+          "name": "BONSAID “Rooted Resilience” Trucker Cap — Richardson 112 Edition / Heather Grey / Black",
+          "sku": "68F8663806807_11421",
+          "enabled": true,
+          "availabilityStatus": "active",
+          "retailPrice": "34.99",
+          "currency": "USD",
+          "catalogVariantId": 11421
+        }
+      ]
+    }
+  ]
+}

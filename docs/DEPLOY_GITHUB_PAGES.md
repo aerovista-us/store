@@ -65,7 +65,9 @@ After `npm run build:pages`:
 - **`dist/`** = copy of sanitized `public/shop/` (storefront at site root)
 - **`dist/CNAME`** = `gear.aerovista.us`
 - **`dist/404.html`** = minimal real 404 (so `/console/`, `/backend/`, etc. return **404** on Pages, not the shop)
-- **No** `/console/`, **no** React shell, **no** `backend/`, **no** operator exports
+- **No** `/console/`, **no** React shell, **no** `backend/`, **no** operator exports, **no** `.md` files, **no** `store/_internal/`
+
+`npm run sync:store` copies only an **allowlist** from `store/` (see `scripts/lib/public-shop-manifest.mjs`). Operator markdown lives in **`docs/store-internal/`**; operator JSON/scripts/exports live in **`store/_internal/`**.
 
 Build pipeline:
 

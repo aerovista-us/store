@@ -1,0 +1,439 @@
+{
+  "sot_version": "2.0-aerovista",
+  "project": {
+    "name": "aerovista-store (av-store monorepo)",
+    "slug": "aerovista-store",
+    "brand": "AeroVista",
+    "division": "AeroVista Apparel",
+    "owner": "AeroVista LLC",
+    "status": "active",
+    "lifecycle": "production",
+    "type": "monorepo",
+    "category": "mini-shop-bridge",
+    "root": "./",
+    "primary_language": "javascript",
+    "repo_visibility": "private",
+    "created": "2026-02-01",
+    "updated": "2026-07-28",
+    "timezone": "America/Los_Angeles"
+  },
+  "purpose": {
+    "summary": "Monorepo for the live Gear storefront and Horizon noindex preview: static shops (store/ and horizon/), catalog console (console/), Vite bridge, operator documentation, and the gitignored payment API (store/backend/ on NXCore).",
+    "source_of_truth_policy": "Canon paths listed in canon_files and subtree SOT.json manifests. Generated public/ and dist/ are never master.",
+    "business_role": "Customer apparel and aerial-art storefronts, operator catalog pipeline, checkout, and Printful fulfillment integration."
+  },
+  "technical_profile": {
+    "stack": {
+      "frontend": [
+        "HTML/JS shop",
+        "React bridge (Vite)",
+        "Catalog Console v2"
+      ],
+      "backend": [
+        "Python Flask (store/backend/, NXCore only)"
+      ],
+      "database": [
+        "PostgreSQL (NXCore, fulfillment)"
+      ],
+      "infra": [
+        "GitHub Pages",
+        "NXCore Docker",
+        "Traefik",
+        "Cloudflare Worker API proxy",
+        "Cloudflare Pages (recommended for Horizon; not created)"
+      ],
+      "analytics": [],
+      "ai": []
+    },
+    "runtime": {
+      "local_ports": [
+        5174,
+        5199,
+        3014,
+        8088
+      ],
+      "service_urls": [
+        "https://gear.aerovista.us",
+        "https://store-console.aerocoreos.com",
+        "https://api.aerovista.us",
+        "https://avcc.aerocoreos.com",
+        "https://horizon.aerovista.us"
+      ],
+      "health_endpoint": "https://api.aerovista.us/api/health",
+      "entry_command": "npm run dev",
+      "build_command": "npm run build:pages",
+      "start_command": "npm run console:server (catalog); docker compose on NXCore (API)"
+    },
+    "deployment": {
+      "primary_host": "GitHub Pages + NXCore",
+      "deploy_path": "dist/ (shop); /srv/Collab/mini.shops/AV-PNW.com/av_storefront/ (API + console)",
+      "public_url": "https://gear.aerovista.us",
+      "internal_url": "https://store-console.aerocoreos.com",
+      "containerized": true,
+      "compose_file": "console/docker-compose.yml; store/backend/docker-compose.yml",
+      "reverse_proxy": "Traefik (NXCore); Cloudflare (Pages, Worker)",
+      "networking_notes": "See docs/USER_MANUAL/, docs/BACKEND_DEPLOY.md, docs/NXCORE_CONSOLE.md, docs/AVCC_INTEGRATION.md"
+    },
+    "data_model": {
+      "core_db_dependency": false,
+      "domain_db": "Postgres on NXCore (orders, fulfillment_jobs, product_variant_map)",
+      "canonical_event_ledger": "webhook_events (NXCore)",
+      "shared_storage": [
+        "store/square_products_latest.json",
+        "store/storefront_overlay.json",
+        "public/build-source-manifest.json"
+      ]
+    }
+  },
+  "canon": {
+    "canon_root": "./",
+    "allowed_master_locations": [
+      "store/",
+      "console/",
+      "docs/",
+      "scripts/",
+      "src/",
+      "cloudflare/",
+      "horizon/"
+    ],
+    "forbidden_master_locations": [
+      "public/",
+      "dist/",
+      "node_modules/",
+      "archive/"
+    ]
+  },
+  "entrypoints": [
+    {
+      "id": "user_manual",
+      "label": "Operator manual",
+      "path": "docs/USER_MANUAL/README.md",
+      "required": true,
+      "notes": "Primary operator documentation."
+    },
+    {
+      "id": "shop",
+      "label": "Customer shop",
+      "path": "store/index.html",
+      "required": true,
+      "notes": "Deployed to gear.aerovista.us via GitHub Pages."
+    },
+    {
+      "id": "catalog_console",
+      "label": "Catalog Console v2",
+      "path": "console/aerovista_catalog_console_v2.html",
+      "required": true,
+      "notes": "store-console.aerocoreos.com"
+    },
+    {
+      "id": "horizon_shop",
+      "label": "Horizon storefront (private product preview)",
+      "path": "horizon/index.html",
+      "required": false,
+      "notes": "Second store with four proportional consumer-wall works plus Harbor in business placement; no public placeholders. Eight checkout keys and eight production mapping rows are active, including Last Light, and all five public works use Square-hosted checkout. View in Room uses a generated photographic lake-house interior with catalog-dimension scaling. Canvas wraps use one continuous image map across the front, reduced-depth right fold, retained thin bottom fold, and joined lower-right corner. Live noindex host: horizon.aerovista.us."
+    }
+  ],
+  "canon_files": [
+    {
+      "id": "sot_self",
+      "path": "SOT.json",
+      "type": "json",
+      "role": "monorepo source of truth manifest",
+      "required": true,
+      "owner": "AeroVista",
+      "status": "active"
+    },
+    {
+      "id": "docs_index",
+      "path": "docs/README.md",
+      "type": "md",
+      "role": "documentation index",
+      "required": true,
+      "owner": "AeroVista",
+      "status": "active"
+    },
+    {
+      "id": "user_manual",
+      "path": "docs/USER_MANUAL/README.md",
+      "type": "md",
+      "role": "operator manual entry",
+      "required": true,
+      "owner": "AeroVista",
+      "status": "active"
+    },
+    {
+      "id": "avcc_integration",
+      "path": "docs/AVCC_INTEGRATION.md",
+      "type": "md",
+      "role": "Command Center ↔ store bridge contract",
+      "required": true,
+      "owner": "AeroVista",
+      "status": "active"
+    },
+    {
+      "id": "build_manifest_script",
+      "path": "scripts/write-build-source-manifest.mjs",
+      "type": "js",
+      "role": "AVCC bridge manifest generator",
+      "required": true,
+      "owner": "AeroVista",
+      "status": "active"
+    },
+    {
+      "id": "package_json",
+      "path": "package.json",
+      "type": "json",
+      "role": "npm scripts and tooling",
+      "required": true,
+      "owner": "AeroVista",
+      "status": "active"
+    }
+  ],
+  "canon_folders": [
+    {
+      "id": "store",
+      "path": "store/",
+      "role": "shop + catalog JSON; see store/SOT.json"
+    },
+    {
+      "id": "console",
+      "path": "console/",
+      "role": "catalog console v2; see console/SOT.json"
+    },
+    {
+      "id": "docs",
+      "path": "docs/",
+      "role": "operator and deploy documentation"
+    },
+    {
+      "id": "backend_gitignored",
+      "path": "store/backend/",
+      "role": "payment API; see store/backend/SOT.json; not in git"
+    },
+    {
+      "id": "horizon",
+      "path": "horizon/",
+      "role": "Horizon customer storefront (second store) — private real-product preview at final dev location; see horizon/README.md"
+    }
+  ],
+  "systems": {
+    "linked_projects": [
+      {
+        "name": "AeroVista Command Center (AVCC)",
+        "path": "aerovista-command-center/",
+        "url": "https://avcc.aerocoreos.com",
+        "sot": "SOT.json",
+        "notes": "Parent operator hub; consumes build-source-manifest.json"
+      }
+    ],
+    "depends_on": [
+      "Square",
+      "Printful",
+      "GitHub Pages",
+      "NXCore"
+    ],
+    "feeds": [
+      "gear.aerovista.us customers",
+      "future horizon.aerovista.us customers",
+      "AVCC operator dashboard"
+    ],
+    "consumes": [],
+    "shares_with": [
+      "AVCC"
+    ],
+    "related_domains": [
+      "gear.aerovista.us",
+      "horizon.aerovista.us",
+      "api.aerovista.us",
+      "store-console.aerocoreos.com",
+      "avcc.aerocoreos.com"
+    ],
+    "tailscale_hosts": [
+      "100.115.9.61"
+    ],
+    "cloudflare_tunnels": [
+      "gear.aerovista.us",
+      "api.aerovista.us"
+    ]
+  },
+  "sub_manifests": [
+    {
+      "id": "storefront",
+      "path": "store/SOT.json",
+      "role": "customer shop slice"
+    },
+    {
+      "id": "catalog_console",
+      "path": "console/SOT.json",
+      "role": "catalog console v2"
+    },
+    {
+      "id": "payment_api",
+      "path": "store/backend/SOT.json",
+      "role": "Flask API (NXCore)"
+    },
+    {
+      "id": "horizon_storefront",
+      "path": "horizon/SOT.json",
+      "role": "Horizon storefront private product preview (second store)"
+    }
+  ],
+  "ops": {
+    "service_name": "aerovista-store",
+    "health_check_paths": [
+      "https://api.aerovista.us/api/health",
+      "https://gear.aerovista.us/"
+    ],
+    "backup_targets": [
+      "NXCore Postgres pgdata",
+      "store/square_products_latest.json"
+    ],
+    "log_locations": [
+      "docker logs av-store-api",
+      "docker logs av-store-fulfillment-worker"
+    ],
+    "secrets_locations": [
+      "store/backend/.env on NXCore"
+    ],
+    "monitoring": {
+      "enabled": false,
+      "providers": []
+    }
+  },
+  "governance": {
+    "review_cycle": "when deploy surfaces, docs, or AVCC integration change",
+    "update_rule": "Update SOT.json and subtree manifests when canon paths, URLs, or deploy behavior change.",
+    "promotion_rule": "Docs and SOT updated in same change set as operator-facing behavior.",
+    "archive_rule": "Historical audits live in docs/archive/",
+    "owner_roles": [
+      "AeroVista Commerce",
+      "glyph"
+    ]
+  },
+  "duplicates": [
+    {
+      "pattern": "gear storefront mirror",
+      "known_locations": ["store/", "public/shop/", "dist/"],
+      "winner": "store/",
+      "role": "GENERATED_MIRROR",
+      "note": "public/shop and dist are sync/build outputs only. See docs/FOLDER_DUPLICATES.md."
+    },
+    {
+      "pattern": "catalog console mirror",
+      "known_locations": ["console/", "public/console/"],
+      "winner": "console/",
+      "role": "GENERATED_MIRROR",
+      "note": "public/console is Vite subset; NXCore deploys from console/."
+    },
+    {
+      "pattern": "catalog JSON bridge",
+      "known_locations": ["store/square_products_latest.json", "public/store/"],
+      "winner": "store/",
+      "role": "JSON_BRIDGE",
+      "note": "public/store holds JSON-only fetch paths for console."
+    },
+    {
+      "pattern": "horizon demos",
+      "known_locations": ["horizon/", "horizon/evidence/", "planning/canvas/", "_legacy_export/planning-canvas/"],
+      "winner": "horizon/",
+      "role": "SUPERSEDED",
+      "note": "Evidence promoted to horizon/evidence/; canvas tooling staged in _legacy_export/."
+    },
+    {
+      "pattern": "operator docs",
+      "known_locations": ["docs/", "store/docs/", "docs/store-internal/", "_legacy_export/store-docs-remainder/"],
+      "winner": "docs/",
+      "role": "LEGACY_DOCS",
+      "note": "High-value store/docs promoted into docs/; leftovers in _legacy_export/."
+    },
+    {
+      "pattern": "legacy export staging",
+      "known_locations": ["_legacy_export/"],
+      "winner": "docs/ + horizon/ + store/",
+      "role": "LEGACY_EXPORT",
+      "note": "Ready to Move-Item out of aerovista-store parent. See _legacy_export/README.md."
+    },
+    {
+      "pattern": "product images",
+      "known_locations": ["store/img/", "store/image/"],
+      "winner": "store/img/",
+      "role": "SUPERSEDED",
+      "note": "store/image/ is legacy folder name."
+    },
+    {
+      "pattern": "README",
+      "known_locations": [
+        "README.md",
+        "docs/README.md",
+        "docs/store-internal/store-folder-readme.md"
+      ],
+      "winner": "README.md",
+      "note": "Root README is monorepo entry; docs/README is index."
+    },
+    {
+      "pattern": "operator manual",
+      "known_locations": [
+        "docs/USER_MANUAL/README.md",
+        "docs/store-internal/handoffnotes.md"
+      ],
+      "winner": "docs/USER_MANUAL/README.md",
+      "note": "handoffnotes is dev cheat sheet only."
+    }
+  ],
+  "checks": {
+    "required_paths_exist": [
+      "SOT.json",
+      "docs/README.md",
+      "docs/USER_MANUAL/README.md",
+      "store/index.html",
+      "console/aerovista_catalog_console_v2.html",
+      "horizon/index.html"
+    ],
+    "marker": {
+      "enabled": true,
+      "marker_key": "SOT:",
+      "accepted_ext": [
+        ".md",
+        ".html",
+        ".json",
+        ".js",
+        ".ts",
+        ".tsx",
+        ".py",
+        ".yml"
+      ]
+    },
+    "hash_canon_files": false,
+    "warn_on_duplicate_ids": true,
+    "warn_on_missing_required": true,
+    "warn_on_master_outside_allowed_locations": true
+  },
+  "notes": [
+    "Repo npm name: aerovista-store (av-store static bridge v2).",
+    "Payment API store/backend/ is gitignored; deploy via docs/BACKEND_DEPLOY.md.",
+    "Catalog console is NOT AVCC; AVCC is aerovista-command-center @ avcc.aerocoreos.com.",
+    "Bridge manifest: public/build-source-manifest.json after npm run sync:all.",
+    "Horizon static shell added 2026-07-25 at horizon/ (design promoted from planning/canvas). On 2026-07-26, the sanitized initial artifact was published to aerovista-us/horizon-storefront GitHub Pages and exposed at horizon.aerovista.us through a Cloudflare Worker Custom Domain. By 2026-07-27, the active noindex storefront contained four proportional consumer-wall works plus Harbor in business placement, no public placeholders, and a recoverable private archive. NXCore CORS and the same-origin /api/* route are live. Eight Horizon checkout keys and eight production mapping rows are active; all five public works can create Square-hosted checkout sessions. A no-charge checkout-link smoke test passed. On 2026-07-28, View in Room was rebuilt around a generated photorealistic lake-house interior with selected-dimension scaling and three lighting treatments; canvas wrap faces were reduced and joined, then remapped so one continuous source image spans the front and folds without repeated boundary strips. Physical-proof follow-up remains recorded under explicit private waivers."
+  ],
+  "portfolio": {
+    "division_slug": "aerovista-apparel",
+    "portfolio_lane": "promote",
+    "maturity_stage": 4,
+    "maturity_label": "production",
+    "system_role": "commerce-platform",
+    "exposure": "public-edge",
+    "strategic_tier": "core",
+    "owner_team": "AeroVista Commerce",
+    "owner_person": "glyph",
+    "commercial_status": "market-facing",
+    "scorecard": {
+      "security": 2,
+      "reliability": 3,
+      "data_safety": 2,
+      "documentation": 3,
+      "repeatability": 3,
+      "owner_clarity": 3
+    },
+    "decision_notes": "Production gear shop with NXCore fulfillment pipeline and AVCC integration contract."
+  }
+}

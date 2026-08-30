@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "productId": "aerovista-core-tee",
+  "productName": "AeroVista Core Tee",
+  "hero": "/store/products/aerovista-core-tee/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "AeroVista Core Tee (2).png",
+      "sourceSha256": "3534a26e777b56aea6288d218375cfe40c3f5a748b299ff9bdf5ac347f8bbd1d",
+      "outputSha256": "1d1c1abdda60a34b053cadb3f7eb2c5874e39e373205c777f16fff99cbe599d7"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (25).zip",
+      "original": "unisex-staple-t-shirt-black-front-6a90d504f30a2.png",
+      "sourceSha256": "9d60d51ea50c8c32b1a298fcae9649a53f38902e8afb47d0b67c4da2585fe62b",
+      "outputSha256": "50d9afaff7bcbb15ab96bf67b342e464674ca335c946aaec231ee6f912d90041"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (25).zip",
+      "original": "unisex-staple-t-shirt-black-front-6a90d50500680.png",
+      "sourceSha256": "2292c5cbec07ba6bbda720c382a0988928328c2c632f9352027e516165002250",
+      "outputSha256": "88cad7eb168c92af2f848a6664dcb03c5fc3176f91b1dbbab6ac554eae35a77a"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (25).zip",
+      "original": "unisex-staple-t-shirt-black-front-6a90d505009ed.png",
+      "sourceSha256": "011f1dd634f474c9756c58f8952b21c7ed1a564f69be81a70a12787150606aeb",
+      "outputSha256": "614cbe71ff6f9e4ebff67f8e9228d769d60846849e21a5e6f642b49d5ce612b3"
+    },
+    {
+      "file": "10-front-04.webp",
+      "view": "front",
+      "source": "archive (25).zip",
+      "original": "unisex-staple-t-shirt-black-front-6a90d5050145c.png",
+      "sourceSha256": "a409c626d659c8b2aa2868bf776547492496ae92f0f555e6fcb234805395232e",
+      "outputSha256": "a49ebb6d6e5db993065acc1aa0a0e2103b855c900eb5bbc27fad798002ddd0f1"
+    },
+    {
+      "file": "10-front-05.webp",
+      "view": "front",
+      "source": "archive (25).zip",
+      "original": "unisex-staple-t-shirt-black-front-6a90d50502e87.png",
+      "sourceSha256": "fc7c3265f3d225e6ebd2d9aafddb778e4aff255883e12f3c3a780a7179083a7a",
+      "outputSha256": "50a96586b0682676fa946943da600a75ad59d36439cefbdbdf2ae213658f9616"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (25).zip",
+      "original": "unisex-staple-t-shirt-black-back-6a90d504f350f.png",
+      "sourceSha256": "aef54d4ce698ccbcd5e1bfcfac18d1efed9a3061fdc09dbc586d44aa08121328",
+      "outputSha256": "2a21b4222ef2657b893f853e3a1793f1dd15f5d84adba36c5d1e459e71a2ed16"
+    },
+    {
+      "file": "20-back-02.webp",
+      "view": "back",
+      "source": "archive (25).zip",
+      "original": "unisex-staple-t-shirt-black-back-6a90d50500334.png",
+      "sourceSha256": "6073515670f1322d10f04c184623f11ba86ea7cb6e370d1729728301668cdf77",
+      "outputSha256": "e0c00a60a75e72a1bcf8414329f8d0745268513d710ef5fa255895e4aec2fb98"
+    },
+    {
+      "file": "20-back-03.webp",
+      "view": "back",
+      "source": "archive (25).zip",
+      "original": "unisex-staple-t-shirt-black-back-6a90d505017a5.png",
+      "sourceSha256": "3e026fe2b1f902fd5dd0fcc60973a91f2353bd423446f03f9b01ff3e08fa8e78",
+      "outputSha256": "9b54463cefcd607a3212fca729e0d3682b420e14853eae0437d0f12a81db7faf"
+    },
+    {
+      "file": "20-back-04.webp",
+      "view": "back",
+      "source": "archive (25).zip",
+      "original": "unisex-staple-t-shirt-black-back-6a90d5050249e.png",
+      "sourceSha256": "6d3e0cdb3146bc21c910aa7cb8989d9ec96741aa261614db3e4fbe59b989526c",
+      "outputSha256": "87eeeacd6fac808d297e7e8ff0d61497361aaa32f2cfabf5baba9a4ee1075e50"
+    },
+    {
+      "file": "30-left-01.webp",
+      "view": "left",
+      "source": "archive (25).zip",
+      "original": "unisex-staple-t-shirt-black-left-6a90d504f387e.png",
+      "sourceSha256": "ebacd6de19fe96a037fd68e50695ccea36477a6547ba0c832cba20bb21b032ba",
+      "outputSha256": "66bdadb6c66cafc14698ce7131d937c6ac9ffeba6670b4f946221f3bb89a9d58"
+    },
+    {
+      "file": "30-left-02.webp",
+      "view": "left",
+      "source": "archive (25).zip",
+      "original": "unisex-staple-t-shirt-black-left-6a90d50501ad8.png",
+      "sourceSha256": "6db542168c792dc5c905ec22ddb5488c6d421d8042c5b35f48ffd77b77d2301b",
+      "outputSha256": "b37991fc510faa41d95d094edd71257efed576380132a728c462bbfb676f02ed"
+    },
+    {
+      "file": "35-left-front-01.webp",
+      "view": "left-front",
+      "source": "archive (25).zip",
+      "original": "unisex-staple-t-shirt-black-left-front-6a90d504f3bd8.png",
+      "sourceSha256": "b0d6c0f2f694c21d0548f227b68ded18e597c97272ee24ef53848be414e0fb9f",
+      "outputSha256": "5d9f69405380c62e5d395b36895d8a05c511d54ccacb488f9ac2fdfbf12fcd17"
+    },
+    {
+      "file": "35-left-front-02.webp",
+      "view": "left-front",
+      "source": "archive (25).zip",
+      "original": "unisex-staple-t-shirt-black-left-front-6a90d505010f0.png",
+      "sourceSha256": "c4068cb6146c22368bcffbfa4ea25e02757bed4225905137b7b02ab9a6390c87",
+      "outputSha256": "1db6d58f03e322f9b34c5c35c36c54e539e44cfcb14b74e8c18befff17c7ef03"
+    },
+    {
+      "file": "35-left-front-03.webp",
+      "view": "left-front",
+      "source": "archive (25).zip",
+      "original": "unisex-staple-t-shirt-black-left-front-6a90d50502815.png",
+      "sourceSha256": "2dc299efa98f7066dae0d127e18e45b314b3e51f1a6619e9d18b9882c70353fc",
+      "outputSha256": "4d822683259618521f9e7652c0b451a5b3e263610bdef143938e3ab6a3ffb6c8"
+    },
+    {
+      "file": "40-right-01.webp",
+      "view": "right",
+      "source": "archive (25).zip",
+      "original": "unisex-staple-t-shirt-black-right-6a90d504f3f0e.png",
+      "sourceSha256": "f1ea31b42a3932a4800868bb17d2852316457dbfca9296433efd84610bca0036",
+      "outputSha256": "e91e187da25fac66a954a33a762a0d58751af42512c9dbc72a60d2a49744434b"
+    },
+    {
+      "file": "40-right-02.webp",
+      "view": "right",
+      "source": "archive (25).zip",
+      "original": "unisex-staple-t-shirt-black-right-6a90d50501e25.png",
+      "sourceSha256": "a81aaea6d0ebeab3df50e0964c82ff58005512899fb62892ba95ace7d4f692aa",
+      "outputSha256": "19c36a777125ef7bdc50f596aa9d7a65bfbf306d4c591f94b58630617ac5c98f"
+    },
+    {
+      "file": "45-right-front-01.webp",
+      "view": "right-front",
+      "source": "archive (25).zip",
+      "original": "unisex-staple-t-shirt-black-right-front-6a90d504f4236.png",
+      "sourceSha256": "f9f19ca6eb817bda1af355609d55cc8afa27a76f23ae6ab3731c2d0922a93be8",
+      "outputSha256": "bd6d3c3ee9305fc65f468cca1e04202b7c81c2c80241091656d11661f3946304"
+    },
+    {
+      "file": "45-right-front-02.webp",
+      "view": "right-front",
+      "source": "archive (25).zip",
+      "original": "unisex-staple-t-shirt-black-right-front-6a90d50502b49.png",
+      "sourceSha256": "af3adad5e73c80e8d6907b7030f4bd7df3435d495141978dfe27ae8092234954",
+      "outputSha256": "f161dc311aac58a79e3054ccb70995c5b75b0ef8568e58dbfd17bb3f5eb5173f"
+    },
+    {
+      "file": "50-detail-01.webp",
+      "view": "detail",
+      "source": "archive (25).zip",
+      "original": "unisex-staple-t-shirt-black-zoomed-in-6a90d50500d3a.png",
+      "sourceSha256": "17b4cd077f41406bb69b4a4328684b79627124a4503e7444236a759e06444919",
+      "outputSha256": "f97a55b779813a9c33af9f9c6d9f85579ae8b2b32557838ba0bf2132b92f3a5f"
+    }
+  ],
+  "sourceArchives": [
+    "archive (25).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

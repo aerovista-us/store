@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "productId": "aerovista-av-07-grid-pocket-tee-slate-gray",
+  "productName": "AeroVista AV-07 Grid Pocket Tee — Slate Gray",
+  "hero": "/store/products/aerovista-av-07-grid-pocket-tee-slate-gray/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "pocket-t-shirt.png",
+      "sourceSha256": "8466df42ecc1ab0ff24dd6bdb1dc5a75267e46282d1758c17f14a51e0256e0d4",
+      "outputSha256": "d5036bb98c1f8e6a6b26c9a9899d15b4691f90475a0e0119560a87a1e76ea2c5"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (10).zip",
+      "original": "unisex-garment-dyed-pocket-t-shirt-grey-front-2-6a909cfd1530f.png",
+      "sourceSha256": "04e8289d3e641c32e198d6d7cfa14537598dac57c5674ea6131714cc0909f7ec",
+      "outputSha256": "7b959be75f5acaab1eb9a48fc612d1a9ce2a7886e516c406fe9b4b22b096471a"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (10).zip",
+      "original": "unisex-garment-dyed-pocket-t-shirt-grey-front-3-6a909cfd17201.png",
+      "sourceSha256": "722c6adf484b54a93705fd72981eb3d93f4de186449817a2ae21761e49b7e48c",
+      "outputSha256": "ef9a42560c0c8ec8f0846fc15f3ba3b0c143bf5b7074a0d9bb8e71be87691e40"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (10).zip",
+      "original": "unisex-garment-dyed-pocket-t-shirt-grey-front-6a909cfd14559.png",
+      "sourceSha256": "082f45f9c1aa87947456df643a68695a7c6e443dd659e6750e96dcd62a7f27e3",
+      "outputSha256": "23b25a6cc87f0d7a9bdbdd28cfd41fba111e9157859e68b6f4a276b8dc2032e6"
+    },
+    {
+      "file": "10-front-04.webp",
+      "view": "front",
+      "source": "archive (10).zip",
+      "original": "unisex-garment-dyed-pocket-t-shirt-grey-front-6a909cfd16091.png",
+      "sourceSha256": "afc4b89d18ec18fb91b47ba83fd460af204530f90f150e8285e6dfd2a2b75231",
+      "outputSha256": "f50c7a4bc722c2aa632ba252e1623563f3301563ac6c8d65c267f6a1bd3fccad"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (10).zip",
+      "original": "unisex-garment-dyed-pocket-t-shirt-grey-back-6a909cfd141c6.png",
+      "sourceSha256": "0b6cfd3d864ca0006625d6805e3e4334189b1989f69213df2213eb5e345caaca",
+      "outputSha256": "33b2c7a355646202facfcd4f8167240fa3850d7be7c1e8b6fcd6210162d46cc5"
+    },
+    {
+      "file": "20-back-02.webp",
+      "view": "back",
+      "source": "archive (10).zip",
+      "original": "unisex-garment-dyed-pocket-t-shirt-grey-back-6a909cfd15d38.png",
+      "sourceSha256": "e9e11ddc113904d68e1613299675e2aeefe7c8e039ebff36d1c16055c62767b3",
+      "outputSha256": "92c47d292c341ddb264b7222935154d173c879c3a19f12e3b084dadddcfaa944"
+    },
+    {
+      "file": "20-back-03.webp",
+      "view": "back",
+      "source": "archive (10).zip",
+      "original": "unisex-garment-dyed-pocket-t-shirt-grey-back-6a909cfd166f6.png",
+      "sourceSha256": "96ee5fb058f41154729da2878f694d96ec94943862313e08898f8e3a21b9430a",
+      "outputSha256": "2034ac6cce7c9680f9ed87aa13d74a6ff301911f1f965719e4bd1a95fa3cd8d2"
+    },
+    {
+      "file": "30-left-01.webp",
+      "view": "left",
+      "source": "archive (10).zip",
+      "original": "unisex-garment-dyed-pocket-t-shirt-grey-left-6a909cfd14fd3.png",
+      "sourceSha256": "3e6177bfed3de2c14570099f7011883d890b9c2f05f8370ee5999eedd918826c",
+      "outputSha256": "f2d4a6bf63a4b87d5442f42b4ab901f6dac246bb4751dd508910420a73962a56"
+    },
+    {
+      "file": "30-left-02.webp",
+      "view": "left",
+      "source": "archive (10).zip",
+      "original": "unisex-garment-dyed-pocket-t-shirt-grey-left-6a909cfd16aba.png",
+      "sourceSha256": "264ac00d34698946e77c573c0ea4fdb1cd4908bfe1ae9917e6b3ef384698dd61",
+      "outputSha256": "cbd4e7d65be4b9e65374aa468a553a78a7ec05afb5a4f0f077ed7ddd467e96b9"
+    },
+    {
+      "file": "30-left-03.webp",
+      "view": "left",
+      "source": "archive (10).zip",
+      "original": "unisex-garment-dyed-pocket-t-shirt-grey-left-6a909cfd175aa.png",
+      "sourceSha256": "b56944816f3adc1bd0da06d05a8ac5d9215d2d6c6487660745ccefef45fec5aa",
+      "outputSha256": "67bba4df65753d84ef1bc77126e043cd04e562145585e084779f4333e17a2de3"
+    },
+    {
+      "file": "35-left-front-01.webp",
+      "view": "left-front",
+      "source": "archive (10).zip",
+      "original": "unisex-garment-dyed-pocket-t-shirt-grey-left-front-6a909cfd15658.png",
+      "sourceSha256": "181cff017783f391cc3e8e267001099cc51a2363c3666d0994fb019eb010aa7f",
+      "outputSha256": "0fa72fccb1d10d75faab2083347ef77891184ede250a3c4ddc4c3b62bfdac087"
+    },
+    {
+      "file": "40-right-01.webp",
+      "view": "right",
+      "source": "archive (10).zip",
+      "original": "unisex-garment-dyed-pocket-t-shirt-grey-right-6a909cfd14c64.png",
+      "sourceSha256": "30af391ee21fba6ca9d14c0de4af597e4bf2d8271dbd6d3a1df4e295b4f6cecc",
+      "outputSha256": "62dbfe8eccb281767bb6111ea95542d50bfc0418e60c7c64def08fc237c196ee"
+    },
+    {
+      "file": "40-right-02.webp",
+      "view": "right",
+      "source": "archive (10).zip",
+      "original": "unisex-garment-dyed-pocket-t-shirt-grey-right-6a909cfd16e71.png",
+      "sourceSha256": "daa2889242dfecbd6e6b25ba638506b040c303b8bb097f5f4db59d61a134e042",
+      "outputSha256": "eb59b95ec0db15e7d7ca0ae51739731de041f1a0e9ea6e2f3f439dc6e9588003"
+    },
+    {
+      "file": "40-right-03.webp",
+      "view": "right",
+      "source": "archive (10).zip",
+      "original": "unisex-garment-dyed-pocket-t-shirt-grey-right-6a909cfd17918.png",
+      "sourceSha256": "d227faff0ebbcfa403ef295d28f488992d7362b49f419c0e77809bd31d5b63b0",
+      "outputSha256": "e78120034c5dd07b92f3022f104056c2e51ce7094beb8dda0683f51d6d8ea494"
+    },
+    {
+      "file": "50-detail-01.webp",
+      "view": "detail",
+      "source": "archive (10).zip",
+      "original": "unisex-garment-dyed-pocket-t-shirt-grey-zoomed-in-6a909cfd14905.png",
+      "sourceSha256": "40457d88f00574c8e682a6d73f17c52699b63e39bbdc158a819316d5ee78e1f7",
+      "outputSha256": "0573c86839ff18157798728be513fa3c4dd3b04b9438e330ec623ed11ee7a94d"
+    },
+    {
+      "file": "50-detail-02.webp",
+      "view": "detail",
+      "source": "archive (10).zip",
+      "original": "unisex-garment-dyed-pocket-t-shirt-grey-zoomed-in-6a909cfd159c7.png",
+      "sourceSha256": "aaa8d82c2f387b6d9575cb0626f3ec59600476924c108c31f5404693f59d75d8",
+      "outputSha256": "f5cce5b02363e7fb08fbe0af698714a953e994114c8a57d4e9d3d884afa794d0"
+    }
+  ],
+  "sourceArchives": [
+    "archive (10).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

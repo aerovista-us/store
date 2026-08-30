@@ -67,6 +67,22 @@ Browser: Network tab on POST `/api/checkout/hosted`
 | No `variation_id` in JSON | Re-export from console |
 | Size hidden | Bootstrap filters unmapped keys |
 
+For Horizon, this is expected while `checkoutReady` is false. Do not bypass the
+catalog gate; follow `horizon/COMMERCE_READINESS.md`.
+
+---
+
+## Horizon says “The collection is temporarily unavailable”
+
+| Check | Fix |
+|---|---|
+| `catalog.json` blocked, missing, or opened from `file:` | Confirm `catalog.generated.js` loads before `js/gallery.js` |
+| Generated fallback stale | Run `node horizon/scripts/build-catalog-fallback.mjs` |
+| Catalog invalid | Run `node horizon/scripts/validate-catalog.mjs` |
+| Images absent | Confirm every published display path exists in the sanitized artifact |
+
+The validator fails when the generated fallback drifts from `catalog.json`.
+
 ---
 
 ## Printful shows product but worker fails
@@ -119,6 +135,7 @@ docker compose exec -T -e PYTHONPATH=/app av-store-api python /tmp/seed-fulfille
 | Edited `public/shop/` directly | Overwritten by `sync:store` — edit `store/` |
 | Pushed backend to Git | `store/backend/` is gitignored — use scp |
 | Only deployed shop | Backend/env must match for checkout + fulfillment |
+| Uploaded all of `horizon/` | Unsafe: source masters and operator evidence may be public; use the Horizon sanitized-artifact SOP |
 
 ---
 

@@ -121,9 +121,10 @@ wall, and offers Natural, Soft Ivory, and Evening lighting treatments.
 
 The bullets in this section explain the July 25 source intake and are retained
 for provenance; they do not supersede the current catalog or provider evidence.
-Candidate intake evidence remains under `planning/canvas/` and is not copied
-into this storefront. Current product state is in `catalog.json`, and current
-activation blockers are in `COMMERCE_READINESS.md`.
+**Promoted evidence** lives under `horizon/evidence/`. Design tooling leftovers
+are staged in `_legacy_export/planning-canvas/` (ready to leave this parent
+folder). Current product state is in `catalog.json`; activation blockers are in
+`COMMERCE_READINESS.md`.
 
 - Five Square export rows were reviewed.
 - Four canvas mockups were checksummed.
@@ -137,7 +138,7 @@ activation blockers are in `COMMERCE_READINESS.md`.
   production service produces and ships. A read-only provider audit confirms
   eight expected variants, sizes, prices, and attached-file metadata; all eight
   production Postgres mappings are active.
-- `planning/canvas/HORIZON_ARTWORK_RIGHTS_ATTESTATION.md` is the unsigned
+- `horizon/evidence/HORIZON_ARTWORK_RIGHTS_ATTESTATION.md` is the unsigned
   ownership-confirmation record. AeroVista LLC is the intended rights holder,
   Horizon is its division/brand, and no individual capture-operator credit may
   appear in customer content. No third-party contributor or prior competing

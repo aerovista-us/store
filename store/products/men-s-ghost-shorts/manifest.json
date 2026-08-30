@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "productId": "men-s-ghost-shorts",
+  "productName": "Men's Ghost Shorts",
+  "hero": "/store/products/men-s-ghost-shorts/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "shadowwear.boardshorts.png",
+      "sourceSha256": "acbfb37fbaf533de9f41627f098cff46544efd498ae8deac38264c09624db28c",
+      "outputSha256": "09c596d383dc3a71bc757a84ad71567cc91f17f63a13da0836a75aa2c90c6528"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (22).zip",
+      "original": "all-over-print-mens-board-shorts-white-front-6a90b34a0adc1.png",
+      "sourceSha256": "52b952a075fc41c0f0cdee39f62f47f6d31e1c31f86067dd1ad00afca7e0e0d9",
+      "outputSha256": "fdbc69c82c6d40d506457fe85585165647cb4b40e1fa17abbf5d54c013d13deb"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (22).zip",
+      "original": "all-over-print-mens-board-shorts-white-front-6a90b34a0af11.png",
+      "sourceSha256": "50b9fdd960a0543360fc2526b9dfae4f3b8543bb1149ea8a60da54c5dc7a4d7a",
+      "outputSha256": "4c0c71f11d177f13cb5e407d25748fb6b2930ac943b1097bb62a1f4ad8704034"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (22).zip",
+      "original": "all-over-print-mens-board-shorts-white-front-6a90b34a0b082.png",
+      "sourceSha256": "d84d46761bf718495ace4a70ad90d3ab73cb8052fe9b585a7ab2fff74deecc6e",
+      "outputSha256": "76413c463fcc3b91e94d6b80f59aa8baa13aa7430a26bb39cd41a25f6c740a13"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (22).zip",
+      "original": "all-over-print-mens-board-shorts-white-back-6a90b34a0aea2.png",
+      "sourceSha256": "ddfb137e3ba9d14fb6a8c63e191ffa51bd2d189826ef7661ddad40131fc3151c",
+      "outputSha256": "1dc7c8119ad5b8cf29175860abef40c513575e9e1b691ecbc8ccbfc2d4b2a410"
+    },
+    {
+      "file": "20-back-02.webp",
+      "view": "back",
+      "source": "archive (22).zip",
+      "original": "all-over-print-mens-board-shorts-white-back-6a90b34a0aede.png",
+      "sourceSha256": "7276e61234e7b1a86860271fb3ab5f8a7567d0d26e5f557b247071e96fbc7619",
+      "outputSha256": "947264364349de32074ff086e621681858271bef743cef083051f054722b142f"
+    },
+    {
+      "file": "20-back-03.webp",
+      "view": "back",
+      "source": "archive (22).zip",
+      "original": "all-over-print-mens-board-shorts-white-back-6a90b34a0af9f.png",
+      "sourceSha256": "a403380b2764b7d89d62e13897dfb9dc7f70e6c6573bd63f038a349696425768",
+      "outputSha256": "48b64f2edc597657de00eee6de4a8f8e1da938992fac1201178a0d9b5d54b43f"
+    }
+  ],
+  "sourceArchives": [
+    "archive (22).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

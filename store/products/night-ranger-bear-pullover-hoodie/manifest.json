@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "productId": "night-ranger-bear-pullover-hoodie",
+  "productName": "Night Ranger Bear Pullover Hoodie",
+  "hero": "/store/products/night-ranger-bear-pullover-hoodie/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "nit_bear.png",
+      "sourceSha256": "b08f61b72b5b7f6297d14f1a36d6b90a2832f58851cb38babf186fd6f0ac5576",
+      "outputSha256": "2b38144bcb11b70a21b562a6badeceedbaf24425daa52249072a6b605ab54cb7"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (50).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-front-6a9383225edad.png",
+      "sourceSha256": "97fec57e076a2ffde5d8faba26328bdd8bf6f5dc61b204accd715343f091b7bf",
+      "outputSha256": "de70da96e1addc1bffdeeadad206002e3dbfbb39179ea6b61ec5e69d0afd3a78"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (50).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-front-6a9383225f82a.png",
+      "sourceSha256": "fa99c55a326b195529bf35e9a69416b2d1beed25f3c55d3204e9ddd7cecb61d7",
+      "outputSha256": "49b61539140fd9e82f0ba25481687a0507f46072994a7ac780ae00ba16522225"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (50).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-front-6a9383225f8a1.png",
+      "sourceSha256": "c59766c434944b6c1ed9b36167b23abfb836468125b96473f0336e393ccf4a87",
+      "outputSha256": "3ed8f9a1acf2c47f34ecfa9a9a9feb88c64c0a664c78a7b3f7fcd5ac8c82b35b"
+    },
+    {
+      "file": "10-front-04.webp",
+      "view": "front",
+      "source": "archive (50).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-front-6a9383225f997.png",
+      "sourceSha256": "9ad9b5b0bdd0cbef0f2466561e5652539235ee7f87c7f8c7db4d5ba1d89084a9",
+      "outputSha256": "1463d695966409fee2256288cf4012b199911a203d70dc7ec0540a0e1781b1ef"
+    },
+    {
+      "file": "10-front-05.webp",
+      "view": "front",
+      "source": "archive (50).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-front-6a9383225fa94.png",
+      "sourceSha256": "eb7ff1bc24aa5495ce4304905336081722d9dc0b32c24f0b9d9f3b4267e143a7",
+      "outputSha256": "7bd0fb6f1fafa74ea56a41040825e80139724d8e20e392cf4cf5e970c0cf08a9"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (50).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-back-6a9383225f60e.png",
+      "sourceSha256": "2025a32bc766b80a21ce902ccfadc96d6ad1bf8d6f3d220423474fc321a75428",
+      "outputSha256": "1aba0cc78ce92089d72642c9532ee947074edacf22b0ac5b4c8ccfa274491ccd"
+    },
+    {
+      "file": "20-back-02.webp",
+      "view": "back",
+      "source": "archive (50).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-back-6a9383225f7b5.png",
+      "sourceSha256": "6fa4061d3b6dc83d9bad7cecb5fe97985fd1fcc6a146bfed6fb859f6eb0c13d3",
+      "outputSha256": "7747847d00e1cff2fed4ba77d980b72f2c2dc443b1a629330881879c91f6007b"
+    },
+    {
+      "file": "20-back-03.webp",
+      "view": "back",
+      "source": "archive (50).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-back-6a9383225f91d.png",
+      "sourceSha256": "7be18cdb860009a9b2428f8e7af0a3b289cdcc18c5c70cc02697a59bb468ae26",
+      "outputSha256": "03959f28de918681e4e0cdfb0216cc79c57c8d037eec5aae91bbc00b3060a4c5"
+    },
+    {
+      "file": "20-back-04.webp",
+      "view": "back",
+      "source": "archive (50).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-back-6a9383225fa16.png",
+      "sourceSha256": "5c2bc9f240636c6951581816b8366ecef61c23bf4918f6abac88dfbccea0a436",
+      "outputSha256": "9a9bb3336d56e1df8d358e2e15a5e299a2aa5a52bb226c5346b49bcf8a397746"
+    },
+    {
+      "file": "30-left-01.webp",
+      "view": "left",
+      "source": "archive (50).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-left-6a9383225f6af.png",
+      "sourceSha256": "dd12b13cd701de3d18e9ad2acd9bcfe7942e6f2d53e7c699747ee267f37699b7",
+      "outputSha256": "a9d37e5c5e5f66cd3066eace017e4e84d7bcd5e4bc9d3e25542d89f70e31cb68"
+    },
+    {
+      "file": "40-right-01.webp",
+      "view": "right",
+      "source": "archive (50).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-right-6a9383225f73d.png",
+      "sourceSha256": "dbba0838454270e880a81e420e3750db8ebb6f4de3c02f17485de071ea16f831",
+      "outputSha256": "145d80e5f89e153a06528d88f40a2a6ae69d76df3f0127de2a7d6a943369c600"
+    }
+  ],
+  "sourceArchives": [
+    "archive (50).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

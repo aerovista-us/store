@@ -1,0 +1,245 @@
+{
+  "schemaVersion": 1,
+  "productId": "vespra-moonscript-hoodie",
+  "productName": "Vespera Moonscript Hoodie",
+  "hero": "/store/products/vespra-moonscript-hoodie/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-front-6a9350fcdfae3.png",
+      "sourceSha256": "91ad3d61983085508cf9d6ca4d79c198f762887744c32150cdcc24e19ecb28c7",
+      "outputSha256": "d54ebb4ac039def6794d8233c91b7a80c485435b09ed9e4c24ea7c5d8ec2fc73"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-front-6a9350fce0477.png",
+      "sourceSha256": "55d6d38b2abec0e728b0b71736526bda17c4afb8a60dc2125b2e28e14fbbce59",
+      "outputSha256": "2f3ac92691e467850ffc5496243e2bc45965820acb4466ebb7483a98a27fbf0f"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-front-6a9350fce0bc5.png",
+      "sourceSha256": "00a62315bacaeccb097cf612883d862f92eb54e58aaab5bfe31ced3b59831777",
+      "outputSha256": "8756f0b505bc4e7892e39ee2c80a084049a8810631b2e3e1b4af66c69eb23e6f"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-front-6a9350fce1287.png",
+      "sourceSha256": "fe68012d34eff3a4e63b30fb2d523ec09caeab918e2fdc22cb373f9d02b15c73",
+      "outputSha256": "3a4d1f01cfd34033948751634c026ff894c5e17c74d5195845aec2ecb59c889f"
+    },
+    {
+      "file": "10-front-04.webp",
+      "view": "front",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-front-6a9350fce2792.png",
+      "sourceSha256": "2006cb1e9875c95022a3109173ad9f71b7c7e012e0c03d9c732a59310b67538f",
+      "outputSha256": "dfb46edcfd29df64ff96ee6e60a4e6ea0377a96e6faff226b9223af91fc3fb15"
+    },
+    {
+      "file": "10-front-05.webp",
+      "view": "front",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-front-6a9350fce4190.png",
+      "sourceSha256": "c07a18b418acd389d3c5e554c02557dcb02a493e2c25d11dadf34c9b7baa03e8",
+      "outputSha256": "c7f9a374148875ccc51ed7c32bf6532254d499343eec8c4c8d48b22f841337a8"
+    },
+    {
+      "file": "10-front-06.webp",
+      "view": "front",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-front-6a9350fce44dc.png",
+      "sourceSha256": "8fae6f827debcfdcff8a20353871fcc5c15486072bf578ad57cc24b901041c9f",
+      "outputSha256": "e5847d870ad03760a2f45c0aa15e0c029b45a37fbd03fba279344b2a9eeb3afd"
+    },
+    {
+      "file": "10-front-07.webp",
+      "view": "front",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-front-6a9350fce4827.png",
+      "sourceSha256": "c0dfd1c57d24b40047afdaa0ac5f98ab4f907c5749bee1af252964dbbab7ec76",
+      "outputSha256": "91480ecf6eac831b7a689d7a3c3c55d8d236f12515919d7b8bf8caf437bbd861"
+    },
+    {
+      "file": "10-front-08.webp",
+      "view": "front",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-front-6a9350fce4e9b.png",
+      "sourceSha256": "f30d371aa2daef3ae60228c08a1852ee4c8c6973c3841320c19a96e172b7301a",
+      "outputSha256": "cac663c017078e6b454bd00af5118f920a07d788f7649437531b8456d0349e52"
+    },
+    {
+      "file": "10-front-09.webp",
+      "view": "front",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-front-6a9350fce5b9c.png",
+      "sourceSha256": "98c915073cc2d370b7d830c2d1cf58fe929bcab2448ccc81dadd131e1996305d",
+      "outputSha256": "c184bb0e0fe773b1ccf71e936a9aa1dac1fa8ac0685a14681e10a6c82945b06d"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-back-6a9350fce0117.png",
+      "sourceSha256": "e53e611826eedc1aa9fd34aa9ccd031e157f19c502679f55cb9fc402e7a9eee4",
+      "outputSha256": "c5d33ba76c59390d2ba93ec309281ccb928c96d422e1b535c1dcde052faf7c25"
+    },
+    {
+      "file": "20-back-02.webp",
+      "view": "back",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-back-6a9350fce0812.png",
+      "sourceSha256": "9deb82812c3df88b86a5a6d6c69ddfa12cf5daba8879d2377e61826c7134eb9a",
+      "outputSha256": "b9c1700eab8ecde9082646422ddb34089785d38734215ce3c1386ef42fb08869"
+    },
+    {
+      "file": "20-back-03.webp",
+      "view": "back",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-back-6a9350fce0f22.png",
+      "sourceSha256": "00588250f83e1f1e7067f1edc39e6477b7621fe4d00d1017e661e3c340d5e3d9",
+      "outputSha256": "1a4b53b2b6450e36eb743f688e63314a921dcf1a6e4bdd494c610db5ea564f13"
+    },
+    {
+      "file": "20-back-04.webp",
+      "view": "back",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-back-6a9350fce15fb.png",
+      "sourceSha256": "9d41058d0f0d4200eef3a8da6b34dabaa1595c5f24d838c1a7b4ba2417ebe5a8",
+      "outputSha256": "a6c174a6244313d5b90980d70c8ff17e77fff8bc30d391602af8024da9f81e18"
+    },
+    {
+      "file": "20-back-05.webp",
+      "view": "back",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-back-6a9350fce2b54.png",
+      "sourceSha256": "ad0e9f9e6ead94489e0350fd343474b49c689a0100597e90c1c6244c3529eb8d",
+      "outputSha256": "d1ea854303b47ddb5bbbae41ea2d5266e1b8ab5b6e86b4d124002b7761655195"
+    },
+    {
+      "file": "20-back-06.webp",
+      "view": "back",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-back-6a9350fce3e04.png",
+      "sourceSha256": "aa67bd43a4a7c98dd234a3d3066cc8a40fa981641e2482d8aa70fb0e4f221dad",
+      "outputSha256": "bbf61609846b7980a5d7354eb55de45bb65a28ce2e522dae7260b9a85bf1e94a"
+    },
+    {
+      "file": "20-back-07.webp",
+      "view": "back",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-back-6a9350fce4b71.png",
+      "sourceSha256": "8edcbe5355c48dc9a5a00790385f5a402388995cdab729537778d2785fe3a4bf",
+      "outputSha256": "276a13c12e047546ca6fc22ae487c2205f8060c1fe9b918ad6d6e846376095e3"
+    },
+    {
+      "file": "20-back-08.webp",
+      "view": "back",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-back-6a9350fce51c8.png",
+      "sourceSha256": "15f9a273dd19a2dc9d050437e3ebbe2f99686008cbb3151239169ea10782bb97",
+      "outputSha256": "4b86f5874055fdd344045993d44e7cb592a1f48a4381b24488f843883f8f3d65"
+    },
+    {
+      "file": "20-back-09.webp",
+      "view": "back",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-back-6a9350fce5edd.png",
+      "sourceSha256": "ebf78258f717c02138b2cdeefff64232c4d9c69f08cc8147963ee06bc30ae783",
+      "outputSha256": "27e076e66001cd53cc084ed86f2b73029d37b7b91f042f22b43518eecda14167"
+    },
+    {
+      "file": "30-left-01.webp",
+      "view": "left",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-left-6a9350fce1ca6.png",
+      "sourceSha256": "9b57751e6736f2eafe68c5713b812f1123021ac60c5306ca676d6064081bbeeb",
+      "outputSha256": "b0b006baf0b75e3b1a1c77a0f63ed3a88e8f9a65c8b2b8e9630b6780e87cd201"
+    },
+    {
+      "file": "30-left-02.webp",
+      "view": "left",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-left-6a9350fce551c.png",
+      "sourceSha256": "27b129c32bab9defeadbd2d619b9c93c760384864b180aca1266ecc51c8fa976",
+      "outputSha256": "433eb4448aea881747fb973d93c6706d824dee337bfad72fc8c93a51e3a8bbf5"
+    },
+    {
+      "file": "35-left-front-01.webp",
+      "view": "left-front",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-left-front-6a9350fce1953.png",
+      "sourceSha256": "51c7f5f66d76a0964020f2d73e8a82a7fda651e5da0dcb7f6ecaa4a9c024b20b",
+      "outputSha256": "7399b394e36e7f2ba24541a4da23922527b468f867127e7d9dded692bb4252e9"
+    },
+    {
+      "file": "35-left-front-02.webp",
+      "view": "left-front",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-left-front-6a9350fce3a9d.png",
+      "sourceSha256": "ebba508ff5ecdb9798d3e2b4001281c1570dd6dddb31ad86f34f9b47bdd566a5",
+      "outputSha256": "73d293c74af8b5bc80ac76ecb71a976ae8db54a857d58a4af079ca00ad2d38bb"
+    },
+    {
+      "file": "40-right-01.webp",
+      "view": "right",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-right-6a9350fce23ef.png",
+      "sourceSha256": "a133cd06f0d80594e09555e6ca94c2880c112bd07d974c9463c604d4b3c8cfdd",
+      "outputSha256": "1423520510d2eb3ebdac2ba999b0446e7b292b09ad826f45249079d063807166"
+    },
+    {
+      "file": "40-right-02.webp",
+      "view": "right",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-right-6a9350fce5871.png",
+      "sourceSha256": "b7caee68e839608c736210d86a89f9eae5ac19c836c31d7d5da54f4ef79255d7",
+      "outputSha256": "983a73832111062952e0bd9f2802ee7bc18a9299b7860a398a2b6f96d2240d1d"
+    },
+    {
+      "file": "45-right-front-01.webp",
+      "view": "right-front",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-right-front-6a9350fce2013.png",
+      "sourceSha256": "caf7846bf52ae9c07083d20267c4c32c073667410b8f4b645ea28cb897186ac2",
+      "outputSha256": "c382ed250434c49bbfbb5740a9345f7912c3e2a7d2409fefc22e078e7294f265"
+    },
+    {
+      "file": "45-right-front-02.webp",
+      "view": "right-front",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-right-front-6a9350fce36d7.png",
+      "sourceSha256": "fa338907e2209eb2d5f1f5bab9b8397f7b1b467de1fb640afe22625f8e0deff2",
+      "outputSha256": "19bd767961a495fcef00deddde8747bb67f5e94f4b72f90c16a25ebab0508825"
+    },
+    {
+      "file": "50-detail-01.webp",
+      "view": "detail",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-product-details-6a9350fce2f22.png",
+      "sourceSha256": "b227532c870a9f4d955e8f7a5aa58d499322b7a5c673978ac86ecab9c27a5823",
+      "outputSha256": "55671cebc15f7e102982ca97ed03f8be07c93bb323f31d2d4ddffafafefa39ba"
+    },
+    {
+      "file": "50-detail-02.webp",
+      "view": "detail",
+      "source": "archive (37).zip",
+      "original": "unisex-premium-pullover-hoodie-black-zoomed-in-6a9350fce330d.png",
+      "sourceSha256": "da97b8da85b434a4ba111b54a09e117b422a880e458831f4a6b4e0048754d639",
+      "outputSha256": "6aa973aee68550ae812f3d4f44b9d0bf7d773318e9c9f33d5cef0be0b54b9448"
+    }
+  ],
+  "sourceArchives": [
+    "archive (37).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

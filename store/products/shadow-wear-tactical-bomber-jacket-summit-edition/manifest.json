@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "productId": "shadow-wear-tactical-bomber-jacket-summit-edition",
+  "productName": "Shadow Wear Tactical Bomber Jacket — Summit Edition",
+  "hero": "/store/products/shadow-wear-tactical-bomber-jacket-summit-edition/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "Bomber_jack.png",
+      "sourceSha256": "01993200c5a5105c7ebe8bd096a22f736f8425d3a32605b90d3d14b7bd90720f",
+      "outputSha256": "dfe2da81771865e1d44f4cb4e32f70fd193d1eb0db4f5bc86dcd7fe8343f3c82"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (12).zip",
+      "original": "all-over-print-unisex-bomber-jacket-white-front-6a909d97d7717.png",
+      "sourceSha256": "23ebbe34fc239ab5e9d1f4025f29b7ff08ce2826c9bf43337429c35694d0ae3e",
+      "outputSha256": "3419b06c92b54d51a93a0520ced8093f255a05e5d2f5520915fac7c7c3b68520"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (12).zip",
+      "original": "all-over-print-unisex-bomber-jacket-white-front-6a909d97d8543.png",
+      "sourceSha256": "2fb49bbf75423715b97cff9d4569a97fb66ae1d92f45cf3dcd7f164a880dabd4",
+      "outputSha256": "888309d18eb89eed1677b22d31c8c19e41ca4cd72d47cd556f2e178ee663774e"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (12).zip",
+      "original": "all-over-print-unisex-bomber-jacket-white-front-6a909d97d8bd6.png",
+      "sourceSha256": "9e2d3c89604a475b0c8dc6ff052731ae49c035d4cf351331cec54be0665d6ebb",
+      "outputSha256": "3ba2adf92b020517954ea3a0031bf54489399f4c848ba511432e2ebaa1ff84d4"
+    },
+    {
+      "file": "10-front-04.webp",
+      "view": "front",
+      "source": "archive (12).zip",
+      "original": "all-over-print-unisex-bomber-jacket-white-front-6a909d97d9273.png",
+      "sourceSha256": "d3ed093cd6d6800a02aef36e92f10919ea28e5c9da2411a43b786ebc95d6f22d",
+      "outputSha256": "02c81be81b85fe196a03fb1d0c94f4b994b05ae24da10c880e27868eb2b4b7f7"
+    },
+    {
+      "file": "10-front-05.webp",
+      "view": "front",
+      "source": "archive (12).zip",
+      "original": "all-over-print-unisex-bomber-jacket-white-front-6a909d97d9c52.png",
+      "sourceSha256": "1dfb7928d44f180453638e6f88bbf59761f40c7cb906d4416056703ed5b96f7b",
+      "outputSha256": "9ae603791ae9eb08f831d75387171b8b47d0978543a7f329416c9722e4343869"
+    },
+    {
+      "file": "10-front-06.webp",
+      "view": "front",
+      "source": "archive (12).zip",
+      "original": "all-over-print-unisex-bomber-jacket-white-front-6a909d97d9fb2.png",
+      "sourceSha256": "c0aa7c8d0e8fc385ed565bc695e2afe73f29244d258fb9bc56a12a96240656d8",
+      "outputSha256": "8307e91638736cbff44b46b802fd40912842f9965619e88feef8fa88de60b4d0"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (12).zip",
+      "original": "all-over-print-unisex-bomber-jacket-white-back-6a909d97d7b31.png",
+      "sourceSha256": "1a3877c86d9b448911f697befb717d3ac9444a958d1ea005223425d9c2435b6f",
+      "outputSha256": "5e6c9a9f4dc59b27ec3b2b885dab1e07d02ec5455d55d0323e03224d32c5caa2"
+    },
+    {
+      "file": "20-back-02.webp",
+      "view": "back",
+      "source": "archive (12).zip",
+      "original": "all-over-print-unisex-bomber-jacket-white-back-6a909d97d8889.png",
+      "sourceSha256": "75ee3749bc5a9af2954dbc891a6db9c43d72b97639633133efae56f55c940d04",
+      "outputSha256": "ca4d5a2a5aa157109693b2ee3c2bd4ef5cf65b8bcfa6deb3a686300ede89e04b"
+    },
+    {
+      "file": "20-back-03.webp",
+      "view": "back",
+      "source": "archive (12).zip",
+      "original": "all-over-print-unisex-bomber-jacket-white-back-6a909d97d8f2a.png",
+      "sourceSha256": "3265388d2d6d75b66771bed799f7fe8285a4b043f474f37859f4df3a1d57d8cd",
+      "outputSha256": "9b987c06b1fb2e50eb06792fdcd6fbcf929b632194b649c0eb91e5af95e8efed"
+    },
+    {
+      "file": "20-back-04.webp",
+      "view": "back",
+      "source": "archive (12).zip",
+      "original": "all-over-print-unisex-bomber-jacket-white-back-6a909d97d95c4.png",
+      "sourceSha256": "45ca4fa7e1bcd716f28ea607036dabaee7529d24f90a03c988460b4f14171c52",
+      "outputSha256": "706431614b851b498ddfec7a8543a9517914d8aec54dd522f9b820699c26bf14"
+    },
+    {
+      "file": "20-back-05.webp",
+      "view": "back",
+      "source": "archive (12).zip",
+      "original": "all-over-print-unisex-bomber-jacket-white-back-6a909d97da305.png",
+      "sourceSha256": "cb32d7dc45581d190c437d076d85a7db944c1f710a8ed3144de56c2e5a3a19d2",
+      "outputSha256": "ab9370be3f7bfe745bf909563b577e783842d74c2971bb20733e850f4a17979d"
+    },
+    {
+      "file": "30-left-01.webp",
+      "view": "left",
+      "source": "archive (12).zip",
+      "original": "all-over-print-unisex-bomber-jacket-white-left-6a909d97d81e8.png",
+      "sourceSha256": "73887e16fe10cba9ce2d816676e02a2ae57705efdb3cff3b376aa359d382d028",
+      "outputSha256": "0f4d154f9ce6fe42eb5d4e074340a38d0e28ae893193d662136217a7a2a03235"
+    },
+    {
+      "file": "35-left-front-01.webp",
+      "view": "left-front",
+      "source": "archive (12).zip",
+      "original": "all-over-print-unisex-bomber-jacket-white-left-front-6a909d97da65f.png",
+      "sourceSha256": "0253ed797d33e0cdc7c409b30789ff334e08a00cf4f25a39b571d735deb6dcda",
+      "outputSha256": "2739551dbdfe4e5aef06401cb0c2cd3f181d09633e5c9eb370d04439cd776c12"
+    },
+    {
+      "file": "40-right-01.webp",
+      "view": "right",
+      "source": "archive (12).zip",
+      "original": "all-over-print-unisex-bomber-jacket-white-right-6a909d97d7ea5.png",
+      "sourceSha256": "d103af27ffb4df1f8c898ecc5c6d6949da1637a69d4c91160e717c3557f4bd08",
+      "outputSha256": "274ab436750a090f8d2e771e5af3f72437ead1bd40a18bbaae6b611f8686dfa6"
+    },
+    {
+      "file": "48-right-back-01.webp",
+      "view": "right-back",
+      "source": "archive (12).zip",
+      "original": "all-over-print-unisex-bomber-jacket-white-right-back-6a909d97da9d0.png",
+      "sourceSha256": "f9c6327fc5fc98444e884158c4135602faa39ae43c8f1afcc69df6eb18598903",
+      "outputSha256": "f5782493b197e3cd9cc7147b35ee0bc9d0e7788c70eebdf50aabd1c481f786a6"
+    },
+    {
+      "file": "50-detail-01.webp",
+      "view": "detail",
+      "source": "archive (12).zip",
+      "original": "all-over-print-unisex-bomber-jacket-white-product-details-6a909d97d9917.png",
+      "sourceSha256": "c8817dbda052de3b980e9eb19018371d3af117e4ab950284df776794dc128dc0",
+      "outputSha256": "1d5362394ad05b1f7fc56b08ec836495617d6b04bbdf1577e7457e26ce076854"
+    }
+  ],
+  "sourceArchives": [
+    "archive (12).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

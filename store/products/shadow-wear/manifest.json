@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "productId": "shadow-wear",
+  "productName": "Shadow Wear",
+  "hero": "/store/products/shadow-wear/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "shadow_tee.png",
+      "sourceSha256": "2d982b4abc83c0d53fbd26892a9d1fef610d2207d810770436d37fd1eab53587",
+      "outputSha256": "81b28fa331b4f519e3aaf57fa7650f3ef74532bb4f23d1eba996777c220c0bc2"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (13).zip",
+      "original": "all-over-print-mens-crew-neck-t-shirt-white-front-6a90a07a0bcb6.png",
+      "sourceSha256": "775620a33af5cbfa9dcd323f62e3863f9b79e1b2f55414459c1b9840b045aa60",
+      "outputSha256": "d561dc608c74b9580389a229a91410d0c27136ec24e40777d4e2730cae5c51c2"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (13).zip",
+      "original": "all-over-print-mens-crew-neck-t-shirt-white-front-6a90a07a0c555.png",
+      "sourceSha256": "305865323d3522611f139857f3b6729da054dcc527ba1b60f2c8baf24192d8b8",
+      "outputSha256": "031c10ad2945b6cf162c55c5ac5c1c206d88fb588cc08a1b83afef52d2dd88b6"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (13).zip",
+      "original": "all-over-print-mens-crew-neck-t-shirt-white-front-6a90a07a0d417.png",
+      "sourceSha256": "71db7de388f122ff8d1fa36d494c43481ee6203971ad16cbf5ddb3552331ad5d",
+      "outputSha256": "7990477480ef1a6ea7c86868050eb1d73b7a514c01a872b0a184b23973de003d"
+    },
+    {
+      "file": "10-front-04.webp",
+      "view": "front",
+      "source": "archive (13).zip",
+      "original": "all-over-print-mens-crew-neck-t-shirt-white-front-6a90a07a0da81.png",
+      "sourceSha256": "4dbd16c1b73413487f153f5e43cf3eb6afe9aa6febc845b4f27865990f0a37f5",
+      "outputSha256": "6fddcdfc5bf3159ac6fec7b7e3e6af639fcf79780d7845bfc19add06c55674a7"
+    },
+    {
+      "file": "10-front-05.webp",
+      "view": "front",
+      "source": "archive (7).zip",
+      "original": "all-over-print-mens-cotton-crew-neck-t-shirt-white-front-6a8abde754bde.png",
+      "sourceSha256": "2caa8187d6682528df66278c54a2ec09601debccc6016e70c31563e55487e592",
+      "outputSha256": "80178d467b5864c3f4a6547e6a01bde4e73eaafb8d6cd91ab28088fa679e50dc"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (13).zip",
+      "original": "all-over-print-mens-crew-neck-t-shirt-white-back-6a90a07a0c1d3.png",
+      "sourceSha256": "0ac6ac4b41607fe760949a9b1cce08649e95e75c44663b28a2571065987f9b31",
+      "outputSha256": "75168d27f074d519e366ffb746bd9ad1fcadd0e3e09b703b2166c5123e3ffa20"
+    },
+    {
+      "file": "20-back-02.webp",
+      "view": "back",
+      "source": "archive (13).zip",
+      "original": "all-over-print-mens-crew-neck-t-shirt-white-back-6a90a07a0c8bc.png",
+      "sourceSha256": "b7b369d63aa9578cc8698ff69e05058d7ae46c4543ea6269d2dec54dc4928320",
+      "outputSha256": "e210e0880eeca40177ae368dd251ad735811de467207e356f7c3fbc4d8c7d1d9"
+    },
+    {
+      "file": "20-back-03.webp",
+      "view": "back",
+      "source": "archive (13).zip",
+      "original": "all-over-print-mens-crew-neck-t-shirt-white-back-6a90a07a0d762.png",
+      "sourceSha256": "cf9b56703cdd61bd2f4595c2f15c13d0ef3595020434b237db8131bc6f84c3c1",
+      "outputSha256": "f08121e39776e7f5a752d3aa1ebe2eaee9b4ec338793553da941eb25f792227c"
+    },
+    {
+      "file": "20-back-04.webp",
+      "view": "back",
+      "source": "archive (13).zip",
+      "original": "all-over-print-mens-crew-neck-t-shirt-white-back-6a90a07a0ddbe.png",
+      "sourceSha256": "c04292523fdf6fd6b2edf3b612720dfa8595bbc774a2a42c58e5795e818a07c4",
+      "outputSha256": "a1533c8e4e1c1def3a822195d4ad61359f2c3634de0108d67f5f0c02351d8418"
+    },
+    {
+      "file": "20-back-05.webp",
+      "view": "back",
+      "source": "archive (7).zip",
+      "original": "all-over-print-mens-cotton-crew-neck-t-shirt-white-back-6a8abde7549b3.png",
+      "sourceSha256": "3d1348eb553c120ac9a930094351e0040c13f0896a38e867c1954bad1071e9d7",
+      "outputSha256": "ee993c27000ef4ef0c5efd8502584b06813293da9104a9426f79e42e5fecc894"
+    },
+    {
+      "file": "20-back-06.webp",
+      "view": "back",
+      "source": "archive (7).zip",
+      "original": "all-over-print-mens-cotton-crew-neck-t-shirt-white-back-6a8abde754d20.png",
+      "sourceSha256": "ef6387c38a0d802b58659dd21dae70d7d0f6628c4e75babbcd56f3717ec9a2c1",
+      "outputSha256": "3b597a89a15969e3eb6db495a5498d9c1c929c5d91bd75e5c454f458abf8e8ed"
+    },
+    {
+      "file": "30-left-01.webp",
+      "view": "left",
+      "source": "archive (13).zip",
+      "original": "all-over-print-mens-crew-neck-t-shirt-white-left-6a90a07a0d0a9.png",
+      "sourceSha256": "74a77c3aa53b021b63af86cfa057b166a536493da354937a8e4f728afa994b57",
+      "outputSha256": "df0da17718f077d06308efb20d50cd6302d96a40f029f616ea3a006285bc5015"
+    },
+    {
+      "file": "35-left-front-01.webp",
+      "view": "left-front",
+      "source": "archive (7).zip",
+      "original": "all-over-print-mens-cotton-crew-neck-t-shirt-white-left-front-6a8abde754e3e.png",
+      "sourceSha256": "fbf58a099bc2a050b3b746dc97d267d8aac39fb2f0a4949edc3a19c85d5d331e",
+      "outputSha256": "22c47da296c224c521f784ff33cad3999073577d24228230f2e4b066518e67fe"
+    },
+    {
+      "file": "40-right-01.webp",
+      "view": "right",
+      "source": "archive (13).zip",
+      "original": "all-over-print-mens-crew-neck-t-shirt-white-right-6a90a07a0cd2d.png",
+      "sourceSha256": "e77d3b3ada29802f7e2c7f76389efe5f4d983becd7dc5f74e87b784f3afaaa95",
+      "outputSha256": "4660188d3e9d1c420fb50568a0954ceb7b4441d0aaefd241d627cf61e2d5378e"
+    },
+    {
+      "file": "45-right-front-01.webp",
+      "view": "right-front",
+      "source": "archive (7).zip",
+      "original": "all-over-print-mens-cotton-crew-neck-t-shirt-white-right-front-6a8abde754f55.png",
+      "sourceSha256": "0ce2ed75ac04ea2ce13a1c167bbc1e086f42b9a9ed1a6c8d9139af8c3d46d4d4",
+      "outputSha256": "de6693a31c6ca33284a12741652065fe971253d94c6768cbeb308facd4a92747"
+    }
+  ],
+  "sourceArchives": [
+    "archive (13).zip",
+    "archive (7).zip"
+  ],
+  "duplicateArchives": [
+    "archive (14).zip"
+  ],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

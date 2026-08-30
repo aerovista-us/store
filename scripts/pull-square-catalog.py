@@ -6,7 +6,7 @@ Printful snapshots remain fulfillment/provider evidence — not shop inventory S
 
 Usage:
   python scripts/pull-square-catalog.py
-  python scripts/pull-square-catalog.py --env-file store/backend/.env --output store/commerce/square-catalog-inventory.json
+  python scripts/pull-square-catalog.py --env-file store/backend/.env --output store/_internal/commerce/square-catalog-inventory.json
 """
 from __future__ import annotations
 
@@ -26,6 +26,7 @@ DEFAULT_ENV = REPO_ROOT / "store" / "backend" / ".env"
 DEFAULT_OUT = (
     REPO_ROOT
     / "store"
+    / "_internal"
     / "commerce"
     / f"square-catalog-inventory-{datetime.now().date().isoformat()}.json"
 )

@@ -1,0 +1,40 @@
+
+    </div><!-- /homeLanding -->
+
+    <section id="collectionView" class="catalogArea shop-view is-hidden" aria-label="Collection shop">
+      <article class="collectionViewHero" id="collectionViewHero" style="--pageGlow:rgba(110,231,255,.12);--pageBg:url(./img/collection-cards/core.png)">
+        <div class="backRow"><a href="index.html" class="btn" id="collectionBackHome">← All collections</a></div>
+        <div class="pageEyebrow" id="cvEyebrow">Live Collection</div>
+        <h2 id="cvTitle">Collection</h2>
+        <p class="pageLead" id="cvLead"></p>
+        <div class="pageArtPanel" id="cvArtPanel"><img id="cvArtImg" src="" alt="" loading="lazy" /></div>
+      </article>
+      <div class="controls" aria-label="Collection filters">
+        <div class="field" role="search">
+          <span style="opacity:.75">🔎</span>
+          <input id="collectionSearch" type="search" placeholder="Search this collection…" autocomplete="off" />
+        </div>
+        <div class="field select">
+          <select id="collectionSort" aria-label="Sort products">
+            <option value="featured">Sort: Featured</option>
+            <option value="price_asc">Price: Low → High</option>
+            <option value="price_desc">Price: High → Low</option>
+            <option value="newest">Newest</option>
+          </select>
+          <span class="chev">▾</span>
+        </div>
+      </div>
+      <div class="chips collectionCatChips" aria-label="Category filters">
+        <div class="chip active" data-cat="all" data-scope="collection">All</div>
+        <div class="chip" data-cat="hoodies" data-scope="collection">Hoodies</div>
+        <div class="chip" data-cat="crewnecks" data-scope="collection">Crewnecks</div>
+        <div class="chip" data-cat="tees" data-scope="collection">T‑shirts</div>
+        <div class="chip" data-cat="hats" data-scope="collection">Hats</div>
+        <div class="chip" data-cat="stickers" data-scope="collection">Stickers</div>
+      </div>
+      <div id="collectionGridStatus" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+      <div class="grid" id="collectionGrid" aria-label="Collection products"></div>
+      <div class="pageGridFoot" style="margin-top:14px">
+        <button class="btn" type="button" id="collectionBrowseAllBtn">Browse all apparel →</button>
+      </div>
+    </section>

@@ -17,7 +17,7 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 const catalogPath = path.join(root, "..", "store", "square_products_latest.json");
 const horizonMapPath = path.join(root, "..", "horizon", "commerce", "square-sku-map.horizon.json");
 const horizonCatalogPath = path.join(root, "..", "horizon", "catalog.json");
-const outStore = path.join(root, "..", "store", "cart_sku_map.generated.json");
+const outStore = path.join(root, "..", "store", "_internal", "cart_sku_map.generated.json");
 const outBackend = path.join(root, "..", "store", "backend", "sku_map.generated.json");
 
 const catalog = JSON.parse(fs.readFileSync(catalogPath, "utf8"));

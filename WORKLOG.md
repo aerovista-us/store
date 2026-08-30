@@ -4,6 +4,24 @@ Chronological record of security checks, deploys, and go-live gates.
 
 ---
 
+## 2026-08-26 — Promote unique docs; stage legacy export
+
+Promoted high-value unique content into true folders (`docs/`, `docs/catalog/`, `docs/pricing/`, `docs/operator-tools/`, `horizon/evidence/`). Remaining duplicate trees staged in `_legacy_export/` (gitignored bulk + tracked README/MANIFEST) ready to leave parent folder. Stubs left at old paths.
+
+---
+
+## 2026-08-26 — Folder duplicate registry + tags
+
+Added `docs/FOLDER_DUPLICATES.md`, `scripts/lib/folder-roles.mjs`, `FOLDER_ROLE.md` markers on generated mirrors and static duplicate trees. SOT.json `duplicates[]` updated. Audit: `npm run audit:folder-duplicates`.
+
+---
+
+## 2026-08-26 — Public shop allowlist (no internal .md in dist)
+
+`sync:store` now copies an allowlist only (`scripts/lib/public-shop-manifest.mjs`). Operator markdown moved to `docs/store-internal/`; commerce snapshots / backups / scripts moved to `store/_internal/`. Pages strip + audit fail on `.md`, `scripts/`, `commerce/`, and other operator artifacts.
+
+---
+
 ## 2026-08-25 — Deploy console export (playing cards + pocket tee + case)
 
 Deployed `square_products_cleaned_v2 (7).json` → `store/square_products_latest.json` (85 / 40 visible). Live adds: Apex Relic Playing Cards + AV-07 Grid Pocket Tee (with images), Shadow Wear Samsung case unhid (shared clear-case art). Accessories lane now 5 hard goods.
@@ -519,3 +537,24 @@ NXCore `docker compose ps` was not re-run over SSH this session.
 - Catalog Console: DockLife lane in `catalog-console-config.js`, auto-detect in
   console HTML; `sync:console` regenerates `catalog_baseline.js` + overlay baseline
   from store JSON so admins adjust/deploy on the fly.
+
+---
+
+## 2026-08-29 — Canonical product gallery migration
+
+- Processed provider ZIP drops by image-content hashes rather than reused ZIP
+  or garment-template filenames.
+- Matched artwork to the active 85-product Square projection and created 44
+  canonical product-ID folders with 683 verified WebP gallery images.
+- Added ordered per-product manifests with original filenames, source/output
+  SHA-256 hashes, source archives, duplicate archives, and hero/gallery paths.
+- Preserved 51 completed provider ZIPs outside git plus 11 exact repeat
+  downloads; `_incoming` ended with zero ZIPs.
+- Added repeatable import, append, optimization, and completion scripts.
+- Updated catalog `image`, `images`, and `image_manifest` fields and taught the
+  storefront to resolve absolute canonical image paths.
+- Updated the Pages build to publish `/store/products/{product-id}/` WebPs and
+  manifests while excluding `_incoming`, `_completed`, and every ZIP.
+- Verification: 44 manifests, 683 canonical/runtime hash matches, 683 decodable
+  WebPs, identical store/runtime catalogs, storefront and overlay audits at zero
+  errors.

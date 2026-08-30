@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Variant Pricing Dashboard Helper</title>
+  <style>
+    body { font-family: Inter, system-ui, Arial, sans-serif; margin: 20px; background: #0f172a; color: #e2e8f0; }
+    h1 { margin: 0 0 8px; font-size: 20px; }
+    p { margin: 0 0 14px; color: #94a3b8; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    textarea { width: 100%; min-height: 260px; background: #111827; color: #e5e7eb; border: 1px solid #334155; border-radius: 8px; padding: 10px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+    .box { background: #111827; border: 1px solid #334155; border-radius: 8px; padding: 12px; }
+    .row { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0 12px; }
+    button { background: #2563eb; color: white; border: 0; border-radius: 8px; padding: 8px 12px; cursor: pointer; }
+    button.secondary { background: #334155; }
+    .small { font-size: 12px; color: #94a3b8; }
+    .ok { color: #22c55e; }
+    .warn { color: #f59e0b; }
+    @media (max-width: 1000px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <h1>Variant Pricing Dashboard Helper</h1>
+  <p>Paste worksheet CSV, then generate a ready-to-paste <code>SQUARE_SKU_MAP_JSON</code> block.</p>
+
+  <div class="row">
+    <button id="loadWorksheet">Load docs/variant_pricing_worksheet.csv</button>
+    <button id="generate">Generate JSON map</button>
+    <button id="copyPretty" class="secondary">Copy pretty JSON</button>
+    <button id="copyEnvLine" class="secondary">Copy .env line</button>
+    <span id="status" class="small"></span>
+  </div>
+
+  <div class="grid">
+    <div class="box">
+      <div class="small">Worksheet CSV input</div>
+      <textarea id="csvInput" spellcheck="false"></textarea>
+    </div>
+    <div class="box">
+      <div class="small">Generated JSON map</div>
+      <textarea id="jsonOutput" spellcheck="false"></textarea>
+      <div class="small" style="margin-top:8px;">.env line</div>
+      <textarea id="envLine" spellcheck="false" style="min-height:110px;"></textarea>
+    </div>
+  </div>
+
+  <script>
+    const csvInput = document.getElementById("csvInput");
+    const jsonOutput = document.getElementById("jsonOutput");
+    const envLine = document.getElementById("envLine");
+    const statusEl = document.getElementById("status");
+
+    function setStatus(msg, cls) {
+      statusEl.textContent = msg;
+      statusEl.className = `small ${cls || ""}`.trim();
+    }
+
+    function parseCSV(text) {
+      const lines = String(text || "").split(/\r?\n/).map(s => s.trim()).filter(Boolean);
+      if (!lines.length) return [];
+      const headers = lines[0].split(",").map(h => h.trim());
+      const rows = [];
+      for (let i = 1; i < lines.length; i++) {
+        const cols = lines[i].split(",");
+        const row = {};
+        headers.forEach((h, idx) => row[h] = (cols[idx] || "").trim());
+        rows.push(row);
+      }
+      return rows;
+    }
+
+    function toInt(v, fallback = 0) {
+      const n = Number(v);
+      return Number.isFinite(n) ? Math.trunc(n) : fallback;
+    }
+
+    function rowEnabled(v) {
+      return String(v || "").toLowerCase() !== "false";
+    }
+
+    function variantName(row) {
+      const title = row.itemTitle || row.itemId || "Item";
+      const color = row.color || row.cartColorToken || "Default";
+      const size = row.size || "One Size";
+      return `${title} (${color}, ${size})`;
+    }
+
+    function generateMap(rows) {
+      const out = {};
+      for (const row of rows) {
+        if (!rowEnabled(row.enabled)) continue;
+        const cartKey = row.cartKey || "";
+        if (!cartKey) continue;
+        const base = toInt(row.basePriceCents, 0);
+        const cDelta = toInt(row.colorDeltaCents, 0);
+        const sDelta = toInt(row.sizeDeltaCents, 0);
+        const final = row.finalPriceCents ? toInt(row.finalPriceCents, 0) : (base + cDelta + sDelta);
+        out[cartKey] = { name: variantName(row), cents: final };
+      }
+      return out;
+    }
+
+    function runGenerate() {
+      try {
+        const rows = parseCSV(csvInput.value);
+        const map = generateMap(rows);
+        const pretty = JSON.stringify(map, null, 2);
+        const compact = JSON.stringify(map);
+        jsonOutput.value = pretty;
+        envLine.value = `SQUARE_SKU_MAP_JSON=${compact}`;
+        setStatus(`Generated ${Object.keys(map).length} SKU entries`, "ok");
+      } catch (err) {
+        setStatus(`Failed to generate: ${err.message || err}`, "warn");
+      }
+    }
+
+    document.getElementById("generate").addEventListener("click", runGenerate);
+    document.getElementById("copyPretty").addEventListener("click", async () => {
+      await navigator.clipboard.writeText(jsonOutput.value || "");
+      setStatus("Copied pretty JSON", "ok");
+    });
+    document.getElementById("copyEnvLine").addEventListener("click", async () => {
+      await navigator.clipboard.writeText(envLine.value || "");
+      setStatus("Copied .env line", "ok");
+    });
+    document.getElementById("loadWorksheet").addEventListener("click", async () => {
+      try {
+        const r = await fetch("./variant_pricing_worksheet.csv", { cache: "no-store" });
+        if (!r.ok) throw new Error(`worksheet ${r.status}`);
+        csvInput.value = await r.text();
+        runGenerate();
+      } catch (err) {
+        setStatus(`Unable to load worksheet: ${err.message || err}`, "warn");
+      }
+    });
+  </script>
+</body>
+</html>

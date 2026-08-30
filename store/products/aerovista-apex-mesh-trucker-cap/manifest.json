@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "productId": "aerovista-apex-mesh-trucker-cap",
+  "productName": "AeroVista “Apex Mesh” Trucker Cap",
+  "hero": "/store/products/aerovista-apex-mesh-trucker-cap/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "drafted-a-snapback.png",
+      "sourceSha256": "339b37565ad0cbb51d6dd77edc310dc9115b5835cf18567714d8e01cffc86bc9",
+      "outputSha256": "e1a6fc63ce94565d6d88d652ed569bd705d316daae446c9905c4a419d00f5038"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (48).zip",
+      "original": "retro-trucker-hat-black-front-6a9380a0dd356.png",
+      "sourceSha256": "81bcec3d5830232c5af74d058a16c612c1f0058ca04c61d8509b49a5c090de47",
+      "outputSha256": "5da73a759ba8579f113862a1358cc3a4875b2fea2283b32a2ff490dd910b43e9"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (48).zip",
+      "original": "retro-trucker-hat-black-front-6a9380a0dd5eb.png",
+      "sourceSha256": "3d2718381315d8c2d39a9ea7ae26ffe9ce9c3687685448b05d22db2aa7f1cf97",
+      "outputSha256": "e3fc894790c9d55db2bc414eb04c14103a48ea90057ff29f81b958c7ab3d446e"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (48).zip",
+      "original": "retro-trucker-hat-black-front-6a9380a0de0f2.png",
+      "sourceSha256": "1c78af1e3abb6478a57dbca7521fb7d58285a57791ab3dc28004fe0d150f245c",
+      "outputSha256": "ce7c2523e0a9d75d635216a474f520ff279b601841155283a17a254ea01ba9e4"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (48).zip",
+      "original": "retro-trucker-hat-black-back-6a9380a0dd735.png",
+      "sourceSha256": "63237b7f27eb2ef8d442ea14687d3b45fb4d8d4e3570fb452306f82a7c5a3aa4",
+      "outputSha256": "40a22432488a4cb9055ceb186fb6ba2967a2bc36c772d131f2464e2cceb391b2"
+    },
+    {
+      "file": "30-left-01.webp",
+      "view": "left",
+      "source": "archive (48).zip",
+      "original": "retro-trucker-hat-black-left-6a9380a0dd86c.png",
+      "sourceSha256": "4b001dd9d25f37efcafbc777dd0921e2c781732c9fadaf95806eb9bc580725d1",
+      "outputSha256": "e799736a0ce313413bcd6628a703ee679ca18de3ff28f0c613dee2f3c5b31290"
+    },
+    {
+      "file": "35-left-front-01.webp",
+      "view": "left-front",
+      "source": "archive (48).zip",
+      "original": "retro-trucker-hat-black-left-front-6a9380a0dda4d.png",
+      "sourceSha256": "7d8921d9ad913d0548bafe729e1e0a0223c281653de5eb7f50f0c644d12465d1",
+      "outputSha256": "6e712ad063b3fe46c8180a8f9d90434b946b12f1eeb61e99075373be0215903a"
+    },
+    {
+      "file": "40-right-01.webp",
+      "view": "right",
+      "source": "archive (48).zip",
+      "original": "retro-trucker-hat-black-right-6a9380a0ddcb3.png",
+      "sourceSha256": "c9de30856201e87c2dab2ccdf3ff6a7e29bf4775c5bd730dc3602d7581b0df65",
+      "outputSha256": "1f1f83414da56fd597c83f369b0a8cffa35822183494bc57152060fafd1e8543"
+    },
+    {
+      "file": "45-right-front-01.webp",
+      "view": "right-front",
+      "source": "archive (48).zip",
+      "original": "retro-trucker-hat-black-right-front-6a9380a0ddf1a.png",
+      "sourceSha256": "b39d2668ade45294b9228b932e0fe349eca31f8d10a02930c280570b946cccc2",
+      "outputSha256": "59b1801318ca20e5429a3b6482a639643b123af1ea8cb5b1a3085cd308b1ec8f"
+    }
+  ],
+  "sourceArchives": [
+    "archive (48).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

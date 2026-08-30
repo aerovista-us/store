@@ -3601,6 +3601,9 @@
     function resolveCatalogImagePath(imgBase, catalogImage){
       const fn = String(catalogImage || "").trim().replace(/^\.\/img\//, "").replace(/^img\//, "");
       if (!fn) return "";
+      if (/^(?:https?:)?\/\//i.test(fn) || fn.startsWith("/")) {
+        return fn + (fn.includes("?") ? "" : ("?v=" + STORE_BUILD_ID));
+      }
       const encoded = fn.split("/").map(encodeURIComponent).join("/");
       const cb = fn.includes("?") ? "" : ("?v=" + STORE_BUILD_ID);
       return imgBase + encoded + cb;
@@ -3916,6 +3919,9 @@
             const imagePath = catalogImage
               ? resolveCatalogImagePath(imgBase, catalogImage)
               : findProductImage(imageRow.id, baseName);
+            const imagePaths = Array.isArray(firstRaw.images)
+              ? firstRaw.images.map(src => resolveCatalogImagePath(imgBase, src)).filter(Boolean)
+              : (imagePath ? [imagePath] : []);
 
             const rawId = (first.p && first.p.id) ? String(first.p.id).trim() : "";
             const productKey = rawId ? ("sq_" + rawId) : slug(baseKey);
@@ -3942,6 +3948,7 @@
               colors,
               checkoutUrl: "",
               imagePath,
+              imagePaths,
               imageCss: imageCssFor(first.p),
               squareVariationMap: sellableMap,
               _overlayCartKeys: Object.keys(sellableMap),

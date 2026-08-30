@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "productId": "aerovista-apex-pattern-hoodie",
+  "productName": "AeroVista Apex Pattern Hoodie",
+  "hero": "/store/products/aerovista-apex-pattern-hoodie/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "AeroVista Apex Pattern Hoodie (3).png",
+      "sourceSha256": "b84ddbf3634b8ed96d2686edc2f601ce96c3f99dd491c071815ae67740807a52",
+      "outputSha256": "079e65d2ac19e8b78815dd4d5f910d7930900e8b628233fc0d522f5ed4c451c3"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (43).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-front-6a9352e8e4ffc.png",
+      "sourceSha256": "e8d0ee366b55b66359d1545fb3bd7b3c12f8d94b4ec9b27d14389946e6159073",
+      "outputSha256": "ec9eea3e871f22f8ccd440abc81889c859132bd6869bfc0017d8402d84f0dce7"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (43).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-front-6a9352e8e5fb6.png",
+      "sourceSha256": "37aafc4da1e558b04cb67a2dc1363ba840527157ab855ba53d72eecad0fdc69d",
+      "outputSha256": "0277d5c7be3cc07da10b23eb18dcb7a61b9f9e364f2276f2ae96c99cb6079c1d"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (43).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-front-6a9352e8e66b3.png",
+      "sourceSha256": "497bea025950a39d773a5738dc245c040482e57a1e1a111893e3f0b2203c52c7",
+      "outputSha256": "9bdd8dad34e9bc9ffa6db44923bd7aef6e600d85bd4433fb0de13446d87560c0"
+    },
+    {
+      "file": "10-front-04.webp",
+      "view": "front",
+      "source": "archive (43).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-front-6a9352e8e6e12.png",
+      "sourceSha256": "b421c558aed691428f833065f906f8ebe67decef5d2b744e423f885edb849de8",
+      "outputSha256": "97806507f146097d5903988d761d89a0ffd834eda983428d1828da7e97f03f7a"
+    },
+    {
+      "file": "10-front-05.webp",
+      "view": "front",
+      "source": "archive (43).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-front-6a9352e8e7531.png",
+      "sourceSha256": "f1705244e88416cdad5c67d7e83aa9e576dd4f59a5dee056a945fce60d9952b7",
+      "outputSha256": "aa83ab35f929a72e3f33aa3ac3f87157992cb0743a2bab43efe495d8e947b8ce"
+    },
+    {
+      "file": "10-front-06.webp",
+      "view": "front",
+      "source": "archive (43).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-front-6a9352e8e7c6e.png",
+      "sourceSha256": "209e971b3bc7a0f1db8e2ae57f6531ac165a9121489e9a09429530a3e95c4ab7",
+      "outputSha256": "7b59d8a714241e50e77ba0a8f53474237d5be4245735c44f29528f6fcfc464c9"
+    },
+    {
+      "file": "10-front-07.webp",
+      "view": "front",
+      "source": "archive (43).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-front-6a9352e8e8396.png",
+      "sourceSha256": "e4e5712666012451713b1f95409a4319c446f8a44f5e0ba4913711d1f6144f34",
+      "outputSha256": "5847a656dfa786fe0bbf260b2e5a399ee7333a04718d0f8d9850984da445c2cd"
+    },
+    {
+      "file": "10-front-08.webp",
+      "view": "front",
+      "source": "archive (43).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-front-6a9352e8e8a39.png",
+      "sourceSha256": "50b37518fac70f09c0f1fb154204208cb4110e0b71deadaedd1da0f0e87cde7d",
+      "outputSha256": "599749b5e5c8ee479c7d86f88c980dadca38f39f505d36450ac7c35473b4c69c"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (43).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-back-6a9352e8e54e1.png",
+      "sourceSha256": "628c5f762895fe9a91ef35caa3e075a035d7c23fb82986478d0e02f011780554",
+      "outputSha256": "8c4bdf1bf0b72c9c6047fc47120f0a3045cfa735dbcc4bb17417b1dcb92b7e33"
+    },
+    {
+      "file": "20-back-02.webp",
+      "view": "back",
+      "source": "archive (43).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-back-6a9352e8e634c.png",
+      "sourceSha256": "f18f7e63de3dc94222c16b347c9c9b17106d1519c33aa0785b23dfd52742d4ae",
+      "outputSha256": "c694ff5e2985fb4db04be22969e31b1198b855e80b5f6254771b81ecd5accad7"
+    },
+    {
+      "file": "20-back-03.webp",
+      "view": "back",
+      "source": "archive (43).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-back-6a9352e8e6a55.png",
+      "sourceSha256": "7dec44c972f5b209a1317964353ae95e136d0786b8d4ba90af76417ca5888245",
+      "outputSha256": "47e1a90febf627b05c94de2e66fb8e106cf32b51594e9dacf36da7ba07c2e612"
+    },
+    {
+      "file": "20-back-04.webp",
+      "view": "back",
+      "source": "archive (43).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-back-6a9352e8e7176.png",
+      "sourceSha256": "3d4d3dcb219bdf1c300b495f18ddd6e4771c05130b7c54b67f14dca938164c46",
+      "outputSha256": "3e273b7bce06d093be96203840e1e6b10e262327fa6adac2144392784b409800"
+    },
+    {
+      "file": "20-back-05.webp",
+      "view": "back",
+      "source": "archive (43).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-back-6a9352e8e789c.png",
+      "sourceSha256": "aeaa4531f8d6c48eaa89a4f7772adf7b5a7f81d304ea6539a1d5493057f1670a",
+      "outputSha256": "83a0ec13921ff8ea90cafa36d2c92aac2a338773bfd3a73a76d26a2056ca054d"
+    },
+    {
+      "file": "20-back-06.webp",
+      "view": "back",
+      "source": "archive (43).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-back-6a9352e8e8d96.png",
+      "sourceSha256": "b02d1c83426179efb3d1e6d28fffdf12acaa45c89b56e62491108e62d8dca08a",
+      "outputSha256": "0f087ba448f60d82af20de798bacc1632a155486049afe05c5061425060bd112"
+    },
+    {
+      "file": "30-left-01.webp",
+      "view": "left",
+      "source": "archive (43).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-left-6a9352e8e5c45.png",
+      "sourceSha256": "5f388bb3dfb0054d4b482a21755b8a4e2c8057e25e29a8a5b8e0151efa84f56e",
+      "outputSha256": "0b53e6a1d029ba625c6261b441b8f4fc95d6c593d2ddfd9e1dc1211de1e0a8a1"
+    },
+    {
+      "file": "35-left-front-01.webp",
+      "view": "left-front",
+      "source": "archive (43).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-left-front-6a9352e8e9461.png",
+      "sourceSha256": "bfb5a4989b2d6932525cae0d70dedcd1e3d81ed06d3fe221cf6a440bf40b2522",
+      "outputSha256": "f87358e10e55daf949eca3d47f31881fb476fce34eb8394fd78a8e8389cf0289"
+    },
+    {
+      "file": "40-right-01.webp",
+      "view": "right",
+      "source": "archive (43).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-right-6a9352e8e58c1.png",
+      "sourceSha256": "98fb210cf2caf80c61d3b44042a65338043cb0f05bde0cb035524d492c580ec2",
+      "outputSha256": "26fe509c547459d8ab6dd26970990aa30814668c892b15315ec07b4677b93a11"
+    },
+    {
+      "file": "40-right-02.webp",
+      "view": "right",
+      "source": "archive (43).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-right-6a9352e8e8024.png",
+      "sourceSha256": "8da9490088a16e19b6b77c45526d61da3fb22946340a74cae3159d4eecf2bc14",
+      "outputSha256": "8498fae754f24950bdb37b5a731b06f12fc38f761b1e1d36d0476375255c149c"
+    },
+    {
+      "file": "48-right-back-01.webp",
+      "view": "right-back",
+      "source": "archive (43).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-right-back-6a9352e8e90ed.png",
+      "sourceSha256": "86e14b7a7ada8b73048a8f5f42817b2f9cc2b55ec0aad6cd44230fcba64f4562",
+      "outputSha256": "8431b42c0e63707182be7189e231d7ead9d869f17f7b7147a0316f749338c9f4"
+    },
+    {
+      "file": "50-detail-01.webp",
+      "view": "detail",
+      "source": "archive (43).zip",
+      "original": "all-over-print-recycled-unisex-hoodie-white-product-details-2-6a9352e8e86d4.png",
+      "sourceSha256": "13b08a0c6396780a6e241f91c3ee7ea3cd2fb64409c5d96b7359f7b92e68b230",
+      "outputSha256": "51d06cdb16d9517b9629b55afb88e18c013f54ca8565d884d4c18b43fc10c5e9"
+    }
+  ],
+  "sourceArchives": [
+    "archive (43).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

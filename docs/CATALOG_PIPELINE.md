@@ -22,7 +22,7 @@ Horizon through the Gear catalog console or replace
 
 | Pull | Command | Output |
 |------|---------|--------|
-| **Square catalog (SOT)** | `python scripts/pull-square-catalog.py` | `store/commerce/square-catalog-inventory-YYYY-MM-DD.json` |
+| **Square catalog (SOT)** | `python scripts/pull-square-catalog.py` | `store/_internal/commerce/square-catalog-inventory-YYYY-MM-DD.json` |
 | Printful sync (fulfillment) | `python horizon/scripts/pull-printful-products.py` (+ full store dump as needed) | `horizon/commerce/printful-*.json` |
 
 Compare Square vs the published shop JSON after each merch drop. If Square has
@@ -37,7 +37,7 @@ items missing from `square_products_latest.json`, run **`npm run catalog:refresh
 | **Console edit** | `console/aerovista_catalog_console_v2.html` | Open in browser (or Docker `:3014`). **Load export** — drag the xlsx from `av-data` or anywhere; no copy into the repo required for editing. |
 | **Published catalog JSON** | `store/square_products_latest.json` | After cleanup: **Exports → Export storefront JSON**, save/replace this file. The live storefront loads it from `./square_products_latest.json` next to `store/index.html`. |
 | **Storefront overlay** | `store/storefront_overlay.json` | Pricing/visibility/tags overrides. Console reads/writes via **Overlay** tab; export **overlay JSON** here when ready. |
-| **Product images** | `store/img/` (source of truth) | Filenames match Square **Image Name** / catalog `image` field. **`public/shop/img/`** is a *copy* created by `npm run sync:store` — if you only add a PNG under `public/shop/img/`, the console will not see it until you also copy to `store/img/` or re-run sync. Console previews try `../store/img/` then `../public/shop/img/`. |
+| **Product images** | `store/products/{product-id}/` (canonical galleries) + `store/img/` (legacy/collection art) | New product galleries use numbered WebP files and `manifest.json`; catalog `image`, `images`, and `image_manifest` point to `/store/products/{product-id}/...`. `npm run sync:store` mirrors galleries to `public/store/products/`; the Pages build publishes only product WebPs/manifests, never provider ZIP staging. Legacy Square-named hero files remain under `store/img/`. |
 | **Optional baselines** | `console/catalog_baseline.js`, `console/overlay_baseline.js` | Embedded copies for offline open; regenerate when you want the console to boot with latest data without fetch. |
 | **Built static shop** | `public/shop/` (after `npm run sync:store`) | Copy of `store/` for Vite / deploy. |
 | **Policies & support** | `store/policy-content.js`, `docs/STORE_POLICIES.md` | FAQ / shipping / returns modals; support **orders@aerovista.us**. |
@@ -102,9 +102,10 @@ Hosted: https://store-console.aerocoreos.com/ (see **[NXCORE_CONSOLE.md](NXCORE_
    - Terminal 1 (leave running): `npm run deploy:server`
    - In console **Exports** tab: **Deploy to store** — writes `store/square_products_latest.json`, optional overlay, runs sync → `public/shop/`
    - Or manual: **Export storefront JSON**, then `npm run deploy:catalog -- path/to/downloaded.json`
-4. Confirm **`store/img/`** contains every `image` filename referenced in the JSON.
-5. **Public shop:** `npm run build:pages` → push `main` (Pages). **Private full stack:** `npm run build` → deploy `dist/`.
-6. Spot-check **`docs/STOREFRONT.md`** checklist (home, lanes, catalog, checkout).
+4. Confirm every legacy image exists under **`store/img/`** and every canonical gallery path exists under **`store/products/{product-id}/`**.
+5. For provider ZIP drops, follow `public/store/products/_incoming/README.md`: compare content hashes, map artwork to catalog IDs, import/append, optimize, sync, audit, then archive completed ZIPs.
+6. **Public shop:** `npm run build:pages` → push `main` (Pages). **Private full stack:** `npm run build` → deploy `dist/`.
+7. Spot-check **`docs/STOREFRONT.md`** checklist (home, lanes, catalog, gallery, checkout).
 
 Printful pulls (`npm run pull:printful-horizon`) stay fulfillment evidence only.
 

@@ -9,6 +9,7 @@ import { fileURLToPath } from "node:url";
 const root = path.dirname(fileURLToPath(import.meta.url));
 const storeDir = path.join(root, "..", "store");
 const imgDir = path.join(storeDir, "img");
+const publicDir = path.join(root, "..", "public");
 
 const catalog = JSON.parse(
   fs.readFileSync(path.join(storeDir, "square_products_latest.json"), "utf8")
@@ -107,13 +108,19 @@ if (uncategorized.length) {
 // Images
 const missingImg = [];
 const emptyImg = [];
+function catalogImagePath(image) {
+  if (image.startsWith("/")) {
+    return path.join(publicDir, image.replace(/^\/+/, ""));
+  }
+  return path.join(imgDir, image.replace(/^\.\/img\//, "").replace(/^img\//, ""));
+}
 for (const p of visible) {
   const img = String(p.image || "").trim();
   if (!img) {
     emptyImg.push(p.id);
     continue;
   }
-  const filePath = path.join(imgDir, img.replace(/^\.\/img\//, "").replace(/^img\//, ""));
+  const filePath = catalogImagePath(img);
   if (!fs.existsSync(filePath)) missingImg.push({ id: p.id, image: img });
 }
 if (emptyImg.length) {
@@ -123,7 +130,7 @@ if (missingImg.length) {
   log("error", `${missingImg.length} visible products reference missing files:`);
   missingImg.forEach(({ id, image }) => log("error", `  - ${id} → ${image}`));
 } else if (!emptyImg.length) {
-  log("ok", "All visible catalog images exist under store/img/");
+  log("ok", "All visible catalog images exist in canonical or legacy image storage");
 }
 
 // Featured drop IDs (must exist in catalog with visibility)

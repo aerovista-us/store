@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>AeroVista Storefront — How‑To Operator Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #050711;
+        --bg-alt: #0c1020;
+        --panel: #11162a;
+        --border: #262b3f;
+        --accent: #4fd1c5;
+        --accent-soft: rgba(79, 209, 197, 0.08);
+        --text: #f5f7ff;
+        --text-soft: #b2b7cd;
+        --danger: #f56565;
+        --muted: #73789a;
+        --code-bg: #15192d;
+        --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --radius: 10px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 32px 16px 48px;
+        font-family: var(--sans);
+        background: radial-gradient(circle at top left, #1a365d 0, transparent 55%),
+                    radial-gradient(circle at top right, #234e52 0, transparent 55%),
+                    var(--bg);
+        color: var(--text);
+      }
+      .shell {
+        max-width: 1120px;
+        margin: 0 auto;
+      }
+      header {
+        margin-bottom: 24px;
+        padding: 18px 20px;
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        background: linear-gradient(135deg, rgba(17, 24, 39, 0.96), rgba(17, 24, 39, 0.98));
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .title-block h1 {
+        margin: 0;
+        font-size: 1.35rem;
+        letter-spacing: 0.03em;
+      }
+      .title-block p {
+        margin: 4px 0 0;
+        font-size: 0.9rem;
+        color: var(--text-soft);
+      }
+      .badge {
+        padding: 6px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(79, 209, 197, 0.3);
+        background: radial-gradient(circle at top left, var(--accent-soft), transparent 60%);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--accent);
+        white-space: nowrap;
+      }
+      main {
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1.15fr);
+        gap: 20px;
+      }
+      @media (max-width: 880px) {
+        main {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+      section {
+        margin-bottom: 18px;
+        padding: 16px 18px 18px;
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        background: linear-gradient(145deg, var(--bg-alt), #050816);
+      }
+      section h2 {
+        margin: 0 0 6px;
+        font-size: 1.02rem;
+      }
+      section p {
+        margin: 6px 0;
+        font-size: 0.9rem;
+        color: var(--text-soft);
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      ul, ol {
+        margin: 6px 0 6px 1.2rem;
+        padding: 0;
+        font-size: 0.9rem;
+        color: var(--text-soft);
+      }
+      li + li {
+        margin-top: 2px;
+      }
+      .pill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 6px;
+      }
+      .pill {
+        padding: 3px 8px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .tag-danger {
+        border-color: rgba(245, 101, 101, 0.6);
+        color: var(--danger);
+      }
+      .code-block {
+        margin: 8px 0;
+        padding: 8px 10px;
+        border-radius: 6px;
+        background: var(--code-bg);
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        overflow-x: auto;
+      }
+      .code-block code {
+        white-space: pre;
+      }
+      .callout {
+        margin-top: 8px;
+        padding: 8px 10px;
+        border-radius: 6px;
+        background: rgba(79, 209, 197, 0.06);
+        border: 1px solid rgba(79, 209, 197, 0.3);
+        font-size: 0.82rem;
+        color: var(--text-soft);
+      }
+      .cols-2 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 10px;
+      }
+      .small {
+        font-size: 0.82rem;
+      }
+      .muted {
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header>
+        <div class="title-block">
+          <h1>AeroVista Storefront — Operator How‑To</h1>
+          <p>Square is retail truth • Console v1.1 edits • Overlay presents • Printful fulfills.</p>
+        </div>
+        <div class="badge">Open this file in your browser</div>
+      </header>
+
+      <main>
+        <div>
+          <section>
+            <h2>1. Quick links (open from file)</h2>
+            <p>All of these are local files; right‑click → “Open in browser” if needed.</p>
+            <div class="cols-2">
+              <div>
+                <ul>
+                  <li><strong>Repo overview</strong> — <a href="./README.md">README.md</a></li>
+                  <li><strong>Store health dashboard</strong> — <a href="./store_health_dashboard.html">store_health_dashboard.html</a></li>
+                  <li><strong>Dev handoff map</strong> — <a href="./handoffnotes.md">handoffnotes.md</a></li>
+                  <li><strong>Final launch checklist</strong> — <a href="./docs/FINAL_LAUNCH_CHECKLIST.md">docs/FINAL_LAUNCH_CHECKLIST.md</a></li>
+                  <li><strong>Docs index</strong> — <a href="./docs/README.md">docs/README.md</a></li>
+                  <li><strong>Backend docs</strong> — <a href="./backend/README.md">backend/README.md</a></li>
+                  <li><strong>Treasure trove guide</strong> — <a href="./docs/DROPSHIP_STORE_TREASURE_TROVE.md">DROPSHIP_STORE_TREASURE_TROVE.md</a></li>
+                </ul>
+              </div>
+              <div>
+                <ul>
+                  <li><strong>Catalog Console v1.1</strong> — <a href="./AeroVista_Catalog_Console/v1.1/index.html">AeroVista_Catalog_Console/v1.1/index.html</a></li>
+                  <li><strong>Data quality + validation</strong> — <a href="./docs/DATA_QUALITY_AND_VALIDATION.md">docs/DATA_QUALITY_AND_VALIDATION.md</a></li>
+                  <li><strong>Printful mapping</strong> — <a href="./docs/PRINTFUL_FULFILLMENT_AND_MAPPING.md">docs/PRINTFUL_FULFILLMENT_AND_MAPPING.md</a></li>
+                  <li><strong>Catalog Console vs v1.1</strong> — <a href="./docs/CATALOG_CONSOLE_COMPARISON_AND_ROADMAP.md">docs/CATALOG_CONSOLE_COMPARISON_AND_ROADMAP.md</a></li>
+                  <li><strong>Migration plan</strong> — <a href="./.cursor/plans/treasure_trove_phased_migration_23b63c02.plan.md">treasure_trove_phased_migration_23b63c02.plan.md</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="callout small">
+              Tip: keep this page pinned in a browser tab; it’s your operator home‑base.
+            </div>
+          </section>
+
+          <section>
+            <h2>2. Daily operator loop (safe “don’t publish unless green”)</h2>
+            <p>Run from a terminal at the repo root (<code>d:\\mini.shops\\av_storefront</code>).</p>
+            <ol>
+              <li><strong>Open Catalog Console v1.1</strong>:
+                <ul>
+                  <li>Open <a href="./AeroVista_Catalog_Console/v1.1/index.html">AeroVista_Catalog_Console/v1.1/index.html</a> in your browser.</li>
+                  <li>Import latest Square export (CSV or JSON).</li>
+                  <li>Use <em>Bulk</em> to normalize sizes/colors &amp; apply ladders.</li>
+                  <li>Use <em>Validate</em> tab to fix missing descriptions/prices, bad sizes, duplicate SKUs.</li>
+                </ul>
+              </li>
+              <li><strong>Export your updated catalog JSON</strong>:
+                <ul>
+                  <li>Export to the repo root as a review file (for example <code>square_products_edited.json</code>).</li>
+                  <li>After review, either replace <code>square_products_latest.json</code> or point <code>STORE_CATALOG_PATH</code> at the exported file before deploy.</li>
+                </ul>
+              </li>
+              <li><strong>Run the pre‑publish gate (single command)</strong>:
+                <div class="code-block"><code>python backend/scripts/pre_publish_gate.py \<br>  --catalog square_products_edited.json \<br>  --overlay storefront_overlay.json</code></div>
+                <ul>
+                  <li>Gate runs: data‑quality → profit floor → optional Printful map coverage.</li>
+                  <li>Exit code <code>0</code> = automated checks green; non‑zero = investigate.</li>
+                </ul>
+              </li>
+              <li><strong>Update Square (when gate is green)</strong>:
+                <div class="code-block"><code>python backend/scripts/export_square_update_csv.py</code></div>
+                <ul>
+                  <li>Opens/creates <code>exports/square_update_from_edited.csv</code>.</li>
+                  <li>Open a fresh Square export CSV + this file side‑by‑side.</li>
+                  <li>Copy only the fields you intend to update (usually prices + maybe name/description) into the Square CSV, then import via Square Dashboard (start with a 5‑item test).</li>
+                </ul>
+              </li>
+            </ol>
+            <div class="pill-list">
+              <span class="pill">Square = retail truth</span>
+              <span class="pill">Console v1.1 = editor + validator</span>
+              <span class="pill">Overlay = presentation layer</span>
+              <span class="pill">Printful = cost + fulfillment only</span>
+            </div>
+          </section>
+
+          <section>
+            <h2>3. Common tasks (copy‑paste ready)</h2>
+            <h3 class="small">3.1 Run data‑quality only (Square CSV or JSON)</h3>
+            <p class="small">Find missing descriptions/images/prices before editing.</p>
+            <div class="code-block">
+              <code># JSON (live or edited)<br>python backend/scripts/generate_data_quality_report.py \<br>  --input square_products_latest.json<br><br># Square Items CSV export<br>python backend/scripts/generate_data_quality_report.py \<br>  --input square_items_export.csv \<br>  --kind csv \<br>  --name-field "Item Name" \<br>  --description-field "Description" \<br>  --image-field "Image URL" \<br>  --price-field "Price"</code>
+            </div>
+
+            <h3 class="small">3.2 Run profit floor check only</h3>
+            <p class="small">Ensures no variant sells below cost + ship buffer + fees.</p>
+            <div class="code-block">
+              <code>python backend/scripts/validate_profit_floor.py \<br>  storefront_overlay.json \<br>  square_products_edited.json</code>
+            </div>
+
+            <h3 class="small">3.3 Generate Square Update CSV from edited JSON</h3>
+            <p class="small">Minimal CSV you merge into a fresh Square export.</p>
+            <div class="code-block">
+              <code>python backend/scripts/export_square_update_csv.py</code>
+            </div>
+            <p class="small muted">Output: <code>exports/square_update_from_edited.csv</code></p>
+
+            <h3 class="small">3.4 Regenerate Printful exports + variant map (offline)</h3>
+            <p class="small">Used only for fulfillment mapping and cost reference.</p>
+            <div class="code-block">
+              <code># 1) Export from Printful<br>python backend/scripts/printful_my_products_export.py<br><br># 2) Build Square&nbsp;&rarr;&nbsp;Printful variant map<br>python backend/scripts/build_printful_variant_map.py \<br>  --variants printful_my_variants.csv</code>
+            </div>
+            <p class="small muted">Map is written to <code>backend/data/printful_variant_map.json</code>.</p>
+
+            <h3 class="small">3.5 Run full pre‑publish gate with Printful coverage required</h3>
+            <div class="code-block">
+              <code>python backend/scripts/pre_publish_gate.py \<br>  --catalog square_products_edited.json \<br>  --overlay storefront_overlay.json \<br>  --printful-map backend/data/printful_variant_map.json \<br>  --require-printful-map</code>
+            </div>
+            <p class="small muted">Use <code>--require-printful-map</code> only for products that must be dropship‑fulfillable.</p>
+          </section>
+        </div>
+
+        <div>
+          <section>
+            <h2>4. Role‑based quick recipes</h2>
+            <h3 class="small">Catalog Curator — Weekly cleanup</h3>
+            <ol class="small">
+              <li>Export latest catalog from Square (CSV).</li>
+              <li>Open Console v1.1, import, run <em>Bulk</em> + <em>Validate</em>.</li>
+              <li>Mark keeper products in overlay overrides with curated copy + <code>copyLock: true</code>.</li>
+              <li>Export a review catalog JSON, run <code>pre_publish_gate.py</code>, then make that file the active storefront catalog by replacing <code>square_products_latest.json</code> or using <code>STORE_CATALOG_PATH</code>.</li>
+              <li>If green, generate Square Update CSV and apply to Square.</li>
+            </ol>
+
+            <h3 class="small">Designer / Production — New design</h3>
+            <ol class="small">
+              <li>Create product in Printful and publish to Square.</li>
+              <li>Export Square CSV; import into Console v1.1.</li>
+              <li>Set collection / productType / color, apply ladders, add copy.</li>
+              <li>Export review JSON, run gate, then push updates back into Square and/or make that file the active storefront catalog.</li>
+            </ol>
+
+            <h3 class="small">Publisher — “Does this look right?”</h3>
+            <ol class="small">
+              <li>Ensure the intended active catalog file is ready: usually <code>square_products_latest.json</code>, or an override file referenced by <code>STORE_CATALOG_PATH</code>.</li>
+              <li>Open <code>index.html</code> and confirm the storefront is loading that exact file.</li>
+              <li>Use overlay + copyLock to ensure titles/prices/descriptions match house style.</li>
+              <li>Run gate on the same catalog file before any Square import.</li>
+            </ol>
+          </section>
+
+          <section>
+            <h2>5. Mental model (one sentence)</h2>
+            <p class="small">
+              <strong>Square is retail truth; Catalog Console v1.1 edits and validates it; the storefront overlay enforces presentation and copyLock without ever setting checkout prices; Printful exports stay offline as cost + fulfillment map until you deliberately turn on automation.</strong>
+            </p>
+            <div class="pill-list">
+              <span class="pill">No runtime changes from this page</span>
+              <span class="pill tag-danger">Never bypass the gate for production</span>
+            </div>
+          </section>
+
+          <section>
+            <h2>6. Troubleshooting pointers</h2>
+            <ul class="small">
+              <li><strong>Storefront shows wrong set of products</strong> — confirm which file is active: default <code>square_products_latest.json</code> or the path supplied via <code>STORE_CATALOG_PATH</code>.</li>
+              <li><strong>Gate fails on data quality</strong> — open <code>data_quality_reports/data_quality_issues.csv</code>; fix missing desc/img/price in Console or Square, then re‑export JSON.</li>
+              <li><strong>Gate fails on profit floor</strong> — adjust ladders or <code>rules.costByLadder</code>/<code>rules.shipBufferCents</code> in <code>storefront_overlay.json</code>, then rerun.</li>
+              <li><strong>Pre‑publish gate exits 1 but you missed why</strong> — scroll up in the terminal; each failing step prints a line with its exit code and a short reason.</li>
+              <li><strong>Need deeper docs</strong> — start from <a href="./handoffnotes.md">handoffnotes.md</a> and the docs linked in section 1.</li>
+            </ul>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "productId": "aerovista-apex-flexfit-structured-cap-black",
+  "productName": "AeroVista Apex Flexfit Structured Cap — Black",
+  "hero": "/store/products/aerovista-apex-flexfit-structured-cap-black/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "Apex Flexfit Structured.png",
+      "sourceSha256": "61f7726a23ae459a6520c2b3bdd70ad3fee3201328d6ff56caa4de7e7bfb5feb",
+      "outputSha256": "77dabf5e7e5ed3bcf79ca5c8699fa87e542d5a1bceacf7df5ca62c6b502f5141"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (42).zip",
+      "original": "closed-back-structured-cap-black-front-6a93564eb8e95.png",
+      "sourceSha256": "ba07762cb8f305d548df0d3b4598245b3dfec98ec597c30099e42a9a011b8b7f",
+      "outputSha256": "8f78484ea1573b5774e61b1dfc6a787f3c72770bdaded9f18358ad04605d2787"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (42).zip",
+      "original": "closed-back-structured-cap-black-front-6a93564eb9f60.png",
+      "sourceSha256": "5bf017d8ccce6a4692b1262ebde8c70db135f488196f91844029519b06f23f74",
+      "outputSha256": "718d43e552a0f1ce45eed963924a4a680e7928a3e83d24ca9a3593987c9bd431"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (42).zip",
+      "original": "closed-back-structured-cap-black-front-6a93564ebb957.png",
+      "sourceSha256": "7860410086020dc899e1871b7264cde0787a8ad70f620782c7c0c95b72b4fd9a",
+      "outputSha256": "c8c26479fb0f57a7e37cbb3c324810e5c5fe7b90f84e15a4ed76530c051b9d98"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (42).zip",
+      "original": "closed-back-structured-cap-black-back-6a93564eb9bda.png",
+      "sourceSha256": "f35be9b69e3d86f9fef37cf4677383ecf273ec40a7c94ee2bba8090988a78af0",
+      "outputSha256": "b705b36aadaddf722a2c427b0c062719c3b985b6124a30746b87950d716777f3"
+    },
+    {
+      "file": "20-back-02.webp",
+      "view": "back",
+      "source": "archive (42).zip",
+      "original": "closed-back-structured-cap-black-back-6a93564eba2b0.png",
+      "sourceSha256": "76b9b0e62f053899d1c82e93fa28a967b2b55e11cc7e461009319419076ffcc6",
+      "outputSha256": "8870bb66eab127d00ae5a4d4b233705a8c727dc795af522a1f24f77de2945830"
+    },
+    {
+      "file": "20-back-03.webp",
+      "view": "back",
+      "source": "archive (42).zip",
+      "original": "closed-back-structured-cap-black-back-6a93564ebbcae.png",
+      "sourceSha256": "1ad5a7dd417666cf38ac030769c5ca95a811cf2d574663f7824b6c5d62f42f9e",
+      "outputSha256": "275bb9de8b5588f171c518e9ac6278637290532e03a487e20b3761420a23a07b"
+    },
+    {
+      "file": "20-back-04.webp",
+      "view": "back",
+      "source": "archive (42).zip",
+      "original": "closed-back-structured-cap-black-left-6a93564ebac4a.png",
+      "sourceSha256": "438fab5fcbf87d97688d7e1f52822a32ccac133bfc576badedab94d84b04ebbb",
+      "outputSha256": "fa49c5933280331b1bace1d042ecbfb302d106c9c2abde1e75ad8a2ddbb92be3"
+    },
+    {
+      "file": "20-back-05.webp",
+      "view": "back",
+      "source": "archive (42).zip",
+      "original": "closed-back-structured-cap-black-left-side-6a93564eb946d.png",
+      "sourceSha256": "0c3107d5774344e8f3594b4784393df1e0ccb14c6fc53dea4eb9f444f2c2fc06",
+      "outputSha256": "190d6d56ae4778c16b4798d2ee580db48e01f9577428b0fa33f67834fbbe8207"
+    },
+    {
+      "file": "20-back-06.webp",
+      "view": "back",
+      "source": "archive (42).zip",
+      "original": "closed-back-structured-cap-black-right-6a93564ebaf97.png",
+      "sourceSha256": "8b71f2475d2b1b0a018c87e4f63913051d57eab3ec10615ba72f4ca8948d10dc",
+      "outputSha256": "c42b7c7c19e76bbd790c03f4f34ef33d90b1ee3f6247f56226ce4e34bbaaccac"
+    },
+    {
+      "file": "20-back-07.webp",
+      "view": "back",
+      "source": "archive (42).zip",
+      "original": "closed-back-structured-cap-black-right-side-6a93564eb9820.png",
+      "sourceSha256": "9e92acd251a6c142fa5f6e4ac8bb8c5eb027e2611db2897746a705902b13d4cf",
+      "outputSha256": "80e26f5887c051b1b54d35d4f810ee35b0e5d9a47a49fc81889c16f0bd4289fd"
+    },
+    {
+      "file": "35-left-front-01.webp",
+      "view": "left-front",
+      "source": "archive (42).zip",
+      "original": "closed-back-structured-cap-black-left-front-6a93564eba912.png",
+      "sourceSha256": "e2aa2cd27b1ec80ad9ab4bc7cb5832abeba483aff23247939ad7d758fc978e2c",
+      "outputSha256": "20959072d670051eeb7c2d68507c3010c286e7ae5843e7ea08431ef7baeb36a9"
+    },
+    {
+      "file": "45-right-front-01.webp",
+      "view": "right-front",
+      "source": "archive (42).zip",
+      "original": "closed-back-structured-cap-black-right-front-6a93564eba5d3.png",
+      "sourceSha256": "85e23a19fccec44d26490f2d6f09643e261ce4dee6e53aeaab157e60f460156a",
+      "outputSha256": "e8c71f8293a361edef4ff3d10dddf7d1297203e9bdd0275689cf7109975480cb"
+    },
+    {
+      "file": "50-detail-01.webp",
+      "view": "detail",
+      "source": "archive (42).zip",
+      "original": "closed-back-structured-cap-black-product-details-2-6a93564ebb62b.png",
+      "sourceSha256": "405e3ef41e38772076ed2fae1935ae2222a672dc87495e2496317c9e8f2c1e5c",
+      "outputSha256": "bf85a1242bb40b2a6cf24a3ae82d36d7093f3cfc75390c7a98b1aaae80d189de"
+    },
+    {
+      "file": "50-detail-02.webp",
+      "view": "detail",
+      "source": "archive (42).zip",
+      "original": "closed-back-structured-cap-black-product-details-6a93564ebb2cd.png",
+      "sourceSha256": "463af5959b63d78ed7dacbe61f68102e99d534c8cab1887be69db7fa87d263c8",
+      "outputSha256": "9f303b20387a98b4bfd006cc36a7c1332edbe7d78bac5310fd97b490db54f3f9"
+    }
+  ],
+  "sourceArchives": [
+    "archive (42).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

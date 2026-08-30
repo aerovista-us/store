@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "productId": "holographic-stickers",
+  "productName": "Holographic stickers",
+  "hero": "/store/products/holographic-stickers/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "holographic_goat_sticker.png",
+      "sourceSha256": "e7e85989f6cd1dcca577e960b023863b0e5b7487597eb4169854944d3236d428",
+      "outputSha256": "1c84eb7420b2e6ac04edc672a7dcbc9b41ea92470dd8d534f45d06f21f7418d1"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (54).zip",
+      "original": "kiss-cut-holographic-stickers-grey-3x3-front-2-6a93b3ef46bd2.png",
+      "sourceSha256": "8e7280457d55156114b2393b2c84f04d545df8f20c2fc4715c4d5898bde6cd28",
+      "outputSha256": "673c56f5a6c2c7eb5bf77fd8b8ee0c6d93d51ccbe69e80fec8bdcf4ff2fb0496"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (54).zip",
+      "original": "kiss-cut-holographic-stickers-grey-3x3-front-6a93b3ef45c90.png",
+      "sourceSha256": "7b1eddf217c99daa0ee004e69fd6a2e390a5b769f6a5ba313db30c51f0d89c2a",
+      "outputSha256": "7fb0f0878fcaa1bc5cd4cd3b00959a1dcd07e7b65bdc09a8a7a6ef839405901a"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (54).zip",
+      "original": "kiss-cut-holographic-stickers-grey-3x3-front-6a93b3ef4627a.png",
+      "sourceSha256": "760f6e16eb44dc74c2a616366632eb52fa5aa8feb105c146bd715361dd9b0d36",
+      "outputSha256": "b54c99459554f396c7f13c29b070972088e19d6fa9c3efeac119932af9f68f07"
+    },
+    {
+      "file": "10-front-04.webp",
+      "view": "front",
+      "source": "archive (54).zip",
+      "original": "kiss-cut-holographic-stickers-grey-3x3-front-6a93b3ef46506.png",
+      "sourceSha256": "e467c1038aae228558411ef5ba17becba11771f77ff642a876f9b4d6f492b2de",
+      "outputSha256": "d45d7c28b08230cf698ca889e5e060cd9289eaec3a0cf57e9f0405a0e9c55ae7"
+    },
+    {
+      "file": "10-front-05.webp",
+      "view": "front",
+      "source": "archive (54).zip",
+      "original": "kiss-cut-holographic-stickers-grey-3x3-front-6a93b3ef46648.png",
+      "sourceSha256": "add3aad038d4c975df92c2eff340a357a62155970cabdf5d56f9ca194a785662",
+      "outputSha256": "6ce2ceb358141e668d37eab0c40b4196e5e4bf487841970d655f8febe4080a5d"
+    },
+    {
+      "file": "10-front-06.webp",
+      "view": "front",
+      "source": "archive (54).zip",
+      "original": "kiss-cut-holographic-stickers-grey-3x3-front-6a93b3ef46886.png",
+      "sourceSha256": "722071e2be71aec7b5879beac5c7cd8bfa6dfbdcadf7d51d825b773d9ae5418a",
+      "outputSha256": "9c99cde34ceb52e24a19ae6445fbc4bd1891dbc4de78c58ed92f2e5522283de0"
+    },
+    {
+      "file": "10-front-07.webp",
+      "view": "front",
+      "source": "archive (54).zip",
+      "original": "kiss-cut-holographic-stickers-grey-3x3-front-6a93b3ef46ab4.png",
+      "sourceSha256": "6e44059a62051a258d128fae3b8030833359144a83648a95fe1e875b5e85f72b",
+      "outputSha256": "b8733a6b6a3579e3fec7ff3e0ab4a90394857fad24b49cf24faed67ca993a938"
+    },
+    {
+      "file": "10-front-08.webp",
+      "view": "front",
+      "source": "archive (54).zip",
+      "original": "kiss-cut-holographic-stickers-grey-5.5x5.5-front-2-6a93b3ef46d34.png",
+      "sourceSha256": "897489806eb50bc3aec2d9c967d6048c77235d896de31e78f075cd08d8829311",
+      "outputSha256": "66e76c1e894876c6b84bbdfadd01d390b0dc3e09cc7f70675313f0136a77b368"
+    },
+    {
+      "file": "10-front-09.webp",
+      "view": "front",
+      "source": "archive (54).zip",
+      "original": "kiss-cut-holographic-stickers-grey-5.5x5.5-front-6a93b3ef460fe.png",
+      "sourceSha256": "699deddc249bcad970c21f3f8916daa7c59f27f1f7bc919976557af9e7094ad0",
+      "outputSha256": "431b9aa6ad27c8270a2de0700a0aac56d9cd659c8083a448e8f2623c9d3b7176"
+    },
+    {
+      "file": "10-front-10.webp",
+      "view": "front",
+      "source": "archive (54).zip",
+      "original": "kiss-cut-holographic-stickers-grey-5.5x5.5-front-6a93b3ef463c2.png",
+      "sourceSha256": "47afbff4c7d04dbfccdd4036cb18116a0708f30234cb9d6e30719944fca21486",
+      "outputSha256": "1dd1086f822d947fcd0626763a6d9a5da15ae83560aba1762003fe2949c3fde9"
+    },
+    {
+      "file": "10-front-11.webp",
+      "view": "front",
+      "source": "archive (54).zip",
+      "original": "kiss-cut-holographic-stickers-grey-5.5x5.5-front-6a93b3ef4676e.png",
+      "sourceSha256": "9aafacd83eb1f1bca5e52ce880cf54a04f5562f3fe66e4c03958d34282f225d3",
+      "outputSha256": "1b04c83067f3c9e5aae964d6b67505a8d9b0362089fee8e506214c6c01a1a18c"
+    },
+    {
+      "file": "10-front-12.webp",
+      "view": "front",
+      "source": "archive (54).zip",
+      "original": "kiss-cut-holographic-stickers-grey-5.5x5.5-front-6a93b3ef46989.png",
+      "sourceSha256": "b3a0f9feff3b91fdf6d52b4cf73fea3d73c6fa4ba3495b6951912d26e0d188f6",
+      "outputSha256": "781f013c954a2463637c0f303eb2979956b406ffc80c2045004135d6801ab4fb"
+    }
+  ],
+  "sourceArchives": [
+    "archive (54).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

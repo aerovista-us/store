@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "productId": "aerovista-the-blue-witness-urban-hoodie-black",
+  "productName": "AeroVista — The Blue Witness — Urban Hoodie — Black",
+  "hero": "/store/products/aerovista-the-blue-witness-urban-hoodie-black/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "blueye_hoodie.png",
+      "sourceSha256": "b63c944d8c9ce90397f8d7e38d43389e7ce113d40ba1b33e2f04cfc80a13049d",
+      "outputSha256": "be71925e7908946a483aa6360b732a6aee92bfa5f10578282ba0ad96d8989420"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (31).zip",
+      "original": "unisex-urban-hoodie-black-front-6a93766f6c7c3.png",
+      "sourceSha256": "d59c26b077d985f6cbd423ef89c7e25eef9c3577674cea96abcbd23d4d2e897c",
+      "outputSha256": "dbc2e9e0cacf91f20410d8c7181935c2bd4a32d34a8a9f6bfa1b7174be6fd09c"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (31).zip",
+      "original": "unisex-urban-hoodie-black-front-6a93766f6d093.png",
+      "sourceSha256": "8f3b91c060e17dc5802f24dab9094651a3093f40d7cc90ae9e7dd822e988f969",
+      "outputSha256": "3d4b779c7a909d6732ae29f6980a0a6cf65a6d9e2cba0c004ec4c76295a05d48"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (31).zip",
+      "original": "unisex-urban-hoodie-black-front-6a93766f6d1c5.png",
+      "sourceSha256": "af6bf8b77d03ade538654aa4814d8203c3115791732d6417c2befa4bc22c5f0d",
+      "outputSha256": "a2b7e4dbb2591d348a35e48010e5bc92fc31a162a1baffae41667642ee49fda0"
+    },
+    {
+      "file": "10-front-04.webp",
+      "view": "front",
+      "source": "archive (31).zip",
+      "original": "unisex-urban-hoodie-black-front-6a93766f6d2fa.png",
+      "sourceSha256": "784be3c8b5104604d149802f36e38f9fbdea8efa1546a5d00f342305aec18920",
+      "outputSha256": "d6b6b1b76726a4fe6465403ca6641efaa293a449baa2d2706767bcc7fc71f1c0"
+    },
+    {
+      "file": "10-front-05.webp",
+      "view": "front",
+      "source": "archive (31).zip",
+      "original": "unisex-urban-hoodie-black-front-6a93766f6d44d.png",
+      "sourceSha256": "e65d1888b9eeb86f3ca4d9e7e4031a60bd3dab65db6e6327efc68da77da805d7",
+      "outputSha256": "38d7a21a3c9f77a1e8145d132802dfdb1dcfba08eb43ffc3e20af81ce2135cfb"
+    },
+    {
+      "file": "10-front-06.webp",
+      "view": "front",
+      "source": "archive (31).zip",
+      "original": "unisex-urban-hoodie-black-front-and-back-6a93766f6d4f5.png",
+      "sourceSha256": "afab616979de92bbbe87590bb2b2557e40a051649d1f600f3ed86a6ed504530f",
+      "outputSha256": "807383a79685af97c945bd8b9049bb04e572106e5659d44f72548cb8adfd85f4"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (31).zip",
+      "original": "unisex-urban-hoodie-black-back-6a93766f6cea8.png",
+      "sourceSha256": "ed9616ca9eec09dc13e527164c9a50c2c6162651fe01968620fa004c75a9a8bf",
+      "outputSha256": "7c0c014390b45b4364bec72229e67546b19357b2ec70a598d419cd8e28009add"
+    },
+    {
+      "file": "20-back-02.webp",
+      "view": "back",
+      "source": "archive (31).zip",
+      "original": "unisex-urban-hoodie-black-back-6a93766f6d132.png",
+      "sourceSha256": "b2d8bb51ffa18bc05ab87d842d41b8625502ec38edcaa2d0d8690ac246a64f1e",
+      "outputSha256": "114f4c4c4119bc9a4e4d47cddedca999cd329b727e81a0f5003c28f15103c40b"
+    },
+    {
+      "file": "20-back-03.webp",
+      "view": "back",
+      "source": "archive (31).zip",
+      "original": "unisex-urban-hoodie-black-back-6a93766f6d25b.png",
+      "sourceSha256": "cd723987a8c8e0194e4a8977c2bae97cf610579353a2d8e6536ca163ab3c6e75",
+      "outputSha256": "906d529e1c36711a4d551e180b9a2e59cb79859f17cd04178ed4d3844e88881d"
+    },
+    {
+      "file": "20-back-04.webp",
+      "view": "back",
+      "source": "archive (31).zip",
+      "original": "unisex-urban-hoodie-black-back-6a93766f6d39a.png",
+      "sourceSha256": "dff4a0fe568336dfa0bdcebea4ead3c6d16de9d2316b6ea8b903fc252900de7b",
+      "outputSha256": "66e771be961ffe56ac6a4cef2c6fbd80143160b632d8d6f1ca9176cd163c1cc4"
+    },
+    {
+      "file": "30-left-01.webp",
+      "view": "left",
+      "source": "archive (31).zip",
+      "original": "unisex-urban-hoodie-black-left-6a93766f6cf56.png",
+      "sourceSha256": "0dd20473bdfc3c80e7c2d1dcc296f243347372f700ad7c410f0f2273559ed221",
+      "outputSha256": "68e724bc4addadca06caa427ed157bcb2c4e57b8d3359e6976c9bbff26c145b5"
+    },
+    {
+      "file": "40-right-01.webp",
+      "view": "right",
+      "source": "archive (31).zip",
+      "original": "unisex-urban-hoodie-black-right-6a93766f6cfed.png",
+      "sourceSha256": "93594d976a100ba8771b92979dd0992499ad98692f589e2d3d47cd919737bab6",
+      "outputSha256": "250177b824d1a1fa1281271072491b53e93bda65c31814f8b499a22b7e339e07"
+    }
+  ],
+  "sourceArchives": [
+    "archive (31).zip"
+  ],
+  "duplicateArchives": [
+    "archive (45).zip"
+  ],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 1,
+  "productId": "aerovista-apex-glitch-tee-black",
+  "productName": "AeroVista Apex Glitch Tee — Black",
+  "hero": "/store/products/aerovista-apex-glitch-tee-black/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "Glitch Pullover Tee.png",
+      "sourceSha256": "78dbf1fe2a497d1836812aea4326c83616defcc7baa5cc56e569fdd0e0967942",
+      "outputSha256": "2bc3c499d35270f788c6baed92bfd9ff340d0fd8acfa22dafcc9d178d8f87518"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (34).zip",
+      "original": "unisex-staple-t-shirt-black-front-6a935a46344b0.png",
+      "sourceSha256": "408adb551491f245a16a126fd6c4ebf27a2b8fdbfe539c6a15649d769ea6531b",
+      "outputSha256": "c65ea2420b4a8e6cfdfd4f0ada575eba0c3ab55b4de43a0ba4bac25e5684ab08"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (34).zip",
+      "original": "unisex-staple-t-shirt-black-front-6a935a4634620.png",
+      "sourceSha256": "f3e4af3cfca74affc18e67067405d79dae90b1609a5068a5abef862e2c138318",
+      "outputSha256": "fd7d1d662d3625fc32e0d78c13dfa90934a2cb6ee5f3054be72ce3b6731d446e"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (34).zip",
+      "original": "unisex-staple-t-shirt-black-front-6a935a46348ed.png",
+      "sourceSha256": "a8dbbfff379ceb4f89b51fd1eb619fea965c5c68f542b0d6c3cf40d58f1ef2a3",
+      "outputSha256": "202d1fbf6e122aaca44cb99dec5cb2f5aa1432245da37000a9a561d5dc7aa5e8"
+    },
+    {
+      "file": "10-front-04.webp",
+      "view": "front",
+      "source": "archive (34).zip",
+      "original": "unisex-staple-t-shirt-black-front-6a935a4634cdc.png",
+      "sourceSha256": "3a9fb77c623ad1abe89d922bc71d4296d8be0a84bf876dfcf9d641e5a10fa7c8",
+      "outputSha256": "6bef1aaa1310f34a5fa0458f662978abfa19b5e82c145b9268f3b7802c23e7fb"
+    },
+    {
+      "file": "10-front-05.webp",
+      "view": "front",
+      "source": "archive (34).zip",
+      "original": "unisex-staple-t-shirt-black-front-6a935a4635285.png",
+      "sourceSha256": "6e4a899223a2bc29dfc8b7fffc3fc73d06c63b94fd2ad65eab7a9c05ced6f551",
+      "outputSha256": "b1b606bd7bafb853c17fd8ac4a672463cc8b8771c46897b60fdbd6ef90576863"
+    },
+    {
+      "file": "10-front-06.webp",
+      "view": "front",
+      "source": "archive (34).zip",
+      "original": "unisex-staple-t-shirt-black-front-6a935a4635768.png",
+      "sourceSha256": "5af6639f6f7227da76f526d730e3e8fbb155c196ea8ae4de112fd9452b594504",
+      "outputSha256": "1f68b419adfe16544e4eeefd3fdd32964fabae774ce8b675ad88a65c975b7edd"
+    },
+    {
+      "file": "10-front-07.webp",
+      "view": "front",
+      "source": "archive (34).zip",
+      "original": "unisex-staple-t-shirt-black-front-6a935a46359e0.png",
+      "sourceSha256": "6c4c3c2e17d583e7e42c31941d109d1d608a7b2944120fc1345d0a0e105529e6",
+      "outputSha256": "e4aa9acc262703d3e0a12e3054aaedb20de2859501e3d546c44d213f728a6354"
+    },
+    {
+      "file": "10-front-08.webp",
+      "view": "front",
+      "source": "archive (46).zip",
+      "original": "unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black-front-2-6a9380070a232.png",
+      "sourceSha256": "32e62498abd01be66ceb2da0b1ee204b6a22dd6bf6458659d9d5707d793f70c5",
+      "outputSha256": "cd7fe88210a8757b194506b61bad939df70f68be5c96692c82486a22d443dbf6"
+    },
+    {
+      "file": "10-front-09.webp",
+      "view": "front",
+      "source": "archive (46).zip",
+      "original": "unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black-front-6a93800709235.png",
+      "sourceSha256": "d159aaaa291ec71bdff7b4c927bdb6a614857beb2d8cc2de6ae6caa4ef8c21f2",
+      "outputSha256": "491d1adb052dbef6d6314035375d7d3a9541355bf121c586c5613d4ff968ab26"
+    },
+    {
+      "file": "10-front-10.webp",
+      "view": "front",
+      "source": "archive (46).zip",
+      "original": "unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black-front-6a93800709a72.png",
+      "sourceSha256": "b3dd88a7718095cfd95efc1245d754436004b43de048a75f2fceec4de5025469",
+      "outputSha256": "257a907f23cb837c8b06d61ed8c19809c3e98272dd854f9483e5e4785ff4bfd9"
+    },
+    {
+      "file": "10-front-11.webp",
+      "view": "front",
+      "source": "archive (46).zip",
+      "original": "unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black-front-6a93800709b0e.png",
+      "sourceSha256": "a78035971f31e5352f70908a8ee76bf2437dcdb7cff802bb8faabee7549d084f",
+      "outputSha256": "b482870f24951ef26b5d276e5a5497c30f3fd3980545925cd6212b1f8efcef1a"
+    },
+    {
+      "file": "10-front-12.webp",
+      "view": "front",
+      "source": "archive (46).zip",
+      "original": "unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black-front-6a93800709c47.png",
+      "sourceSha256": "ee313cf5be67ef8d5bc608553c1e1f5ac3e40cf213f76c2b15d6626a4d1ba75d",
+      "outputSha256": "90029fe40f0240be4d1ef8517e6b35765f07189ef07d4a1b0a3022c30807d18b"
+    },
+    {
+      "file": "10-front-13.webp",
+      "view": "front",
+      "source": "archive (46).zip",
+      "original": "unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black-front-6a93800709ef5.png",
+      "sourceSha256": "170c0a8c8eacf12ab00d1dd6f890d94691f41abad036b24c9c40c20e49bab54e",
+      "outputSha256": "3569879032a62942c9fcb1735016bbff8a9508b45ebe01d94fab1cc5a5b98076"
+    },
+    {
+      "file": "10-front-14.webp",
+      "view": "front",
+      "source": "archive (46).zip",
+      "original": "unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black-front-6a9380070a166.png",
+      "sourceSha256": "674e93ba2f7a9200c948c46b509dc57fc5c3d5e06e246115fd70a00c5c6264b3",
+      "outputSha256": "8d42b5a2f914c7bdc8f256d6f87bcdfff6f0b1c1b56c7afe7d01855c5e1c8fce"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (34).zip",
+      "original": "unisex-staple-t-shirt-black-back-6a935a46342c6.png",
+      "sourceSha256": "6073515670f1322d10f04c184623f11ba86ea7cb6e370d1729728301668cdf77",
+      "outputSha256": "e0c00a60a75e72a1bcf8414329f8d0745268513d710ef5fa255895e4aec2fb98"
+    },
+    {
+      "file": "20-back-02.webp",
+      "view": "back",
+      "source": "archive (34).zip",
+      "original": "unisex-staple-t-shirt-black-back-6a935a4634bb9.png",
+      "sourceSha256": "7544eb70eec2e991140c893842b97644a27feed531ac89cbcb28484e389c1cde",
+      "outputSha256": "66756af81a40aaeb7fa26c340329d49436fad5c6349008616907c5dd114b8952"
+    },
+    {
+      "file": "20-back-03.webp",
+      "view": "back",
+      "source": "archive (34).zip",
+      "original": "unisex-staple-t-shirt-black-back-6a935a4634e47.png",
+      "sourceSha256": "3e026fe2b1f902fd5dd0fcc60973a91f2353bd423446f03f9b01ff3e08fa8e78",
+      "outputSha256": "9b54463cefcd607a3212fca729e0d3682b420e14853eae0437d0f12a81db7faf"
+    },
+    {
+      "file": "20-back-04.webp",
+      "view": "back",
+      "source": "archive (34).zip",
+      "original": "unisex-staple-t-shirt-black-back-6a935a46353e6.png",
+      "sourceSha256": "6d3e0cdb3146bc21c910aa7cb8989d9ec96741aa261614db3e4fbe59b989526c",
+      "outputSha256": "87eeeacd6fac808d297e7e8ff0d61497361aaa32f2cfabf5baba9a4ee1075e50"
+    },
+    {
+      "file": "20-back-05.webp",
+      "view": "back",
+      "source": "archive (34).zip",
+      "original": "unisex-staple-t-shirt-black-back-6a935a46358ac.png",
+      "sourceSha256": "6124f7616365e0b99ed9d8d46a0a9363a0f8c4a9852344b25e18d499683b09c2",
+      "outputSha256": "44f9e751889273e8b3c728c0891db719f7aa6edf92f7ad54773727b00e2d1960"
+    },
+    {
+      "file": "20-back-06.webp",
+      "view": "back",
+      "source": "archive (46).zip",
+      "original": "unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black-back-6a93800709835.png",
+      "sourceSha256": "62c238fd56f935ab7474a0b34d4f62ace2ba369f660b6fc828ff382f37ab9003",
+      "outputSha256": "6a4d1bfb5b05b7b8eacb1af63d8af3a2b7b18b33bb6d995e664a9ca00409d0dc"
+    },
+    {
+      "file": "20-back-07.webp",
+      "view": "back",
+      "source": "archive (46).zip",
+      "original": "unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black-back-6a93800709bad.png",
+      "sourceSha256": "126296f419c4f929bd89c560cdf15c6076d6c789c1eebdee639755a9fd2e3bba",
+      "outputSha256": "9e9d5ca64b1f8ca042891ba2c9d01adc086bb57b348689a5348628fcd7b353e2"
+    },
+    {
+      "file": "20-back-08.webp",
+      "view": "back",
+      "source": "archive (46).zip",
+      "original": "unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black-back-6a93800709cf2.png",
+      "sourceSha256": "6e92168099521b27d1c26cc1d1ae325077d534862bcdcf4a4427a91e84957f60",
+      "outputSha256": "6d2dcf681b2705cca70e468491fa11642b75b1858fe3c61b6ad95a2e3e7e7879"
+    },
+    {
+      "file": "20-back-09.webp",
+      "view": "back",
+      "source": "archive (46).zip",
+      "original": "unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black-back-6a9380070a092.png",
+      "sourceSha256": "952ff41d5d3b92210ca1bba345ebd8001a2b0e2a0c44c0dd9532dae2feeeecaf",
+      "outputSha256": "e73b5449ad9ea4fb1754068ee3397e832ecaec74ed97a33f17c8883214a4291a"
+    },
+    {
+      "file": "30-left-01.webp",
+      "view": "left",
+      "source": "archive (34).zip",
+      "original": "unisex-staple-t-shirt-black-left-6a935a4634fc2.png",
+      "sourceSha256": "5a865207a2319be209e684cd009d3baa5b247ad9f10fa857a05fe1b64aaa618d",
+      "outputSha256": "789287b6c8e62d01287b1aa236c5c33495ebe0906c7244c4b4512e73849f8094"
+    },
+    {
+      "file": "30-left-02.webp",
+      "view": "left",
+      "source": "archive (46).zip",
+      "original": "unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black-left-6a938007099ce.png",
+      "sourceSha256": "3ffc3b3ceebcad53de46a00984ef020d5cfea2105ee27b277f7f4589aae53afb",
+      "outputSha256": "c31b12f9cf371e87dc7134726a9046c0c1aa699c10618cf125eddd7b6570ccbc"
+    },
+    {
+      "file": "30-left-03.webp",
+      "view": "left",
+      "source": "archive (46).zip",
+      "original": "unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black-left-6a93800709dac.png",
+      "sourceSha256": "312668341d62ac39dcf817aca68edbd1d432976b066c214a2bd167dfbb753f7c",
+      "outputSha256": "3623363ab62b00654b6bf9c6442faeeac6025e2ddbca549865983ee5a969d1d7"
+    },
+    {
+      "file": "30-left-04.webp",
+      "view": "left",
+      "source": "archive (46).zip",
+      "original": "unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black-left-6a93800709fc4.png",
+      "sourceSha256": "450de653b1c268919ede1dea921fc098921b0352b5fb60a9f1c3fe1c459750c0",
+      "outputSha256": "adf9e2fd1c5ae0c612b5b9a3fa1e94f1428f1309a21c3d0a5004179de77ad1cd"
+    },
+    {
+      "file": "35-left-front-01.webp",
+      "view": "left-front",
+      "source": "archive (34).zip",
+      "original": "unisex-staple-t-shirt-black-left-front-6a935a463551a.png",
+      "sourceSha256": "5ae46bba2472d9fa7b7b176e188271b4b4cc3c496f1e8b0072f6052f08ad9a34",
+      "outputSha256": "d33879aecf45066aea21a2aa742c75916205a3625d145de8c08424dc1981fd1b"
+    },
+    {
+      "file": "40-right-01.webp",
+      "view": "right",
+      "source": "archive (34).zip",
+      "original": "unisex-staple-t-shirt-black-right-6a935a4635141.png",
+      "sourceSha256": "b181274499e7e7d63c9c973a5093d7bc495b252b0f4ee61ab9cd80e591e87401",
+      "outputSha256": "2d235c83ed4a10ac9829bddd81253e6b5925eddcef4563c6774304a3da743b93"
+    },
+    {
+      "file": "40-right-02.webp",
+      "view": "right",
+      "source": "archive (46).zip",
+      "original": "unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black-right-6a93800709907.png",
+      "sourceSha256": "d8618f2fe9ca37ec5af472a5d5b070beea87eec3b1cd99bc3a4d18b0bb6e87ad",
+      "outputSha256": "94b5f92ee4fd944f6198db915fb7348c3c95f7d670d91566641d1415e23a55e8"
+    },
+    {
+      "file": "40-right-03.webp",
+      "view": "right",
+      "source": "archive (46).zip",
+      "original": "unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black-right-6a93800709e50.png",
+      "sourceSha256": "54e2b0efba3e8c063f5e72f898db4ee3734335ec0955d9a317358421fc912b31",
+      "outputSha256": "731210fc5edcad24e8e7b966ebddcf3072fdc56991fa102eeec0ee901bbaa605"
+    },
+    {
+      "file": "45-right-front-01.webp",
+      "view": "right-front",
+      "source": "archive (34).zip",
+      "original": "unisex-staple-t-shirt-black-right-front-6a935a4635642.png",
+      "sourceSha256": "134e8fa125c4d48fa18b0960477d7c8fae1adb2e30a9830fcdf9d9888daf15ed",
+      "outputSha256": "fbc44608c8811bc8614926d85a2532c05f8ec80e91197768ed8ab94950e0edd7"
+    },
+    {
+      "file": "50-detail-01.webp",
+      "view": "detail",
+      "source": "archive (34).zip",
+      "original": "unisex-staple-t-shirt-black-product-details-6a935a4634753.png",
+      "sourceSha256": "913c0811a2aa17485bc9694477a849756db9df5d3b26130c3ffe4bd98fff3b25",
+      "outputSha256": "af3450abf679936c8732a5593c9eced49fde582562af826b8f9120541ee79270"
+    },
+    {
+      "file": "50-detail-02.webp",
+      "view": "detail",
+      "source": "archive (34).zip",
+      "original": "unisex-staple-t-shirt-black-zoomed-in-6a935a4634a43.png",
+      "sourceSha256": "47dba880ad920371a3846ade535ece3c867ed07f488239ab54e2896c11b5bf4d",
+      "outputSha256": "0bddbcc82f29dcc689057e8a2773bb93d7c0d36eb9cbbe8196a756a613d5ee1c"
+    }
+  ],
+  "sourceArchives": [
+    "archive (34).zip",
+    "archive (46).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

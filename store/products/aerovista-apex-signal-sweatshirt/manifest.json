@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "productId": "aerovista-apex-signal-sweatshirt",
+  "productName": "AeroVista Apex Signal Sweatshirt",
+  "hero": "/store/products/aerovista-apex-signal-sweatshirt/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "AeroVista Apex Signal Sweatshirt.png",
+      "sourceSha256": "0d45d4aa4692e034887ae12d279e7a55be4c3563a6f9bff95341c944fc11799c",
+      "outputSha256": "b6cbe0580aa5a99e39cbbf6225e0e9edbcca4590e35d3c4b0ba7649f42765b6d"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (21).zip",
+      "original": "unisex-premium-sweatshirt-black-front-2-6a90b052dd2e6.png",
+      "sourceSha256": "87baf9b28004f05e24d62d0c5b74b64ce706aee114ffe1a1df49b357efd97750",
+      "outputSha256": "7a025220cfb7c56bbe5bd3b86e7f78bef5c578cf909383d38afb07c552b45043"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (21).zip",
+      "original": "unisex-premium-sweatshirt-black-front-6a90b052d9f6b.png",
+      "sourceSha256": "4c783978c428cd06437fd75be404f58e1608d8055e02a4e917f1e4b754b87301",
+      "outputSha256": "4edb6f7df691c76662d72184749fb528980fbfe5a805f62bd10a34824b43ac3a"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (21).zip",
+      "original": "unisex-premium-sweatshirt-black-front-6a90b052da6d4.png",
+      "sourceSha256": "e8119462fd8a412c7b6a331604a7c7226b0aa76f3d30294abe252488fad92546",
+      "outputSha256": "9a12fce011bbfa953d4169d6c82ee7416119c4a9095993adce09e5201968f3dc"
+    },
+    {
+      "file": "10-front-04.webp",
+      "view": "front",
+      "source": "archive (21).zip",
+      "original": "unisex-premium-sweatshirt-black-front-6a90b052dad90.png",
+      "sourceSha256": "2ded85be260c3e24193d330d8b5423ea79a4e13f230d3cf66492d60b403ac533",
+      "outputSha256": "7ade6f12b435664146dfe0457920e4c94ffce813b2af90cdf6fe15ba75207220"
+    },
+    {
+      "file": "10-front-05.webp",
+      "view": "front",
+      "source": "archive (21).zip",
+      "original": "unisex-premium-sweatshirt-black-front-6a90b052dc223.png",
+      "sourceSha256": "43556fc60742b81cfda0fef355d2a81e38efb47c49a1d94cce069e1df62abf85",
+      "outputSha256": "8e55fef8bba31a9d24ca873020dbd3f525971485f42bb48b9c94e13613dfd326"
+    },
+    {
+      "file": "10-front-06.webp",
+      "view": "front",
+      "source": "archive (21).zip",
+      "original": "unisex-premium-sweatshirt-black-front-6a90b052dcc4e.png",
+      "sourceSha256": "0155ce154fab1609990017b770c60a2a7ec4fedcc75c57ff0b119b99ab51a9b3",
+      "outputSha256": "d3726117f79bcd57c53056d50e4fe56c02a75780d829d77028539a21fc0f71de"
+    },
+    {
+      "file": "10-front-07.webp",
+      "view": "front",
+      "source": "archive (21).zip",
+      "original": "unisex-premium-sweatshirt-black-front-6a90b052dcf94.png",
+      "sourceSha256": "8c2c5ba330a6fa42228cb889aac20df48836124d855b289e4712580bc091172c",
+      "outputSha256": "ae9b43270cefb84a7aedfd8b3b2567f1d9a2d5dd42e8f8872d92f9d2c595cacd"
+    },
+    {
+      "file": "10-front-08.webp",
+      "view": "front",
+      "source": "archive (21).zip",
+      "original": "unisex-premium-sweatshirt-black-front-6a90b052de344.png",
+      "sourceSha256": "21f70c620b7d1342cb30a7f877d747552bb3e2c3452155f6d2d3e6296d6d36b7",
+      "outputSha256": "273d9d632b273cd79355b4e0ed94f6b454635e5742f88e946ab1e1c515e6a686"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (21).zip",
+      "original": "unisex-premium-sweatshirt-black-back-6a90b052da374.png",
+      "sourceSha256": "28f16c9b2316b5346dcb0f5fd382808a52030a0b0cea0786d17c4d827af46db2",
+      "outputSha256": "0a497d8a1d87fabaf0b26e40ffa7cd52172eaf403e6be661d4860f033c144a69"
+    },
+    {
+      "file": "20-back-02.webp",
+      "view": "back",
+      "source": "archive (21).zip",
+      "original": "unisex-premium-sweatshirt-black-back-6a90b052daa34.png",
+      "sourceSha256": "ced39231e4be0268da52d556e3be2f18c52d686d418483e1e3c721763f857855",
+      "outputSha256": "3f406a0f7ce654d93c04e7a85beef6359cd5d915859c9e394679bc5f833b8c90"
+    },
+    {
+      "file": "20-back-03.webp",
+      "view": "back",
+      "source": "archive (21).zip",
+      "original": "unisex-premium-sweatshirt-black-back-6a90b052db0e9.png",
+      "sourceSha256": "c83efead1814a66db07d7ae7b08eef98156a688a5e1a801f595ff55183ea3b85",
+      "outputSha256": "ffd29163fc86c14b24183668629efaa790f86963dfbc3b5c998e4fbb0f7b247c"
+    },
+    {
+      "file": "20-back-04.webp",
+      "view": "back",
+      "source": "archive (21).zip",
+      "original": "unisex-premium-sweatshirt-black-back-6a90b052db7d3.png",
+      "sourceSha256": "2ff95b61aa85126b353b1ce8ed167da6123cd6cfa6c8f55a715633d894b07cb4",
+      "outputSha256": "067c8924416c40403c644c8e7fe44b31fa8086fdfc62272d95944f388abd2c51"
+    },
+    {
+      "file": "20-back-05.webp",
+      "view": "back",
+      "source": "archive (21).zip",
+      "original": "unisex-premium-sweatshirt-black-back-6a90b052dc565.png",
+      "sourceSha256": "99cdf11771b96452f3c3f1a30184d7726030ed312fdb8cf25bf6167710a7b9b1",
+      "outputSha256": "b809bb165d0f101dec842a6e6f1147293789e0bd2b59aeaba18e7779fb50dcd8"
+    },
+    {
+      "file": "30-left-01.webp",
+      "view": "left",
+      "source": "archive (21).zip",
+      "original": "unisex-premium-sweatshirt-black-left-6a90b052dbb3b.png",
+      "sourceSha256": "ba3a10876e31f619c22c4941e9b4913571336f51d4040b3fe4504b06ecbb2ebf",
+      "outputSha256": "2109d0471da53e4136bc790014dc7474a3232391a7b277d4b1896cd1a949dcf3"
+    },
+    {
+      "file": "30-left-02.webp",
+      "view": "left",
+      "source": "archive (21).zip",
+      "original": "unisex-premium-sweatshirt-black-left-6a90b052dd61e.png",
+      "sourceSha256": "7d10ea3d65a01c599248af2435a513214ffc09cdf081222f910c9b08b224658f",
+      "outputSha256": "d495502267c71d5f8ae202b45b224d12d701aa59d671e88e556927a56082e7cc"
+    },
+    {
+      "file": "35-left-front-01.webp",
+      "view": "left-front",
+      "source": "archive (21).zip",
+      "original": "unisex-premium-sweatshirt-black-left-front-6a90b052dd97a.png",
+      "sourceSha256": "5c63efaa5621322bf67413f0faf97c5316afd83a564eee0206d5073dc044ede3",
+      "outputSha256": "1ed6584fa4424b68d851d8dfb35d24c69c58b45d329acfd6e2cddee2785478c3"
+    },
+    {
+      "file": "40-right-01.webp",
+      "view": "right",
+      "source": "archive (21).zip",
+      "original": "unisex-premium-sweatshirt-black-right-6a90b052dbea7.png",
+      "sourceSha256": "c0d17252886e3f7e2ccefb18cee81409ccc8fda257e94a70e54048f62dfb058e",
+      "outputSha256": "1d0c1e93fd49cbe66b0ea431bd42d7df5ad4280184bc3c9c5fc5765dac3aeac4"
+    },
+    {
+      "file": "40-right-02.webp",
+      "view": "right",
+      "source": "archive (21).zip",
+      "original": "unisex-premium-sweatshirt-black-right-6a90b052ddcdb.png",
+      "sourceSha256": "dc8751c3248a689754bfd670dfe3827f374f8619f8f62d105e40cdfc14dc39cd",
+      "outputSha256": "c550e96633b78989a4e41160531454c92c70aab78005bf10256b8ba1f27b329f"
+    },
+    {
+      "file": "45-right-front-01.webp",
+      "view": "right-front",
+      "source": "archive (21).zip",
+      "original": "unisex-premium-sweatshirt-black-right-front-6a90b052de00e.png",
+      "sourceSha256": "9241168eb30f97ca8af74a76b606b1a421adfb9101e530d7aa61dae0eca05b7d",
+      "outputSha256": "3fa4715ed055541a783c83eb672e84ded6684281551cba970c485afeb72fc0f1"
+    },
+    {
+      "file": "50-detail-01.webp",
+      "view": "detail",
+      "source": "archive (21).zip",
+      "original": "unisex-premium-sweatshirt-black-product-details-6a90b052db45c.png",
+      "sourceSha256": "6429124ef1f8afed81c52308ddbe7580c8170dfd4593b4fe617a20e5b477af6f",
+      "outputSha256": "2d0ff394e2eca4f4aea7f571b1eb3510236b5171a15daf46d7b45bf887eb5a08"
+    },
+    {
+      "file": "50-detail-02.webp",
+      "view": "detail",
+      "source": "archive (21).zip",
+      "original": "unisex-premium-sweatshirt-black-zoomed-in-6a90b052dc8aa.png",
+      "sourceSha256": "7936eccffa40026dce7ce7dcd5a8c5f3984441b8e66f2dad4835b9a8cc0b00e3",
+      "outputSha256": "daa171a35ad61cb445d97c60789d1d62a3ee00f17ef6428ef351098519532412"
+    }
+  ],
+  "sourceArchives": [
+    "archive (21).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

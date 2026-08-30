@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "productId": "aerovista-apex-mark-draft-series-s01-sticker",
+  "productName": "AeroVista Apex Mark — Draft Series S01 Sticker",
+  "hero": "/store/products/aerovista-apex-mark-draft-series-s01-sticker/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "adrafted.png",
+      "sourceSha256": "e16eb30320efdd7dd08b1810c520fbcab32f305206d3ba0bbcffbf0423063403",
+      "outputSha256": "f5af800194cd15d41c3e12146de4e6da44e7785a72e862b3fcb9132086eaaac2"
+    },
+    {
+      "file": "60-alternate-01.webp",
+      "view": "alternate",
+      "source": "archive (36).zip",
+      "original": "kiss-cut-stickers-white-3x3-default-6a93533be9bfb.png",
+      "sourceSha256": "acd3cd45b381b7aafb545a33435a33d97a40f2764140c0215bd0d0e8274845da",
+      "outputSha256": "5ae60dbb4eb44c7ad467986b38c5a19fdb3daca76aa1fc6e0399a4525592c2e8"
+    },
+    {
+      "file": "60-alternate-02.webp",
+      "view": "alternate",
+      "source": "archive (36).zip",
+      "original": "kiss-cut-stickers-white-5.5x5.5-default-6a93533bea097.png",
+      "sourceSha256": "4590f7d0fc12424b86be8c40f49c0fd9928b2364341903ef87612bab407fd70c",
+      "outputSha256": "75ac17413dc3c24f4d695290c68aa0ecb9fdceb1aaa09bbd0d6a0469226aa31f"
+    }
+  ],
+  "sourceArchives": [
+    "archive (36).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

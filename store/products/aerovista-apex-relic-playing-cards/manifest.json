@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "productId": "aerovista-apex-relic-playing-cards",
+  "productName": "AeroVista Apex Relic Playing Cards",
+  "hero": "/store/products/aerovista-apex-relic-playing-cards/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "poker-playing-cards.png",
+      "sourceSha256": "76a242026b51413c0a2f354f89942c9f7da8d42c58e4db3f3c65733735ca8165",
+      "outputSha256": "10abfaa31cca60a1a86539a70c4737d712adbf2b4c6e89e062928b6c5a2f25dc"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (8).zip",
+      "original": "poker-playing-cards-white-2.5x3.5-front-6a8df62f87940.png",
+      "sourceSha256": "2f945586187e4e9484da85d3c66e89aca669348bfded9a85323cd448a311d0c5",
+      "outputSha256": "44e4a0350354060060c79f672a6bcc3c74d100a5d3808ff75eddfd4c76ba6652"
+    }
+  ],
+  "sourceArchives": [
+    "archive (8).zip"
+  ],
+  "duplicateArchives": [
+    "archive (9).zip"
+  ],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

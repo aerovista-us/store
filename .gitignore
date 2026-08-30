@@ -14,6 +14,29 @@ horizon/.publish-work/
 *.pyc
 *.pyo
 coverage/
+.dev/
+.playwright-cli/
+output/
+horizon-write-test
+_legacy_export.zip
+
+# Local NXCore maintenance scripts with environment-specific DB credentials.
+scripts/add-shadow-pants-map-and-requeue.py
+scripts/audit-all-orders-detail.py
+scripts/audit-all-orders.py
+scripts/audit-product-variant-map.py
+scripts/cancel-order-fulfillment.py
+scripts/check-orders-13-14.py
+scripts/check-printful-orders.py
+scripts/diagnose-shadow-pants-visibility.py
+scripts/enable-promo-order-fulfillment.py
+scripts/import-all-printful-sync-maps.py
+scripts/investigate-missing-orders.py
+scripts/lookup-shadow-pants-map.py
+scripts/query-fulfillment-failures.py
+scripts/query-provider-orders.py
+scripts/query-recent-orders.py
+scripts/sample-variant-maps.py
 
 # --- Generated public/ (always from npm run sync:*) ---
 public/shop/
@@ -37,10 +60,12 @@ archive/
 *token*
 sku_map.generated.*
 
-# --- Local agent / tooling (never publish) ---
-.dev/
-.playwright-cli/
-output/
+# --- Legacy export staging (ready to leave parent folder) ---
+# Keep README + MANIFEST tracked; ignore bulk trees (canvas tooling, archive, etc.)
+_legacy_export/**
+!_legacy_export/README.md
+!_legacy_export/MANIFEST.md
+
 
 # --- OS & editor ---
 .DS_Store
@@ -112,6 +137,9 @@ store/square_products_latest_pre*.json
 store/square_products_merged.json
 store/square_products_merge_report.csv
 
+# --- store/_internal — operator artifacts (never sync to public/shop) ---
+store/_internal/
+
 # Misc working files at store root
 store/synthetic_souls_drop.png
 store/*.txt
@@ -119,3 +147,7 @@ store/*.txt
 
 # Dated catalog exports at store root (xlsx/csv covered by global rules)
 store/1149XBNG8C8ZE_catalog-*
+
+# Legacy paths (moved under store/_internal/ or docs/store-internal/)
+store/commerce/
+store/img/**/README.md

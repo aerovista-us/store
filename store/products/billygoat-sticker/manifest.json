@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "productId": "billygoat-sticker",
+  "productName": "BillyGoat Sticker",
+  "hero": "/store/products/billygoat-sticker/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "bonsaid sticker.png",
+      "sourceSha256": "c4c2507e1cdec3eb3d907a8ca288ec6a22a9f1cf2c7ad15bae9764e1c0178708",
+      "outputSha256": "1f272ebd5397d67b3d35017a6b9a7cfe6c531a4d09f33d6caf6e82e8c42257d8"
+    },
+    {
+      "file": "60-alternate-01.webp",
+      "view": "alternate",
+      "source": "archive (55).zip",
+      "original": "kiss-cut-stickers-white-3x3-default-6a93b42510397.png",
+      "sourceSha256": "bad0bdce6a24854691a074e536ee75f8a677c1e64c438aaff7d491aaa347052d",
+      "outputSha256": "c0a0d96389d7ddfb76794376fc3b1423998a733800250adac914f489173026d0"
+    },
+    {
+      "file": "60-alternate-02.webp",
+      "view": "alternate",
+      "source": "archive (55).zip",
+      "original": "kiss-cut-stickers-white-5.5x5.5-default-6a93b42510594.png",
+      "sourceSha256": "6b5857e018229492e190cbc1c3da756471b0fecfb9f7240fad53cd6ea23d5450",
+      "outputSha256": "2238fea4ff5e19923c32f52c7468c2deb3d308d058571372514c3de439957547"
+    }
+  ],
+  "sourceArchives": [
+    "archive (55).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

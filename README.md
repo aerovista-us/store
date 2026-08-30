@@ -11,6 +11,7 @@ static Horizon storefront.
 | Path | Role |
 |------|------|
 | **`store/`** | Canonical static shop + catalog JSON + `js/collection-lane-svg.js`. Synced to **`public/shop`**. |
+| **`store/products/`** | Canonical WebP product galleries, one folder and manifest per catalog product. Published at **`/store/products/{product-id}/`**. |
 | **`horizon/`** | **Horizon** customer storefront (second store) — four proportional consumer-wall works, one Harbor business-placement feature, no public placeholders, recoverable archive, hidden bundle, and safely gated Square/Printful commerce handoff; see `horizon/README.md`. |
 | **`console/`** | Catalog console **v2** (`aerovista_catalog_console_v2.html`). Synced to **`public/console`**. |
 | **`public/`** | Generated static assets for Vite/`dist` (run sync before dev/build). |
@@ -37,6 +38,8 @@ npm run preview
 | `deploy:server` | Local API for console **Deploy to store** |
 | `deploy:catalog` | CLI: write JSON to `store/` and sync |
 | `console:server` | `node console/server.js` (static + bg-removal API) |
+| `scripts/import-incoming-product-images.ps1` | Match reviewed provider exports to catalog product folders |
+| `scripts/archive-completed-product-zips.ps1` | Move manifest-referenced ZIPs from staging to completed storage |
 
 ## Deploy catalog
 
@@ -87,7 +90,7 @@ docker compose -f console/docker-compose.yml up -d --build
 - **`docs/DEPLOY_GITHUB_PAGES.md`** — public shop (gear.aerovista.us)  
 - **`docs/REPO_LAYOUT.md`** — folder reference  
 - **`docs/AVCC_INTEGRATION.md`** — AVCC Command Center ↔ commerce storefronts
-- **`store/handoffnotes.md`** — quick storefront dev map  
+- **`docs/store-internal/handoffnotes.md`** — quick storefront dev map  
 - **`planning/`** — commerce plans (Plan 1 / 1A / 2), readiness report, Horizon demo sources
 - **`horizon/README.md`** — Horizon storefront shell status
 - **`horizon/DEPLOYMENT_SOP.md`** — Horizon preview, launch, verification, and rollback procedure

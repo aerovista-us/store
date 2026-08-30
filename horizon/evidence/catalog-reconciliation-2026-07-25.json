@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "store": "horizon",
+  "createdDate": "2026-07-25",
+  "status": "draft-reconciliation",
+  "importAllowed": false,
+  "sourceWorkbook": {
+    "path": "V:/aerovista-store/planning/canvas/1149XBNG8C8ZE_catalog-2026-07-25-0932.xlsx",
+    "sheet": "Sheet1",
+    "range": "A1:AL6",
+    "fileBytes": 91042,
+    "recordCount": 5,
+    "sha256": null,
+    "sha256Note": "The workbook was open by another process during reconciliation, so a source checksum could not be captured."
+  },
+  "summary": {
+    "catalogRecords": 5,
+    "candidateMockups": 4,
+    "highConfidenceMatches": 3,
+    "provisionalMatches": 1,
+    "unmatchedCatalogRecords": 1
+  },
+  "matches": [
+    {
+      "status": "candidate",
+      "confidence": "high",
+      "catalog": {
+        "sourceRow": 2,
+        "referenceHandle": "#cda-clock-1-",
+        "squareItemToken": "FQMBORDTVIE33YZMVQOT5QWF",
+        "itemName": "CDA Clock",
+        "sku": "6A645D0C575E6_19324",
+        "description": "Downtown Coeur d'Alene",
+        "priceCents": 25000,
+        "squareOnlineVisibility": "visible"
+      },
+      "mockup": {
+        "filename": "canvas-(in)-30x60-wall-6a645d403c53d.png",
+        "vendorAssetId": "6a645d403c53d",
+        "sha256": "5448bea7e5378c1ed5050a8a6970bf70d6c3825d4b1727164dd950a9db8ad94e",
+        "canvasSizeInches": {
+          "width": 60,
+          "height": 30
+        }
+      },
+      "evidence": [
+        "The mockup visibly depicts the downtown Coeur d'Alene clock and waterfront.",
+        "The mockup vendor asset ID and catalog SKU share the 6A645D prefix."
+      ],
+      "approvalRequired": true
+    },
+    {
+      "status": "candidate",
+      "confidence": "provisional",
+      "catalog": {
+        "sourceRow": 3,
+        "referenceHandle": "#canvas-",
+        "squareItemToken": "V2TFU6KOV4VKHU43KU3IZ32K",
+        "itemName": "Canvas",
+        "sku": "6A6464FE79D59_19324",
+        "description": "Generic canvas product description",
+        "priceCents": 25000,
+        "squareOnlineVisibility": "visible"
+      },
+      "mockup": {
+        "filename": "canvas-(in)-30x60-wall-6a64660c12e12.png",
+        "vendorAssetId": "6a64660c12e12",
+        "sha256": "aa06715dc002933e68af0e2ce3f1b4111d9577bb7e64e8a86a3716c1dca002e3",
+        "canvasSizeInches": {
+          "width": 60,
+          "height": 30
+        }
+      },
+      "evidence": [
+        "This is the only supplied mockup not explained by a specific named catalog record.",
+        "The mockup vendor asset ID and catalog SKU share the 6A646 prefix."
+      ],
+      "risk": "The catalog name and description do not identify the depicted lakefront peninsula or golf-course scene.",
+      "approvalRequired": true
+    },
+    {
+      "status": "candidate",
+      "confidence": "high",
+      "catalog": {
+        "sourceRow": 5,
+        "referenceHandle": "#floating-green-",
+        "squareItemToken": "SEXEDBEEMEPQUCVSXUVBNTD3",
+        "itemName": "Floating Green",
+        "sku": "6A647991AB3E4_19330",
+        "description": "Coeur d'Alene Resort Golf Course",
+        "priceCents": 25000,
+        "squareOnlineVisibility": "visible"
+      },
+      "mockup": {
+        "filename": "canvas-(in)-40x60-wall-6a6479ac402eb.png",
+        "vendorAssetId": "6a6479ac402eb",
+        "sha256": "1b85db8b7c40f5c828411db3463b03c1e3423702080fe86716d7f2df58f68843",
+        "canvasSizeInches": {
+          "width": 60,
+          "height": 40
+        }
+      },
+      "evidence": [
+        "The mockup visibly depicts the Coeur d'Alene Resort Golf Course and floating green.",
+        "The mockup vendor asset ID and catalog SKU share the 6A6479 prefix."
+      ],
+      "approvalRequired": true
+    },
+    {
+      "status": "candidate",
+      "confidence": "high",
+      "catalog": {
+        "sourceRow": 6,
+        "referenceHandle": "#lake-cove-",
+        "squareItemToken": "M35WFGWGDDNZSBHANYTSEZX6",
+        "itemName": "lake cove",
+        "sku": "6A6461CFB3E67_6",
+        "description": "Tubbs Coeur d'Alene",
+        "priceCents": 15000,
+        "squareOnlineVisibility": "visible"
+      },
+      "mockup": {
+        "filename": "canvas-(in)-16x20-wall-6a6463370a8c2.png",
+        "vendorAssetId": "6a6463370a8c2",
+        "sha256": "8474dad2285d5bd4142fca7b2308dd7b8f36d03deda704a9f40b8edb784807cd",
+        "canvasSizeInches": {
+          "width": 20,
+          "height": 16
+        }
+      },
+      "evidence": [
+        "The mockup visibly depicts a rocky, forested lake cove consistent with the Tubbs Hill description.",
+        "The mockup vendor asset ID and catalog SKU share the 6A646 prefix."
+      ],
+      "approvalRequired": true
+    }
+  ],
+  "unmatchedCatalogRecords": [
+    {
+      "sourceRow": 4,
+      "referenceHandle": "#center-clock-",
+      "squareItemToken": "3JYLZWT3XD5SDLXVKAQVL3WD",
+      "itemName": "Center Clock",
+      "sku": "6A630BD4D834A_19305",
+      "description": "CDA Downtown",
+      "priceCents": 25000,
+      "reason": "No supplied mockup has a matching identifier. The scene may overlap CDA Clock, but that relationship is not established."
+    }
+  ],
+  "unassignedPrototypeAssets": [
+    {
+      "filename": "canvas-(in)-16x48-wall.png",
+      "sha256": "6a41e4f4ddd61ba7c68a30128414bfee56aa5effb96fb43bed92dbf5eba30413",
+      "pixelDimensions": {
+        "width": 2000,
+        "height": 2000
+      },
+      "workingObservation": "The mockup shows the downtown clock scene, but its filename has no vendor asset ID. It could be an alternate CDA Clock size or relate to Center Clock.",
+      "assignmentAllowed": false
+    }
+  ],
+  "blockingWorkbookFindings": [
+    "All five records contain the literal text 41 in customer-facing name and variation name.",
+    "SEO, permalink, GTIN, weight, sale-price, sellable, stock, option, and inventory fields also contain the literal text 41.",
+    "Every record uses the generic Utility category and reporting category.",
+    "No usable size or finish variation is encoded in the variation or option fields.",
+    "The workbook does not provide a confirmed fulfillment-provider variant mapping.",
+    "The generic Canvas record needs an approved customer-facing artwork title and location-specific description."
+  ],
+  "requiredApprovals": [
+    "Confirm or correct each proposed mockup-to-record match.",
+    "Resolve whether CDA Clock and Center Clock are distinct works, sizes, crops, or duplicate records.",
+    "Approve customer-facing titles, descriptions, categories, SEO fields, and alt text.",
+    "Replace every unintended literal 41 value with a valid value or blank field.",
+    "Confirm sellable sizes, finishes, prices, Square variation identifiers, and fulfillment-provider mappings.",
+    "Provide and checksum print-ready source artwork separately from storefront mockups.",
+    "Confirm ownership and commercial-use rights."
+  ]
+}

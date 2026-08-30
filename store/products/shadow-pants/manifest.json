@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "productId": "shadow-pants",
+  "productName": "shadow pants",
+  "hero": "/store/products/shadow-pants/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "shadow pants.png",
+      "sourceSha256": "94f7a348fe6656758416ad380fe31136b428e912275e756693dbdd09a3738b3f",
+      "outputSha256": "6c1ae24e3d21c9062be0bdac99f24450dafefd948d601f53a7c0bffa2165b82a"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (17).zip",
+      "original": "all-over-print-unisex-wide-leg-pants-white-front-6a90a2bae048e.png",
+      "sourceSha256": "4efdbaf47e33ab7db2c4f8955cace84cc322deb36b734ce3537a75abc2261440",
+      "outputSha256": "7f059fb94f4a9926156e9a1761d3f874f57c65984a9dee6f0f2a637a40623508"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (17).zip",
+      "original": "all-over-print-unisex-wide-leg-pants-white-front-6a90a2bae074a.png",
+      "sourceSha256": "c904df4941fecda271d1b71e07f25cac450b01480bfcb2cb7db3c60a3dd6c606",
+      "outputSha256": "88eb986e1fdf81c338568a04eb696cc4f6cca64290aabfcf69e64a145f28f6a4"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (17).zip",
+      "original": "all-over-print-unisex-wide-leg-pants-white-front-6a90a2bae0af3.png",
+      "sourceSha256": "e35eb967b9a9545bd509291a1332f088d99067bcaedeab9946adcb44ea4192b9",
+      "outputSha256": "44aa0a4af6d4cc4efe76f9764bfabb187e5009fb55d5fb9f310e66ed01f50094"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (17).zip",
+      "original": "all-over-print-unisex-wide-leg-pants-white-back-6a90a2bae027e.png",
+      "sourceSha256": "4e301d686f68c9ec520dfb66adfd3b92bf7e81df57a0b81b05aee115592f5dc6",
+      "outputSha256": "bd9eee9f7df7ed9627cc2359503e36ae5ae4a1685b9b9b75686590e8ea4adaa3"
+    },
+    {
+      "file": "20-back-02.webp",
+      "view": "back",
+      "source": "archive (17).zip",
+      "original": "all-over-print-unisex-wide-leg-pants-white-back-6a90a2bae0604.png",
+      "sourceSha256": "5533cea47a05c95cda29c070e496eb71f32c6368682a8f670e09931a5465e10a",
+      "outputSha256": "4731121a5e4c8c841212dfc8f1f15abf70117d6533816d3e0a3c8a5c9d4b2827"
+    },
+    {
+      "file": "20-back-03.webp",
+      "view": "back",
+      "source": "archive (17).zip",
+      "original": "all-over-print-unisex-wide-leg-pants-white-back-6a90a2bae088c.png",
+      "sourceSha256": "8974ede3a6a8c04b48a2aecb9b5713bb220fa170efbc3351ec7037014d592968",
+      "outputSha256": "0a1da06202aacced6eb9d939bc5c7ee87df7f44a9cb4bf40e9b3030f0445b64d"
+    },
+    {
+      "file": "35-left-front-01.webp",
+      "view": "left-front",
+      "source": "archive (17).zip",
+      "original": "all-over-print-unisex-wide-leg-pants-white-left-front-6a90a2bae0d61.png",
+      "sourceSha256": "7f89b45ce9387bafac8de1cd52ffa509742a0de5652fa70f22d9fd3e7139a52f",
+      "outputSha256": "80981e02a2d4c9bf9f962751fc6d21c686272032e72dcc776a6e27945b9cd673"
+    },
+    {
+      "file": "45-right-front-01.webp",
+      "view": "right-front",
+      "source": "archive (17).zip",
+      "original": "all-over-print-unisex-wide-leg-pants-white-right-front-6a90a2bae09ae.png",
+      "sourceSha256": "43fbbd2449175030d5c129ee61ac85a868daab9721ef1909e70965cb10465c71",
+      "outputSha256": "6155660a2aa0234ad15f9a43f7617bed0d5194998062bf522ae80f9816fe075b"
+    },
+    {
+      "file": "45-right-front-02.webp",
+      "view": "right-front",
+      "source": "archive (17).zip",
+      "original": "all-over-print-unisex-wide-leg-pants-white-right-front-6a90a2bae0c42.png",
+      "sourceSha256": "f86a3662ba3d117ccdf060145a4bb5bc8b135ec07b52e4ce53f33ac625aae89f",
+      "outputSha256": "c109a5f3b9cd0bc98a995408abd7d3c43803d46c33760315948346a013fb8cc4"
+    }
+  ],
+  "sourceArchives": [
+    "archive (17).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

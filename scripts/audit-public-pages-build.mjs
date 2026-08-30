@@ -4,6 +4,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  FORBIDDEN_PUBLIC_PATTERNS,
+  isForbiddenPublicArtifact,
+  isPublicShopPath,
+} from './lib/public-shop-manifest.mjs';
 
 const dist = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'dist');
 
@@ -16,19 +21,18 @@ const forbiddenDirNames = new Set([
   'bg_remove_in',
   'bg_remove_out',
   'aerovistacatalog_console',
+  '_internal',
+  'scripts',
+  'commerce',
 ]);
 
 const forbiddenPathPatterns = [
+  ...FORBIDDEN_PUBLIC_PATTERNS,
   /(?:^|\/)console(?:\/|$)/i,
   /(?:^|\/)backend(?:\/|$)/i,
   /(?:^|\/)tools(?:\/|$)/i,
   /(?:^|\/)archive(?:\/|$)/i,
   /aerovista_catalog_console/i,
-  /margin_reference/i,
-  /operator_margin/i,
-  /square_private_config/i,
-  /\.env$/i,
-  /^1149xbng8c8ze_catalog-.*\.(xlsx|csv|xlsm)$/i,
 ];
 
 function walk(dir, base = dist) {
@@ -56,6 +60,9 @@ if (!fs.existsSync(dist)) {
 const hits = [];
 for (const rel of walk(dist)) {
   const norm = rel.replace(/\\/g, '/');
+  if (!norm) continue;
+  if (norm === 'FOLDER_ROLE.md') continue;
+
   const segments = norm.split('/');
   if (segments.some((s) => forbiddenDirNames.has(s.toLowerCase()))) {
     hits.push(rel);
@@ -63,6 +70,28 @@ for (const rel of walk(dist)) {
   }
   if (forbiddenPathPatterns.some((re) => re.test(norm))) {
     hits.push(rel);
+    continue;
+  }
+  const isProductGalleryPath = /^store\/products\/[^/]+\/(?:[^/]+\.webp|manifest\.json)$/i.test(norm);
+  const isProductGalleryDirectory = /^store(?:\/products(?:\/[^/]+)?)?$/i.test(norm);
+  if (!isProductGalleryPath && !isProductGalleryDirectory && !isPublicShopPath(norm)) {
+    hits.push(`${rel} (not on public shop allowlist)`);
+  }
+}
+
+const catalogPath = path.join(dist, 'square_products_latest.json');
+if (fs.existsSync(catalogPath)) {
+  const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
+  for (const product of catalog.products || []) {
+    for (const url of [product.image, ...(product.images || [])]) {
+      if (typeof url !== 'string' || !url.startsWith('/store/products/')) continue;
+      const target = path.join(dist, ...url.split('/').filter(Boolean));
+      if (!fs.existsSync(target)) hits.push(`${url} (catalog gallery image missing from Pages artifact)`);
+    }
+    if (typeof product.image_manifest === 'string' && product.image_manifest.startsWith('/store/products/')) {
+      const target = path.join(dist, ...product.image_manifest.split('/').filter(Boolean));
+      if (!fs.existsSync(target)) hits.push(`${product.image_manifest} (manifest missing from Pages artifact)`);
+    }
   }
 }
 

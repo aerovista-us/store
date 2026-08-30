@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "productId": "burst-lens-lumina-pullover-hoodie",
+  "productName": "Burst Lens — Lumina — Pullover Hoodie",
+  "hero": "/store/products/burst-lens-lumina-pullover-hoodie/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "archive (20).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-front-6a90aadc83190.png",
+      "sourceSha256": "3b4650465e9814878695371c70b9b86536065757e1268397c75d8ae99a3c9f5c",
+      "outputSha256": "a0cfe3403d93608e2b8286efc154ca17248ee2ddb465ecfbaeea7d13961d7bf2"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (20).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-front-6a90aadc83429.png",
+      "sourceSha256": "8d982268803dbdcd6a583bc2e68eb4ce142f3929972ec1295a89321d5e4d0735",
+      "outputSha256": "bd249318f9579dd7688f00d7c6a5e45f1b8209efacac4e1bb782e40014f0b6a5"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (20).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-front-6a90aadc8359c.png",
+      "sourceSha256": "f798134faa043f2e0d8cf5a88d9f111be8e0db7fd23305f63dbb19f37afe5e60",
+      "outputSha256": "241ba87137811993b6007cef0bd277a2969079cfe7543f115d41563e7d56356c"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (20).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-front-6a90aadc83b7b.png",
+      "sourceSha256": "c53ca8c5c0b6ad6997c2482be441431beb7ad5923feb317272d11b759571ffed",
+      "outputSha256": "014f805edb429eb87ef605af833dcfbe3aa0413507654b8a67d88802650b2663"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (20).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-back-6a90aadc836c7.png",
+      "sourceSha256": "0cf93fbef8c841030683dd0353039be7180ceb823089bf71bcbc64e39f3816e2",
+      "outputSha256": "040ec713bf6a7be7eeef934d52375a798fa94e98c7adec0de0d43df1ac5d70a9"
+    },
+    {
+      "file": "20-back-02.webp",
+      "view": "back",
+      "source": "archive (20).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-back-6a90aadc837f0.png",
+      "sourceSha256": "8b73a71c2c8dc37ed67e4d81e4bdeb2f7f1ed408a12eedab8746d364bfded336",
+      "outputSha256": "8abb213b975ecc4cf154673d2392f06397acd2106ef9e2e58ba0379abeb0598d"
+    },
+    {
+      "file": "20-back-03.webp",
+      "view": "back",
+      "source": "archive (20).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-back-6a90aadc83cac.png",
+      "sourceSha256": "8cd968efa547d6fe9d4ff0cb355273d0e3926dfd1e841ae453e0487f074b9f74",
+      "outputSha256": "6a5852f7c7f261341df02db5f029fcc41f87e86e4d6a05c63d020175dbcec4a8"
+    },
+    {
+      "file": "30-left-01.webp",
+      "view": "left",
+      "source": "archive (20).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-left-6a90aadc8392b.png",
+      "sourceSha256": "e110c4afd07bbc8efe1f4ff6be648186e837313b4a4cd6344828be2e7c2e3215",
+      "outputSha256": "9b3b19ccf7152b033fcb029de97ed677ee8450988a0d87fb7325ee30c5edd3c0"
+    },
+    {
+      "file": "40-right-01.webp",
+      "view": "right",
+      "source": "archive (20).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-right-6a90aadc83a60.png",
+      "sourceSha256": "3466e6be9aa58993e82918f93368a8f758bb4b63fc30455949cca1400fbb7b27",
+      "outputSha256": "fa50dc57d4a418e10fb9e2895815d3ca6f4e0809b73e7097ca2a288382e79c18"
+    }
+  ],
+  "sourceArchives": [
+    "archive (20).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

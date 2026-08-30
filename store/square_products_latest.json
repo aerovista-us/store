@@ -14,7 +14,7 @@
       "collection": "Draft Series",
       "visibility": "visible",
       "price": 32.99,
-      "image": "drafted-a-snapback.png",
+      "image": "/store/products/aerovista-apex-mesh-trucker-cap/01-hero.webp",
       "description_text": "The AeroVista Apex Mesh cap is built for daily wear: structured front panel, breathable mesh back, and a crisp embroidered-style logo that pops in silver and blue. It’s the kind of hat you can throw on for work days, road miles, shop time, or just keeping the sun out while you move. Key features: Structured front + breathable mesh back Curved brim for a classic silhouette AeroVista Apex logo front and center Easy, adjustable snapback fit Fit note: One size fits most (adjustable snapback).",
       "description_html": "<p>The AeroVista Apex Mesh cap is built for daily wear: structured front panel, breathable mesh back, and a crisp embroidered-style logo that pops in silver and blue. It’s the kind of hat you can throw on for work days, road miles, shop time, or just keeping the sun out while you move. Key features: Structured front + breathable mesh back Curved brim for a classic silhouette AeroVista Apex logo front and center Easy, adjustable snapback fit Fit note: One size fits most (adjustable snapback).</p>",
       "seo_title": "AeroVista “Apex Mesh” Trucker Cap",
@@ -34,7 +34,19 @@
           "price": 32.99,
           "variation_id": "7CTKCADMVJBJRHQNT2IPUQKG"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-apex-mesh-trucker-cap/01-hero.webp",
+        "/store/products/aerovista-apex-mesh-trucker-cap/10-front-01.webp",
+        "/store/products/aerovista-apex-mesh-trucker-cap/10-front-02.webp",
+        "/store/products/aerovista-apex-mesh-trucker-cap/10-front-03.webp",
+        "/store/products/aerovista-apex-mesh-trucker-cap/20-back-01.webp",
+        "/store/products/aerovista-apex-mesh-trucker-cap/30-left-01.webp",
+        "/store/products/aerovista-apex-mesh-trucker-cap/35-left-front-01.webp",
+        "/store/products/aerovista-apex-mesh-trucker-cap/40-right-01.webp",
+        "/store/products/aerovista-apex-mesh-trucker-cap/45-right-front-01.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-apex-mesh-trucker-cap/manifest.json"
     },
     {
       "id": "aerovista-skyline-drone-crest-sticker",
@@ -137,7 +149,7 @@
       "collection": "Draft Series",
       "visibility": "visible",
       "price": 59.99,
-      "image": "drafted_a__zip_hoodie.png",
+      "image": "/store/products/aerovista-apex-draft-full-zip-hoodie-black/01-hero.webp",
       "description_text": "Apex Draft is the zip hoodie you throw on when you want a clean look that still works hard. Sharp chest branding, full-zip versatility, and an easy everyday fit—perfect for early mornings, travel days, or late-night build sessions. Apparel: Unisex premium mid-weight zip hoodie Full-zip for quick layering Front pockets + structured hood Soft, durable feel built for repeat wear Fit note: If you prefer a roomier layer, go one size up .",
       "description_html": "<p>Apex Draft is the zip hoodie you throw on when you want a clean look that still works hard. Sharp chest branding, full-zip versatility, and an easy everyday fit—perfect for early mornings, travel days, or late-night build sessions. Apparel: Unisex premium mid-weight zip hoodie Full-zip for quick layering Front pockets + structured hood Soft, durable feel built for repeat wear Fit note: If you prefer a roomier layer, go one size up .</p>",
       "seo_title": "AeroVista • Apex Draft • Full-Zip Hoodie • Black",
@@ -191,7 +203,23 @@
           "price": 59.99,
           "variation_id": "R46VZTULGJQ2LGOAEVKYQXMJ"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-apex-draft-full-zip-hoodie-black/01-hero.webp",
+        "/store/products/aerovista-apex-draft-full-zip-hoodie-black/10-front-01.webp",
+        "/store/products/aerovista-apex-draft-full-zip-hoodie-black/10-front-02.webp",
+        "/store/products/aerovista-apex-draft-full-zip-hoodie-black/10-front-03.webp",
+        "/store/products/aerovista-apex-draft-full-zip-hoodie-black/10-front-04.webp",
+        "/store/products/aerovista-apex-draft-full-zip-hoodie-black/10-front-05.webp",
+        "/store/products/aerovista-apex-draft-full-zip-hoodie-black/20-back-01.webp",
+        "/store/products/aerovista-apex-draft-full-zip-hoodie-black/20-back-02.webp",
+        "/store/products/aerovista-apex-draft-full-zip-hoodie-black/20-back-03.webp",
+        "/store/products/aerovista-apex-draft-full-zip-hoodie-black/30-left-01.webp",
+        "/store/products/aerovista-apex-draft-full-zip-hoodie-black/35-left-front-01.webp",
+        "/store/products/aerovista-apex-draft-full-zip-hoodie-black/40-right-01.webp",
+        "/store/products/aerovista-apex-draft-full-zip-hoodie-black/45-right-front-01.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-apex-draft-full-zip-hoodie-black/manifest.json"
     },
     {
       "id": "aerovista-apex-draft-pullover-hoodie-black",
@@ -201,7 +229,7 @@
       "collection": "Draft Series",
       "visibility": "visible",
       "price": 59.99,
-      "image": "drafted_a_hoodie.png",
+      "image": "/store/products/aerovista-apex-draft-pullover-hoodie-black/01-hero.webp",
       "description_text": "The Apex Draft Pullover is built to look premium on black—clean front mark, warm structure, and an easy everyday fit. Made for daily wear: early mornings, travel days, long sessions, and everything in motion. Apparel: Unisex premium mid-weight pullover hoodie Soft, durable feel with a structured drape Front pouch pocket + cozy hood Clean front graphic designed to stay sharp Fit: True to size for a standard fit. Size up for a roomier/oversized layer.",
       "description_html": "<p>The Apex Draft Pullover is built to look premium on black—clean front mark, warm structure, and an easy everyday fit. Made for daily wear: early mornings, travel days, long sessions, and everything in motion. Apparel: Unisex premium mid-weight pullover hoodie Soft, durable feel with a structured drape Front pouch pocket + cozy hood Clean front graphic designed to stay sharp Fit: True to size for a standard fit. Size up for a roomier/oversized layer.</p>",
       "seo_title": "AeroVista • Apex Draft • Pullover Hoodie • Black",
@@ -255,7 +283,32 @@
           "price": 59.99,
           "variation_id": "2AUBLOMJLLNGFNLBB5PATCV5"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-apex-draft-pullover-hoodie-black/01-hero.webp",
+        "/store/products/aerovista-apex-draft-pullover-hoodie-black/10-front-01.webp",
+        "/store/products/aerovista-apex-draft-pullover-hoodie-black/10-front-02.webp",
+        "/store/products/aerovista-apex-draft-pullover-hoodie-black/10-front-03.webp",
+        "/store/products/aerovista-apex-draft-pullover-hoodie-black/10-front-04.webp",
+        "/store/products/aerovista-apex-draft-pullover-hoodie-black/10-front-05.webp",
+        "/store/products/aerovista-apex-draft-pullover-hoodie-black/10-front-06.webp",
+        "/store/products/aerovista-apex-draft-pullover-hoodie-black/10-front-07.webp",
+        "/store/products/aerovista-apex-draft-pullover-hoodie-black/10-front-08.webp",
+        "/store/products/aerovista-apex-draft-pullover-hoodie-black/10-front-09.webp",
+        "/store/products/aerovista-apex-draft-pullover-hoodie-black/20-back-01.webp",
+        "/store/products/aerovista-apex-draft-pullover-hoodie-black/20-back-02.webp",
+        "/store/products/aerovista-apex-draft-pullover-hoodie-black/20-back-03.webp",
+        "/store/products/aerovista-apex-draft-pullover-hoodie-black/20-back-04.webp",
+        "/store/products/aerovista-apex-draft-pullover-hoodie-black/20-back-05.webp",
+        "/store/products/aerovista-apex-draft-pullover-hoodie-black/20-back-06.webp",
+        "/store/products/aerovista-apex-draft-pullover-hoodie-black/20-back-07.webp",
+        "/store/products/aerovista-apex-draft-pullover-hoodie-black/30-left-01.webp",
+        "/store/products/aerovista-apex-draft-pullover-hoodie-black/35-left-front-01.webp",
+        "/store/products/aerovista-apex-draft-pullover-hoodie-black/40-right-01.webp",
+        "/store/products/aerovista-apex-draft-pullover-hoodie-black/45-right-front-01.webp",
+        "/store/products/aerovista-apex-draft-pullover-hoodie-black/50-detail-01.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-apex-draft-pullover-hoodie-black/manifest.json"
     },
     {
       "id": "aerovista-retro-trucker-hat-orbit-a-gray",
@@ -265,7 +318,7 @@
       "collection": "Orbit Mark",
       "visibility": "hidden",
       "price": 32.99,
-      "image": "Glitched Orbit grayHat.png",
+      "image": "/store/products/aerovista-retro-trucker-hat-orbit-a-gray/01-hero.webp",
       "description_text": "The AeroVista Orbit “A” Retro Trucker Hat is built for sun, speed, and everyday wear—structured front, breathable mesh back, and a clean mark that hits from across the room. • Classic retro trucker silhouette (Yupoong 6606) • Structured front with a curved bill • Mesh back for airflow on warm days • Adjustable snapback for an easy fit Fit: One size fits most (adjustable). Care: Spot clean; air dry.",
       "description_html": "<p>The AeroVista Orbit “A” Retro Trucker Hat is built for sun, speed, and everyday wear—structured front, breathable mesh back, and a clean mark that hits from across the room. • Classic retro trucker silhouette (Yupoong 6606) • Structured front with a curved bill • Mesh back for airflow on warm days • Adjustable snapback for an easy fit Fit: One size fits most (adjustable). Care: Spot clean; air dry.</p>",
       "seo_title": "AeroVista • Retro Trucker Hat • Orbit “A” • Gray",
@@ -284,7 +337,22 @@
           "price": 32.99,
           "variation_id": "WMOSIHUNBUXQMBP2ETAMB7ZI"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-retro-trucker-hat-orbit-a-gray/01-hero.webp",
+        "/store/products/aerovista-retro-trucker-hat-orbit-a-gray/10-front-01.webp",
+        "/store/products/aerovista-retro-trucker-hat-orbit-a-gray/10-front-02.webp",
+        "/store/products/aerovista-retro-trucker-hat-orbit-a-gray/10-front-03.webp",
+        "/store/products/aerovista-retro-trucker-hat-orbit-a-gray/10-front-04.webp",
+        "/store/products/aerovista-retro-trucker-hat-orbit-a-gray/10-front-05.webp",
+        "/store/products/aerovista-retro-trucker-hat-orbit-a-gray/10-front-06.webp",
+        "/store/products/aerovista-retro-trucker-hat-orbit-a-gray/20-back-01.webp",
+        "/store/products/aerovista-retro-trucker-hat-orbit-a-gray/30-left-01.webp",
+        "/store/products/aerovista-retro-trucker-hat-orbit-a-gray/35-left-front-01.webp",
+        "/store/products/aerovista-retro-trucker-hat-orbit-a-gray/40-right-01.webp",
+        "/store/products/aerovista-retro-trucker-hat-orbit-a-gray/45-right-front-01.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-retro-trucker-hat-orbit-a-gray/manifest.json"
     },
     {
       "id": "aerovista-the-blue-witness-urban-hoodie-black",
@@ -294,7 +362,7 @@
       "collection": "core",
       "visibility": "visible",
       "price": 59.99,
-      "image": "blueye_hoodie.png",
+      "image": "/store/products/aerovista-the-blue-witness-urban-hoodie-black/01-hero.webp",
       "description_text": "Built for city nights, shop days, and everything between. The Urban Hoodie has a clean silhouette with a structured feel—comfortable enough for daily wear, sharp enough to look intentional. Apparel: Lane Seven LS16001 Urban Hoodie (unisex) Premium mid/heavy feel with a modern streetwear shape Front pouch pocket + cozy hood Designed to layer clean without looking bulky Fit note: True-to-size for a standard fit. For an oversized streetwear fit, size up.",
       "description_html": "<p>Built for city nights, shop days, and everything between. The Urban Hoodie has a clean silhouette with a structured feel—comfortable enough for daily wear, sharp enough to look intentional. Apparel: Lane Seven LS16001 Urban Hoodie (unisex) Premium mid/heavy feel with a modern streetwear shape Front pouch pocket + cozy hood Designed to layer clean without looking bulky Fit note: True-to-size for a standard fit. For an oversized streetwear fit, size up.</p>",
       "seo_title": "AeroVista • The Blue Witness • Urban Hoodie • Black",
@@ -347,7 +415,23 @@
           "price": 59.99,
           "variation_id": "G2GUO6QXZJX5S47WVP7TE7UE"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-the-blue-witness-urban-hoodie-black/01-hero.webp",
+        "/store/products/aerovista-the-blue-witness-urban-hoodie-black/10-front-01.webp",
+        "/store/products/aerovista-the-blue-witness-urban-hoodie-black/10-front-02.webp",
+        "/store/products/aerovista-the-blue-witness-urban-hoodie-black/10-front-03.webp",
+        "/store/products/aerovista-the-blue-witness-urban-hoodie-black/10-front-04.webp",
+        "/store/products/aerovista-the-blue-witness-urban-hoodie-black/10-front-05.webp",
+        "/store/products/aerovista-the-blue-witness-urban-hoodie-black/10-front-06.webp",
+        "/store/products/aerovista-the-blue-witness-urban-hoodie-black/20-back-01.webp",
+        "/store/products/aerovista-the-blue-witness-urban-hoodie-black/20-back-02.webp",
+        "/store/products/aerovista-the-blue-witness-urban-hoodie-black/20-back-03.webp",
+        "/store/products/aerovista-the-blue-witness-urban-hoodie-black/20-back-04.webp",
+        "/store/products/aerovista-the-blue-witness-urban-hoodie-black/30-left-01.webp",
+        "/store/products/aerovista-the-blue-witness-urban-hoodie-black/40-right-01.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-the-blue-witness-urban-hoodie-black/manifest.json"
     },
     {
       "id": "aerovista-apex-camo-flexfit-hat",
@@ -357,7 +441,7 @@
       "collection": "apex",
       "visibility": "visible",
       "price": 32.99,
-      "image": "aerovista_apex_camo_flexfit_hat.png",
+      "image": "/store/products/aerovista-apex-camo-flexfit-hat/01-hero.webp",
       "description_text": "A sleek, low-profile cap built for a clean premium look. The dark camo finish gives it subtle texture, while the embroidered AeroVista Apex mark adds a sharp metallic-style focal point up front. Structured, versatile, and easy to pair with everyday wear, this hat works equally well for streetwear, shop days, and polished casual fits. Finished on a closed-back Flexfit style for a secure, comfortable feel.",
       "description_html": "<p>A sleek, low-profile cap built for a clean premium look. The dark camo finish gives it subtle texture, while the embroidered AeroVista Apex mark adds a sharp metallic-style focal point up front. Structured, versatile, and easy to pair with everyday wear, this hat works equally well for streetwear, shop days, and polished casual fits. Finished on a closed-back Flexfit style for a secure, comfortable feel.</p>",
       "seo_title": "AeroVista Apex Camo Flexfit Hat",
@@ -382,7 +466,31 @@
           "price": 32.99,
           "variation_id": "XF6WLKIXGAMT4B4LXBOX7OLZ"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-apex-camo-flexfit-hat/01-hero.webp",
+        "/store/products/aerovista-apex-camo-flexfit-hat/10-front-01.webp",
+        "/store/products/aerovista-apex-camo-flexfit-hat/10-front-02.webp",
+        "/store/products/aerovista-apex-camo-flexfit-hat/10-front-03.webp",
+        "/store/products/aerovista-apex-camo-flexfit-hat/10-front-04.webp",
+        "/store/products/aerovista-apex-camo-flexfit-hat/20-back-01.webp",
+        "/store/products/aerovista-apex-camo-flexfit-hat/20-back-02.webp",
+        "/store/products/aerovista-apex-camo-flexfit-hat/20-back-03.webp",
+        "/store/products/aerovista-apex-camo-flexfit-hat/20-back-04.webp",
+        "/store/products/aerovista-apex-camo-flexfit-hat/20-back-05.webp",
+        "/store/products/aerovista-apex-camo-flexfit-hat/20-back-06.webp",
+        "/store/products/aerovista-apex-camo-flexfit-hat/20-back-07.webp",
+        "/store/products/aerovista-apex-camo-flexfit-hat/20-back-08.webp",
+        "/store/products/aerovista-apex-camo-flexfit-hat/20-back-09.webp",
+        "/store/products/aerovista-apex-camo-flexfit-hat/20-back-10.webp",
+        "/store/products/aerovista-apex-camo-flexfit-hat/35-left-front-01.webp",
+        "/store/products/aerovista-apex-camo-flexfit-hat/35-left-front-02.webp",
+        "/store/products/aerovista-apex-camo-flexfit-hat/45-right-front-01.webp",
+        "/store/products/aerovista-apex-camo-flexfit-hat/45-right-front-02.webp",
+        "/store/products/aerovista-apex-camo-flexfit-hat/50-detail-01.webp",
+        "/store/products/aerovista-apex-camo-flexfit-hat/50-detail-02.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-apex-camo-flexfit-hat/manifest.json"
     },
     {
       "id": "aerovista-apex-flexfit-structured-cap-black",
@@ -392,7 +500,7 @@
       "collection": "core",
       "visibility": "visible",
       "price": 32.99,
-      "image": "Apex Flexfit Structured.png",
+      "image": "/store/products/aerovista-apex-flexfit-structured-cap-black/01-hero.webp",
       "description_text": "Meet the Apex cap—clean, structured, and built to wear every day. This Flexfit closed-back hat has a crisp silhouette, stretch-fit comfort, and the AeroVista Apex mark front and center. No snap, no noise—just a premium fit that stays locked in from shop time to road miles. Details: • Flexfit closed-back stretch fit (no snapback) • Structured crown with a clean, sharp profile • Black colorway with the AeroVista Apex logo • Sizes: S/M and L/XL",
       "description_html": "<p>Meet the Apex cap—clean, structured, and built to wear every day. This Flexfit closed-back hat has a crisp silhouette, stretch-fit comfort, and the AeroVista Apex mark front and center. No snap, no noise—just a premium fit that stays locked in from shop time to road miles. Details: • Flexfit closed-back stretch fit (no snapback) • Structured crown with a clean, sharp profile • Black colorway with the AeroVista Apex logo • Sizes: S/M and L/XL</p>",
       "seo_title": "AeroVista Apex Flexfit Structured Cap (Black)",
@@ -417,7 +525,25 @@
           "price": 59.99,
           "variation_id": "622ZSIORLPZS4PHLK4LLECIG"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-apex-flexfit-structured-cap-black/01-hero.webp",
+        "/store/products/aerovista-apex-flexfit-structured-cap-black/10-front-01.webp",
+        "/store/products/aerovista-apex-flexfit-structured-cap-black/10-front-02.webp",
+        "/store/products/aerovista-apex-flexfit-structured-cap-black/10-front-03.webp",
+        "/store/products/aerovista-apex-flexfit-structured-cap-black/20-back-01.webp",
+        "/store/products/aerovista-apex-flexfit-structured-cap-black/20-back-02.webp",
+        "/store/products/aerovista-apex-flexfit-structured-cap-black/20-back-03.webp",
+        "/store/products/aerovista-apex-flexfit-structured-cap-black/20-back-04.webp",
+        "/store/products/aerovista-apex-flexfit-structured-cap-black/20-back-05.webp",
+        "/store/products/aerovista-apex-flexfit-structured-cap-black/20-back-06.webp",
+        "/store/products/aerovista-apex-flexfit-structured-cap-black/20-back-07.webp",
+        "/store/products/aerovista-apex-flexfit-structured-cap-black/35-left-front-01.webp",
+        "/store/products/aerovista-apex-flexfit-structured-cap-black/45-right-front-01.webp",
+        "/store/products/aerovista-apex-flexfit-structured-cap-black/50-detail-01.webp",
+        "/store/products/aerovista-apex-flexfit-structured-cap-black/50-detail-02.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-apex-flexfit-structured-cap-black/manifest.json"
     },
     {
       "id": "aerovista-apex-glitch-premium-pullover-hoodie-black",
@@ -427,7 +553,7 @@
       "collection": "Glitch Line",
       "visibility": "visible",
       "price": 59.99,
-      "image": "Glitch Pullover Hoodie.png",
+      "image": "/store/products/aerovista-apex-glitch-premium-pullover-hoodie-black/01-hero.webp",
       "description_text": "The GLITCH line bends clean design through a digital lens. This premium mid-weight pullover pairs a soft fleece interior with a structured silhouette, built for everyday wear with a subtle edge. Minimal at first glance, intentional up close—like a signal breaking through static. Details: • Premium Lane Seven mid-weight pullover • Soft fleece interior for all-day comfort • Unisex fit with structured drape • Part of the AeroVista GLITCH line • Built for daily wear with a digital edge",
       "description_html": "<p>The GLITCH line bends clean design through a digital lens. This premium mid-weight pullover pairs a soft fleece interior with a structured silhouette, built for everyday wear with a subtle edge. Minimal at first glance, intentional up close—like a signal breaking through static. Details: • Premium Lane Seven mid-weight pullover • Soft fleece interior for all-day comfort • Unisex fit with structured drape • Part of the AeroVista GLITCH line • Built for daily wear with a digital edge</p>",
       "seo_title": "AeroVista Apex Glitch Premium Pullover Hoodie | Black",
@@ -481,7 +607,22 @@
           "price": 59.99,
           "variation_id": "XM62UHG2IXDIZRRRCLQWXPR2"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-apex-glitch-premium-pullover-hoodie-black/01-hero.webp",
+        "/store/products/aerovista-apex-glitch-premium-pullover-hoodie-black/10-front-01.webp",
+        "/store/products/aerovista-apex-glitch-premium-pullover-hoodie-black/10-front-02.webp",
+        "/store/products/aerovista-apex-glitch-premium-pullover-hoodie-black/10-front-03.webp",
+        "/store/products/aerovista-apex-glitch-premium-pullover-hoodie-black/10-front-04.webp",
+        "/store/products/aerovista-apex-glitch-premium-pullover-hoodie-black/10-front-05.webp",
+        "/store/products/aerovista-apex-glitch-premium-pullover-hoodie-black/20-back-01.webp",
+        "/store/products/aerovista-apex-glitch-premium-pullover-hoodie-black/20-back-02.webp",
+        "/store/products/aerovista-apex-glitch-premium-pullover-hoodie-black/20-back-03.webp",
+        "/store/products/aerovista-apex-glitch-premium-pullover-hoodie-black/20-back-04.webp",
+        "/store/products/aerovista-apex-glitch-premium-pullover-hoodie-black/30-left-01.webp",
+        "/store/products/aerovista-apex-glitch-premium-pullover-hoodie-black/40-right-01.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-apex-glitch-premium-pullover-hoodie-black/manifest.json"
     },
     {
       "id": "aerovista-apex-glitch-tee-black",
@@ -491,7 +632,7 @@
       "collection": "Glitch Line",
       "visibility": "visible",
       "price": 39.99,
-      "image": "Glitch Pullover Tee.png",
+      "image": "/store/products/aerovista-apex-glitch-tee-black/01-hero.webp",
       "description_text": "A glitched take on the AeroVista Apex mark. This premium black tee keeps the foundation clean while introducing a subtle chroma fracture that adds motion without noise. Minimal at a distance, detailed up close—built for everyday wear with a digital edge. Details: • Premium Bella + Canvas unisex tee • Soft, modern fit • Glitched Apex front mark with subtle chroma edge • Clean black colorway • Part of the AeroVista Apex Glitch line",
       "description_html": "<p>A glitched take on the AeroVista Apex mark. This premium black tee keeps the foundation clean while introducing a subtle chroma fracture that adds motion without noise. Minimal at a distance, detailed up close—built for everyday wear with a digital edge. Details: • Premium Bella + Canvas unisex tee • Soft, modern fit • Glitched Apex front mark with subtle chroma edge • Clean black colorway • Part of the AeroVista Apex Glitch line</p>",
       "seo_title": "AeroVista Apex Glitch Tee | Black",
@@ -566,7 +707,45 @@
           "price": 39.99,
           "variation_id": "Q6PTEBBGLDJFINS2XMSFIWJP"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-apex-glitch-tee-black/01-hero.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/10-front-01.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/10-front-02.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/10-front-03.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/10-front-04.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/10-front-05.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/10-front-06.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/10-front-07.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/10-front-08.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/10-front-09.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/10-front-10.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/10-front-11.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/10-front-12.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/10-front-13.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/10-front-14.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/20-back-01.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/20-back-02.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/20-back-03.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/20-back-04.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/20-back-05.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/20-back-06.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/20-back-07.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/20-back-08.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/20-back-09.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/30-left-01.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/30-left-02.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/30-left-03.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/30-left-04.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/35-left-front-01.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/40-right-01.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/40-right-02.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/40-right-03.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/45-right-front-01.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/50-detail-01.webp",
+        "/store/products/aerovista-apex-glitch-tee-black/50-detail-02.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-apex-glitch-tee-black/manifest.json"
     },
     {
       "id": "aerovista-apex-mark-draft-series-s01-sticker",
@@ -576,7 +755,7 @@
       "collection": "Draft Series",
       "visibility": "hidden",
       "price": 5.5,
-      "image": "adrafted.png",
+      "image": "/store/products/aerovista-apex-mark-draft-series-s01-sticker/01-hero.webp",
       "description_text": "Part of the AeroVista Draft Series, released during active build phases. This version of the Apex Mark captures the system mid-evolution—raw, functional, and unrefined by design. Issued during development cycles, Draft Series pieces represent real progress, not polished final states. The “A” mark signals direction and control, while the structure reflects early-stage construction—tested, adjusted, and pushed forward in real time. These aren’t mass-produced designs. They’re snapshots of movement. Draft Series Notes: • Released during active build phases • May differ from final production versions • Limited run feel — not part of mainline drops • Represents real-time system evolution Sticker Details: • High-opacity adhesive vinyl • Bubble-free application • Durable and weather-resistant • Clean-cut edges for precise placement AeroVista Draft Series Built while building.",
       "description_html": "<p>Part of the AeroVista Draft Series, released during active build phases. This version of the Apex Mark captures the system mid-evolution—raw, functional, and unrefined by design. Issued during development cycles, Draft Series pieces represent real progress, not polished final states. The “A” mark signals direction and control, while the structure reflects early-stage construction—tested, adjusted, and pushed forward in real time. These aren’t mass-produced designs. They’re snapshots of movement. Draft Series Notes: • Released during active build phases • May differ from final production versions • Limited run feel — not part of mainline drops • Represents real-time system evolution Sticker Details: • High-opacity adhesive vinyl • Bubble-free application • Durable and weather-resistant • Clean-cut edges for precise placement AeroVista Draft Series Built while building.</p>",
       "seo_title": "AeroVista Apex Mark — Draft Series S01 Sticker",
@@ -602,7 +781,13 @@
           "price": 6,
           "variation_id": "QWQ5TR6LE5OYVSTXGEFPVWBQ"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-apex-mark-draft-series-s01-sticker/01-hero.webp",
+        "/store/products/aerovista-apex-mark-draft-series-s01-sticker/60-alternate-01.webp",
+        "/store/products/aerovista-apex-mark-draft-series-s01-sticker/60-alternate-02.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-apex-mark-draft-series-s01-sticker/manifest.json"
     },
     {
       "id": "aerovista-apex-pattern-bomber-jacket",
@@ -612,7 +797,7 @@
       "collection": "Apex Pattern",
       "visibility": "visible",
       "price": 89.99,
-      "image": "AeroVista Apex Pattern Bomber Jacket.png",
+      "image": "/store/products/aerovista-apex-pattern-bomber-jacket/01-hero.webp",
       "description_text": "Add a little zing to your wardrobe with this vibrant All-Over Print Bomber Jacket. Wear it on a basic t-shirt, or layer it on top of a warm hoodie—it’ll look great either way. With a brushed fleece inside, and a relaxed unisex fit, this Bomber Jacket is just the stuff of the dreams, so be quick to grab yourself one! • 100% polyester • Fabric weight: 6.49 oz/yd² (220 g/m²), weight may vary by 5% • Brushed fleece fabric inside • Unisex fit • Overlock seams • Sturdy neck tape • Silver YKK zipper • 2 self-fabric pockets • Blank product components sourced from the US and China Disclaimer: In areas where the fabric is double-layered (like pockets), details from the inner fabric layer may subtly show through, especially with lighter designs.",
       "description_html": "<p>Add a little zing to your wardrobe with this vibrant All-Over Print Bomber Jacket. Wear it on a basic t-shirt, or layer it on top of a warm hoodie—it’ll look great either way. With a brushed fleece inside, and a relaxed unisex fit, this Bomber Jacket is just the stuff of the dreams, so be quick to grab yourself one! • 100% polyester • Fabric weight: 6.49 oz/yd² (220 g/m²), weight may vary by 5% • Brushed fleece fabric inside • Unisex fit • Overlock seams • Sturdy neck tape • Silver YKK zipper • 2 self-fabric pockets • Blank product components sourced from the US and China Disclaimer: In areas where the fabric is double-layered (like pockets), details from the inner fabric layer may subtly show through, especially with lighter designs.</p>",
       "seo_title": "AeroVista Apex Pattern Bomber Jacket",
@@ -673,7 +858,29 @@
           "price": 89.99,
           "variation_id": "WQ227JE7NY2XWVD5AQ7QH33R"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-apex-pattern-bomber-jacket/01-hero.webp",
+        "/store/products/aerovista-apex-pattern-bomber-jacket/10-front-01.webp",
+        "/store/products/aerovista-apex-pattern-bomber-jacket/10-front-02.webp",
+        "/store/products/aerovista-apex-pattern-bomber-jacket/10-front-03.webp",
+        "/store/products/aerovista-apex-pattern-bomber-jacket/10-front-04.webp",
+        "/store/products/aerovista-apex-pattern-bomber-jacket/10-front-05.webp",
+        "/store/products/aerovista-apex-pattern-bomber-jacket/10-front-06.webp",
+        "/store/products/aerovista-apex-pattern-bomber-jacket/10-front-07.webp",
+        "/store/products/aerovista-apex-pattern-bomber-jacket/20-back-01.webp",
+        "/store/products/aerovista-apex-pattern-bomber-jacket/20-back-02.webp",
+        "/store/products/aerovista-apex-pattern-bomber-jacket/20-back-03.webp",
+        "/store/products/aerovista-apex-pattern-bomber-jacket/20-back-04.webp",
+        "/store/products/aerovista-apex-pattern-bomber-jacket/20-back-05.webp",
+        "/store/products/aerovista-apex-pattern-bomber-jacket/20-back-06.webp",
+        "/store/products/aerovista-apex-pattern-bomber-jacket/30-left-01.webp",
+        "/store/products/aerovista-apex-pattern-bomber-jacket/35-left-front-01.webp",
+        "/store/products/aerovista-apex-pattern-bomber-jacket/40-right-01.webp",
+        "/store/products/aerovista-apex-pattern-bomber-jacket/48-right-back-01.webp",
+        "/store/products/aerovista-apex-pattern-bomber-jacket/50-detail-01.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-apex-pattern-bomber-jacket/manifest.json"
     },
     {
       "id": "aerovista-apex-pattern-hoodie",
@@ -683,7 +890,7 @@
       "collection": "Apex Pattern",
       "visibility": "hidden",
       "price": 79.99,
-      "image": "AeroVista Apex Pattern Hoodie (3).png",
+      "image": "/store/products/aerovista-apex-pattern-hoodie/01-hero.webp",
       "description_text": "Built for colder days and low-key statement wear, the AeroVista Apex Pattern Hoodie features a dark textured base with a repeating AeroVista-inspired motif for a clean, stealth-forward look. The outside has a soft cotton-feel finish, while the brushed fleece interior adds warmth and comfort for everyday wear. With a relaxed unisex fit, double-lined hood, and all-over print, it works just as well layered for the street as it does thrown on for a chill night.",
       "description_html": "<p>Built for colder days and low-key statement wear, the AeroVista Apex Pattern Hoodie features a dark textured base with a repeating AeroVista-inspired motif for a clean, stealth-forward look. The outside has a soft cotton-feel finish, while the brushed fleece interior adds warmth and comfort for everyday wear. With a relaxed unisex fit, double-lined hood, and all-over print, it works just as well layered for the street as it does thrown on for a chill night.</p>",
       "seo_title": "AeroVista Apex Pattern Hoodie",
@@ -772,7 +979,31 @@
           "price": 79.99,
           "variation_id": "MP55FI63QP2GI3ZD5YVTKZ5B"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-apex-pattern-hoodie/01-hero.webp",
+        "/store/products/aerovista-apex-pattern-hoodie/10-front-01.webp",
+        "/store/products/aerovista-apex-pattern-hoodie/10-front-02.webp",
+        "/store/products/aerovista-apex-pattern-hoodie/10-front-03.webp",
+        "/store/products/aerovista-apex-pattern-hoodie/10-front-04.webp",
+        "/store/products/aerovista-apex-pattern-hoodie/10-front-05.webp",
+        "/store/products/aerovista-apex-pattern-hoodie/10-front-06.webp",
+        "/store/products/aerovista-apex-pattern-hoodie/10-front-07.webp",
+        "/store/products/aerovista-apex-pattern-hoodie/10-front-08.webp",
+        "/store/products/aerovista-apex-pattern-hoodie/20-back-01.webp",
+        "/store/products/aerovista-apex-pattern-hoodie/20-back-02.webp",
+        "/store/products/aerovista-apex-pattern-hoodie/20-back-03.webp",
+        "/store/products/aerovista-apex-pattern-hoodie/20-back-04.webp",
+        "/store/products/aerovista-apex-pattern-hoodie/20-back-05.webp",
+        "/store/products/aerovista-apex-pattern-hoodie/20-back-06.webp",
+        "/store/products/aerovista-apex-pattern-hoodie/30-left-01.webp",
+        "/store/products/aerovista-apex-pattern-hoodie/35-left-front-01.webp",
+        "/store/products/aerovista-apex-pattern-hoodie/40-right-01.webp",
+        "/store/products/aerovista-apex-pattern-hoodie/40-right-02.webp",
+        "/store/products/aerovista-apex-pattern-hoodie/48-right-back-01.webp",
+        "/store/products/aerovista-apex-pattern-hoodie/50-detail-01.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-apex-pattern-hoodie/manifest.json"
     },
     {
       "id": "aerovista-apex-pattern-print-swimsuit-one-piece",
@@ -782,7 +1013,7 @@
       "collection": "Apex Pattern",
       "visibility": "visible",
       "price": 43.99,
-      "image": "AeroVistaApex ShadowOnePieceSwimsuit.png",
+      "image": "/store/products/aerovista-apex-pattern-print-swimsuit-one-piece/01-hero.webp",
       "description_text": "This one-piece swimsuit for all figures will bring out your best features. Enjoy the smooth fabric and the flattering design, and show it off by the sea or pool! • 75% recycled polyester, 25% elastane for production in the US/Mexico • 82% polyester, 18% elastane for production in Latvia • Fabric weight: 6.64 oz./yd.² (225 g/m²) in the US/Mexico • Fabric weight: 6.78 oz./yd.² (230 g/m²) in Latvia • Chlorine-resistant fabric • Cheeky fit with a scoop neckline and a low scoop back • Zig-zag stitching • Double-layer front • Four-way stretch material stretches and recovers on the cross and lengthwise grains • Blank product components sourced from Mexico and China",
       "description_html": "<p>This one-piece swimsuit for all figures will bring out your best features. Enjoy the smooth fabric and the flattering design, and show it off by the sea or pool! • 75% recycled polyester, 25% elastane for production in the US/Mexico • 82% polyester, 18% elastane for production in Latvia • Fabric weight: 6.64 oz./yd.² (225 g/m²) in the US/Mexico • Fabric weight: 6.78 oz./yd.² (230 g/m²) in Latvia • Chlorine-resistant fabric • Cheeky fit with a scoop neckline and a low scoop back • Zig-zag stitching • Double-layer front • Four-way stretch material stretches and recovers on the cross and lengthwise grains • Blank product components sourced from Mexico and China</p>",
       "seo_title": "AeroVista Apex Pattern Print Swimsuit - one-piece",
@@ -822,7 +1053,25 @@
           "price": 43.99,
           "variation_id": "PEEQKSW34MEHRNGMIQLS52P2"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-apex-pattern-print-swimsuit-one-piece/01-hero.webp",
+        "/store/products/aerovista-apex-pattern-print-swimsuit-one-piece/10-front-01.webp",
+        "/store/products/aerovista-apex-pattern-print-swimsuit-one-piece/10-front-02.webp",
+        "/store/products/aerovista-apex-pattern-print-swimsuit-one-piece/10-front-03.webp",
+        "/store/products/aerovista-apex-pattern-print-swimsuit-one-piece/10-front-04.webp",
+        "/store/products/aerovista-apex-pattern-print-swimsuit-one-piece/20-back-01.webp",
+        "/store/products/aerovista-apex-pattern-print-swimsuit-one-piece/20-back-02.webp",
+        "/store/products/aerovista-apex-pattern-print-swimsuit-one-piece/20-back-03.webp",
+        "/store/products/aerovista-apex-pattern-print-swimsuit-one-piece/20-back-04.webp",
+        "/store/products/aerovista-apex-pattern-print-swimsuit-one-piece/30-left-01.webp",
+        "/store/products/aerovista-apex-pattern-print-swimsuit-one-piece/30-left-02.webp",
+        "/store/products/aerovista-apex-pattern-print-swimsuit-one-piece/40-right-01.webp",
+        "/store/products/aerovista-apex-pattern-print-swimsuit-one-piece/40-right-02.webp",
+        "/store/products/aerovista-apex-pattern-print-swimsuit-one-piece/47-left-back-01.webp",
+        "/store/products/aerovista-apex-pattern-print-swimsuit-one-piece/48-right-back-01.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-apex-pattern-print-swimsuit-one-piece/manifest.json"
     },
     {
       "id": "aerovista-apex-pattern-skater-dress",
@@ -832,7 +1081,7 @@
       "collection": "Apex Pattern",
       "visibility": "visible",
       "price": 89.99,
-      "image": "AeroVista Apex Pattern Skater Dress.png",
+      "image": "/store/products/aerovista-apex-pattern-skater-dress/01-hero.webp",
       "description_text": "The AeroVista Apex Pattern Skater Dress pairs a clean fitted bodice with a flowing skirt for a balanced, easy-to-wear silhouette. The upper features a repeating AeroVista Apex motif, while the lower half transitions into a darker shadow-textured finish for a sleek, more refined look. Comfortable, versatile, and easy to style, it brings subtle branded detail without overpowering the design. • 75% recycled polyester, 25% elastane • Fabric weight: 6.64 oz./yd.² (225 g/m²) • Smooth and elastic fabric • Mid-thigh length flared skirt • Elastic waistline • Overlock seams, coverstitch hemline • Blank product components sourced from Mexico and China",
       "description_html": "<p>The AeroVista Apex Pattern Skater Dress pairs a clean fitted bodice with a flowing skirt for a balanced, easy-to-wear silhouette. The upper features a repeating AeroVista Apex motif, while the lower half transitions into a darker shadow-textured finish for a sleek, more refined look. Comfortable, versatile, and easy to style, it brings subtle branded detail without overpowering the design. • 75% recycled polyester, 25% elastane • Fabric weight: 6.64 oz./yd.² (225 g/m²) • Smooth and elastic fabric • Mid-thigh length flared skirt • Elastic waistline • Overlock seams, coverstitch hemline • Blank product components sourced from Mexico and China</p>",
       "seo_title": "AeroVista Apex Pattern Skater Dress",
@@ -879,7 +1128,23 @@
           "price": 89.99,
           "variation_id": "6VRKJ6PAXL7SK7FJ3NHI7Q75"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-apex-pattern-skater-dress/01-hero.webp",
+        "/store/products/aerovista-apex-pattern-skater-dress/10-front-01.webp",
+        "/store/products/aerovista-apex-pattern-skater-dress/10-front-02.webp",
+        "/store/products/aerovista-apex-pattern-skater-dress/10-front-03.webp",
+        "/store/products/aerovista-apex-pattern-skater-dress/10-front-04.webp",
+        "/store/products/aerovista-apex-pattern-skater-dress/20-back-01.webp",
+        "/store/products/aerovista-apex-pattern-skater-dress/20-back-02.webp",
+        "/store/products/aerovista-apex-pattern-skater-dress/20-back-03.webp",
+        "/store/products/aerovista-apex-pattern-skater-dress/20-back-04.webp",
+        "/store/products/aerovista-apex-pattern-skater-dress/30-left-01.webp",
+        "/store/products/aerovista-apex-pattern-skater-dress/40-right-01.webp",
+        "/store/products/aerovista-apex-pattern-skater-dress/40-right-02.webp",
+        "/store/products/aerovista-apex-pattern-skater-dress/50-detail-01.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-apex-pattern-skater-dress/manifest.json"
     },
     {
       "id": "aerovista-apex-pattern-skater-dress-cotton",
@@ -939,7 +1204,7 @@
       "collection": "Accessories",
       "visibility": "visible",
       "price": 22,
-      "image": "poker-playing-cards.png",
+      "image": "/store/products/aerovista-apex-relic-playing-cards/01-hero.webp",
       "description_text": "AeroVista Apex Relic Playing Cards — Seven Divisions, One Vision A premium playing-card deck built around AeroVista’s Apex brand system. The Apex Relic edition uses a deep matte-black foundation, engraved cyber-silver geometry, restrained signal-blue accents, and a perfectly mirrored two-way card back designed for seamless play. At the center, the Apex mark anchors a layered system of seven symbolic nodes representing AeroVista’s seven divisions working as one connected whole. Detailed enough to reward a closer look, but restrained enough to feel like a true luxury deck, the design blends artifact-like engraving, technical precision, and understated AeroVista branding without turning the cards into promotional merchandise. Designed as both a functional deck and a collectible brand piece. Design Details • Two-way rotationally symmetrical card back • Matte black and graphite foundation • Cyber-silver engraved detailing • Restrained AeroVista signal-blue accents • Central Apex emblem • Seven division-inspired geometric nodes • Integrated AEROVISTA branding • Hidden SEVEN DIVISIONS · ONE VISION detailing • Premium artifact / relic-inspired finish",
       "description_html": "<p>AeroVista Apex Relic Playing Cards — Seven Divisions, One Vision A premium playing-card deck built around AeroVista’s Apex brand system. The Apex Relic edition uses a deep matte-black foundation, engraved cyber-silver geometry, restrained signal-blue accents, and a perfectly mirrored two-way card back designed for seamless play. At the center, the Apex mark anchors a layered system of seven symbolic nodes representing AeroVista’s seven divisions working as one connected whole. Detailed enough to reward a closer look, but restrained enough to feel like a true luxury deck, the design blends artifact-like engraving, technical precision, and understated AeroVista branding without turning the cards into promotional merchandise. Designed as both a functional deck and a collectible brand piece. Design Details • Two-way rotationally symmetrical card back • Matte black and graphite foundation • Cyber-silver engraved detailing • Restrained AeroVista signal-blue accents • Central Apex emblem • Seven division-inspired geometric nodes • Integrated AEROVISTA branding • Hidden SEVEN DIVISIONS · ONE VISION detailing • Premium artifact / relic-inspired finish</p>",
       "seo_title": "AeroVista Apex Relic Playing Cards",
@@ -954,7 +1219,12 @@
           "price": 22,
           "variation_id": "PN6KNID3C2RZTVYPCT3CZADP"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-apex-relic-playing-cards/01-hero.webp",
+        "/store/products/aerovista-apex-relic-playing-cards/10-front-01.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-apex-relic-playing-cards/manifest.json"
     },
     {
       "id": "aerovista-apex-signal-sweatshirt",
@@ -964,7 +1234,7 @@
       "collection": "apex",
       "visibility": "visible",
       "price": 49.99,
-      "image": "AeroVista Apex Signal Sweatshirt.png",
+      "image": "/store/products/aerovista-apex-signal-sweatshirt/01-hero.webp",
       "description_text": "The AeroVista Apex Signal Sweatshirt is built around the flagship Apex emblem — a sharp geometric mark representing structure, focus, and forward motion. Featuring a premium centered chest print with engineered metallic styling, this piece blends clean minimalism with futuristic identity design. Soft, durable, and designed for everyday wear, the Apex Signal Sweatshirt works equally well as a layered streetwear piece, creative workspace uniform, or statement essential within the AeroVista system. Part of the AeroVista Apex Collection: One Mark. Many Systems.",
       "description_html": "<p>The AeroVista Apex Signal Sweatshirt is built around the flagship Apex emblem — a sharp geometric mark representing structure, focus, and forward motion. Featuring a premium centered chest print with engineered metallic styling, this piece blends clean minimalism with futuristic identity design. Soft, durable, and designed for everyday wear, the Apex Signal Sweatshirt works equally well as a layered streetwear piece, creative workspace uniform, or statement essential within the AeroVista system. Part of the AeroVista Apex Collection: One Mark. Many Systems.</p>",
       "seo_title": "AeroVista Apex Signal Sweatshirt",
@@ -1018,7 +1288,32 @@
           "price": 49.99,
           "variation_id": "5OZJRXRZKIYQVS5BIMUTTINH"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-apex-signal-sweatshirt/01-hero.webp",
+        "/store/products/aerovista-apex-signal-sweatshirt/10-front-01.webp",
+        "/store/products/aerovista-apex-signal-sweatshirt/10-front-02.webp",
+        "/store/products/aerovista-apex-signal-sweatshirt/10-front-03.webp",
+        "/store/products/aerovista-apex-signal-sweatshirt/10-front-04.webp",
+        "/store/products/aerovista-apex-signal-sweatshirt/10-front-05.webp",
+        "/store/products/aerovista-apex-signal-sweatshirt/10-front-06.webp",
+        "/store/products/aerovista-apex-signal-sweatshirt/10-front-07.webp",
+        "/store/products/aerovista-apex-signal-sweatshirt/10-front-08.webp",
+        "/store/products/aerovista-apex-signal-sweatshirt/20-back-01.webp",
+        "/store/products/aerovista-apex-signal-sweatshirt/20-back-02.webp",
+        "/store/products/aerovista-apex-signal-sweatshirt/20-back-03.webp",
+        "/store/products/aerovista-apex-signal-sweatshirt/20-back-04.webp",
+        "/store/products/aerovista-apex-signal-sweatshirt/20-back-05.webp",
+        "/store/products/aerovista-apex-signal-sweatshirt/30-left-01.webp",
+        "/store/products/aerovista-apex-signal-sweatshirt/30-left-02.webp",
+        "/store/products/aerovista-apex-signal-sweatshirt/35-left-front-01.webp",
+        "/store/products/aerovista-apex-signal-sweatshirt/40-right-01.webp",
+        "/store/products/aerovista-apex-signal-sweatshirt/40-right-02.webp",
+        "/store/products/aerovista-apex-signal-sweatshirt/45-right-front-01.webp",
+        "/store/products/aerovista-apex-signal-sweatshirt/50-detail-01.webp",
+        "/store/products/aerovista-apex-signal-sweatshirt/50-detail-02.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-apex-signal-sweatshirt/manifest.json"
     },
     {
       "id": "aerovista-apex-vintage-tee",
@@ -1091,7 +1386,7 @@
       "collection": "core",
       "visibility": "visible",
       "price": 32,
-      "image": "pocket-t-shirt.png",
+      "image": "/store/products/aerovista-av-07-grid-pocket-tee-slate-gray/01-hero.webp",
       "description_text": "Clean, understated, and unmistakably AeroVista. The AV-07 Grid Pocket Tee pairs a muted slate-gray pocket shirt with a compact AeroVista field-style graphic featuring the signature A mark, mountain profile, Coeur d’Alene ID designation, technical gridwork, and orange flight-path accents. The small pocket placement keeps the design subtle from a distance while packing in plenty of detail up close. It has the feel of an aviation field badge crossed with North Idaho outdoor gear—built for everyday wear without looking like corporate merch. Slate-gray pocket tee AeroVista AV-07 technical badge graphic Coeur d’Alene, Idaho branding Black, white, silver, and AeroVista orange artwork Low-profile left-chest placement Aviation + North Idaho inspired design Designed as part of the AeroVista field collection Built local. Designed for wherever you're headed next.",
       "description_html": "<p>Clean, understated, and unmistakably AeroVista. The AV-07 Grid Pocket Tee pairs a muted slate-gray pocket shirt with a compact AeroVista field-style graphic featuring the signature A mark, mountain profile, Coeur d’Alene ID designation, technical gridwork, and orange flight-path accents. The small pocket placement keeps the design subtle from a distance while packing in plenty of detail up close. It has the feel of an aviation field badge crossed with North Idaho outdoor gear—built for everyday wear without looking like corporate merch. Slate-gray pocket tee AeroVista AV-07 technical badge graphic Coeur d’Alene, Idaho branding Black, white, silver, and AeroVista orange artwork Low-profile left-chest placement Aviation + North Idaho inspired design Designed as part of the AeroVista field collection Built local. Designed for wherever you&#039;re headed next.</p>",
       "seo_title": "AeroVista AV-07 Grid Pocket Tee — Slate Gray",
@@ -1134,7 +1429,27 @@
           "price": 32,
           "variation_id": "CN4OOSLVU5DELJEWEJICWJUH"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-av-07-grid-pocket-tee-slate-gray/01-hero.webp",
+        "/store/products/aerovista-av-07-grid-pocket-tee-slate-gray/10-front-01.webp",
+        "/store/products/aerovista-av-07-grid-pocket-tee-slate-gray/10-front-02.webp",
+        "/store/products/aerovista-av-07-grid-pocket-tee-slate-gray/10-front-03.webp",
+        "/store/products/aerovista-av-07-grid-pocket-tee-slate-gray/10-front-04.webp",
+        "/store/products/aerovista-av-07-grid-pocket-tee-slate-gray/20-back-01.webp",
+        "/store/products/aerovista-av-07-grid-pocket-tee-slate-gray/20-back-02.webp",
+        "/store/products/aerovista-av-07-grid-pocket-tee-slate-gray/20-back-03.webp",
+        "/store/products/aerovista-av-07-grid-pocket-tee-slate-gray/30-left-01.webp",
+        "/store/products/aerovista-av-07-grid-pocket-tee-slate-gray/30-left-02.webp",
+        "/store/products/aerovista-av-07-grid-pocket-tee-slate-gray/30-left-03.webp",
+        "/store/products/aerovista-av-07-grid-pocket-tee-slate-gray/35-left-front-01.webp",
+        "/store/products/aerovista-av-07-grid-pocket-tee-slate-gray/40-right-01.webp",
+        "/store/products/aerovista-av-07-grid-pocket-tee-slate-gray/40-right-02.webp",
+        "/store/products/aerovista-av-07-grid-pocket-tee-slate-gray/40-right-03.webp",
+        "/store/products/aerovista-av-07-grid-pocket-tee-slate-gray/50-detail-01.webp",
+        "/store/products/aerovista-av-07-grid-pocket-tee-slate-gray/50-detail-02.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-av-07-grid-pocket-tee-slate-gray/manifest.json"
     },
     {
       "id": "aerovista-core-hoodie",
@@ -1144,7 +1459,7 @@
       "collection": "core",
       "visibility": "visible",
       "price": 49.99,
-      "image": "AeroVista Core Hoodie.png",
+      "image": "/store/products/aerovista-core-hoodie/01-hero.webp",
       "description_text": "A clean daily hoodie built for comfort, movement, and low-key brand presence. The AeroVista Core Hoodie keeps the look simple with one intentional Apex mark, making it easy to layer, easy to wear, and strong enough to anchor the full Core uniform. A minimal everyday hoodie with a quiet AeroVista signal.",
       "description_html": "<p>A clean daily hoodie built for comfort, movement, and low-key brand presence. The AeroVista Core Hoodie keeps the look simple with one intentional Apex mark, making it easy to layer, easy to wear, and strong enough to anchor the full Core uniform. A minimal everyday hoodie with a quiet AeroVista signal.</p>",
       "seo_title": "AeroVista Core Hoodie",
@@ -1198,7 +1513,24 @@
           "price": 49.99,
           "variation_id": "3TTHKA7QSEYBXTVRDNHI2DOP"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-core-hoodie/01-hero.webp",
+        "/store/products/aerovista-core-hoodie/10-front-01.webp",
+        "/store/products/aerovista-core-hoodie/10-front-02.webp",
+        "/store/products/aerovista-core-hoodie/10-front-03.webp",
+        "/store/products/aerovista-core-hoodie/10-front-04.webp",
+        "/store/products/aerovista-core-hoodie/10-front-05.webp",
+        "/store/products/aerovista-core-hoodie/20-back-01.webp",
+        "/store/products/aerovista-core-hoodie/20-back-02.webp",
+        "/store/products/aerovista-core-hoodie/20-back-03.webp",
+        "/store/products/aerovista-core-hoodie/20-back-04.webp",
+        "/store/products/aerovista-core-hoodie/20-back-05.webp",
+        "/store/products/aerovista-core-hoodie/30-left-01.webp",
+        "/store/products/aerovista-core-hoodie/40-right-01.webp",
+        "/store/products/aerovista-core-hoodie/50-detail-01.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-core-hoodie/manifest.json"
     },
     {
       "id": "aerovista-core-tee",
@@ -1208,7 +1540,7 @@
       "collection": "core",
       "visibility": "visible",
       "price": 39.99,
-      "image": "AeroVista Core Tee (2).png",
+      "image": "/store/products/aerovista-core-tee/01-hero.webp",
       "description_text": "The everyday foundation piece of the AeroVista Core line. Clean, lightweight, and easy to wear, this tee features a single subtle Apex mark for a sharp, minimal brand signal. Built for daily rotation, work sessions, travel days, and everything in between. A clean everyday tee with one subtle AeroVista Apex mark.",
       "description_html": "<p>The everyday foundation piece of the AeroVista Core line. Clean, lightweight, and easy to wear, this tee features a single subtle Apex mark for a sharp, minimal brand signal. Built for daily rotation, work sessions, travel days, and everything in between. A clean everyday tee with one subtle AeroVista Apex mark.</p>",
       "seo_title": "AeroVista Core Tee",
@@ -1276,7 +1608,30 @@
           "price": 39.99,
           "variation_id": "4LSN45TXPC76YPD3CHSPG6B7"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-core-tee/01-hero.webp",
+        "/store/products/aerovista-core-tee/10-front-01.webp",
+        "/store/products/aerovista-core-tee/10-front-02.webp",
+        "/store/products/aerovista-core-tee/10-front-03.webp",
+        "/store/products/aerovista-core-tee/10-front-04.webp",
+        "/store/products/aerovista-core-tee/10-front-05.webp",
+        "/store/products/aerovista-core-tee/20-back-01.webp",
+        "/store/products/aerovista-core-tee/20-back-02.webp",
+        "/store/products/aerovista-core-tee/20-back-03.webp",
+        "/store/products/aerovista-core-tee/20-back-04.webp",
+        "/store/products/aerovista-core-tee/30-left-01.webp",
+        "/store/products/aerovista-core-tee/30-left-02.webp",
+        "/store/products/aerovista-core-tee/35-left-front-01.webp",
+        "/store/products/aerovista-core-tee/35-left-front-02.webp",
+        "/store/products/aerovista-core-tee/35-left-front-03.webp",
+        "/store/products/aerovista-core-tee/40-right-01.webp",
+        "/store/products/aerovista-core-tee/40-right-02.webp",
+        "/store/products/aerovista-core-tee/45-right-front-01.webp",
+        "/store/products/aerovista-core-tee/45-right-front-02.webp",
+        "/store/products/aerovista-core-tee/50-detail-01.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-core-tee/manifest.json"
     },
     {
       "id": "aerovista-division-hoodie",
@@ -1286,7 +1641,7 @@
       "collection": "core",
       "visibility": "visible",
       "price": 59.99,
-      "image": "aerovista divisions.png",
+      "image": "/store/products/aerovista-division-hoodie/01-hero.webp",
       "description_text": "Who knew that the softest hoodie you'll ever own comes with such a cool design. You won't regret buying this classic streetwear piece of apparel with a convenient pouch pocket and warm hood for chilly evenings. • 100% cotton face • 65% ring-spun cotton, 35% polyester • Front pouch pocket • Self-fabric patch on the back • Matching flat drawstrings • 3-panel hood • Blank product sourced from Pakistan Disclaimer: This hoodie runs small. For the perfect fit, we recommend ordering one size larger than your usual size.",
       "description_html": "<p>Who knew that the softest hoodie you&#039;ll ever own comes with such a cool design. You won&#039;t regret buying this classic streetwear piece of apparel with a convenient pouch pocket and warm hood for chilly evenings. • 100% cotton face • 65% ring-spun cotton, 35% polyester • Front pouch pocket • Self-fabric patch on the back • Matching flat drawstrings • 3-panel hood • Blank product sourced from Pakistan Disclaimer: This hoodie runs small. For the perfect fit, we recommend ordering one size larger than your usual size.</p>",
       "seo_title": "AeroVista Division Hoodie",
@@ -1339,7 +1694,28 @@
           "price": 59.99,
           "variation_id": "TTMWAL2AWJ2MWQM4OPEILZTN"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-division-hoodie/01-hero.webp",
+        "/store/products/aerovista-division-hoodie/10-front-01.webp",
+        "/store/products/aerovista-division-hoodie/10-front-02.webp",
+        "/store/products/aerovista-division-hoodie/10-front-03.webp",
+        "/store/products/aerovista-division-hoodie/10-front-04.webp",
+        "/store/products/aerovista-division-hoodie/10-front-05.webp",
+        "/store/products/aerovista-division-hoodie/10-front-06.webp",
+        "/store/products/aerovista-division-hoodie/10-front-07.webp",
+        "/store/products/aerovista-division-hoodie/10-front-08.webp",
+        "/store/products/aerovista-division-hoodie/20-back-01.webp",
+        "/store/products/aerovista-division-hoodie/20-back-02.webp",
+        "/store/products/aerovista-division-hoodie/20-back-03.webp",
+        "/store/products/aerovista-division-hoodie/20-back-04.webp",
+        "/store/products/aerovista-division-hoodie/20-back-05.webp",
+        "/store/products/aerovista-division-hoodie/30-left-01.webp",
+        "/store/products/aerovista-division-hoodie/40-right-01.webp",
+        "/store/products/aerovista-division-hoodie/50-detail-01.webp",
+        "/store/products/aerovista-division-hoodie/50-detail-02.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-division-hoodie/manifest.json"
     },
     {
       "id": "aerovista-glyph-field-long-sleeve-tee-archive-grid",
@@ -1349,7 +1725,7 @@
       "collection": "Shadow Wear",
       "visibility": "hidden",
       "price": 32.49,
-      "image": "",
+      "image": "/store/products/aerovista-glyph-field-long-sleeve-tee-archive-grid/01-hero.webp",
       "description_text": "A glyph-forward AeroVista long sleeve built around a structured field of custom marks, signal symbols, and Apex-coded geometry. The chest graphic reads like a recovered system language: patterned, intentional, and quietly mysterious. The design keeps the mood clean instead of shadow-heavy, using the glyph grid as the main identity. Subtle distressing and low-profile placement give it a worn-in artifact feel without overpowering the shirt.",
       "description_html": "<p>A glyph-forward AeroVista long sleeve built around a structured field of custom marks, signal symbols, and Apex-coded geometry. The chest graphic reads like a recovered system language: patterned, intentional, and quietly mysterious. The design keeps the mood clean instead of shadow-heavy, using the glyph grid as the main identity. Subtle distressing and low-profile placement give it a worn-in artifact feel without overpowering the shirt.</p>",
       "seo_title": "AeroVista Glyph Field Long Sleeve Tee — Archive Grid",
@@ -1399,7 +1775,28 @@
           "price": 32.49,
           "variation_id": "DNJVN2VX7W3Y5EIBXTNR73JJ"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-glyph-field-long-sleeve-tee-archive-grid/01-hero.webp",
+        "/store/products/aerovista-glyph-field-long-sleeve-tee-archive-grid/10-front-01.webp",
+        "/store/products/aerovista-glyph-field-long-sleeve-tee-archive-grid/10-front-02.webp",
+        "/store/products/aerovista-glyph-field-long-sleeve-tee-archive-grid/10-front-03.webp",
+        "/store/products/aerovista-glyph-field-long-sleeve-tee-archive-grid/10-front-04.webp",
+        "/store/products/aerovista-glyph-field-long-sleeve-tee-archive-grid/20-back-01.webp",
+        "/store/products/aerovista-glyph-field-long-sleeve-tee-archive-grid/20-back-02.webp",
+        "/store/products/aerovista-glyph-field-long-sleeve-tee-archive-grid/20-back-03.webp",
+        "/store/products/aerovista-glyph-field-long-sleeve-tee-archive-grid/30-left-01.webp",
+        "/store/products/aerovista-glyph-field-long-sleeve-tee-archive-grid/30-left-02.webp",
+        "/store/products/aerovista-glyph-field-long-sleeve-tee-archive-grid/35-left-front-01.webp",
+        "/store/products/aerovista-glyph-field-long-sleeve-tee-archive-grid/35-left-front-02.webp",
+        "/store/products/aerovista-glyph-field-long-sleeve-tee-archive-grid/35-left-front-03.webp",
+        "/store/products/aerovista-glyph-field-long-sleeve-tee-archive-grid/40-right-01.webp",
+        "/store/products/aerovista-glyph-field-long-sleeve-tee-archive-grid/40-right-02.webp",
+        "/store/products/aerovista-glyph-field-long-sleeve-tee-archive-grid/45-right-front-01.webp",
+        "/store/products/aerovista-glyph-field-long-sleeve-tee-archive-grid/50-detail-01.webp",
+        "/store/products/aerovista-glyph-field-long-sleeve-tee-archive-grid/50-detail-02.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-glyph-field-long-sleeve-tee-archive-grid/manifest.json"
     },
     {
       "id": "aerovista-premium-embroidered-hat-black-cap-with-signature-apex-mark",
@@ -1438,7 +1835,7 @@
       "collection": "Shadow Wear",
       "visibility": "visible",
       "price": 58,
-      "image": "AeroVista Apex Pattern Hoodie (3).png",
+      "image": "/store/products/aerovista-shadow-pattern-hoodie/01-hero.webp",
       "description_text": "This comfy unisex hoodie has a soft outside with a vibrant print and an even softer brushed fleece inside. The hoodie has a relaxed fit, and it’s perfect for wrapping yourself into on a chilly evening. • 96% recycled polyester, 4% elastane for manufacturing in the US/Mexico • 95% recycled polyester, 5% elastane for manufacturing in Latvia • Fabric weight (may vary by 5%): 9.08 oz./yd.² (308 g/m²) • Soft cotton-feel fabric face • Brushed fleece fabric inside • Double-lined hood with design on both sides • Unisex style • Comes with drawstrings • Overlock seams • Blank product components in Mexico sourced from Poland and Mexico • Blank product components in the EU sourced from China and Poland Disclaimer: In areas where the fabric is double-layered (like pockets), details from the inner fabric layer may subtly show through, especially with lighter designs.",
       "description_html": "<p>This comfy unisex hoodie has a soft outside with a vibrant print and an even softer brushed fleece inside. The hoodie has a relaxed fit, and it’s perfect for wrapping yourself into on a chilly evening. • 96% recycled polyester, 4% elastane for manufacturing in the US/Mexico • 95% recycled polyester, 5% elastane for manufacturing in Latvia • Fabric weight (may vary by 5%): 9.08 oz./yd.² (308 g/m²) • Soft cotton-feel fabric face • Brushed fleece fabric inside • Double-lined hood with design on both sides • Unisex style • Comes with drawstrings • Overlock seams • Blank product components in Mexico sourced from Poland and Mexico • Blank product components in the EU sourced from China and Poland Disclaimer: In areas where the fabric is double-layered (like pockets), details from the inner fabric layer may subtly show through, especially with lighter designs.</p>",
       "seo_title": "AeroVista Shadow Pattern Hoodie",
@@ -1527,7 +1924,24 @@
           "price": 74,
           "variation_id": "I4YGRMK3PLAMDE2LIFQXQGN4"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-shadow-pattern-hoodie/01-hero.webp",
+        "/store/products/aerovista-shadow-pattern-hoodie/10-front-01.webp",
+        "/store/products/aerovista-shadow-pattern-hoodie/10-front-02.webp",
+        "/store/products/aerovista-shadow-pattern-hoodie/10-front-03.webp",
+        "/store/products/aerovista-shadow-pattern-hoodie/10-front-04.webp",
+        "/store/products/aerovista-shadow-pattern-hoodie/10-front-05.webp",
+        "/store/products/aerovista-shadow-pattern-hoodie/10-front-06.webp",
+        "/store/products/aerovista-shadow-pattern-hoodie/10-front-07.webp",
+        "/store/products/aerovista-shadow-pattern-hoodie/20-back-01.webp",
+        "/store/products/aerovista-shadow-pattern-hoodie/20-back-02.webp",
+        "/store/products/aerovista-shadow-pattern-hoodie/20-back-03.webp",
+        "/store/products/aerovista-shadow-pattern-hoodie/20-back-04.webp",
+        "/store/products/aerovista-shadow-pattern-hoodie/20-back-05.webp",
+        "/store/products/aerovista-shadow-pattern-hoodie/40-right-01.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-shadow-pattern-hoodie/manifest.json"
     },
     {
       "id": "aerovista-shadow-pattern-long-sleeve-tee",
@@ -1639,7 +2053,7 @@
       "collection": "Wave Mark",
       "visibility": "hidden",
       "price": 59.99,
-      "image": "av_wave_white.png",
+      "image": "/store/products/aerovista-wave-mark-full-zip-hoodie-white/01-hero.webp",
       "description_text": "A bright, clean layer with a minimalist chest logo that pops without overpowering. Premium feel, easy styling, and ready for studio days, travel, and everyday fits. Highlights: Unisex mid-weight zip hoodie • Smooth, crisp look • Everyday comfort • Layer-friendly",
       "description_html": "<p>A bright, clean layer with a minimalist chest logo that pops without overpowering. Premium feel, easy styling, and ready for studio days, travel, and everyday fits. Highlights: Unisex mid-weight zip hoodie • Smooth, crisp look • Everyday comfort • Layer-friendly</p>",
       "seo_title": "AeroVista Wave Mark Full-Zip Hoodie – White",
@@ -1693,7 +2107,23 @@
           "price": 59.99,
           "variation_id": "W64AEN7JN6XH3E2DKD4W6ZW5"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/aerovista-wave-mark-full-zip-hoodie-white/01-hero.webp",
+        "/store/products/aerovista-wave-mark-full-zip-hoodie-white/10-front-01.webp",
+        "/store/products/aerovista-wave-mark-full-zip-hoodie-white/10-front-02.webp",
+        "/store/products/aerovista-wave-mark-full-zip-hoodie-white/10-front-03.webp",
+        "/store/products/aerovista-wave-mark-full-zip-hoodie-white/10-front-04.webp",
+        "/store/products/aerovista-wave-mark-full-zip-hoodie-white/10-front-05.webp",
+        "/store/products/aerovista-wave-mark-full-zip-hoodie-white/20-back-01.webp",
+        "/store/products/aerovista-wave-mark-full-zip-hoodie-white/20-back-02.webp",
+        "/store/products/aerovista-wave-mark-full-zip-hoodie-white/20-back-03.webp",
+        "/store/products/aerovista-wave-mark-full-zip-hoodie-white/30-left-01.webp",
+        "/store/products/aerovista-wave-mark-full-zip-hoodie-white/35-left-front-01.webp",
+        "/store/products/aerovista-wave-mark-full-zip-hoodie-white/40-right-01.webp",
+        "/store/products/aerovista-wave-mark-full-zip-hoodie-white/45-right-front-01.webp"
+      ],
+      "image_manifest": "/store/products/aerovista-wave-mark-full-zip-hoodie-white/manifest.json"
     },
     {
       "id": "architect-built-different-hoodie-black",
@@ -1837,7 +2267,7 @@
       "collection": "Draft Series",
       "visibility": "visible",
       "price": 39.99,
-      "image": "Architect  Field Issue Tee - Black.png",
+      "image": "/store/products/architect-field-issue-tee-black/01-hero.webp",
       "description_text": "This t-shirt is everything you've dreamed of and more. It feels soft and lightweight, with the right amount of stretch. It's comfortable and flattering for all. • 100% combed and ring-spun cotton (Heather colors contain polyester) • Fabric weight: 4.2 oz./yd.² (142 g/m²) • Pre-shrunk fabric • Side-seamed construction • Shoulder-to-shoulder taping • Blank product sourced from Nicaragua, Mexico, Honduras, or the US Disclaimer: The fabric is slightly sheer and may appear see-through, especially in lighter colors or under certain lighting conditions.",
       "description_html": "<p>This t-shirt is everything you&#039;ve dreamed of and more. It feels soft and lightweight, with the right amount of stretch. It&#039;s comfortable and flattering for all. • 100% combed and ring-spun cotton (Heather colors contain polyester) • Fabric weight: 4.2 oz./yd.² (142 g/m²) • Pre-shrunk fabric • Side-seamed construction • Shoulder-to-shoulder taping • Blank product sourced from Nicaragua, Mexico, Honduras, or the US Disclaimer: The fabric is slightly sheer and may appear see-through, especially in lighter colors or under certain lighting conditions.</p>",
       "seo_title": "Architect — Field Issue Tee - Black",
@@ -1911,7 +2341,38 @@
           "price": 39.99,
           "variation_id": "M7GT45TPT6IQEL4D22DZW52Q"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/architect-field-issue-tee-black/01-hero.webp",
+        "/store/products/architect-field-issue-tee-black/10-front-01.webp",
+        "/store/products/architect-field-issue-tee-black/10-front-02.webp",
+        "/store/products/architect-field-issue-tee-black/10-front-03.webp",
+        "/store/products/architect-field-issue-tee-black/10-front-04.webp",
+        "/store/products/architect-field-issue-tee-black/10-front-05.webp",
+        "/store/products/architect-field-issue-tee-black/10-front-06.webp",
+        "/store/products/architect-field-issue-tee-black/10-front-07.webp",
+        "/store/products/architect-field-issue-tee-black/20-back-01.webp",
+        "/store/products/architect-field-issue-tee-black/20-back-02.webp",
+        "/store/products/architect-field-issue-tee-black/20-back-03.webp",
+        "/store/products/architect-field-issue-tee-black/20-back-04.webp",
+        "/store/products/architect-field-issue-tee-black/20-back-05.webp",
+        "/store/products/architect-field-issue-tee-black/20-back-06.webp",
+        "/store/products/architect-field-issue-tee-black/30-left-01.webp",
+        "/store/products/architect-field-issue-tee-black/30-left-02.webp",
+        "/store/products/architect-field-issue-tee-black/30-left-03.webp",
+        "/store/products/architect-field-issue-tee-black/35-left-front-01.webp",
+        "/store/products/architect-field-issue-tee-black/35-left-front-02.webp",
+        "/store/products/architect-field-issue-tee-black/35-left-front-03.webp",
+        "/store/products/architect-field-issue-tee-black/40-right-01.webp",
+        "/store/products/architect-field-issue-tee-black/40-right-02.webp",
+        "/store/products/architect-field-issue-tee-black/40-right-03.webp",
+        "/store/products/architect-field-issue-tee-black/45-right-front-01.webp",
+        "/store/products/architect-field-issue-tee-black/45-right-front-02.webp",
+        "/store/products/architect-field-issue-tee-black/45-right-front-03.webp",
+        "/store/products/architect-field-issue-tee-black/50-detail-01.webp",
+        "/store/products/architect-field-issue-tee-black/50-detail-02.webp"
+      ],
+      "image_manifest": "/store/products/architect-field-issue-tee-black/manifest.json"
     },
     {
       "id": "autumn-over-coeur-d-alene-lake-city-in-color",
@@ -1946,7 +2407,7 @@
       "collection": "",
       "visibility": "hidden",
       "price": 5,
-      "image": "bonsaid sticker.png",
+      "image": "/store/products/billygoat-sticker/01-hero.webp",
       "description_text": "These stickers are printed on durable, high opacity adhesive vinyl which makes them perfect for regular use, as well as for covering other stickers or paint. The high-quality vinyl ensures there are no bubbles when applying the stickers. • High opacity film that’s impossible to see through • Fast and easy bubble-free application • Durable vinyl • 95µ density Don't forget to clean the surface before applying the sticker.",
       "description_html": "<p>These stickers are printed on durable, high opacity adhesive vinyl which makes them perfect for regular use, as well as for covering other stickers or paint. The high-quality vinyl ensures there are no bubbles when applying the stickers. • High opacity film that’s impossible to see through • Fast and easy bubble-free application • Durable vinyl • 95µ density Don&#039;t forget to clean the surface before applying the sticker.</p>",
       "seo_title": "BillyGoat Sticker",
@@ -1970,7 +2431,13 @@
           "price": 6.5,
           "variation_id": "3FLQHCRPLXV2NUDFPHXS6OCG"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/billygoat-sticker/01-hero.webp",
+        "/store/products/billygoat-sticker/60-alternate-01.webp",
+        "/store/products/billygoat-sticker/60-alternate-02.webp"
+      ],
+      "image_manifest": "/store/products/billygoat-sticker/manifest.json"
     },
     {
       "id": "bonsaid-rooted-resilience-trucker-cap-richardson-112-edition",
@@ -2050,7 +2517,7 @@
       "collection": "Lumina",
       "visibility": "hidden",
       "price": 59.99,
-      "image": "",
+      "image": "/store/products/burst-lens-lumina-pullover-hoodie/01-hero.webp",
       "description_text": "The Lumina Burst Lens hoodie hits with a radiant, high-impact graphic that feels like inspiration detonating in real time. A bold centerpiece with clean branding makes this one look premium on black—built for creators, shooters, designers, and anyone who lives for the spark. Apparel: Unisex premium mid-weight pullover hoodie",
       "description_html": "<p>The Lumina Burst Lens hoodie hits with a radiant, high-impact graphic that feels like inspiration detonating in real time. A bold centerpiece with clean branding makes this one look premium on black—built for creators, shooters, designers, and anyone who lives for the spark. Apparel: Unisex premium mid-weight pullover hoodie</p>",
       "seo_title": "Burst Lens • Lumina • Pullover Hoodie",
@@ -2100,7 +2567,19 @@
           "price": 59.99,
           "variation_id": "PM344CWTWLVCWGLQ5TE55CQS"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/burst-lens-lumina-pullover-hoodie/01-hero.webp",
+        "/store/products/burst-lens-lumina-pullover-hoodie/10-front-01.webp",
+        "/store/products/burst-lens-lumina-pullover-hoodie/10-front-02.webp",
+        "/store/products/burst-lens-lumina-pullover-hoodie/10-front-03.webp",
+        "/store/products/burst-lens-lumina-pullover-hoodie/20-back-01.webp",
+        "/store/products/burst-lens-lumina-pullover-hoodie/20-back-02.webp",
+        "/store/products/burst-lens-lumina-pullover-hoodie/20-back-03.webp",
+        "/store/products/burst-lens-lumina-pullover-hoodie/30-left-01.webp",
+        "/store/products/burst-lens-lumina-pullover-hoodie/40-right-01.webp"
+      ],
+      "image_manifest": "/store/products/burst-lens-lumina-pullover-hoodie/manifest.json"
     },
     {
       "id": "can-cooler",
@@ -2110,7 +2589,7 @@
       "collection": "Accessories",
       "visibility": "visible",
       "price": 8.5,
-      "image": "accessories/can-cooler-12oz.png",
+      "image": "/store/products/can-cooler/01-hero.webp",
       "description_text": "Add a personal touch to your sipping sessions! This dual-side can cooler comes in two sizes to fit your regular and slim cans. Crafted from high-grade synthetic rubber, it keeps your drinks cool and your hands warm. • Made from neoprene • Waterproof • Dual-size customization • Ribbed seams • Regular 5″ × 4″ (12 × 10 cm), or slim 6.5″ × 3.2″ (17 × 8 cm) • Spot clean as needed • Blank product sourced from China and printed in the US This product is made on demand. No minimums.",
       "description_html": "<p>Add a personal touch to your sipping sessions! This dual-side can cooler comes in two sizes to fit your regular and slim cans. Crafted from high-grade synthetic rubber, it keeps your drinks cool and your hands warm. • Made from neoprene • Waterproof • Dual-size customization • Ribbed seams • Regular 5″ × 4″ (12 × 10 cm), or slim 6.5″ × 3.2″ (17 × 8 cm) • Spot clean as needed • Blank product sourced from China and printed in the US This product is made on demand. No minimums.</p>",
       "seo_title": "Can cooler",
@@ -2132,7 +2611,14 @@
           "price": 8.5,
           "variation_id": "KDGFUSRV5OY2WVHFRAUD7T6E"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/can-cooler/01-hero.webp",
+        "/store/products/can-cooler/10-front-01.webp",
+        "/store/products/can-cooler/10-front-02.webp",
+        "/store/products/can-cooler/50-detail-01.webp"
+      ],
+      "image_manifest": "/store/products/can-cooler/manifest.json"
     },
     {
       "id": "cda-pool-league-circuit-vintage-comic-tee-white",
@@ -2234,7 +2720,7 @@
       "collection": "",
       "visibility": "hidden",
       "price": 59.99,
-      "image": "nexus_hoodie.png",
+      "image": "/store/products/circuit-bloom-nexus-techworks-pullover-hoodie/01-hero.webp",
       "description_text": "The Circuit Bloom hoodie is tech-core done right: a central NeXuS mark surrounded by a clean network pattern that reads like infrastructure, connectivity, and momentum. It’s a statement piece without being loud—perfect for dev days, hack nights, and anyone who likes their style intelligently designed. Apparel: Unisex premium mid-weight pullover hoodie",
       "description_html": "<p>The Circuit Bloom hoodie is tech-core done right: a central NeXuS mark surrounded by a clean network pattern that reads like infrastructure, connectivity, and momentum. It’s a statement piece without being loud—perfect for dev days, hack nights, and anyone who likes their style intelligently designed. Apparel: Unisex premium mid-weight pullover hoodie</p>",
       "seo_title": "Circuit Bloom • NeXuS TechWorks • Pullover Hoodie",
@@ -2286,7 +2772,22 @@
           "price": 59.99,
           "variation_id": "UWMYKEZNCH37JDNYQEODOFBJ"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/circuit-bloom-nexus-techworks-pullover-hoodie/01-hero.webp",
+        "/store/products/circuit-bloom-nexus-techworks-pullover-hoodie/10-front-01.webp",
+        "/store/products/circuit-bloom-nexus-techworks-pullover-hoodie/10-front-02.webp",
+        "/store/products/circuit-bloom-nexus-techworks-pullover-hoodie/10-front-03.webp",
+        "/store/products/circuit-bloom-nexus-techworks-pullover-hoodie/10-front-04.webp",
+        "/store/products/circuit-bloom-nexus-techworks-pullover-hoodie/10-front-05.webp",
+        "/store/products/circuit-bloom-nexus-techworks-pullover-hoodie/20-back-01.webp",
+        "/store/products/circuit-bloom-nexus-techworks-pullover-hoodie/20-back-02.webp",
+        "/store/products/circuit-bloom-nexus-techworks-pullover-hoodie/20-back-03.webp",
+        "/store/products/circuit-bloom-nexus-techworks-pullover-hoodie/20-back-04.webp",
+        "/store/products/circuit-bloom-nexus-techworks-pullover-hoodie/30-left-01.webp",
+        "/store/products/circuit-bloom-nexus-techworks-pullover-hoodie/40-right-01.webp"
+      ],
+      "image_manifest": "/store/products/circuit-bloom-nexus-techworks-pullover-hoodie/manifest.json"
     },
     {
       "id": "clear-case-for-samsung-s24-ultra",
@@ -2371,7 +2872,7 @@
       "collection": "DockLife",
       "visibility": "visible",
       "price": 32,
-      "image": "docklife/docklife-drip_hat.png",
+      "image": "/store/products/docklife-drip-osprey-rope-cap/01-hero.webp",
       "description_text": "Built for lake days, dock nights, and everything in between. Docklife Drip brings EchoVerse attitude to the water with a premium Coeur d’Alene-inspired design created for the Richardson 258 rope cap. The front artwork centers on a lifelike osprey overlooking a mountain lake, with a subtle Coeur d’Alene Lake silhouette worked into its crown markings. A sportfisher, sailboat, weathered dock pilings, braided line, and polished cleat complete the scene beneath a restrained EchoVerse waveform. Finished in deep navy, brushed ivory, silver, and seafoam tones, the design balances marina heritage with modern streetwear styling. Details - Richardson 258 rope-cap design - Wide-format Docklife Drip front graphic - Osprey with hidden Coeur d’Alene Lake detail - EchoVerse signature branding - Lake, marina, dock-line, and nautical elements - Premium navy, ivory, silver, and seafoam palette - Designed as part of the EchoVerse Docklife collection Dock culture. Lake attitude. EchoVerse sound.",
       "description_html": "<p>Built for lake days, dock nights, and everything in between. Docklife Drip brings EchoVerse attitude to the water with a premium Coeur d’Alene-inspired design created for the Richardson 258 rope cap. The front artwork centers on a lifelike osprey overlooking a mountain lake, with a subtle Coeur d’Alene Lake silhouette worked into its crown markings. A sportfisher, sailboat, weathered dock pilings, braided line, and polished cleat complete the scene beneath a restrained EchoVerse waveform. Finished in deep navy, brushed ivory, silver, and seafoam tones, the design balances marina heritage with modern streetwear styling. Details - Richardson 258 rope-cap design - Wide-format Docklife Drip front graphic - Osprey with hidden Coeur d’Alene Lake detail - EchoVerse signature branding - Lake, marina, dock-line, and nautical elements - Premium navy, ivory, silver, and seafoam palette - Designed as part of the EchoVerse Docklife collection Dock culture. Lake attitude. EchoVerse sound.</p>",
       "seo_title": "Docklife Drip — Osprey Rope Cap",
@@ -2386,7 +2887,17 @@
           "price": 32,
           "variation_id": "GGYNCQMLXX6R4QCEEXLRVJHR"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/docklife-drip-osprey-rope-cap/01-hero.webp",
+        "/store/products/docklife-drip-osprey-rope-cap/10-front-01.webp",
+        "/store/products/docklife-drip-osprey-rope-cap/20-back-01.webp",
+        "/store/products/docklife-drip-osprey-rope-cap/35-left-front-01.webp",
+        "/store/products/docklife-drip-osprey-rope-cap/45-right-front-01.webp",
+        "/store/products/docklife-drip-osprey-rope-cap/50-detail-01.webp",
+        "/store/products/docklife-drip-osprey-rope-cap/50-detail-02.webp"
+      ],
+      "image_manifest": "/store/products/docklife-drip-osprey-rope-cap/manifest.json"
     },
     {
       "id": "drafted-a-premium-sweatshirt",
@@ -2396,7 +2907,7 @@
       "collection": "Draft Series",
       "visibility": "visible",
       "price": 49.99,
-      "image": "Drafted A Premium Sweatshirt.png",
+      "image": "/store/products/drafted-a-premium-sweatshirt/01-hero.webp",
       "description_text": "Rock a classic sweatshirt silhouette with ribbed crew neck, long sleeve cuffs, and a flat hem. Layer it up or wear it on its own for a contemporary streetwear look. With the soft fleece inside and comfortable fit, it’s sure to become your favorite everyday sweater right away! • 100% cotton face • 65% cotton, 35% polyester • Charcoal Heather is 55% cotton, 45% polyester • Fabric weight: 8.5 oz/y² (288.2 g/m²) • Tightly knit 3-end fleece • Side-seamed construction • Self-fabric patch on the back • Double-needle stitched rib collar, cuffs, and hem • Blank product sourced from Pakistan Disclaimer: This sweatshirt runs small. For the perfect fit, we recommend ordering one size larger than your usual size. This product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!",
       "description_html": "<p>Rock a classic sweatshirt silhouette with ribbed crew neck, long sleeve cuffs, and a flat hem. Layer it up or wear it on its own for a contemporary streetwear look. With the soft fleece inside and comfortable fit, it’s sure to become your favorite everyday sweater right away! • 100% cotton face • 65% cotton, 35% polyester • Charcoal Heather is 55% cotton, 45% polyester • Fabric weight: 8.5 oz/y² (288.2 g/m²) • Tightly knit 3-end fleece • Side-seamed construction • Self-fabric patch on the back • Double-needle stitched rib collar, cuffs, and hem • Blank product sourced from Pakistan Disclaimer: This sweatshirt runs small. For the perfect fit, we recommend ordering one size larger than your usual size. This product is made especially for you as soon as you place an order, which is why it takes us a bit longer to deliver it to you. Making products on demand instead of in bulk helps reduce overproduction, so thank you for making thoughtful purchasing decisions!</p>",
       "seo_title": "Drafted A  • Premium Sweatshirt",
@@ -2449,7 +2960,32 @@
           "price": 49.99,
           "variation_id": "L25FBA6NQPI6R3TIE2UGE2SC"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/drafted-a-premium-sweatshirt/01-hero.webp",
+        "/store/products/drafted-a-premium-sweatshirt/10-front-01.webp",
+        "/store/products/drafted-a-premium-sweatshirt/10-front-02.webp",
+        "/store/products/drafted-a-premium-sweatshirt/10-front-03.webp",
+        "/store/products/drafted-a-premium-sweatshirt/10-front-04.webp",
+        "/store/products/drafted-a-premium-sweatshirt/10-front-05.webp",
+        "/store/products/drafted-a-premium-sweatshirt/10-front-06.webp",
+        "/store/products/drafted-a-premium-sweatshirt/10-front-07.webp",
+        "/store/products/drafted-a-premium-sweatshirt/10-front-08.webp",
+        "/store/products/drafted-a-premium-sweatshirt/20-back-01.webp",
+        "/store/products/drafted-a-premium-sweatshirt/20-back-02.webp",
+        "/store/products/drafted-a-premium-sweatshirt/20-back-03.webp",
+        "/store/products/drafted-a-premium-sweatshirt/20-back-04.webp",
+        "/store/products/drafted-a-premium-sweatshirt/20-back-05.webp",
+        "/store/products/drafted-a-premium-sweatshirt/30-left-01.webp",
+        "/store/products/drafted-a-premium-sweatshirt/30-left-02.webp",
+        "/store/products/drafted-a-premium-sweatshirt/35-left-front-01.webp",
+        "/store/products/drafted-a-premium-sweatshirt/40-right-01.webp",
+        "/store/products/drafted-a-premium-sweatshirt/40-right-02.webp",
+        "/store/products/drafted-a-premium-sweatshirt/45-right-front-01.webp",
+        "/store/products/drafted-a-premium-sweatshirt/50-detail-01.webp",
+        "/store/products/drafted-a-premium-sweatshirt/50-detail-02.webp"
+      ],
+      "image_manifest": "/store/products/drafted-a-premium-sweatshirt/manifest.json"
     },
     {
       "id": "echoverse-frost-circuit-pullover-hoodie",
@@ -2459,7 +2995,7 @@
       "collection": "echoverse",
       "visibility": "hidden",
       "price": 59.99,
-      "image": "frost_circuit_black_hoodie.png",
+      "image": "/store/products/echoverse-frost-circuit-pullover-hoodie/01-hero.webp",
       "description_text": "The Frost Circuit hoodie blends cold-season energy with tech-art detail: a snowflake crest wired with circuit-like lines and EchoVerse lettering. It’s a standout piece—icy, clean, and weird in the best way. Perfect for winter drops, night walks, and people who like their merch to feel like a symbol. Apparel: Unisex premium mid-weight pullover hoodie",
       "description_html": "<p>The Frost Circuit hoodie blends cold-season energy with tech-art detail: a snowflake crest wired with circuit-like lines and EchoVerse lettering. It’s a standout piece—icy, clean, and weird in the best way. Perfect for winter drops, night walks, and people who like their merch to feel like a symbol. Apparel: Unisex premium mid-weight pullover hoodie</p>",
       "seo_title": "EchoVerse “Frost Circuit” Pullover Hoodie",
@@ -2512,7 +3048,22 @@
           "price": 59.99,
           "variation_id": "UHODWV3AWZJZU2MR65B2SYFE"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/echoverse-frost-circuit-pullover-hoodie/01-hero.webp",
+        "/store/products/echoverse-frost-circuit-pullover-hoodie/10-front-01.webp",
+        "/store/products/echoverse-frost-circuit-pullover-hoodie/10-front-02.webp",
+        "/store/products/echoverse-frost-circuit-pullover-hoodie/10-front-03.webp",
+        "/store/products/echoverse-frost-circuit-pullover-hoodie/10-front-04.webp",
+        "/store/products/echoverse-frost-circuit-pullover-hoodie/10-front-05.webp",
+        "/store/products/echoverse-frost-circuit-pullover-hoodie/20-back-01.webp",
+        "/store/products/echoverse-frost-circuit-pullover-hoodie/20-back-02.webp",
+        "/store/products/echoverse-frost-circuit-pullover-hoodie/20-back-03.webp",
+        "/store/products/echoverse-frost-circuit-pullover-hoodie/20-back-04.webp",
+        "/store/products/echoverse-frost-circuit-pullover-hoodie/30-left-01.webp",
+        "/store/products/echoverse-frost-circuit-pullover-hoodie/40-right-01.webp"
+      ],
+      "image_manifest": "/store/products/echoverse-frost-circuit-pullover-hoodie/manifest.json"
     },
     {
       "id": "echoverse-frost-circuit-tee",
@@ -2585,7 +3136,7 @@
       "collection": "echoverse",
       "visibility": "hidden",
       "price": 59.99,
-      "image": "echoverse_hoodie.png",
+      "image": "/store/products/echoverse-signal-dial-chest-emblem-hoodie/01-hero.webp",
       "description_text": "Subtle, sharp, and wearable everywhere. The EchoVerse Signal Dial hoodie features a sleek chest emblem that feels like a piece of audio hardware—balanced, modern, and low-key. The kind of hoodie that looks “official” without trying too hard. Apparel: Unisex premium mid-weight pullover hoodie",
       "description_html": "<p>Subtle, sharp, and wearable everywhere. The EchoVerse Signal Dial hoodie features a sleek chest emblem that feels like a piece of audio hardware—balanced, modern, and low-key. The kind of hoodie that looks “official” without trying too hard. Apparel: Unisex premium mid-weight pullover hoodie</p>",
       "seo_title": "EchoVerse “Signal Dial” Chest Emblem Hoodie",
@@ -2638,7 +3189,22 @@
           "price": 59.99,
           "variation_id": "VBIWCDKSKIB7RMO4A5YATYDZ"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/echoverse-signal-dial-chest-emblem-hoodie/01-hero.webp",
+        "/store/products/echoverse-signal-dial-chest-emblem-hoodie/10-front-01.webp",
+        "/store/products/echoverse-signal-dial-chest-emblem-hoodie/10-front-02.webp",
+        "/store/products/echoverse-signal-dial-chest-emblem-hoodie/10-front-03.webp",
+        "/store/products/echoverse-signal-dial-chest-emblem-hoodie/10-front-04.webp",
+        "/store/products/echoverse-signal-dial-chest-emblem-hoodie/10-front-05.webp",
+        "/store/products/echoverse-signal-dial-chest-emblem-hoodie/20-back-01.webp",
+        "/store/products/echoverse-signal-dial-chest-emblem-hoodie/20-back-02.webp",
+        "/store/products/echoverse-signal-dial-chest-emblem-hoodie/20-back-03.webp",
+        "/store/products/echoverse-signal-dial-chest-emblem-hoodie/20-back-04.webp",
+        "/store/products/echoverse-signal-dial-chest-emblem-hoodie/30-left-01.webp",
+        "/store/products/echoverse-signal-dial-chest-emblem-hoodie/40-right-01.webp"
+      ],
+      "image_manifest": "/store/products/echoverse-signal-dial-chest-emblem-hoodie/manifest.json"
     },
     {
       "id": "echoverse-enter-the-goat",
@@ -2773,7 +3339,7 @@
       "collection": "Founder's Mark",
       "visibility": "hidden",
       "price": 59.99,
-      "image": "founders_zip_hoodie.png",
+      "image": "/store/products/founders-mark-full-zip-hoodie/01-hero.webp",
       "description_text": "This zip hoodie is soft, warm, and versatile enough for year-round layering. With its relaxed fit and clean design details, it’s the kind of hoodie you’ll reach for daily—whether you’re on the go or lounging at home. • 80% cotton, 20% recycled polyester • Heather Grey is 70% cotton, 30% recycled polyester • Other heather colors are 60% cotton, 40% recycled polyester • Fabric weight: 8.3 oz./yd.² (280 g/m²) • Relaxed fit • Three-panel hood with matching round drawcord • Zipper with auto-lock slider • Front kangaroo pockets • Ribbed cuffs and waistband • Blank product sourced from Pakistan",
       "description_html": "<p>This zip hoodie is soft, warm, and versatile enough for year-round layering. With its relaxed fit and clean design details, it’s the kind of hoodie you’ll reach for daily—whether you’re on the go or lounging at home. • 80% cotton, 20% recycled polyester • Heather Grey is 70% cotton, 30% recycled polyester • Other heather colors are 60% cotton, 40% recycled polyester • Fabric weight: 8.3 oz./yd.² (280 g/m²) • Relaxed fit • Three-panel hood with matching round drawcord • Zipper with auto-lock slider • Front kangaroo pockets • Ribbed cuffs and waistband • Blank product sourced from Pakistan</p>",
       "seo_title": "Founders Mark full zip hoodie",
@@ -2825,7 +3391,27 @@
           "price": 59.99,
           "variation_id": "UOEQBPESNTRR2R75NNZJBTIF"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/founders-mark-full-zip-hoodie/01-hero.webp",
+        "/store/products/founders-mark-full-zip-hoodie/10-front-01.webp",
+        "/store/products/founders-mark-full-zip-hoodie/10-front-02.webp",
+        "/store/products/founders-mark-full-zip-hoodie/10-front-03.webp",
+        "/store/products/founders-mark-full-zip-hoodie/10-front-04.webp",
+        "/store/products/founders-mark-full-zip-hoodie/10-front-05.webp",
+        "/store/products/founders-mark-full-zip-hoodie/10-front-06.webp",
+        "/store/products/founders-mark-full-zip-hoodie/20-back-01.webp",
+        "/store/products/founders-mark-full-zip-hoodie/20-back-02.webp",
+        "/store/products/founders-mark-full-zip-hoodie/20-back-03.webp",
+        "/store/products/founders-mark-full-zip-hoodie/20-back-04.webp",
+        "/store/products/founders-mark-full-zip-hoodie/30-left-01.webp",
+        "/store/products/founders-mark-full-zip-hoodie/30-left-02.webp",
+        "/store/products/founders-mark-full-zip-hoodie/35-left-front-01.webp",
+        "/store/products/founders-mark-full-zip-hoodie/40-right-01.webp",
+        "/store/products/founders-mark-full-zip-hoodie/40-right-02.webp",
+        "/store/products/founders-mark-full-zip-hoodie/45-right-front-01.webp"
+      ],
+      "image_manifest": "/store/products/founders-mark-full-zip-hoodie/manifest.json"
     },
     {
       "id": "glitch-logo-aerovista-tee-black",
@@ -2920,7 +3506,7 @@
       "collection": "Glitch Line",
       "visibility": "visible",
       "price": 39.99,
-      "image": "glitch.dronelhoodie.png",
+      "image": "/store/products/glitch-drone-aerovista-hoodie-black/01-hero.webp",
       "description_text": "Who knew that the softest hoodie you'll ever own comes with such a cool design. You won't regret buying this classic streetwear piece of apparel with a convenient pouch pocket and warm hood for chilly evenings. • 100% cotton face • 65% ring-spun cotton, 35% polyester • Front pouch pocket • Self-fabric patch on the back • Matching flat drawstrings • 3-panel hood • Blank product sourced from Pakistan Disclaimer: This hoodie runs small. For the perfect fit, we recommend ordering one size larger than your usual size.",
       "description_html": "<p>Who knew that the softest hoodie you&#039;ll ever own comes with such a cool design. You won&#039;t regret buying this classic streetwear piece of apparel with a convenient pouch pocket and warm hood for chilly evenings. • 100% cotton face • 65% ring-spun cotton, 35% polyester • Front pouch pocket • Self-fabric patch on the back • Matching flat drawstrings • 3-panel hood • Blank product sourced from Pakistan Disclaimer: This hoodie runs small. For the perfect fit, we recommend ordering one size larger than your usual size.</p>",
       "seo_title": "glitch_drone  • AeroVista • Tee - black",
@@ -2974,7 +3560,35 @@
           "price": 39.99,
           "variation_id": "4PGH4T2774G6DBQ4Q2ZRG553"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/glitch-drone-aerovista-hoodie-black/01-hero.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/10-front-01.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/10-front-02.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/10-front-03.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/10-front-04.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/10-front-05.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/10-front-06.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/10-front-07.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/10-front-08.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/20-back-01.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/20-back-02.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/20-back-03.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/20-back-04.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/20-back-05.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/20-back-06.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/20-back-07.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/30-left-01.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/30-left-02.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/35-left-front-01.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/35-left-front-02.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/40-right-01.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/40-right-02.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/45-right-front-01.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/45-right-front-02.webp",
+        "/store/products/glitch-drone-aerovista-hoodie-black/50-detail-01.webp"
+      ],
+      "image_manifest": "/store/products/glitch-drone-aerovista-hoodie-black/manifest.json"
     },
     {
       "id": "harbor-at-the-heart-the-coeur-d-alene-resort-and-marina",
@@ -3009,7 +3623,7 @@
       "collection": "goat",
       "visibility": "hidden",
       "price": 6.5,
-      "image": "holographic_goat_sticker.png",
+      "image": "/store/products/holographic-stickers/01-hero.webp",
       "description_text": "Add some sparkle to your life with these holographic stickers. Made from high-quality vinyl, they’re easy to peel and stick, and their adhesive backing ensures long-lasting durability. The unique holographic effect catches the light in a mesmerizing way, making them the ultimate eye-catcher. • Hot-embossed, which creates a deep 3D pattern • Durable vinyl, perfect for indoor use • Fast and easy bubble-free application Disclaimer: Please note that this product is suitable for indoor use only.",
       "description_html": "<p>Add some sparkle to your life with these holographic stickers. Made from high-quality vinyl, they’re easy to peel and stick, and their adhesive backing ensures long-lasting durability. The unique holographic effect catches the light in a mesmerizing way, making them the ultimate eye-catcher. • Hot-embossed, which creates a deep 3D pattern • Durable vinyl, perfect for indoor use • Fast and easy bubble-free application Disclaimer: Please note that this product is suitable for indoor use only.</p>",
       "seo_title": "Holographic stickers",
@@ -3034,7 +3648,23 @@
           "price": 8.5,
           "variation_id": "77GCE4OHHIUKOYBC67UQPR2X"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/holographic-stickers/01-hero.webp",
+        "/store/products/holographic-stickers/10-front-01.webp",
+        "/store/products/holographic-stickers/10-front-02.webp",
+        "/store/products/holographic-stickers/10-front-03.webp",
+        "/store/products/holographic-stickers/10-front-04.webp",
+        "/store/products/holographic-stickers/10-front-05.webp",
+        "/store/products/holographic-stickers/10-front-06.webp",
+        "/store/products/holographic-stickers/10-front-07.webp",
+        "/store/products/holographic-stickers/10-front-08.webp",
+        "/store/products/holographic-stickers/10-front-09.webp",
+        "/store/products/holographic-stickers/10-front-10.webp",
+        "/store/products/holographic-stickers/10-front-11.webp",
+        "/store/products/holographic-stickers/10-front-12.webp"
+      ],
+      "image_manifest": "/store/products/holographic-stickers/manifest.json"
     },
     {
       "id": "hy-go",
@@ -3311,7 +3941,7 @@
       "collection": "Shadow Wear",
       "visibility": "visible",
       "price": 69.99,
-      "image": "shadowwear.boardshorts.png",
+      "image": "/store/products/men-s-ghost-shorts/01-hero.webp",
       "description_text": "Ghost Ridge was built around the idea of hidden structure — the shapes that stay standing after the noise fades. Layered with the custom Shadow Wear Ghost pattern, this piece blends fractured geometry, stealth texture, and the Apex mark into a low-visibility statement built for everyday wear.",
       "description_html": "<p>Ghost Ridge was built around the idea of hidden structure — the shapes that stay standing after the noise fades. Layered with the custom Shadow Wear Ghost pattern, this piece blends fractured geometry, stealth texture, and the Apex mark into a low-visibility statement built for everyday wear.</p>",
       "seo_title": "Men's Ghost Shorts",
@@ -3385,7 +4015,17 @@
           "price": 69.99,
           "variation_id": "F52PEEITJDVUXXHGB3CMPQRI"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/men-s-ghost-shorts/01-hero.webp",
+        "/store/products/men-s-ghost-shorts/10-front-01.webp",
+        "/store/products/men-s-ghost-shorts/10-front-02.webp",
+        "/store/products/men-s-ghost-shorts/10-front-03.webp",
+        "/store/products/men-s-ghost-shorts/20-back-01.webp",
+        "/store/products/men-s-ghost-shorts/20-back-02.webp",
+        "/store/products/men-s-ghost-shorts/20-back-03.webp"
+      ],
+      "image_manifest": "/store/products/men-s-ghost-shorts/manifest.json"
     },
     {
       "id": "neck-gaiter-crypt-tech-gray",
@@ -3476,7 +4116,7 @@
       "collection": "",
       "visibility": "hidden",
       "price": 59.99,
-      "image": "sound_goat_a_blk_hoodie.png",
+      "image": "/store/products/neon-billygoat-pullover-hoodie/01-hero.webp",
       "description_text": "Chaos mascot energy—electric horns, neon glow, and a nasty grin. Full description: Turn the volume up. The Neon BillyGoat hoodie is pure mischief: a snarling goat skull-face with glowing green horns, a purple sigil crest, and a jagged soundwave crackling above it. It’s dark streetwear with a cyber-metal edge—built for late nights, loud music, and people who don’t do “quiet.” Key features: • Bold neon graphic with high contrast on black • Statement piece that still wears easy with jeans or joggers • Mid-weight warmth for year-round layering • Front kangaroo pocket + hood for everyday comfort Fit note: Unisex fit. Size up for an oversized/relaxed look.",
       "description_html": "<p>Chaos mascot energy—electric horns, neon glow, and a nasty grin. Full description: Turn the volume up. The Neon BillyGoat hoodie is pure mischief: a snarling goat skull-face with glowing green horns, a purple sigil crest, and a jagged soundwave crackling above it. It’s dark streetwear with a cyber-metal edge—built for late nights, loud music, and people who don’t do “quiet.” Key features: • Bold neon graphic with high contrast on black • Statement piece that still wears easy with jeans or joggers • Mid-weight warmth for year-round layering • Front kangaroo pocket + hood for everyday comfort Fit note: Unisex fit. Size up for an oversized/relaxed look.</p>",
       "seo_title": "Neon 'BillyGoat' Pullover Hoodie",
@@ -3535,7 +4175,39 @@
           "price": 59.99,
           "variation_id": "2V3SKHB7IEDUMNUQEJXSOBVV"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/neon-billygoat-pullover-hoodie/01-hero.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/10-front-01.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/10-front-02.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/10-front-03.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/10-front-04.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/10-front-05.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/10-front-06.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/10-front-07.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/10-front-08.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/10-front-09.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/10-front-10.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/10-front-11.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/10-front-12.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/10-front-13.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/10-front-14.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/20-back-01.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/20-back-02.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/20-back-03.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/20-back-04.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/20-back-05.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/20-back-06.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/20-back-07.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/20-back-08.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/20-back-09.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/20-back-10.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/30-left-01.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/35-left-front-01.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/40-right-01.webp",
+        "/store/products/neon-billygoat-pullover-hoodie/50-detail-01.webp"
+      ],
+      "image_manifest": "/store/products/neon-billygoat-pullover-hoodie/manifest.json"
     },
     {
       "id": "night-ranger-bear-pullover-hoodie",
@@ -3545,7 +4217,7 @@
       "collection": "",
       "visibility": "hidden",
       "price": 59.99,
-      "image": "nit_bear.png",
+      "image": "/store/products/night-ranger-bear-pullover-hoodie/01-hero.webp",
       "description_text": "The Night Ranger Bear hoodie blends cozy comfort with an outdoors-at-night vibe: a standing bear, pine silhouette, and a crescent moon glow that feels calm but powerful. Minimal enough for everyday wear, detailed enough to get noticed. Perfect for late-night drives, cold mornings, and anyone who lives a little closer to the wild. Apparel: Unisex premium mid-weight pullover hoodie",
       "description_html": "<p>The Night Ranger Bear hoodie blends cozy comfort with an outdoors-at-night vibe: a standing bear, pine silhouette, and a crescent moon glow that feels calm but powerful. Minimal enough for everyday wear, detailed enough to get noticed. Perfect for late-night drives, cold mornings, and anyone who lives a little closer to the wild. Apparel: Unisex premium mid-weight pullover hoodie</p>",
       "seo_title": "Night Ranger Bear Pullover Hoodie",
@@ -3597,7 +4269,22 @@
           "price": 59.99,
           "variation_id": "XNABXQPVERPGR4BUV5DJLHSD"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/night-ranger-bear-pullover-hoodie/01-hero.webp",
+        "/store/products/night-ranger-bear-pullover-hoodie/10-front-01.webp",
+        "/store/products/night-ranger-bear-pullover-hoodie/10-front-02.webp",
+        "/store/products/night-ranger-bear-pullover-hoodie/10-front-03.webp",
+        "/store/products/night-ranger-bear-pullover-hoodie/10-front-04.webp",
+        "/store/products/night-ranger-bear-pullover-hoodie/10-front-05.webp",
+        "/store/products/night-ranger-bear-pullover-hoodie/20-back-01.webp",
+        "/store/products/night-ranger-bear-pullover-hoodie/20-back-02.webp",
+        "/store/products/night-ranger-bear-pullover-hoodie/20-back-03.webp",
+        "/store/products/night-ranger-bear-pullover-hoodie/20-back-04.webp",
+        "/store/products/night-ranger-bear-pullover-hoodie/30-left-01.webp",
+        "/store/products/night-ranger-bear-pullover-hoodie/40-right-01.webp"
+      ],
+      "image_manifest": "/store/products/night-ranger-bear-pullover-hoodie/manifest.json"
     },
     {
       "id": "observer-eye-sigel-pullover-hoodie-black-w-blue-print",
@@ -3844,7 +4531,7 @@
       "collection": "Powder Peaks",
       "visibility": "hidden",
       "price": 59.99,
-      "image": "powderpeaksv2.png",
+      "image": "/store/products/powder-peaks-v2-premium-pullover-hoodie-black/01-hero.webp",
       "description_text": "Powder Peaks v2 is the refined drop—cleaner lines, sharper presence, and built for the cold-season grind. Premium mid-weight comfort with a structured fit that layers well and holds its shape. Black-on-black energy with a mountain-ready attitude. Details: • Premium Lane Seven pullover hoodie (mid-weight) • Soft fleece interior • Black colorway with Powder Peaks v2 mark • Unisex fit, easy layering • Built for daily wear, travel, and winter runs",
       "description_html": "<p>Powder Peaks v2 is the refined drop—cleaner lines, sharper presence, and built for the cold-season grind. Premium mid-weight comfort with a structured fit that layers well and holds its shape. Black-on-black energy with a mountain-ready attitude. Details: • Premium Lane Seven pullover hoodie (mid-weight) • Soft fleece interior • Black colorway with Powder Peaks v2 mark • Unisex fit, easy layering • Built for daily wear, travel, and winter runs</p>",
       "seo_title": "Powder Peaks v2 Premium Pullover Hoodie | Black",
@@ -3897,7 +4584,22 @@
           "price": 59.99,
           "variation_id": "OVZF5JSALKJWR2P2VCRKCUUW"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/powder-peaks-v2-premium-pullover-hoodie-black/01-hero.webp",
+        "/store/products/powder-peaks-v2-premium-pullover-hoodie-black/10-front-01.webp",
+        "/store/products/powder-peaks-v2-premium-pullover-hoodie-black/10-front-02.webp",
+        "/store/products/powder-peaks-v2-premium-pullover-hoodie-black/10-front-03.webp",
+        "/store/products/powder-peaks-v2-premium-pullover-hoodie-black/10-front-04.webp",
+        "/store/products/powder-peaks-v2-premium-pullover-hoodie-black/10-front-05.webp",
+        "/store/products/powder-peaks-v2-premium-pullover-hoodie-black/20-back-01.webp",
+        "/store/products/powder-peaks-v2-premium-pullover-hoodie-black/20-back-02.webp",
+        "/store/products/powder-peaks-v2-premium-pullover-hoodie-black/20-back-03.webp",
+        "/store/products/powder-peaks-v2-premium-pullover-hoodie-black/20-back-04.webp",
+        "/store/products/powder-peaks-v2-premium-pullover-hoodie-black/30-left-01.webp",
+        "/store/products/powder-peaks-v2-premium-pullover-hoodie-black/40-right-01.webp"
+      ],
+      "image_manifest": "/store/products/powder-peaks-v2-premium-pullover-hoodie-black/manifest.json"
     },
     {
       "id": "shadow-pants",
@@ -3907,7 +4609,7 @@
       "collection": "Shadow Wear",
       "visibility": "visible",
       "price": 46,
-      "image": "shadow pants.png",
+      "image": "/store/products/shadow-pants/01-hero.webp",
       "description_text": "Get the comfort of pajamas in this stylish pair of wide-leg pants. With the adjustable waist and a smooth, comfortable stretchy fabric, it’s like your favorite sweatpants but better. - Fabric composition in the EU: 96% polyester, 4% spandex - Fabric composition in the US: 93% polyester, 7% spandex - Fabric weight in the EU: 6.34 oz./yd.² (215 g/m²) - Fabric weight in the US: 7.08 oz./yd.² (240 g/m²) - Relaxed unisex fit - Practical side pockets - Elastic waistband with a white drawstring - Can be worn on the waist or on the hips - Premium knit mid-weight jersey fabric Disclaimer: In areas where the fabric is double-layered (like pockets), details from the inner fabric layer may subtly show through, especially with lighter designs.",
       "description_html": "<p>Get the comfort of pajamas in this stylish pair of wide-leg pants. With the adjustable waist and a smooth, comfortable stretchy fabric, it’s like your favorite sweatpants but better. - Fabric composition in the EU: 96% polyester, 4% spandex - Fabric composition in the US: 93% polyester, 7% spandex - Fabric weight in the EU: 6.34 oz./yd.² (215 g/m²) - Fabric weight in the US: 7.08 oz./yd.² (240 g/m²) - Relaxed unisex fit - Practical side pockets - Elastic waistband with a white drawstring - Can be worn on the waist or on the hips - Premium knit mid-weight jersey fabric Disclaimer: In areas where the fabric is double-layered (like pockets), details from the inner fabric layer may subtly show through, especially with lighter designs.</p>",
       "seo_title": "shadow pants",
@@ -3995,7 +4697,20 @@
           "price": 60,
           "variation_id": "BJ5752GLBNMNNANQCQUMH3BM"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/shadow-pants/01-hero.webp",
+        "/store/products/shadow-pants/10-front-01.webp",
+        "/store/products/shadow-pants/10-front-02.webp",
+        "/store/products/shadow-pants/10-front-03.webp",
+        "/store/products/shadow-pants/20-back-01.webp",
+        "/store/products/shadow-pants/20-back-02.webp",
+        "/store/products/shadow-pants/20-back-03.webp",
+        "/store/products/shadow-pants/35-left-front-01.webp",
+        "/store/products/shadow-pants/45-right-front-01.webp",
+        "/store/products/shadow-pants/45-right-front-02.webp"
+      ],
+      "image_manifest": "/store/products/shadow-pants/manifest.json"
     },
     {
       "id": "shadow-wear",
@@ -4005,7 +4720,7 @@
       "collection": "Shadow Wear",
       "visibility": "visible",
       "price": 38,
-      "image": "shadow_tee.png",
+      "image": "/store/products/shadow-wear/01-hero.webp",
       "description_text": "Get to know your new favorite tee—it's super smooth, super comfortable, and made from a cotton touch polyester jersey that won't fade after washing. - Fabric composition in the EU: 96% polyester, 4% spandex - Fabric composition in the US: 93% polyester, 7% spandex - Fabric weight in the EU: 6.34 oz./yd.² (215 g/m²) - Fabric weight in the US: 7.08 oz./yd.² (240 g/m²) - Premium knit mid-weight jersey - Smooth, comfortable 2-way stretch fabric that stretches and recovers on the cross and lengthwise grains - Regular fit - Blank product components in the EU sourced from Lithuania - Blank product components in the US sourced from the US",
       "description_html": "<p>Get to know your new favorite tee—it&#039;s super smooth, super comfortable, and made from a cotton touch polyester jersey that won&#039;t fade after washing. - Fabric composition in the EU: 96% polyester, 4% spandex - Fabric composition in the US: 93% polyester, 7% spandex - Fabric weight in the EU: 6.34 oz./yd.² (215 g/m²) - Fabric weight in the US: 7.08 oz./yd.² (240 g/m²) - Premium knit mid-weight jersey - Smooth, comfortable 2-way stretch fabric that stretches and recovers on the cross and lengthwise grains - Regular fit - Blank product components in the EU sourced from Lithuania - Blank product components in the US sourced from the US</p>",
       "seo_title": "Shadow Wear",
@@ -4055,7 +4770,26 @@
           "price": 38,
           "variation_id": "NYSJZSCRJ6WCY36DNYNHCUEE"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/shadow-wear/01-hero.webp",
+        "/store/products/shadow-wear/10-front-01.webp",
+        "/store/products/shadow-wear/10-front-02.webp",
+        "/store/products/shadow-wear/10-front-03.webp",
+        "/store/products/shadow-wear/10-front-04.webp",
+        "/store/products/shadow-wear/10-front-05.webp",
+        "/store/products/shadow-wear/20-back-01.webp",
+        "/store/products/shadow-wear/20-back-02.webp",
+        "/store/products/shadow-wear/20-back-03.webp",
+        "/store/products/shadow-wear/20-back-04.webp",
+        "/store/products/shadow-wear/20-back-05.webp",
+        "/store/products/shadow-wear/20-back-06.webp",
+        "/store/products/shadow-wear/30-left-01.webp",
+        "/store/products/shadow-wear/35-left-front-01.webp",
+        "/store/products/shadow-wear/40-right-01.webp",
+        "/store/products/shadow-wear/45-right-front-01.webp"
+      ],
+      "image_manifest": "/store/products/shadow-wear/manifest.json"
     },
     {
       "id": "shadow-wear-ghost-ridge",
@@ -4065,7 +4799,7 @@
       "collection": "Shadow Wear",
       "visibility": "visible",
       "price": 89.99,
-      "image": "Shadow Wear  Ghost Ridge.png",
+      "image": "/store/products/shadow-wear-ghost-ridge/01-hero.webp",
       "description_text": "Ghost Ridge was built around the idea of hidden structure — the shapes that stay standing after the noise fades. Layered with the custom Shadow Wear Ghost pattern, this piece blends fractured geometry, stealth texture, and the Apex mark into a low-visibility statement built for everyday wear.",
       "description_html": "<p>Ghost Ridge was built around the idea of hidden structure — the shapes that stay standing after the noise fades. Layered with the custom Shadow Wear Ghost pattern, this piece blends fractured geometry, stealth texture, and the Apex mark into a low-visibility statement built for everyday wear.</p>",
       "seo_title": "Shadow Wear // Ghost Ridge",
@@ -4202,7 +4936,36 @@
           "price": 89.99,
           "variation_id": "MNWDFJEAL25FIYGTLEKEJTS2"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/shadow-wear-ghost-ridge/01-hero.webp",
+        "/store/products/shadow-wear-ghost-ridge/10-front-01.webp",
+        "/store/products/shadow-wear-ghost-ridge/10-front-02.webp",
+        "/store/products/shadow-wear-ghost-ridge/10-front-03.webp",
+        "/store/products/shadow-wear-ghost-ridge/10-front-04.webp",
+        "/store/products/shadow-wear-ghost-ridge/10-front-05.webp",
+        "/store/products/shadow-wear-ghost-ridge/10-front-06.webp",
+        "/store/products/shadow-wear-ghost-ridge/10-front-07.webp",
+        "/store/products/shadow-wear-ghost-ridge/10-front-08.webp",
+        "/store/products/shadow-wear-ghost-ridge/10-front-09.webp",
+        "/store/products/shadow-wear-ghost-ridge/10-front-10.webp",
+        "/store/products/shadow-wear-ghost-ridge/10-front-11.webp",
+        "/store/products/shadow-wear-ghost-ridge/10-front-12.webp",
+        "/store/products/shadow-wear-ghost-ridge/20-back-01.webp",
+        "/store/products/shadow-wear-ghost-ridge/20-back-02.webp",
+        "/store/products/shadow-wear-ghost-ridge/20-back-03.webp",
+        "/store/products/shadow-wear-ghost-ridge/20-back-04.webp",
+        "/store/products/shadow-wear-ghost-ridge/20-back-05.webp",
+        "/store/products/shadow-wear-ghost-ridge/20-back-06.webp",
+        "/store/products/shadow-wear-ghost-ridge/20-back-07.webp",
+        "/store/products/shadow-wear-ghost-ridge/20-back-08.webp",
+        "/store/products/shadow-wear-ghost-ridge/35-left-front-01.webp",
+        "/store/products/shadow-wear-ghost-ridge/40-right-01.webp",
+        "/store/products/shadow-wear-ghost-ridge/40-right-02.webp",
+        "/store/products/shadow-wear-ghost-ridge/48-right-back-01.webp",
+        "/store/products/shadow-wear-ghost-ridge/50-detail-01.webp"
+      ],
+      "image_manifest": "/store/products/shadow-wear-ghost-ridge/manifest.json"
     },
     {
       "id": "shadow-wear-case-for-samsung",
@@ -4356,7 +5119,7 @@
       "collection": "Shadow Wear",
       "visibility": "visible",
       "price": 120,
-      "image": "Bomber_jack.png",
+      "image": "/store/products/shadow-wear-tactical-bomber-jacket-summit-edition/01-hero.webp",
       "description_text": "Built for the edge between streetwear and expedition gear, the Shadow Wear Summit Edition Bomber combines a dark all-over mountain, compass, and tactical-grid pattern with the signature Shadow Wear insignia. The front carries a clean chest mark while the back features the full Shadow Wear mountain crest, creating a strong centerpiece without losing the jacket’s stealth aesthetic. Coordinating sleeve-patch graphics, distressed bronze detailing, and the low-contrast patterned shell give the entire piece a layered, premium look. Designed to feel rugged, technical, and intentionally understated from a distance—then reveal its detail up close. Design details: all-over Shadow Wear tactical pattern, oversized back mountain crest, front chest emblem, optional embroidered sleeve patch, charcoal/black base, distressed bronze and stone accents. SHADOW WEAR TACTICAL STREETWEAR Explore. Adapt. Endure.",
       "description_html": "<p>Built for the edge between streetwear and expedition gear, the Shadow Wear Summit Edition Bomber combines a dark all-over mountain, compass, and tactical-grid pattern with the signature Shadow Wear insignia. The front carries a clean chest mark while the back features the full Shadow Wear mountain crest, creating a strong centerpiece without losing the jacket’s stealth aesthetic. Coordinating sleeve-patch graphics, distressed bronze detailing, and the low-contrast patterned shell give the entire piece a layered, premium look. Designed to feel rugged, technical, and intentionally understated from a distance—then reveal its detail up close. Design details: all-over Shadow Wear tactical pattern, oversized back mountain crest, front chest emblem, optional embroidered sleeve patch, charcoal/black base, distressed bronze and stone accents. SHADOW WEAR TACTICAL STREETWEAR Explore. Adapt. Endure.</p>",
       "seo_title": "Shadow Wear Tactical Bomber Jacket — Summit Edition",
@@ -4413,7 +5176,27 @@
           "price": 120,
           "variation_id": "XYHJEIO4VRIEK6UQ3RVM43SZ"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/shadow-wear-tactical-bomber-jacket-summit-edition/01-hero.webp",
+        "/store/products/shadow-wear-tactical-bomber-jacket-summit-edition/10-front-01.webp",
+        "/store/products/shadow-wear-tactical-bomber-jacket-summit-edition/10-front-02.webp",
+        "/store/products/shadow-wear-tactical-bomber-jacket-summit-edition/10-front-03.webp",
+        "/store/products/shadow-wear-tactical-bomber-jacket-summit-edition/10-front-04.webp",
+        "/store/products/shadow-wear-tactical-bomber-jacket-summit-edition/10-front-05.webp",
+        "/store/products/shadow-wear-tactical-bomber-jacket-summit-edition/10-front-06.webp",
+        "/store/products/shadow-wear-tactical-bomber-jacket-summit-edition/20-back-01.webp",
+        "/store/products/shadow-wear-tactical-bomber-jacket-summit-edition/20-back-02.webp",
+        "/store/products/shadow-wear-tactical-bomber-jacket-summit-edition/20-back-03.webp",
+        "/store/products/shadow-wear-tactical-bomber-jacket-summit-edition/20-back-04.webp",
+        "/store/products/shadow-wear-tactical-bomber-jacket-summit-edition/20-back-05.webp",
+        "/store/products/shadow-wear-tactical-bomber-jacket-summit-edition/30-left-01.webp",
+        "/store/products/shadow-wear-tactical-bomber-jacket-summit-edition/35-left-front-01.webp",
+        "/store/products/shadow-wear-tactical-bomber-jacket-summit-edition/40-right-01.webp",
+        "/store/products/shadow-wear-tactical-bomber-jacket-summit-edition/48-right-back-01.webp",
+        "/store/products/shadow-wear-tactical-bomber-jacket-summit-edition/50-detail-01.webp"
+      ],
+      "image_manifest": "/store/products/shadow-wear-tactical-bomber-jacket-summit-edition/manifest.json"
     },
     {
       "id": "the-clock-at-resort-circle-a-360-view-of-downtown-coeur-d-alene",
@@ -4473,7 +5256,7 @@
       "collection": "Vespera",
       "visibility": "hidden",
       "price": 59.99,
-      "image": "",
+      "image": "/store/products/vespra-moonscript-hoodie/01-hero.webp",
       "description_text": "The Vespera Moonscript Hoodie blends comfort with a quietly expressive graphic inspired by moonlight, ink, and imagination. Featuring a luminous quill-and-book design, it captures a reflective, night-driven aesthetic that feels both poetic and modern. Easy to wear and easy to layer, it’s a statement piece without being loud.",
       "description_html": "<p>The Vespera Moonscript Hoodie blends comfort with a quietly expressive graphic inspired by moonlight, ink, and imagination. Featuring a luminous quill-and-book design, it captures a reflective, night-driven aesthetic that feels both poetic and modern. Easy to wear and easy to layer, it’s a statement piece without being loud.</p>",
       "seo_title": "Vespra Moonscript Hoodie",
@@ -4526,7 +5309,39 @@
           "price": 59.99,
           "variation_id": "SCS5PBD4DEG3HFX3IFI7YBBT"
         }
-      ]
+      ],
+      "images": [
+        "/store/products/vespra-moonscript-hoodie/01-hero.webp",
+        "/store/products/vespra-moonscript-hoodie/10-front-01.webp",
+        "/store/products/vespra-moonscript-hoodie/10-front-02.webp",
+        "/store/products/vespra-moonscript-hoodie/10-front-03.webp",
+        "/store/products/vespra-moonscript-hoodie/10-front-04.webp",
+        "/store/products/vespra-moonscript-hoodie/10-front-05.webp",
+        "/store/products/vespra-moonscript-hoodie/10-front-06.webp",
+        "/store/products/vespra-moonscript-hoodie/10-front-07.webp",
+        "/store/products/vespra-moonscript-hoodie/10-front-08.webp",
+        "/store/products/vespra-moonscript-hoodie/10-front-09.webp",
+        "/store/products/vespra-moonscript-hoodie/20-back-01.webp",
+        "/store/products/vespra-moonscript-hoodie/20-back-02.webp",
+        "/store/products/vespra-moonscript-hoodie/20-back-03.webp",
+        "/store/products/vespra-moonscript-hoodie/20-back-04.webp",
+        "/store/products/vespra-moonscript-hoodie/20-back-05.webp",
+        "/store/products/vespra-moonscript-hoodie/20-back-06.webp",
+        "/store/products/vespra-moonscript-hoodie/20-back-07.webp",
+        "/store/products/vespra-moonscript-hoodie/20-back-08.webp",
+        "/store/products/vespra-moonscript-hoodie/20-back-09.webp",
+        "/store/products/vespra-moonscript-hoodie/30-left-01.webp",
+        "/store/products/vespra-moonscript-hoodie/30-left-02.webp",
+        "/store/products/vespra-moonscript-hoodie/35-left-front-01.webp",
+        "/store/products/vespra-moonscript-hoodie/35-left-front-02.webp",
+        "/store/products/vespra-moonscript-hoodie/40-right-01.webp",
+        "/store/products/vespra-moonscript-hoodie/40-right-02.webp",
+        "/store/products/vespra-moonscript-hoodie/45-right-front-01.webp",
+        "/store/products/vespra-moonscript-hoodie/45-right-front-02.webp",
+        "/store/products/vespra-moonscript-hoodie/50-detail-01.webp",
+        "/store/products/vespra-moonscript-hoodie/50-detail-02.webp"
+      ],
+      "image_manifest": "/store/products/vespra-moonscript-hoodie/manifest.json"
     }
   ]
 }

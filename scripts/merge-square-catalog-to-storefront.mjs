@@ -10,7 +10,7 @@
  *
  * Usage:
  *   node scripts/merge-square-catalog-to-storefront.mjs
- *   node scripts/merge-square-catalog-to-storefront.mjs --square store/commerce/square-catalog-inventory-2026-08-23.json
+ *   node scripts/merge-square-catalog-to-storefront.mjs --square store/_internal/commerce/square-catalog-inventory-2026-08-23.json
  *
  * Afterward: npm run curate:catalog && npm run sync:all
  * Admins adjust lanes/images in console/, then Deploy to store.
@@ -111,7 +111,7 @@ function normalizeSize(name) {
 }
 
 function latestSquareInventory() {
-  const dir = path.join(root, 'store', 'commerce');
+  const dir = path.join(root, 'store', '_internal', 'commerce');
   if (!fs.existsSync(dir)) return '';
   const files = fs
     .readdirSync(dir)

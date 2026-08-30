@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "productId": "echoverse-frost-circuit-pullover-hoodie",
+  "productName": "EchoVerse “Frost Circuit” Pullover Hoodie",
+  "hero": "/store/products/echoverse-frost-circuit-pullover-hoodie/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "frost_circuit_black_hoodie.png",
+      "sourceSha256": "938de461aaedc1a1b87a1fc558c64100855cda30ef8d9099c9d00a3e99a3f2f1",
+      "outputSha256": "795f1940b513a6b627cd0d2a1e78f6bde61a06409d062ff3441111835efb1cfa"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (53).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-front-6a93b3b4077c2.png",
+      "sourceSha256": "03b6d48a05a9b2da62c3c1eee848b8bbcb8453b797fbb439c98bd370f9e15d77",
+      "outputSha256": "eedf415127ea2671f1529290142106dc30d3839d42b8ff1012e1f0703eebb2a6"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (53).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-front-6a93b3b407f10.png",
+      "sourceSha256": "7e7c6713070644371bdd65bb8e82a32e800cc569411d4256159581196dd9758b",
+      "outputSha256": "f8a2707ba1a264b0cf2a504b16e74cfa79eb3c1707fe75e0b1473f43e47bd29b"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (53).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-front-6a93b3b407f94.png",
+      "sourceSha256": "292ba6f19c9b1a1bea07f3ea8e12944084d3984a40589ebeafe8ea4953a03a77",
+      "outputSha256": "39d0744052c647af1507549fcfd6154d0f052aff0c214498f28568c05419a621"
+    },
+    {
+      "file": "10-front-04.webp",
+      "view": "front",
+      "source": "archive (53).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-front-6a93b3b408097.png",
+      "sourceSha256": "98f534efd1de4a41f092c28fc1f0c278e12ff45ff803647f8fc2273dfef4ddb2",
+      "outputSha256": "9297de8ca6d27f472fd14fcfacecb883c4a340f08c04420e381a902fc0e85eae"
+    },
+    {
+      "file": "10-front-05.webp",
+      "view": "front",
+      "source": "archive (53).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-front-6a93b3b40819e.png",
+      "sourceSha256": "bfedebcfe26e5707d9d57c9e9abafd0ed14a59fd67a5a3a4eaa41138ba8f8a85",
+      "outputSha256": "a952cea5ebedd4608d39446109e2678caa1ddcacecc99139ae11791fbf5c6d4b"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (53).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-back-6a93b3b407d22.png",
+      "sourceSha256": "2025a32bc766b80a21ce902ccfadc96d6ad1bf8d6f3d220423474fc321a75428",
+      "outputSha256": "1aba0cc78ce92089d72642c9532ee947074edacf22b0ac5b4c8ccfa274491ccd"
+    },
+    {
+      "file": "20-back-02.webp",
+      "view": "back",
+      "source": "archive (53).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-back-6a93b3b407e9a.png",
+      "sourceSha256": "6fa4061d3b6dc83d9bad7cecb5fe97985fd1fcc6a146bfed6fb859f6eb0c13d3",
+      "outputSha256": "7747847d00e1cff2fed4ba77d980b72f2c2dc443b1a629330881879c91f6007b"
+    },
+    {
+      "file": "20-back-03.webp",
+      "view": "back",
+      "source": "archive (53).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-back-6a93b3b408015.png",
+      "sourceSha256": "7be18cdb860009a9b2428f8e7af0a3b289cdcc18c5c70cc02697a59bb468ae26",
+      "outputSha256": "03959f28de918681e4e0cdfb0216cc79c57c8d037eec5aae91bbc00b3060a4c5"
+    },
+    {
+      "file": "20-back-04.webp",
+      "view": "back",
+      "source": "archive (53).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-back-6a93b3b408119.png",
+      "sourceSha256": "5c2bc9f240636c6951581816b8366ecef61c23bf4918f6abac88dfbccea0a436",
+      "outputSha256": "9a9bb3336d56e1df8d358e2e15a5e299a2aa5a52bb226c5346b49bcf8a397746"
+    },
+    {
+      "file": "30-left-01.webp",
+      "view": "left",
+      "source": "archive (53).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-left-6a93b3b407da8.png",
+      "sourceSha256": "b944433c6d623f9e551fb9456ddc00b38658ae985c7af9eabce2d5072386b8ef",
+      "outputSha256": "256b81892000d1dbf630735ce8395457ce82cf0ef6d87a96d90f5d3ade78dcae"
+    },
+    {
+      "file": "40-right-01.webp",
+      "view": "right",
+      "source": "archive (53).zip",
+      "original": "unisex-premium-mid-weight-hoodie-black-right-6a93b3b407e22.png",
+      "sourceSha256": "cbc4c89fbbf6ae328a0b803d710d0821119fa9d973f6350de84bc400f4ced6bd",
+      "outputSha256": "0e489eae5d27f372b96a03c5ae9303ddb83132d6c6edf787b2231498017e875b"
+    }
+  ],
+  "sourceArchives": [
+    "archive (53).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

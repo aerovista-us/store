@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "productId": "aerovista-retro-trucker-hat-orbit-a-gray",
+  "productName": "AeroVista — Retro Trucker Hat — Orbit “A” — Gray",
+  "hero": "/store/products/aerovista-retro-trucker-hat-orbit-a-gray/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "Glitched Orbit grayHat.png",
+      "sourceSha256": "e073a5cef810b556b44494930ad4e738c7db5553a0de494edeb374024989b380",
+      "outputSha256": "f4e6c1cc03f5c3902a426b8b9b812a37ad4d7fe892076fe9371092bcb7cdce91"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (32).zip",
+      "original": "retro-trucker-hat-heather-grey-white-front-6a936dee2a266.png",
+      "sourceSha256": "d92e808c2e9a20ba8919f05dc5f57bc087b6bd77b30b5f570c4a9e1fe3c5fa21",
+      "outputSha256": "271255e47855a0ff6e6f55d823690f255cdc8330a37d8de55140815c2fae7063"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (32).zip",
+      "original": "retro-trucker-hat-heather-grey-white-front-6a936dee2a421.png",
+      "sourceSha256": "51bce87c24b052e45e395f5de74deefeacb365d469e36f443e293e4a27e3590f",
+      "outputSha256": "211388039d3b5bbeb2ddfcfcb075f31c0869cdab4be349b8fcf2de39598ac100"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (32).zip",
+      "original": "retro-trucker-hat-heather-grey-white-front-6a936dee2abef.png",
+      "sourceSha256": "fb20549e8c5683f4b22e616c86f623a0f2c24aa937a99b50fb3fd0df803bd851",
+      "outputSha256": "b5254187cadd3bff477c85ba4957b3c06c2930d4ccb85a0ae268e61e910fe09b"
+    },
+    {
+      "file": "10-front-04.webp",
+      "view": "front",
+      "source": "archive (32).zip",
+      "original": "retro-trucker-hat-heather-grey-white-front-6a936dee2ad51.png",
+      "sourceSha256": "8d02d81f77a41c4b42639eec54b42fdec7947efcc7e45c96190acab324462240",
+      "outputSha256": "77a83f91dd5735e4c9b03359d0e7f43e68f88c7bb5e862166ee85b5b331c4584"
+    },
+    {
+      "file": "10-front-05.webp",
+      "view": "front",
+      "source": "archive (32).zip",
+      "original": "retro-trucker-hat-heather-grey-white-front-6a936dee2aec7.png",
+      "sourceSha256": "b0a04ef99eb6b9cdbdd9bd75c8ba7959a092a6e98ea2024c4d755b931238c60d",
+      "outputSha256": "d035e80ddc41bf6a86465a6f631256b4006d362ba1d6a681f86178b6b76220c4"
+    },
+    {
+      "file": "10-front-06.webp",
+      "view": "front",
+      "source": "archive (32).zip",
+      "original": "retro-trucker-hat-heather-grey-white-front-6a936dee2b029.png",
+      "sourceSha256": "ce59cc50716d3d6659f1453bda6c05da8f52e22c84991f60076a3f2b1de631d8",
+      "outputSha256": "e515093e53973f3806a3926a11c6ae0b1e90bbdb4adb62ab8490dbe0951d46af"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (32).zip",
+      "original": "retro-trucker-hat-heather-grey-white-back-6a936dee2a56f.png",
+      "sourceSha256": "fa7ae6fdd7b5b52f7e5dc5a1860ea659be028fcdb03f66ee72cbf7999700d737",
+      "outputSha256": "ee109ce590dff4d515e370ae5c17e2aaa956a80693c35344e3db9fc1d8f3fc7c"
+    },
+    {
+      "file": "30-left-01.webp",
+      "view": "left",
+      "source": "archive (32).zip",
+      "original": "retro-trucker-hat-heather-grey-white-left-6a936dee2a6b7.png",
+      "sourceSha256": "388a5258b49d267dc6f89250684c61e9d869b864f794ef7845be2c57757ef893",
+      "outputSha256": "3f847b9a044a40a718082fcdfc0735a611cc99ef7bddbfb03dc16be2d185b0c7"
+    },
+    {
+      "file": "35-left-front-01.webp",
+      "view": "left-front",
+      "source": "archive (32).zip",
+      "original": "retro-trucker-hat-heather-grey-white-left-front-6a936dee2a7f4.png",
+      "sourceSha256": "d25fcecf7e49aba86dccae135a79e3a73519408668ac57aca5bf987b878606ff",
+      "outputSha256": "95137ef649bad7e954257087f57d59636ac5ef702c6be3a365dd4cce7d4baef4"
+    },
+    {
+      "file": "40-right-01.webp",
+      "view": "right",
+      "source": "archive (32).zip",
+      "original": "retro-trucker-hat-heather-grey-white-right-6a936dee2a94d.png",
+      "sourceSha256": "fdd0d09ba80d9b52d8ad16b7751220f636d4b912f9724eae5bb3748e1bd27888",
+      "outputSha256": "426a46a8657161e4c62ca98192734888942ea16cfadd2a1ac223e708bed83fc0"
+    },
+    {
+      "file": "45-right-front-01.webp",
+      "view": "right-front",
+      "source": "archive (32).zip",
+      "original": "retro-trucker-hat-heather-grey-white-right-front-6a936dee2aa8b.png",
+      "sourceSha256": "e9b6440a0bc8aac22fec9d3a21f49742fec3d464ea1d78cee9529f3261a0d63e",
+      "outputSha256": "f998ed1133db1c634c03f116a0ec4ee4707d023e5846a6544a5e2f25bfbee328"
+    }
+  ],
+  "sourceArchives": [
+    "archive (32).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

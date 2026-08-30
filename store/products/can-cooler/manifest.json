@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "productId": "can-cooler",
+  "productName": "Can cooler",
+  "hero": "/store/products/can-cooler/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "accessories/can-cooler-12oz.png",
+      "sourceSha256": "a087de9c64179118b154c61ff2fa5bc55615536a3e7a6914ff414bbd0d46c931",
+      "outputSha256": "a5b0608d6c95382ad97cd3237e5af3454e22e3af91eb851526b07b07c4edfbe1"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (16).zip",
+      "original": "can-cooler-white-regular-12-oz-front-6a90a23043717.png",
+      "sourceSha256": "49bebdb23b9319e47e4601cd176d9f14a68d54e9e1cd24ab08735cd35c6332c7",
+      "outputSha256": "b1028cb7b8d4fcd243153a2f7228eb80948f44a4e0c581ffc331b378d59466ee"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (16).zip",
+      "original": "can-cooler-white-regular-12-oz-front-6a90a23043c44.png",
+      "sourceSha256": "5afb8716f77f822d5698508f97b33b5a07dcf9759f73d97317244ff056e4c44a",
+      "outputSha256": "2b6247d9deb2f5cc2462ebce569933251fdaf9ec2f45100f248ba255a0d92814"
+    },
+    {
+      "file": "50-detail-01.webp",
+      "view": "detail",
+      "source": "archive (16).zip",
+      "original": "can-cooler-white-regular-12-oz-product-details-6a90a23043fce.png",
+      "sourceSha256": "7c38378c8a46112a580e38667268ecd5ebd6054378f953bad03e800ff22cc745",
+      "outputSha256": "e06d6b55360f45cea3994a8305382b48f130d8dd9d27b656595e9a2d04ba25be"
+    }
+  ],
+  "sourceArchives": [
+    "archive (16).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

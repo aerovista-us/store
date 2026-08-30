@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "productId": "aerovista-apex-pattern-skater-dress",
+  "productName": "AeroVista Apex Pattern Skater Dress",
+  "hero": "/store/products/aerovista-apex-pattern-skater-dress/01-hero.webp",
+  "images": [
+    {
+      "file": "01-hero.webp",
+      "view": "hero",
+      "source": "legacy-catalog-image",
+      "original": "AeroVista Apex Pattern Skater Dress.png",
+      "sourceSha256": "2503395662fdf9189948380bb206b5e7d88c6bca6d56f97bcdb9bf2069b79c22",
+      "outputSha256": "292014e1c019b18723ae2a819e8f87a1742c6a33d867e1c3fa47d031ee632254"
+    },
+    {
+      "file": "10-front-01.webp",
+      "view": "front",
+      "source": "archive (38).zip",
+      "original": "all-over-print-skater-dress-white-front-6a934e0cb4207.png",
+      "sourceSha256": "eb4335248bae56ba60a29128189e7193587e1af2181b8eddc6597489dc36544c",
+      "outputSha256": "d467606514b3a3f4721004a0799ab0e8b92c0402ae110df5c62e4e7fef1b3057"
+    },
+    {
+      "file": "10-front-02.webp",
+      "view": "front",
+      "source": "archive (38).zip",
+      "original": "all-over-print-skater-dress-white-front-6a934e0cb44b5.png",
+      "sourceSha256": "03bd717477b44662c19ae0f5889b8b475637c0aec9a15d8d5f3fb3434472ea0b",
+      "outputSha256": "cc6170f8755b0a640225b52828860d8fbbc19f8b96b741583a5fa5f883bfd6c7"
+    },
+    {
+      "file": "10-front-03.webp",
+      "view": "front",
+      "source": "archive (38).zip",
+      "original": "all-over-print-skater-dress-white-front-6a934e0cb47ad.png",
+      "sourceSha256": "23f0d3176eb273435ab252b8140b9a440194a5ec0ef609d54bec127c217a6451",
+      "outputSha256": "101a07ffe04adc17a52cd7ae1f29b83911fff35660c4d36ddf33bb40a6165abf"
+    },
+    {
+      "file": "10-front-04.webp",
+      "view": "front",
+      "source": "archive (38).zip",
+      "original": "all-over-print-skater-dress-white-front-6a934e0cb4bb3.png",
+      "sourceSha256": "f534ce69459c7c982d034ddf9f344540973caf65dcbe2ad77870356bfc7797e6",
+      "outputSha256": "98233b52666074782302efcb8a4313c5c9c03de56876b552e8baa1f98c6d1f26"
+    },
+    {
+      "file": "20-back-01.webp",
+      "view": "back",
+      "source": "archive (38).zip",
+      "original": "all-over-print-skater-dress-white-back-6a934e0cb438e.png",
+      "sourceSha256": "a50b2ac5dd721f6c3bda813a366df78d4cd6f9548440eecddff1efd381137ff9",
+      "outputSha256": "185bba1be572d48537acab28cf43b10b0460db658865905a77a86cdccd5f0f28"
+    },
+    {
+      "file": "20-back-02.webp",
+      "view": "back",
+      "source": "archive (38).zip",
+      "original": "all-over-print-skater-dress-white-back-6a934e0cb4653.png",
+      "sourceSha256": "e35082e340b993a7479555fd24a6aba177ddcc24ea22660358d5e06f4814e7e2",
+      "outputSha256": "104d2f712102105912c84fddac0ea4537207e03e1d240e292eee6cebe9bbb872"
+    },
+    {
+      "file": "20-back-03.webp",
+      "view": "back",
+      "source": "archive (38).zip",
+      "original": "all-over-print-skater-dress-white-back-6a934e0cb4917.png",
+      "sourceSha256": "7b7e34afa545889e0ca7aa1c9b2a34bf26ab7dc17b39393f20155bd8af0e2151",
+      "outputSha256": "95bf845a78135040e0eaf3ced960f3df7ecbefa6ffc9b5ac1a49ea638aee7336"
+    },
+    {
+      "file": "20-back-04.webp",
+      "view": "back",
+      "source": "archive (38).zip",
+      "original": "all-over-print-skater-dress-white-back-6a934e0cb4d10.png",
+      "sourceSha256": "b79019400ba3e4c50741ce3706cc6b108de1d8c631bf9d1720b11d7e8d9bd583",
+      "outputSha256": "2afa8d89c90bf50cd1b8506432c8346637334a812a3566f205f4828bdf7acbf7"
+    },
+    {
+      "file": "30-left-01.webp",
+      "view": "left",
+      "source": "archive (38).zip",
+      "original": "all-over-print-skater-dress-white-left-6a934e0cb3e58.png",
+      "sourceSha256": "d120707d4055bf1c303caf746df0404f27c8352a3d5a550e5b01d7ec06f45796",
+      "outputSha256": "0c4a6d9575396322aa9bf13fceb1e7675192af4161a6767a9e0b9ba57c5a61f6"
+    },
+    {
+      "file": "40-right-01.webp",
+      "view": "right",
+      "source": "archive (38).zip",
+      "original": "all-over-print-skater-dress-white-right-6a934e0cb40ab.png",
+      "sourceSha256": "83082cbba3d72c781ff92cea61a8af1aa0123e4dde103c7cef01b43ddc73e720",
+      "outputSha256": "ef03b1ace98eb34c2e0cd08c21a9a58e45cda0114a9e04fd374278eb1bfdaba3"
+    },
+    {
+      "file": "40-right-02.webp",
+      "view": "right",
+      "source": "archive (38).zip",
+      "original": "all-over-print-skater-dress-white-right-6a934e0cb4ea4.png",
+      "sourceSha256": "c3633af43989fe7c44096a6e7fb6e29a43af6b5e47fcd6a032bea792c196ed41",
+      "outputSha256": "92889bfe0878a03c4c00e727416ec2f472e57ae23ec599ec711d814659225e94"
+    },
+    {
+      "file": "50-detail-01.webp",
+      "view": "detail",
+      "source": "archive (38).zip",
+      "original": "all-over-print-skater-dress-white-product-details-6a934e0cb4a81.png",
+      "sourceSha256": "b4d57159c8813ad38cd938e6d65ff60c01c521f28327183b6df8ad41b22f0fe6",
+      "outputSha256": "e475cbbe52af28f9f77e775a2231cd13dee9fe679199cab1acea6eed52a9d7bc"
+    }
+  ],
+  "sourceArchives": [
+    "archive (38).zip"
+  ],
+  "duplicateArchives": [],
+  "originalArchivesPreservedAt": "/store/products/_completed/"
+}

@@ -246,4 +246,4 @@ ssh glyph@100.115.9.61 "cd /srv/Collab/mini.shops/AV-PNW.com/av_storefront/backe
 | [USER_MANUAL/08-audits-and-runbooks.md](USER_MANUAL/08-audits-and-runbooks.md) | Checklists and runbooks |
 | [WORKLOG.md](../WORKLOG.md) | Dated change log |
 | [RECONCILE_INVENTORY_2026-08-23.md](RECONCILE_INVENTORY_2026-08-23.md) | Post-rebase keep vs private inventory |
-| [store/handoffnotes.md](../store/handoffnotes.md) | Developer quick map |
+| [docs/store-internal/handoffnotes.md](../docs/store-internal/handoffnotes.md) | Developer quick map |
