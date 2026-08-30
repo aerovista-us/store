@@ -558,3 +558,16 @@ NXCore `docker compose ps` was not re-run over SSH this session.
 - Verification: 44 manifests, 683 canonical/runtime hash matches, 683 decodable
   WebPs, identical store/runtime catalogs, storefront and overlay audits at zero
   errors.
+
+### Production release
+
+- Integrated the concurrent apparel-commerce-edge package, then published the
+  gallery release on `main` in `f317f66`.
+- Fixed clean-runner gallery validation and restored the protected commerce
+  audit command in `7bd0f57`.
+- GitHub Pages run `33294262538` passed build, contract validation, artifact
+  audit, and deploy; commerce contract run `33294262549` also passed.
+- Live smoke tests returned HTTP `200` for the storefront, catalog, hat hero,
+  swimsuit hero, sticker hero, and a product gallery manifest.
+- The live catalog contains 85 products and 44 canonical `/store/products/`
+  hero paths. Staging ZIPs and completed source archives remain unpublished.

@@ -63,9 +63,10 @@ a paid order.
 After `npm run build:pages`:
 
 - **`dist/`** = copy of sanitized `public/shop/` (storefront at site root)
+- **`dist/store/products/{product-id}/`** = committed canonical `.webp` gallery images and `manifest.json` files referenced by the catalog
 - **`dist/CNAME`** = `gear.aerovista.us`
 - **`dist/404.html`** = minimal real 404 (so `/console/`, `/backend/`, etc. return **404** on Pages, not the shop)
-- **No** `/console/`, **no** React shell, **no** `backend/`, **no** operator exports, **no** `.md` files, **no** `store/_internal/`
+- **No** `/console/`, **no** React shell, **no** `backend/`, **no** operator exports, **no** `.md` files, **no** `store/_internal/`, **no** product `_incoming` or `_completed` folders, and **no ZIP archives**
 
 `npm run sync:store` copies only an **allowlist** from `store/` (see `scripts/lib/public-shop-manifest.mjs`). Operator markdown lives in **`docs/store-internal/`**; operator JSON/scripts/exports live in **`store/_internal/`**.
 
@@ -74,7 +75,7 @@ Build pipeline:
 ```bash
 npm run build:pages
 # → sync-store (PUBLIC_SITE_MODE=shop)
-# → copy public/shop → dist
+# → copy public/shop + canonical product galleries → dist
 # → strip-private-pages-build.mjs
 # → audit-public-pages-build.mjs  (fails if forbidden paths remain)
 # → gh-pages-postbuild.mjs

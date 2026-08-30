@@ -1,6 +1,6 @@
 # Production status report
 
-**Last audited:** 2026-08-23 (America/Los_Angeles)  
+**Last audited:** 2026-08-29 (America/Los_Angeles)  
 **Refresh:** re-run checks in [§ Audit commands](#audit-commands) after deploys.
 
 Living snapshot of **shop**, **backend**, and **repo drift**. Supersedes ad-hoc chat summaries.
@@ -11,7 +11,7 @@ Living snapshot of **shop**, **backend**, and **repo drift**. Supersedes ad-hoc 
 
 | Surface | URL | Status | Notes |
 |---------|-----|--------|-------|
-| **Gear shop** | https://gear.aerovista.us | **Up** | Build `2026-07-21-commerce-first-1a`; `storedVid \|\| mappedVid`; `verify:checkout-fix` **PASS** (2026-08-23) |
+| **Gear shop** | https://gear.aerovista.us | **Up** | Canonical product galleries deployed from `7bd0f57`; Pages run `33294262538` and commerce gate `33294262549` passed (2026-08-29) |
 | **Payment API** | https://api.aerovista.us | **Up** | Square **production**; `/api/health` + Gear bootstrap `200`; Horizon origin in CORS |
 | **Production `/v1`** | https://api.aerovista.us/v1/stores | **Not deployed** | Cloudflare `308` redirect loop to same URL; no customer `/v1` traffic authorized |
 | **Catalog console** | https://store-console.aerocoreos.com | **Up / protected** | Unauthenticated request hits Cloudflare Access sign-in (not a public JSON health) |
@@ -58,6 +58,9 @@ placeholders and the bundle, and keeps non-public variants fail-closed. See
 | Checkout `variationId` order (live) | `storedVid \|\| mappedVid` — **corrected** |
 | Checkout `variationId` order (local `store/index.html`) | `storedVid \|\| mappedVid` — **fixed** |
 | Homepage / About / bootstrap | `200` at `/`, `/about.html`, and `/api/square/bootstrap` |
+| Catalog galleries | 44 product manifests; 683 verified WebPs; 85 catalog products; 44 canonical hero paths |
+| Gallery deployment | `/store/products/{product-id}/` WebPs and manifests publish; `_incoming`, `_completed`, and ZIPs do not |
+| Live gallery smoke (2026-08-29) | Catalog, hat hero, swimsuit hero, sticker hero, and product manifest all returned `200` |
 
 The known shop-side variation-priority defect is no longer an open production
 issue. Products that share display/cart keys still require regression coverage
@@ -168,16 +171,13 @@ ports and remain separate from production fulfillment workers.
 
 ## Git / repo drift
 
-```
-main...origin/main [ahead 1, behind 16]
-```
-
 | Item | Detail |
 |------|--------|
-| Unpushed commit | `0ac7292` — ops dashboard fulfilled status display |
-| Uncommitted | Large mixed operational worktree: storefront, docs, scripts, SKU maps, Horizon source, planning, and generated/support files |
+| Branch state | `main` synchronized with `origin/main` after gallery release |
+| Gallery release | `f317f66` — canonical galleries and storefront updates |
+| CI compatibility | `7bd0f57` — clean Pages runner resolves committed canonical galleries |
 | `store/backend/` | gitignored — lives on NXCore only |
-| Clean implementation repositories | Backend main `f9c28d6`, console main `b791bbf`, public contracts main `82b363f`; latest CI gates green |
+| Production checks | Pages run `33294262538` and commerce contract run `33294262549` passed |
 
 ---
 
