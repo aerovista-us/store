@@ -348,10 +348,10 @@
     },
     {
       "pattern": "legacy export staging",
-      "known_locations": ["_legacy_export/"],
+      "known_locations": ["_legacy_export/ (exported off-repo 2026-09)"],
       "winner": "docs/ + horizon/ + store/",
       "role": "LEGACY_EXPORT",
-      "note": "Ready to Move-Item out of aerovista-store parent. See _legacy_export/README.md."
+      "note": "Moved out of aerovista-store parent. Stubs remain at old paths."
     },
     {
       "pattern": "product images",

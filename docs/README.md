@@ -56,7 +56,7 @@
 
 Point-in-time audits: **[archive/README.md](archive/README.md)**
 
-Legacy trees staged for export out of this parent folder: **[`../_legacy_export/`](../_legacy_export/README.md)**
+Legacy trees were staged under `_legacy_export/` and **moved out of this parent folder** (2026-09). Stubs remain at old paths.
 
 ---
 

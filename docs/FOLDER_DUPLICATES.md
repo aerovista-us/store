@@ -2,7 +2,7 @@
 
 Tagged map of **canonical** vs **duplicate** folders in `aerovista-store`. Machine registry: `scripts/lib/folder-roles.mjs`. Generated mirrors get `FOLDER_ROLE.md` on sync/build.
 
-**Legacy export staging:** [`_legacy_export/`](../_legacy_export/README.md) — ready to move **out** of this parent folder.
+**Legacy export:** Moved **out** of this parent folder (2026-09). Former staging path `_legacy_export/` is gone from the repo. Stubs remain at old paths (`archive/`, `planning/canvas/`, etc.).
 
 ## Role tags
 

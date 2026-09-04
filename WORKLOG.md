@@ -4,6 +4,12 @@ Chronological record of security checks, deploys, and go-live gates.
 
 ---
 
+## 2026-09-04 — Legacy export left parent folder
+
+`_legacy_export/` removed from `aerovista-store` after operator move. Stubs + docs updated to mark export complete. Commit deletion of tracked `_legacy_export/README.md` + `MANIFEST.md`.
+
+---
+
 ## 2026-08-26 — Promote unique docs; stage legacy export
 
 Promoted high-value unique content into true folders (`docs/`, `docs/catalog/`, `docs/pricing/`, `docs/operator-tools/`, `horizon/evidence/`). Remaining duplicate trees staged in `_legacy_export/` (gitignored bulk + tracked README/MANIFEST) ready to leave parent folder. Stubs left at old paths.

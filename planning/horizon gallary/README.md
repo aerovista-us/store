@@ -2,5 +2,6 @@
 
 **Role:** SUPERSEDED  
 
-Contents moved to **`_legacy_export/planning-horizon-gallary/`** for export out of this parent folder.  
+Contents **exported** out of this parent folder (was `_legacy_export/planning-horizon-gallary/`).  
 Canonical Horizon storefront: **`horizon/`**.
+
