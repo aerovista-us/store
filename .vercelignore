@@ -1,0 +1,16 @@
+# Repository-only material that is not required by the Vite storefront build.
+.github/
+docs/
+planning/
+tests/
+nginx/
+cloudflare/
+Dockerfile
+README.md
+WORKLOG.md
+
+# These are generated mirrors. `npm run build` runs `prebuild -> sync:all`,
+# rebuilding them from canonical `store/` and `console/` sources before Vite.
+public/shop/
+public/store/
+public/console/

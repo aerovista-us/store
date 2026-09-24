@@ -103,7 +103,8 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: true,
+    // Keep source maps available for local/CI builds, but do not ship them in Vercel deployments.
+    sourcemap: process.env.VERCEL !== '1',
     rollupOptions: {
       input: path.resolve(root, 'app.html'),
     },
