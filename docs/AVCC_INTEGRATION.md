@@ -1,6 +1,8 @@
 # AVCC integration — AeroVista Command Center ↔ commerce storefronts
 
-**Last updated:** 2026-07-26
+**Last updated:** 2026-10-04
+
+Apparel flagship integration is governed by [APPAREL_INTEGRATION_CONTRACT_V1.md](APPAREL_INTEGRATION_CONTRACT_V1.md). The flagship defines the store platform. Cindy validates it and does not define a second platform.
 
 ## Names (do not confuse)
 

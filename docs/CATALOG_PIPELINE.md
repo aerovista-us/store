@@ -116,3 +116,7 @@ Printful pulls (`npm run pull:printful-horizon`) stay fulfillment evidence only.
 AVCC reads **`public/build-source-manifest.json`** from this repo to show gear-store deploy surfaces. See **[AVCC_INTEGRATION.md](AVCC_INTEGRATION.md)**.
 
 The **catalog console** (`store-console.aerocoreos.com`) is a specialized tool in `console/` for Square export cleanup and catalog deploy.
+
+## October 4, 2026 export
+
+`python scripts/project-october-catalog.py` reads `F:\1149XBNG8C8ZE_catalog-2026-10-04-1828.xlsx` and rewrites `store/square_products_latest.json`. Column B Token becomes `variation_id`. A match keeps the curated id, gallery, and copy. New visible items are added. Items with no visibility, and archived items, are not added. Unmatched legacy products stay so a renamed row does not drop checkout identity. The apparel app does not parse the workbook. Deploy this JSON through the existing Gear path before production apparel can see the new variations.

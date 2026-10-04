@@ -1,5 +1,7 @@
 # Commerce API `/v1` Contract Checkpoint
 
+Apparel's relying-app rules, including what is required versus already proven, are in [APPAREL_INTEGRATION_CONTRACT_V1.md](APPAREL_INTEGRATION_CONTRACT_V1.md). This checkpoint remains the sandbox Commerce v1 record. It is not production acceptance for `apparel.aerovista.us`.
+
 **Contract:** `1.0.0-alpha.1`
 
 **Status:** Isolated checkout, webhook, rate-limit, rollback, dependency, and
