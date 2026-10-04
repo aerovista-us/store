@@ -31,6 +31,8 @@ CANONICAL_IDS = [
     (("powderline",), "aerovista-powderline-tee"),
     (("powder", "line"), "aerovista-powderline-tee"),
     (("behind", "scene", "hat"), "aerovista-built-behind-the-scenes-hat"),
+    (("behind", "scene", "blk"), "aerovista-built-behind-the-scenes-tee-black"),
+    (("behind", "scene", "black"), "aerovista-built-behind-the-scenes-tee-black"),
     (("behind", "scene"), "aerovista-built-behind-the-scenes-tee"),
 ]
 
@@ -232,7 +234,7 @@ def main():
             updated += 1
             continue
         product_id = canonical_id(name) or slug(name)
-        image = f"/products/{product_id}/01-hero.webp" if canonical_id(name) else ""
+        image = f"/store/products/{product_id}/01-hero.webp" if canonical_id(name) and not product_id.endswith("-black") else ""
         prior_products.append({
             "id": product_id,
             "name": name,
