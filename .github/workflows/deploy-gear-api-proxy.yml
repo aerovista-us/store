@@ -23,14 +23,53 @@ jobs:
           node-version: "22"
           cache: npm
 
+      - name: Require Cloudflare deploy token
+        shell: bash
+        run: |
+          if [ -z "${CLOUDFLARE_API_TOKEN}" ]; then
+            echo "::error::CLOUDFLARE_API_TOKEN is not configured. The live Worker would remain unchanged."
+            exit 1
+          fi
+
       - name: Deploy Worker
-        if: ${{ env.CLOUDFLARE_API_TOKEN != '' }}
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ env.CLOUDFLARE_API_TOKEN }}
           workingDirectory: cloudflare/gear-api-proxy
           command: deploy
 
-      - name: Skip deploy when token is unavailable
-        if: ${{ env.CLOUDFLARE_API_TOKEN == '' }}
-        run: echo "CLOUDFLARE_API_TOKEN is not configured; leaving the existing Worker unchanged."
+      - name: Verify flagship CORS admission
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          check_origin_header() {
+            local url="$1"
+            local method="$2"
+            local headers
+            headers="$(mktemp)"
+
+            if [ "$method" = "OPTIONS" ]; then
+              curl --fail --silent --show-error \
+                --request OPTIONS \
+                --header "Origin: https://apparel.aerovista.us" \
+                --header "Access-Control-Request-Method: POST" \
+                --header "Access-Control-Request-Headers: content-type" \
+                --dump-header "$headers" \
+                --output /dev/null \
+                "$url"
+            else
+              curl --fail --silent --show-error \
+                --header "Origin: https://apparel.aerovista.us" \
+                --dump-header "$headers" \
+                --output /dev/null \
+                "$url"
+            fi
+
+            tr -d '\r' < "$headers" | grep -iq '^access-control-allow-origin: https://apparel\.aerovista\.us$'
+          }
+
+          check_origin_header "https://gear.aerovista.us/api/square/checkout" "OPTIONS"
+          check_origin_header "https://gear.aerovista.us/api/square/bootstrap" "GET"
+
+          echo "apparel.aerovista.us is admitted by the live Gear proxy."

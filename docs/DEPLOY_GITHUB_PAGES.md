@@ -135,7 +135,7 @@ verified in `horizon/COMMERCE_READINESS.md`.
 
 You should get JSON (not HTML 404) and an `Access-Control-Allow-Origin` header.
 
-Optional CI: add repo secret **`CLOUDFLARE_API_TOKEN`** and run workflow **Deploy gear API proxy**.
+CI is now fail-closed: repo secret **`CLOUDFLARE_API_TOKEN`** is required for workflow **Deploy gear API proxy**. A missing token is a failed deployment, not a successful skip. After Wrangler deploys, CI verifies both the Apparel-origin checkout preflight and bootstrap response expose `Access-Control-Allow-Origin: https://apparel.aerovista.us`.
 
 ---
 
