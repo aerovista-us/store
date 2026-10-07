@@ -1,113 +1,145 @@
 # AeroVista Apparel Integration Contract v1
 
-**Status:** Locked source of truth for future Apparel changes.  
+**Status:** Corrected working contract. Current evidence and future flagship intent are labeled separately. This text is not locked until both sibling copies match it.  
 **Application:** `apparel.aerovista.us`  
-**Sibling copy:** `F:\aerovista_apparel\docs\APPAREL_INTEGRATION_CONTRACT_V1.md`  
-**Scope:** AeroVista flagship store platform. Cindy Santi, Seasons of Change, Horizon Aerial Prints, and future AeroVista brands are downstream storefronts.  
-**Governing systems:** AeroVista Account, Identity Gateway, AVCC, App Adapter, Connector Kit, Commerce, Square, fulfillment providers
+**Sibling copy:** `F:\aerovista-store\docs\APPAREL_INTEGRATION_CONTRACT_V1.md`  
+**Scope:** The Apparel spatial storefront, and the shared authorities it must use.  
+**Governing systems:** AeroVista Account, Identity Gateway, governed access grants, App Adapter, Connector Kit, the shared Store/Commerce backend, Square, Printful
 
-This document keeps required architecture separate from paths that already have production evidence.
+## Documentation precedence
 
-## 1. Store platform hierarchy
-
-The AeroVista flagship defines the store platform. Cindy validates that platform. Cindy does not define a second platform.
+When documents disagree, prefer the higher source:
 
 ```text
-AeroVista Flagship Store
-        │
-        ├── Commerce contracts
-        ├── Identity / App Adapter integration
-        ├── Cart / checkout behavior
-        ├── promotions engine
-        ├── order/account UX
-        ├── fulfillment integration
-        └── shared storefront components
-                │
-                ├── Cindy Santi
-                ├── Seasons of Change
-                ├── Horizon Aerial Prints
-                └── future AeroVista brands
+Verified runtime and provider state
+        ↓
+Square Catalog and Square payment state
+        ↓
+Current deployed Store/Commerce backend evidence
+        ↓
+Current Git source and this contract
+        ↓
+Notion current-state summaries
+        ↓
+Older plans, audits, and historical docs
 ```
 
-The flagship owns the shared contracts and runtime: Commerce contracts, Identity and App Adapter integration, cart and checkout behavior, the promotions engine, order and account UX, fulfillment integration, and shared storefront components.
+`STORE_SPACE_PLAN.md`, the 2026-08-29 `STATUS.md` catalog counts, older Notion product counts, and any note that describes intended same-origin routing as if it were already how Apparel calls checkout are historical. They are not equal to this contract or to the deployed Gear catalog.
 
-A downstream store owns branding, product collection, copy, photography and artwork, collection layout, store-specific merchandising, and approved promotions.
+## 1. Two different flagship statements
 
-A downstream store inherits identity, App Adapter, account integration, the cart engine, the checkout engine, the order model, payment verification, promotion enforcement, fulfillment plumbing, customer order history, security rules, and audit behavior.
+These statements are both true. They are not the same statement.
 
-Cindy is the live regression reference. It is not a parallel platform under active development. A flagship milestone is checked by asking whether Cindy can consume it through the shared contract without a Cindy-specific hack. Cindy's working checkout stays in place until that shared replacement is proven. Migration replaces one capability at a time.
+**Strategic.** `apparel.aerovista.us` is the flagship being built. Future shared store behavior should be defined here and then consumed by other AeroVista stores.
 
-Development priority stays on the flagship. Flagship work stops for a Cindy redesign only when Cindy has a customer-facing problem or when a feature is being proved there on purpose.
+**Operational.** Gear (`gear.aerovista.us` and `api.aerovista.us`) remains the protected current production storefront and the legacy commerce reference while Apparel is promoted into that role. Apparel does not replace that reference by renaming itself the backend.
+
+Cindy is a downstream regression store, not a second platform. Horizon is a downstream brand with its own customer catalog and its own deployment path. Seasons of Change and later brands follow the same rule: they inherit shared contracts and authorities. They do not inherit the Apparel room, the Apparel UI, or the Gear catalog console.
+
+```text
+Account
+authentication and handoff
+
+        ↓
+
+Identity Gateway and governed grants
+identity and capabilities
+
+        ↓
+
+App Adapter
+integration seam, no authority of its own
+
+        ↓
+
+Apparel
+presentation and local enforcement
+
+        ↓
+
+Shared Store / Commerce backend
+Square projection, mapping, checkout policy,
+promotions, order orchestration
+
+        ↓
+
+Square
+catalog, retail price, and payment truth
+
+        ↓
+
+Printful
+fulfillment execution
+```
+
+What a downstream store owns: branding, collection, copy, photography, artwork, layout, and store-specific merchandising.
+
+What a downstream store inherits: Account authentication, identity and capability checks, the shared commerce projection, checkout policy, payment verification, and fulfillment authority. Horizon must not be published through the Gear catalog console. A shared commerce contract is not a shared storefront implementation.
+
+Cindy's current checkout stays in place until a shared replacement is proven one capability at a time. Flagship work stops for a Cindy redesign only when Cindy has a customer-facing problem or a feature is being proved there on purpose.
 
 ## 2. Authority model
 
-The storefront does not own identity, authentication, authorization, roles, payment truth, or fulfillment execution.
+Apparel does not own authentication, capability grants, Square mapping, payment truth, or fulfillment execution.
 
 | Domain | Authority | Standing |
 |---|---|---|
-| Human doorway and profile UX | AeroVista Account | Built. Account is not the identity authority. |
-| Identity and capabilities | Identity Gateway / AVCC | Authority. Session-binding machinery is accepted outside Apparel. |
-| Relying-app integration | App Adapter | Required boundary for Apparel. |
+| Authentication and profile doorway | AeroVista Account | Account proves authentication. It is also the human profile surface. It does not grant capabilities. |
+| Identity and capabilities | Identity Gateway and governed access-grant services | Resolve shared identity and capability. Session-binding evidence is accepted outside Apparel. |
+| Grant administration | AVCC Command Center | May govern grants. `avcc.aerocoreos.com` is not the request-time trust boundary. |
+| Integration seam | App Adapter | Transports the identity result. No authority of its own. |
 | Machine and service integration | Connector Kit | Separate from the relying-app path. |
-| Store catalog presentation | Apparel flagship | Local presentation is allowed. |
-| Cart UX | Apparel flagship | Shared engine. Downstream stores configure, they do not fork it. |
-| Product and SKU mapping | Apparel backend / Commerce | Server-side. |
-| Pricing authority | Commerce backend for the transaction being priced | The browser is not the authority. |
-| Payment authority | Square | Proven for Cindy's direct checkout. |
-| Internal order and correlation | AeroVista Commerce | Target, once Commerce v1 is accepted. Not current production authority. |
-| Fulfillment execution | Fulfillment provider (Printful for the live Cindy path) | Execution authority. |
-| Store-specific preferences | The downstream store | Branding, collection, copy, artwork, layout, merchandising, approved promotions. |
+| Presentation and local enforcement | Apparel | Spatial storefront. Enforces the capability it was given. Must not invent product identity, price, size, SKU, or Square variation. |
+| Projection, mapping, checkout policy, promotions, order orchestration | Shared Store/Commerce backend at `api.aerovista.us` | Current production commerce path. Not an Apparel backend, unless an Apparel BFF is introduced on purpose later. |
+| Catalog, retail price, payment, refund | Square | Commercial truth. |
+| Normalized internal order ledger | Commerce v1 | Future normalization of a path the legacy API already operates. |
+| Fulfillment execution | Printful | Execution authority. |
 
-**Rule:** presentation may be local. Authority may not.
+**Rule:** Account proves authentication. Identity grants capability. Applications enforce capability.
+
+The server is authoritative to the browser. Square is authoritative to the server for the commercial catalog and the base retail price.
+
+Commerce synchronizes and projects Square, rejects stale or inconsistent pricing, applies approved promotions and order policy, and creates checkout. It does not invent a competing base retail price.
+
+**Catalog drift invariant:** A buyable AeroVista variant must map to a currently accepted Square item and variation. Its base price must equal the accepted Square catalog price. Any mismatch fails checkout readiness until reconciled. The Shadow Pants hold is this invariant: the October 4 Square-derived catalog says $52.00 and the live checkout map still charges $46.00. The storefront is not rewritten to match the stale map.
+
+An `.xlsx` export is a dated intake snapshot. It can contain service rows, hidden items, and incomplete listings, and it is curated before publication. It is not Square, and it is not a second source of truth. `square_products_latest.json` is the public Gear projection of that curated Square state. Apparel reads the projection. It does not parse the workbook.
 
 ## 3. Identity contract
 
 **Standing: required for Apparel. Not yet proven on `apparel.aerovista.us`.**
 
-Account Session Security v1 is merged. PR #49 resolved exact AVCC session binding, stale-cookie recovery, one-successor behavior, handoff and exchange protections, and replay concerns. That evidence belongs to Account and AVCC. It does not mean Apparel has passed `identity.describe()` → `identity.can()` → logout/revoke.
-
-Authentication answers who the person is. It does not answer what they may do.
-
-Required Apparel flow:
+Account Session Security v1 is merged. PR #49 resolved exact session binding, stale-cookie recovery, one-successor behavior, handoff and exchange protections, and replay rejection outside Apparel. That evidence does not mean this host has passed `identity.describe()` → `identity.can()` → logout/revoke.
 
 ```text
-Account doorway
-      ↓
-registered app callback
-      ↓
-one-time handoff
-      ↓
-Apparel server session
-      ↓
-identity.describe()
-      ↓
-identity.can()
-      ↓
-authorized action
+Account
+authentication and handoff
+        ↓
+Identity Gateway and governed grants
+identity and capabilities
+        ↓
+App Adapter
+        ↓
+Apparel
+local enforcement
 ```
 
 Mandatory runtime pattern:
 
 ```text
 Browser
-   │
    │ HTTPS
    ▼
-Apparel Application
-   │
-   │ HttpOnly + Secure app session
-   │ exact-origin CORS
+Apparel
+   │ HttpOnly + Secure app session, exact-origin CORS
    ▼
 Server-side App Adapter
-   │
-   ├── identity.describe()
-   ├── identity.can(...)
-   │
+   │ identity.describe() / identity.can()
    ▼
-Identity Gateway / AVCC
+Identity Gateway and governed grant services
 ```
 
-The browser does not call AVCC internal APIs.
+The browser does not call Identity Gateway or AVCC internal APIs. The Command Center UI does not authorize an Apparel request.
 
 Permanent session invariants:
 
@@ -118,36 +150,34 @@ Permanent session invariants:
 - Logout and revocation end protected access.
 - An identity failure does not fall back to a loosely trusted cookie.
 
-Apparel must use the canonical AeroVista identity, the registered application id, and the approved Account → handoff → application-session flow. Protected actions are authorized on the server. Identity or authorization that cannot be verified fails closed.
-
-Apparel must not create an independent user or password database, create a second profile system, treat an email address as authorization, infer permissions from UI state or profile labels, accept roles supplied by the browser, or let a person self-select Founder, Admin, or Staff. Authentication is not authorization.
+Apparel must not create a user or password database, a second profile system, or a path that treats email, UI state, or a self-selected role as authorization.
 
 ## 4. Profile contract
 
-Profile information belongs to the shared AeroVista Profile Contract. Account is the human-facing surface for that profile. Apparel may display appropriate profile information and may request edits through approved Account and Profile interfaces.
+Profile information belongs to the shared AeroVista Profile Contract. Account is the human-facing surface for that profile. Apparel may display it and may request edits through approved Account and Profile interfaces.
 
-Apparel must not directly modify global role, service role, capability, resource grant, identity ownership, identity lifecycle, account authority, or AVCC membership authority.
-
-Changing a display name, avatar, shipping preference, or favorite style must not change access permissions.
+Apparel must not directly modify global role, service role, capability, resource grant, identity ownership, identity lifecycle, or AVCC membership. Changing a display name, avatar, shipping preference, or favorite style must not change access.
 
 ## 5. App Adapter contract
 
-`apparel.aerovista.us` is a relying application. App Adapter is the mandatory integration boundary. Connector Kit remains the machine and service integration layer and is not a substitute for App Adapter.
+`apparel.aerovista.us` is a relying application. App Adapter is the mandatory integration seam and has no authority of its own. Connector Kit remains the machine and service layer and is not a substitute for App Adapter.
 
-These secrets must never enter client JavaScript, HTML, localStorage, browser bundles, or public environment variables: AVCC service secrets, Identity Gateway service secrets, HMAC secrets, Square access tokens, Square webhook secrets, Printful API secrets, and administrative credentials.
+These secrets must never enter client JavaScript, HTML, localStorage, browser bundles, or public environment variables: Identity Gateway and AVCC service secrets, HMAC secrets, Square access tokens, Square webhook secrets, Printful API secrets, and administrative credentials.
 
 ## 6. Authorization contract
 
-Protected actions use authoritative capability checks through App Adapter:
+Protected actions use capability checks through App Adapter:
 
 ```ts
 const identity = await av.identity.describe();
 const allowed = await av.identity.can("apparel.order.history.read");
 ```
 
+The Identity Gateway and its governed grant services decide whether the current principal holds a registered capability. Apparel enforces that result. AVCC may administer the grants. The Command Center UI is not that decision.
+
 ### Proposed capability namespace
 
-Registry becomes authoritative once these ids are registered. Until then the names below are examples, not canonical AVCC capability ids.
+Registry becomes authoritative once these ids are registered. Until then the names below are examples, not canonical capability ids.
 
 ```text
 apparel.account.access
@@ -162,101 +192,75 @@ apparel.order.manage
 apparel.admin
 ```
 
-These are application capabilities. They do not replace AVCC global roles. AVCC decides whether the current principal possesses a registered capability. Apparel decides what an authorized capability means inside Apparel.
+These are application capabilities. They do not replace global roles.
 
 ## 7. Public store contract
 
-Public merchandise discovery does not require authentication. The flagship may expose landing pages, brand and story content, product listings, imagery, size information, general pricing, public collection pages, and public policies.
+Public merchandise discovery does not require authentication. Apparel may show the room, brand and story, listings, imagery, sizes, displayed prices, collections, and public policies.
 
-Authentication is required when the feature depends on a known AeroVista user or a protected resource: saved profile information, order history, member benefits, account-linked discounts, private collections, administrative tools, and customer-specific information.
-
-Public browsing must not grant protected capabilities.
+Authentication is required for saved profile information, order history, member benefits, account-linked discounts, private collections, administrative tools, and other customer-specific resources. Public browsing must not grant protected capabilities.
 
 ## 8. Commerce authority contract
 
-Two commerce statements are both true, and they are not the same statement.
+**Current production reference: Gear and the legacy Store API.** Apparel's browser calls `https://gear.aerovista.us` for the catalog and `https://gear.aerovista.us/api/square/checkout` for checkout. It does not use a same-origin Apparel API, and it skips bootstrap unless a commerce API base is configured. Same-origin `/api` and `/v1` routing is intended infrastructure. It is not the current Apparel path.
 
-**Live reference, Cindy direct checkout.** This path is in production and is not being replaced in this pass:
-
-```text
-Cindy storefront
-      ↓
-api.aerovista.us
-      ↓
-server-authoritative SKU / Square variation mapping
-      ↓
-Square hosted checkout
-      ↓
-Printful
-```
-
-Five Cindy products and 36 variants at $68, including shipping and tax, were matched, and that direct checkout is live. That price is Cindy catalog configuration. It is not the price of the flagship assortment.
-
-**Target, not current production authority.** Shared Commerce v1 will own the internal order ledger, webhook reconciliation, and order correlation. "Commerce owns the order" is the target architecture. It is not a description of the authority that already runs Cindy checkout.
-
-The browser may send product, variant, quantity, a promotion request, and shipping information. The browser must not authoritatively send final price, discount value, tax, shipping charge, payment status, paid status, fulfillment eligibility, or entitlement result.
-
-Shared purchase path the flagship is building:
+Mapping and checkout authority live in the shared Store/Commerce backend behind `api.aerovista.us`. Apparel sends product, variant, quantity, and the compatibility cart key. It does not send a base price, discount, tax, shipping charge, or paid flag.
 
 ```text
 Browser
-   │ product / variant / qty only
-   ▼
-Apparel Backend
-   │
-   ├── authoritative SKU lookup
-   ├── authoritative price
-   ├── promotion eligibility
-   └── Square variation verification
-   │
-   ▼
-Square Hosted Checkout
-   │
-   ▼
-VERIFIED SERVER EVENT / RECONCILIATION   ← target, not yet the accepted Cindy authority
-   │
-   ├── payment confirmed
-   ├── promotion redeemed
-   ├── AV order correlated
-   └── fulfillment released
-   │
-   ▼
-Printful
+"this AeroVista product, this variant, this quantity"
+        ↓
+Shared Store / Commerce backend
+resolve the AeroVista product
+resolve the Square variation
+verify it against the current Square-synchronized projection
+read the Square base price
+reject the checkout if that projection has drifted
+apply an approved AeroVista promotion only when that promotion is actually enforced
+        ↓
+Square
+payment truth
 ```
 
-A redirect back from Square is navigation. It is not proof of payment. A malformed or unknown variation mapping means no checkout.
+The legacy backend already receives verified Square webhooks, stores order data in Postgres, creates fulfillment jobs, and runs fulfillment and reconcile workers. That is the operational path. Commerce v1 is the normalized, versioned authority still to be accepted. It replaces and normalizes this path. It does not mean orders, webhooks, and fulfillment are being invented from zero.
+
+**Cindy checkout admission, not a paid-order proof.** Cindy's production evidence is 5 products, 36 variants, CORS, server SKU and Square variation mapping, Square-hosted checkout creation, and Printful mappings, at the $68 offer that includes shipping and tax. No purchase was required for that admission. Checkout generation plus fulfillment mapping is proven. A Cindy paid order through webhook to fulfillment is not.
+
+A redirect back from Square is navigation. It is not proof of payment. A variation that is missing, stale, or priced differently from the accepted Square catalog does not check out.
 
 ## 9. Payment contract
 
-A successful browser redirect must not mark an order paid. Only verified server-side payment evidence may move a payment to paid. For the current Cindy path, that evidence is whatever `api.aerovista.us` already accepts for its live checkout. For shared Commerce v1, webhook processing must still provide signature validation, order and payment id verification, amount and currency validation, idempotent processing, replay protection, duplicate-event handling, internal order correlation, and durable audit history.
+A successful browser redirect must not mark an order paid. Square is the authority for payment and refund. The legacy backend already accepts verified Square webhooks for the current Gear path. Commerce v1 still has to prove signature validation, order and payment id verification, amount and currency validation, idempotent processing, replay protection, duplicate-event handling, normalized order correlation, and durable audit history before Apparel is called Commerce-v1 integrated.
 
-Unknown or contradictory payment states fail closed. No fulfillment is released because a customer reached a success URL.
+Unknown or contradictory payment states fail closed. Reaching a success URL does not release fulfillment.
 
 ## 10. Internal order contract
 
-Once Commerce v1 is accepted, AeroVista Commerce keeps the internal order identity: `av_order_id`, Square order and payment ids, `av_identity_id` when the shopper is authenticated, customer contact, items, variation ids, subtotal, discount, shipping, tax, total, payment status, fulfillment status, and timestamps.
+The legacy Store API already keeps operational order and fulfillment records. Commerce v1, once accepted, is the normalized internal identity: `av_order_id`, Square order and payment ids, `av_identity_id` when the shopper is authenticated, contact, items, variation ids, subtotal, discount, shipping, tax, total, payment status, fulfillment status, and timestamps.
 
-Until that acceptance, Square remains payment authority and the Cindy direct-checkout record remains the live operational path. The flagship must not pretend a shared ledger already exists.
+Until that acceptance, Apparel must not pretend the normalized ledger exists, and it must not pretend the legacy backend stores nothing.
 
 ## 11. Product and variant contract
 
 ```text
-AeroVista Product
-      ↓
-AeroVista Variant
-      ↓
-Square Variation
-      ↓
-Fulfillment Variant
+AeroVista product id        shared catalog mapping
+        ↓
+AeroVista variant
+        ↓
+Square variation            Square
+        ↓
+Fulfillment variant         Printful
 ```
 
-Mappings belong on the server. The October 4 Square export is the item authority for what exists. The storefront reads the Gear projection `square_products_latest.json`. It does not parse the workbook in the browser.
+The shared Store/Commerce backend owns the mapping. Apparel merchandising only decides where a mapped product appears in the room. Square decides that the commercial item exists, which variation it is, and what the base price is.
 
 ## 12. Promotion contract
 
-Promotions are server policy on the flagship engine. A downstream store may approve a promotion. It may not enforce that promotion in private code.
+**Standing: required for a shared flagship promotion engine. Not proven on that engine.**
 
-Cindy Connect Hoodies, as an approved promotion:
+A downstream store may approve a promotion. It may not enforce that promotion in private code once the shared engine exists. The shared engine does not exist yet.
+
+Cindy Connect Hoodies is an approved requirement, not evidence that shared redemption already runs:
 
 ```text
 $25 off each distinct qualifying style
@@ -265,17 +269,19 @@ maximum total discount $125
 no stacking
 ```
 
-AeroVista's server decides eligibility. Square applies and records the resulting discount. Creating a checkout does not consume the promotion. Redemption becomes final only after verified successful payment.
+When that engine exists, the server decides eligibility, Square records the discount, creating a checkout does not consume the promotion, and redemption is final only after verified payment. Until then, this contract must not describe that path as live.
 
-Refreshing the browser, editing JavaScript, or changing the cart payload must not bypass those limits. When a promotion is tied to a person, usage follows canonical identity rather than email or browser storage.
+Refreshing the browser or editing the cart payload must not become the way a promotion is granted. When a promotion is tied to a person, usage follows canonical identity rather than email or browser storage.
 
 ## 13. Fulfillment contract
 
-Payment and fulfillment are separate states. A paid order does not mean the fulfillment provider accepted it. Printful is the execution authority on the live Cindy path. Commerce retains the relationship between the AeroVista order, the Square order and payment, the fulfillment order, and tracking once Commerce v1 is accepted. Fulfillment failures stay recoverable without rewriting payment history.
+Payment and fulfillment are separate states. Printful is the execution authority for whether an item was accepted or shipped. The legacy backend already creates fulfillment jobs and reconciles them. Commerce v1 normalizes the link among the AeroVista order, the Square order and payment, the fulfillment order, and tracking. A paid order does not by itself mean Printful accepted it. Fulfillment failures stay recoverable without rewriting payment history.
+
+Cindy's admission proof includes Printful mappings. It does not include a demonstrated Cindy paid-order fulfillment.
 
 ## 14. Session contract
 
-An Apparel session is an application session tied to an authoritative AeroVista identity session. It is not a permanent independent credential.
+An Apparel session is an application session tied to an AeroVista identity session. It is not a permanent independent credential.
 
 ```text
 invalid session → deny protected action
@@ -289,7 +295,7 @@ A stale or malformed session does not downgrade into "probably authenticated."
 
 ## 15. Administrative contract
 
-Showing or hiding an admin control is not security. Catalog changes, price changes, promotion changes, order adjustments, refunds, fulfillment intervention, customer inspection, and store configuration are checked on the server. Sensitive changes record actor, identity, action, target, previous state, new state, reason where required, timestamp, and result.
+Showing or hiding an admin control is not security. Catalog changes, price changes, promotion changes, order adjustments, refunds, fulfillment intervention, customer inspection, and store configuration are checked on the server. Sensitive changes record actor, identity, action, target, previous state, new state, reason where required, timestamp, and result. A displayed price change does not let Apparel or Commerce override Square's base price.
 
 ## 16. Data separation
 
@@ -297,36 +303,22 @@ Authentication, profile, authorization, commerce, store preferences, orders, pay
 
 ## 17. Failure contract
 
-If identity, capability, price mapping, Square response, payment verification, promotion state, variant mapping, or fulfillment mapping cannot be answered, the protected operation fails. Public storefront content can remain available. Protected operations fail closed.
+If identity, capability, Square variation, Square base price, payment verification, promotion state, or fulfillment mapping cannot be answered, the protected operation fails. Public browsing can remain available. Checkout fails closed on catalog drift.
 
 ## 18. No parallel authorities
 
-No second authentication system. No Apparel-specific master profile database. No frontend role authority. No duplicated global roles. No direct browser-to-AVCC internal requests. No client-held HMAC or service secret. No client-authoritative pricing. No redirect-based payment confirmation. No fulfillment before verified payment. No user-created privileged permissions. No role or grant mutations from profile editing. No checkout SKU supplied by the browser without server validation. No second commerce platform for Cindy, Seasons of Change, or Horizon.
+No second authentication system. No Apparel user database. No second profile system. No frontend role authority. No direct browser-to-Identity or browser-to-AVCC internal requests. No client-held service secret. No client-supplied base price. No stale server map that overrides the accepted Square base price. No redirect treated as payment. No fulfillment released only because a success URL loaded. No Apparel-owned SKU map while mapping lives in the shared Store/Commerce backend. No requirement that Horizon, Cindy, or Seasons of Change render the Apparel room. No claim that Cindy's checkout admission was a paid end-to-end order. No claim that the Cindy promotion is already enforced by a shared flagship engine.
 
 ## 19. Production acceptance
 
-`apparel.aerovista.us` is not called Identity-integrated until this host has production evidence for:
+`apparel.aerovista.us` is not called Identity-integrated until this host has production evidence for Account authentication, handoff, an HttpOnly app session, `identity.describe()`, `identity.can()`, and logout/revoke, including invalid identity, invalid session, missing capability, stale predecessor cookie, replayed handoff, and revoked session.
 
-```text
-ACCOUNT DOORWAY
-     ↓
-HANDOFF
-     ↓
-APP SESSION
-     ↓
-identity.describe()
-     ↓
-identity.can()
-     ↓
-LOGOUT / REVOKE
-```
+`apparel.aerovista.us` is not called Commerce-v1 integrated until the normalized ledger, reconciliation, order correlation, and fulfillment release have production evidence on this host. The legacy webhook and fulfillment workers are current Gear evidence. Cindy's checkout admission is current Cindy evidence. Neither is Apparel Commerce v1.
 
-Including invalid identity, invalid session, missing capability, stale predecessor cookie, replayed handoff, and revoked session.
+A variant is not checkout-ready until storefront identity, Square variation, the server price derived from the accepted Square catalog, and the provider checkout path reconcile in production.
 
-`apparel.aerovista.us` is not called Commerce-v1 integrated until the shared ledger, verified reconciliation, order correlation, and fulfillment release have production evidence. Cindy's direct checkout remains a separate, already live reference and is not that evidence.
-
-Documentation, source, tests, deployed runtime, and production evidence must describe the same behavior.
+Documentation, source, deployed runtime, and production evidence must describe the same behavior. Older plans do not outrank a newer verified runtime.
 
 ## Core rule
 
-> Account is the human-facing doorway and profile surface. Identity Gateway / AVCC establish authoritative identity and capabilities. App Adapter carries that authority into Apparel. Apparel owns the customer shopping experience and server-side catalog mapping. Square is authoritative for payment. AeroVista Commerce will become the authoritative internal order and correlation layer once Commerce v1 is accepted. Fulfillment providers are authoritative for fulfillment execution. No layer may impersonate another layer's authority.
+> Account proves authentication. Identity Gateway and governed grants resolve identity and capability. App Adapter transports that result and has no authority of its own. Apparel presents the shop and enforces the capability locally. The shared Store/Commerce backend projects Square, maps variations, validates checkout, applies approved promotions, and orchestrates orders. Square is commercial truth for catalog, retail price, and payment. Printful executes fulfillment. No layer may impersonate another layer's authority.
