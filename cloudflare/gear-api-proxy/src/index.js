@@ -6,9 +6,12 @@ const API_ORIGIN = "https://api.aerovista.us";
 
 const ALLOWED_ORIGINS = new Set([
   "https://gear.aerovista.us",
+  "https://apparel.aerovista.us",
   "https://aerovista-us.github.io",
   "http://localhost:5174",
   "http://127.0.0.1:5174",
+  "http://localhost:5173",
+  "http://127.0.0.1:5173",
 ]);
 
 function corsHeaders(origin, extra = {}) {
