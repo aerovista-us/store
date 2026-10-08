@@ -1,5 +1,6 @@
 # Proxies gear.aerovista.us/api/* → api.aerovista.us (browser checkout / CORS).
-# Requires repo secret CLOUDFLARE_API_TOKEN and repo variable CLOUDFLARE_ACCOUNT_ID.
+# Updates the existing gear-api-proxy Worker only; its production route is already configured in Cloudflare.
+# Requires repo secret CLOUDFLARE_API_TOKEN with Workers Scripts (Legacy) Edit and repo variable CLOUDFLARE_ACCOUNT_ID.
 name: Deploy gear API proxy
 
 on:
