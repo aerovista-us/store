@@ -107,9 +107,11 @@ An `.xlsx` export is a dated intake snapshot. It can contain service rows, hidde
 
 ## 3. Identity contract
 
-**Standing: required for Apparel. Not yet proven on `apparel.aerovista.us`.**
+**Standing: accepted live on `apparel.aerovista.us`.**
 
-Account Session Security v1 is merged. PR #49 resolved exact session binding, stale-cookie recovery, one-successor behavior, handoff and exchange protections, and replay rejection outside Apparel. That evidence does not mean this host has passed `identity.describe()` → `identity.can()` → logout/revoke.
+The Apparel relying-app path has production evidence for central Account authentication, one-time handoff, an HttpOnly/Secure app session, `identity.describe()`, live server-side `identity.can(aerovista.member)`, anonymous protected denial, exact-origin mutation enforcement, logout, and native AVCC session revocation.
+
+Account Session Security v1 remains the governing session model. PR #49 resolved exact session binding, stale-cookie recovery, one-successor behavior, handoff and exchange protections, and replay rejection. Apparel has now separately accepted the relying-app path on this host. Current-source security regression suites also pass for consumed handoff replay, revoked-session resolution, stale predecessor recovery, consumed-predecessor conflict, and fail-closed authorization. Destructive replay/stale-session mutation against a real customer/founder session remains intentionally deferred to a controlled QA identity.
 
 ```text
 Account
@@ -175,17 +177,25 @@ const allowed = await av.identity.can("apparel.order.history.read");
 
 The Identity Gateway and its governed grant services decide whether the current principal holds a registered capability. Apparel enforces that result. AVCC may administer the grants. The Command Center UI is not that decision.
 
-### Proposed capability namespace
+### Baseline and proposed capability namespace
 
-Registry becomes authoritative once these ids are registered. Until then the names below are examples, not canonical capability ids.
+Basic authenticated Apparel account access uses the already-governed foundation capability:
 
 ```text
-apparel.account.access
+aerovista.member
+```
+
+Do not create a redundant `apparel.account.access` grant merely to prove that a verified AeroVista member may open their basic Apparel account surface.
+
+Use `apparel.*` capabilities only for differentiated privileges. Registry becomes authoritative once any of these ids are explicitly registered. Until then the names below are proposals, not canonical capability ids.
+
+```text
 apparel.order.create
 apparel.order.read
 apparel.order.history.read
 apparel.promotion.use
 apparel.member.pricing
+apparel.private_drop.access
 apparel.support.manage
 apparel.catalog.manage
 apparel.order.manage
@@ -198,7 +208,7 @@ These are application capabilities. They do not replace global roles.
 
 Public merchandise discovery does not require authentication. Apparel may show the room, brand and story, listings, imagery, sizes, displayed prices, collections, and public policies.
 
-Authentication is required for saved profile information, order history, member benefits, account-linked discounts, private collections, administrative tools, and other customer-specific resources. Public browsing must not grant protected capabilities.
+Authentication is required for saved shopping preferences, fit preferences, order history, member benefits, account-linked discounts, private collections, administrative tools, and other customer-specific resources. Global profile authority remains with Account/Profile; Apparel may own application-specific shopping preferences tied to canonical identity. Public browsing must not grant protected capabilities.
 
 ## 8. Commerce authority contract
 
@@ -311,7 +321,7 @@ No second authentication system. No Apparel user database. No second profile sys
 
 ## 19. Production acceptance
 
-`apparel.aerovista.us` is not called Identity-integrated until this host has production evidence for Account authentication, handoff, an HttpOnly app session, `identity.describe()`, `identity.can()`, and logout/revoke, including invalid identity, invalid session, missing capability, stale predecessor cookie, replayed handoff, and revoked session.
+`apparel.aerovista.us` is **Identity-integrated for the accepted relying-app path**. Production evidence exists for Account authentication, handoff, an HttpOnly/Secure app session, `identity.describe()`, live `identity.can(aerovista.member)`, anonymous protected denial, exact-origin mutation enforcement, logout, and native AVCC session revoke. Current-source regression evidence covers invalid/revoked session behavior, replayed handoff, stale predecessor handling, consumed predecessor conflict, and fail-closed authorization. Destructive production replay/stale mutation remains reserved for a controlled QA identity rather than a real customer/founder session.
 
 `apparel.aerovista.us` is not called Commerce-v1 integrated until the normalized ledger, reconciliation, order correlation, and fulfillment release have production evidence on this host. The legacy webhook and fulfillment workers are current Gear evidence. Cindy's checkout admission is current Cindy evidence. Neither is Apparel Commerce v1.
 
