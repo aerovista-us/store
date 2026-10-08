@@ -37,14 +37,23 @@ jobs:
             exit 1
           fi
 
-      - name: Deploy Worker
+      - name: Upload Worker version
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ env.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ env.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: "4"
           workingDirectory: cloudflare/gear-api-proxy
-          command: deploy
+          command: versions upload --tag github-${{ github.sha }} --message "GitHub ${{ github.sha }}"
+
+      - name: Promote Worker version
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ env.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ env.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4"
+          workingDirectory: cloudflare/gear-api-proxy
+          command: versions deploy --version-tag github-${{ github.sha }} --percentage 100 -y
 
       - name: Verify flagship CORS admission
         shell: bash
