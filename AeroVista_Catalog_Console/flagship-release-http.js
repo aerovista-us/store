@@ -1,7 +1,6 @@
 "use strict";
 const { execFile } = require("node:child_process");
 const path = require("node:path");
-const fs = require("node:fs");
 const { promisify } = require("node:util");
 const exec = promisify(execFile);
 const ROOT = __dirname;
@@ -28,7 +27,11 @@ async function releaseHandler(req,res,auth) {
    if(action==="rollback"){if(typeof body.snapshot!=="string" || !body.snapshot.startsWith(path.resolve(process.env.AV_FLAGSHIP_LEDGER,"snapshots","flagship")+path.sep)) throw new Error("invalid_snapshot");argv.push("--snapshot",body.snapshot);}
    const {stdout}=await exec("python3",argv,{timeout:15000,maxBuffer:1024*1024});
    send(res,200,{ok:true,action,result:JSON.parse(stdout)});
- }catch(error){send(res,422,{ok:false,error:"scoped_release_rejected",details:String(error.stderr||error.message).slice(0,300)});}
+ }catch(error){
+   const status=Number(error?.status)||422;
+   const code=status===401?"authentication_required":status===403?"authorization_denied":"scoped_release_rejected";
+   send(res,status===401||status===403?status:422,{ok:false,error:code});
+ }
  return true;
 }
 module.exports={releaseHandler,configured};
