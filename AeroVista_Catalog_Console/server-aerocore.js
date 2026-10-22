@@ -1,6 +1,7 @@
 const { createCatalogConsoleBrowserAuth, ConsoleAuthError } = require("./catalog-console-browser-auth");
 
 const { releaseHandler } = require("./flagship-release-http");
+const { projectionHandler } = require("./flagship-projection-http");
 const AUTH_BODY_LIMIT = 64 * 1024;
 const AVCC_ORIGIN = "https://avcc.aerocoreos.com";
 
@@ -142,6 +143,11 @@ function attachAeroCoreAuth(server, { auth = createCatalogConsoleBrowserAuth() }
   server.on("request", async (req, res) => {
     const requestUrl = new URL(req.url || "/", auth.config.auth.appOrigin || "https://store-console.aerocoreos.com");
     const pathname = requestUrl.pathname;
+
+    if (pathname === "/v1/storefront/flagship/catalog") {
+      projectionHandler(req,res);
+      return;
+    }
 
     if (req.method === "GET" && pathname === "/healthz") {
       return delegate(server, downstream, req, res);
