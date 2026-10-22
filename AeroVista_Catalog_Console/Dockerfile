@@ -1,5 +1,8 @@
 FROM node:20-bookworm-slim
 
+RUN apt-get update && apt-get install -y --no-install-recommends python3 \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app/console
 
 COPY aerovista_catalog_console_v2.html catalog-console-config.js catalog_baseline.js overlay_baseline.js server.js pull-product-images.js SOT.json ./
