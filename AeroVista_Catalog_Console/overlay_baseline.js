@@ -1,0 +1,258 @@
+/**
+ * Offline overlay default for Catalog Console v2 (`loadOverlayBaseline`).
+ * Generated from ../../store/storefront_overlay.json — run npm run sync:console after editing the store overlay.
+ * Drift produces "Unmatched" rows when IDs do not appear in your loaded Square export.
+ */
+window.AV_STOREFRONT_OVERLAY = {
+  "meta": {
+    "updatedAt": "2026-08-25T10:00:00.000Z",
+    "schemaVersion": 2,
+    "notes": "Shadow Wear featured stack retained. Lane hero ads for Core, Shadow, Apex, Glitch, Architect, DockLife, and Accessories. Presentation only — Square catalog is checkout truth.",
+    "editedBy": "storefront curation",
+    "visibilityPolicy": "Only listed variation rows carry featured order; all other catalog visibility unchanged.",
+    "checkoutTruth": "Checkout uses variationId from square_products_latest.json."
+  },
+  "rules": {
+    "titleFormat": "",
+    "defaultBrand": "AeroVista",
+    "applyPriceLadders": false,
+    "presentationOnly": true
+  },
+  "operator": {
+    "notes": "Operator reference only. Ignored by the shop while applyPriceLadders is false.",
+    "priceLadders": {
+      "tee": {
+        "base": 34.99,
+        "2XL": 37.99,
+        "3XL": 39.99
+      },
+      "hoodie_pullover": {
+        "base": 59.99,
+        "2XL": 64.99,
+        "3XL": 69.99
+      },
+      "hoodie_zip": {
+        "base": 64.99,
+        "2XL": 67.99,
+        "3XL": 69.99
+      },
+      "trucker_hat": {
+        "base": 34.99
+      },
+      "crewneck": {
+        "base": 48.99,
+        "2XL": 51.99,
+        "3XL": 53.99
+      }
+    }
+  },
+  "overrides": {
+    "sq_shadow-wear-ghost-ridge": {
+      "collection": "Shadow Wear",
+      "descriptionShort": "Ghost Ridge — hidden structure, Shadow Wear pattern, Apex mark. The lead piece in the lane."
+    },
+    "sq_shadow-pants": {
+      "collection": "Shadow Wear",
+      "descriptionShort": "Wide-leg shadow pants — relaxed fit, side pockets, stealth all-over print."
+    },
+    "sq_men-s-ghost-shorts": {
+      "collection": "Shadow Wear",
+      "descriptionShort": "Men's Ghost Shorts — board-short cut with the Shadow Wear Ghost pattern."
+    }
+  },
+  "itemsByVariationId": {
+    "WXDBA7PI2NK2N4GAI5SLCEHZ": {
+      "cartKey": "Default__M",
+      "title": "Shadow Wear // Ghost Ridge",
+      "tags": [
+        "featured",
+        "shadow-wear",
+        "hoodie"
+      ],
+      "order": 1,
+      "visible": true
+    },
+    "AADW36VFWTN37URWPN6EHEXT": {
+      "cartKey": "Default__M",
+      "title": "shadow pants",
+      "tags": [
+        "featured",
+        "shadow-wear",
+        "apparel"
+      ],
+      "order": 2,
+      "visible": true
+    },
+    "ACBTP7B44ED7KFPFEETJSMBK": {
+      "cartKey": "Default__M",
+      "title": "Men's Ghost Shorts",
+      "tags": [
+        "featured",
+        "shadow-wear",
+        "apparel"
+      ],
+      "order": 3,
+      "visible": true
+    }
+  },
+  "itemsByCartKey": {},
+  "collections": [],
+  "ads": [
+    {
+      "id": "core-hoodie-hero",
+      "visible": true,
+      "lane": "core",
+      "order": 1,
+      "kicker": "Core · Featured drop",
+      "title": "AeroVista Core Hoodie",
+      "subtitle": "Foundation layer for the line",
+      "body": "The clean mid-weight hoodie that sets the Core standard — sharp mark, everyday fit, issued instead of decorated.",
+      "image": "core/core-hero.png",
+      "productId": "aerovista-core-hoodie",
+      "cta": {
+        "label": "Shop Core Hoodie",
+        "href": "?collection=core"
+      },
+      "tags": [
+        "core",
+        "featured",
+        "hoodies",
+        "lane:core"
+      ]
+    },
+    {
+      "id": "shadow-ghost-ridge-hero",
+      "visible": true,
+      "lane": "shadow",
+      "order": 1,
+      "kicker": "Shadow Wear · Featured drop",
+      "title": "Ghost Ridge",
+      "subtitle": "Lead piece in the stealth lane",
+      "body": "Hidden structure, Shadow Wear Ghost pattern, and the Apex mark — the featured hoodie that opens this collection.",
+      "image": "shadow/ghost-ridge-hero.png",
+      "productId": "shadow-wear-ghost-ridge",
+      "cta": {
+        "label": "Shop Ghost Ridge",
+        "href": "?collection=shadow"
+      },
+      "tags": [
+        "shadow",
+        "featured",
+        "hoodies",
+        "lane:shadow"
+      ]
+    },
+    {
+      "id": "apex-mark-cap-hero",
+      "visible": true,
+      "lane": "apex",
+      "order": 1,
+      "kicker": "Apex · Featured drop",
+      "title": "Signature Apex Mark Cap",
+      "subtitle": "Emblem-first headwear",
+      "body": "Premium embroidered black cap with the signature Apex mark — the clearest wear of the icon system.",
+      "image": "apex/apex-mark-hero.png",
+      "productId": "aerovista-premium-embroidered-hat-black-cap-with-signature-apex-mark",
+      "cta": {
+        "label": "Shop Apex Cap",
+        "href": "?collection=apex"
+      },
+      "tags": [
+        "apex",
+        "featured",
+        "hats",
+        "lane:apex"
+      ]
+    },
+    {
+      "id": "glitch-hoodie-hero",
+      "visible": true,
+      "lane": "glitch",
+      "order": 1,
+      "kicker": "Glitch · Featured drop",
+      "title": "Apex Glitch Hoodie",
+      "subtitle": "Signal interference, pullover cut",
+      "body": "Cyan-static Apex Glitch graphics on a premium pullover — the lead distortion piece in this lane.",
+      "image": "glitch/glitch-hero.png",
+      "productId": "aerovista-apex-glitch-premium-pullover-hoodie-black",
+      "cta": {
+        "label": "Shop Glitch Hoodie",
+        "href": "?collection=glitch"
+      },
+      "tags": [
+        "glitch",
+        "featured",
+        "hoodies",
+        "lane:glitch"
+      ]
+    },
+    {
+      "id": "architect-built-different-hero",
+      "visible": true,
+      "lane": "architect",
+      "order": 1,
+      "kicker": "Architect · Featured drop",
+      "title": "Built Different Hoodie",
+      "subtitle": "Draft Series lead piece",
+      "body": "Architect field issue for the build archive — the hoodie that carries the Draft Series attitude first.",
+      "image": "architect/architect-hero.png",
+      "productId": "architect-built-different-hoodie-black",
+      "cta": {
+        "label": "Shop Built Different",
+        "href": "?collection=architect"
+      },
+      "tags": [
+        "architect",
+        "featured",
+        "hoodies",
+        "lane:architect"
+      ]
+    },
+    {
+      "id": "docklife-osprey-hero",
+      "visible": true,
+      "lane": "docklife",
+      "order": 1,
+      "kicker": "DockLife · Featured drop",
+      "title": "Osprey Rope Cap",
+      "subtitle": "First piece in the DockLife line",
+      "body": "The opening drop for DockLife — rope-trim cap energy for harbor days and lake evenings. More DockLife apparel and accessories will land on this page.",
+      "image": "docklife/docklife_hat_lifestyle-hero.png",
+      "productId": "docklife-drip-osprey-rope-cap",
+      "squareItemId": "4WV7KWHQSC6BQJU2LDEVAUAQ",
+      "squareVariationId": "GGYNCQMLXX6R4QCEEXLRVJHR",
+      "cta": {
+        "label": "Browse DockLife",
+        "href": "?collection=docklife"
+      },
+      "tags": [
+        "docklife",
+        "featured",
+        "hats",
+        "lane:docklife"
+      ]
+    },
+    {
+      "id": "accessories-desk-mat-hero",
+      "visible": true,
+      "lane": "accessories",
+      "order": 1,
+      "kicker": "Accessories · Featured drop",
+      "title": "ShadowWear Desk Mat",
+      "subtitle": "Hard goods for the desk",
+      "body": "A wide Shadow Wear desk mat for the setup — lead hard-good in Accessories, with coolers, sleeves, and cases in the same lane.",
+      "image": "accessories/accessories-hero.png",
+      "productId": "aerovista-shadowwear-desk-mat",
+      "cta": {
+        "label": "Shop Desk Mat",
+        "href": "?collection=accessories"
+      },
+      "tags": [
+        "accessories",
+        "featured",
+        "hard-goods",
+        "lane:accessories"
+      ]
+    }
+  ]
+};
