@@ -1,0 +1,248 @@
+{
+  "sot_version": "2.0-aerovista",
+  "repo_context": {
+    "parent_repository": "aerovista-store",
+    "parent_manifest": "../SOT.json",
+    "description": "Sub-manifest for console/ — Catalog Console v2 (not AVCC Command Center)."
+  },
+  "project": {
+    "name": "AeroVista Catalog Console v2",
+    "slug": "av-catalog-console-v2",
+    "brand": "AeroVista",
+    "division": "AeroVista Apparel",
+    "owner": "AeroVista LLC",
+    "status": "active",
+    "lifecycle": "production",
+    "type": "static-tool",
+    "category": "catalog-editor",
+    "root": "./",
+    "primary_language": "javascript",
+    "repo_visibility": "private",
+    "created": "2026-02-01",
+    "updated": "2026-06-14",
+    "timezone": "America/Los_Angeles"
+  },
+  "purpose": {
+    "summary": "Browser catalog console: import Square xlsx/JSON, bulk clean, validate, overlay review, export or POST deploy to store/square_products_latest.json. Operator Hub compares cart keys with payment API bootstrap.",
+    "source_of_truth_policy": "Exported/deployed JSON must match storefront contract (variation_id, collection, cart keys). v1.1 retired.",
+    "business_role": "Last-mile catalog cleanup before shop publish and NXCore API catalog sync."
+  },
+  "technical_profile": {
+    "stack": {
+      "frontend": ["HTML5", "vanilla JS (single-file console)", "SheetJS xlsx CDN"],
+      "backend": ["Node http server.js (optional hosted APIs)"],
+      "database": [],
+      "infra": ["Docker (node:20-bookworm-slim)", "NXCore Traefik"],
+      "analytics": [],
+      "ai": []
+    },
+    "runtime": {
+      "local_ports": [80, 3014, 5199],
+      "service_urls": [
+        "https://store-console.aerocoreos.com",
+        "http://localhost:3014"
+      ],
+      "health_endpoint": "/api/health",
+      "entry_command": "npm run console:server or npm run dev → /console/",
+      "build_command": "docker compose -f console/docker-compose.yml build",
+      "start_command": "docker compose -f console/docker-compose.yml up -d"
+    },
+    "deployment": {
+      "primary_host": "NXCore",
+      "deploy_path": "/srv/Collab/mini.shops/AV-PNW.com/av_storefront/AeroVista_Catalog_Console",
+      "public_url": "https://store-console.aerocoreos.com",
+      "internal_url": "http://localhost:3014",
+      "containerized": true,
+      "compose_file": "docker-compose.yml",
+      "reverse_proxy": "Traefik Host(store-console.aerocoreos.com)",
+      "networking_notes": "Mounts ../store rw for POST /api/deploy; ../public ro for bridge manifest. Cloudflare Access recommended."
+    },
+    "data_model": {
+      "core_db_dependency": false,
+      "domain_db": "",
+      "canonical_event_ledger": "",
+      "shared_storage": [
+        "localStorage av_catalog_console_v2",
+        "store/square_products_latest.json (deploy target)",
+        "store/storefront_overlay.json (optional deploy)"
+      ]
+    }
+  },
+  "canon": {
+    "canon_root": "./",
+    "allowed_master_locations": ["./"],
+    "forbidden_master_locations": ["../public/console/"]
+  },
+  "entrypoints": [
+    {
+      "id": "console_v2",
+      "label": "Catalog Console v2",
+      "path": "aerovista_catalog_console_v2.html",
+      "required": true,
+      "notes": "Primary UI; Operator Hub tab for deploy gate and AVCC links."
+    },
+    {
+      "id": "server",
+      "label": "Console API server",
+      "path": "server.js",
+      "required": true,
+      "notes": "Hosted deploy, manifest, bootstrap proxy, bg removal."
+    }
+  ],
+  "canon_files": [
+    {
+      "id": "console_html",
+      "path": "aerovista_catalog_console_v2.html",
+      "type": "html",
+      "role": "Catalog Console v2 UI",
+      "required": true,
+      "owner": "AeroVista",
+      "status": "active"
+    },
+    {
+      "id": "server_js",
+      "path": "server.js",
+      "type": "js",
+      "role": "NXCore hosted APIs (/api/deploy, /api/bridge/manifest, etc.)",
+      "required": true,
+      "owner": "AeroVista",
+      "status": "active"
+    },
+    {
+      "id": "console_config",
+      "path": "catalog-console-config.js",
+      "type": "js",
+      "role": "Runtime URLs, collection lanes, AVCC commandCenterUrl",
+      "required": true,
+      "owner": "AeroVista",
+      "status": "active"
+    },
+    {
+      "id": "catalog_baseline",
+      "path": "catalog_baseline.js",
+      "type": "js",
+      "role": "Offline catalog bootstrap",
+      "required": false,
+      "owner": "AeroVista",
+      "status": "active"
+    },
+    {
+      "id": "overlay_baseline",
+      "path": "overlay_baseline.js",
+      "type": "js",
+      "role": "Generated from store/storefront_overlay.json via sync:console",
+      "required": false,
+      "owner": "AeroVista",
+      "status": "active"
+    },
+    {
+      "id": "docker_compose",
+      "path": "docker-compose.yml",
+      "type": "yml",
+      "role": "NXCore catalog console container",
+      "required": true,
+      "owner": "AeroVista",
+      "status": "active"
+    },
+    {
+      "id": "dockerfile",
+      "path": "Dockerfile",
+      "type": "dockerfile",
+      "role": "node:20 image serving console + server.js",
+      "required": true,
+      "owner": "AeroVista",
+      "status": "active"
+    },
+    {
+      "id": "sot_self",
+      "path": "SOT.json",
+      "type": "json",
+      "role": "subtree source of truth manifest",
+      "required": true,
+      "owner": "AeroVista",
+      "status": "active"
+    }
+  ],
+  "canon_folders": [],
+  "systems": {
+    "linked_projects": [
+      { "name": "aerovista-store", "path": "../", "sot": "../SOT.json" },
+      {
+        "name": "AeroVista Command Center (AVCC)",
+        "url": "https://avcc.aerocoreos.com",
+        "notes": "Separate repo; links here; reads build-source-manifest.json"
+      }
+    ],
+    "depends_on": ["store/square_products_latest.json", "api.aerovista.us bootstrap"],
+    "feeds": ["store/square_products_latest.json", "store/storefront_overlay.json"],
+    "consumes": ["Square catalog exports from Collab/av-data"],
+    "shares_with": ["gear.aerovista.us storefront", "AVCC"],
+    "related_domains": ["store-console.aerocoreos.com"],
+    "tailscale_hosts": ["100.115.9.61"],
+    "cloudflare_tunnels": []
+  },
+  "ops": {
+    "service_name": "av-catalog-console",
+    "health_check_paths": ["/api/health"],
+    "backup_targets": [],
+    "log_locations": ["docker logs av-catalog-console"],
+    "secrets_locations": [],
+    "monitoring": { "enabled": false, "providers": [] }
+  },
+  "governance": {
+    "review_cycle": "when console UI, server.js APIs, or deploy contract changes",
+    "update_rule": "Update SOT when canon files or production URL changes.",
+    "promotion_rule": "npm run sync:console then NXCore docker rebuild.",
+    "archive_rule": "v1.1/ retired; not canonical.",
+    "owner_roles": ["AeroVista Commerce"]
+  },
+  "duplicates": [
+    {
+      "pattern": "avcc-config",
+      "known_locations": ["avcc-config.js (deleted)", "catalog-console-config.js"],
+      "winner": "catalog-console-config.js",
+      "note": "AVCC is Command Center; not this console."
+    }
+  ],
+  "checks": {
+    "required_paths_exist": [
+      "SOT.json",
+      "aerovista_catalog_console_v2.html",
+      "server.js",
+      "catalog-console-config.js",
+      "docker-compose.yml",
+      "Dockerfile"
+    ],
+    "marker": { "enabled": true, "marker_key": "SOT:", "accepted_ext": [".md", ".html", ".json", ".js"] },
+    "hash_canon_files": false,
+    "warn_on_duplicate_ids": true,
+    "warn_on_missing_required": true,
+    "warn_on_master_outside_allowed_locations": true
+  },
+  "notes": [
+    "Deploy: scp console/* to NXCore, docker compose up -d --build.",
+    "Local deploy fallback: npm run deploy:server (port 5199).",
+    "See docs/NXCORE_CONSOLE.md and docs/AVCC_INTEGRATION.md."
+  ],
+  "portfolio": {
+    "division_slug": "aerovista-apparel",
+    "portfolio_lane": "fund",
+    "maturity_stage": 4,
+    "maturity_label": "production",
+    "system_role": "catalog-operations",
+    "exposure": "private-only",
+    "strategic_tier": "core",
+    "owner_team": "AeroVista Commerce",
+    "owner_person": "glyph",
+    "commercial_status": "supporting",
+    "scorecard": {
+      "security": 2,
+      "reliability": 3,
+      "data_safety": 2,
+      "documentation": 3,
+      "repeatability": 3,
+      "owner_clarity": 3
+    },
+    "decision_notes": "v2 production console with Operator Hub and AVCC bridge manifest support."
+  }
+}
