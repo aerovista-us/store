@@ -6,7 +6,10 @@
     "count": 85,
     "projectedFrom": "1149XBNG8C8ZE_catalog-2026-10-04-1828.xlsx",
     "projectedAt": "2026-10-04T19:01:23.878932+00:00",
-    "authority": "Square catalog export. Apparel does not parse this workbook."
+    "authority": "Square catalog export. Apparel does not parse this workbook.",
+    "squarePriceReconciledAt": "2026-11-12T21:33:00Z",
+    "squarePriceSource": "live Square Catalog API; item ZV5P42AMDXFPBEB7XYC3U6DW",
+    "squarePriceScope": "six variations for Lumina premium mid-weight hoodie only"
   },
   "products": [
     {
@@ -3855,7 +3858,7 @@
       "category": "hoodies",
       "collection": "Lumina",
       "visibility": "visible",
-      "price": 34.0,
+      "price": 58.0,
       "image": "Lumina \u2014 premium mid-weight hoodie.png",
       "description_text": "Modern and built for the streets\u2014this hoodie\u2019s got that clean everyday look with serious comfort. True-to-size cut, smooth cotton face, and ideal for layering or lounging. Your new go-to, no matter the forecast. \u2022 80% cotton, 20% recycled polyester \u2022 Heather Gray is 70% cotton, 30% recycled polyester \u2022 Charcoal and Oatmeal Heather are 60% cotton, 40% recycled polyester \u2022 Fabric weight: 8.25 oz./yd.\u00b2 (280 g/m\u00b2) \u2022 100% cotton face \u2022 Regular fit \u2022 Side-seamed construction \u2022 Double-needle topstitch on all seams \u2022 Kangaroo pocket, ribbed cuffs and waistband \u2022 Dyed-to-match drawcords with tipped ends and metal eyelets \u2022 Under 5% shrinkage \u2022 Blank product sourced from Pakistan Disclaimer: Size up for a looser fit.",
       "description_html": "<p>Modern and built for the streets\u2014this hoodie\u2019s got that clean everyday look with serious comfort. True-to-size cut, smooth cotton face, and ideal for layering or lounging. Your new go-to, no matter the forecast. \u2022 80% cotton, 20% recycled polyester \u2022 Heather Gray is 70% cotton, 30% recycled polyester \u2022 Charcoal and Oatmeal Heather are 60% cotton, 40% recycled polyester \u2022 Fabric weight: 8.25 oz./yd.\u00b2 (280 g/m\u00b2) \u2022 100% cotton face \u2022 Regular fit \u2022 Side-seamed construction \u2022 Double-needle topstitch on all seams \u2022 Kangaroo pocket, ribbed cuffs and waistband \u2022 Dyed-to-match drawcords with tipped ends and metal eyelets \u2022 Under 5% shrinkage \u2022 Blank product sourced from Pakistan Disclaimer: Size up for a looser fit.</p>",
@@ -3871,42 +3874,42 @@
           "size": "S",
           "color": "",
           "sku": "6A0E26A16EA00_22132",
-          "price": 34.0,
+          "price": 58.0,
           "variation_id": "NRHJY7BOIMC5SHJFNOY6NJ6Q"
         },
         {
           "size": "M",
           "color": "",
           "sku": "6A0E26A16EA00_22133",
-          "price": 34.0,
+          "price": 58.0,
           "variation_id": "R47UZIEDL7VGAFZWZ6FRD3U3"
         },
         {
           "size": "L",
           "color": "",
           "sku": "6A0E26A16EA00_22134",
-          "price": 34.0,
+          "price": 58.0,
           "variation_id": "UMQYJAOCKRCF2CGBJ4ZCWPB5"
         },
         {
           "size": "XL",
           "color": "",
           "sku": "6A0E26A16EA00_22135",
-          "price": 34.0,
+          "price": 58.0,
           "variation_id": "CHZSNSP2AO4WQUNDXX3WB2FJ"
         },
         {
           "size": "2XL",
           "color": "",
           "sku": "6A0E26A16EA00_22136",
-          "price": 37.0,
+          "price": 58.0,
           "variation_id": "7ABRA4BRBNPHBVYCAC6ONBYC"
         },
         {
           "size": "3XL",
           "color": "",
           "sku": "6A0E26A16EA00_22137",
-          "price": 40.0,
+          "price": 58.0,
           "variation_id": "JDX3RVXU55U6JPOU3FF2VOUW"
         }
       ]
