@@ -54,3 +54,9 @@ Square item ZV5P42AMDXFPBEB7XYC3U6DW, six stable variation IDs. Existing storefr
 ## Audit boundaries
 
 Only an existing published price was reconciled. Product additions and broader sync remain held for catalog import-review and distribution workflow; Square itself was not written to.
+
+## Production catalog and release gate findings
+
+The actual Gear public feed uses the **October 4 projection** matching the checked-in repository version. NXCore also has a distinct October 8 staging copy at `store/square_products_latest.json`, with 40 product-level differences (mostly image paths/manifest metadata and two variant-order changes). Do **not** blindly overwrite the public feed from that staging copy: its changed primary image paths `/store/products/*` returned HTTP 404 on the Gear public host for all 31 changed nonempty hero paths tested. Apparel often hosts these images locally, which is a different image origin.
+
+The full pre-publish gate reports **41 existing data-quality failures** on the current public-feed baseline and the scoped candidate, with **zero new failures**. Profit-floor checks pass for all 447 variations; optional Printful map coverage remains unexecuted. Therefore this change is an explicitly scoped six-price correction, not a general catalog publish or clearance for all 20 missing products. Every catalog file update requires a production backup, exact six-variation diff verification, and read-back confirmation; do not merge the October 8 staging image paths into Gear during this hotfix.
